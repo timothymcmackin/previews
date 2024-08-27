@@ -1,0 +1,1497 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How to contribute to Octez &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=1e596021"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/contributing';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to add or update opam dependencies" href="contributing-adding-a-new-opam-dependency.html" />
+    <link rel="prev" title="How to contribute" href="contributing_index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">How to contribute to Octez</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/contributing.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How to contribute to Octez</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-typos">Fixing typos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-non-code-contributions">Other non-code contributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-further">Going further</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-git-strategy">Our git strategy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-an-mr">Workflow of an MR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-queue-order">Merge Queue Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-merge-request">Preparing a Merge Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-merge-request">Creating the Merge Request</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#favoring-small-merge-requests">Favoring Small Merge Requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-assignees-field">Merge Request “Assignees” Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-reviewers-field">Merge Request “Reviewers” Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-draft-mode">Merge Request “Draft” Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-s-owner">Merge Request’s owner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-mrs-that-introduce-a-new-dependency">Special case: MRs that introduce a new dependency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-development-mrs">Protocol development MRs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-snapshots">Protocol snapshots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-migration">The Migration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-review">Code Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-approvals">Merge Request Approvals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#author-perspective">Author Perspective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviewer-perspective">Reviewer Perspective</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-merge-request-bot">The Merge-Request Bot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-tools">Developer Tools</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="how-to-contribute-to-octez">
+<h1>How to contribute to Octez<a class="headerlink" href="#how-to-contribute-to-octez" title="Link to this heading">#</a></h1>
+<p>The purpose of this document is to help developers contribute to
+Octez.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>There are several ways to get involved with the codebase, and you may want to start with some preliminary steps.</p>
+<section id="reporting-issues">
+<h3>Reporting issues<a class="headerlink" href="#reporting-issues" title="Link to this heading">#</a></h3>
+<p>The simplest way to contribute to Octez is to report issues that you may
+find with the software on <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues">GitLab</a>.
+If you are unsure about an issue
+consult the <a class="reference internal" href="../introduction/tezos.html#tezos-community"><span class="std std-ref">Tezos community</span></a>
+first and always make sure
+to search the existing issues before reporting a new one.
+Some information that are probably important to include in the description:
+the architecture (e.g. <em>ARM64</em>), the operating system (e.g. <em>Debian
+Stretch</em>), the network you are connected to (e.g. <em>Ghostnet</em>), the
+binary or component (e.g. <em>octez-node crashes</em> or <em>rpc X returns Y
+while Z was expected</em>).</p>
+<p>Other useful contributions consist in inspecting existing issues and adding details, suggesting workarounds, etc.</p>
+</section>
+<section id="fixing-typos">
+<h3>Fixing typos<a class="headerlink" href="#fixing-typos" title="Link to this heading">#</a></h3>
+<p>You may also want to fix some typos and minor errors or incoherencies in the <em>documentation</em>, which is situated in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> subfolder of the code repository, or within <em>comments</em> or <em>docstrings</em> within the code.
+Small tweaks like these can be contributed without creating a merge request and commits can rather be pushed directly to the <code class="docutils literal notranslate"><span class="pre">typo-doc</span></code> branch in the <code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code> repository. This branch is regularly merged into the master branch, e.g., every one or two weeks.
+(If the branch has been automatically deleted following a merge, just create it again.)
+This periodic merging is implemented by a series of MRs named “the typo train”, created for you by a volunteer, and batching the currently pending fixes.
+Of course, all these commits will be reviewed before being integrated.
+The current edition of the typo train MR can be found in meta-issue <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues/2329">#2329</a>.</p>
+<p>If you don’t have enough permissions to push to the branch above, you can  still make commits in your own fork of the Octez repository, and ask for them to be cherry-picked on the typo/train on the <code class="docutils literal notranslate"><span class="pre">#documentation</span></code> channel on the Tezos Dev Slack space.
+Alternatively, you may of course create your own MRs for submitting your changes, without using the typo train.</p>
+</section>
+<section id="other-non-code-contributions">
+<h3>Other non-code contributions<a class="headerlink" href="#other-non-code-contributions" title="Link to this heading">#</a></h3>
+<p>If you acquired a good expertise level in using, configuring, or overcoming problems with the various Octez executables, you may bring useful contributions by providing assistance to others via the different channels (Slack,  StackExchange, etc.) in the <a class="reference internal" href="../introduction/tezos.html#tezos-community"><span class="std std-ref">Tezos community</span></a>.</p>
+<p>If you want to shape the future of Octez, you may consider contributing to Tezos Improvement Proposals (TZIPs), that specify new features or define standards. These are located in the <a class="reference external" href="https://gitlab.com/tezos/tzip/">TZIP repo</a>.</p>
+</section>
+<section id="going-further">
+<h3>Going further<a class="headerlink" href="#going-further" title="Link to this heading">#</a></h3>
+<p>To directly contribute to the <em>code</em> itself, expertise in a few areas is necessary.</p>
+<p>First, make sure that you are proficient enough in OCaml. The OCaml community
+website <a class="reference external" href="https://ocaml.org">https://ocaml.org</a> gives a few useful pointers for that. In
+particular, we use a lot of functors, and a few GADTs in the codebase,
+so you may want to make sure that you master these advanced concepts.
+For a more specific explanation of GADT usage in Octez you can check out
+<a class="reference internal" href="gadt.html"><span class="doc">Generalized Algebraic Data Types (GADTs)</span></a>.</p>
+<p>Then, if you don’t know much about the Lwt library, that’s what you want
+to learn next. This library is used extensively throughout the code base:
+we use it to handle concurrency. You can use the
+<a class="reference external" href="https://ocsigen.org/lwt/3.2.1/manual/manual">online documentation</a>. The
+chapter on concurrency of the <a class="reference external" href="https://dev.realworldocaml.org/">Real World OCaml</a> book
+has also been <a class="reference external" href="https://github.com/dkim/rwo-lwt">ported to Lwt</a>.</p>
+<p>After that, it is a good idea to read the tutorials for
+<a class="reference internal" href="error_monad.html"><span class="doc">error_monad</span></a> and
+<a class="reference internal" href="data_encoding.html"><span class="doc">data_encoding</span></a>, two homegrown
+libraries that we use pervasively.</p>
+<p>While you familiarize yourself with the basics as suggested above, you
+can have a look at the <a class="reference internal" href="../shell/the_big_picture.html"><span class="doc">software architecture</span></a> of Tezos. It will
+give you the main components and their interactions, and links to the
+documentation for the various parts.</p>
+<p>You may also want to take a look to some <a class="reference internal" href="#dev-tools"><span class="std std-ref">developer tools</span></a> that can make protocol development more convenient.</p>
+<p>Now, that you’re ready to delve into the code, it is time to know how
+contributions to the code are submitted, reviewed, and finally accepted into the master branch.</p>
+</section>
+</section>
+<section id="our-git-strategy">
+<h2>Our git strategy<a class="headerlink" href="#our-git-strategy" title="Link to this heading">#</a></h2>
+<p>First of all, the repository is <a class="gitlab reference external" href="https://gitlab.com/tezos/tezos">tezos/tezos</a>. So if you want
+to contribute, simply create an account there.</p>
+<p>There are many ways to use Git, here is ours.</p>
+<p>We mostly use merge requests (aka MRs) for contributing to the master branch,
+meaning that nobody should be pushing into the master branch directly. Once a
+merge request is ready, it is reviewed and approved, then merged with a merge commit.</p>
+<p>Therefore, you can bring useful contributions both by creating your own MRs and by reviewing MRs submitted by others.</p>
+<p>We maintain a <a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/reviews/index.html#semi-linear-history-merge-requests">semi-linear history</a>,
+which means that merge requests are only
+merged if they are direct suffixes of the master branch.
+This means that merge requests are rebased on top of <code class="docutils literal notranslate"><span class="pre">master</span></code> before they are merged.
+This can only be done automatically if there is no conflict though.
+So whenever <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> changes, you should make sure that your branch
+can still be rebased on it. In case of conflict, you need to rebase manually
+(pull <code class="docutils literal notranslate"><span class="pre">master</span></code>, checkout your branch and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span> <span class="pre">master</span></code>).
+You may have to edit your patches during the rebase.
+Then use <code class="docutils literal notranslate"><span class="pre">push</span> <span class="pre">-f</span></code> in your branch to rewrite the history.
+Being proficient with interactive rebases is mandatory to avoid
+mistakes and wasting time.</p>
+<p>This Git strategy is a variant of the <a class="reference external" href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">git rebase workflow</a>.</p>
+</section>
+<section id="workflow-of-an-mr">
+<span id="mr-workflow"></span><h2>Workflow of an MR<a class="headerlink" href="#workflow-of-an-mr" title="Link to this heading">#</a></h2>
+<p>This section presents a global view of our MR workflow. Details about
+the individual steps in this workflow are described in the following
+sections.</p>
+<p>Our code review process uses GitLab. First a developer creates a new
+branch for <a class="reference internal" href="#preparing-mr"><span class="std std-ref">preparing the MR</span></a>.  As this is a
+private new branch, the developer is free to rebase, squash commits,
+rewrite history (<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">--force</span></code>), etc. at will.</p>
+<p>Once the code is ready to be shared with the rest of the team, the
+developer <a class="reference internal" href="#creating-mr"><span class="std std-ref">opens a Merge Request</span></a>.  It is useful to
+explain why the MR is created, to add a precise description of the
+code changes, and to check if those are in line with the initial
+requirements (if responding to an issue), or to the stated reasons
+(otherwise).  Dependencies on other merge requests, other
+relationships to MRs, to issues, etc, should also be mentioned.</p>
+<p>While the code is still not ready to be peer reviewed, but it is
+merely a work in progress, the developer assigns it to themselves and
+prefixes the MR title with <code class="docutils literal notranslate"><span class="pre">Draft:</span></code>. This will
+tell everybody they can look at the code, comment, but there is still
+work to be done and the branch can change and history be rewritten.</p>
+<p>Finally, when the code is ready for the <a class="reference internal" href="#code-review"><span class="std std-ref">code review</span></a>, the developer assigns the MR to a reviewer
+and freezes the branch. From this moment on, the
+developer will refrain from rewriting history, although they can add new
+commits and rebase the branch for syncing it with master (this can be
+done regularly to make sure the branch does not get stale). At this
+point the developer interacts with the reviewers to address their
+comments and suggestions.</p>
+<p>GitLab allows both to comment on the code and to add general comments
+on the MR.  Each comment should be addressed by the developer. They
+can add additional commits to address each comment. This incremental
+approach will make it easier for the reviewer to keep interacting till
+each discussion is resolved. When the reviewer is satisfied, they
+will mark the discussion resolved.</p>
+<p>The <a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/drafts.html">Draft:</a>
+status can be set at any time during the
+authoring/review process to signal that the MR is not yet ready for
+merge (for instance, the <code class="docutils literal notranslate"><span class="pre">git</span></code> history might not be clean). But, the
+<code class="docutils literal notranslate"><span class="pre">Draft</span></code> status <em>does not</em> prohibit review – this should be achieved by
+assigning the MR to the developer.</p>
+<p>You can refer to the following table that summarizes how assignee and
+<code class="docutils literal notranslate"><span class="pre">Draft</span></code> status interact to decide whether an MR is open for review:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Draft</p></th>
+<th class="head"><p>Assignee</p></th>
+<th class="head"><p>Reviewers</p></th>
+<th class="head"><p>Reviewable</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>∅</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Yes</p></td>
+<td><p>Author</p></td>
+<td><p>-</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Yes</p></td>
+<td><p>Others</p></td>
+<td><p>Some</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>No</p></td>
+<td><p>Author</p></td>
+<td><p>Some</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When all discussions are resolved, and the MR has got at least two
+approvals from Octez Merge Team members, the developer should squash
+any fix-up commits that were applied (remembering to edit the commit
+message appropriately). Then the developer (or anyone else when not possible) can assign the MR to the <a class="reference external" href="https://gitlab.com/nomadic-margebot">Nomadic
+Marge-bot</a>, which will
+automatically rebase the branch on top of master and finally merge it.</p>
+</section>
+<section id="merge-queue-order">
+<h2>Merge Queue Order<a class="headerlink" href="#merge-queue-order" title="Link to this heading">#</a></h2>
+<p>By default, Marge-bot will merge MRs assigned to it in the assignment order. That is, the first MR assigned is the first that is merged. There are situations when it is desirable to modify this order. To achieve this, Marge-bot respects two priority labels, whose usage is reserved to the <a class="reference internal" href="merge_team.html"><span class="doc">Octez merge team</span></a>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">marge-priority::critical</span></code>: is reserved for MRs
+resolving critical production issues (e.g., fixing a blocked CI).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">marge-priority::high</span></code>: can be applied to MRs that needs to be
+merged urgently. For instance, it can applied to MRs for urgent
+releases or to reduce the merge delay between MRs that compose a
+stack.</p></li>
+</ul>
+<p>MRs with <code class="docutils literal notranslate"><span class="pre">marge-priority::critical</span></code> will be treated before those with <code class="docutils literal notranslate"><span class="pre">marge-priority::high</span></code> who in turn will be treated before all MRs lacking either of these labels.</p>
+</section>
+<section id="preparing-a-merge-request">
+<span id="preparing-mr"></span><h2>Preparing a Merge Request<a class="headerlink" href="#preparing-a-merge-request" title="Link to this heading">#</a></h2>
+<p>While working on your branch to prepare a Merge Request, make sure you respect the following rules:</p>
+<ul class="simple">
+<li><p>Give a meaningful and consistent name to the branch</p>
+<ul>
+<li><p>It is useful to prefix the name of the branch with the name of
+the developer to make it clear at a glance who is working on what: e.g.
+<code class="docutils literal notranslate"><span class="pre">john&#64;new-feature</span></code>.</p></li>
+<li><p>Suffix the branch name by <code class="docutils literal notranslate"><span class="pre">-release</span></code> if it is a release branch.</p></li>
+</ul>
+</li>
+<li><p>Prefer small atomic commits over a large one that does many things.</p></li>
+<li><p>Don’t mix refactoring, reindentation, whitespace deletion, or other style
+changes with new features or other real changes.</p></li>
+<li><p>No peneloping: don’t do something in a commit just to undo it two
+commits later.</p></li>
+<li><p>We expect every commit to compile and pass tests.
+Obviously, we require tests to pass between each MR.</p></li>
+<li><p>Follow the format of commit names, <code class="docutils literal notranslate"><span class="pre">&lt;Component&gt;:</span> <span class="pre">&lt;message&gt;</span></code>, with
+message in indicative or imperative present mood e.g. <code class="docutils literal notranslate"><span class="pre">Shell:</span> <span class="pre">fix</span>
+<span class="pre">bug</span> <span class="pre">#13</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Shell:</span> <span class="pre">fixed</span> <span class="pre">bug</span> <span class="pre">#13</span></code>.
+Use multiline commit messages for important commits.</p></li>
+<li><p>Adhere to the <a class="reference internal" href="guidelines.html"><span class="doc">coding guidelines</span></a>.</p></li>
+<li><p>Document your changes, in the MR description and commit messages.
+Imagine if somebody asked what your change was about in front of the
+coffee machine, write down your answer and put it in the MR.</p></li>
+<li><p>If there is a design description at the top of the file, consider updating
+it to reflect the new version. Additionally, if you feel that your design
+<em>changes</em> are worth mentioning to help upcoming contributors (e.g. justify a
+non-obvious design choice), you should document them in this file header,
+but in a separate “History” section.</p></li>
+<li><p>If you add new functions to an interface, don’t forget to
+document the function in the interface (in the corresponding <code class="docutils literal notranslate"><span class="pre">.mli</span></code> file; or,
+if there is no <code class="docutils literal notranslate"><span class="pre">.mli</span></code> file, directly in the <code class="docutils literal notranslate"><span class="pre">.ml</span></code> file)</p></li>
+<li><p>If you add a new RPC endpoint or modify an existing one, be sure to take
+into account the impact on <a class="reference internal" href="guidelines.html#rpc-security"><span class="std std-ref">RPC security</span></a>.</p></li>
+<li><p>If you modify the user API (e.g. add or change a configuration parameter or
+a command-line option), update the corresponding documentation. In
+particular, for configuration parameters of the Octez node, update the node
+configuration <a class="reference internal" href="../user/node-configuration.html"><span class="doc">documentation</span></a> and the
+documentation of the modified component(s), usually referred by that page.</p></li>
+<li><p>If your MR introduces new dependencies, follow the
+<a class="reference internal" href="#adding-new-dependencies"><span class="std std-ref">additional instructions</span></a>.</p></li>
+<li><p>Check whether your changes need to be reflected in changes to the
+corresponding README file (the one in the directory of the patched
+files). If your changes concern several directories, check all the
+corresponding README files.</p></li>
+<li><p>For parts that have specifications in the repository (e.g., Michelson),
+make sure to keep them in sync with the implementation.</p></li>
+<li><p>If your contribution has an impact on users, e.g. if it fixes a bug,
+adds a new feature, changes an RPC or the command-line interface,
+add an item to the changelog in the <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/CHANGES.rst">CHANGES.rst</a> file located
+at the root of the repository.</p></li>
+</ul>
+</section>
+<section id="creating-the-merge-request">
+<span id="creating-mr"></span><h2>Creating the Merge Request<a class="headerlink" href="#creating-the-merge-request" title="Link to this heading">#</a></h2>
+<p>Your goal is to help the reviewers convince themselves that your patch
+should be merged.
+Well-documented merge requests will receive feedback faster.
+Complicated patches with no comments to help the reviewer will cause
+the reviewer to make the wrong decision or will discourage the
+reviewer to work on the MR.</p>
+<p>Therefore, when creating your MR, observe the following rules:</p>
+<ul>
+<li><p><em>Give it an appropriate title</em>.</p></li>
+<li><p><em>Give context</em>: why was this patch written?</p>
+<ul class="simple">
+<li><p>Does it fix a bug, add a feature or refactor existing code?</p></li>
+<li><p>Is there an open issue on GitLab, or a post from an angry user
+somewhere?</p></li>
+<li><p>Must it be merged before another merge request?</p></li>
+</ul>
+</li>
+<li><p><em>Test</em>:</p>
+<ul class="simple">
+<li><p>Explain how you tested your patch (or why you didn’t).</p></li>
+<li><p>The description of merge requests must include instructions for
+how to manually test them, when applicable.</p></li>
+<li><p>Merge requests should include automated tests for new
+functionality and bug fixes.</p>
+<ul>
+<li><p>Refer to the <a class="reference internal" href="testing.html"><span class="doc">testing guide</span></a> for more information.</p></li>
+<li><p>Bug fixes should include a test that demonstrates that the bug has been fixed
+(i.e. that fails before the supplied fix).</p></li>
+<li><p>The <a class="reference internal" href="testing.html#measuring-test-coverage"><span class="std std-ref">test coverage</span></a> can be used to
+guide testing of the proposed MR. If the modified code lacks
+coverage, then this indicates that tests should be added.</p></li>
+<li><p>If no tests are included, a justification should be given in the
+description. Possible justifications include that testing is
+prohibitively difficult, or that the modified code is already
+well-exercised by the existing test suite. The point of the
+justification is to stress the importance of testing and to guide
+improvements of the test framework.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>Divide and conquer</em>: it is easier to merge several simple commits than a big one.</p>
+<ul class="simple">
+<li><p>Isolate complicated parts of your patch in their own commits.</p></li>
+<li><p>Put simple, non-controversial commits first. For instance: commits
+that fix typos, improve documentation, or are simple enough that
+we may want to merge them even without the rest of the merge
+request.
+Even better put them in a separate MR which can be merged easily.</p></li>
+<li><p>Split your commits so that each step is convincing on its own, like
+the proof of a big theorem which is split into several lemmas.</p></li>
+<li><p>Avoid merge requests that are too large. They are harder to rebase and
+request a longer continuous time for reviewing, making them overall slower
+to merge. See <a class="reference internal" href="#favoring-small-mrs"><span class="std std-ref">favoring small merge requests</span></a>
+below for more details.</p></li>
+</ul>
+</li>
+<li><p><em>Anticipate questions</em>: explain anything which may look surprising, as comments in the code itself if it has value to future readers, or in the MR description.</p></li>
+<li><p><em>MR Labels</em>: Add GitLab labels to the MR, like <code class="docutils literal notranslate"><span class="pre">doc</span></code> or <code class="docutils literal notranslate"><span class="pre">protocol</span></code>.</p>
+<ul class="simple">
+<li><p>The following special labels can be used to trigger different parts of the CI pipeline. To take effect, the label must
+be added before any push action is made on the MR.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ci--opam</span></code> is for triggering the opam packaging tests pipeline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ci--docs</span></code> is for testing some scripts in the documentation (e.g. Octez installation scenarios).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ci--docker</span></code> is for publishing the Docker image of the MR.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ci--arm64</span></code> is for building on the ARM64 architecture.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ci--no-coverage</span></code> disables the job <code class="docutils literal notranslate"><span class="pre">unified_coverage</span></code> (but it does not disable coverage instrumentation).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><em>MR Options</em>: When opening an MR you should probably tick the following
+options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">source</span> <span class="pre">branch</span> <span class="pre">when</span> <span class="pre">merge</span> <span class="pre">request</span> <span class="pre">is</span> <span class="pre">accepted.</span></code>
+Helps keeping the repository clean of old branches.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Squash</span> <span class="pre">commits</span> <span class="pre">when</span> <span class="pre">merge</span> <span class="pre">request</span> <span class="pre">is</span> <span class="pre">accepted.</span></code>
+Sometimes it’s useful to have many small commits to ease the
+review and see the story of a branch, but they are not relevant
+for the history of the project. In this case they can be squashed
+and replaced with a single meaningful commit. Nevertheless, you
+should squash yourself all fix-up commits when all discussions are resolved,
+as described above in the <a class="reference internal" href="#mr-workflow"><span class="std std-ref">MR workflow</span></a>, in order
+to ease the reviewers’ task.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">commits</span> <span class="pre">from</span> <span class="pre">members</span> <span class="pre">who</span> <span class="pre">can</span> <span class="pre">merge</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">target</span> <span class="pre">branch.</span></code>
+This option is useful to allow members of the <a class="reference internal" href="merge_team.html"><span class="doc">Octez merge team</span></a>, who are
+not developers in your project, to commit to your branch.
+It helps to rebase and propose fixes.</p></li>
+</ul>
+</li>
+<li><p><em>Find reviewers</em>: it is the responsibility of the author to find
+suitable reviewers. In this context,
+finding a reviewer means finding someone that agreed to review in the
+next days after the MR becomes ready.
+Opting for a reviewer that is not in the capacity to review your MR
+in the next days when others can is unfortunate, because
+the merge request will become unnecessarily blocked; which is bad for:</p>
+<ul class="simple">
+<li><p>the author, as their work gets delayed, and</p></li>
+<li><p>the health of the repository, as it gives the impression that a new contribution
+will land soon; while it is not the case.</p></li>
+</ul>
+<p>To find reviewers that will review promptly, we refer to the documentation
+of the <a class="reference internal" href="#reviewers-field"><span class="std std-ref">reviewer field</span></a> below.</p>
+</li>
+<li><p><em>Check progress</em>:
+It is important to maintain to a minimum the number of your open MRs,
+and to constantly check that the discussion is progressing.</p></li>
+</ul>
+<p>Example of an MR with a good, clean history (each bullet is a commit,
+any subitems represent the longer description of that commit):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Doc: mark bug #13 as fixed
+* Test_python: add test for p2p bug #13
+* Shell: fix p2p bug #13
+  - fix bug in the shell
+  - fix relative unit test
+  - add docstrings
+</pre></div>
+</div>
+<p><strong>Beware</strong>: For MRs touching
+<code class="docutils literal notranslate"><span class="pre">src/proto_alpha/lib_protocol</span></code>, see <a class="reference internal" href="#protocol-mr"><span class="std std-ref">protocol MRs</span></a>.</p>
+<section id="favoring-small-merge-requests">
+<span id="favoring-small-mrs"></span><h3>Favoring Small Merge Requests<a class="headerlink" href="#favoring-small-merge-requests" title="Link to this heading">#</a></h3>
+<p>Small merge requests are encouraged for multiple reasons:</p>
+<ul class="simple">
+<li><p>They are faster to review, which encourage reviewers to pick them.</p></li>
+<li><p>They are easier to rebase, hereby saving developers time.</p></li>
+<li><p>They are reviewed more thoroughly.</p></li>
+<li><p>If the merge request is not accepted, less work is lost; in particular
+less review time has been spent.</p></li>
+</ul>
+<p>However, small merge requests also come with drawbacks:</p>
+<ul class="simple">
+<li><p>They make it more difficult for reviewers to get the global picture of the intended change.</p></li>
+<li><p>They may introduce intermediate states, during which a feature
+is not yet finished; or dead code is temporarily introduced.</p></li>
+<li><p>They have to be reverted if the entire feature is ultimately cancelled.</p></li>
+</ul>
+<p>For <code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code> to evolve fast, however, we are convinced that the advantages
+of small merge requests outweigh the drawbacks. If possible, drawbacks
+must be mitigated as follows:</p>
+<ul class="simple">
+<li><p>Have the entire piece of work described or done somewhere. For example in
+an issue, or a branch containing the entire change, or a
+large (unsplit) work as a draft merge request.
+For complex works, an external document may be referred in the issue/MR, detailing the design/implementation rationale; if such documents are only targeted to reviewers and/or are only describing a <em>change</em>, they should not go in the online documentation.</p></li>
+<li><p>Include a link to the entire piece of work in the description of each
+small merge requests created by splitting the large piece of work.
+This will help reviewers get the big picture.</p></li>
+<li><p>Explain why the intermediate state is harmless, if applicable.</p></li>
+<li><p>To mitigate loss of work if the whole piece is not accepted,
+we advise to split the work so that improvements that are desirable on their own
+are the first ones to be merged in the sequence of small merge requests.
+A desirable standalone improvement is for example a refactoring that
+improves the quality of the code, or adds new tests, or fixes typos.</p></li>
+</ul>
+</section>
+<section id="merge-request-assignees-field">
+<span id="assignee-field"></span><h3>Merge Request “Assignees” Field<a class="headerlink" href="#merge-request-assignees-field" title="Link to this heading">#</a></h3>
+<p>Merge requests targeted at <code class="docutils literal notranslate"><span class="pre">tezos/tezos</span> <span class="pre">master</span></code> should in general
+have exactly one assignee. The assignee is someone from which an
+action is required to get the merge request moving. Example actions include:</p>
+<ul class="simple">
+<li><p>review;</p></li>
+<li><p>respond to a comment thread;</p></li>
+<li><p>update the code;</p></li>
+<li><p>rebase (in particular in case of conflicts);</p></li>
+<li><p>merge;</p></li>
+<li><p>find someone else who can get the merge request moving.</p></li>
+</ul>
+<p>The assignee will thus often be one of the reviewers (if they needs to review
+or respond to a comment) or one of the merge request authors (if they need
+to update the code or respond to a comment).</p>
+<p>If a merge request has no assignee, it is implicitly the role of the
+<a class="reference internal" href="merge_team.html#merge-coordinator"><span class="std std-ref">merge coordinator</span></a> to assign it to someone.</p>
+<p>Even though merge requests could require action from several people
+to be merged, we avoid assigning more than one to avoid diluting responsibility.</p>
+</section>
+<section id="merge-request-reviewers-field">
+<span id="reviewers-field"></span><h3>Merge Request “Reviewers” Field<a class="headerlink" href="#merge-request-reviewers-field" title="Link to this heading">#</a></h3>
+<p>The reviewer field of GitLab is used to specify reviewers.
+Once the merge request is ready for review,
+<a class="reference internal" href="#assignee-field"><span class="std std-ref">assign</span></a> one of the reviewers that
+you specified in the reviewers field.
+As mentioned previously, it is the responsibility of authors to find reviewers.
+To find reviewers, either:</p>
+<ul class="simple">
+<li><p>Advertize your merge request on the <code class="docutils literal notranslate"><span class="pre">#mr-advertizing</span></code> channel of
+the <a class="reference external" href="https://tezos-dev.slack.com/">tezos-dev</a> Slack. Good advertisement
+consists of a link to the MR and a one sentence summary.</p></li>
+<li><p>Look at authors of the code you are modifying using
+<a class="reference external" href="https://git-scm.com/docs/git-blame">git blame</a>.</p></li>
+<li><p>Ask help to the <a class="reference internal" href="merge_team.html#merge-coordinator"><span class="std std-ref">merge coordinator</span></a>, either
+by asking them on Slack or mentioning them in a comment (see next paragraph).</p></li>
+</ul>
+<p>Depending on your <a class="reference external" href="https://docs.gitlab.com/ee/user/permissions.html">GitLab role</a>
+you may or may not be able to use the <em>Reviewers</em> field for specifying
+the reviewers. If you don’t have the right, mention the reviewers using
+their GitLab handle (username prefixed with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) in a comment.
+It causes GitLab to send a notification to them.</p>
+</section>
+<section id="merge-request-draft-mode">
+<span id="draft-mode"></span><h3>Merge Request “Draft” Mode<a class="headerlink" href="#merge-request-draft-mode" title="Link to this heading">#</a></h3>
+<p>A merge request that is not yet ready to be merged should be marked as
+<a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/drafts.html">draft</a>
+by prefixing its title with <code class="docutils literal notranslate"><span class="pre">Draft:</span></code>. Typical reasons for this is
+that the author still has some minor tasks to accomplish, such as
+cleaning up the merge request’s <code class="docutils literal notranslate"><span class="pre">git</span></code> history (e.g. squashing <code class="docutils literal notranslate"><span class="pre">fixup!</span></code> commits), even
+if the request is already reviewed and approved (and in this case, the draft status will prevent
+the request from being prematurely merged).</p>
+<p>Being in <code class="docutils literal notranslate"><span class="pre">Draft:</span></code> mode does not signal “not yet ready for
+review”. Instead, MRs that should not be reviewed should be in the <code class="docutils literal notranslate"><span class="pre">Draft</span></code> state and
+assigned to the author, as it is the MR’s assignee that should take action
+next.</p>
+<p>To decide the correct draft status with respect to whether the MR is
+ready for review, consider the following table:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Assignee</p></th>
+<th class="head"><p>Has fixups?</p></th>
+<th class="head"><p>Correct status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Other</p></td>
+<td><p>No</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Other</p></td>
+<td><p>Yes</p></td>
+<td><p>Draft</p></td>
+</tr>
+<tr class="row-even"><td><p>Author</p></td>
+<td><p>No</p></td>
+<td><p>Draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>Author</p></td>
+<td><p>Yes</p></td>
+<td><p>Draft</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In sum: the correct status for an MR assigned to another person than
+the author should be <code class="docutils literal notranslate"><span class="pre">Draft</span></code> if its history contains <code class="docutils literal notranslate"><span class="pre">fixup!</span></code> or
+if other development tasks remain. If the MR is assigned to the
+author, then it should be <code class="docutils literal notranslate"><span class="pre">Draft</span></code>.</p>
+</section>
+<section id="merge-request-s-owner">
+<h3>Merge Request’s owner<a class="headerlink" href="#merge-request-s-owner" title="Link to this heading">#</a></h3>
+<p>Usually the person who has created a Merge Request is also responsible for
+pushing it forward: finding reviewers, addressing their comments and so on.
+Occasionally though it happens that the author has to move to more pressing
+tasks and hands his MR over to another person to finish. This is a problem,
+because an MR assigned to its author has sort of a special status – it
+informs everyone that the branch is likely to change at any moment. When an
+MR is handed over, we lose that important information.</p>
+<p>For this reason, when take-over happens, it’s useful to make that explicit.
+The person taking over should put a comment informing about this so that
+everyone knows that the person attending to the MR changes. Also the
+description should be updated to reflect that information. It is suggested to
+prefix the description with a line specifying the MR’s owner if that’s
+different to the author indicated by GitLab.</p>
+</section>
+</section>
+<section id="special-case-mrs-that-introduce-a-new-dependency">
+<span id="adding-new-dependencies"></span><h2>Special case: MRs that introduce a new dependency<a class="headerlink" href="#special-case-mrs-that-introduce-a-new-dependency" title="Link to this heading">#</a></h2>
+<p>In the special case where your MR adds a new opam dependency or updates an
+existing opam dependency, you will need to follow
+this additional dedicated guide:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html#local-work">Local work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html#making-an-mr">Making an MR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html#tl-dr">TL;DR</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>In the special case where your MR adds a new Python, Rust, JavaScript, or other
+dependency, additional steps must also be followed.</p>
+<ul class="simple">
+<li><p>for Python, you can refer to the related section in the <a class="reference internal" href="python_environment.html#python-adding-new-dependencies"><span class="std std-ref">python testing documentation</span></a>.</p></li>
+<li><p>the Rust dependencies are located in the <code class="docutils literal notranslate"><span class="pre">src/rust_deps</span></code> folder</p></li>
+</ul>
+<p>For others, there is currently no dedicated guide. Do not hesitate to ask for
+help on the <code class="docutils literal notranslate"><span class="pre">#devteam</span></code> channel on the <a class="reference external" href="https://tezos-dev.slack.com/">tezos-dev</a> Slack.</p>
+</section>
+<section id="protocol-development-mrs">
+<span id="protocol-mr"></span><h2>Protocol development MRs<a class="headerlink" href="#protocol-development-mrs" title="Link to this heading">#</a></h2>
+<p>Because of the amendment procedure that governs the protocol, the
+workflow for protocol development is significantly different from
+master.</p>
+<section id="protocol-snapshots">
+<h3>Protocol snapshots<a class="headerlink" href="#protocol-snapshots" title="Link to this heading">#</a></h3>
+<p>Before a proposal, a new directory, e.g. <code class="docutils literal notranslate"><span class="pre">proto-005-PsBabyM1/</span></code>, is
+created from <code class="docutils literal notranslate"><span class="pre">proto_alpha/</span></code> where the development continues.
+These directories are called <em>protocol snapshots</em>.</p>
+<p>The hash of each active or candidate protocol is computed from the directory
+<code class="docutils literal notranslate"><span class="pre">src/proto_0*/lib_protocol/</span></code>, so every change in these directories
+is forbidden.
+However, the protocol snapshots contain other subdirectories than the frozen <code class="docutils literal notranslate"><span class="pre">lib_protocol/</span></code>, implementing protocol-dependent code. For instance, <code class="docutils literal notranslate"><span class="pre">lib_client/</span></code> implements commands in the Octez client that can invoke protocol-dependent functionalities, such as transfers between accounts.</p>
+<p>Thereby, if your MR changes code in the protocol snapshot directories (outside the frozen <code class="docutils literal notranslate"><span class="pre">lib_protocol/</span></code>), you may consider patching the corresponding code for the other protocols as well (at least the ones which are still in use), when applicable.</p>
+</section>
+<section id="the-migration">
+<h3>The Migration<a class="headerlink" href="#the-migration" title="Link to this heading">#</a></h3>
+<p>Right before the activation of a new protocol, there is a migration of
+the context that takes place.
+This migration typically converts data structures from the old to the
+new format.
+Each migration works exclusively between two protocol hashes and it is
+useless otherwise.
+For this reason after the activation of a protocol the first step to
+start a new development cycle is to remove the migration code.
+In order to facilitate this, <em>migration code is always in a different commit</em> with respect to the protocol features it migrates.
+When submitting an MR which contains migration code, <strong>the author must also have tested the migration</strong> (see <a class="reference internal" href="proposal_testing.html"><span class="doc">How to Test a Protocol Proposal</span></a>) and write in the
+description what was tested and how so that <strong>reviewers can reproduce it</strong>.</p>
+</section>
+</section>
+<section id="code-review">
+<span id="id3"></span><h2>Code Review<a class="headerlink" href="#code-review" title="Link to this heading">#</a></h2>
+<p>All code is peer reviewed before getting committed in the
+master branch by the <a class="reference internal" href="merge_team.html"><span class="doc">Octez merge team</span></a>.
+Briefly, a code review is a discussion between two or
+more developers about changes to the code to address an issue.</p>
+<section id="merge-request-approvals">
+<h3>Merge Request Approvals<a class="headerlink" href="#merge-request-approvals" title="Link to this heading">#</a></h3>
+<p>Two approvals from different Octez <a class="reference internal" href="merge_team.html"><span class="doc">Octez merge team</span></a> members are required for merge
+requests to be merged. Both approvals must result from independent, thorough
+reviews. After both reviews, the second approver will also typically merge if the request is not a draft
+(which otherwise means that the author has still some cleaning up to do).</p>
+<p>However, for less critical parts of the code, an Octez merge team member may
+choose to trust the review of a developer who is not a member of the Octez
+merge team. In that case, the Octez merge team member may choose to count that
+review as their own, effectively “converting” the other developer’s passing
+review into an approval. This may be done even when the Octez merge team
+member is the author of the merge request. A second independent review from an
+Octez merge team member is still required, of course.</p>
+<p>For this reason, if you make a partial review, for instance if you only
+reviewed part of the code, or only the general design, it is good practice
+to say so in a comment, so that other reviewers know what is left to review.
+If you manually tested the merge request or ran some benchmarks,
+you can add a comment with the results.</p>
+</section>
+<section id="author-perspective">
+<h3>Author Perspective<a class="headerlink" href="#author-perspective" title="Link to this heading">#</a></h3>
+<p>Code review is a tool among others to enhance the quality of the code and to
+reduce the likelihood of introducing new bugs in the code base. It is a
+technical discussion; not an exam, but rather a common effort to learn
+from each other.</p>
+<p>These are a few common suggestions we often give while reviewing new code.
+Addressing these points beforehand makes the reviewing process easier and less
+painful for everybody. The reviewer is your ally, not your enemy.</p>
+<ul class="simple">
+<li><p>Commented code: Did I remove any commented out lines?
+Did I leave a <a class="reference internal" href="guidelines.html#todo-fixme"><span class="std std-ref">TODO/FIXME comment</span></a> without an issue number?</p></li>
+<li><p>Docstrings: Did I export a new function? Each exported
+function should be documented in the corresponding <code class="docutils literal notranslate"><span class="pre">.mli</span></code> (or directly in the <code class="docutils literal notranslate"><span class="pre">.ml</span></code> file if there is no <code class="docutils literal notranslate"><span class="pre">.mli</span></code>).</p></li>
+<li><p>README: Did I check whether my changes impact the corresponding README
+file(s)?</p></li>
+<li><p>Readability: Is the code easy to understand? Is it worth adding
+a comment to the code to explain a particular operation and its
+repercussion on the rest of the code?</p></li>
+<li><p>Variable and function names: These should be meaningful and in line
+with the conventions adopted in the code base.</p></li>
+<li><p>Testing: Are the tests thoughtful? Do they cover the failure conditions? Are
+they easy to read? How fragile are they? How big are the tests? Are they slow?</p></li>
+<li><p>Are your commit messages meaningful? (see <a class="reference external" href="https://cbea.ms/git-commit/">https://cbea.ms/git-commit/</a>)</p></li>
+</ul>
+<p>Review your own code before calling for a peer review from a colleague.</p>
+</section>
+<section id="reviewer-perspective">
+<h3>Reviewer Perspective<a class="headerlink" href="#reviewer-perspective" title="Link to this heading">#</a></h3>
+<p>Code review can be challenging at times. These are suggestions and common
+pitfalls a code reviewer should avoid.</p>
+<ul class="simple">
+<li><p>Ask questions: How does this function work? If this requirement changes,
+what else would have to change? How could we make this more maintainable?</p></li>
+<li><p>Discuss in person for more detailed points: Online comments are useful for
+focused technical questions. On many occasions it is more productive to
+discuss it in person rather than in the comments. Similarly, if discussion
+about a point goes back and forth, it will be often more productive to pick
+it up in person and finish out the discussion.</p></li>
+<li><p>Explain reasoning: Sometimes it is best to both ask if there is a better
+alternative and at the same time justify why a problem in the code is worth
+fixing. Sometimes it can feel like the changes suggested are nit-picky
+without context or explanation.</p></li>
+<li><p>Make it about the code: It is easy to take notes from code reviews
+personally, especially if we take pride in our work. It is best to make
+discussions about the code than about the developer. It lowers resistance and
+it is not about the developer anyway, it is about improving the quality of
+the code.</p></li>
+<li><p>Suggest importance of fixes: While offering many suggestions at once, it is
+important to also clarify that not all of them need to be acted upon and some
+are more important than others. It gives an important guidance to the developer
+to improve their work incrementally.</p></li>
+<li><p>When you consider that a fix is important but should not prevent the current MR to be merged (e.g., because it adds a sufficient amount of useful new features), you may suggest creating a follow-up issue.
+If the place in the code that needs to be fixed later is clear, you may also suggest marking it with a <a class="reference internal" href="guidelines.html#todo-fixme"><span class="std std-ref">TODO/FIXME comment</span></a>.</p></li>
+<li><p>Take the developer’s opinion into consideration: Imposing a particular design
+choice out of personal preferences and without a real explanation will
+incentivize the developer to be a passive executor instead of a creative agent.</p></li>
+<li><p>Do not re-write, remove or re-do all the work: Sometimes it is easier to
+re-do the work yourself discarding the work of the developer. This can give
+the impression that the work of the developer is worthless and adds
+additional work for the reviewer that effectively takes responsibility for
+the code.</p></li>
+<li><p>Consider the person you are reviewing: Each developer is a person. If you
+know the person, consider their personality and experience while reviewing their
+code. Sometimes it is possible with somebody to be more direct and terse, while
+other people require a more thorough explanation.</p></li>
+<li><p>Avoid confrontational and authoritative language: The way we communicate has
+an impact on the receiver. If communicating a problem in the code or a
+suggestion is the goal, making an effort to remove all possible noise from
+the message is important. Consider these two statements to communicate about
+a problem in the code : “This operation is wrong. Please fix it.” and
+“Doing this operation might result in an error, can you please
+review it?”. The first one implies you made an error (confrontational), and
+you should fix it (authority). The second suggests to review the code because
+there might be a mistake. Despite the message being the same, the recipient might
+have a different reaction to it and impact on the quality of this work. This
+general remark is valid for any comment.</p></li>
+</ul>
+<p>When reviewing MRs involving documentation, you may check the built documentation directly within the GitLab interface, see <a class="reference internal" href="../README.html#build-doc-ci"><span class="std std-ref">Building the documentation in the CI</span></a>.</p>
+</section>
+</section>
+<section id="the-merge-request-bot">
+<span id="merge-bot"></span><h2>The Merge-Request Bot<a class="headerlink" href="#the-merge-request-bot" title="Link to this heading">#</a></h2>
+<p>Every 6 hours, an automated process running as the
+<a class="reference external" href="https://gitlab.com/tezbocop">Tezbocop</a> 🤖 user, inspects recent MRs and posts
+or edits comments on them, giving an inspection report on the contents of the
+MR.</p>
+<p>Some warnings/comments are for you to potentially improve your MR, other
+comments just help us in the assignment &amp; review process.</p>
+<p>The first time Tezbocop posts a message you should receive a notification; for
+the subsequent edits there won’t be notifications; feel free to check Tezbocop’s
+comments any time.</p>
+<p>If you think some of the remarks/warnings do not apply to your MR feel free to
+add a comment to justify it.</p>
+<p>In particular, the Merge-Request Bot may complain about <a class="reference internal" href="guidelines.html#todo-fixme"><span class="std std-ref">TODO/FIXME comments</span></a> without an issue number ensuring that the intended evolution is tracked.</p>
+<p>The code for the bot is at
+<a class="reference external" href="https://gitlab.com/oxheadalpha/merbocop">oxheadalpha/merbocop</a>. It is of
+course work-in-progress and new warnings and comments will appear little by
+little. We welcome specific issues or contributions there too.</p>
+<section id="developer-tools">
+<span id="dev-tools"></span><h3>Developer Tools<a class="headerlink" href="#developer-tools" title="Link to this heading">#</a></h3>
+<p>Some tools to make protocol development more convenient can be found in the <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/src/tooling/">src/tooling/</a> folder.
+In particular, it contains <code class="docutils literal notranslate"><span class="pre">tztop</span></code>, a REPL (interactive read-eval-print loop) based on <code class="docutils literal notranslate"><span class="pre">utop</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="contributing_index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">How to contribute</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="contributing-adding-a-new-opam-dependency.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to add or update opam dependencies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-typos">Fixing typos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-non-code-contributions">Other non-code contributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-further">Going further</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-git-strategy">Our git strategy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-an-mr">Workflow of an MR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-queue-order">Merge Queue Order</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-merge-request">Preparing a Merge Request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-merge-request">Creating the Merge Request</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#favoring-small-merge-requests">Favoring Small Merge Requests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-assignees-field">Merge Request “Assignees” Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-reviewers-field">Merge Request “Reviewers” Field</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-draft-mode">Merge Request “Draft” Mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-s-owner">Merge Request’s owner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-mrs-that-introduce-a-new-dependency">Special case: MRs that introduce a new dependency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-development-mrs">Protocol development MRs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-snapshots">Protocol snapshots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-migration">The Migration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-review">Code Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-approvals">Merge Request Approvals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#author-perspective">Author Perspective</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviewer-perspective">Reviewer Perspective</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-merge-request-bot">The Merge-Request Bot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-tools">Developer Tools</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

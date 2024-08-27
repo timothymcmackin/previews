@@ -1,0 +1,1098 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logging features &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=1e596021"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/logging';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exit codes and signals" href="exits.html" />
+    <link rel="prev" title="FA1.2 support" href="fa12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fuser/logging.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Logging features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events">Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sink-configuration">Sink Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-descriptor-sinks">File-Descriptor Sinks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-tree-sink">File-Tree Sink</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-defaults">Global Defaults</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json-configuration-format">JSON Configuration Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-specific-configuration">Node-Specific Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-file">Configuration File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command Line Options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-config-logging">RPC <code class="docutils literal notranslate"><span class="pre">/config/logging</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-and-baker-configuration">Client and baker configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-structured-events">Processing Structured Events</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logging-features">
+<h1>Logging features<a class="headerlink" href="#logging-features" title="Link to this heading">#</a></h1>
+<p>Logging features in Octez allow to monitor the execution of Octez binaries, informing in real
+time about events of interest, such as errors, completion of certain steps,
+etc. This is why various software components emit <em>events</em> throughout the
+codebase (see <a class="reference internal" href="../developer/event_logging_framework.html"><span class="doc">Using The Event Logging Framework</span></a>), the logging
+framework dispatches them to an arbitrary number of (active) <em>sinks</em> which can
+filter print, store, or otherwise handle events.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Log events should not be confused with <a class="reference internal" href="../active/event.html"><span class="doc">contract events</span></a>, which are emitted by smart contracts using specific support in the Michelson language.</p>
+</div>
+<p>The logging framework can be configured with environment variables, which specify how events are mapped to sinks.
+Some Octez binaries provide additional configurations means.</p>
+<section id="events">
+<h2>Events<a class="headerlink" href="#events" title="Link to this heading">#</a></h2>
+<p>Events have:</p>
+<ul class="simple">
+<li><p>a <em>name</em></p></li>
+<li><p>a <em>section</em>; a hierarchical event classification mechanism, i.e. a path-like
+list of strings, sometimes the name is appended to make a fully-qualified
+name,</p></li>
+<li><p>a <em>level</em> quantifying the relative importance of the event (Debug, Info,
+Notice, Warning, Error, and Fatal — inspired from the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Syslog#Severity_level">Syslog standard severity levels</a>),</p></li>
+<li><p>and, as <em>contents</em>, arbitrary structured data. They can be serialized to any
+format supported by the data-encoding library (e.g. JSON) and pretty-printed
+for human readers.</p></li>
+</ul>
+<p>Events are by default “lazy”: if no active sink accepts their section and level,
+they are not emitted at all. This means that outputting <em>more</em> events
+implies more CPU and memory usage.</p>
+<p><em>“Legacy events”</em> are the events that use the old &amp; deprecated logging API;
+their contents all have the same structure: they are just human-readable
+text. The API makes that these events are evaluated even if they are not
+consumed by a sink; i.e. they are not lazily evaluated.  The codebase is in the
+process of getting rid of them.</p>
+</section>
+<section id="sink-configuration">
+<h2>Sink Configuration<a class="headerlink" href="#sink-configuration" title="Link to this heading">#</a></h2>
+<p>The logging framework refers to sinks with URIs (a.k.a.  structured strings of
+the form <code class="docutils literal notranslate"><span class="pre">schema://path?query</span></code>): the schema of the URI is used to find the
+appropriate sink-implementation, the rest of the URI is used to configure the
+particular instance.</p>
+<section id="file-descriptor-sinks">
+<h3>File-Descriptor Sinks<a class="headerlink" href="#file-descriptor-sinks" title="Link to this heading">#</a></h3>
+<p>File-descriptor sinks allow to configure loggers that output events to
+regular Unix file-descriptors. They are duplicatable. They actually
+consist in a <em>family</em> of four URI-schemes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-path://</span></code> outputs to a file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout://</span></code> outputs to <code class="docutils literal notranslate"><span class="pre">stdout</span></code> / <code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-stderr://</span></code> outputs to <code class="docutils literal notranslate"><span class="pre">stderr</span></code> / <code class="docutils literal notranslate"><span class="pre">2</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-syslog://</span></code> outputs to a <code class="docutils literal notranslate"><span class="pre">syslog</span></code> facility</p></li>
+</ul>
+<p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">-stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">-stderr</span></code> schemes are there for convenience
+and for making the API consistent; most Unix-ish systems nowadays have
+<code class="docutils literal notranslate"><span class="pre">/dev/std{out,err}</span></code> and <code class="docutils literal notranslate"><span class="pre">/dev/fd/[0-9]+</span></code> special files which can be
+used with <code class="docutils literal notranslate"><span class="pre">file-descriptor-path</span></code> (with some precautions).</p>
+<p>The path of the URI is used by <code class="docutils literal notranslate"><span class="pre">file-descriptor-path</span></code> to choose the
+path to write to and ignored for the other two.</p>
+<p>The query of the URI is used to further configure the sink instance.</p>
+<p>Common options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">level-at-least=&lt;loglevel&gt;</span></code> the minimal log-level that the sink
+will output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">section-prefix</span></code> can be given many times and defines a list of
+pairs <code class="docutils literal notranslate"><span class="pre">&lt;section-prefix&gt;:&lt;level-threshold&gt;</span></code> which can be used to
+setup more precise filters. <code class="docutils literal notranslate"><span class="pre">level-at-least=info</span></code> can be understood
+as <code class="docutils literal notranslate"><span class="pre">section-prefix=:info</span></code>, the empty section prefix matches all
+sections. To exclude a specific section use the <code class="docutils literal notranslate"><span class="pre">none</span></code> filter, for
+example <code class="docutils literal notranslate"><span class="pre">section-prefix=p2p:none</span></code>. To define a filter only for
+one specific section <code class="docutils literal notranslate"><span class="pre">section-prefix=p2p:debug&amp;section-prefix=:none</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format=&lt;value&gt;</span></code> the output format used. Note that syslog output will ignore
+this option and use the syslog formatting. Possible values are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">one-per-line</span></code> (the default): output JSON objects, one per line,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">netstring</span></code>: use the Netstring format
+(cf. <a class="reference external" href="https://en.wikipedia.org/wiki/Netstring">Wikipedia</a>) to
+separate JSON records,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pp</span></code> or <code class="docutils literal notranslate"><span class="pre">pp-rfc5424</span></code> to output the events pretty-printed, one per line,
+using a format compatible with <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc5424#section-6">RFC-5424</a> (or Syslog).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pp-short</span></code> to output the events pretty-printed in a shorter and more
+user-friendly fashion.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color=true</span></code> enables logs coloring. It only works on ttys, in conjunction with
+<code class="docutils literal notranslate"><span class="pre">format=pp-short</span></code>.</p></li>
+</ul>
+<p>Options available only for the <code class="docutils literal notranslate"><span class="pre">file-descriptor-path://</span></code> case:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">with-pid=&lt;bool&gt;</span></code> when <code class="docutils literal notranslate"><span class="pre">true</span></code> adds the current process-id to the
+file path provided (for instance, useful for the node when not
+running in <code class="docutils literal notranslate"><span class="pre">--singleprocess</span></code> mode).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fresh=&lt;bool&gt;</span></code> when <code class="docutils literal notranslate"><span class="pre">true</span></code> smashes the content of the file if it
+already exists instead of appending to it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chmod=&lt;int&gt;</span></code> sets the access-rights of the file at creation time
+(default is <code class="docutils literal notranslate"><span class="pre">0o600</span></code>, provided
+<a class="reference external" href="https://en.wikipedia.org/wiki/Umask">Umask</a> allows it).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">daily-logs=&lt;int&gt;</span></code> sets up a rotation for log files, creating a file for
+each day. The parameter is the number of days these logs should be kept, and
+hence the number of files. The day of the year with format [“yyyymmdd”] is
+added as a suffix to the filename, prefixed by a dash. We recomend not to put
+your tezos logs in <code class="docutils literal notranslate"><span class="pre">/var/log</span></code> if you use this option, as you system would
+use <code class="docutils literal notranslate"><span class="pre">logrotate</span></code> automatically.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create-dirs=&lt;bool&gt;</span></code> when <code class="docutils literal notranslate"><span class="pre">true</span></code> allows to create the directory where
+the log files are stored and all its parents recursively if they don’t
+exist.</p></li>
+</ul>
+<p>Option available only for <code class="docutils literal notranslate"><span class="pre">file-descriptor-syslog://</span></code> case:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">facility=&lt;facility&gt;</span></code> is the targeted syslog output.
+The possible values are: <code class="docutils literal notranslate"><span class="pre">auth,</span> <span class="pre">authpriv,</span> <span class="pre">cron,</span> <span class="pre">daemon,</span>
+<span class="pre">ftp,</span> <span class="pre">kernel,</span> <span class="pre">local0,</span> <span class="pre">local1,</span> <span class="pre">local2,</span> <span class="pre">local3,</span>
+<span class="pre">local4,</span> <span class="pre">local5,</span> <span class="pre">local6,</span> <span class="pre">local7,</span> <span class="pre">lpr,</span> <span class="pre">mail,</span> <span class="pre">news,</span>
+<span class="pre">syslog,</span> <span class="pre">user,</span> <span class="pre">uucp,</span> <span class="pre">ntp,</span> <span class="pre">security,</span> <span class="pre">console</span></code>.
+<code class="docutils literal notranslate"><span class="pre">user</span></code> is the default facility if no value is provided. See <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc3164#section-6">RFC-3164</a> for more information.</p>
+<p>Examples:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-path:///the/path/to/write.log?format=one-per-line&amp;level-at-least=notice&amp;with-pid=true&amp;chmod=0o640</span></code>
+→ Executables will write all log events of level at least <code class="docutils literal notranslate"><span class="pre">Notice</span></code>
+to a file <code class="docutils literal notranslate"><span class="pre">/the/path/to/write-XXXX.log</span></code> where <code class="docutils literal notranslate"><span class="pre">XXXX</span></code> is the PID,
+the file will be also readable by the user’s group (<code class="docutils literal notranslate"><span class="pre">0o640</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-stderr://?format=netstring</span></code> → Executables will
+write to <code class="docutils literal notranslate"><span class="pre">stderr</span></code> JSON blobs <em>“packetized” as</em> Netstrings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-path:///dev/fd/4?section-prefix=rpc:debug</span></code> →
+Executables will write to the file-descriptor <code class="docutils literal notranslate"><span class="pre">4</span></code> likely opened by
+a parent monitoring process. The reader will only receive the logs
+from the section <code class="docutils literal notranslate"><span class="pre">rpc</span></code> (but all of them including <code class="docutils literal notranslate"><span class="pre">Debug</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-path:///the/path/to/write.log?section-prefix=rpc:debug&amp;section-prefix=validator:debug&amp;section-prefix=:none&quot;</span></code>
+→ Write only sections validator and rpc at debug level but exclude all
+other sections from the stream.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;file-descriptor-path:///tmp/node-logs/node.log?daily-logs=5&amp;create-dirs=true&amp;section-prefix=:info&quot;</span></code>
+sets up daily log files with a history of up to 5 days and verbosity level
+<code class="docutils literal notranslate"><span class="pre">info</span></code> for all logs. Files will be named <code class="docutils literal notranslate"><span class="pre">node-19700101.log</span></code> in an
+example of a file produced in 1970, January, the 1st. The log directory
+<code class="docutils literal notranslate"><span class="pre">node-logs</span></code> will be automatically created if it doesn’t exist.</p></li>
+</ul>
+<p>The format of the events is (usually minified):</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;fd-sink-item.v0&quot;</span><span class="o">:</span>
+<span class="w">  </span><span class="p">{</span><span class="s2">&quot;hostname&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">host</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;time_stamp&quot;</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="kr">float</span><span class="o">-</span><span class="nx">seconds</span><span class="o">-</span><span class="nx">since</span><span class="o">-</span><span class="nx">epoch</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">   </span><span class="s2">&quot;section&quot;</span><span class="o">:</span><span class="p">[</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">list</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="nx">strings</span><span class="o">&gt;</span><span class="w"> </span><span class="p">],</span>
+<span class="w">   </span><span class="s2">&quot;event&quot;</span><span class="o">:</span>
+<span class="w">     </span><span class="o">&lt;</span><span class="nx">event</span><span class="o">-</span><span class="nx">specific</span><span class="o">-</span><span class="nx">json</span><span class="o">&gt;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">&quot;hostname&quot;</span></code> field can be customized with environment
+variable <code class="docutils literal notranslate"><span class="pre">TEZOS_EVENT_HOSTNAME</span></code>; Its default value is the hostname of the
+device the node is running on.</p>
+<p>To store rotated logs, there is the <code class="docutils literal notranslate"><span class="pre">daily-logs</span></code> option to create logs files on
+a daily basis. However, it is also possible to use <code class="docutils literal notranslate"><span class="pre">logrotate</span></code> by putting the
+log file in <code class="docutils literal notranslate"><span class="pre">/var/log/tezos/sink.log</span></code>, for exemple. The following
+configuration can then be put in <code class="docutils literal notranslate"><span class="pre">/etc/logrotate.d/tezos/sink.log</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/var/log/tezos/sink.log {
+        daily
+        copytruncate
+        rotate 4
+        compress
+}
+</pre></div>
+</div>
+</section>
+<section id="file-tree-sink">
+<h3>File-Tree Sink<a class="headerlink" href="#file-tree-sink" title="Link to this heading">#</a></h3>
+<p>This is a sink that dumps events as JSON files (same format as above)
+in a directory structure guided by the section of the events. It can be
+useful for testing the logging framework itself, or for off-line
+post-mortem analysis for instance.</p>
+<p>The URI scheme is <code class="docutils literal notranslate"><span class="pre">unix-files</span></code>, the path is the top-level directory in
+which the JSON files will be written.</p>
+<p>The query of the URI allows one to filter the events early on.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">level-at-least=&lt;loglevel&gt;</span></code> the minimal log-level that the sink
+will output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name-matches=&lt;regexps&gt;</span></code> comma-separated-list of POSIX regular
+expressions on the name of the events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name=&lt;names&gt;</span></code> comma-separated-list of event names matched
+<em>exactly</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">section=&lt;sections&gt;</span></code> comma-separated-list of event sections matched
+<em>exactly</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no-section=&lt;bool&gt;</span></code> when true only catch the events that have an
+empty section.</p></li>
+</ul>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">unix-files:///the/path/to/write?level-at-least=info</span></code> (the
+path should be inexistent or already a directory).</p>
+<p>The directory structure is as follows:
+<code class="docutils literal notranslate"><span class="pre">&lt;section-dirname&gt;/&lt;event-name&gt;/&lt;YYYYMMDD&gt;/&lt;HHMMSS-MMMMMM&gt;/&lt;YYYYMMDD-HHMMSS-MMMMMM-xxxx.json&gt;</span></code>
+where <code class="docutils literal notranslate"><span class="pre">&lt;section-dirname&gt;</span></code> is either <code class="docutils literal notranslate"><span class="pre">no-section</span></code> or
+<code class="docutils literal notranslate"><span class="pre">section-&lt;section-name&gt;</span></code>.</p>
+</section>
+</section>
+<section id="global-defaults">
+<h2>Global Defaults<a class="headerlink" href="#global-defaults" title="Link to this heading">#</a></h2>
+<p>By default, the Octez binaries generate <strong>user logs</strong> as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout://</span></code> sink is activated by default and configured to
+output events of level at least <code class="docutils literal notranslate"><span class="pre">Notice</span></code> to stdout.</p></li>
+</ul>
+<p>The node and the baker additionally generate by default more detailed
+<strong>internal logs</strong> as follows:</p>
+<ul class="simple">
+<li><p>A file-descriptor-sink is activated to store logs from last seven days with an
+<code class="docutils literal notranslate"><span class="pre">Info</span></code> level. For the node, the path is <code class="docutils literal notranslate"><span class="pre">&lt;node-data-dir&gt;/daily-logs/</span></code>. For
+other tools, see the corresponding sections in this page.</p></li>
+</ul>
+</section>
+<section id="json-configuration-format">
+<h2>JSON Configuration Format<a class="headerlink" href="#json-configuration-format" title="Link to this heading">#</a></h2>
+<p>A configuration JSON blob, is an object with one field <code class="docutils literal notranslate"><span class="pre">&quot;active_sinks&quot;</span></code>
+which contains a list of URIs:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;active_sinks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">list</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="nx">sink</span><span class="o">-</span><span class="nx">URIs</span><span class="o">&gt;</span><span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The URIs are discriminated among the sink implementations above using
+their schemes and activated.</p>
+<p>It is used in various places: node configuration file,
+logging-configuration RPC, etc.</p>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h2>
+<p>The logging framework can be configured with environment variables
+before starting an Octez executable (e.g., the node). Those variables work on all the code using the
+<code class="docutils literal notranslate"><span class="pre">tezos-stdlib-unix</span></code> library as long as <code class="docutils literal notranslate"><span class="pre">Internal_event_unix.init</span></code> is
+called; this should include <em>all</em> the regular <code class="docutils literal notranslate"><span class="pre">octez-*</span></code> binaries.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TEZOS_EVENTS_CONFIG</span></code> must be a whitespace-separated list of URIs:</p>
+<ul>
+<li><p>URIs that have a schema are activated.</p></li>
+<li><p>URIs without a schema, i.e. simple paths, are understood as paths
+to configuration JSON files (format above) to load (which
+themselves activate sinks).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEZOS_LOG</span></code> and <code class="docutils literal notranslate"><span class="pre">LWT_LOG</span></code> (deprecated and has a lower priority) contain
+“rules” to configure the default <code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout</span></code> sink. The rules
+are expressed with a DSL:</p>
+<ul>
+<li><p>rules are separated by semi-colons <code class="docutils literal notranslate"><span class="pre">;</span></code>,</p></li>
+<li><p>each rule has the form <code class="docutils literal notranslate"><span class="pre">pattern</span> <span class="pre">-&gt;</span> <span class="pre">level</span></code>,</p></li>
+<li><p>a pattern is a minimalist glob-expression on the <code class="docutils literal notranslate"><span class="pre">section.name</span></code> of
+the event, e.g. <code class="docutils literal notranslate"><span class="pre">rpc*</span></code> for all events whose section.name starts
+with <code class="docutils literal notranslate"><span class="pre">rpc</span></code>,</p></li>
+<li><p>rules are ordered, i.e., the first pattern that matches, from left to
+right, fires the corresponding rule.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TEZOS_EVENT_HOSTNAME</span></code> is used by the file-descriptor-sink to tweak the JSON
+output (see above).</p></li>
+</ul>
+<p>As the Irmin context backend uses an internal and specific logging
+system, it is possible to configure it through the <code class="docutils literal notranslate"><span class="pre">TEZOS_CONTEXT</span></code>
+environment variable, see <a class="reference internal" href="../shell/storage.html#context-component"><span class="std std-ref">Context</span></a>.</p>
+</section>
+<section id="node-specific-configuration">
+<span id="configure-node-logging"></span><h2>Node-Specific Configuration<a class="headerlink" href="#node-specific-configuration" title="Link to this heading">#</a></h2>
+<p>The node supports some additional means to configure logging, besides environment variables.</p>
+<section id="configuration-file">
+<h3>Configuration File<a class="headerlink" href="#configuration-file" title="Link to this heading">#</a></h3>
+<p>See <code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">config</span> <span class="pre">--help</span></code> for the full schema of the node’s JSON
+configuration file.</p>
+<p>In particular the fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;internal-events&quot;</span></code> contains a configuration of the sinks (format
+above).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code> is an object which defines the configuration of the default
+<code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout</span></code> sink; one can redirect the output to a file, set
+the rules, and change the formatting template. The goal of this configuration
+field is to be simpler to express that <code class="docutils literal notranslate"><span class="pre">internal-events</span></code> for simpler
+changes.</p></li>
+</ul>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">log</span></code> is ignored if <code class="docutils literal notranslate"><span class="pre">internal-events</span></code> is present.</p>
+</section>
+<section id="command-line-options">
+<h3>Command Line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h3>
+<p>See <code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">run</span> <span class="pre">--help</span></code>, the default <code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout://</span></code> sink
+configuration can be also be changed with the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> / <code class="docutils literal notranslate"><span class="pre">-vv</span></code>: set the global log level to <code class="docutils literal notranslate"><span class="pre">Info</span></code> or <code class="docutils literal notranslate"><span class="pre">Debug</span></code>
+respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-output</span></code>: set the output file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--log-coloring=&lt;bool&gt;</span></code>: enable or disable colors in the default stdout
+logs. The default value is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+</ul>
+</section>
+<section id="rpc-config-logging">
+<h3>RPC <code class="docutils literal notranslate"><span class="pre">/config/logging</span></code><a class="headerlink" href="#rpc-config-logging" title="Link to this heading">#</a></h3>
+<p>The node exposes an administrative <code class="docutils literal notranslate"><span class="pre">PUT</span></code> endpoint:
+<code class="docutils literal notranslate"><span class="pre">/config/logging</span></code>.</p>
+<p>The input schema is the JSON configuration of the sinks. It
+deactivates all current sinks and activates the ones provided <strong>except</strong>
+the <code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout://</span></code> sink that is left untouched.</p>
+<p>Example: (assuming the <code class="docutils literal notranslate"><span class="pre">file-descriptor-stdout://</span></code> is active not to miss other
+events) this call adds a sink to suddenly start pretty-printing all
+<code class="docutils literal notranslate"><span class="pre">rpc</span></code> events to a <code class="docutils literal notranslate"><span class="pre">/tmp/rpclogs</span></code> file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client rpc put /config/logging with \
+  &#39;{ &quot;active_sinks&quot;: [ &quot;file-descriptor-path:///tmp/rpclogs?section-prefix=rpc:debug&amp;format=pp&amp;fresh=true&quot; ] }&#39;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="client-and-baker-configuration">
+<h2>Client and baker configuration<a class="headerlink" href="#client-and-baker-configuration" title="Link to this heading">#</a></h2>
+<p>Both <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-{baker,accuser}-*</span></code> can be configured either
+using environment variables or using <code class="docutils literal notranslate"><span class="pre">internal-events</span></code> in the client configuration
+file, with the file-descriptor sinks described above.</p>
+<p>There is also one common option <code class="docutils literal notranslate"><span class="pre">--log-requests</span></code> which can be used to trace
+all the interactions with the node (but it does <em>not</em> use the logging
+framework).</p>
+<p>By default, the baker also generates internal logs, which are stored at
+<code class="docutils literal notranslate"><span class="pre">&lt;client-base-dir&gt;/logs/baker-&lt;protocol-name&gt;/*</span></code>. Hence, running two bakers
+(for two different accounts) using the same protocol with the same base
+directory is not recommended.</p>
+</section>
+<section id="processing-structured-events">
+<h2>Processing Structured Events<a class="headerlink" href="#processing-structured-events" title="Link to this heading">#</a></h2>
+<p>This is work-in-progress, see:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-admin-client</span> <span class="pre">show</span> <span class="pre">event-logging</span></code> outputs the configuration
+currently understood by <code class="docutils literal notranslate"><span class="pre">octez-admin-client</span></code> (hence through the
+<code class="docutils literal notranslate"><span class="pre">TEZOS_EVENTS_CONFIG</span></code> variable) and lists all the events it knows
+about.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-admin-client</span> <span class="pre">output</span> <span class="pre">schema</span> <span class="pre">of</span> <span class="pre">&lt;Event-Name&gt;</span> <span class="pre">to</span> <span class="pre">&lt;File-path&gt;</span></code>
+get the JSON-Schema for an event.</p></li>
+</ul>
+<p>Example:
+<code class="docutils literal notranslate"><span class="pre">octez-admin-client</span> <span class="pre">output</span> <span class="pre">schema</span> <span class="pre">of</span> <span class="pre">block-seen-alpha</span> <span class="pre">to</span> <span class="pre">block-seen-alpha.json</span></code></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fa12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">FA1.2 support</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exits.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exit codes and signals</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#events">Events</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sink-configuration">Sink Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-descriptor-sinks">File-Descriptor Sinks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-tree-sink">File-Tree Sink</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-defaults">Global Defaults</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#json-configuration-format">JSON Configuration Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-specific-configuration">Node-Specific Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-file">Configuration File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command Line Options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-config-logging">RPC <code class="docutils literal notranslate"><span class="pre">/config/logging</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client-and-baker-configuration">Client and baker configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-structured-events">Processing Structured Events</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
