@@ -41,6 +41,14 @@ Node
   /chains/<chain>/mempool/pending_operations`` which allows operations
   to be filtered by source. (MR :gl:`!11278`)
 
+- Add an ``operation_hash`` argument to ``GET
+  /chains/<chain>/mempool/pending_operations`` which allows operations
+  to be filtered by hash. (MR :gl:`!13977`)
+
+- Add a ``source`` argument to ``GET
+  /chains/<chain>/mempool/monitor_operations`` which allows operations
+  to be filtered by source. (MR :gl:`!14284`)
+
 - Add an RPC
   ``/chains/<chain>/blocks/<block>/context/smart_rollups/smart_rollup/<sr1...>/consumed_outputs/<outbox_level>``
   that returns the consumed output's indexes for the given outbox
@@ -87,6 +95,10 @@ Node
 
 - Removed ParisB mempool plugin. (MR :gl:`!14031`)
 
+- Introduced the external RPC process to reduce the load of the node
+  when answering heavy RPCs. This can be enabled using
+  ``--external-rpc-addr`` (MR :gl:`!9490`)
+
 Client
 ------
 
@@ -112,6 +124,14 @@ Baker
 - Branch used in consensus operation is now the grandparent block instead of the
   parent block. This is done to avoid having consensus operation branched on
   block that are not part of the canonical chain anymore.(MR :gl:`!13619`)
+
+- Remove ``preendorse for`` and ``endorse for`` deprecated commands from baker.
+  (MR :gl:`!14096`)
+
+- By default, the Baker only accepts to communicate with nodes of the same or
+  more recent version. To allow the Baker to communicate with nodes of older
+  version or dev version, use the --node-version-check-bypass or
+  --node-version-allowed option. (MRs :gl:`!14044`, :gl:`!14189`)
 
 Accuser
 -------
@@ -182,6 +202,15 @@ Smart Rollup node
   enabled with the flag ``--enable-performance-metrics`` (requires
   ``lsof``). (MR :gl:`!12290`)
 
+- Rotate multiple batcher keys in injector so that they are used evenly. (MR
+  :gl:`!14194`)
+
+- RPC ``/global/block/<block_id>?outbox=true`` now returns the outbox messages
+  produced by the PVM for ``block_id`` if the query parameter ``outbox`` is
+  present. (MR :gl:`!14140`)
+
+- Introduce the 6th version of the WASM PVM. (MR :gl:`!14493`)
+
 Smart Rollup WASM Debugger
 --------------------------
 
@@ -193,6 +222,22 @@ Data Availability Layer (DAL)
 
 DAL node
 ~~~~~~~~
+
+Reduce the number of inodes used by a bootstrap node. This fixes an issue
+where the number of inodes used was too high with respect to the disk size. (MR :gl:`!12900`)
+
+The DAL node's store has been updated, and it is not compatible with
+V20. However, a V20 store is upgraded at startup. (MR :gl:`!13820`)
+
+The format of the configuration file (and in particular that of profiles) has
+been updated. However, the node is able to read V20 configuration files. (MR
+:gl:`!12968`, MR :gl:`!13787`)
+
+The profile names have changed, in particular '(slot) producers' are now called
+'operators'. Accordingly, the node has a new argument ``--operator`` that should
+be used instead of ``--producer-profiles``, which is deprecated and will be
+removed at the next release, but still supported. (MR :gl:`!14261`, MR
+:gl:`!14277`)
 
 The following RPCs have been removed:
 
@@ -213,3 +258,5 @@ The paths or method of the following RPCs have been updated:
 
 Miscellaneous
 -------------
+
+- Depends on OCaml 4.14.2 (was 4.14.1 before). (MR :gl:`!14536`)

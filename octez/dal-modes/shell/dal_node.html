@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=d6ea7e20"></script>
+    <script src="../_static/documentation_options.js?v=c0ed171f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -655,18 +655,22 @@ document.write(`
 <h2>Concepts and features<a class="headerlink" href="#concepts-and-features" title="Link to this heading">#</a></h2>
 <section id="dal-p2p-network">
 <h3>DAL P2P network<a class="headerlink" href="#dal-p2p-network" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code> executable runs a node in the DAL’s P2P network. Recall that <a class="reference internal" href="dal_overview.html#dal-p2p"><span class="std std-ref">the DAL’s P2P protocol</span></a> is based on a gossip algorithm for distributing shards, running on top of a networking layer using the same p2p library as L1 nodes.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code> executable runs a node in the DAL’s P2P network. Recall that <a class="reference internal" href="dal_overview.html#dal-p2p"><span class="std std-ref">the DAL’s P2P protocol</span></a> is based on a gossipsub algorithm for distributing shards, running on top of a networking layer using the same p2p library as L1 nodes.</p>
 <p>Actors with various roles run DAL nodes, but they need different views of the network depending on their role:</p>
 <ul class="simple">
 <li><p>Operators of Smart Rollups care about data on the slots that their Smart Rollups use but not about the slots used by other rollups.</p></li>
 <li><p>Bakers care about the shards that they are assigned to attest to, but they must watch all slots because the assigned shards can be in any slot.</p></li>
-<li><p>Bootstrap node operators care about the smoothness of communication on the P2P network but don’t care about the content of the messages on the network or any specific slot or shard more than any other. These bootstrap nodes represent DAL network entry points. Their only role is to provide a way for other DAL nodes to become part of the DAL P2P network. A bootstrap node remains connected to a large number of peers, and is subscribed to all topics. It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.</p></li>
+<li><p>Bootstrap node operators care about other nodes getting the data that they are interested in via the P2P network but don’t care about the content of the messages on the network or any specific slot or shard more than any other.</p></li>
 </ul>
-<p>Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe to, for instance:</p>
+<p>Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe to:</p>
 <ul class="simple">
 <li><p>Operators subscribe to all topics containing some specified slot indexes.</p></li>
 <li><p>Bakers subscribe to all topics containing the attester identities they run for (for all possible slot indexes).</p></li>
 </ul>
+<p>Bootstrap nodes are DAL network entry points.
+They are typically used only to start a DAL network and provide a way for other DAL nodes to become part of the network.
+A bootstrap node remains connected to a large number of peers and is subscribed to all topics.
+It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.</p>
 <section id="profiles">
 <span id="dal-profiles"></span><h4>Profiles<a class="headerlink" href="#profiles" title="Link to this heading">#</a></h4>
 <p>Because node operators care about different parts of the DAL network, the DAL node runs in different <strong>modes</strong> and <strong>profiles</strong>.
@@ -675,7 +679,7 @@ You can set these modes and profiles in the node’s configuration file, as CLI 
 DAL nodes can run with any combination of those profiles:</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile (formerly known as the <code class="docutils literal notranslate"><span class="pre">producer</span></code> profile) is for users who are running a Smart Rollup and want to publish data to it. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> argument with the indexes of the slots to accept data for.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. The DAL node runs with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile automatically when a <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon with attestation rights connects to it.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. When an <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon with attestation rights connects to a DAL node, it prompts the DAL node to run with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile attests to data, accepts data to publish, and contributes to the resilience of network by helping distribute data. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> argument with the indexes of the slots to monitor or an empty string (as in <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span> <span class="pre">''</span></code>) to use a random index.</p></li>
 </ul>
 <p>If the node runs without any of these profiles (that is, without an attached <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon and without the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> and <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> arguments), it runs in bootstrap mode.
@@ -715,10 +719,10 @@ The RPC server is started by default, even if this option is not given.</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">run</span></code> runs the DAL node. The CLI arguments take precedence over the configuration file arguments, except for the list of bootstrap peers and of profiles, which are considered in addition to the ones from the configuration file. The configuration file is however not overridden with the new values of the node’s parameters. However, at the end of the execution, the node’s profiles, which may have been given as arguments or set via RPCs, are written to the configuration file.</p>
 <p>Both commands have the same arguments, which can be seen by executing, e.g., <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span> <span class="pre">config</span> <span class="pre">init</span> <span class="pre">--help</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OPTIONS
-       --attester-profiles=PKH1,PKH2,...
+       --attester-profiles=PKH1,PKH2,..., --attester=PKH1,PKH2,...
            The Octez DAL node attester profiles for given public key hashes.
 
-       --bootstrap-profile
+       --bootstrap-profile, --bootstrap
            The Octez DAL node bootstrap node profile. Note that a bootstrap
            node cannot also be an attester or a slot producer
 
@@ -753,14 +757,15 @@ The RPC server is started by default, even if this option is not given.</p>
            which this instance can be reached by other P2P nodes. The default
            address is 0.0.0.0. The default port is 11732.
 
-       --observer-profiles=INDEX1,INDEX2,...
+       --observer-profiles=INDEX1,INDEX2,..., --observer=INDEX1,INDEX2,...
            The Octez DAL node observer profiles for given slot indexes.
 
        --peers=ADDR:PORT,...
            An additional peer list to expand the bootstrap peers from the
            Octez node&#39;s configuration parameter dal_config.bootstrap_peers.
 
-       --producer-profiles=INDEX1,INDEX2,...
+       --producer-profiles=INDEX1,INDEX2,..., --producer=INDEX1,INDEX2,...,
+       --operator=INDEX1,INDEX2,...
            The Octez DAL node producer profiles for given slot indexes.
 
        --public-addr=ADDR[:PORT]

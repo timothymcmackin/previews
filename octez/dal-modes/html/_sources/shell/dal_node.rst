@@ -11,11 +11,13 @@ DAL P2P network
 
 The ``octez-dal-node`` executable runs a node in the DAL’s P2P network. Recall that :ref:`the DAL's P2P protocol <dal_p2p>` is based on a gossip algorithm for distributing shards, running on top of a networking layer using the same p2p library as L1 nodes.
 
-Actors with various roles run DAL nodes, but they need different views of the network depending on their role:
+Actors with various roles may need to run a DAL node, they need different views of the network depending on their role:
 
-- Operators of Smart Rollups care about data on the slots that their Smart Rollups use but not about the slots used by other rollups.
-- Bakers care about the shards that they are assigned to attest to, but they must watch all slots because the assigned shards can be in any slot.
-- Bootstrap node operators care about the smoothness of communication on the P2P network but don't care about the content of the messages on the network or any specific slot or shard more than any other. These bootstrap nodes represent DAL network entry points. Their only role is to provide a way for other DAL nodes to become part of the DAL P2P network. A bootstrap node remains connected to a large number of peers, and is subscribed to all topics. It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.
+- operators of smart rollups care about the slots published on some slot indices (those used by the rollup they operate), they don't care about the slots used by other rollups;
+- bakers however care about what happens on all slot indices but they only care about a few shard indices (those assigned to the address of the baker);
+- finally bootstrap nodes have a global view of the DAL P2P network but they don't care about the content of the messages that transit on the network.
+
+Bootstrap DAL nodes represent DAL network entry points. Their only role is to provide a way for other DAL nodes to become part of the DAL P2P network. A bootstrap node remains connected to a large number of peers, and is subscribed to all topics. It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.
 
 Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe to, for instance:
 
@@ -28,18 +30,8 @@ Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe
 Profiles
 ~~~~~~~~
 
-Because node operators care about different parts of the DAL network, the DAL node runs in different **modes** and **profiles**.
-You can set these modes and profiles in the node's configuration file, as CLI arguments to the node's commands, or via RPC calls.
-
-These are the profiles that DAL nodes can run in.
-DAL nodes can run with any combination of those profiles:
-
-- The ``operator`` profile (formerly known as the ``producer`` profile) is for users who are running a Smart Rollup and want to publish data to it. To run a DAL node with the ``operator`` profile, pass the ``--operator-profiles`` argument with the indexes of the slots to accept data for.
-- The ``attester`` profile is for bakers who want to attest to data. The DAL node runs with the ``attester`` profile automatically when a ``octez-baker`` daemon with attestation rights connects to it.
-- The ``observer`` profile attests to data, accepts data to publish, and contributes to the resilience of network by helping distribute data. To run a DAL node with the ``observer`` profile, pass the ``--observer-profiles`` argument with the indexes of the slots to monitor or an empty string (as in ``--observer-profiles ''``) to use a random index.
-
-If the node runs without any of these profiles (that is, without an attached ``octez-baker`` daemon and without the ``--operator-profiles`` and ``--observer-profiles`` arguments), it runs in bootstrap mode.
-Bootstrap mode is incompatible with the profiles.
+These differences in the behavior of a DAL node are specified using **profiles**. There are therefore three profiles: bootstrap, operator, and attester profiles. These can be given in the node’s configuration file, or as CLI arguments to the node’s commands, or via RPCs.
+The attester and operator profiles can be combined, the node will then subscribe to the union of the corresponding topics, while the bootstrap profile is incompatible with the other profiles.
 
 Storage
 ^^^^^^^
@@ -72,10 +64,8 @@ The RPC server is started by default, even if this option is not given.
 Operational aspects
 -------------------
 
-.. _dal-node-commands:
-
-DAL node commands
-^^^^^^^^^^^^^^^^^
+Running a DAL node
+^^^^^^^^^^^^^^^^^^
 
 The DAL node has two commands ``config init`` and ``run``.
 
@@ -91,8 +81,7 @@ Both commands have the same arguments, which can be seen by executing, e.g., ``o
 
 See the :ref:`DAL node manual <dal_node_manual>` for more details.
 
-The concrete operational steps for participating in the DAL network are described in page :doc:`./dal_run`.
-In order to run a DAL node with a slot producer profile, one first needs to
+In order to run a DAL node with an operator profile, one first needs to
 install some cryptographic parameters, see the section on :ref:`Install DAL
 trusted setup<setup_dal_crypto_params>`.
 

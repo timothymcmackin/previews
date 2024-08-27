@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=d6ea7e20"></script>
+    <script src="../_static/documentation_options.js?v=c0ed171f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -723,6 +723,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -746,6 +747,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands to inspect the event-logging framework</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>query</span> <span class='kwd'>events</span> <span class='kwd'>from</span> <span class='arg'>Sink-Name</span> [<span class='opt'>--names &lt;LIST&gt;</span>] [<span class='opt'>--sections &lt;LIST&gt;</span>] [<span class='opt'>--since &lt;DATE&gt;</span>] [<span class='opt'>--until &lt;DATE&gt;</span>] [<span class='opt'>--as-json</span>] [<span class='opt'>--dump-unknown</span>] [<span class='opt'>--for-script &lt;FORMAT&gt;</span>]</div>
@@ -761,11 +763,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--for-script &lt;FORMAT&gt;</span>: Make the output script-friendly. Possible values are 'TSV' and 'CSV'.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>event-logging</span></div>
 
 <div class='cmddoc'>Display configuration/state information about the internal-event logging framework.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>output</span> <span class='kwd'>schema</span> <span class='kwd'>of</span> <span class='arg'>Event-Name</span> <span class='kwd'>to</span> <span class='arg'>File-path</span></div>
@@ -779,6 +783,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for the low level RPC layer</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>list</span> <span class='arg'>url</span></div>
@@ -791,11 +796,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>url</span>: the URL prefix</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>list</span></div>
 
 <div class='cmddoc'>Alias to `rpc list /`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>schema</span> <span class='arg'>HTTP method</span> <span class='arg'>url</span></div>
@@ -804,6 +811,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>HTTP method</span>: 
 <span class='arg'>url</span>: the RPC url</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>format</span> <span class='arg'>HTTP method</span> <span class='arg'>url</span> [<span class='opt'>-b --binary</span>]</div>
@@ -814,12 +822,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-b --binary</span>: Binary format</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>get</span> <span class='arg'>url</span></div>
 
 <div class='cmddoc'>Call an RPC with the GET method.
 <span class='arg'>url</span>: the RPC URL</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>post</span> <span class='arg'>url</span></div>
@@ -828,6 +838,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   It invokes $EDITOR if input data is needed.
 <span class='arg'>url</span>: the RPC URL</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>post</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
@@ -839,6 +850,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Alternatively, use `file:path` to read the JSON data from a file.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>patch</span> <span class='arg'>url</span></div>
 
@@ -846,6 +858,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   It invokes $EDITOR if input data is needed.
 <span class='arg'>url</span>: the RPC URL</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>patch</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
@@ -857,6 +870,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Alternatively, use `file:path` to read the JSON data from a file.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>put</span> <span class='arg'>url</span></div>
 
@@ -864,6 +878,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   It invokes $EDITOR if input data is needed.
 <span class='arg'>url</span>: the RPC URL</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>put</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
@@ -874,6 +889,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   For instance, use `{}` to send the empty document.
   Alternatively, use `file:path` to read the JSON data from a file.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>delete</span> <span class='arg'>url</span></div>
@@ -886,12 +902,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for managing protocols</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>protocols</span></div>
 
 <div class='cmddoc'>List protocols known by the node.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>inject</span> <span class='kwd'>protocol</span> <span class='arg'>dir</span></div>
@@ -900,6 +918,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>dir</span>: directory containing the sources of a protocol</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>protocol</span> <span class='arg'>protocol hash</span></div>
 
@@ -907,12 +926,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>protocol hash</span>: </div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>protocol</span> <span class='kwd'>environment</span> <span class='arg'>protocol hash</span></div>
 
 <div class='cmddoc'>Show the environment version used by a protocol.
 <span class='arg'>protocol hash</span>: </div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>fetch</span> <span class='kwd'>protocol</span> <span class='arg'>protocol hash</span></div>
@@ -925,12 +946,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for monitoring and controlling p2p-layer state</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>p2p</span> <span class='kwd'>stat</span></div>
 
 <div class='cmddoc'>show global network status</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>connect</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
@@ -939,12 +962,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>kick</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
 
 <div class='cmddoc'>Kick a peer.
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
@@ -953,12 +978,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
 
 <div class='cmddoc'>Remove an IP address and all its ports from the blacklist.
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>trust</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
@@ -967,12 +994,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>untrust</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
 
 <div class='cmddoc'>Removes an IP address from the whitelist.
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>is</span> <span class='kwd'>address</span> <span class='kwd'>banned</span> <span class='arg'>address</span></div>
@@ -981,12 +1010,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT defaults to 9732).</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>is</span> <span class='kwd'>peer</span> <span class='kwd'>banned</span> <span class='arg'>peer</span></div>
 
 <div class='cmddoc'>Check if a peer ID is banned.
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
@@ -995,12 +1026,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
 
 <div class='cmddoc'>Removes a peer ID from the blacklist.
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>trust</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
@@ -1009,12 +1042,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>untrust</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
 
 <div class='cmddoc'>Remove a peer ID from the whitelist.
 <span class='arg'>peer</span>: peer network identity</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>clear</span> <span class='kwd'>acls</span></div>
@@ -1026,6 +1061,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands to perform privileged operations on the node</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>unmark</span> <span class='kwd'>invalid</span> [<span class='arg'>block</span>...]</div>
@@ -1034,17 +1070,20 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>block</span>: blocks to remove from invalid list</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>unmark</span> <span class='kwd'>all</span> <span class='kwd'>invalid</span> <span class='kwd'>blocks</span></div>
 
 <div class='cmddoc'>Make the node forget every decision of rejecting blocks.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>current</span> <span class='kwd'>checkpoint</span></div>
 
 <div class='cmddoc'>Retrieve the current checkpoint and display it in a format compatible with node argument `--checkpoint`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>operation</span> <span class='arg'>operation</span></div>
@@ -1053,12 +1092,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>operation</span>: hash of operation to ban</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>operation</span> <span class='arg'>operation</span></div>
 
 <div class='cmddoc'>Remove an operation from the set of banned operations (nothing happens if it was not banned).
 <span class='arg'>operation</span>: hash of operation to unban</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>all</span> <span class='kwd'>operations</span></div>
@@ -1070,6 +1111,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands to report the node's status</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>heads</span> [<span class='opt'>-o --output &lt;path&gt;</span>]</div>
@@ -1078,6 +1120,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-o --output &lt;path&gt;</span>: write to a file
   Defaults to `-`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>rejected</span> <span class='kwd'>blocks</span> [<span class='opt'>-o --output &lt;path&gt;</span>]</div>
@@ -1091,6 +1134,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for editing and viewing the client's config file</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>show</span></div>
@@ -1098,11 +1142,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <div class='cmddoc'>Show the current config (config file content + command line arguments) or the mockup config files if `--mode mockup` is specified.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>reset</span></div>
 
 <div class='cmddoc'>Reset the config file to the factory defaults.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>update</span></div>
@@ -1113,6 +1159,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   (such as the node's address, etc.), and overwrites the updated
   configuration file.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>init</span> [<span class='opt'>-o --output &lt;path&gt;</span>] [<span class='opt'>--bootstrap-accounts &lt;path&gt;</span>] [<span class='opt'>--protocol-constants &lt;path&gt;</span>]</div>
@@ -1141,6 +1188,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 
 <h3>Miscellaneous commands</h3>
+
 
 <ul>
 <li>
@@ -1199,6 +1247,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -1222,6 +1271,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands specific to the signing daemon</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>socket</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>] [<span class='opt'>-t --timeout &lt;timeout&gt;</span>]</div>
@@ -1241,6 +1291,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Defaults to `8`.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>local</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>-s --socket &lt;path&gt;</span>]</div>
 
@@ -1254,6 +1305,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-s --socket &lt;path&gt;</span>: path to the local socket file
   Defaults to `$HOME/.tezos-signer/socket`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>http</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>]</div>
@@ -1270,6 +1322,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-p --port &lt;port number&gt;</span>: listening HTTP port
   Defaults to `6732`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>https</span> <span class='kwd'>signer</span> <span class='arg'>cert</span> <span class='arg'>key</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>]</div>
@@ -1289,6 +1342,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Defaults to `443`.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>add</span> <span class='kwd'>authorized</span> <span class='kwd'>key</span> <span class='arg'>pk</span> [<span class='opt'>-N --name &lt;name&gt;</span>]</div>
 
@@ -1301,6 +1355,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for managing the wallet of cryptographic keys</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>stresstest</span> <span class='kwd'>gen</span> <span class='kwd'>keys</span> <span class='arg'>keys_count</span> [<span class='opt'>--alias-prefix &lt;PREFIX&gt;</span>]</div>
@@ -1309,6 +1364,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>keys_count</span>: How many keys to generate
 <span class='opt'>--alias-prefix &lt;PREFIX&gt;</span>: use a custom alias prefix (default: bootstrap). Keys will be generated with alias "PREFIX&lt;ID&gt;" where ID is unique for all key</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>signing</span> <span class='kwd'>schemes</span></div>
@@ -1323,6 +1379,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   tezos client supports.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>gen</span> <span class='kwd'>keys</span> <span class='arg'>new</span> [<span class='opt'>-f --force</span>] [<span class='opt'>-s --sig &lt;ed25519|secp256k1|p256|bls&gt;</span>] [<span class='opt'>--encrypted</span>]</div>
 
@@ -1333,6 +1390,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Defaults to `ed25519`.
 <span class='opt'>--encrypted</span>: Encrypt the key on-disk</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>gen</span> <span class='kwd'>vanity</span> <span class='kwd'>keys</span> <span class='arg'>new</span> <span class='kwd'>matching</span> [<span class='arg'>words</span>...] [<span class='opt'>-P --prefix</span>] [<span class='opt'>-I --ignore-case</span>] [<span class='opt'>-f --force</span>] [<span class='opt'>--encrypted</span>]</div>
@@ -1346,11 +1404,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--encrypted</span>: Encrypt the key on-disk</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>encrypt</span> <span class='kwd'>secret</span> <span class='kwd'>key</span></div>
 
 <div class='cmddoc'>Encrypt an unencrypted secret key.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>secret</span> <span class='kwd'>key</span> <span class='arg'>new</span> <span class='arg'>uri</span> [<span class='opt'>-f --force</span>]</div>
@@ -1363,6 +1423,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-f --force</span>: overwrite existing secret_key</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>public</span> <span class='kwd'>key</span> <span class='arg'>new</span> <span class='arg'>uri</span> [<span class='opt'>-f --force</span>]</div>
 
@@ -1373,6 +1434,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Use command `list signing schemes` for more information.
 <span class='opt'>-f --force</span>: overwrite existing public_key</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>add</span> <span class='kwd'>address</span> <span class='arg'>new</span> <span class='arg'>src</span> [<span class='opt'>-f --force</span>]</div>
@@ -1389,11 +1451,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-f --force</span>: overwrite existing public_key</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>known</span> <span class='kwd'>addresses</span></div>
 
 <div class='cmddoc'>List all addresses and associated keys.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>address</span> <span class='arg'>name</span> [<span class='opt'>-S --show-secret</span>]</div>
@@ -1403,6 +1467,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-S --show-secret</span>: show the private key</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>forget</span> <span class='kwd'>address</span> <span class='arg'>name</span> [<span class='opt'>-f --force</span>]</div>
 
@@ -1411,12 +1476,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-f --force</span>: delete associated keys when present</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>forget</span> <span class='kwd'>all</span> <span class='kwd'>keys</span> [<span class='opt'>-f --force</span>]</div>
 
 <div class='cmddoc'>Forget the entire wallet of keys.
 <span class='opt'>-f --force</span>: you got to use the force for that</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>nonce</span> <span class='kwd'>for</span> <span class='arg'>name</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
@@ -1426,6 +1493,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>data</span>: string from which to deterministically generate the nonce</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>nonce</span> <span class='kwd'>hash</span> <span class='kwd'>for</span> <span class='arg'>name</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
 
@@ -1433,6 +1501,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>name</span>: existing public key hash alias
 <span class='arg'>data</span>: string from which to deterministically generate the nonce hash</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>keys</span> <span class='kwd'>from</span> <span class='kwd'>mnemonic</span> <span class='arg'>new</span> [<span class='opt'>-f --force</span>] [<span class='opt'>--encrypt</span>]</div>
@@ -1443,6 +1512,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--encrypt</span>: encrypt the secret key</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>bls</span> <span class='kwd'>gen</span> <span class='kwd'>keys</span> <span class='arg'>new</span> [<span class='opt'>-f --force</span>] [<span class='opt'>--encrypted</span>]</div>
 
@@ -1452,11 +1522,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--encrypted</span>: Encrypt the key on-disk</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>bls</span> <span class='kwd'>list</span> <span class='kwd'>keys</span></div>
 
 <div class='cmddoc'>List BlS keys.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>bls</span> <span class='kwd'>show</span> <span class='kwd'>address</span> <span class='arg'>name</span> [<span class='opt'>-S --show-secret</span>]</div>
@@ -1465,6 +1537,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>name</span>: existing Aggregate_public_key_hash alias
 <span class='opt'>-S --show-secret</span>: show the private key</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>bls</span> <span class='kwd'>import</span> <span class='kwd'>secret</span> <span class='kwd'>key</span> <span class='arg'>new</span> <span class='arg'>uri</span> [<span class='opt'>-f --force</span>]</div>
@@ -1481,12 +1554,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for managing the connected Ledger Nano devices</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>connected</span> <span class='kwd'>ledgers</span></div>
 
 <div class='cmddoc'>List supported Ledger Nano devices connected.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>ledger</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--test-sign</span>]</div>
@@ -1496,6 +1571,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--test-sign</span>: Test signing operation</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>authorized</span> <span class='kwd'>path</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
 
@@ -1503,12 +1579,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>authorize</span> <span class='kwd'>ledger</span> <span class='kwd'>to</span> <span class='kwd'>bake</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
 
 <div class='cmddoc'>Authorize a Ledger to bake for a key (deprecated, use `setup ledger ...` with recent versions of the Baking app)
 <span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>setup</span> <span class='kwd'>ledger</span> <span class='kwd'>to</span> <span class='kwd'>bake</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--main-chain-id &lt;ID&gt;</span>] [<span class='opt'>--main-hwm &lt;HWM&gt;</span>] [<span class='opt'>--test-hwm &lt;HWM&gt;</span>]</div>
@@ -1523,12 +1601,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
   Defaults to `ASK-LEDGER`.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>deauthorize</span> <span class='kwd'>ledger</span> <span class='kwd'>baking</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
 
 <div class='cmddoc'>Deauthorize Ledger from baking
 <span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>water</span> <span class='kwd'>mark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--no-legacy-instructions</span>]</div>
@@ -1538,6 +1618,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--no-legacy-instructions</span>: Prevent the fallback to the (deprecated) Ledger instructions (for 1.x.y versions of the Baking app)</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>set</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>water</span> <span class='kwd'>mark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> <span class='kwd'>to</span> <span class='arg'>high watermark</span></div>
 
@@ -1546,6 +1627,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>high watermark</span>: High watermark</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>watermark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--no-legacy-instructions</span>]</div>
 
@@ -1553,6 +1635,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger alias or a ledger URI (e.g. "ledger://animal/curve/path").
 <span class='opt'>--no-legacy-instructions</span>: Prevent the fallback to the (deprecated) Ledger instructions (for 1.x.y versions of the Baking app)</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>set</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>watermark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> <span class='kwd'>to</span> <span class='arg'>high watermark</span></div>
@@ -1609,6 +1692,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -1632,6 +1716,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Command for generating random sapling transactions</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>sapling</span> <span class='kwd'>generate</span> <span class='arg'>SAPLING-TX-COUNT</span> <span class='kwd'>transactions</span> <span class='kwd'>in</span> <span class='arg'>SAPLING-TX-FILE</span> [<span class='opt'>--max-inputs &lt;integer&gt;</span>] [<span class='opt'>--max-outputs &lt;integer&gt;</span>] [<span class='opt'>--max-nullifiers &lt;integer&gt;</span>] [<span class='opt'>--max-additional-commitments &lt;integer&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>]</div>
@@ -1650,6 +1735,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Command for generating random Michelson code and data</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>michelson</span> <span class='kwd'>generate</span> <span class='arg'>TERMS-COUNT</span> <span class='kwd'>terms</span> <span class='kwd'>of</span> <span class='kwd'>kind</span> <span class='arg'>{data|code}</span> <span class='kwd'>in</span> <span class='arg'>FILENAME</span> [<span class='opt'>--min-size &lt;int&gt;</span>] [<span class='opt'>--max-size &lt;int&gt;</span>] [<span class='opt'>--burn-in &lt;int&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>]</div>
@@ -1664,6 +1750,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--seed &lt;int&gt;</span>: RNG seed</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>michelson</span> <span class='kwd'>concat</span> <span class='kwd'>files</span> <span class='arg'>FILENAME</span> <span class='kwd'>and</span> <span class='arg'>FILENAME</span> <span class='kwd'>into</span> <span class='arg'>FILENAME</span></div>
 
@@ -1677,6 +1764,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for displaying detailed information for Snoop components</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>benchmark</span> <span class='arg'>BENCH-NAME</span></div>
@@ -1685,11 +1773,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>all</span> <span class='kwd'>benchmarks</span></div>
 
 <div class='cmddoc'>Display detailed information on all the benchmarks</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>model</span> <span class='arg'>MODEL-NAME</span></div>
@@ -1698,12 +1788,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>MODEL-NAME</span>: Name of the model</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>parameter</span> <span class='arg'>PARAM-NAME</span></div>
 
 <div class='cmddoc'>Display detailed information on the given parameter
 <span class='arg'>PARAM-NAME</span>: Name of the parameter</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>local</span> <span class='kwd'>model</span> <span class='arg'>LOCAL-MODEL-NAME</span></div>
@@ -1715,6 +1807,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 
 <h3>Commands for manipulating workload files</h3>
+
 
 <ul>
 <li>
@@ -1729,6 +1822,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for manipulating config files</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>check</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> <span class='arg'>BENCH-NAME</span></div>
@@ -1738,6 +1832,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>generate</span> <span class='kwd'>default</span> <span class='kwd'>in</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> [<span class='arg'>BENCH-NAME</span>...]</div>
 
@@ -1746,12 +1841,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>generate</span> <span class='kwd'>empty</span> <span class='kwd'>in</span> <span class='arg'>CONFIG-FILE</span></div>
 
 <div class='cmddoc'>Generates an empty configuration file for the given benchmarks
 <span class='arg'>CONFIG-FILE</span>: Configuration file name</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>merge</span> <span class='arg'>SRC</span> <span class='kwd'>in</span> <span class='arg'>DST</span> [<span class='opt'>-d --delete-source</span>]</div>
@@ -1761,6 +1858,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>DST</span>: Configuration file path destination
 <span class='opt'>-d --delete-source</span>: Deletes the source config file given as argument for merging</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>edit</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> <span class='arg'>BENCH-NAME</span> [<span class='opt'>-e --use-editor &lt;EDITOR&gt;</span>] [<span class='opt'>-i --read-stdin</span>] [<span class='opt'>-f --read-file &lt;FILE&gt;</span>] [<span class='opt'>-j --read-json &lt;JSON&gt;</span>]</div>
@@ -1778,6 +1876,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for displaying lists</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>benchmarks</span> [<span class='opt'>-t --show-tags</span>]</div>
@@ -1786,11 +1885,13 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>tags</span></div>
 
 <div class='cmddoc'>List all available tags</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>any</span> <span class='kwd'>of</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
@@ -1800,6 +1901,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>all</span> <span class='kwd'>of</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
 
@@ -1807,6 +1909,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>TAG</span>: Tag of a benchmark
 <span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>exactly</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
@@ -1816,6 +1919,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>in</span> <span class='arg'>BENCH-NAME</span> [<span class='opt'>-t --show-tags</span>]</div>
 
@@ -1824,17 +1928,20 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>parameters</span></div>
 
 <div class='cmddoc'>List all parameters</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>models</span></div>
 
 <div class='cmddoc'>List all models</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>local</span> <span class='kwd'>models</span></div>
@@ -1845,6 +1952,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 
 <h3>Command for solution file</h3>
+
 
 <ul>
 <li>
@@ -1858,6 +1966,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Command for generating code</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>and</span> <span class='kwd'>model</span> <span class='arg'>CODEGEN-MODEL-NAME</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
@@ -1869,6 +1978,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>for</span> <span class='kwd'>all</span> <span class='kwd'>models</span> <span class='kwd'>matching</span> <span class='arg'>REGEXP</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
 
@@ -1879,6 +1989,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>for</span> <span class='kwd'>inferred</span> <span class='kwd'>models</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
 
@@ -1887,6 +1998,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--fixed-point &lt;json-config-file&gt;</span>: Apply fixed-point transform to the model
 <span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>solutions</span> [<span class='arg'>SOLUTION-FILE</span>...] [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;FILE-NAME&gt;</span>] [<span class='opt'>--split-to &lt;DIR&gt;</span>]</div>
@@ -1898,12 +2010,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--split-to &lt;DIR&gt;</span>: Generated code is saved to DIR/&lt;generated_code_destination&gt;_costs_generated.ml (and __non_fp.ml).</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>check</span> <span class='kwd'>definitions</span> <span class='kwd'>of</span> [<span class='arg'>MLFILE</span>...]</div>
 
 <div class='cmddoc'>Check cost functions defined in the given .ml files
 <span class='arg'>MLFILE</span>: File containing cost function definitions</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>benchmarks</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
@@ -1922,6 +2036,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for plotting empirical data quantiles</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>models</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
 
@@ -1938,6 +2053,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload, produces a file containing the plot of the raw data, in the specified directory
 <span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for plotting empirical data quantiles</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>parameters</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
@@ -1959,6 +2075,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 
 <h3>Command for infering parameters of cost models</h3>
+
 
 <ul>
 <li>
@@ -1982,6 +2099,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload, produces a file containing the plot of the raw data, in the specified directory
 <span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for plotting empirical data quantiles</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>infer</span> <span class='kwd'>parameters</span> <span class='kwd'>on</span> <span class='kwd'>data</span> <span class='arg'>WORKLOAD-DATA</span> <span class='kwd'>using</span> <span class='arg'>REGRESSION-METHOD</span> [<span class='opt'>--print-problem</span>] [<span class='opt'>--dump-csv &lt;filename&gt;</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--ridge-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-positive</span>] [<span class='opt'>--report &lt;filename&gt;</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--save-solution &lt;filename&gt;</span>] [<span class='opt'>--dot-file &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
@@ -2008,6 +2126,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands for benchmarking parts of the protocol</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>benchmark</span> <span class='arg'>BENCH-NAME</span> <span class='kwd'>and</span> <span class='kwd'>save</span> <span class='kwd'>to</span> <span class='arg'>FILENAME</span> [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>--minor-heap-size &lt;strictly positive int&gt;</span>] [<span class='opt'>-c --config-file &lt;file&gt;</span>] [<span class='opt'>--dump-csv &lt;filename&gt;</span>]</div>
@@ -2026,6 +2145,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 
 <h3>Miscellaneous commands</h3>
+
 
 <ul>
 <li>
@@ -2083,6 +2203,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -2106,6 +2227,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 
 <h3>Commands to handle encodings</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>encodings</span></div>
@@ -2113,12 +2235,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <div class='cmddoc'>List the registered encoding in Tezos.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>encodings</span> [<span class='opt'>--compact</span>]</div>
 
 <div class='cmddoc'>Dump a JSON description of all registered encodings.
 <span class='opt'>--compact</span>: Output JSON descriptions without extraneous whitespace characters</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>encoding</span> <span class='arg'>id</span> [<span class='opt'>--compact</span>]</div>
@@ -2128,6 +2252,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='opt'>--compact</span>: Output JSON description without extraneous whitespace characters</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>encode</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
 
@@ -2135,6 +2260,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>id</span>: Encoding identifier
 <span class='arg'>data</span>: JSON file or data</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>decode</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
@@ -2144,6 +2270,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>data</span>: Hex-encoded binary-encoded data or name of file containing the data</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='kwd'>binary</span> <span class='arg'>data</span></div>
 
@@ -2151,6 +2278,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>id</span>: Encoding identifier
 <span class='arg'>data</span>: Hex-encoded binary-encoded data or name of file containing the data</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>display</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='kwd'>json</span> <span class='arg'>data</span></div>
@@ -2160,6 +2288,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>data</span>: JSON file or data</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>describe</span> <span class='arg'>id</span> <span class='kwd'>binary</span> <span class='kwd'>schema</span></div>
 
@@ -2167,6 +2296,7 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 <span class='arg'>id</span>: Encoding identifier
 </div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>describe</span> <span class='arg'>id</span> <span class='kwd'>json</span> <span class='kwd'>schema</span></div>
@@ -2176,12 +2306,14 @@ The protocol-dependent tools are documented <a class="reference internal" href="
 </div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>slice</span> <span class='arg'>data</span></div>
 
 <div class='cmddoc'>Attempts to slice an hex-encoded binary value with all known encodings.
 <span class='arg'>data</span>: Hex-encoded binary-encoded data or name of file containing the data</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>slice</span> <span class='arg'>data</span> <span class='kwd'>with</span> <span class='kwd'>encoding</span> <span class='arg'>id</span> [<span class='opt'>--format &lt;FORMAT&gt;</span>]</div>
@@ -2405,6 +2537,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -2428,6 +2561,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Commands related to the DAC node</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>run</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>]</div>
@@ -2436,6 +2570,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the DAC node data directory. Default value is $HOME/.tezos-dac-node
   Defaults to `$HOME/.tezos-dac-node`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>configure</span> <span class='kwd'>as</span> <span class='kwd'>coordinator</span> <span class='kwd'>with</span> <span class='kwd'>data</span> <span class='kwd'>availability</span> <span class='kwd'>committee</span> <span class='kwd'>members</span> [<span class='arg'>bls-public-key</span>...] [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--reveal-data-dir &lt;reveal-data-dir&gt;</span>] [<span class='opt'>--allow-v1-api</span>]</div>
@@ -2453,6 +2588,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--allow-v1-api</span>: Run dac node with both V0 and V1 (WIP) API.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>configure</span> <span class='kwd'>as</span> <span class='kwd'>committee</span> <span class='kwd'>member</span> <span class='kwd'>with</span> <span class='kwd'>coordinator</span> <span class='arg'>coordinator-rpc-address</span> <span class='kwd'>and</span> <span class='kwd'>signer</span> <span class='arg'>bls-public-key-hash</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--reveal-data-dir &lt;reveal-data-dir&gt;</span>] [<span class='opt'>--allow-v1-api</span>]</div>
 
@@ -2469,6 +2605,7 @@ whenever the TERM env var is dumb or undefined.</p>
   Defaults to `$HOME/.tezos-smart-rollup-node/wasm_2_0_0`.
 <span class='opt'>--allow-v1-api</span>: Run dac node with both V0 and V1 (WIP) API.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>configure</span> <span class='kwd'>as</span> <span class='kwd'>observer</span> <span class='kwd'>with</span> <span class='kwd'>coordinator</span> <span class='arg'>coordinator-rpc-address</span> <span class='kwd'>and</span> <span class='kwd'>committee</span> <span class='kwd'>member</span> <span class='kwd'>rpc</span> <span class='kwd'>addresses</span> [<span class='arg'>committee-member-rpc-address</span>...] [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--reveal-data-dir &lt;reveal-data-dir&gt;</span>] [<span class='opt'>--timeout &lt;timeout&gt;</span>] [<span class='opt'>--allow-v1-api</span>]</div>
@@ -2492,6 +2629,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Commands for editing and viewing the client's config file</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>show</span></div>
@@ -2499,11 +2637,13 @@ whenever the TERM env var is dumb or undefined.</p>
 <div class='cmddoc'>Show the current config (config file content + command line arguments) or the mockup config files if `--mode mockup` is specified.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>reset</span></div>
 
 <div class='cmddoc'>Reset the config file to the factory defaults.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>update</span></div>
@@ -2514,6 +2654,7 @@ whenever the TERM env var is dumb or undefined.</p>
   (such as the node's address, etc.), and overwrites the updated
   configuration file.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>init</span> [<span class='opt'>-o --output &lt;path&gt;</span>] [<span class='opt'>--bootstrap-accounts &lt;path&gt;</span>] [<span class='opt'>--protocol-constants &lt;path&gt;</span>]</div>
@@ -2542,6 +2683,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 
 <h3>Miscellaneous commands</h3>
+
 
 <ul>
 <li>
@@ -2625,6 +2767,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -2648,6 +2791,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Dac client commands for interacting with a Dac node</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>send</span> <span class='kwd'>payload</span> <span class='kwd'>to</span> <span class='kwd'>coordinator</span> <span class='arg'>DAC coordinator rpc address parameter</span> <span class='kwd'>with</span> <span class='kwd'>content</span> <span class='arg'>hex payload</span> [<span class='opt'>--wait-for-threshold &lt;wait-for-threshold&gt;</span>]</div>
@@ -2660,6 +2804,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--wait-for-threshold &lt;wait-for-threshold&gt;</span>: The amount of signatures required from a certificate before the client returns</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>send</span> <span class='kwd'>payload</span> <span class='kwd'>to</span> <span class='kwd'>coordinator</span> <span class='arg'>DAC coordinator rpc address parameter</span> <span class='kwd'>from</span> <span class='kwd'>file</span> <span class='arg'>payload filename</span> [<span class='opt'>--wait-for-threshold &lt;wait-for-threshold&gt;</span>]</div>
 
@@ -2670,6 +2815,7 @@ whenever the TERM env var is dumb or undefined.</p>
   Payload must be in binary format
 <span class='opt'>--wait-for-threshold &lt;wait-for-threshold&gt;</span>: The amount of signatures required from a certificate before the client returns</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>certificate</span> <span class='kwd'>from</span> <span class='kwd'>coordinator</span> <span class='arg'>DAC coordinator rpc address parameter</span> <span class='kwd'>for</span> <span class='kwd'>root</span> <span class='kwd'>hash</span> <span class='arg'>hex root hash</span></div>
@@ -2684,6 +2830,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Commands for editing and viewing the client's config file</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>show</span></div>
@@ -2691,11 +2838,13 @@ whenever the TERM env var is dumb or undefined.</p>
 <div class='cmddoc'>Show the current config (config file content + command line arguments) or the mockup config files if `--mode mockup` is specified.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>reset</span></div>
 
 <div class='cmddoc'>Reset the config file to the factory defaults.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>update</span></div>
@@ -2706,6 +2855,7 @@ whenever the TERM env var is dumb or undefined.</p>
   (such as the node's address, etc.), and overwrites the updated
   configuration file.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>init</span> [<span class='opt'>-o --output &lt;path&gt;</span>] [<span class='opt'>--bootstrap-accounts &lt;path&gt;</span>] [<span class='opt'>--protocol-constants &lt;path&gt;</span>]</div>
@@ -2734,6 +2884,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 
 <h3>Miscellaneous commands</h3>
+
 
 <ul>
 <li>
@@ -2837,6 +2988,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Access the documentation</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
@@ -2860,6 +3012,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 <h3>Commands to repair the smart rollup node.</h3>
 
+
 <ul>
 <li>
 <div class='cmdline'><span class='kwd'>repair</span> <span class='kwd'>commitments</span> <span class='kwd'>for</span> <span class='arg'>protocol</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>]</div>
@@ -2873,6 +3026,7 @@ whenever the TERM env var is dumb or undefined.</p>
 
 
 <h3>Commands related to the smart rollup node.</h3>
+
 
 <ul>
 <li>
@@ -2928,6 +3082,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--bail-on-disagree</span>: Make an observer rollup node bail when it sees a commitment it disagree with on L1.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>run</span> <span class='arg'>mode</span> <span class='kwd'>for</span> <span class='arg'>smart-rollup-address</span> <span class='kwd'>with</span> <span class='kwd'>operators</span> [<span class='arg'>operator</span>...] [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--acl-override &lt;kind&gt;</span>] [<span class='opt'>--metrics-addr &lt;ADDR:PORT or :PORT (by default ADDR is localhost and PORT is 9933)&gt;</span>] [<span class='opt'>--enable-performance-metrics</span>] [<span class='opt'>--loser-mode &lt;mode&gt;</span>] [<span class='opt'>--reconnection-delay &lt;delay&gt;</span>] [<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>] [<span class='opt'>--dac-observer &lt;dac-observer-endpoint&gt;</span>] [<span class='opt'>--dac-timeout &lt;seconds&gt;</span>] [<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>] [<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>] [<span class='opt'>--injector-attempts &lt;number&gt;</span>] [<span class='opt'>--injection-ttl &lt;number&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--irmin-cache-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--log-kernel-debug</span>] [<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>] [<span class='opt'>--boot-sector-file &lt;file&gt;</span>] [<span class='opt'>--no-degraded</span>] [<span class='opt'>--gc-frequency &lt;blocks&gt;</span>] [<span class='opt'>--history-mode &lt;history_mode&gt;</span>] [<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>] [<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>] [<span class='opt'>--apply-unsafe-patches</span>] [<span class='opt'>--bail-on-disagree</span>]</div>
 
@@ -2982,6 +3137,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--bail-on-disagree</span>: Make an observer rollup node bail when it sees a commitment it disagree with on L1.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>run</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--mode &lt;mode&gt;</span>] [<span class='opt'>--rollup &lt;smart-rollup-address&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--acl-override &lt;kind&gt;</span>] [<span class='opt'>--metrics-addr &lt;ADDR:PORT or :PORT (by default ADDR is localhost and PORT is 9933)&gt;</span>] [<span class='opt'>--enable-performance-metrics</span>] [<span class='opt'>--loser-mode &lt;mode&gt;</span>] [<span class='opt'>--reconnection-delay &lt;delay&gt;</span>] [<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>] [<span class='opt'>--dac-observer &lt;dac-observer-endpoint&gt;</span>] [<span class='opt'>--dac-timeout &lt;seconds&gt;</span>] [<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>] [<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>] [<span class='opt'>--injector-attempts &lt;number&gt;</span>] [<span class='opt'>--injection-ttl &lt;number&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--log-kernel-debug</span>] [<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>] [<span class='opt'>--boot-sector-file &lt;file&gt;</span>] [<span class='opt'>--no-degraded</span>] [<span class='opt'>--gc-frequency &lt;blocks&gt;</span>] [<span class='opt'>--history-mode &lt;history_mode&gt;</span>] [<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>] [<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>] [<span class='opt'>--apply-unsafe-patches</span>] [<span class='opt'>--bail-on-disagree</span>]</div>
 
@@ -3033,17 +3189,20 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--bail-on-disagree</span>: Make an observer rollup node bail when it sees a commitment it disagree with on L1.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>supported</span> <span class='kwd'>protocols</span></div>
 
 <div class='cmddoc'>Shows the protocols supported by this rollup node.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>dump-metrics</span></div>
 
 <div class='cmddoc'>dump the rollup node available metrics in CSV format.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>durable</span> <span class='kwd'>storage</span> <span class='kwd'>into</span> <span class='arg'>dump.&lt;json|yaml&gt;</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>-b --block &lt;hash|level|tag&gt;</span>]</div>
@@ -3055,6 +3214,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>-b --block &lt;hash|level|tag&gt;</span>: block on which to apply contextual commands (commands dependent on the context associated with the specified block). Possible tags include 'head' and 'genesis' +/- an optional offset (e.g. "octez-client -b head-1 get timestamp"). Note that block queried must exist in node's storage.
   Defaults to `head`.</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>export</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--dest &lt;path&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--compress-on-the-fly</span>] [<span class='opt'>--uncompressed</span>] [<span class='opt'>--compact</span>]</div>
@@ -3069,6 +3229,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--compact</span>: Produce a compact snapshot with a single commit for the context.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>export</span> <span class='arg'>snapshot_file</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--compress-on-the-fly</span>] [<span class='opt'>--uncompressed</span>] [<span class='opt'>--compact</span>]</div>
 
@@ -3082,6 +3243,7 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--compact</span>: Produce a compact snapshot with a single commit for the context.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>import</span> <span class='arg'>snapshot_file</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--force</span>] [<span class='opt'>--apply-unsafe-patches</span>]</div>
 
@@ -3094,12 +3256,14 @@ whenever the TERM env var is dumb or undefined.</p>
 <span class='opt'>--apply-unsafe-patches</span>: Apply unsafe PVM patches in the configuration or hardcoded by the node.</div>
 </li>
 
+
 <li>
 <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>info</span> <span class='arg'>snapshot_file</span></div>
 
 <div class='cmddoc'>Display information about a snapshot file.
 <span class='arg'>snapshot_file</span>: Snapshot archive file</div>
 </li>
+
 
 <li>
 <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>openapi</span> [<span class='opt'>-P --protocol &lt;Proto&gt;</span>]</div>

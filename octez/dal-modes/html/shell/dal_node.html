@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=af8f7b00" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=1e596021"></script>
+    <script src="../_static/documentation_options.js?v=d85e297f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -61,14 +61,14 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Running a DAL node" href="dal_run.html" />
+    <link rel="next" title="Bakers &amp; the DAL" href="dal_bakers.html" />
     <link rel="prev" title="DAL overview" href="dal_overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
   
   
@@ -151,8 +151,6 @@
   
     
     
-      
-    
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
     <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
@@ -229,7 +227,6 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="dal.html">Data Availability Layer</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The DAL node</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dal_run.html">Running a DAL node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -273,39 +270,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../beta/index.html">Beta Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../beta/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../beta/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../beta/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beta/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beta/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../beta/rpc.html">Beta RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -381,7 +378,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/beta.html">Protocol Beta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -630,7 +627,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-aspects">Operational aspects</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-commands">DAL node commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-dal-node">Running a DAL node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-configuration-of-the-l1-node">DAL configuration of the L1 node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bootstrap-mechanism">The bootstrap mechanism</a></li>
@@ -656,12 +653,13 @@ document.write(`
 <section id="dal-p2p-network">
 <h3>DAL P2P network<a class="headerlink" href="#dal-p2p-network" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code> executable runs a node in the DAL’s P2P network. Recall that <a class="reference internal" href="dal_overview.html#dal-p2p"><span class="std std-ref">the DAL’s P2P protocol</span></a> is based on a gossip algorithm for distributing shards, running on top of a networking layer using the same p2p library as L1 nodes.</p>
-<p>Actors with various roles run DAL nodes, but they need different views of the network depending on their role:</p>
+<p>Actors with various roles may need to run a DAL node, they need different views of the network depending on their role:</p>
 <ul class="simple">
-<li><p>Operators of Smart Rollups care about data on the slots that their Smart Rollups use but not about the slots used by other rollups.</p></li>
-<li><p>Bakers care about the shards that they are assigned to attest to, but they must watch all slots because the assigned shards can be in any slot.</p></li>
-<li><p>Bootstrap node operators care about the smoothness of communication on the P2P network but don’t care about the content of the messages on the network or any specific slot or shard more than any other. These bootstrap nodes represent DAL network entry points. Their only role is to provide a way for other DAL nodes to become part of the DAL P2P network. A bootstrap node remains connected to a large number of peers, and is subscribed to all topics. It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.</p></li>
+<li><p>operators of smart rollups care about the slots published on some slot indices (those used by the rollup they operate), they don’t care about the slots used by other rollups;</p></li>
+<li><p>bakers however care about what happens on all slot indices but they only care about a few shard indices (those assigned to the address of the baker);</p></li>
+<li><p>finally bootstrap nodes have a global view of the DAL P2P network but they don’t care about the content of the messages that transit on the network.</p></li>
 </ul>
+<p>Bootstrap DAL nodes represent DAL network entry points. Their only role is to provide a way for other DAL nodes to become part of the DAL P2P network. A bootstrap node remains connected to a large number of peers, and is subscribed to all topics. It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.</p>
 <p>Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe to, for instance:</p>
 <ul class="simple">
 <li><p>Operators subscribe to all topics containing some specified slot indexes.</p></li>
@@ -669,17 +667,8 @@ document.write(`
 </ul>
 <section id="profiles">
 <span id="dal-profiles"></span><h4>Profiles<a class="headerlink" href="#profiles" title="Link to this heading">#</a></h4>
-<p>Because node operators care about different parts of the DAL network, the DAL node runs in different <strong>modes</strong> and <strong>profiles</strong>.
-You can set these modes and profiles in the node’s configuration file, as CLI arguments to the node’s commands, or via RPC calls.</p>
-<p>These are the profiles that DAL nodes can run in.
-DAL nodes can run with any combination of those profiles:</p>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile (formerly known as the <code class="docutils literal notranslate"><span class="pre">producer</span></code> profile) is for users who are running a Smart Rollup and want to publish data to it. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> argument with the indexes of the slots to accept data for.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. The DAL node runs with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile automatically when a <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon with attestation rights connects to it.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile attests to data, accepts data to publish, and contributes to the resilience of network by helping distribute data. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> argument with the indexes of the slots to monitor or an empty string (as in <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span> <span class="pre">''</span></code>) to use a random index.</p></li>
-</ul>
-<p>If the node runs without any of these profiles (that is, without an attached <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon and without the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> and <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> arguments), it runs in bootstrap mode.
-Bootstrap mode is incompatible with the profiles.</p>
+<p>These differences in the behavior of a DAL node are specified using <strong>profiles</strong>. There are therefore three profiles: bootstrap, operator, and attester profiles. These can be given in the node’s configuration file, or as CLI arguments to the node’s commands, or via RPCs.
+The attester and operator profiles can be combined, the node will then subscribe to the union of the corresponding topics, while the bootstrap profile is incompatible with the other profiles.</p>
 </section>
 </section>
 <section id="storage">
@@ -708,17 +697,17 @@ The RPC server is started by default, even if this option is not given.</p>
 </section>
 <section id="operational-aspects">
 <h2>Operational aspects<a class="headerlink" href="#operational-aspects" title="Link to this heading">#</a></h2>
-<section id="dal-node-commands">
-<span id="id1"></span><h3>DAL node commands<a class="headerlink" href="#dal-node-commands" title="Link to this heading">#</a></h3>
+<section id="running-a-dal-node">
+<h3>Running a DAL node<a class="headerlink" href="#running-a-dal-node" title="Link to this heading">#</a></h3>
 <p>The DAL node has two commands <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">run</span></code>.</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">config</span></code> creates a new configuration file in the specified data directory or in the default location (ie <code class="docutils literal notranslate"><span class="pre">~/.tezos-dal-node</span></code>) with the parameters provided on the command-line by the corresponding arguments, in case no configuration file exists already. If such a file already exists, it overrides it with the provided parameters (old parameters are lost).</p>
 <p>The command <code class="docutils literal notranslate"><span class="pre">run</span></code> runs the DAL node. The CLI arguments take precedence over the configuration file arguments, except for the list of bootstrap peers and of profiles, which are considered in addition to the ones from the configuration file. The configuration file is however not overridden with the new values of the node’s parameters. However, at the end of the execution, the node’s profiles, which may have been given as arguments or set via RPCs, are written to the configuration file.</p>
 <p>Both commands have the same arguments, which can be seen by executing, e.g., <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span> <span class="pre">config</span> <span class="pre">init</span> <span class="pre">--help</span></code>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OPTIONS
-       --attester-profiles=PKH1,PKH2,...
+       --attester-profiles=PKH1,PKH2,..., --attester=PKH1,PKH2,...
            The Octez DAL node attester profiles for given public key hashes.
 
-       --bootstrap-profile
+       --bootstrap-profile, --bootstrap
            The Octez DAL node bootstrap node profile. Note that a bootstrap
            node cannot also be an attester or a slot producer
 
@@ -753,14 +742,15 @@ The RPC server is started by default, even if this option is not given.</p>
            which this instance can be reached by other P2P nodes. The default
            address is 0.0.0.0. The default port is 11732.
 
-       --observer-profiles=INDEX1,INDEX2,...
+       --observer-profiles=INDEX1,INDEX2,..., --observer=INDEX1,INDEX2,...
            The Octez DAL node observer profiles for given slot indexes.
 
        --peers=ADDR:PORT,...
            An additional peer list to expand the bootstrap peers from the
            Octez node&#39;s configuration parameter dal_config.bootstrap_peers.
 
-       --producer-profiles=INDEX1,INDEX2,...
+       --producer-profiles=INDEX1,INDEX2,..., --producer=INDEX1,INDEX2,...,
+       --operator=INDEX1,INDEX2,...
            The Octez DAL node producer profiles for given slot indexes.
 
        --public-addr=ADDR[:PORT]
@@ -776,8 +766,7 @@ The RPC server is started by default, even if this option is not given.</p>
 </pre></div>
 </div>
 <p>See the <a class="reference internal" href="cli-commands.html#dal-node-manual"><span class="std std-ref">DAL node manual</span></a> for more details.</p>
-<p>The concrete operational steps for participating in the DAL network are described in page <a class="reference internal" href="dal_run.html"><span class="doc">Running a DAL node</span></a>.
-In order to run a DAL node with a slot producer profile, one first needs to
+<p>In order to run a DAL node with an operator profile, one first needs to
 install some cryptographic parameters, see the section on <a class="reference internal" href="../introduction/howtoget.html#setup-dal-crypto-params"><span class="std std-ref">Install DAL
 trusted setup</span></a>.</p>
 </section>
@@ -844,11 +833,11 @@ This can be done via RPCs for injecting an operation into L1, or using the Octez
       </div>
     </a>
     <a class="right-next"
-       href="dal_run.html"
+       href="dal_bakers.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Running a DAL node</p>
+        <p class="prev-next-title">Bakers &amp; the DAL</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -879,7 +868,7 @@ This can be done via RPCs for injecting an operation into L1, or using the Octez
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-aspects">Operational aspects</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-commands">DAL node commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-dal-node">Running a DAL node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-configuration-of-the-l1-node">DAL configuration of the L1 node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bootstrap-mechanism">The bootstrap mechanism</a></li>

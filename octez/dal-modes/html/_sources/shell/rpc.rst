@@ -958,7 +958,9 @@ Full description
                    integer ∈ [0, 255]
                    /* [DEPRECATED] Set the number of peers with whom a chain
                       synchronisation must be completed to bootstrap the node. */ },
-          "history_mode"?: $history_mode },
+          "history_mode"?: $history_mode,
+          "disable_context_pruning"?: boolean,
+          "storage_maintenance_delay"?: $storage_maintenance_delay },
       "network"?:
         /* Configuration of which network/blockchain to connect to */
         "sandbox"
@@ -1039,6 +1041,15 @@ Full description
       || integer ∈ [-2^30, 2^30]
       /* limited
          The metadata size is limited to the given integer's value (in bytes). */
+    $storage_maintenance_delay:
+      /* storage maintenance delay
+         Delay prior to the storage maintenance trigger */
+      "disabled"
+      || { /* custom
+              When "custom <N>" is set, storage maintenance is triggered "N"
+              blocks after the start of a new cycle. */
+           "custom": integer ∈ [-2^31-1, 2^31] }
+      || "auto"
     $timespan.system:
       /* A span of time, as seen by the local computer. */
       number
@@ -1633,24 +1644,67 @@ Full description
     +------+--------+------------------------+
     
     
+    storage_maintenance_delay (Determined from data, 8-bit tag)
+    ***********************************************************
+    
+    disabled (tag 0)
+    ================
+    
+    +------+--------+------------------------+
+    | Name | Size   | Contents               |
+    +======+========+========================+
+    | Tag  | 1 byte | unsigned 8-bit integer |
+    +------+--------+------------------------+
+    
+    
+    custom (tag 1)
+    ==============
+    
+    +--------+---------+----------------------------------+
+    | Name   | Size    | Contents                         |
+    +========+=========+==================================+
+    | Tag    | 1 byte  | unsigned 8-bit integer           |
+    +--------+---------+----------------------------------+
+    | custom | 4 bytes | signed 32-bit big-endian integer |
+    +--------+---------+----------------------------------+
+    
+    
+    auto (tag 2)
+    ============
+    
+    +------+--------+------------------------+
+    | Name | Size   | Contents               |
+    +======+========+========================+
+    | Tag  | 1 byte | unsigned 8-bit integer |
+    +------+--------+------------------------+
+    
+    
     X_31
     ****
     
-    +------------------------------------+----------------------+-------------------------------------+
-    | Name                               | Size                 | Contents                            |
-    +====================================+======================+=====================================+
-    | peer_validator                     | 32 bytes             | $X_32                               |
-    +------------------------------------+----------------------+-------------------------------------+
-    | block_validator                    | Determined from data | $X_33                               |
-    +------------------------------------+----------------------+-------------------------------------+
-    | prevalidator                       | 14 bytes             | $X_34                               |
-    +------------------------------------+----------------------+-------------------------------------+
-    | chain_validator                    | Determined from data | $X_35                               |
-    +------------------------------------+----------------------+-------------------------------------+
-    | ? presence of field "history_mode" | 1 byte               | boolean (0 for false, 255 for true) |
-    +------------------------------------+----------------------+-------------------------------------+
-    | history_mode                       | Determined from data | $history_mode                       |
-    +------------------------------------+----------------------+-------------------------------------+
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | Name                                            | Size                 | Contents                            |
+    +=================================================+======================+=====================================+
+    | peer_validator                                  | 32 bytes             | $X_32                               |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | block_validator                                 | Determined from data | $X_33                               |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | prevalidator                                    | 14 bytes             | $X_34                               |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | chain_validator                                 | Determined from data | $X_35                               |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | ? presence of field "history_mode"              | 1 byte               | boolean (0 for false, 255 for true) |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | history_mode                                    | Determined from data | $history_mode                       |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | ? presence of field "disable_context_pruning"   | 1 byte               | boolean (0 for false, 255 for true) |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | disable_context_pruning                         | 1 byte               | boolean (0 for false, 255 for true) |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | ? presence of field "storage_maintenance_delay" | 1 byte               | boolean (0 for false, 255 for true) |
+    +-------------------------------------------------+----------------------+-------------------------------------+
+    | storage_maintenance_delay                       | Determined from data | $storage_maintenance_delay          |
+    +-------------------------------------------------+----------------------+-------------------------------------+
     
     
     X_36
