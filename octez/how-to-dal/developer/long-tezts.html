@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tezt: Long Tests and Performance Regression Test Framework &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=aa02af3f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/long-tezts';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Alcotezt: An Alcotest Compatibility Wrapper for Tezt" href="alcotezt.html" />
+    <link rel="prev" title="Tezt: OCaml Tezos Test Framework" href="tezt.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/long-tezts.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tezt: Long Tests and Performance Regression Test Framework</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-long-test">Adding a Long Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-regression-test-framework-time-series-alerts-and-graphs">Performance Regression Test framework: Time Series, Alerts and Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#providing-large-data">Providing Large Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-your-benchmarks-locally">Testing Your Benchmarks Locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#provisioning-influxdb-and-grafana">Provisioning InfluxDB and Grafana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-and-running-tezt-long-tests">Configuring and Running Tezt Long Tests</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tezt-long-tests-and-performance-regression-test-framework">
+<h1>Tezt: Long Tests and Performance Regression Test Framework<a class="headerlink" href="#tezt-long-tests-and-performance-regression-test-framework" title="Link to this heading">#</a></h1>
+<p><a class="reference internal" href="tezt.html"><span class="doc">Tezt</span></a> can also be used for long tests.
+Here are the differences with regular Tezt tests:</p>
+<ul class="simple">
+<li><p>long tests are not run in the CI but on dedicated machines with
+stable, predictable performance, and with no global timeout like in
+the CI;</p></li>
+<li><p>long tests are declared in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a> instead of
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/tests/main.ml">tezt/tests/main.ml</a>;</p></li>
+<li><p>long tests are registered with <code class="docutils literal notranslate"><span class="pre">Long_test.register</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">Test.register</span></code>;</p></li>
+<li><p>long tests have easy access to a Performance Regression Test framework
+which provides these features:</p>
+<ul>
+<li><p>Persist measurement samples (in an <a class="reference external" href="https://github.com/influxdata/influxdb">InfluxDB</a> database) such as how long it takes
+to do something. These samples will be used to prevent regressions of
+performance.</p></li>
+<li><p>Provide easy access to a <a class="reference external" href="https://github.com/grafana/grafana">Grafana</a> instance that can be updated to
+create graphs displaying the samples sent to InfluxDB;</p></li>
+<li><p>Call Slack webhooks to send alerts when a performance regression has
+been detected.</p></li>
+</ul>
+</li>
+</ul>
+<section id="adding-a-long-test">
+<h2>Adding a Long Test<a class="headerlink" href="#adding-a-long-test" title="Link to this heading">#</a></h2>
+<p>To add a long test, you need to register it with
+<code class="docutils literal notranslate"><span class="pre">Long_test.register</span></code> (respectively
+<code class="docutils literal notranslate"><span class="pre">Long_test.register_with_protocol</span></code>) instead of <code class="docutils literal notranslate"><span class="pre">Test.register</span></code>
+(respectively <code class="docutils literal notranslate"><span class="pre">Protocol.register_test</span></code>). The test must be registered
+in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a> instead of
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/tests/main.ml">tezt/tests/main.ml</a>. <code class="docutils literal notranslate"><span class="pre">Long_test.register</span></code> is very similar to
+<code class="docutils literal notranslate"><span class="pre">Test.register</span></code>. The main difference is that you have to declare a
+timeout (that should be significantly overestimated, see the
+documentation of the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> type in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/lib_performance_regression/long_test.mli">tezt/lib_performance_regression/long_test.mli</a>) and that <code class="docutils literal notranslate"><span class="pre">Long_test.register</span></code>
+will handle InfluxDB, Grafana and Slack alerts.  Just like regular
+Tezt tests, your test should be implemented in the same file with other
+thematically-related tests, with only a single line in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a>.</p>
+<p>If you declare a test in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a> and merge it
+into <code class="docutils literal notranslate"><span class="pre">master</span></code>, it will be automatically run on dedicated machines
+that regularly pull the latest version of <code class="docutils literal notranslate"><span class="pre">master</span></code> and run long
+tests. If your test takes a significant time to run (days), you should
+however ask that a new dedicated machine is created to run your test.
+Please ask on the <code class="docutils literal notranslate"><span class="pre">#tests</span></code> Slack channel of <code class="docutils literal notranslate"><span class="pre">tezos-dev</span></code> before
+merging.</p>
+</section>
+<section id="performance-regression-test-framework-time-series-alerts-and-graphs">
+<span id="performance-regression-test-fw"></span><h2>Performance Regression Test framework: Time Series, Alerts and Graphs<a class="headerlink" href="#performance-regression-test-framework-time-series-alerts-and-graphs" title="Link to this heading">#</a></h2>
+<p>Long tests can use functions from the <code class="docutils literal notranslate"><span class="pre">Long_test</span></code> module
+(<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/lib_performance_regression/long_test.mli">tezt/lib_performance_regression/long_test.mli</a>) to send data points to InfluxDB,
+which is a time-series database. A time-series database stores values
+annotated with a timestamp. In the particular case of InfluxDB,
+data points are composed of:</p>
+<ul class="simple">
+<li><p>a timestamp (usually the time the measure was taken);</p></li>
+<li><p>a measurement name (such as <code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">load</span> <span class="pre">time</span></code>);</p></li>
+<li><p>optionally, some tags that can be used to refine the measurement
+name (such as a tag <code class="docutils literal notranslate"><span class="pre">mode</span></code> equal to <code class="docutils literal notranslate"><span class="pre">client</span></code>, <code class="docutils literal notranslate"><span class="pre">mockup</span></code> or
+<code class="docutils literal notranslate"><span class="pre">proxy</span></code>);</p></li>
+<li><p>fields, which are composed of field names and field values (such as
+a field <code class="docutils literal notranslate"><span class="pre">duration</span></code> equal to how long it took for the client to
+load).</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Long_test</span></code> module allows you to send any data point using the
+<code class="docutils literal notranslate"><span class="pre">add_data_point</span></code> function. They will be sent at the end of the test
+execution. You can query statistics about data points from previous
+tests using function <code class="docutils literal notranslate"><span class="pre">get_previous_stats</span></code> to compare them with your
+new data points and send an alert on Slack with function <code class="docutils literal notranslate"><span class="pre">alert</span></code> if
+you detect that something is wrong. Note that function
+<code class="docutils literal notranslate"><span class="pre">check_regression</span></code>, which is essentially a combination of
+<code class="docutils literal notranslate"><span class="pre">get_previous_stats</span></code> and <code class="docutils literal notranslate"><span class="pre">alert</span></code>, can be used in most cases.  And
+if all you want to do is measure the time it takes for a chunk of code
+to run though, you can use the <code class="docutils literal notranslate"><span class="pre">time</span></code> function instead, which does
+everything for you: measure time, send data points, compare them with
+previous runs, and send an alert if the difference is too large.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Long_test</span></code> module also provides function
+<code class="docutils literal notranslate"><span class="pre">update_grafana_dashboard</span></code> called in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a> with a specification to create/overwrite a dashboard
+in <a class="reference external" href="https://grafana.nomadic-labs.cloud/d/longtezts">Nomadic Labs’ Grafana</a>.
+Default is named <code class="docutils literal notranslate"><span class="pre">Long</span> <span class="pre">Tezts</span></code> but you can add additional dashboards using the
+<code class="docutils literal notranslate"><span class="pre">Long_test.update_grafana_dashboard</span></code> function. To add a dashboard for your tests, define
+it next to your test (in the same file), and declare it in the call to
+<code class="docutils literal notranslate"><span class="pre">update_grafana_dashboard</span></code> in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a>.</p>
+<p>As always in Tezt, the above functions try to provide flexibility.
+The <code class="docutils literal notranslate"><span class="pre">time</span></code> function in particular is parameterized by settings like
+the number of times the test should be repeated, how many previous
+data points should be fetched from InfluxDB when comparing with new
+measurements, how much of a difference to tolerate before alerting,
+etc. <code class="docutils literal notranslate"><span class="pre">time</span></code> itself being a combination of other lower-level
+functions that are also provided and which you can combine to fit your
+needs. And of course you can contribute to improve them.</p>
+<p>Automated long tezts logs are available in <a class="reference external" href="https://logs.nomadic-labs.cloud/#PRT/master/">Nomadic Labs’ public S3 bucket browser</a>. In case of InfluxDB issues, you can inspect
+metrics in the <a class="reference external" href="https://grafana.nomadic-labs.cloud/d/influxdb/">InfluxDB dashboard</a>.
+InfluxDB itself is private and direct access via CLI is restricted to administrators.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>See <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/prt_client.ml">tezt/long_tests/prt_client.ml</a>, which is a very simple test
+that measures how long it takes for <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> to load.  It uses
+<code class="docutils literal notranslate"><span class="pre">Long_test.time_lwt</span></code> to measure how long it takes for
+<code class="docutils literal notranslate"><span class="pre">Client.version</span></code> to run and to emit alerts if this time is
+significantly higher than usual. It also defines a graph of this time.
+This test and its graph are registered in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/long_tests/main.ml">tezt/long_tests/main.ml</a>.</p>
+</section>
+<section id="providing-large-data">
+<h2>Providing Large Data<a class="headerlink" href="#providing-large-data" title="Link to this heading">#</a></h2>
+<p>Your test may require data that is too large to commit in
+<code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code>. For example, a benchmark in which measurement is
+dependent on some block’s context would need to load the same data
+directory on each execution.</p>
+<p>There is an Amazon S3 bucket where you can
+upload your data which will be made available for your test. Data
+will be synchronized with the server your tests will be running on.</p>
+<p>For security reasons, this storage has its access limited to
+authorized people. If you want to upload data, please contact
+Jérémie Goldberg (&#64;jgonlabs) or anyone with admin access on
+the Tezos AWS account to allow you to do so.</p>
+<p>Please note that the S3 storage root folder is mounted in <code class="docutils literal notranslate"><span class="pre">/s3data/</span></code>.
+E.g. if your file is under <code class="docutils literal notranslate"><span class="pre">/myfolder/myfile</span></code> in the Amazon bucket, your
+tests will find it under <code class="docutils literal notranslate"><span class="pre">/s3data/myfolder/myfile</span></code>.</p>
+</section>
+<section id="testing-your-benchmarks-locally">
+<h2>Testing Your Benchmarks Locally<a class="headerlink" href="#testing-your-benchmarks-locally" title="Link to this heading">#</a></h2>
+<p>When developing a benchmark depending on the Performance Regression Test
+framework, it can be useful to test it using development backends so that
+your tests does not impact production ones.</p>
+<p>The Performance Regression Test framework now contains a setup that can
+automatically provision and configure InfluxDB and Grafana instances using
+Docker Compose.</p>
+<section id="provisioning-influxdb-and-grafana">
+<h3>Provisioning InfluxDB and Grafana<a class="headerlink" href="#provisioning-influxdb-and-grafana" title="Link to this heading">#</a></h3>
+<p>The following steps assume that you already installed <code class="docutils literal notranslate"><span class="pre">Docker</span></code> as well
+as <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> and correctly configured it. For more information
+on this subject, please refer to:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.docker.com/engine/install/#desktop">https://docs.docker.com/engine/install/#desktop</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a></p></li>
+</ul>
+<p>From the root folder of <code class="docutils literal notranslate"><span class="pre">tezos</span></code> run the following commands from a terminal
+to start the Docker containers in background:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>-f<span class="w"> </span>tezt/lib_performance_regression/local-sandbox/docker-compose.yml<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>After containers have been started, you can test that InfluxDB is properly started and
+that the <code class="docutils literal notranslate"><span class="pre">performance_regression</span></code> database has been automatically created:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl --get http://localhost:8086/query\?pretty\=true --data-urlencode &quot;q=show databases&quot;
+</pre></div>
+</div>
+<p>The command should display the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;statement_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;series&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;databases&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="s2">&quot;name&quot;</span>
+<span class="w">                    </span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">[</span>
+<span class="w">                            </span><span class="s2">&quot;performance_regression&quot;</span>
+<span class="w">                        </span><span class="p">],</span>
+<span class="w">                        </span><span class="p">[</span>
+<span class="w">                            </span><span class="s2">&quot;_internal&quot;</span>
+<span class="w">                        </span><span class="p">]</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, you should be able to connect to the Grafana web UI by connecting to
+<a class="reference external" href="http://localhost:3000">http://localhost:3000</a> in your browser. By going to the <code class="docutils literal notranslate"><span class="pre">Datasources</span></code> menu in the
+webapp configuration (<a class="reference external" href="http://localhost:3000/datasources">http://localhost:3000/datasources</a>),
+you can see that an InfluxDB datasource has been pre-configured
+and is connected to the <code class="docutils literal notranslate"><span class="pre">performance_regression</span></code> database.</p>
+<p>Note that as security does not really matter for tests, it has been disable for ease.
+This is why you can connect to the Grafana web app with full privileges or send requests
+to InfluxDB without having to authenticate.</p>
+<p>To stop the container, simply run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker-compose -f tezt/lib_performance_regression/local-sandbox/docker-compose.yml down
+</pre></div>
+</div>
+<p>The created containers use persistent Docker volumes, so that data stored in the database
+and created dashboards will be preserved between container runs. To permanently remove these
+docker volumes, run the command <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">volume</span> <span class="pre">rm</span> <span class="pre">local-sandbox_influxdb</span> <span class="pre">local-sandbox_grafana</span></code>.</p>
+</section>
+<section id="configuring-and-running-tezt-long-tests">
+<h3>Configuring and Running Tezt Long Tests<a class="headerlink" href="#configuring-and-running-tezt-long-tests" title="Link to this heading">#</a></h3>
+<p>For more information about how to use the configuration file, please refer
+to the <a class="reference external" href="../api/odoc/_html/tezt-tezos/Tezt_tezos_tezt_performance_regression/index.html">Long test module API </a>.</p>
+<p>A predefined configuration has already been shipped in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/tezt/lib_performance_regression/local-sandbox/tezt_config.json">tezt/lib_performance_regression/local-sandbox/tezt_config.json</a>.
+It allows to use the InfluxDB and Grafana instances set up by the
+Docker compose file presented in the previous section.</p>
+<p>All content related to Grafana and InfluxDB has already been set and can be used as is.</p>
+<p>Other aspects of the configuration (for example the <code class="docutils literal notranslate"><span class="pre">test_data_path</span></code>) should be updated to match the needs
+of your local machine.</p>
+<p>To run Tezt long tests, run the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TEZT_CONFIG=tezt/lib_performance_regression/local-sandbox/tezt_config.json dune exec tezt/long_tests/main.exe
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tezt.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tezt: OCaml Tezos Test Framework</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="alcotezt.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-long-test">Adding a Long Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-regression-test-framework-time-series-alerts-and-graphs">Performance Regression Test framework: Time Series, Alerts and Graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#providing-large-data">Providing Large Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-your-benchmarks-locally">Testing Your Benchmarks Locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#provisioning-influxdb-and-grafana">Provisioning InfluxDB and Grafana</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-and-running-tezt-long-tests">Configuring and Running Tezt Long Tests</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

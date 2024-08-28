@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Micheline &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=aa02af3f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shell/micheline';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Availability Committees" href="data_availability_committees.html" />
+    <link rel="prev" title="Protocol Environment" href="protocol_environment.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="shell.html">The Octez Shell</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_run.html">Running a DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fshell/micheline.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Micheline</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitives">Primitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations">Annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-strings">Character strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-applications">Primitive applications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences">Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-encoding">File encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bnf-grammar">BNF grammar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locations">Locations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-to-json">Conversion to JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-serialization">Binary serialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-the-ocaml-micheline-library">Usage of the OCaml Micheline library</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-tools-and-resources">Other tools and resources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="micheline">
+<h1>Micheline<a class="headerlink" href="#micheline" title="Link to this heading">#</a></h1>
+<p>Micheline is a data format comparable to JSON, XML, S-expressions, and
+YAML. Its main purpose is to serve as the concrete syntax for <a class="reference internal" href="../active/michelson.html"><span class="doc">the
+Michelson language</span></a>.</p>
+<section id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<p>The structure of a Micheline node is very simple: a node can only be
+one of the five following constructs:</p>
+<ol class="arabic simple">
+<li><p>An integer in decimal notation.</p></li>
+<li><p>A character string delimited by the double quotation character <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>.</p></li>
+<li><p>A byte sequence in hexadecimal notation prefixed by <code class="docutils literal notranslate"><span class="pre">0x</span></code>.</p></li>
+<li><p>The application of a primitive to a whitespace-delimited list of
+nodes and annotations.</p></li>
+<li><p>A sequence of nodes delimited by curly braces (<code class="docutils literal notranslate"><span class="pre">{</span></code> and
+<code class="docutils literal notranslate"><span class="pre">}</span></code>) and separated by semi-colons (<code class="docutils literal notranslate"><span class="pre">;</span></code>).</p></li>
+</ol>
+<section id="primitives">
+<h3>Primitives<a class="headerlink" href="#primitives" title="Link to this heading">#</a></h3>
+<p>Micheline primitives are character strings starting by an alphabetic
+or underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) characters and containing only alphanumeric or
+underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) characters. Additional restrictions on primitives
+can also be put to achieve the equivalent of JSON and XML schemas; for
+example each protocol specifies a fixed list of Michelson
+primitives. This restriction impacts the way Micheline nodes are
+serialized to binary format (see <a class="reference internal" href="#binary-serialization">Binary serialization</a>).</p>
+</section>
+<section id="annotations">
+<h3>Annotations<a class="headerlink" href="#annotations" title="Link to this heading">#</a></h3>
+<p>Micheline annotations start by one of the special characters <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">$</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code>, and <code class="docutils literal notranslate"><span class="pre">?</span></code> followed by any number of
+alphanumeric, underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>), period (<code class="docutils literal notranslate"><span class="pre">.</span></code>), percent sign
+(<code class="docutils literal notranslate"><span class="pre">%</span></code>), and at sign (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) characters.</p>
+</section>
+<section id="character-strings">
+<h3>Character strings<a class="headerlink" href="#character-strings" title="Link to this heading">#</a></h3>
+<p>The following usual escape sequences are allowed inside strings:
+<code class="docutils literal notranslate"><span class="pre">\n</span></code>, <code class="docutils literal notranslate"><span class="pre">\\</span></code>, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code>. Unescaped line-breaks (both <code class="docutils literal notranslate"><span class="pre">\n</span></code> and <code class="docutils literal notranslate"><span class="pre">\r</span></code>)
+cannot appear in Micheline strings. Since Micheline strings are
+delimited by double quotes, the double quote character cannot appear
+unescaped inside a string.</p>
+</section>
+<section id="primitive-applications">
+<h3>Primitive applications<a class="headerlink" href="#primitive-applications" title="Link to this heading">#</a></h3>
+<p>A primitive application is a primitive followed by zero, one, or
+several arguments (either nodes or annotations):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prim arg1 arg2
+</pre></div>
+</div>
+<p>When a primitive application with more than 0 arguments is the
+argument of another primitive application, it must be wrapped with
+parentheses. This wrapping is also allowed for applications without
+arguments.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prim (prim1 arg11 arg12) (prim2 arg21 arg22)
+</pre></div>
+</div>
+</section>
+<section id="sequences">
+<h3>Sequences<a class="headerlink" href="#sequences" title="Link to this heading">#</a></h3>
+<p>Successive nodes can be grouped as a single sequence node using curly
+braces as delimiters and semicolon as separators.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{ expr1 ; expr2 ; expr3 ; expr4 }
+</pre></div>
+</div>
+<p>A sequence can be passed as argument to a primitive.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prim arg1 arg2 { arg3_expr1 ; arg3_expr2 }
+</pre></div>
+</div>
+<p>Primitive applications right inside a sequence cannot be wrapped.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{ (prim arg1 arg2) } # is not ok
+</pre></div>
+</div>
+</section>
+<section id="indentation">
+<h3>Indentation<a class="headerlink" href="#indentation" title="Link to this heading">#</a></h3>
+<p>To remove ambiguities for human readers, the Micheline parser enforces
+some indentation rules.</p>
+<ul class="simple">
+<li><p>For sequences:</p>
+<ul>
+<li><p>All nodes in a sequence must be aligned on the same column.</p></li>
+<li><p>An exception is made when consecutive nodes fit on the same
+line, as long as the first of them is correctly aligned.</p></li>
+<li><p>All nodes in a sequence must be indented to the right of the
+opening curly brace by at least one column.</p></li>
+<li><p>The closing curly brace cannot be on the left of the opening one.</p></li>
+</ul>
+</li>
+<li><p>For primitive applications:</p>
+<ul>
+<li><p>All arguments in an application must be aligned on the same
+column.</p></li>
+<li><p>An exception is made when consecutive arguments fit on the same
+line, as long as the first of them is correctly aligned.</p></li>
+<li><p>All arguments in a sequence must be indented to the right of the
+primitive name by at least one column.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">#</a></h3>
+<p>A hash sign (<code class="docutils literal notranslate"><span class="pre">#</span></code>) anywhere outside of a string literal will make the
+rest of the line (and itself) completely ignored, as in the following
+example.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{ PUSH nat 1 ; # pushes 1
+  PUSH nat 2 ; # pushes 2
+  ADD }        # computes 2 + 1
+</pre></div>
+</div>
+<p>Comments that span on multiple lines or that stop before the end of the
+line can also be written, using C-like delimiters (<code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code>).</p>
+</section>
+<section id="file-encoding">
+<h3>File encoding<a class="headerlink" href="#file-encoding" title="Link to this heading">#</a></h3>
+<p>Micheline files must be encoded in UTF-8. Non-ASCII characters can
+only appear in comments and strings.</p>
+</section>
+<section id="bnf-grammar">
+<h3>BNF grammar<a class="headerlink" href="#bnf-grammar" title="Link to this heading">#</a></h3>
+<p>Formally, Micheline nodes have the following BNF grammar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;natural&gt; ::= [0-9]+
+&lt;char&gt; ::= \&quot; | \r | \n | \t | \b | \\ | [^&quot;\]
+&lt;hexadecimal&gt; ::= [0-9a-fA-F][0-9a-fA-F]
+&lt;primitive&gt; ::= [a-zA-Z_][a-zA-Z_0-9]*
+&lt;annotation&gt; ::= [@:$&amp;%!?][_0-9a-zA-Z\.%@]*
+
+&lt;node&gt; ::= &lt;integer&gt; | &lt;string&gt; | &lt;bytes&gt; | &lt;primitive application&gt; | &lt;sequence&gt;
+&lt;integer&gt; ::= &lt;natural&gt; | - &lt;natural&gt;
+&lt;string&gt; ::= &quot; &lt;char&gt;* &quot;
+&lt;bytes&gt; ::= 0x&lt;hexadecimal&gt;*
+&lt;primitive application&gt; ::= &lt;primitive&gt; &lt;argument&gt;*
+&lt;argument&gt; ::= &lt;integer&gt; | &lt;string&gt; | &lt;bytes&gt; | &lt;primitive&gt; | ( &lt;primitive application&gt; ) | &lt;sequence&gt; | &lt;annotation&gt;
+&lt;sequence&gt; ::= { nodes }
+&lt;nodes&gt; ::= | &lt;node&gt; | &lt;node&gt; ; | &lt;node&gt; ; &lt;nodes&gt;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="serialization">
+<h2>Serialization<a class="headerlink" href="#serialization" title="Link to this heading">#</a></h2>
+<p>Micheline nodes can be converted to JSON and binary formats. The JSON
+conversion is useful for example to interact with a Tezos node using
+RPCs. The binary encoding is used to store Micheline nodes in blocks.</p>
+<p>Both forms of serialization are achieved using <a class="reference internal" href="../developer/data_encoding.html"><span class="doc">The data_encoding library</span></a>.</p>
+<section id="locations">
+<h3>Locations<a class="headerlink" href="#locations" title="Link to this heading">#</a></h3>
+<p>Locations are used in error messages to indicate which part of a
+Micheline file is faulty. Micheline file locations are composed of two
+points; a starting point and a stopping point. Each point is a pair of
+a line number (counted from 1) and a column number (counted from 0).</p>
+<p>Locations only make sense when we have access to the source file and
+they are lost when serializing Micheline nodes to either JSON or
+binary. During translation, locations are replaced by a <em>canonical</em>
+representation of locations. A canonical location is a single integer;
+the root of the node has a canonical location of zero, and each node
+adds one in the order of infix traversal.</p>
+<p>A mapping between file locations and canonical locations is produced
+during the serialization so that errors reported by tools working on
+the serialized form can be printed in a meaningful way to users.</p>
+</section>
+<section id="conversion-to-json">
+<span id="micheline-json"></span><h3>Conversion to JSON<a class="headerlink" href="#conversion-to-json" title="Link to this heading">#</a></h3>
+<p>The JSON conversion is very straightforward:</p>
+<ul class="simple">
+<li><p>integers are encoded as JSON objects with a single <code class="docutils literal notranslate"><span class="pre">&quot;int&quot;</span></code> field
+whose value is a JSON string;</p></li>
+<li><p>strings are encoded as JSON objects with a single <code class="docutils literal notranslate"><span class="pre">&quot;string&quot;</span></code> field
+whose value is either a JSON string or an array of bytes if the
+string to encode is not valid in JSON;</p></li>
+<li><p>byte sequences are encoded as JSON objects with a single “bytes”
+field whose value is a JSON string containing the hexadecimal representation of the byte sequence without the <code class="docutils literal notranslate"><span class="pre">0x</span></code> prefix.</p></li>
+<li><p>sequences are encoded as JSON arrays;</p></li>
+<li><p>primitive applications are encoded as JSON objects with three fields
+named <code class="docutils literal notranslate"><span class="pre">&quot;prim&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;annots&quot;</span></code> containing
+respectively the primitive name, the JSON array of argument nodes,
+and the JSON array of annotations. Both <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;annots&quot;</span></code>
+are optional and default to the empty array.</p></li>
+</ul>
+</section>
+<section id="binary-serialization">
+<span id="micheline-bin"></span><h3>Binary serialization<a class="headerlink" href="#binary-serialization" title="Link to this heading">#</a></h3>
+<p>The binary serialization of Micheline is more complex because it
+contains some space optimisations for the very common cases of
+primitive applications with few arguments. Moreover, the binary
+encoding depends on the way primitives are encoded.</p>
+<p>The documentation for the binary encoding specialized to Michelson
+primitives of the Alpha protocol can be generated by the command
+<code class="docutils literal notranslate"><span class="pre">octez-codec</span> <span class="pre">describe</span> <span class="pre">alpha.script.expr</span> <span class="pre">binary</span> <span class="pre">schema</span></code>.</p>
+</section>
+<section id="usage-of-the-ocaml-micheline-library">
+<h3>Usage of the OCaml Micheline library<a class="headerlink" href="#usage-of-the-ocaml-micheline-library" title="Link to this heading">#</a></h3>
+<p>In the Octez codebase, Micheline nodes are handled by a small library
+named <code class="docutils literal notranslate"><span class="pre">lib_micheline</span></code>. This library is used in the Octez client
+(responsible for parsing the Michelson files, expanding macros, and
+encoding the result to JSON) and in the Tezos protocol (responsible
+for decoding from JSON, type checking, and serializing to binary
+Michelson scripts and values).</p>
+<p>The library is composed of three modules: <code class="docutils literal notranslate"><span class="pre">Micheline</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Micheline_parser</span></code>, and <code class="docutils literal notranslate"><span class="pre">Micheline_printer</span></code>. Only the
+<code class="docutils literal notranslate"><span class="pre">Micheline</span></code> module is needed for the protocol so its signature is
+the only one exported in the protocol environment.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Micheline</span></code> module defines the type of Micheline nodes. This
+type is parameterised by the type of locations <code class="docutils literal notranslate"><span class="pre">'l</span></code> and the type of
+primitives <code class="docutils literal notranslate"><span class="pre">'p</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type annot = string list
+
+type (&#39;l, &#39;p) node =
+  | Int of &#39;l * Z.t
+  | String of &#39;l * string
+  | Bytes of &#39;l * Bytes.t
+  | Prim of &#39;l * &#39;p * (&#39;l, &#39;p) node list * annot
+  | Seq of &#39;l * (&#39;l, &#39;p) node list
+</pre></div>
+</div>
+<p>Since printing and parsing are provided by the two other modules of
+the library, the only way to produce or consume Micheline nodes from
+this module is through the encodings.  To encode a Micheline node, we
+first canonicalize its locations using the <code class="docutils literal notranslate"><span class="pre">extract_locations</span></code> function
+that takes a <code class="docutils literal notranslate"><span class="pre">('l,</span> <span class="pre">'p)</span> <span class="pre">node</span></code> as argument and returns both a <code class="docutils literal notranslate"><span class="pre">'p</span>
+<span class="pre">canonical</span></code> and an association list between <code class="docutils literal notranslate"><span class="pre">canonical_location</span></code>s
+and <code class="docutils literal notranslate"><span class="pre">'l</span></code> locations. The type <code class="docutils literal notranslate"><span class="pre">'p</span> <span class="pre">canonical</span></code> is an abstract version
+of <code class="docutils literal notranslate"><span class="pre">(canonical_location,</span> <span class="pre">'p)</span> <span class="pre">node</span></code> that ensures the invariant on the
+numbering of canonical locations presented in the <a class="reference internal" href="#locations">Locations</a> section
+and <code class="docutils literal notranslate"><span class="pre">canonical_location</span></code> is an alias of <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
+<p>If we know an encoding for the <code class="docutils literal notranslate"><span class="pre">'p</span></code> primitives, we can derive an
+encoding for <code class="docutils literal notranslate"><span class="pre">'p</span> <span class="pre">canonical</span></code> using the <code class="docutils literal notranslate"><span class="pre">canonical_encoding</span></code>
+function and then produce JSON and binary outputs using the functions
+from <a class="reference internal" href="../developer/data_encoding.html"><span class="doc">The data_encoding library</span></a>.</p>
+<p>In the other direction, from a <code class="docutils literal notranslate"><span class="pre">'p</span> <span class="pre">canonical</span></code> produced by an
+encoding, either we know how to map its canonical locations to file
+locations and we can use the <code class="docutils literal notranslate"><span class="pre">inject_locations</span></code> function to do so or
+we want to keep the locations canonical and use the <code class="docutils literal notranslate"><span class="pre">root</span></code> function
+to obtain a plain node.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Micheline_printer</span></code> module exports two pretty-printing functions
+based on the <code class="docutils literal notranslate"><span class="pre">Format</span></code> standard OCaml module: <code class="docutils literal notranslate"><span class="pre">print_expr</span></code> and
+<code class="docutils literal notranslate"><span class="pre">print_expr_unwrapped</span></code>. The difference is that <code class="docutils literal notranslate"><span class="pre">print_expr</span></code> wraps
+its output in parentheses if it is a primitive application with at
+least one argument. The input of these printing functions can be
+produced from a <code class="docutils literal notranslate"><span class="pre">'p</span> <span class="pre">canonical</span></code> by the <code class="docutils literal notranslate"><span class="pre">printable</span></code> function.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Micheline_parser</span></code> module can be used to produce Micheline nodes
+from strings and files. It is done in two stages: tokenization (also
+known as lexing) and parsing. Tokenization is done by the <code class="docutils literal notranslate"><span class="pre">tokenize</span></code>
+function that uses the <code class="docutils literal notranslate"><span class="pre">uutf</span></code> OCaml library to decode UTF-8
+characters. For the parsing phase, two functions <code class="docutils literal notranslate"><span class="pre">parse_expression</span></code>
+and <code class="docutils literal notranslate"><span class="pre">parse_toplevel</span></code> are exported; the former produces a single
+Micheline node while the second parses a list of expressions separated
+by semicolons. They both take an optional boolean parameter named
+<code class="docutils literal notranslate"><span class="pre">check</span></code>; setting it to <code class="docutils literal notranslate"><span class="pre">false</span></code> disables indentation checking.</p>
+</section>
+</section>
+<section id="other-tools-and-resources">
+<h2>Other tools and resources<a class="headerlink" href="#other-tools-and-resources" title="Link to this heading">#</a></h2>
+<p>The following links are not part of the Octez OCaml code base but are
+reimplementations of parts of <code class="docutils literal notranslate"><span class="pre">lib_micheline</span></code> in other tools and
+languages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/the-cryptonomic-aperiodical/the-magic-and-mystery-of-the-micheline-binary-format-33bf85699bef">https://medium.com/the-cryptonomic-aperiodical/the-magic-and-mystery-of-the-micheline-binary-format-33bf85699bef</a>
+describes the binary serialization of Micheline nodes. This
+documents the ConseilJS library but assumes no familiarity with it.</p></li>
+<li><p>A Micheline parser written using the Menhir parser generator is
+available as part of the Mi-Cho-Coq framework:
+<a class="gitlab reference external" href="https://gitlab.com/nomadic-labs/mi-cho-coq/-/blob/master/src/michocoq/micheline_parser.vy">nomadic-labs/mi-cho-coq/-/blob/master/src/michocoq/micheline_parser.vy</a>
+it is incomplete as it does not support annotations.</p></li>
+<li><p>An online converter between Micheline files and their JSON encoding
+(improperly called “Michelson”)
+developed as part of Cryptonomic hackathon and documented here:
+<a class="reference external" href="https://scalac.io/blog/we-hakked-tezos-and-created-a-micheline-michelson-translator/">https://scalac.io/blog/we-hakked-tezos-and-created-a-micheline-michelson-translator/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="protocol_environment.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Protocol Environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data_availability_committees.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Availability Committees</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitives">Primitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#annotations">Annotations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#character-strings">Character strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-applications">Primitive applications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences">Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comments">Comments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-encoding">File encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bnf-grammar">BNF grammar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#serialization">Serialization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locations">Locations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-to-json">Conversion to JSON</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-serialization">Binary serialization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-of-the-ocaml-micheline-library">Usage of the OCaml Micheline library</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-tools-and-resources">Other tools and resources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

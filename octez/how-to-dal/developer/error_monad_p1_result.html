@@ -1,0 +1,1676 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Part 1: result, Lwt, and Lwt-result &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=aa02af3f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/error_monad_p1_result';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Part 2: tzresult and Lwt-tzresult" href="error_monad_p2_tzresult.html" />
+    <link rel="prev" title="The Error Monad" href="error_monad.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/error_monad_p1_result.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Part 1: result, Lwt, and Lwt-result</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-result-type">The <code class="docutils literal notranslate"><span class="pre">result</span></code> type</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binding-operator">The binding operator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-1">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-the-error-monad-module-is-opened-everywhere">Aside: the <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module is opened everywhere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recovering-from-errors">Recovering from errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-different-kinds-of-errors">Mixing different kinds of errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-result-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lwt">Lwt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lwt-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promises-of-results-lwt-and-result-together">Promises of results: Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-2">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lwt-result-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-3">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-errors-of-promises">Converting errors of promises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifting">Lifting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-result-only-into-lwt-result">From <code class="docutils literal notranslate"><span class="pre">result</span></code>-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-lwt-only-into-lwt-result">From Lwt-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-there-is-too-much-what-module-am-i-supposed-to-open-locally-and-what-operators-should-i-use">Wait! There is too much! What module am I supposed to open locally and what operators should I use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-an-error">What’s an error?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-it-was-supposed-to-be-one-single-uniform-way-of-dealing-with-errors-what-is-this">Wait! It was supposed to be “one single uniform way of dealing with errors”! What is this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-commentary">META COMMENTARY</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="part-1-result-lwt-and-lwt-result">
+<h1>Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code><a class="headerlink" href="#part-1-result-lwt-and-lwt-result" title="Link to this heading">#</a></h1>
+<p>This is Part 1 of 4 of the <a class="reference internal" href="error_monad.html"><span class="doc">The Error Monad</span></a> tutorial.</p>
+<section id="the-result-type">
+<h2>The <code class="docutils literal notranslate"><span class="pre">result</span></code> type<a class="headerlink" href="#the-result-type" title="Link to this heading">#</a></h2>
+<p>The type <code class="docutils literal notranslate"><span class="pre">result</span></code> is part of the standard library of OCaml. It is
+defined as</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type (&#39;a, &#39;b) result =
+| Ok of &#39;a
+| Error of &#39;b
+</pre></div>
+</div>
+<p>(See <a class="reference external" href="https://ocaml.org/api/Stdlib.html#1_Resulttype">reference
+manual</a>.)</p>
+<p>The constructors of the <code class="docutils literal notranslate"><span class="pre">result</span></code> type have meaning: <code class="docutils literal notranslate"><span class="pre">Ok</span></code> is for
+normal, successful cases that carry a value that is somewhat expected.
+<code class="docutils literal notranslate"><span class="pre">Error</span></code> is for abnormal, failure cases that carry information about
+what went wrong. E.g.,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let get a index =
+  if index &lt; 0 then
+    Error &quot;negative index in array access&quot;
+  else if index &gt;= Array.length a then
+    Error &quot;index beyond length in array access&quot;
+  else
+    Ok a.(index)
+</pre></div>
+</div>
+<p>You can see the <code class="docutils literal notranslate"><span class="pre">result</span></code> type as an opinionated <code class="docutils literal notranslate"><span class="pre">either</span></code>: a
+left-or-right sum type where the left and right side have distinct
+roles. Or you can see the <code class="docutils literal notranslate"><span class="pre">result</span></code> type as a buffed-up <code class="docutils literal notranslate"><span class="pre">option</span></code>
+type: a type that either carries a value or doesn’t (but in this case it
+carries an error instead).</p>
+<section id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Write the implementation for</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [to_option r] is [Some x] if [r] is [Ok x]. Otherwise it is [None]. *)
+val to_option : (&#39;a, unit) result -&gt; &#39;a option
+</pre></div>
+</div>
+</li>
+<li><p>Write the implementation for</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [to_option ?log r] is [Some x] if [r] is [Ok x]. Otherwise it calls
+    [log e] and returns [None] if [r] is [Error e]. By default [log] is
+    [ignore]. *)
+val to_option : ?log:(&#39;e -&gt; unit) -&gt; (&#39;a, &#39;e) result -&gt; &#39;a option
+</pre></div>
+</div>
+</li>
+<li><p>Write the implementation for</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [catch f] is [Ok (f ())] except if [f] raises an exception [exc] in
+    which case it is [Error exc]. *)
+val catch : (unit -&gt; &#39;a) -&gt; (&#39;a, exn) result
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="the-binding-operator">
+<h2>The binding operator<a class="headerlink" href="#the-binding-operator" title="Link to this heading">#</a></h2>
+<p>Working directly with the <code class="docutils literal notranslate"><span class="pre">result</span></code> type can quickly become cumbersome.
+Consider, for example the following code.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [compose3 f g h x] is [f (g (h x))] except that it handles errors. *)
+let compose3 f g h x
+  match h x with
+  | Error e -&gt; Error e
+  | Ok y -&gt;
+    match g y with
+    | Error e -&gt; Error e
+    | Ok z -&gt;
+      f z
+</pre></div>
+</div>
+<p>The nested <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code> constructs lead to further and further
+indentation. The <code class="docutils literal notranslate"><span class="pre">Error</span></code> cases are all identical and simply add noise.</p>
+<p>To circumvent this, in Octez we use a <a class="reference external" href="https://ocaml.org/manual/bindingops.html">binding
+operator</a>: a user-defined
+<code class="docutils literal notranslate"><span class="pre">let</span></code>-binding. Specifically, you can open the <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module
+which includes the binding operator <code class="docutils literal notranslate"><span class="pre">let*</span></code> dedicated to <code class="docutils literal notranslate"><span class="pre">result</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [compose3 f g h x] is [f (g (h x))] except that it handles errors. *)
+let compose3 f g h x
+  let open Result_syntax in (* adds [let*] in scope *)
+  let* y = h x in
+  let* z = g y in
+  f z
+</pre></div>
+</div>
+<p>An expression <code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">e'</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">Result.bind</span> <span class="pre">e</span> <span class="pre">(fun</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">e')</span></code> and also to
+<code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">e</span> <span class="pre">with</span> <span class="pre">|</span> <span class="pre">Error</span> <span class="pre">err</span> <span class="pre">-&gt;</span> <span class="pre">Error</span> <span class="pre">err</span> <span class="pre">|</span> <span class="pre">Ok</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">e'</span></code>. In all of these forms,
+the expression <code class="docutils literal notranslate"><span class="pre">e'</span></code> is evaluated if and only if the expression <code class="docutils literal notranslate"><span class="pre">e</span></code> is
+successful (i.e., evaluates to <code class="docutils literal notranslate"><span class="pre">Ok</span></code>).</p>
+<section id="exercises-1">
+<span id="id1"></span><h3>Exercises<a class="headerlink" href="#exercises-1" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Rewrite the following code without <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let apply2 (f, g) (x, y) =
+  match f x with
+  | Error e -&gt; Error e
+  | Ok u -&gt;
+    match g y with
+    | Error e -&gt; Error e
+    | Ok v -&gt; Ok (u, v)
+</pre></div>
+</div>
+<p>Did you remember to open the syntax module?</p>
+</li>
+<li><p>Write the implementation for</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [map f [x1; x2; x3; ..]] is a list [[y1; y2; y3; ..]] where [y1 = f x1],
+    [y2 = f x2], etc. except if [f] is fails on one of the inputs, in which
+    case it is an [Error] carrying the same error as [f]&#39;s. *)
+val map : (&#39;a -&gt; (&#39;b, &#39;err) result) -&gt; &#39;a list -&gt; (&#39;a list, &#39;err) result
+</pre></div>
+</div>
+<p>Note that this exercise is for learning only. You won’t need to write
+this function in Octez. Indeed, a helper function which does exactly
+that is provided in the extended standard library of Octez.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="aside-the-error-monad-module-is-opened-everywhere">
+<h2>Aside: the <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module is opened everywhere<a class="headerlink" href="#aside-the-error-monad-module-is-opened-everywhere" title="Link to this heading">#</a></h2>
+<p>In Octez, the <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module provides types and values for error
+management. It is part of the <code class="docutils literal notranslate"><span class="pre">tezos-error-monad</span></code> package. And it is
+opened in most of the source code. Apart from some specific libraries
+(discussed later), the content of this module is already in scope.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module contains the <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module. This
+is why you can use <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">open</span> <span class="pre">Result_syntax</span> <span class="pre">in</span></code> directly in your own
+functions.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module contains other modules and functions and
+types which you will learn about later.</p>
+</section>
+<section id="recovering-from-errors">
+<h2>Recovering from errors<a class="headerlink" href="#recovering-from-errors" title="Link to this heading">#</a></h2>
+<p>When given a value of type <code class="docutils literal notranslate"><span class="pre">result</span></code>, you can inspect its content to
+determine if it is an <code class="docutils literal notranslate"><span class="pre">Ok</span></code> or an <code class="docutils literal notranslate"><span class="pre">Error</span></code>. You can use this feature
+to recover from the failures.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>match e with
+| Ok x -&gt; do_something x
+| Error e -&gt; do_something_else e
+</pre></div>
+</div>
+<p>Recovering can mean different things depending on the task that failed
+and the error with which it failed. Sometimes you just want to retry,
+sometimes you want to retry with a different input, sometimes you want
+to propagate the error, sometimes you want to log the error and continue
+as if it hadn’t happened, etc.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let rec write data =
+  match write_to_disk data with
+  | Ok () -&gt; ()
+  | Error EAGAIN -&gt; write data (* again: try again *)
+  | Error ENOSPC -&gt; Stdlib.exit 1 (* no space left on device: escalate to exit *)
+</pre></div>
+</div>
+<p>There is a correspondence between a <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code> around a
+<code class="docutils literal notranslate"><span class="pre">result</span></code> and a <code class="docutils literal notranslate"><span class="pre">try</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code>. Both are for recovering from
+failures. However, in Octez, you will mostly use a <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code>
+around a <code class="docutils literal notranslate"><span class="pre">result</span></code>, because we favour <code class="docutils literal notranslate"><span class="pre">result</span></code> over exceptions. You
+may use the <code class="docutils literal notranslate"><span class="pre">try</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code> construct when interfacing with an external
+library which uses exceptions.</p>
+<p>There are several ways to use the <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code> recovery with the
+binding operator from <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code>. Depending on the size of the
+expression you are recovering from, one may be more readable than the
+other. Choose accordingly.</p>
+<p>You can simply place the expression directly inside the
+<code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>match
+  let* x = get_horizontal point in
+  let* y = get_vertical point in
+  Ok (x, y)
+with
+| Ok (x, y) -&gt; ..
+| Error e -&gt; ..
+</pre></div>
+</div>
+<p>Alternatively, if the expression grows too much in size or in
+complexity, you can move the expression inside a vanilla
+<code class="docutils literal notranslate"><span class="pre">let</span></code>-binding: <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">r</span> <span class="pre">=</span> <span class="pre">..</span> <span class="pre">in</span> <span class="pre">match</span> <span class="pre">r</span> <span class="pre">with</span> <span class="pre">..</span></code>.</p>
+<p>Alternatively, if the expression grows even more, or if the expression
+may be re-used in other parts of the code, you may move the expression
+inside a vanilla function which you can call inside the <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code>.</p>
+<p>You can also use the functions from <a class="reference external" href="https://ocaml.org/api/Result.html">the standard library’s Result
+module</a>. Note however, that some
+of these functions are shadowed in the extended library of Octez, which
+you will learn more about later.</p>
+</section>
+<section id="mixing-different-kinds-of-errors">
+<h2>Mixing different kinds of errors<a class="headerlink" href="#mixing-different-kinds-of-errors" title="Link to this heading">#</a></h2>
+<p>Occasionally, you may have to call a function which returns a value of
+type, say, <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">unit)</span> <span class="pre">result</span></code> and one, say, <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">string)</span> <span class="pre">result</span></code>. In
+this case, you cannot simply bind the two expressions as is.
+Specifically, the type checker will complain. You can see the constraint
+you would be breaking in the type of <code class="docutils literal notranslate"><span class="pre">let*</span></code> where the two error types
+are the same (<code class="docutils literal notranslate"><span class="pre">'e</span></code>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>val ( let* ) : (&#39;a, &#39;e) result -&gt; (&#39;a -&gt; (&#39;b, &#39;e) result) -&gt; (&#39;b, &#39;e) result
+</pre></div>
+</div>
+<p>When you need to mix those function, you have to either handle the
+errors of each independently (see the section above about recovering from
+errors) or you need to convert the errors so they have the same type.
+You should use <code class="docutils literal notranslate"><span class="pre">Result.map_error</span></code> to do that.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let* cfg =
+  Result.map_error (fun () -&gt; &quot;Error whilst reading configuration&quot;)
+  @@ read_configuration ()
+in
+..
+</pre></div>
+</div>
+</section>
+<section id="the-result-syntax-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module<a class="headerlink" href="#the-result-syntax-module" title="Link to this heading">#</a></h2>
+<p>You have already learned about the <code class="docutils literal notranslate"><span class="pre">let*</span></code> binding operator from the
+<code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code>. But there are other values you can use from this
+module.</p>
+<p>The following functions form the core of the <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code>: a binding operator to continue with the value in the <code class="docutils literal notranslate"><span class="pre">Ok</span></code>
+constructor or interrupt with the error in the <code class="docutils literal notranslate"><span class="pre">Error</span></code> constructor.</p>
+<p><code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">e'</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">e</span> <span class="pre">with</span> <span class="pre">Error</span> <span class="pre">err</span> <span class="pre">-&gt;</span> <span class="pre">Error</span> <span class="pre">err</span> <span class="pre">|</span> <span class="pre">Ok</span> <span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">e'</span></code>.</p>
+<p>(See above for examples and more details.)</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">:</span> <span class="pre">'a</span> <span class="pre">-&gt;</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span></code>: the expression <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span></code> is
+equivalent to <code class="docutils literal notranslate"><span class="pre">Ok</span> <span class="pre">x</span></code>. The function is included for consistency with
+other syntax modules presented later. You can use either form.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fail</span> <span class="pre">:</span> <span class="pre">'e</span> <span class="pre">-&gt;</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span></code>: the expression <code class="docutils literal notranslate"><span class="pre">fail</span> <span class="pre">e</span></code> is
+equivalent to <code class="docutils literal notranslate"><span class="pre">Error</span> <span class="pre">e</span></code>. The function is included for consistency
+with other syntax modules presented later. You can use either form.</p></li>
+</ul>
+<p>The following functions offer additional, less often used
+functionalities.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">:</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">-&gt;</span> <span class="pre">('b,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">*</span> <span class="pre">'b,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span></code>:
+the expression <code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">e1</span> <span class="pre">e2</span></code> is <code class="docutils literal notranslate"><span class="pre">Ok</span></code> if both expressions
+evaluate to <code class="docutils literal notranslate"><span class="pre">Ok</span></code> and <code class="docutils literal notranslate"><span class="pre">Error</span></code> otherwise.</p>
+<p>Note that the expression <code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">e1</span> <span class="pre">e2</span></code> is different from the
+expression <code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e1</span> <span class="pre">in</span> <span class="pre">let*</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">e2</span> <span class="pre">in</span> <span class="pre">return</span> <span class="pre">(x,</span> <span class="pre">y)</span></code>. In the
+former (<code class="docutils literal notranslate"><span class="pre">both</span></code>) version, both <code class="docutils literal notranslate"><span class="pre">e1</span></code> and <code class="docutils literal notranslate"><span class="pre">e2</span></code> are evaluated,
+regardless of success/failure of <code class="docutils literal notranslate"><span class="pre">e1</span></code> and <code class="docutils literal notranslate"><span class="pre">e2</span></code>. In the latter
+(<code class="docutils literal notranslate"><span class="pre">let*</span></code>-<code class="docutils literal notranslate"><span class="pre">let*</span></code>) version, <code class="docutils literal notranslate"><span class="pre">e2</span></code> is evaluated if and only if
+<code class="docutils literal notranslate"><span class="pre">e1</span></code> is successful.</p>
+<p>This distinction is important when the expressions <code class="docutils literal notranslate"><span class="pre">e1</span></code> and <code class="docutils literal notranslate"><span class="pre">e2</span></code>
+have side effects: <code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">(f</span> <span class="pre">())</span> <span class="pre">(g</span> <span class="pre">())</span></code>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">:</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">list,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span></code>: the
+function <code class="docutils literal notranslate"><span class="pre">all</span></code> is a generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code> from tuples to
+lists.</p>
+<p>Note that, as a generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code>, in a call to the function
+<code class="docutils literal notranslate"><span class="pre">all</span></code>, all the elements of the list are evaluated, regardless of
+success/failure of the elements: <code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">(List.map</span> <span class="pre">f</span> <span class="pre">xs)</span></code>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">:</span> <span class="pre">(unit,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">(unit,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span></code>: the
+function <code class="docutils literal notranslate"><span class="pre">join</span></code> is a specialisation of <code class="docutils literal notranslate"><span class="pre">all</span></code> for lists of
+unit-typed expressions (typically, for side-effects).</p>
+<p>Note that, as a specialisation of <code class="docutils literal notranslate"><span class="pre">all</span></code>, in a call to the function
+<code class="docutils literal notranslate"><span class="pre">join</span></code>, all the elements of the list are evaluated, regardless of
+success/failure of the elements: <code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">(List.map</span> <span class="pre">f</span> <span class="pre">xs)</span></code>.</p>
+</li>
+</ul>
+<p>The following functions do not provide new functionalities but they are
+useful for small performance gains or for shorter syntax.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">return_unit</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">()</span></code> but it avoids one
+allocation. This is important in parts of the code that are
+performance critical, and it is a good habit to take otherwise.</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_nil</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">[]</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_true</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_false</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code> but it avoids
+one allocation.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_none</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">None</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_some</span> <span class="pre">x</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(Some</span> <span class="pre">x)</span></code> and it is
+provided for completeness with <code class="docutils literal notranslate"><span class="pre">return_none</span></code>.</div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let+</span></code> is a binding operator similar to <code class="docutils literal notranslate"><span class="pre">let*</span></code> but when the
+expression which follows the <code class="docutils literal notranslate"><span class="pre">in</span></code> returns a non-result value. In
+other words, <code class="docutils literal notranslate"><span class="pre">let+</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">e'</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">return</span> <span class="pre">(e')</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">let+</span></code> is purely for syntactic conciseness (compared to the <code class="docutils literal notranslate"><span class="pre">*</span></code>
+variant), use it if it makes
+your code more readable.</p>
+</li>
+</ul>
+</section>
+<section id="lwt">
+<h2>Lwt<a class="headerlink" href="#lwt" title="Link to this heading">#</a></h2>
+<p>In Octez, I/O and concurrency are handled using the Lwt library. With
+Lwt you use <em>promises</em> to handle I/O and concurrency. You can think of
+promises as data structures that are empty until they <em>resolve</em>, at
+which point they hold a value.</p>
+<p>A promise for a value of type <code class="docutils literal notranslate"><span class="pre">'a</span></code> has type <code class="docutils literal notranslate"><span class="pre">'a</span> <span class="pre">Lwt.t</span></code>. The function
+<code class="docutils literal notranslate"><span class="pre">Lwt.bind</span> <span class="pre">:</span> <span class="pre">'a</span> <span class="pre">t</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">-&gt;</span> <span class="pre">'b</span> <span class="pre">t)</span> <span class="pre">-&gt;</span> <span class="pre">'b</span> <span class="pre">t</span></code> waits for the promise to
+resolve (i.e., to carry a value of type <code class="docutils literal notranslate"><span class="pre">'a</span></code>) before applying the
+provided function. The expression <code class="docutils literal notranslate"><span class="pre">bind</span> <span class="pre">p</span> <span class="pre">f</span></code> is a promise which
+resolves only once the promise <code class="docutils literal notranslate"><span class="pre">p</span></code> has resolved <em>and then</em> the promise
+returned by <code class="docutils literal notranslate"><span class="pre">f</span></code> has resolved too.</p>
+<p>If you are not familiar with Lwt, you should check out <a class="reference external" href="https://ocsigen.org/lwt/latest/manual/manual">the official manual</a> and <a class="reference external" href="https://raphael-proust.gitlab.io/code/lwt-part-1.html">this
+introduction</a>
+before continuing. This is important. Do it.</p>
+<p>Unlike is mentioned in those separate resources on Lwt, in Octez, we
+do not in general use the success/failure mechanism of Lwt. Instead, we
+mostly rely on <code class="docutils literal notranslate"><span class="pre">result</span></code> (as mentioned above).</p>
+<p>Thus, in the rest of this tutorial we only consider the subset of Lwt
+without failures. In practice, you might need to take care of exceptions
+in some cases, but this is discussed in the later, more advanced parts of the
+tutorial.</p>
+</section>
+<section id="the-lwt-syntax-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module<a class="headerlink" href="#the-lwt-syntax-module" title="Link to this heading">#</a></h2>
+<p>In Octez, because Lwt is pervasive, you need to bind promises often. To
+make it easier, you can use the <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module. The
+<code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module is made available everywhere by the
+<code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module. The <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module is similar to the
+<code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module but for the Lwt monad (more about monads
+later).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code>: a binding operator to wait for the promise to resolve
+before continuing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">e'</span></code> is a promise that resolves after <code class="docutils literal notranslate"><span class="pre">e</span></code> has
+resolved to a given value and then <code class="docutils literal notranslate"><span class="pre">e'</span></code> has resolved with that
+value carried by <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> and <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> (see above) both use
+<code class="docutils literal notranslate"><span class="pre">let*</span></code> for their main binding operator. Consequently, the specific
+meaning of <code class="docutils literal notranslate"><span class="pre">let*</span></code> depends on which module is open. This extends to
+other syntax modules introduced later in this tutorial.</p>
+<p>(What if you need to use both Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code>? Which syntax module
+should you use? You will learn about that in the next section!)</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">:</span> <span class="pre">'a</span> <span class="pre">-&gt;</span> <span class="pre">'a</span> <span class="pre">Lwt.t</span></code>: the expression <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">Lwt.return</span> <span class="pre">x</span></code>. It is a promise that is already resolved with the value of
+<code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">and*</span></code>: a binding operator alias for <code class="docutils literal notranslate"><span class="pre">both</span></code> (see below). You can
+use it with <code class="docutils literal notranslate"><span class="pre">let*</span></code> the same way you use <code class="docutils literal notranslate"><span class="pre">and</span></code> with <code class="docutils literal notranslate"><span class="pre">let</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let apply_triple f (x, y, z) =
+  let open Lwt_syntax in
+  let* u = f x
+  and* v = f y
+  and* w = f z
+  in
+  return (u, v, w)
+</pre></div>
+</div>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">and*</span></code>, the bound promises (<code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">y</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">z</span></code>) are evaluated concurrently, and the expression which follows
+the <code class="docutils literal notranslate"><span class="pre">in</span></code> (<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">..</span></code>) is evaluated once all the bound promises
+have all resolved.</p>
+</li>
+</ul>
+<p>The following functions offer additional, less often used
+functionalities.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">both:</span> <span class="pre">'a</span> <span class="pre">Lwt.t</span> <span class="pre">-&gt;</span> <span class="pre">'b</span> <span class="pre">Lwt.t</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">*</span> <span class="pre">'b)</span> <span class="pre">Lwt.t</span></code>: the expression
+<code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">p</span> <span class="pre">q</span></code> is a promise that resolves only once both promises
+<code class="docutils literal notranslate"><span class="pre">p</span></code> and <code class="docutils literal notranslate"><span class="pre">q</span></code> (which make progress concurrently) have resolved.</p>
+<p>In practice, you will most likely use <code class="docutils literal notranslate"><span class="pre">and*</span></code> instead of both.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all:</span> <span class="pre">'a</span> <span class="pre">Lwt.t</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">'a</span> <span class="pre">list</span> <span class="pre">Lwt.t</span></code>: the function <code class="docutils literal notranslate"><span class="pre">all</span></code> is a
+generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code> from tuples to lists.</p>
+<p>Note that, as a generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code>, in a call to the function
+<code class="docutils literal notranslate"><span class="pre">all</span></code>, all the promises in the provided list make progress towards
+resolution concurrently.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">:</span> <span class="pre">unit</span> <span class="pre">Lwt.t</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">unit</span> <span class="pre">Lwt.t</span></code>: the function <code class="docutils literal notranslate"><span class="pre">join</span></code> is a
+specialisation of <code class="docutils literal notranslate"><span class="pre">all</span></code> to lists of units (i.e., side-effects).</p></li>
+</ul>
+<p>The following functions do not provide new functionalities but they are
+useful for small performance gains or for shorter syntax.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">return_unit</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">()</span></code> but it avoids one
+allocation. This is important in parts of the code that are
+performance critical, and it is a good habit to take otherwise.</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_nil</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">[]</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_true</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_false</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code> but it avoids
+one allocation.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_none</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">None</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_some</span> <span class="pre">x</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(Some</span> <span class="pre">x)</span></code> and it is
+provided for completeness.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_ok</span> <span class="pre">x</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(Ok</span> <span class="pre">x)</span></code> and it is
+provided for completeness.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_error</span> <span class="pre">x</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(Error</span> <span class="pre">x)</span></code> and it is
+provided for completeness.</div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let+</span></code> and <code class="docutils literal notranslate"><span class="pre">and+</span></code> are binding operators similar to <code class="docutils literal notranslate"><span class="pre">let*</span></code> and
+<code class="docutils literal notranslate"><span class="pre">and*</span></code> but when the expression which follows the <code class="docutils literal notranslate"><span class="pre">in</span></code> returns a
+non-promise value. In other words, <code class="docutils literal notranslate"><span class="pre">let+</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e1</span> <span class="pre">and+</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">e2</span> <span class="pre">in</span> <span class="pre">e</span></code> is
+equivalent to <code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e1</span> <span class="pre">and*</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">e2</span> <span class="pre">in</span> <span class="pre">return</span> <span class="pre">e</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">let+</span></code> and <code class="docutils literal notranslate"><span class="pre">and+</span></code> are purely for syntactic conciseness (compared to
+the <code class="docutils literal notranslate"><span class="pre">*</span></code> variants), use them if it makes your code more readable.</p>
+</li>
+</ul>
+</section>
+<section id="promises-of-results-lwt-and-result-together">
+<h2>Promises of results: Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> together<a class="headerlink" href="#promises-of-results-lwt-and-result-together" title="Link to this heading">#</a></h2>
+<p>In Octez, we have functions that perform I/O and also may fail. In this
+case, the function returns a promise of a <code class="docutils literal notranslate"><span class="pre">result</span></code>. This is the topic
+of this section.</p>
+<p>Note that Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> are orthogonal concerns. On the one hand,
+Lwt is for concurrency, for automatically scheduling code around I/O,
+for making progress on different parts of the program side-by-side. On
+the other hand, <code class="docutils literal notranslate"><span class="pre">result</span></code> is for aborting computations, for handling
+success/failures. It is because Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> are orthogonal that
+we can use them together.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;a  --------------&gt; (&#39;a, &#39;e) result
+ |                           |
+ |                           |
+ V                           V
+&#39;a Lwt.t ---------&gt; (&#39;a, &#39;e) result Lwt.t
+</pre></div>
+</div>
+<p>When we combine Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> for control-flow purpose we combine
+both of the orthogonal behaviours. We can achieve this combined
+behaviour “by hand”. However, doing so requires mixing
+<code class="docutils literal notranslate"><span class="pre">Lwt_syntax.(</span> <span class="pre">let*</span> <span class="pre">)</span></code> and regular <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let apply2 (f, g) (x, y) =
+  let open Lwt_syntax in
+  let* r = f x in
+  match r with
+  | Error e -&gt; return (Error e)
+  | Ok u -&gt;
+    let* r = g y in
+    match r with
+    | Error e -&gt; return (Error e)
+    | Ok v -&gt; return (Ok (u, v))
+</pre></div>
+</div>
+<p>This is interesting to consider because it shows the two orthogonal
+features of control-flow separately: wait for the promise to resolve,
+and check for errors. However, in practice, this becomes cumbersome even
+faster than when working with plain <code class="docutils literal notranslate"><span class="pre">result</span></code> values.</p>
+<p>To make this easier, in Octez we use a binding operator. Specifically,
+you can open the <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> (instead of the other syntax
+modules) which includes a binding operator dedicated to promises of
+<code class="docutils literal notranslate"><span class="pre">result</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let apply2 (f, g) (x, y) =
+  let open Lwt_result_syntax in
+  let* u = f x in
+  let* v = g y in
+  return (u, v)
+</pre></div>
+</div>
+<p>When a promise resolves to <code class="docutils literal notranslate"><span class="pre">Ok</span></code> we say that it resolves successfully.
+When it resolves to <code class="docutils literal notranslate"><span class="pre">Error</span></code> we say that it resolves unsuccessfully or
+that it fails.</p>
+<section id="exercises-2">
+<span id="id2"></span><h3>Exercises<a class="headerlink" href="#exercises-2" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Rewrite the following code without <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let compose3 f g h x
+  let open Lwt_syntax in
+  let* r = h x in
+  match r with
+  | Error e -&gt; return (Error e)
+  | Ok y -&gt;
+    let* s = g y in
+    match s with
+    | Error e -&gt; return (Error e)
+    | Ok z -&gt;
+      f z
+</pre></div>
+</div>
+<p>Did you remember to change the opened syntax module?</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="the-lwt-result-syntax-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> module<a class="headerlink" href="#the-lwt-result-syntax-module" title="Link to this heading">#</a></h2>
+<p>Octez provides the <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> module to help handle promises
+of results.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code>: a binding operator to wait for the promise to resolve
+before continuing with the value in the <code class="docutils literal notranslate"><span class="pre">Ok</span></code> constructor or
+interrupting with the error in the <code class="docutils literal notranslate"><span class="pre">Error</span></code> constructor.</p>
+<p>Note how the <code class="docutils literal notranslate"><span class="pre">let*</span></code> binding operator combines the behaviour of
+<code class="docutils literal notranslate"><span class="pre">Lwt_syntax.(</span> <span class="pre">let*</span> <span class="pre">)</span></code> and <code class="docutils literal notranslate"><span class="pre">Result_syntax.(</span> <span class="pre">let*</span> <span class="pre">)</span></code>. Also note
+that the different <code class="docutils literal notranslate"><span class="pre">let*</span></code>s are differentiated by context;
+specifically by what syntax module has been opened.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return:</span> <span class="pre">'a</span> <span class="pre">-&gt;</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>: the expression <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span></code>
+is a promise already successfully resolved to <code class="docutils literal notranslate"><span class="pre">x</span></code>. More formally,
+<code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">x</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">Lwt_syntax.return</span> <span class="pre">(Result_syntax.return</span> <span class="pre">x)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fail:</span> <span class="pre">'e</span> <span class="pre">-&gt;</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>: the expression <code class="docutils literal notranslate"><span class="pre">fail</span> <span class="pre">e</span></code> is a
+promise already unsuccessfully resolved with the error <code class="docutils literal notranslate"><span class="pre">e</span></code>. More
+formally, <code class="docutils literal notranslate"><span class="pre">fail</span> <span class="pre">e</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">Lwt_syntax.return</span> <span class="pre">(Result_syntax.fail</span> <span class="pre">e)</span></code>.</p></li>
+</ul>
+<p>The following functions offer additional, less often used
+functionalities.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">:</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span> <span class="pre">-&gt;</span> <span class="pre">('b,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">*</span> <span class="pre">'b,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>:
+the expression <code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">p1</span> <span class="pre">p2</span></code> is a promise that resolves
+successfully if both <code class="docutils literal notranslate"><span class="pre">p1</span></code> and <code class="docutils literal notranslate"><span class="pre">p2</span></code> resolve successfully. It
+resolves unsuccessfully if either <code class="docutils literal notranslate"><span class="pre">p1</span></code> or <code class="docutils literal notranslate"><span class="pre">p2</span></code> resolve
+unsuccessfully.</p>
+<p>Note that in the expression <code class="docutils literal notranslate"><span class="pre">both</span> <span class="pre">p1</span> <span class="pre">p2</span></code>, both promises <code class="docutils literal notranslate"><span class="pre">p1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">p2</span></code> are evaluated concurrently. Moreover, the returned promise
+only resolves once both promises have resolved, even if one resolves
+unsuccessfully.</p>
+<p>Note that this syntax module does not offer <code class="docutils literal notranslate"><span class="pre">and*</span></code> as a binding
+operator alias for <code class="docutils literal notranslate"><span class="pre">both</span></code>. This is because, as with
+<code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code>, the type for errors in <code class="docutils literal notranslate"><span class="pre">both</span></code> is not stable (it
+is <code class="docutils literal notranslate"><span class="pre">'e</span></code> on the argument side and <code class="docutils literal notranslate"><span class="pre">'e</span>&#160;&#160; <span class="pre">list</span></code> on the return side).
+This hinders practical uses of <code class="docutils literal notranslate"><span class="pre">and*</span></code>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span> <span class="pre">:</span> <span class="pre">('a,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">('a</span> <span class="pre">list,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>:
+the function <code class="docutils literal notranslate"><span class="pre">all</span></code> is a generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code> from tuples to
+lists.</p>
+<p>Note that, as a generalisation of <code class="docutils literal notranslate"><span class="pre">both</span></code>, in a call to the function
+<code class="docutils literal notranslate"><span class="pre">all</span></code>, all the promises in the provided list make progress towards
+resolution concurrently and continue to evaluate until resolution
+regardless of successes and failures.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">join</span> <span class="pre">:</span> <span class="pre">(unit,</span> <span class="pre">'e)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span> <span class="pre">list</span> <span class="pre">-&gt;</span> <span class="pre">(unit,</span> <span class="pre">'e</span> <span class="pre">list)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>:
+the function <code class="docutils literal notranslate"><span class="pre">join</span></code> is a specialisation of <code class="docutils literal notranslate"><span class="pre">all</span></code> for lists of
+unit-type expressions (typically, for side-effects).</p></li>
+</ul>
+<p>The following functions do not provide new functionalities but they are
+useful for small performance gains or for shorter syntax.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">return_unit</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">()</span></code> but it avoids one
+allocation. This is important in parts of the code that are
+performance critical, and it is a good habit to take otherwise.</p>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_nil</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">[]</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_true</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_false</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false</span></code> but it avoids
+one allocation.</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_none</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">None</span></code> but it avoids one
+allocation.</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">return_some</span> <span class="pre">x</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(Some</span> <span class="pre">x)</span></code> and it is
+provided for completeness.</div>
+</div>
+<p>Note that, like with <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code>, this syntax module does not
+provide <code class="docutils literal notranslate"><span class="pre">return_ok</span></code> and <code class="docutils literal notranslate"><span class="pre">return_error</span></code>. This is to avoid nested
+<code class="docutils literal notranslate"><span class="pre">result</span></code> types. If you need to nest <code class="docutils literal notranslate"><span class="pre">result</span></code>s you can do so by
+hand.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let+</span></code> is a binding operator similar to <code class="docutils literal notranslate"><span class="pre">let*</span></code> but when the
+expression which follows the <code class="docutils literal notranslate"><span class="pre">in</span></code> returns a non-promise value. In
+other words, <code class="docutils literal notranslate"><span class="pre">let+</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">e'</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">let*</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">return</span> <span class="pre">(e')</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">let+</span></code> is purely for syntactic conciseness (compared to the <code class="docutils literal notranslate"><span class="pre">*</span></code>
+variant), use it if it makes your code more readable.</p>
+</li>
+</ul>
+<section id="exercises-3">
+<span id="id3"></span><h3>Exercises<a class="headerlink" href="#exercises-3" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Write the implementation for</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(** [map f [x1; x2; ..]] is a promise for a list [[y1; y2; .. ]] where [y1]
+    is the value that [f x1] successfully resolves to, etc. except if [f]
+    resolves unsuccessfully on one of the input in which case it also
+    resolves unsuccessfully with the same error as [f]. *)
+map : (&#39;a -&gt; (&#39;b, &#39;e) result Lwt.t) -&gt; &#39;a list -&gt; (&#39;b list, &#39;e) result Lwt.t
+</pre></div>
+</div>
+<p>How does your code compare to the one in the <code class="docutils literal notranslate"><span class="pre">result</span></code>-only variant
+of this exercise?</p>
+<p>Note that this exercise is for learning only. You won’t need to write
+this function in Octez. Indeed, a helper function which does exactly
+that is provided in the extended standard library of Octez.</p>
+</li>
+<li><p>Make your <code class="docutils literal notranslate"><span class="pre">map</span></code> function tail-recursive.</p></li>
+<li><p>What type error is triggered by the following code?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>open Lwt_result_syntax ;;
+let ( and* ) = both ;;
+let _ =
+  let* x = return 0 and* y = return 1 in
+  let* z = return 2 in
+  return (x + y + z) ;;
+</pre></div>
+</div>
+</li>
+<li><p>Rewrite the following function without <code class="docutils literal notranslate"><span class="pre">match</span></code>-<code class="docutils literal notranslate"><span class="pre">with</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let compose3 f g h x =
+  let open Lwt_syntax in
+  let* y_result = f x in
+  match y_result with
+  | Error e -&gt; return (Error e)
+  | Ok y -&gt;
+    let* z_result = g y in
+    match z_result with
+    | Error e -&gt; return (Error e)
+    | Ok z -&gt;
+      h z
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="converting-errors-of-promises">
+<h2>Converting errors of promises<a class="headerlink" href="#converting-errors-of-promises" title="Link to this heading">#</a></h2>
+<p>Remember that, with <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code>, you cannot mix different types of
+errors in a single sequence of <code class="docutils literal notranslate"><span class="pre">let*</span></code>. This also applies to
+<code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code>. Indeed, the type checker will prevent you from
+doing so.</p>
+<p>You can use the same <code class="docutils literal notranslate"><span class="pre">Result.map_error</span></code> function as for plain
+<code class="docutils literal notranslate"><span class="pre">result</span></code>s. But when you are working with promises of <code class="docutils literal notranslate"><span class="pre">result</span></code>, the
+syntactic cost of doing so is high:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let open Lwt_result_syntax in
+let* config =
+  let open Lwt_syntax in
+  let* config_result = read_configuration () in
+  Lwt.return (Result.map_error (fun () -&gt; ..) config_result)
+in
+..
+</pre></div>
+</div>
+<p>To avoid this syntactic weight, the <code class="docutils literal notranslate"><span class="pre">Lwt_result_module</span></code> provides a
+dedicated function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lwt_map_error : (&#39;e -&gt; &#39;f) -&gt; (&#39;a, &#39;e) result Lwt.t -&gt; (&#39;a, &#39;f) result Lwt.t
+</pre></div>
+</div>
+</section>
+<section id="lifting">
+<h2>Lifting<a class="headerlink" href="#lifting" title="Link to this heading">#</a></h2>
+<p>Occasionally, whilst you are working with promises of <code class="docutils literal notranslate"><span class="pre">result</span></code> (i.e.,
+working with values of the type <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">_)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code>), you will need
+to call a function that returns a simple promise (a promise that cannot
+fail, a promise of a value that’s not a <code class="docutils literal notranslate"><span class="pre">result</span></code>, i.e., a value of
+type <code class="docutils literal notranslate"><span class="pre">_</span> <span class="pre">Lwt.t</span></code>) or a simple result (an immediate value of a
+<code class="docutils literal notranslate"><span class="pre">result</span></code>, i.e., a value of type <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">_)</span> <span class="pre">result</span></code>). This is common
+enough that the module <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> provides helpers dedicated
+to this.</p>
+<section id="from-result-only-into-lwt-result">
+<h3>From <code class="docutils literal notranslate"><span class="pre">result</span></code>-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code><a class="headerlink" href="#from-result-only-into-lwt-result" title="Link to this heading">#</a></h3>
+<p>The module <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> includes the binding operator <code class="docutils literal notranslate"><span class="pre">let*?</span></code>. It is
+dedicated to binding Result-only expressions.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let*? x = check foo bar in (* Result-only: checking doesn&#39;t yield *)
+..
+</pre></div>
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Mnemonic</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">let*?</span></code> binding operator uses the question mark (<code class="docutils literal notranslate"><span class="pre">?</span></code>) to represent
+the uncertainty of the <code class="docutils literal notranslate"><span class="pre">result</span></code>. Is it a success? Is it a failure?</p>
+</aside>
+</section>
+<section id="from-lwt-only-into-lwt-result">
+<h3>From Lwt-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code><a class="headerlink" href="#from-lwt-only-into-lwt-result" title="Link to this heading">#</a></h3>
+<p>The module <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> includes the binding operator <code class="docutils literal notranslate"><span class="pre">let*!</span></code>. It is
+dedicated to binding Lwt-only expressions.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let*! x = Events.emit foo bar in (* Lwt-only: logs can&#39;t fail *)
+..
+</pre></div>
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Mnemonic</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">let*!</span></code> binding operator uses the exclamation mark (<code class="docutils literal notranslate"><span class="pre">!</span></code>) to represent
+the impossibility of errors: Thou shall not fail!</p>
+</aside>
+</section>
+</section>
+<section id="wait-there-is-too-much-what-module-am-i-supposed-to-open-locally-and-what-operators-should-i-use">
+<h2>Wait! There is too much! What module am I supposed to open locally and what operators should I use?<a class="headerlink" href="#wait-there-is-too-much-what-module-am-i-supposed-to-open-locally-and-what-operators-should-i-use" title="Link to this heading">#</a></h2>
+<p>If you are feeling overwhelmed by the different syntax modules, here are
+some simple guidelines.</p>
+<ul>
+<li><p>If your function returns <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">_)</span> <span class="pre">result</span> <span class="pre">Lwt.t</span></code> values, then you
+start the function with <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">open</span> <span class="pre">Lwt_result_syntax</span> <span class="pre">in</span></code>. Within the
+function you use</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">let</span></code> for vanilla expressions,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code> for Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code> expressions,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*!</span></code> for Lwt-only expressions,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*?</span></code> for <code class="docutils literal notranslate"><span class="pre">result</span></code>-only expressions.</p></li>
+</ul>
+<p>And you end your function with a call to <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+</li>
+<li><p>If your function returns <code class="docutils literal notranslate"><span class="pre">(_,</span> <span class="pre">_)</span> <span class="pre">result</span></code> values, then you start the
+function with <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">open</span> <span class="pre">Result_syntax</span> <span class="pre">in</span></code>. Within the function you
+use</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">let</span></code> for vanilla expressions,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code> for <code class="docutils literal notranslate"><span class="pre">result</span></code> expressions,</p></li>
+</ul>
+<p>And you end your function with a call to <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+</li>
+<li><p>If your function returns <code class="docutils literal notranslate"><span class="pre">_</span> <span class="pre">Lwt.t</span></code> values, then you start the
+function with <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">open</span> <span class="pre">Lwt_syntax</span> <span class="pre">in</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">let</span></code> for vanilla expressions,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">let*</span></code> for Lwt expressions,</p></li>
+</ul>
+<p>And you end your function with a call to <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+</li>
+</ul>
+<p>These are rules of thumb and there are exceptions to them. Still, they
+should cover most of your uses and, as such, they are a good starting
+point.</p>
+</section>
+<section id="whats-an-error">
+<h2>What’s an error?<a class="headerlink" href="#whats-an-error" title="Link to this heading">#</a></h2>
+<p>So far, this tutorial has considered errors in an abstract way. Most of
+the types carried by the <code class="docutils literal notranslate"><span class="pre">Error</span></code> constructors have been parameters
+(<code class="docutils literal notranslate"><span class="pre">'e</span></code>). This is a common pattern for higher-order functions that
+compose multiple <code class="docutils literal notranslate"><span class="pre">result</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code> functions together. But,
+in practice, not every function is a higher-order abstract combinator
+and you sometimes need to choose a concrete error. This section explores
+common choices.</p>
+<p><strong>A dedicated algebraic data type</strong></p>
+<p>Often, a dedicated algebraic data type is appropriate. A sum type
+represents the different kinds of failures that might occur. E.g.,
+<code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">hashing_error</span> <span class="pre">=</span> <span class="pre">Not_enough_data</span> <span class="pre">|</span> <span class="pre">Invalid_escape_sequence</span></code>. A
+product type (typically a record) carries multiple bits of information
+about a failure. E.g.,
+<code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">parsing_error</span> <span class="pre">=</span> <span class="pre">{</span> <span class="pre">source:</span> <span class="pre">string;</span> <span class="pre">location:</span> <span class="pre">int;</span> <span class="pre">token:</span> <span class="pre">token;</span> <span class="pre">}</span></code></p>
+<p>This approach works best when a set of functions (say, all the functions
+of a module) have similar ways to fail. Indeed, when that is the case,
+you can simply define the error type once and all calls to these
+functions can match on that error type if need be.</p>
+<p>E.g., <a class="reference external" href="https://nomadic-labs.gitlab.io/data-encoding/data-encoding/Data_encoding/Binary/index.html">binary encoding and decoding errors in
+data-encoding</a>.</p>
+<p><strong>Polymorphic variants</strong></p>
+<p>In some cases, the different functions of a module may each fail with
+different subsets of a common set of errors. In such a case, you can use
+<a class="reference external" href="https://ocaml.org/manual/polyvariant.html">polymorphic variants</a> to
+represent errors. E.g.,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>val connect_to_peer:
+  address -&gt; (connection, [ `timeout | `connection_refused ]) result Lwt.t
+val send_message:
+  connection -&gt; signing_key -&gt; string -&gt;
+    (unit, [ `timeout | `connection_closed ]) result Lwt.t
+val read_message:
+  connection -&gt;
+    (string, [ `timeout | `unknown_signing_key | `invalid_signature | `connection_closed ]) result Lwt.t
+val close_connection: connection -&gt; (unit, [ `unread_messages of string list ]) result
+</pre></div>
+</div>
+<p>The benefit of this approach is that the caller can compose the
+different functions together easily and match only on the union of
+errors that may actually happen. The type checker keeps track of the
+variants that can reach any program point.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let handshake conn =
+  let open Lwt_result_syntax in
+  let* () = send_message conn &quot;ping&quot; in
+  let* m = read_message conn in
+  if m = &quot;pong&quot; then
+    return ()
+  else
+    `unrecognised_message m
+
+let handshake conn =
+  let open Lwt_syntax in
+  let* r = handshake conn in
+  match r with
+  | Ok () -&gt; return_unit
+  | Error (`unknown_signing_key | `invalid_signature) -&gt;
+    (* we ignore unread messages if the peer had signature issues *)
+    let _ = close_connection conn in
+    return_unit
+  | Error (`timeout | `connection_closed) -&gt;
+    match close_connection with
+    | Ok () -&gt; return_unit
+    | Error (`unread_messages msgs) -&gt;
+      let* () = log_unread_messages msgs in
+      return_unit
+</pre></div>
+</div>
+<p><strong>A human-readable string</strong></p>
+<p>In some cases, there is nothing to be done about an error but to inform
+the user. In this case, the error may just as well be the message.</p>
+<p>It is important to note that these messages are not generally meant to
+be matched against. Indeed, such messages may not be stable and even if
+they are, they probably don’t carry precise enough information to be
+acted upon.</p>
+<p>You should only use <code class="docutils literal notranslate"><span class="pre">string</span></code> as an error type when the error is not
+recoverable and you should not try to recover from <code class="docutils literal notranslate"><span class="pre">string</span></code> errors (or
+more precisely, your recovery should not depend on the content of the
+string).</p>
+<p><strong>An abstract type</strong></p>
+<p>If the error is not meant to be recovered from, it is sometimes ok to use an
+abstract type. This is generally useful at the interface of a module,
+specifically when the functions within the module are meant to inspect
+the errors and possibly attempt recovery, but the callers outside of the
+modules are not.</p>
+<p>If you do use an abstract type for errors, you should also provide a
+pretty-printing function.</p>
+<p><strong>A wrapper around one of the above</strong></p>
+<p>Sometimes you want to add context or information to an error. E.g.,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type &#39;a with_debug_info = {
+  payload: &#39;a;
+  timestamp: Time.System.t;
+  position: string * int * int * int;
+}
+
+let with_debug_info ~position f =
+  match f () with
+  | Ok _ as ok -&gt; ok
+  | Error e -&gt; Error { payload = e; timestamp = Time.System.now (); position }
+</pre></div>
+</div>
+<p>This specific example can be useful for debugging, but other wrappers
+can be useful in other contexts.</p>
+<p><strong>Mixing error types</strong></p>
+<p>It is difficult to work with different types of errors within the same
+function. This most commonly happens if you are calling functions from
+different libraries, which use different types of errors.</p>
+<p>This is difficult because the errors on both sides of the binding
+operator are the same.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>val ( let* ) : (&#39;a, &#39;e) result -&gt; (&#39;a -&gt; (&#39;b, &#39;e) result) -&gt; (&#39;b, &#39;e) result
+</pre></div>
+</div>
+<p>The error monad provides some support to deal with multiple types of
+errors at once. But this support is limited. It is not generally an
+issue because error-mixing is somewhat rare: it tends to happen at the
+boundary between different levels of abstractions.</p>
+<p>If you encounter one of these situations, you will need to convert all
+the errors to a common type.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type error = Configuration_error | Command_line_error
+
+let* config =
+  match Config.parse_file config_file with
+  | Ok _ as ok -&gt; ok
+  | Error Config.File_not_found -&gt; Ok Config.default
+  | Error Config.Invalid_file -&gt; Error Configuration_error
+in
+let* cli_parameters =
+  match Cli.parse_parameters () with
+  | Ok _ as ok -&gt; ok
+  | Error Cli.Invalid_parameter -&gt; Error Command_line_error
+in
+..
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">Result.map_error</span></code> and <code class="docutils literal notranslate"><span class="pre">lwt_map_error</span></code>
+functions introduced in previous sections.</p>
+</section>
+<section id="wait-it-was-supposed-to-be-one-single-uniform-way-of-dealing-with-errors-what-is-this">
+<h2>Wait! It was supposed to be “one single uniform way of dealing with errors”! What is this?<a class="headerlink" href="#wait-it-was-supposed-to-be-one-single-uniform-way-of-dealing-with-errors-what-is-this" title="Link to this heading">#</a></h2>
+<p>The error management in Octez is a unified way (syntax modules
+with regular, predictable interfaces) of handling different types of
+errors.</p>
+<p>The variety of errors is a boon in that it lets you use whatever is the
+most appropriate for the part of the code that you are working on.
+However, the variety of errors is also a curse in that stitching
+together functions which return different errors requires boilerplate
+conversion functions.</p>
+<p>That’s where the global <code class="docutils literal notranslate"><span class="pre">error</span></code> type comes in: a unified type for
+errors. And that’s for the next section to introduce.</p>
+</section>
+<section id="meta-commentary">
+<h2>META COMMENTARY<a class="headerlink" href="#meta-commentary" title="Link to this heading">#</a></h2>
+<p>The previous sections are not Octez-specific. True, the syntax modules
+are defined within the Octez source tree, but they could be released
+separately (and they will be) or they could easily be replicated in a
+separate project.</p>
+<p>The next sections are Octez-specific. They introduce types and values
+that are used within the whole of Octez.</p>
+<div class="line-block">
+<div class="line">You should take this opportunity to take a break.</div>
+<div class="line">Come back in a few minutes.</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="error_monad.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Error Monad</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="error_monad_p2_tzresult.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-result-type">The <code class="docutils literal notranslate"><span class="pre">result</span></code> type</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binding-operator">The binding operator</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-1">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aside-the-error-monad-module-is-opened-everywhere">Aside: the <code class="docutils literal notranslate"><span class="pre">Error_monad</span></code> module is opened everywhere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recovering-from-errors">Recovering from errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-different-kinds-of-errors">Mixing different kinds of errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-result-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Result_syntax</span></code> module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lwt">Lwt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lwt-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Lwt_syntax</span></code> module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#promises-of-results-lwt-and-result-together">Promises of results: Lwt and <code class="docutils literal notranslate"><span class="pre">result</span></code> together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-2">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-lwt-result-syntax-module">The <code class="docutils literal notranslate"><span class="pre">Lwt_result_syntax</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-3">Exercises</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-errors-of-promises">Converting errors of promises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifting">Lifting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-result-only-into-lwt-result">From <code class="docutils literal notranslate"><span class="pre">result</span></code>-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-lwt-only-into-lwt-result">From Lwt-only into Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-there-is-too-much-what-module-am-i-supposed-to-open-locally-and-what-operators-should-i-use">Wait! There is too much! What module am I supposed to open locally and what operators should I use?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whats-an-error">What’s an error?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-it-was-supposed-to-be-one-single-uniform-way-of-dealing-with-errors-what-is-this">Wait! It was supposed to be “one single uniform way of dealing with errors”! What is this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-commentary">META COMMENTARY</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
