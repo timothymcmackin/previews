@@ -11637,7 +11637,7 @@ Full description
     <button class="tablinks" onclick="showTab(this, 'GET_..--block_id--context--issuance--current_yearly_rateoutput.bin', 'GET_..--block_id--context--issuance--current_yearly_rate')">Binary output</button>
     </div><div id="GET_..--block_id--context--issuance--current_yearly_ratedescr" class="GET_..--block_id--context--issuance--current_yearly_rate tabcontent">
             <p>
-            Returns the current expected maximum yearly issuance rate (in %). The value only includes participation rewards (and does not include liquidity baking)</p>
+            Returns the current expected maximum yearly issuance rate (in %)</p>
             </div>
   <div id="GET_..--block_id--context--issuance--current_yearly_rateoutput.json" class="GET_..--block_id--context--issuance--current_yearly_rate tabcontent">
     <pre>
@@ -11673,7 +11673,7 @@ Full description
     <button class="tablinks" onclick="showTab(this, 'GET_..--block_id--context--issuance--current_yearly_rate_detailsoutput.bin', 'GET_..--block_id--context--issuance--current_yearly_rate_details')">Binary output</button>
     </div><div id="GET_..--block_id--context--issuance--current_yearly_rate_detailsdescr" class="GET_..--block_id--context--issuance--current_yearly_rate_details tabcontent">
             <p>
-            Returns the static and dynamic parts of the current expected maximum yearly issuance rate (in %). The value only includes participation rewards (and does not include liquidity baking)</p>
+            Returns the static and dynamic parts of the current expected maximum yearly issuance rate.</p>
             </div>
   <div id="GET_..--block_id--context--issuance--current_yearly_rate_detailsoutput.json" class="GET_..--block_id--context--issuance--current_yearly_rate_details tabcontent">
     <pre>
@@ -11738,7 +11738,7 @@ Full description
     <button class="tablinks" onclick="showTab(this, 'GET_..--block_id--context--issuance--current_yearly_rate_exactoutput.bin', 'GET_..--block_id--context--issuance--current_yearly_rate_exact')">Binary output</button>
     </div><div id="GET_..--block_id--context--issuance--current_yearly_rate_exactdescr" class="GET_..--block_id--context--issuance--current_yearly_rate_exact tabcontent">
             <p>
-            Returns the current expected maximum yearly issuance rate (exact quotient) (in %). The value only includes participation rewards (and does not include liquidity baking)</p>
+            Returns the current expected maximum yearly issuance rate (exact quotient)</p>
             </div>
   <div id="GET_..--block_id--context--issuance--current_yearly_rate_exactoutput.json" class="GET_..--block_id--context--issuance--current_yearly_rate_exact tabcontent">
     <pre>
@@ -11787,7 +11787,7 @@ Full description
     <button class="tablinks" onclick="showTab(this, 'GET_..--block_id--context--issuance--expected_issuanceoutput.bin', 'GET_..--block_id--context--issuance--expected_issuance')">Binary output</button>
     </div><div id="GET_..--block_id--context--issuance--expected_issuancedescr" class="GET_..--block_id--context--issuance--expected_issuance tabcontent">
             <p>
-            Returns the expected issued tez for the provided block and the next 'consensus_rights_delay' cycles (in mutez)</p>
+            Returns the expected issued tez for the provided block and the next 'consensus_rights_delay' cycles</p>
             </div>
   <div id="GET_..--block_id--context--issuance--expected_issuanceoutput.json" class="GET_..--block_id--context--issuance--expected_issuance tabcontent">
     <pre>
@@ -11861,7 +11861,7 @@ Full description
     <button class="tablinks" onclick="showTab(this, 'GET_..--block_id--context--issuance--issuance_per_minuteoutput.bin', 'GET_..--block_id--context--issuance--issuance_per_minute')">Binary output</button>
     </div><div id="GET_..--block_id--context--issuance--issuance_per_minutedescr" class="GET_..--block_id--context--issuance--issuance_per_minute tabcontent">
             <p>
-            Returns the current expected maximum issuance per minute (in mutez). The value only includes participation rewards (and does not include liquidity baking)</p>
+            Returns the current expected maximum issuance per minute (in mutez)</p>
             </div>
   <div id="GET_..--block_id--context--issuance--issuance_per_minuteoutput.json" class="GET_..--block_id--context--issuance--issuance_per_minute tabcontent">
     <pre>

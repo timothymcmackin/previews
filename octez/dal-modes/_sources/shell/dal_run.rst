@@ -5,7 +5,7 @@ To run a node for the :doc:`DAL layer <./dal_overview>`, you need an active bake
 While you can run a DAL node without an active baker, when you do so, your account is not assigned DAL attestation rights and therefore your node can distribute data among other DAL nodes but cannot attest that it is available.
 Adding a DAL node to a baker's setup improves the Tezos ecosystem because it makes the DAL able to handle more data.
 
-To run the DAL node in the ``attester`` profile to attest to data, make sure that you have an instance of the ``octez-node`` binary running in operator mode and an instance of the ``octez-baker`` binary, which requires an account with a stake of at least 6,000 tez.
+To run the DAL node in the ``attester`` profile to attest to data, make sure that you have an instance of the ``octez-node`` and ``octez-baker`` binaries running, this requires an account with a stake of at least 6,000 tez.
 For more information about DAL node modes, see :doc:`The DAL node<./dal_node>`.
 
 .. warning::
