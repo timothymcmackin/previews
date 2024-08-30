@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=71167cb0"></script>
+    <script src="../_static/documentation_options.js?v=01de138a"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -621,7 +621,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-and-features">Concepts and features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-p2p-network">DAL P2P network</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-and-profiles">Modes and profiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiles">Profiles</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
@@ -671,25 +671,20 @@ document.write(`
 They are typically used only to start a DAL network and provide a way for other DAL nodes to become part of the network.
 A bootstrap node remains connected to a large number of peers and is subscribed to all topics.
 It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.</p>
-<p>Layer 1 nodes automatically store the address of a DAL node.
-If another DAL node that is starting connects to it, the layer 1 node provides that DAL node so the new DAL node can connect to the network.</p>
-<section id="modes-and-profiles">
-<span id="dal-profiles"></span><h4>Modes and profiles<a class="headerlink" href="#modes-and-profiles" title="Link to this heading">#</a></h4>
-<p>Because node operators care about different parts of the DAL network, the DAL node runs in different <strong>modes</strong> and <strong>profiles</strong>.
-You can set these modes and profiles in the node’s configuration file, as CLI arguments to the node’s commands, or via RPC calls.</p>
-<p>The DAL node runs in these modes:</p>
-<ul class="simple">
-<li><p>Operator mode is the default mode and is the mode that most users need.</p></li>
-<li><p>Bootstrap mode is for providing entry points for other DAL nodes during the process of starting a new DAL network and is not needed by most users.</p></li>
-</ul>
-<p>A DAL node running in operator mode can enable any combination of the following profiles depending on the information that the user is interested in.
-These profiles are not compatible with bootstrap mode.</p>
+<p>When a DAL node starts, it gets the URLs of the bootstrap nodes from its layer 1 node and uses these bootstrap nodes to connect to peers.</p>
+<section id="profiles">
+<span id="dal-profiles"></span><h4>Profiles<a class="headerlink" href="#profiles" title="Link to this heading">#</a></h4>
+<p>Because node operators care about different parts of the DAL network, the DAL node runs in different profiles.
+You can set these profiles in the node’s configuration file, as CLI arguments to the node’s commands, or via RPC calls.</p>
+<p>The DAL node runs in these profiles:</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile (formerly known as the <code class="docutils literal notranslate"><span class="pre">producer</span></code> profile) is for users who are running a Smart Rollup and want to publish data to it. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> argument with the indexes of the slots to accept data for.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. When an <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon with attestation rights connects to a DAL node, it prompts the DAL node to run with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile. The DAL node receives this prompt and runs in the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile unless it is running in bootstrap mode, which is incompatible with the operator mode profiles.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. When an <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> daemon with attestation rights connects to a DAL node, it prompts the DAL node to run with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile. The DAL node receives this prompt and runs in the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile unless it is running in bootstrap profile.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">observer</span></code> contributes to the resilience of network by helping distribute data in the specified slots. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> argument with the indexes of the slots to monitor or an empty string (as in <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span> <span class="pre">''</span></code>) to use a random index.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> profile is for starting a DAL network and providing entry points for other DAL nodes to become part of the network. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--bootstrap-profile</span></code> argument.</p></li>
 </ul>
-<p>By default, the DAL node runs in operator mode with no profile.</p>
+<p>By default, the DAL node runs in the observer profile on a randomly-selected slot index.
+It can use any combination of profiles except that the bootstrap profile is not compatible with any other profile.</p>
 </section>
 </section>
 <section id="storage">
@@ -881,7 +876,7 @@ This can be done via RPCs for injecting an operation into L1, or using the Octez
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-and-features">Concepts and features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-p2p-network">DAL P2P network</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-and-profiles">Modes and profiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiles">Profiles</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>

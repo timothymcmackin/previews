@@ -27,31 +27,26 @@ They are typically used only to start a DAL network and provide a way for other 
 A bootstrap node remains connected to a large number of peers and is subscribed to all topics.
 It can thus provide another node with a list of peers to connect to for each of the topics that node is interested in.
 
-Layer 1 nodes automatically store the address of a DAL node.
-If another DAL node that is starting connects to it, the layer 1 node provides that DAL node so the new DAL node can connect to the network.
+When a DAL node starts, it gets the URLs of the bootstrap nodes from its layer 1 node and uses these bootstrap nodes to connect to peers.
 
 .. _dal_profiles:
 
 
-Modes and profiles
-~~~~~~~~~~~~~~~~~~
+Profiles
+~~~~~~~~
 
-Because node operators care about different parts of the DAL network, the DAL node runs in different **modes** and **profiles**.
-You can set these modes and profiles in the node's configuration file, as CLI arguments to the node's commands, or via RPC calls.
+Because node operators care about different parts of the DAL network, the DAL node runs in different profiles.
+You can set these profiles in the node's configuration file, as CLI arguments to the node's commands, or via RPC calls.
 
-The DAL node runs in these modes:
-
-- Operator mode is the default mode and is the mode that most users need.
-- Bootstrap mode is for providing entry points for other DAL nodes during the process of starting a new DAL network and is not needed by most users.
-
-A DAL node running in operator mode can enable any combination of the following profiles depending on the information that the user is interested in.
-These profiles are not compatible with bootstrap mode.
+The DAL node runs in these profiles:
 
 - The ``operator`` profile (formerly known as the ``producer`` profile) is for users who are running a Smart Rollup and want to publish data to it. To run a DAL node with the ``operator`` profile, pass the ``--operator-profiles`` argument with the indexes of the slots to accept data for.
-- The ``attester`` profile is for bakers who want to attest to data. When an ``octez-baker`` daemon with attestation rights connects to a DAL node, it prompts the DAL node to run with the ``attester`` profile. The DAL node receives this prompt and runs in the ``attester`` profile unless it is running in bootstrap mode, which is incompatible with the operator mode profiles.
+- The ``attester`` profile is for bakers who want to attest to data. When an ``octez-baker`` daemon with attestation rights connects to a DAL node, it prompts the DAL node to run with the ``attester`` profile. The DAL node receives this prompt and runs in the ``attester`` profile unless it is running in bootstrap profile.
 - The ``observer`` contributes to the resilience of network by helping distribute data in the specified slots. To run a DAL node with the ``observer`` profile, pass the ``--observer-profiles`` argument with the indexes of the slots to monitor or an empty string (as in ``--observer-profiles ''``) to use a random index.
+- The ``bootstrap`` profile is for starting a DAL network and providing entry points for other DAL nodes to become part of the network. To run a DAL node with the ``bootstrap`` profile, pass the ``--bootstrap-profile`` argument.
 
-By default, the DAL node runs in operator mode with no profile.
+By default, the DAL node runs in the observer profile on a randomly-selected slot index.
+It can use any combination of profiles except that the bootstrap profile is not compatible with any other profile.
 
 Storage
 ^^^^^^^
