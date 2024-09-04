@@ -1,0 +1,887 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Protocol Ithaca &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=68c14187" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=0a322bc3"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'protocols/012_ithaca';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Protocol Hangzhou" href="011_hangzhou.html" />
+    <link rel="prev" title="Protocol Jakarta" href="013_jakarta.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="history.html">Older Protocols</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fprotocols/012_ithaca.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Protocol Ithaca</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-environment-version-v4">New Environment Version (V4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenderbake">Tenderbake</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precheck-of-operations">Precheck of operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michelson">Michelson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tickets-hardening-ongoing">Tickets Hardening (ongoing)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-changes">Minor Changes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="protocol-ithaca">
+<h1>Protocol Ithaca<a class="headerlink" href="#protocol-ithaca" title="Link to this heading">#</a></h1>
+<p><strong>Important</strong>: revision <code class="docutils literal notranslate"><span class="pre">PsiThaCaT...jVP</span></code> of protocol Ithaca contains
+<a class="reference external" href="https://research-development.nomadic-labs.com/announcing-ithaca-2.html">bugs</a>
+that have been corrected in the latest version <code class="docutils literal notranslate"><span class="pre">Psithaca2...z6A</span></code>.</p>
+<p>This page contains all the relevant information for protocol Ithaca
+(see <a class="reference internal" href="naming.html#naming-convention"><span class="std std-ref">Protocol naming</span></a>).</p>
+<p>The code can be found in the <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/src/proto_012_Psithaca">src/proto_012_Psithaca</a> directory of the
+<code class="docutils literal notranslate"><span class="pre">master</span></code> branch of Tezos.</p>
+<p>This page documents the changes brought by protocol Ithaca with respect
+to Hangzhou.</p>
+<section id="new-environment-version-v4">
+<h2>New Environment Version (V4)<a class="headerlink" href="#new-environment-version-v4" title="Link to this heading">#</a></h2>
+<p>This protocol requires a different protocol environment than Hangzhou.
+It requires protocol environment V4, compared to V3 for Hangzhou.
+(MRs <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3379">!3379</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3468">!3468</a>)</p>
+<ul class="simple">
+<li><p>Move BLS12-381 to blst backend. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3296">!3296</a>)</p></li>
+<li><p>Expose BLS signature module. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3470">!3470</a>)</p></li>
+<li><p>Remove Error-monad compat layer. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3575">!3575</a>)</p></li>
+<li><p>Allow different type of error categories in the different error monads.
+(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3664">!3664</a>)</p></li>
+<li><p>Fix interface of Hex. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3267">!3267</a>)</p></li>
+<li><p>Fix use of Micheline canonical encoding. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3764">!3764</a>)</p></li>
+<li><p>Add concat_map. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3801">!3801</a>)</p></li>
+<li><p>Make Micheline.canonical_location abstract. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3744">!3744</a>)</p></li>
+<li><p>Error_monad: better tracing primitives. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3589">!3589</a>)</p></li>
+<li><p>Error-monad: simpler trace_eval. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3869">!3869</a>)</p></li>
+<li><p>Add missing functions from Lwtreslib. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3905">!3905</a>)</p></li>
+<li><p>Expose an order for folding over the context. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3910">!3910</a>)</p></li>
+<li><p>List: fix to_seq signature. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3961">!3961</a>)</p></li>
+</ul>
+</section>
+<section id="tenderbake">
+<h2>Tenderbake<a class="headerlink" href="#tenderbake" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Tenderbake is a new consensus algorithm replacing Emmy* in order to provide
+deterministic finality. (MRs <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3738">!3738</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3822">!3822</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3832">!3832</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3811">!3811</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3850">!3850</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3906">!3906</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3977">!3977</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3987">!3987</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/4033">!4033</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/4036">!4036</a>)</p></li>
+<li><p>The list of breaking changes related to Tenderbake are described in a separate <a class="reference internal" href="tenderbake.html"><span class="doc">change log</span></a>.</p></li>
+</ul>
+</section>
+<section id="precheck-of-operations">
+<h2>Precheck of operations<a class="headerlink" href="#precheck-of-operations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Expose <code class="docutils literal notranslate"><span class="pre">precheck_manager</span></code> and <code class="docutils literal notranslate"><span class="pre">check_manager_signature</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3872">!3872</a>)</p></li>
+<li><p>Remove the gas block limit for prevalidator mode. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3802">!3802</a>)</p></li>
+</ul>
+</section>
+<section id="michelson">
+<h2>Michelson<a class="headerlink" href="#michelson" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A new <code class="docutils literal notranslate"><span class="pre">SUB_MUTEZ</span></code> instruction has been added, it is similar to the
+<code class="docutils literal notranslate"><span class="pre">mutez</span></code> case of the <code class="docutils literal notranslate"><span class="pre">SUB</span></code> instruction but its return type is
+<code class="docutils literal notranslate"><span class="pre">option</span> <span class="pre">mutez</span></code> instead of <code class="docutils literal notranslate"><span class="pre">mutez</span></code>. This allows subtracting
+<code class="docutils literal notranslate"><span class="pre">mutez</span></code> values without failing in case of underflow. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3079">!3079</a>)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">SUB</span></code> instruction on type <code class="docutils literal notranslate"><span class="pre">mutez</span></code> is deprecated. It can be
+replaced by <code class="docutils literal notranslate"><span class="pre">SUB_MUTEZ;</span> <span class="pre">ASSERT_SOME</span></code> (and <code class="docutils literal notranslate"><span class="pre">SUB;</span> <span class="pre">DROP</span></code> can be
+replaced by <code class="docutils literal notranslate"><span class="pre">ASSERT_CMPGE</span></code>). (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3079">!3079</a>)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">MAP</span></code> instruction can now also be applied to values of type <code class="docutils literal notranslate"><span class="pre">option</span>
+<span class="pre">a</span></code>. In this case the block of code given is executed if and only if the value
+at the top of the stack is <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">a</span></code>. It should map the value at the top of
+the stack into a value of any type <code class="docutils literal notranslate"><span class="pre">b</span></code>. The block has access to the
+remainder of the stack also, but its type should remain unchanged. The result
+of the instruction is the stack returned by the applied block of code, where
+the value at the top is wrapped in <code class="docutils literal notranslate"><span class="pre">Some</span></code> again. If the value at the top of
+input stack is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the instruction does nothing. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3574">!3574</a>)</p></li>
+</ul>
+</section>
+<section id="tickets-hardening-ongoing">
+<h2>Tickets Hardening (ongoing)<a class="headerlink" href="#tickets-hardening-ongoing" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Add ticket-balance storage module. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3495">!3495</a>)</p></li>
+<li><p>Add API for scanning values for tickets. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3591">!3591</a>)</p></li>
+<li><p>Add API for generating ticket-balance key hashes. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3788">!3788</a>)</p></li>
+</ul>
+</section>
+<section id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use Cache_costs.cache_find in cache find. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3752">!3752</a>)</p></li>
+<li><p>Fix gas accounting for the deserialization of Michelson arguments in
+operations. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3930">!3930</a>)</p></li>
+<li><p>Do not count type annotation size. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/4075">!4075</a>)</p></li>
+</ul>
+</section>
+<section id="minor-changes">
+<h2>Minor Changes<a class="headerlink" href="#minor-changes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Update and simplify fixed constants. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3454">!3454</a>)</p></li>
+<li><p>Simplify pack cost. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3620">!3620</a>)</p></li>
+<li><p>Do not play with locations inside protocol. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3667">!3667</a>)</p></li>
+<li><p>Remove the optional entrypoint in ticketer address. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3570">!3570</a>)</p></li>
+<li><p>Make delegate optional for bootstrap contracts. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3584">!3584</a>)</p></li>
+<li><p>Fix interface of Hex. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3267">!3267</a>)</p></li>
+<li><p>Update migration for protocol “I”. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3668">!3668</a>)</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">max_operations_ttl</span></code> a parametric constant of the protocol, now called
+<code class="docutils literal notranslate"><span class="pre">max_operations_time_to_live</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3709">!3709</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOW</span></code> and <code class="docutils literal notranslate"><span class="pre">LEVEL</span></code> are now passed to the Michelson interpreter as
+step constants instead of being read from the context each time
+these instructions are executed. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3524">!3524</a>)</p></li>
+<li><p>The RPC <code class="docutils literal notranslate"><span class="pre">../helpers/current_level</span></code> does not support anymore a
+negative <code class="docutils literal notranslate"><span class="pre">offset</span></code> argument. The level which used to be returned by
+<code class="docutils literal notranslate"><span class="pre">../&lt;block&gt;/helpers/current_level?offset=-&lt;n&gt;</span></code> can still be obtained by
+<code class="docutils literal notranslate"><span class="pre">../&lt;block~n&gt;/helpers/current_level</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3808">!3808</a>)</p></li>
+<li><p>Ensure annotations are non-empty. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3746">!3746</a>)</p></li>
+<li><p>Only allow positive depth in context query RPC and other RPC.
+(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3564">!3564</a>)</p></li>
+<li><p>Liquidity Baking: postpone the sunset level by 819,200 blocks and
+decrease the escape hatch threshold from one half to one third.
+(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3911">!3911</a>)</p></li>
+<li><p>Bump up bls12-381.1.1.0. (MRs <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3914">!3914</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3942">!3942</a>)</p></li>
+<li><p>Refactor empty transactions. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3867">!3867</a>)</p></li>
+<li><p>Fix storage error during transfer. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3963">!3963</a>)</p></li>
+<li><p>Update gas costs for the new version of bls12-381, and other minor gas changes. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3955">!3955</a>)</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">michelson_v1.runtime_error</span></code> error, which appears in the
+error trace of operations failing because of runtime errors (such as
+interpreting the <code class="docutils literal notranslate"><span class="pre">FAILWITH</span></code> instruction) during the execution of a
+smart contract, the <code class="docutils literal notranslate"><span class="pre">contract_code</span></code> field is deprecated. The
+failed script can still be fetched from the address returned in the
+<code class="docutils literal notranslate"><span class="pre">contract_handle</span></code> field. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/4223">!4223</a>)</p></li>
+<li><p>Other internal refactorings or documentation. (MRs <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3506">!3506</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3550">!3550</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3593">!3593</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3552">!3552</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3588">!3588</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3612">!3612</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3575">!3575</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3622">!3622</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3631">!3631</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3630">!3630</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3707">!3707</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3644">!3644</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3529">!3529</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3739">!3739</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3741">!3741</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3695">!3695</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3763">!3763</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3779">!3779</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3745">!3745</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3256">!3256</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3326">!3326</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3812">!3812</a>,
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3920">!3920</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3929">!3929</a>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">/chains/main/blocks/&lt;block&gt;/context/selected_snapshot?cycle=&lt;cycle&gt;</span></code>
+RPC to retrieve the snapshot index used to compute baking right for
+the given block’s cycle or at the explicit given ‘cycle’ optional argument.
+Context entries located in
+<code class="docutils literal notranslate"><span class="pre">/chains/main/blocks/&lt;block&gt;/context/raw/bytes/cycle/&lt;cycle&gt;/roll_snapshot</span></code>
+are no longer accessible after Tenderbake.
+As observed in issue <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues/2764">#2764</a>, the RPC is buggy for cycle <code class="docutils literal notranslate"><span class="pre">474</span></code>: the correct result for that cycle is index 16 (not 4).</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="013_jakarta.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Protocol Jakarta</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="011_hangzhou.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Protocol Hangzhou</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-environment-version-v4">New Environment Version (V4)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tenderbake">Tenderbake</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precheck-of-operations">Precheck of operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michelson">Michelson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tickets-hardening-ongoing">Tickets Hardening (ongoing)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-changes">Minor Changes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

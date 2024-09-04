@@ -1,0 +1,1217 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mockup mode &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5cf6b051" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=7a138600"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user/mockup';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Proxy mode" href="proxy.html" />
+    <link rel="prev" title="Sandboxed mode" href="sandbox.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="setup-client.html">Setting up the client</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html">Snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proxy-server.html">Proxy server</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fuser/mockup.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mockup mode</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-operation">Modes of operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-features">Supported features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-without-persistent-state">Run a mockup client without persistent state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-with-persistent-state">Run a mockup client with persistent state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tune-mockup-parameters">Tune mockup parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-protocol-constants-for-the-mockup-mode">Setting protocol constants for the mockup mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baking">Baking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-with-asynchronous-state">Run a mockup client with asynchronous state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-protocol-migrations-of-persistent-mockup-states">Performing protocol migrations of persistent mockup states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="mockup-mode">
+<h1>Mockup mode<a class="headerlink" href="#mockup-mode" title="Link to this heading">#</a></h1>
+<p>By default the <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> described in the
+<a class="reference internal" href="sandbox.html"><span class="doc">sandboxed node</span></a> needs a node running.
+This page describes the <em>mockup</em> mode, a mode that works without
+connecting to a node. For the moment, its features are more
+limited than the default mode (see the <a class="reference internal" href="proxy.html"><span class="doc">proxy mode</span></a>
+for an intermediate mode between default and mockup).</p>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>The main motivation for implementing the mockup mode is to provide developers of Tezos smart contracts with an easy local environment, offering a fast development cycle, which uses only lightweight local files for keeping the state, and which does not require a running blockchain.</p>
+</section>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In mockup mode, the client uses some dummy values for the initial parameters that
+are usually gathered from a node, such as the head of the chain or the network
+identifier. Then the mockup client simulates activation from genesis and runs
+local implementations of the RPCs itself.</p>
+<section id="modes-of-operation">
+<h3>Modes of operation<a class="headerlink" href="#modes-of-operation" title="Link to this heading">#</a></h3>
+<p>Mockup mode can run in three ways:</p>
+<ul>
+<li><p>Stateless mode.</p>
+<p>In this mode, octez-client operates on its inputs and returns a value. Nothing is written to disk, and no state is preserved between calls to the client. This is the default.</p>
+</li>
+<li><p>Stateful mode.</p>
+<p>In this mode, octez-client creates or manipulates a state on disk. The switch for this is <code class="docutils literal notranslate"><span class="pre">--base-dir</span> <span class="pre">&lt;directory_name&gt;</span></code>.</p>
+</li>
+<li><p>Stateful asynchronous mode.</p>
+<p>This mode adds baking. The command-line switch for this is <code class="docutils literal notranslate"><span class="pre">--base-dir</span> <span class="pre">&lt;directory_name&gt;</span> <span class="pre">--asynchronous</span></code>.</p>
+</li>
+</ul>
+</section>
+<section id="supported-features">
+<h3>Supported features<a class="headerlink" href="#supported-features" title="Link to this heading">#</a></h3>
+<p>Currently, depending on the way it is run, the mockup mode can:</p>
+<ul>
+<li><p>typecheck, serialize, sign and evaluate a contract – without a node.</p>
+<p>These features do not require a persistent state.</p>
+</li>
+<li><p>perform transactions, originations, contract calls in a purely local fashion;
+mimicking the sandboxed mode but without a node.</p>
+<p>These features require a persistent state.</p>
+</li>
+<li><p>perform some RPCs locally via the command line.</p>
+<p>These features work in stateful asynchronous mode.</p>
+</li>
+</ul>
+<p>We recommend that beginners use the persistent state, as it represents a suitable tradeoff between simplicity and supported features.</p>
+<p>Nevertheless, the modes of operation are shown in the order above.</p>
+</section>
+</section>
+<section id="run-a-mockup-client-without-persistent-state">
+<h2>Run a mockup client without persistent state<a class="headerlink" href="#run-a-mockup-client-without-persistent-state" title="Link to this heading">#</a></h2>
+<p>Without persistent state, the mockup mode is already able to
+typecheck scripts. Let’s typecheck for example the script <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/michelson_test_scripts/mini_scenarios/hardlimit.tz">michelson_test_scripts/mini_scenarios/hardlimit.tz</a>:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>--mode<span class="w"> </span>mockup<span class="w"> </span>typecheck<span class="w"> </span>script<span class="w"> </span>michelson_test_scripts/mini_scenarios/hardlimit.tz
+</pre></div>
+</div>
+<p>The script can also be executed:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>--mode<span class="w"> </span>mockup<span class="w"> </span>run<span class="w"> </span>script<span class="w"> </span>&lt;filename&gt;<span class="w"> </span>on<span class="w"> </span>storage<span class="w"> </span>&lt;storage&gt;<span class="w"> </span>and<span class="w"> </span>input<span class="w"> </span>&lt;input&gt;
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;storage&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code> are some <a class="reference internal" href="../active/michelson.html#michelson-type-system"><span class="std std-ref">Michelson expression</span></a> describing the contract’s storage and script input
+respectively. A <code class="docutils literal notranslate"><span class="pre">--trace-stack</span></code> option can be added in the end to output the
+state of the stack after each step of script’s execution.</p>
+<p>For example:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>--mode<span class="w"> </span>mockup<span class="w"> </span>run<span class="w"> </span>script<span class="w"> </span>michelson_test_scripts/attic/id.tz<span class="w"> </span>on<span class="w"> </span>storage<span class="w"> </span><span class="s1">&#39;&quot;hello&quot;&#39;</span><span class="w"> </span>and<span class="w"> </span>input<span class="w"> </span><span class="s1">&#39;&quot;world&quot;&#39;</span>
+<span class="gp"># </span>Ignore<span class="w"> </span>warnings<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>missing/wrong<span class="w"> </span>base<span class="w"> </span>directory,<span class="w"> </span>they<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w"> </span>apply<span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;run script&quot;</span>
+<span class="go">storage</span>
+<span class="go">  &quot;world&quot;</span>
+<span class="go">[...]</span>
+</pre></div>
+</div>
+</section>
+<section id="run-a-mockup-client-with-persistent-state">
+<h2>Run a mockup client with persistent state<a class="headerlink" href="#run-a-mockup-client-with-persistent-state" title="Link to this heading">#</a></h2>
+<p>Setting up a mockup state requires to choose a protocol.
+To see the list of supported protocols in mockup mode, issue the
+following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>list<span class="w"> </span>mockup<span class="w"> </span>protocols
+</pre></div>
+</div>
+<p>At any given time, it should return <code class="docutils literal notranslate"><span class="pre">Alpha</span></code> and at least the two protocols before that.</p>
+<p>To create the mockup client state, issue the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol<span class="w"> </span>ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--base-dir<span class="w"> </span>/tmp/mockup<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mode<span class="w"> </span>mockup<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>create<span class="w"> </span>mockup
+</pre></div>
+</div>
+<p>Now that this command has been issued, the next calls below <strong>all</strong> use
+<code class="docutils literal notranslate"><span class="pre">--mode</span> <span class="pre">mockup</span></code> and <code class="docutils literal notranslate"><span class="pre">--base-dir</span> <span class="pre">/tmp/mockup</span></code> arguments. This is
+akin to doing a mockup <em>session</em>. To avoid mistakes, we advise to
+do the following in the local shell running the session:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">alias</span><span class="w"> </span>mockup-client<span class="o">=</span><span class="s1">&#39;octez-client --mode mockup --base-dir /tmp/mockup&#39;</span>
+</pre></div>
+</div>
+<p>You can now use standard commands, such as:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>list<span class="w"> </span>known<span class="w"> </span>addresses
+<span class="go">bootstrap5: tz1ddb9NMYHZi5UzPdzTZMYQQZoMub195zgv (unencrypted sk known)</span>
+<span class="go">bootstrap4: tz1b7tUupMgCNw2cCLpKTkSD1NZzB5TkP2sv (unencrypted sk known)</span>
+<span class="go">bootstrap3: tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU (unencrypted sk known)</span>
+<span class="go">bootstrap2: tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN (unencrypted sk known)</span>
+<span class="go">bootstrap1: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx (unencrypted sk known)</span>
+</pre></div>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>transfer<span class="w"> </span><span class="m">100</span><span class="w"> </span>from<span class="w"> </span>bootstrap1<span class="w"> </span>to<span class="w"> </span>bootstrap2
+<span class="go">Node is bootstrapped, ready for injecting operations.</span>
+<span class="go">Estimated gas: 10207 units (will add 100 for safety)</span>
+<span class="go">Estimated storage: no bytes added</span>
+<span class="go">Operation successfully injected in the node.</span>
+<span class="go">Operation hash is &#39;ooMyN7FDmDGyNk8CLdSFwcdxcQea5KLXYqrgzu6CEYB7G2xYbth&#39;</span>
+<span class="go">NOT waiting for the operation to be included.</span>
+<span class="go">Use command</span>
+<span class="go">  octez-client wait for ooMyN7FDmDGyNk8CLdSFwcdxcQea5KLXYqrgzu6CEYB7G2xYbth to be included --confirmations 30 --branch BLockGenesisGenesisGenesisGenesisGenesisCCCCCeZiLHU</span>
+<span class="go">and/or an external block explorer to make sure that it has been included.</span>
+<span class="go">This sequence of operations was run:</span>
+<span class="go">  Manager signed operations:</span>
+<span class="go">    From: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx</span>
+<span class="go">    Fee to the baker: ꜩ0.001282</span>
+<span class="go">    Expected counter: 2</span>
+<span class="go">    Gas limit: 10307</span>
+<span class="go">    Storage limit: 0 bytes</span>
+<span class="go">    Balance updates:</span>
+<span class="go">      tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx ........... -ꜩ0.001282</span>
+<span class="go">      fees(tz1Ke2h7sDdakHJQh8WX4Z372du1KChsksyU,0) ... +ꜩ0.001282</span>
+<span class="go">    Transaction:</span>
+<span class="go">      Amount: ꜩ100</span>
+<span class="go">      From: tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx</span>
+<span class="go">      To: tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN</span>
+<span class="go">      This transaction was successfully applied</span>
+<span class="go">      Consumed gas: 10207</span>
+<span class="go">      Balance updates:</span>
+<span class="go">        tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx ... -ꜩ100</span>
+<span class="go">        tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN ... +ꜩ100</span>
+</pre></div>
+</div>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>get<span class="w"> </span>balance<span class="w"> </span><span class="k">for</span><span class="w"> </span>bootstrap1
+<span class="go">3999898.997437 ꜩ</span>
+</pre></div>
+</div>
+<p>One can also originate contracts:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>originate<span class="w"> </span>contract<span class="w"> </span>foo<span class="w"> </span>transferring<span class="w"> </span><span class="m">100</span><span class="w"> </span>from<span class="w"> </span>bootstrap1<span class="w"> </span>running<span class="w"> </span><span class="s1">&#39;parameter unit; storage unit; code { CAR; NIL operation; PAIR}&#39;</span><span class="w"> </span>--burn-cap<span class="w"> </span><span class="m">10</span>
+<span class="go">[...]</span>
+<span class="go">New contract KT1DieU51jzXLerQx5AqMCiLC1SsCeM8yRat originated.</span>
+</pre></div>
+</div>
+<p>The client can be used to display the state of the contract, e.g. its storage:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>get<span class="w"> </span>contract<span class="w"> </span>storage<span class="w"> </span><span class="k">for</span><span class="w"> </span>foo
+<span class="go">Unit</span>
+</pre></div>
+</div>
+<p>The RPC mechanism can also be conveniently used to access the state of the contract in JSON format:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>rpc<span class="w"> </span>get<span class="w"> </span>/chains/main/blocks/head/context/contracts/KT1DieU51jzXLerQx5AqMCiLC1SsCeM8yRat/storage
+<span class="go">{ &quot;prim&quot;: &quot;Unit&quot; }</span>
+</pre></div>
+</div>
+<p>The stateful mockup mode stores state data in a single <code class="docutils literal notranslate"><span class="pre">context.json</span></code> file, located under the <code class="docutils literal notranslate"><span class="pre">mockup</span></code> subdirectory of the base directory. In our running example, its absolute file name is <code class="docutils literal notranslate"><span class="pre">/tmp/mockup/mockup/context.json</span></code>.</p>
+</section>
+<section id="tune-mockup-parameters">
+<h2>Tune mockup parameters<a class="headerlink" href="#tune-mockup-parameters" title="Link to this heading">#</a></h2>
+<p>The examples so far have used mockup mode’s default settings. Some use cases need a custom setup, so mockup mode lets us configure some initial parameters.</p>
+<p>For simplicity, the mockup mode - like the sandboxed mode - uses
+default values for the <a class="reference internal" href="../active/protocol_overview.html#protocol-constants"><span class="std std-ref">protocol constants</span></a>. Such values are visible as follows (we recall
+that <code class="docutils literal notranslate"><span class="pre">mockup-client</span></code> is an alias for <code class="docutils literal notranslate"><span class="pre">octez-client</span></code>, see previous
+section):</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>config<span class="w"> </span>show
+<span class="go">Default value of --bootstrap-accounts:</span>
+<span class="go">...</span>
+<span class="go">Default value of --protocol-constants:</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>To tune these values, we recommend to first generate the files
+corresponding to the default values:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>config<span class="w"> </span>init
+<span class="go">Written default --bootstrap-accounts file: /tmp/mockup/bootstrap-accounts.json</span>
+<span class="go">Written default --protocol-constants file: /tmp/mockup/protocol-constants.json</span>
+</pre></div>
+</div>
+<p>You can now edit the files <code class="docutils literal notranslate"><span class="pre">bootstrap-accounts.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">protocol-constants.json</span></code> to your liking then create a tuned mockup state.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mv<span class="w"> </span>/tmp/mockup/<span class="o">{</span>bootstrap-accounts,protocol-constants<span class="o">}</span>.json<span class="w"> </span>/tmp/.
+<span class="gp">$ </span>rm<span class="w"> </span>/tmp/mockup<span class="w"> </span>-Rf
+<span class="gp">$ </span>mockup-client<span class="w"> </span>--protocol<span class="w"> </span>ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>create<span class="w"> </span>mockup<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--protocol-constants<span class="w"> </span>/tmp/protocol-constants.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--bootstrap-accounts<span class="w"> </span>/tmp/bootstrap-accounts.json
+</pre></div>
+</div>
+<p>You can check your custom parameters were taken into account:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>config<span class="w"> </span>show
+<span class="go">Default value of --bootstrap-accounts:</span>
+<span class="go">...</span>
+<span class="go">Default value of --protocol-constants:</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+</section>
+<section id="setting-protocol-constants-for-the-mockup-mode">
+<h2>Setting protocol constants for the mockup mode<a class="headerlink" href="#setting-protocol-constants-for-the-mockup-mode" title="Link to this heading">#</a></h2>
+<p>Let’s look at the contents of the <code class="docutils literal notranslate"><span class="pre">protocol-constants.json</span></code> file as produced
+by the <code class="docutils literal notranslate"><span class="pre">--mode</span> <span class="pre">mockup</span> <span class="pre">config</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">--mode</span> <span class="pre">mockup</span> <span class="pre">config</span> <span class="pre">show</span></code>
+commands. The following was generated:</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;preserved_cycles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;blocks_per_cycle&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;blocks_per_commitment&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;nonce_revelation_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;blocks_per_stake_snapshot&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cycles_per_voting_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hard_gas_limit_per_operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1040000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hard_gas_limit_per_block&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2600000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;proof_of_work_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4611686018427387903&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;minimal_stake&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6000000000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;vdf_difficulty&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;origination_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">257</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;reward_weights&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;base_total_rewards_per_minute&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;85007812&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;baking_reward_fixed_portion_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5120</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;baking_reward_bonus_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5120</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;attesting_reward_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10240</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;liquidity_baking_subsidy_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;seed_nonce_revelation_tip_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;vdf_revelation_tip_weight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;cost_per_byte&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;250&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;hard_storage_limit_per_operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;60000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;quorum_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;quorum_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;min_proposal_quorum&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;liquidity_baking_toggle_ema_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000000000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;max_operations_time_to_live&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;minimal_block_delay&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;delay_increment_per_round&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;consensus_committee_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;consensus_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;minimal_participation_ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;numerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;denominator&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;max_slashing_period&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;limit_of_delegation_over_baking&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;percentage_of_frozen_deposits_slashed_per_double_baking&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;percentage_of_frozen_deposits_slashed_per_double_attestation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cache_script_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100000000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cache_stake_distribution_cycles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;cache_sampler_state_cycles&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;dal_parametric&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;feature_enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;number_of_slots&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;attestation_lag&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;attestation_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;blocks_per_epoch&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;redundancy_factor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;slot_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32768</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;number_of_shards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_arith_pvm_enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_origination_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">6314</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_challenge_window_in_blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80640</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_stake_amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10000000000&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_commitment_period_in_blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_max_lookahead_in_blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">172800</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_max_active_outbox_levels&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">80640</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_max_outbox_messages_per_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_number_of_sections_in_dissection&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_timeout_period_in_blocks&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40320</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_max_number_of_cemented_commitments&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_max_number_of_parallel_games&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;smart_rollup_reveal_activation_level&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;raw_data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;Blake2B&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;dal_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;zk_rollup_enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;zk_rollup_origination_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;zk_rollup_min_pending_to_process&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;zk_rollup_max_ticket_payload_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2048</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;global_limit_of_staking_over_baking&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;edge_of_staking_over_delegation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;adaptive_issuance_launch_ema_threshold&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1600000000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;adaptive_rewards_params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;reward_ratio_min&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;numerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;denominator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;200&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;reward_ratio_max&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;numerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;denominator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;max_bonus&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50000000000000&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;growth_rate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;115740740&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;center_dz&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;numerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;denominator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;radius_dz&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;numerator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;denominator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;chain_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NetXynUjJNZm7wi&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;initial_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1970-01-01T00:00:00Z&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Besides usual protocol constants, there are 2 additional fields supported in Mockup mode:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">chain_id</span></code>: Used to prevent replay of operations between chains. You can pick a chain id for your mockup environment using the following command:</p></li>
+</ul>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>compute<span class="w"> </span>chain<span class="w"> </span>id<span class="w"> </span>from<span class="w"> </span>seed<span class="w"> </span>&lt;string&gt;
+</pre></div>
+</div>
+<p>For instance, the following command:</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>octez-client<span class="w"> </span>compute<span class="w"> </span>chain<span class="w"> </span>id<span class="w"> </span>from<span class="w"> </span>seed<span class="w"> </span>strudel
+</pre></div>
+</div>
+<p>yields the chain id <code class="docutils literal notranslate"><span class="pre">NetXwWbjfCqBTLV</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initial_timestamp</span></code>: The creation time of the first block
+of the chain. This date string follows the ISO-8601 standard format, which can be
+generated by <code class="docutils literal notranslate"><span class="pre">date</span> <span class="pre">--iso-8601=seconds</span></code>.</p></li>
+</ul>
+</section>
+<section id="baking">
+<h2>Baking<a class="headerlink" href="#baking" title="Link to this heading">#</a></h2>
+<p>Baking in mockup mode is more aptly named <em>fake baking</em>. Indeed, it behaves
+somewhat differently than baking in the sandbox.</p>
+<p>With fake baking, everything happens locally, keeping track on disk of the
+context and the mempool. In addition, the mockup chain only ever has <em>one</em> live
+block, its head, so that you cannot have competing chains. In effect, it behaves
+as if the time-to-live of transactions was 0.</p>
+<p>As a result of only having one block, only transactions done on the head can be
+baked in. Consequently, transactions refused during successful baking will not
+be in position to be added at any point down the road. Thus, after each
+successful baking, the mempool is emptied from any outstanding operations, which
+are appended to a so-called <em>trashpool</em> containing the list of all refused
+transactions at any point.</p>
+<p>Let us make that clearer with an example.</p>
+</section>
+<section id="run-a-mockup-client-with-asynchronous-state">
+<h2>Run a mockup client with asynchronous state<a class="headerlink" href="#run-a-mockup-client-with-asynchronous-state" title="Link to this heading">#</a></h2>
+<p>We will start by creating a mockup
+directory supporting <em>asynchronous</em> transfers, i.e., where transfers do not
+immediately bake the block.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>rm<span class="w"> </span>/tmp/mockup<span class="w"> </span>-Rf<span class="w"> </span><span class="c1"># Was created by commands above</span>
+<span class="gp">$ </span>mockup-client<span class="w"> </span>create<span class="w"> </span>mockup<span class="w"> </span>--asynchronous
+</pre></div>
+</div>
+<p>This will create a fresh mockup directory.  Notice that, in addition to the
+<code class="docutils literal notranslate"><span class="pre">mockup/context.json</span></code> file, you now also have a <code class="docutils literal notranslate"><span class="pre">mockup/mempool.json</span></code>, which
+is initially empty.</p>
+<p>Now, let us add 2 transactions, that we will label respectively <code class="docutils literal notranslate"><span class="pre">t1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">t2</span></code>, to the mempool.</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>transfer<span class="w"> </span><span class="m">1</span><span class="w"> </span>from<span class="w"> </span>bootstrap1<span class="w"> </span>to<span class="w"> </span>bootstrap2<span class="w"> </span>--fee<span class="w"> </span><span class="m">1</span>
+<span class="gp">$ </span>mockup-client<span class="w"> </span>transfer<span class="w"> </span><span class="m">2</span><span class="w"> </span>from<span class="w"> </span>bootstrap2<span class="w"> </span>to<span class="w"> </span>bootstrap3<span class="w"> </span>--fee<span class="w"> </span><span class="m">0</span>.5
+</pre></div>
+</div>
+<p>You can check that it is indeed the
+case by visiting <code class="docutils literal notranslate"><span class="pre">mockup/mempool.json</span></code>. This should look like this</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;shell_header&quot;</span><span class="p">:</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLockGenesisGenesisGenesisGenesisGenesisCCCCCeZiLHU&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;protocol_data&quot;</span><span class="p">:</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span>
+<span class="w">          </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transaction&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;gas_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10307&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;storage_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000000&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span>
+<span class="w">          </span><span class="s2">&quot;siggZXnjqYnFMjMxfE1avK2PZdRmRekp5fr56F5uJcuQkfHPL23HNDdtz2iG1QeYtU8DGEniWXjqDh1RxGx6scVgMaK74CrF&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;shell_header&quot;</span><span class="p">:</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLockGenesisGenesisGenesisGenesisGenesisCCCCCeZiLHU&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;protocol_data&quot;</span><span class="p">:</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span>
+<span class="w">          </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transaction&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;500000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;gas_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10307&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;storage_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000000&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span>
+<span class="w">          </span><span class="s2">&quot;sigTBpkXw6tC72L2nJ2r2Jm5iB6uidTWqoMNd4oEawUbGBf5mHVfKawFYL8X8MJECpL73oBnfujyUZNLK2LQWD1FaCkYMP4j&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now let’s simulate a selective baker, like so</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>bake<span class="w"> </span><span class="k">for</span><span class="w"> </span>bootstrap1<span class="w"> </span>--minimal-fees<span class="w"> </span><span class="m">0</span>.6
+</pre></div>
+</div>
+<p>The effect of successfully baking the new head will be to include <code class="docutils literal notranslate"><span class="pre">t1</span></code> but
+discard <code class="docutils literal notranslate"><span class="pre">t2</span></code>. You can check that <code class="docutils literal notranslate"><span class="pre">t2</span></code> has been added to the file
+<code class="docutils literal notranslate"><span class="pre">mockup/trashpool.json</span></code>, since we know it cannot be added to further
+blocks of the mockup chain.</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;shell_header&quot;</span><span class="p">:</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLockGenesisGenesisGenesisGenesisGenesisCCCCCeZiLHU&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w"> </span><span class="nt">&quot;protocol_data&quot;</span><span class="p">:</span>
+<span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span>
+<span class="w">       </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transaction&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;500000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;gas_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10307&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;storage_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000000&quot;</span><span class="p">,</span>
+<span class="w">           </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">     </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span>
+<span class="w">       </span><span class="s2">&quot;sigTBpkXw6tC72L2nJ2r2Jm5iB6uidTWqoMNd4oEawUbGBf5mHVfKawFYL8X8MJECpL73oBnfujyUZNLK2LQWD1FaCkYMP4j&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If we repeat somewhat similar steps</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>transfer<span class="w"> </span><span class="m">1</span><span class="w"> </span>from<span class="w"> </span>bootstrap4<span class="w"> </span>to<span class="w"> </span>bootstrap5<span class="w"> </span>--fee<span class="w"> </span><span class="m">1</span>
+<span class="gp">$ </span>mockup-client<span class="w"> </span>transfer<span class="w"> </span><span class="m">2</span><span class="w"> </span>from<span class="w"> </span>bootstrap2<span class="w"> </span>to<span class="w"> </span>bootstrap3<span class="w"> </span>--fee<span class="w"> </span><span class="m">0</span>.5
+</pre></div>
+</div>
+<p>And bake once more selectively</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mockup-client<span class="w"> </span>bake<span class="w"> </span><span class="k">for</span><span class="w"> </span>bootstrap3<span class="w"> </span>--minimal-fees<span class="w"> </span><span class="m">0</span>.6
+</pre></div>
+</div>
+<p>Then, once again, the first transaction, with a fee of 1, will make it as part
+of the new head whereas the second will be appended to the trashpool, which now
+looks like this</p>
+<div class="highlight-JSON notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;shell_header&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLockGenesisGenesisGenesisGenesisGenesisCCCCCeZiLHU&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;protocol_data&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transaction&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;500000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;gas_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10307&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;storage_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1KqTpEZ7Yob7QbPE4Hy4Wo8fHG8LhKxZSx&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="s2">&quot;sigTBpkXw6tC72L2nJ2r2Jm5iB6uidTWqoMNd4oEawUbGBf5mHVfKawFYL8X8MJECpL73oBnfujyUZNLK2LQWD1FaCkYMP4j&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<span class="p">{</span><span class="w"> </span><span class="nt">&quot;shell_header&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;branch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BKmdPRhxVBU4RCpHsLtU2FHNXRPCbcquMTpzK5QWvHG9C4TwMCj&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;protocol_data&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;transaction&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1gjaF81ZRRvdzjobyfVNsAeSC6PScjfQwN&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;fee&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;500000&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;counter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;gas_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10307&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;storage_limit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2000000&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz1faswCTDciRzE4oJ9jn2Vm2dvjeyA9fUzU&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;signature&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="s2">&quot;sigeFcabZTE8Y2LXv19Fe7TbRtkjzVpBy2qhABp263Xnj8TJtA6XpRRMfGeD5YxwCJiTr9r6ZFGBdLnpxL9Y9CG3bpbXmu7E&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="performing-protocol-migrations-of-persistent-mockup-states">
+<h2>Performing protocol migrations of persistent mockup states<a class="headerlink" href="#performing-protocol-migrations-of-persistent-mockup-states" title="Link to this heading">#</a></h2>
+<p>The persistent state of the mockup mode is highly protocol-dependent.
+But Tezos is self-amending: protocols regularly evolve from one to the next.
+When a protocol switch happens on-chain, the protocol state is automatically
+migrated to the format used by the new protocol.</p>
+<p>A command is provided to do the same on the persistent mockup state:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ mockup-client migrate mockup to &lt;protocol hash&gt;
+</pre></div>
+</div>
+<p>The protocol corresponding to the hash must know how to migrate from the current protocol.</p>
+<p>This is mostly useful for protocol developers, but also for other developers, e.g., those wanting to check the robustness of their application with respect to protocol changes, including new features or breaking changes.</p>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<p>This tutorial has also served as a base for <a class="reference external" href="https://research-development.nomadic-labs.com/introducing-mockup-mode-for-tezos-client.html">a nice blog post</a>, written in a more casual way and intended for a larger audience of application developers.
+Of course, some aspects may gradually become outdated in the blog version.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sandbox.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sandboxed mode</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="proxy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Proxy mode</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-operation">Modes of operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-features">Supported features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-without-persistent-state">Run a mockup client without persistent state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-with-persistent-state">Run a mockup client with persistent state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tune-mockup-parameters">Tune mockup parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-protocol-constants-for-the-mockup-mode">Setting protocol constants for the mockup mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baking">Baking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-a-mockup-client-with-asynchronous-state">Run a mockup client with asynchronous state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-protocol-migrations-of-persistent-mockup-states">Performing protocol migrations of persistent mockup states</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See also</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
