@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=68c14187" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1cb20957" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -39,7 +39,7 @@
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=0a322bc3"></script>
+    <script src="_static/documentation_options.js?v=a6f04867"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -891,16 +891,29 @@ removed at the next release, but still supported. (MR <a class="reference extern
 <li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/proof</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13080">!13080</a>), also use <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> instead,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/commitments</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12886">!12886</a>),</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/commitments/&lt;c&gt;/shards</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;int32&gt;/headers</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13044">!13044</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;int32&gt;/headers</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13044">!13044</a>).</p></li>
 </ul>
-<p>The paths or method of the following RPCs have been updated:
-- <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/content</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13075">!13075</a>),
-- <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slot_indices/&lt;i&gt;/commitment</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/commitment</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13046">!13046</a>),
-- <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/pages/&lt;p&gt;/proof</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages/&lt;p&gt;/proof</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13083">!13083</a>),
-- <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/shard/&lt;c&gt;/&lt;s&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/shards/&lt;s&gt;/content</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13095">!13095</a>),
-- <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>),
-- <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/slot/pages/&lt;c&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12880">!12880</a>),
-- <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/headers</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/status</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13055">!13055</a>).</p>
+<p>The paths or method of the following RPCs have been updated:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/content</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13075">!13075</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slot_indices/&lt;i&gt;/commitment</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/commitment</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13046">!13046</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/pages/&lt;p&gt;/proof</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages/&lt;p&gt;/proof</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13083">!13083</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/shard/&lt;c&gt;/&lt;s&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/shards/&lt;s&gt;/content</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13095">!13095</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/slot/pages/&lt;c&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12880">!12880</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/headers</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/status</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13055">!13055</a>),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers/list</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14521">!14521</a>).</p></li>
+</ul>
+<p>Two new RPCs have been added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/slot_indexes/peers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/pkhs/peers</span></code></p></li>
+</ul>
+<p>These two new RPCs are similar to <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/topics/</span></code> but instead of
+grouping peers by topic they group them by slot indices or attester’s public key
+hashes (<code class="docutils literal notranslate"><span class="pre">pkhs</span></code>) appearing in the relevant topics. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14504">!14504</a>)</p>
+<p>In the output of <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers/info</span></code>, the field <code class="docutils literal notranslate"><span class="pre">&quot;point&quot;</span></code> has been renamed
+to <code class="docutils literal notranslate"><span class="pre">&quot;peer&quot;</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14521">!14521</a>)</p>
 <p>A new RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> has been added to check the status on the node (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14670">!14670</a>).</p>
 </section>
 </section>
@@ -908,6 +921,14 @@ removed at the next release, but still supported. (MR <a class="reference extern
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Depends on OCaml 4.14.2 (was 4.14.1 before). (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14536">!14536</a>)</p></li>
+<li><p>Current Debian packages are now available via APT repository for Ubuntu
+(Noble and Jammy) and Debian Bookworm, both for AMD64 and ARM64.</p></li>
+<li><p>New set of Debian packages are now available for testing. These new set of
+packages are built following Debian best practices for packaging, use debconf
+for configuration and systemd to handle the runtime lifecycle of the daemons.
+These new packages are going to introduce few breaking changes starting from
+the next release. Please check our documentation for more details. (MR
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13273">!13273</a>)</p></li>
 </ul>
 </section>
 </section>

@@ -112,14 +112,6 @@ a:hover {
     text-decoration:none;
 }
 
-[data-theme='dark'] .bd-content a:link {
-    color: rgb(58, 84, 230);
-}
-
-[data-theme='dark'] .bd-content a:visited {
-    color: rgb(58, 84, 230);
-}
-
 .btn.btn-default {
     color: #333;
 }
