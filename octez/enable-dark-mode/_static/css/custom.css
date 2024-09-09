@@ -90,8 +90,8 @@ a:hover {
 }
 
 [data-theme='dark'] .bd-content :not(pre) > code {
-    color: rgb(186, 79, 67);
-    background-color: #212529;
+    color: var(--pst-color-text-base);
+    background-color: var(--pst-color-surface);
 }
 
 .bd-content tt.literal, .bd-content tt.literal, .bd-content code.literal {
@@ -99,7 +99,7 @@ a:hover {
 }
 
 [data-theme='dark'] .bd-content tt.literal, .bd-content tt.literal, .bd-content code.literal {
-    color: rgb(186, 79, 67);
+    color: var(--pst-color-text-base);
 }
 
 .bd-content a:visited {
