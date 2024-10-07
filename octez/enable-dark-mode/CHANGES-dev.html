@@ -39,7 +39,7 @@
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=36da1785"></script>
+    <script src="_static/documentation_options.js?v=c1386fac"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="alpha/global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alpha/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="alpha/mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alpha/plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="alpha/event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -669,154 +683,29 @@ not refactorings or tests. Changes to the documentation do not need to
 be documented here either.</p>
 <section id="general">
 <h2>General<a class="headerlink" href="#general" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Add and <strong>experimental</strong> switch to enable the use of the Brassaia context
-backend using <code class="docutils literal notranslate"><span class="pre">TEZOS_CONTEXT_BACKEND=Brassaia</span></code> environment variable. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13054">!13054</a>)</p></li>
-<li><p>Removed binaries for Oxford. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13795">!13795</a>)</p></li>
-<li><p>Removed binaries for ParisB. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14026">!14026</a>)</p></li>
-</ul>
 </section>
 <section id="node">
 <h2>Node<a class="headerlink" href="#node" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Add an <code class="docutils literal notranslate"><span class="pre">source</span></code> argument to <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">/chains/&lt;chain&gt;/mempool/pending_operations</span></code> which allows operations
-to be filtered by source. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/11278">!11278</a>)</p></li>
-<li><p>Add an <code class="docutils literal notranslate"><span class="pre">operation_hash</span></code> argument to <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">/chains/&lt;chain&gt;/mempool/pending_operations</span></code> which allows operations
-to be filtered by hash. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13977">!13977</a>)</p></li>
-<li><p>Add a <code class="docutils literal notranslate"><span class="pre">source</span></code> argument to <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">/chains/&lt;chain&gt;/mempool/monitor_operations</span></code> which allows operations
-to be filtered by source. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14284">!14284</a>)</p></li>
-<li><p>Add an RPC
-<code class="docutils literal notranslate"><span class="pre">/chains/&lt;chain&gt;/blocks/&lt;block&gt;/context/smart_rollups/smart_rollup/&lt;sr1...&gt;/consumed_outputs/&lt;outbox_level&gt;</span></code>
-that returns the consumed output’s indexes for the given outbox
-level. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12776">!12776</a>)</p></li>
-<li><p>Restart the block application/peer validation once when encountering a context
-error to mitigate the error crashing by replaying the application/validation
-before raising an uncaught failure (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13398">!13398</a> and <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13437">!13437</a>)</p></li>
-<li><p>Importing a snapshot uses the configuration if it exists. It’s
-useful when an archive snapshot contains some
-<code class="docutils literal notranslate"><span class="pre">unsafe_pvm_patches</span></code>. The same <code class="docutils literal notranslate"><span class="pre">unsafe_pvm_patches</span></code> must be set
-in the export and import or the import will fail. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13397">!13397</a>)</p></li>
-<li><dl class="simple">
-<dt>When available, add some colors to some event logs: (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13610">!13610</a>)</dt><dd><ul>
-<li><p>node_is_ready is now Green</p></li>
-<li><p>synchronization status changes are now Magenta</p></li>
-<li><p>store merge start/end events are now Cyan</p></li>
-<li><p>update to protocol table is now Blue</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Removed Oxford mempool plugin. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13798">!13798</a>)</p></li>
-<li><p>Remove support for deprecated version <code class="docutils literal notranslate"><span class="pre">0</span></code> for RPCs <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">../mempool/monitor_operations</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">../helpers/preapply/operations</span></code>,
-<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">../blocks/&lt;block&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">../blocks/&lt;blocks&gt;/metadata</span></code>. and <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">../blocks/&lt;blocks&gt;/operations</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13449">!13449</a>)</p></li>
-<li><p>Remove support for deprecated version <code class="docutils literal notranslate"><span class="pre">1</span></code> for RPC <code class="docutils literal notranslate"><span class="pre">GET</span>
-<span class="pre">../mempool/pending_operations</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13449">!13449</a>)</p></li>
-<li><p>Remove support for deprecated version <code class="docutils literal notranslate"><span class="pre">0</span></code> from RPCs <code class="docutils literal notranslate"><span class="pre">POST</span>
-<span class="pre">../helpers/parse/operations</span></code>, <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">../helpers/scripts/run_operation</span></code> and
-<code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">../helpers/scripts/simulate_operation</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13451">!13451</a>)</p></li>
-<li><p><strong>Breaking change</strong> Decommissioned deprecated
-<code class="docutils literal notranslate"><span class="pre">/chains/&lt;chain_id&gt;/checkpoint</span></code> RPC endpoint. Use
-<code class="docutils literal notranslate"><span class="pre">/chains/&lt;chain_id&gt;/levels/{checkpoint,</span> <span class="pre">caboose,</span> <span class="pre">savepoint}</span></code>, or
-<code class="docutils literal notranslate"><span class="pre">/config/history_mode</span></code> instead to obtain the current checkpoint
-for this chain. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13880">!13880</a>)</p></li>
-<li><p><strong>Breaking change</strong> Decommissioned deprecated
-<code class="docutils literal notranslate"><span class="pre">/monitor/commit_hash</span></code> RPC endpoint. Use <code class="docutils literal notranslate"><span class="pre">/version</span></code> instead. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13879">!13879</a>)</p></li>
-<li><p>Removed ParisB mempool plugin. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14031">!14031</a>)</p></li>
-<li><p>Introduced the external RPC process to reduce the load of the node
-when answering heavy RPCs. This can be enabled using
-<code class="docutils literal notranslate"><span class="pre">--external-rpc-addr</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/9490">!9490</a>)</p></li>
-<li><p>Introduced <code class="docutils literal notranslate"><span class="pre">--storage-maintenance-delay</span></code> to allow delaying the
-storage maintenance. It is set to <code class="docutils literal notranslate"><span class="pre">auto</span></code> by default, to
-automatically trigger the maintenance whenever it is the most
-suitable. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14503">!14503</a>)</p></li>
-<li><p><strong>Breaking change</strong> Bumped the node’s storage version to
-<code class="docutils literal notranslate"><span class="pre">3.2</span></code>. This new version changes the store’s representation,
-allowing the storage to scale to the increasing number of blocks per
-cycles, thus paving the way to reducing even more the block
-time. Upgrading to this new version must be done manually (using the
-<code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">upgrade</span> <span class="pre">storage</span></code> command) and is irreversible. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14211">!14211</a>)</p></li>
-<li><p><strong>Breaking change</strong> Bumped the snapshot version from <code class="docutils literal notranslate"><span class="pre">7</span></code> to <code class="docutils literal notranslate"><span class="pre">8</span></code>,
-in order to support the changes introduced by the <code class="docutils literal notranslate"><span class="pre">3.2</span></code> storage
-version. Snapshots of version <code class="docutils literal notranslate"><span class="pre">7</span></code> exported with previous versions
-of Octez (<code class="docutils literal notranslate"><span class="pre">v20</span></code>) can still be imported. Snapshots of version <code class="docutils literal notranslate"><span class="pre">8</span></code>
-are not retro-compatible with previous octez versions (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14398">!14398</a>).</p></li>
+<li><p>Introduced a specific exit code for the <code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">upgrade</span> <span class="pre">storage</span>
+<span class="pre">--status</span></code> command. It now returns the exit code 1 when an upgrade
+is availalbe. 0 is returned when the storage is up to date. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/TBD">!TBD</a>)</p></li>
 </ul>
 </section>
 <section id="client">
 <h2>Client<a class="headerlink" href="#client" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">--extra-big-maps</span></code> and <code class="docutils literal notranslate"><span class="pre">--other-contracts</span></code> command-line
-parameters, which are used to specify contextual information in some
-Michelson-related commands, now allow file names as argument. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13311">!13311</a>)</p></li>
-<li><p><strong>Breaking change</strong> Removed read-write commands specific to Oxford. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13799">!13799</a>)</p></li>
-<li><p><strong>Breaking changes</strong> client’s encoding with legacy attestation name are no
-longer supported starting from protocol following ParisC. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13454">!13454</a>)</p></li>
-<li><p><strong>Breaking change</strong> Removed read-write commands specific to ParisB. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14033">!14033</a>)</p></li>
-</ul>
 </section>
 <section id="baker">
 <h2>Baker<a class="headerlink" href="#baker" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>When available, add some colors to some event logs: (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13611">!13611</a>)</dt><dd><ul>
-<li><p>block_injected is now Blue</p></li>
-<li><p>revealing_nonce is now Cyan</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Branch used in consensus operation is now the grandparent block instead of the
-parent block. This is done to avoid having consensus operation branched on
-block that are not part of the canonical chain anymore.(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13619">!13619</a>)</p></li>
-<li><p>Remove <code class="docutils literal notranslate"><span class="pre">preendorse</span> <span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">endorse</span> <span class="pre">for</span></code> deprecated commands from baker.
-(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14096">!14096</a>)</p></li>
-<li><p>By default, the Baker only accepts to communicate with nodes of the same or
-more recent version. To allow the Baker to communicate with nodes of older
-version or dev version, use the –node-version-check-bypass or
-–node-version-allowed option. (MRs <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14044">!14044</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14189">!14189</a>)</p></li>
-<li><p>The baker accepts a new argument <code class="docutils literal notranslate"><span class="pre">--dal-node-timeout-percentage</span>
-<span class="pre">&lt;percentage&gt;</span></code>, which specifies the percentage of the time until the end of
-round determining the timeout to wait for the DAL node to provide shards’
-attestation status. The default value is 10%. For instance, the default value
-means that if there are 5 seconds left till the end of the round, then the
-baker will wait for <code class="docutils literal notranslate"><span class="pre">0.5</span></code> seconds for the DAL attestations’ status. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14480">!14480</a>)</p></li>
-</ul>
 </section>
 <section id="accuser">
 <h2>Accuser<a class="headerlink" href="#accuser" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>When available, add some colors to some event logs: (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13611">!13611</a>)</dt><dd><ul>
-<li><p>double_attestation_detected and double_preattestation_detected is now
-Magenta</p></li>
-<li><p>double_attestation_denounced and double_preattestation_denounced is now
-Blue</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
 </section>
 <section id="proxy-server">
 <h2>Proxy Server<a class="headerlink" href="#proxy-server" title="Link to this heading">#</a></h2>
 </section>
 <section id="protocol-compiler-and-environment">
 <h2>Protocol Compiler And Environment<a class="headerlink" href="#protocol-compiler-and-environment" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Added a new version of the protocol environment (V13). (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12966">!12966</a>)</p></li>
-<li><p>Remove with_legacy_attestation_name encodings from the protocol environment.
-(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14046">!14046</a>)</p></li>
-</ul>
 </section>
 <section id="codec">
 <h2>Codec<a class="headerlink" href="#codec" title="Link to this heading">#</a></h2>
@@ -861,6 +750,19 @@ enabled with the flag <code class="docutils literal notranslate"><span class="pr
 produced by the PVM for <code class="docutils literal notranslate"><span class="pre">block_id</span></code> if the query parameter <code class="docutils literal notranslate"><span class="pre">outbox</span></code> is
 present. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14140">!14140</a>)</p></li>
 <li><p>Introduce the 6th version of the WASM PVM. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14493">!14493</a>)</p></li>
+<li><p>New RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/admin/cancel_gc</span></code> to cancel any on-going garbage collection in
+the rollup node. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14693">!14693</a>)</p></li>
+<li><p>Refined GC for rollup node is now triggered every ~3 days to make it less
+wasteful on resources. Gc is not run anymore after importing an archive
+snapshot in a full node. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14717">!14717</a>)</p></li>
+<li><p>The command <code class="docutils literal notranslate"><span class="pre">snapshot</span> <span class="pre">export</span></code> tries to cancel ongoing GC, if any. Add
+<code class="docutils literal notranslate"><span class="pre">--rollup-node-endpoint</span></code> to specify the RPC server endpoint, if the address
+and port of the running node have been changed via command-line arguments. (MR
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14694">!14694</a>)</p></li>
+<li><p>Fix an issue which could introduce a discrepancy between the snapshot header
+and its content. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14777">!14777</a>)</p></li>
+<li><p>RPC <code class="docutils literal notranslate"><span class="pre">/global/block/&lt;block_id&gt;/outbox/&lt;outbox_level&gt;/messages</span></code> now fails if
+<code class="docutils literal notranslate"><span class="pre">outbox_level</span></code> is above the level of <code class="docutils literal notranslate"><span class="pre">block_id</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14911">!14911</a>)</p></li>
 </ul>
 </section>
 <section id="smart-rollup-wasm-debugger">
@@ -873,63 +775,16 @@ present. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/
 <h2>Data Availability Layer (DAL)<a class="headerlink" href="#data-availability-layer-dal" title="Link to this heading">#</a></h2>
 <section id="dal-node">
 <h3>DAL node<a class="headerlink" href="#dal-node" title="Link to this heading">#</a></h3>
-<p>Reduce the number of inodes used by a bootstrap node. This fixes an issue
-where the number of inodes used was too high with respect to the disk size. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12900">!12900</a>)</p>
-<p>The DAL node’s store has been updated, and it is not compatible with
-V20. However, a V20 store is upgraded at startup. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13820">!13820</a>)</p>
-<p>The format of the configuration file (and in particular that of profiles) has
-been updated. However, the node is able to read V20 configuration files. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12968">!12968</a>, MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13787">!13787</a>)</p>
-<p>The profile names have changed, in particular ‘(slot) producers’ are now called
-‘operators’. Accordingly, the node has a new argument <code class="docutils literal notranslate"><span class="pre">--operator</span></code> that should
-be used instead of <code class="docutils literal notranslate"><span class="pre">--producer-profiles</span></code>, which is deprecated and will be
-removed at the next release, but still supported. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14261">!14261</a>, MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14277">!14277</a>)</p>
-<p>The following RPCs have been removed:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/commitments</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>), use <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> instead,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/proof</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13080">!13080</a>), also use <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> instead,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/commitments</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12886">!12886</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/commitments/&lt;c&gt;/shards</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;int32&gt;/headers</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13044">!13044</a>).</p></li>
+<li><p><strong>Breaking_change</strong> The configuration value <code class="docutils literal notranslate"><span class="pre">metrics-addr</span></code> is now an option.
+It should not break unless the value differs from the default value
+(<code class="docutils literal notranslate"><span class="pre">0.0.0.0:11733</span></code>). The new default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, so no metrics are
+exported by default.</p></li>
 </ul>
-<p>The paths or method of the following RPCs have been updated:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/content</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13075">!13075</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slot_indices/&lt;i&gt;/commitment</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/commitment</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13046">!13046</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/pages/&lt;p&gt;/proof</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages/&lt;p&gt;/proof</span></code>  (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13083">!13083</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/shard/&lt;c&gt;/&lt;s&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/shards/&lt;s&gt;/content</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13095">!13095</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slot</span></code> is now <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/slots</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12949">!12949</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/slot/pages/&lt;c&gt;</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/pages</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/12880">!12880</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;c&gt;/headers</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/levels/&lt;l&gt;/slots/&lt;i&gt;/status</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13055">!13055</a>),</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers/list</span></code> is now <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers</span></code> (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14521">!14521</a>).</p></li>
-</ul>
-<p>Two new RPCs have been added:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/slot_indexes/peers</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/pkhs/peers</span></code></p></li>
-</ul>
-<p>These two new RPCs are similar to <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/gossipsub/topics/</span></code> but instead of
-grouping peers by topic they group them by slot indices or attester’s public key
-hashes (<code class="docutils literal notranslate"><span class="pre">pkhs</span></code>) appearing in the relevant topics. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14504">!14504</a>)</p>
-<p>In the output of <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/p2p/peers/info</span></code>, the field <code class="docutils literal notranslate"><span class="pre">&quot;point&quot;</span></code> has been renamed
-to <code class="docutils literal notranslate"><span class="pre">&quot;peer&quot;</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14521">!14521</a>)</p>
-<p>A new RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/health</span></code> has been added to check the status on the node (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14670">!14670</a>).</p>
 </section>
 </section>
 <section id="miscellaneous">
 <h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Depends on OCaml 4.14.2 (was 4.14.1 before). (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/14536">!14536</a>)</p></li>
-<li><p>Current Debian packages are now available via APT repository for Ubuntu
-(Noble and Jammy) and Debian Bookworm, both for AMD64 and ARM64.</p></li>
-<li><p>New set of Debian packages are now available for testing. These new set of
-packages are built following Debian best practices for packaging, use debconf
-for configuration and systemd to handle the runtime lifecycle of the daemons.
-These new packages are going to introduce few breaking changes starting from
-the next release. Please check our documentation for more details. (MR
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/13273">!13273</a>)</p></li>
-</ul>
 </section>
 </section>
 

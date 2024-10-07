@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=3b41d5a9"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -633,11 +647,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshot-the-alpha-protocol">1. Snapshot the Alpha Protocol</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-the-snapshot-alpha-protocol-in-the-build-system">2. Link the Snapshot Alpha Protocol in the Build System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-user-activated-upgrade">3. Set User-Activated Upgrade</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-the-shell-to-obtain-a-yes-node">4. Patch the Shell to Obtain a Yes-Node</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-project">5. Compile the Project</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-context-from-mainnet">6. Import a Context From Mainnet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-yes-wallet">7. Create a Yes-Wallet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-steps-1-7-above">Batch Steps 1–7 Above</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-project">4. Compile the Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-context-from-mainnet">5. Import a Context From Mainnet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-yes-wallet">6. Create a Yes-Wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-steps-1-6-above">Batch Steps 1–6 Above</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-migration-on-the-sandbox">Run the Migration on the Sandbox</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-migration-on-a-context-imported-from-mainnet">Run the Migration on a Context Imported From Mainnet</a></li>
 </ul>
@@ -789,8 +802,6 @@ the Alpha protocol.</p>
 snapshot the Alpha protocol,</p></li>
 <li><p>set <code class="docutils literal notranslate"><span class="pre">user-activated</span> <span class="pre">upgrade</span></code> that will trigger the migration at a given
 level,</p></li>
-<li><p>patch the shell to obtain a <code class="docutils literal notranslate"><span class="pre">yes-node</span></code> that can fake baker signatures, if we
-wish to import the context from Mainnet,</p></li>
 <li><p>compile the project,</p></li>
 <li><p>import a context from Mainnet, if so wished, and</p></li>
 <li><p>create a <code class="docutils literal notranslate"><span class="pre">yes-wallet</span></code> that stores fake baker signatures, if we wish to import
@@ -824,7 +835,7 @@ snapshot file was taken.</p>
 <p>In our example we will use a snapshot file
 <code class="docutils literal notranslate"><span class="pre">~/snapshot-mainnet.rolling</span></code>
 which was taken at level <code class="docutils literal notranslate"><span class="pre">1617344</span></code>.</p>
-<p>The next subsections explain each of the individual steps 1–7.</p>
+<p>The next subsections explain each of the individual steps 1–6.</p>
 </section>
 <section id="snapshot-the-alpha-protocol">
 <h3>1. Snapshot the Alpha Protocol<a class="headerlink" href="#snapshot-the-alpha-protocol" title="Link to this heading">#</a></h3>
@@ -934,29 +945,12 @@ snapshot was taken by invoking:</p>
 <p>As before, if we had opted for not snapshotting the Alpha protocol, we could pass
 the path <code class="docutils literal notranslate"><span class="pre">src/proto_alpha</span></code> as the parameter of the command above.</p>
 <p>If we are testing the migration on an empty context on the sandbox, then we
-should proceed directly to Section <a class="reference internal" href="#compile-the-project">5. Compile the project</a>. Otherwise, the next
+should proceed directly to Section <a class="reference internal" href="#compile-the-project">4. Compile the project</a>. Otherwise, the next
 two subsections detail how to produce credentials that will allow us to make the
 chain that we imported from Mainnet progress.</p>
 </section>
-<section id="patch-the-shell-to-obtain-a-yes-node">
-<h3>4. Patch the Shell to Obtain a Yes-Node<a class="headerlink" href="#patch-the-shell-to-obtain-a-yes-node" title="Link to this heading">#</a></h3>
-<p>If we would start a node imported from Mainnet, how could we bake new blocks and
-make the chain progress? We do not know the private keys of existing bakers in
-Mainnet!</p>
-<p>In order to produce credentials to make the chain imported from Mainnet
-progress, we modify the code to produce a yes-node that forges and verifies
-fake signatures. This can be achieved with a small patch to
-<code class="docutils literal notranslate"><span class="pre">src/lib_crypto/signature.ml</span></code> that replaces each signature with a
-concatenation of a public key and a message, such that this fake signature is
-still unique for each key and message. This patch is encoded as the git diff
-contained in the file <code class="docutils literal notranslate"><span class="pre">scripts/yes-node.patch</span></code>. We can apply this patch by
-invoking:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./scripts/patch-yes_node.sh
-</pre></div>
-</div>
-</section>
 <section id="compile-the-project">
-<h3>5. Compile the Project<a class="headerlink" href="#compile-the-project" title="Link to this heading">#</a></h3>
+<h3>4. Compile the Project<a class="headerlink" href="#compile-the-project" title="Link to this heading">#</a></h3>
 <p>At this point we have to compile the Alpha protocol (or the snapshot Alpha
 protocol, in case we opted for it) that we will activate when running the
 migration, as well as the shell if we patched it. We can compile the whole
@@ -966,7 +960,7 @@ project under the <code class="docutils literal notranslate"><span class="pre">s
 </div>
 </section>
 <section id="import-a-context-from-mainnet">
-<h3>6. Import a Context From Mainnet<a class="headerlink" href="#import-a-context-from-mainnet" title="Link to this heading">#</a></h3>
+<h3>5. Import a Context From Mainnet<a class="headerlink" href="#import-a-context-from-mainnet" title="Link to this heading">#</a></h3>
 <p>If we wish to test the migration in a realistic scenario, we need to import a
 context from a Mainnet’s snapshot file. As explained in the beginning of Section
 <a class="reference internal" href="#prepare-the-migration">Prepare the migration</a>, in our example we will use a snapshot file
@@ -998,7 +992,7 @@ only if we want to test the migration on a realistic context from
 Mainnet. Otherwise the migration will run on the sandbox.</p>
 </section>
 <section id="create-a-yes-wallet">
-<h3>7. Create a Yes-Wallet<a class="headerlink" href="#create-a-yes-wallet" title="Link to this heading">#</a></h3>
+<h3>6. Create a Yes-Wallet<a class="headerlink" href="#create-a-yes-wallet" title="Link to this heading">#</a></h3>
 <p>We also need to create a yes-wallet, which is a special wallet where secret
 keys actually encode the same bytes as their corresponding public keys. By
 adding to the yes-wallet the existing accounts of Mainnet bakers, we would have
@@ -1033,8 +1027,8 @@ therefore some commands like <code class="docutils literal notranslate"><span cl
 faster) and its keys will represent more than the 2/3rds of the
 attesting power for any given level.</p>
 </section>
-<section id="batch-steps-1-7-above">
-<h3>Batch Steps 1–7 Above<a class="headerlink" href="#batch-steps-1-7-above" title="Link to this heading">#</a></h3>
+<section id="batch-steps-1-6-above">
+<h3>Batch Steps 1–6 Above<a class="headerlink" href="#batch-steps-1-6-above" title="Link to this heading">#</a></h3>
 <p>The script <code class="docutils literal notranslate"><span class="pre">scripts/prepare_migration_test.sh</span></code> batches steps 1–7 above.</p>
 <p>The first parameter is optional and contains a name in the format
 <code class="docutils literal notranslate"><span class="pre">&lt;tag_starting_with_version_letter&gt;_&lt;version_number&gt;</span></code>. If some name is passed,
@@ -1146,11 +1140,17 @@ where the <code class="docutils literal notranslate"><span class="pre">XXXX</spa
 environment variable <code class="docutils literal notranslate"><span class="pre">test_directory</span></code> to the path of the test folder, such
 that we can run the node in the test folder later. Then it copies the contents
 of the original context folder into the test folder.</p>
+<p>In order to produce credentials to make the chain imported from Mainnet
+progress, we need our node to forge and verify fake signatures. This can be
+achieved with the use of the <code class="docutils literal notranslate"><span class="pre">TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING</span></code>
+evironment variable that replaces each signature with a concatenation of a
+public key and a message, such that this fake signature is still unique for each
+key and message.</p>
 <p>Now, we can run the <code class="docutils literal notranslate"><span class="pre">octez-node</span></code> command by specifying the test folder
 <code class="docutils literal notranslate"><span class="pre">$test_directory</span></code> as the data directory. We will also specify the RPC address
 <code class="docutils literal notranslate"><span class="pre">localhost</span></code>, such that the RPCs will be available at the url
 <code class="docutils literal notranslate"><span class="pre">localhost:8732</span></code>. In our example, by invoking the following:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
 </pre></div>
 </div>
 <p>We will now trigger the migration by baking blocks until the level reaches the
@@ -1158,7 +1158,7 @@ one specified when setting the user-activated upgrades. The blocks can be baked
 with the yes-wallet created in step 5 above, and with any of the accounts
 <code class="docutils literal notranslate"><span class="pre">foundation1</span></code> to <code class="docutils literal notranslate"><span class="pre">foundation8</span></code>. In our example, we can bake one block by
 running the following command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1166,7 +1166,7 @@ running the following command:</p>
 <p>Prior to Tenderbake activation (i.e. to the Protocol I) this command requires
 a specific account to bake for. Any of <code class="docutils literal notranslate"><span class="pre">foundation[1-8]</span></code> accounts can be
 used to do it.</p>
-<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">octez-client</span> <span class="pre">bake</span> <span class="pre">for</span> <span class="pre">foundation1</span> <span class="pre">--minimal-timestamp</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y</span>&#160; <span class="pre">octez-client</span> <span class="pre">bake</span> <span class="pre">for</span> <span class="pre">foundation1</span> <span class="pre">--minimal-timestamp</span></code></p>
 <p>If the chosen account <code class="docutils literal notranslate"><span class="pre">foundation1</span></code> ceases to have the priority to bake, we
 can switch to any of the remaining accounts <code class="docutils literal notranslate"><span class="pre">foundation2</span></code> to
 <code class="docutils literal notranslate"><span class="pre">foundation8</span></code>. We will always be able to make the chain progress since it is
@@ -1188,12 +1188,12 @@ copy the context of the original folder into the test folder. In our example:</p
 </pre></div>
 </div>
 <p>Now we run the node in the test folder by invoking:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
 </pre></div>
 </div>
 <p>And finally, we bake the numbers of blocks specified by the user-activated
 upgrade, with the command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
 </pre></div>
 </div>
 </section>
@@ -1297,7 +1297,6 @@ invoking the following eight commands):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./scripts/snapshot_alpha.sh d_012
 $ ./scripts/link_protocol.sh src/proto_012_*
 $ ./scripts/user_activated_upgrade.sh src/proto_012_* 1617344
-$ ./scripts/patch-yes_node.sh
 $ make
 $ ./octez-node snapshot import ~/mainnet.rolling --data-dir /tmp/octez-node-mainnet
 $ ./octez-node identity generate --data-dir /tmp/octez-node-mainnet
@@ -1309,13 +1308,13 @@ $ dune exec devtools/yes_wallet/yes_wallet.exe -- create from context /tmp/octez
 </pre></div>
 </div>
 <p>Run the node`:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
 </pre></div>
 </div>
 <p>Bake three blocks:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
-$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
-$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1327,7 +1326,7 @@ used to do it.</p>
 <p>You should see the <code class="docutils literal notranslate"><span class="pre">STITCHING!</span></code> message!</p>
 <p>To test again, kill the node:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ fg
-./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost
+TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost
 ^C
 </pre></div>
 </div>
@@ -1339,13 +1338,13 @@ $ test_directory=$(mktemp -d -t &quot;octez-node-mainnet-XXXX&quot;) &amp;&amp; 
 </pre></div>
 </div>
 <p>Run the node:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-node run --synchronisation-threshold 0 --connections 0 --data-dir &quot;$test_directory&quot; --rpc-addr localhost &amp;
 </pre></div>
 </div>
 <p>And bake three blocks:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
-$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
-$ ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
+$ TEZOS_USE_YES_CRYPTO_I_KNOW_WHAT_I_AM_DOING=Y ./octez-client -d /tmp/yes-wallet bake for --minimal-timestamp
 </pre></div>
 </div>
 <p>You should see the <code class="docutils literal notranslate"><span class="pre">STITCHING!</span></code> message again!</p>
@@ -1557,11 +1556,10 @@ conversion, and then <em>recursively remove</em> the temporary path.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#snapshot-the-alpha-protocol">1. Snapshot the Alpha Protocol</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#link-the-snapshot-alpha-protocol-in-the-build-system">2. Link the Snapshot Alpha Protocol in the Build System</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-user-activated-upgrade">3. Set User-Activated Upgrade</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-the-shell-to-obtain-a-yes-node">4. Patch the Shell to Obtain a Yes-Node</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-project">5. Compile the Project</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-context-from-mainnet">6. Import a Context From Mainnet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-yes-wallet">7. Create a Yes-Wallet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-steps-1-7-above">Batch Steps 1–7 Above</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-project">4. Compile the Project</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-context-from-mainnet">5. Import a Context From Mainnet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-yes-wallet">6. Create a Yes-Wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-steps-1-6-above">Batch Steps 1–6 Above</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-migration-on-the-sandbox">Run the Migration on the Sandbox</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-migration-on-a-context-imported-from-mainnet">Run the Migration on a Context Imported From Mainnet</a></li>
 </ul>

@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=3b41d5a9"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -630,7 +644,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images-and-docker-compose">Using Docker Images And Docker-Compose</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images-and-docker-compose">Using Docker images and docker-compose</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a></li>
 </ul>
@@ -736,7 +750,7 @@ particular regarding the home directory for the <code class="docutils literal no
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-signer</span></code>: the remote signer, to hold keys on (and sign from) a different machine from the baker or client</p></li>
 </ul>
 <section id="ubuntu-and-debian-octez-packages">
-<h3>Ubuntu and Debian Octez packages<a class="headerlink" href="#ubuntu-and-debian-octez-packages" title="Link to this heading">#</a></h3>
+<span id="installing-packages"></span><h3>Ubuntu and Debian Octez packages<a class="headerlink" href="#ubuntu-and-debian-octez-packages" title="Link to this heading">#</a></h3>
 <p>If you’re using Ubuntu or Debian, you can install the same packages as in the release page
 using <code class="docutils literal notranslate"><span class="pre">apt</span></code> directly from our APT repository, instead of going to the Octez
 release page as explained above.</p>
@@ -788,7 +802,7 @@ possible to configure the software to use a different user (even root).</p>
 <p>The documentation for these packages, originally developed by Chris Pinnock,
 can be found here: <a class="reference external" href="https://chrispinnock.com/tezos/packages/">https://chrispinnock.com/tezos/packages/</a></p>
 <section id="new-set-of-debian-packages">
-<h4>New set of Debian packages<a class="headerlink" href="#new-set-of-debian-packages" title="Link to this heading">#</a></h4>
+<span id="new-packages"></span><h4>New set of Debian packages<a class="headerlink" href="#new-set-of-debian-packages" title="Link to this heading">#</a></h4>
 <p>There is also a new generation of Debian packages that are available for testing.
 These packages will replace the currently available packages mentioned above.</p>
 <p>The new set of packages can be installed by adding the following apt repository:</p>
@@ -821,11 +835,11 @@ packages and repeat the installation.</p>
 </section>
 </section>
 <section id="using-docker-images-and-docker-compose">
-<span id="using-docker-images"></span><h2>Using Docker Images And Docker-Compose<a class="headerlink" href="#using-docker-images-and-docker-compose" title="Link to this heading">#</a></h2>
+<span id="using-docker-images"></span><h2>Using Docker images and docker-compose<a class="headerlink" href="#using-docker-images-and-docker-compose" title="Link to this heading">#</a></h2>
 <p>For every change committed in the GitLab repository, Docker images are
 automatically generated and published on <a class="reference external" href="https://hub.docker.com/r/tezos/tezos/">DockerHub</a>. This provides a convenient
 way to run an always up-to-date <code class="docutils literal notranslate"><span class="pre">octez-node</span></code>.</p>
-<p>From version 22.0 all Docker images for tezos are signed using Cosign.
+<p>From version 22.0 all Octez Docker images are signed using Cosign.
 You can verify if the images are correctly signed using the Cosign utility, as explained below:</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -839,14 +853,14 @@ You can verify if the images are correctly signed using the Cosign utility, as e
 </div>
 <p>One way to run those Docker images is with <a class="reference external" href="https://docs.docker.com/compose">docker-compose</a>.
 We provide <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> files for all active
-protocols. You can pick one and start with the following command (we’ll assume alpha on this guide):</p>
+protocols in directory <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/scripts/docker">scripts/docker</a>. You can pick one and start with the following command (where <code class="docutils literal notranslate"><span class="pre">$PROTO</span></code> is the protocol of your choice):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd scripts/docker
 export LIQUIDITY_BAKING_VOTE=pass # You can choose between &#39;on&#39;, &#39;pass&#39; or &#39;off&#39;.
-docker-compose -f alpha.yml up
+docker-compose -f $PROTO.yml up
 </pre></div>
 </div>
 <p>The above command will launch a node, a client, a baker, and an accuser for
-the Alpha protocol.</p>
+the given protocol.</p>
 <p>You can open a new shell session and run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">ps</span></code> in it, to display all the available containers, e.g.:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>8f3638fae48c  docker.io/tezos/tezos:latest  octez-node            3 minutes ago  Up 3 minutes ago   0.0.0.0:8732-&gt;8732/tcp, 0.0.0.0:9732-&gt;9732/tcp  node-alpha
 8ba4d6077e2d  docker.io/tezos/tezos:latest  octez-baker --liq...  3 minutes ago  Up 31 seconds ago                                                  baker-alpha
@@ -854,7 +868,7 @@ the Alpha protocol.</p>
 </pre></div>
 </div>
 <p>The node’s RPC interface will be available on localhost and can be queried with <code class="docutils literal notranslate"><span class="pre">octez-client</span></code>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker exec node-alpha octez-client rpc list
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker exec octez-node-$PROTO octez-client rpc list
 </pre></div>
 </div>
 <section id="building-docker-images-locally">
@@ -882,8 +896,8 @@ environment variables:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">NODE_RPC_ADDR</span></code>: The RPC address <strong>inside the container</strong> the node binds to (defaults to <code class="docutils literal notranslate"><span class="pre">[::]</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">PROTOCOL</span></code>: The protocol used.</p></li>
 </ul>
-<p>These variables can be set in the docker-compose file, as demonstrated in <code class="docutils literal notranslate"><span class="pre">alpha.yml</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>node:
+<p>These variables can be set in the docker-compose file, as demonstrated in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/scripts/docker/alpha.yml">scripts/docker/alpha.yml</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-node:
   ...
   environment:
     PROTOCOL: alpha
@@ -893,8 +907,8 @@ environment variables:</p>
 <p>If the above options are not enough, you can always replace the default <code class="docutils literal notranslate"><span class="pre">entrypoint</span></code> and <code class="docutils literal notranslate"><span class="pre">command</span></code> fields.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>version: &quot;3&quot;
 services:
-  node:
-    container_name: node-alpha
+  octez-node:
+    container_name: octez-node-alpha
     entrypoint: /bin/sh
     command: /etc/my-init-script.sh
     volumes:
@@ -1045,7 +1059,8 @@ dependencies.</p></li>
 <span id="compiling-with-make"></span><span id="build-from-sources"></span><h2>Setting up the development environment from scratch<a class="headerlink" href="#setting-up-the-development-environment-from-scratch" title="Link to this heading">#</a></h2>
 <p>If you plan to contribute to the Octez codebase, the way to go is to set up a
 complete development environment, by cloning the repository and compiling the
-sources using the provided makefile.</p>
+sources using the provided makefile.
+You may either build all the executables, as illustrated below, or only a subset of the executables, as detailed in section <a class="reference internal" href="#compile-sources"><span class="std std-ref">Compile</span></a>.</p>
 <p><strong>TL;DR</strong>: From a fresh Debian Bookworm x86_64, you typically want to select a source branch in the Octez repository, e.g.:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nv">REPO</span><span class="o">=</span><span class="s2">&quot;tezos/tezos&quot;</span>
 <span class="w">  </span><span class="nv">BRANCH</span><span class="o">=</span><span class="s2">&quot;latest-release&quot;</span>
@@ -1058,7 +1073,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <span class="c1"># [install rust]</span>
 wget<span class="w"> </span>https://sh.rustup.rs/rustup-init.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>rustup-init.sh
-./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.74.0<span class="w"> </span>-y
+./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.78.0<span class="w"> </span>-y
 <span class="c1"># [source cargo]</span>
 .<span class="w"> </span><span class="nv">$HOME</span>/.cargo/env
 <span class="c1"># [get sources]</span>
@@ -1113,7 +1128,7 @@ please avoid installing it from Snapcraft; you can rather follow the
 simple installation process shown below:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://sh.rustup.rs/rustup-init.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>rustup-init.sh
-./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.74.0<span class="w"> </span>-y
+./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.78.0<span class="w"> </span>-y
 </pre></div>
 </div>
 <p>Once Rust is installed, note that your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable
@@ -1222,12 +1237,17 @@ package manager but it currently does not handle version checking.</p></li>
 </div>
 </section>
 <section id="compile">
-<h3>Compile<a class="headerlink" href="#compile" title="Link to this heading">#</a></h3>
+<span id="compile-sources"></span><h3>Compile<a class="headerlink" href="#compile" title="Link to this heading">#</a></h3>
 <p>Once the dependencies are installed we can update OPAM’s environment to
-refer to the new switch and compile the project:</p>
+refer to the new switch and compile the project to build all the executables:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>opam<span class="w"> </span>env<span class="k">)</span>
 make
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Instead of the simple <code class="docutils literal notranslate"><span class="pre">make</span></code> command above, you may use more restrictive targets in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/Makefile">the makefile </a> to build only some subset of the executables.
+For instance, you may exclude experimental executables using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">release</span></code>; furthermore exclude executables such as the EVM node using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">octez</span></code>; or even restrict to Layer 1 executables using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">octez-layer1</span></code>.</p>
 </div>
 <p>Lastly, you can also add the Octez binaries to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> variable,
 and after reading the Disclaimer a few
@@ -1321,7 +1341,7 @@ fresh state.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images-and-docker-compose">Using Docker Images And Docker-Compose</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images-and-docker-compose">Using Docker images and docker-compose</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a></li>
 </ul>

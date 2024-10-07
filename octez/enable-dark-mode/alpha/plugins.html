@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=36da1785"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -624,14 +638,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prevalidator-filters">Prevalidator filters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fees-filter">Fees filter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consensus-filter">Consensus filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prechecking-of-manager-operations">Prechecking of manager operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-manager-operation-per-manager-per-block">One manager operation per manager per block</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-prioritization-and-ordering">Operations prioritization and ordering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounding-the-number-of-propagated-manager-operations">Bounding the number of propagated manager operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-rpcs">Filters RPCs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-filters-default-configuration">Changing filters default configuration</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-rpcs">Filters RPCs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-filters-default-configuration">Changing filters default configuration</a></li>
 </ul>
 </li>
 </ul>
@@ -688,9 +699,11 @@ delivered with each protocol version. When the chain switches to a new
 protocol, the node installs its corresponding filters, <em>in lieu of</em>
 the filters of the previous protocol. Notice that prevalidator filters are not
 mandatory, their absence does not break the Tezos blockchain protocol.</p>
-<p>The interface of the prevalidator plugin is described at the <a class="reference external" href="../api/odoc/_html/octez-libs/Tezos_base/Mempool/index.html">mempool plugin API
-</a>.</p>
-<p>The different kinds of prevalidator filters are described below.</p>
+<p>The interface of the prevalidator plugin is described at the
+<a class="reference external" href="../api/odoc/_html/octez-protocol-alpha-libs/Tezos_protocol_plugin_alpha/Mempool/index.html">mempool plugin API
+</a>. The
+following filtering strategies are implemented in the
+<a class="reference external" href="../api/odoc/_html/octez-protocol-alpha-libs/Tezos_protocol_plugin_alpha/Mempool/index.html#val-pre_filter">pre_filter</a>.</p>
 <section id="fees-filter">
 <span id="fees-filter-alpha"></span><h3>Fees filter<a class="headerlink" href="#fees-filter" title="Link to this heading">#</a></h3>
 <p>A very affordable technique for attackers is based on flooding the
@@ -701,112 +714,35 @@ can be configured via the <code class="docutils literal notranslate"><span class
 <code class="docutils literal notranslate"><span class="pre">minimal_nanotez_per_gas_unit</span></code> and <code class="docutils literal notranslate"><span class="pre">minimal_nanotez_per_byte</span></code> (see
 <a class="reference internal" href="#active-filter-rpc-alpha"><span class="std std-ref">filter RPCs</span></a>) parameters of the filter
 configuration of your node.</p>
-<p>This filtering strategy is implemented in the <code class="docutils literal notranslate"><span class="pre">prefilter</span></code> (see
-<a class="reference internal" href="../shell/prevalidation.html"><span class="doc">The Prevalidator</span></a>).</p>
 </section>
 <section id="consensus-filter">
 <span id="consensus-filter-alpha"></span><h3>Consensus filter<a class="headerlink" href="#consensus-filter" title="Link to this heading">#</a></h3>
-<p>For technical reasons, the economic protocol cannot reject consensus
-operations based on their timestamp. Consequently, many
-consensus operations are declared as valid by the economic protocol
-while being timestamped too early or too late.
-The plugin filter aims to narrow down the number of consensus
-operations declared as valid based on several heuristics. In
-particular, the filter can use the current timestamp while the
-protocol cannot.</p>
-<p>This filter classifies a consensus operation according to the current
-block proposal as follows:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Outdated</span></code> if it concerns a previous head at a previous level,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Branch_refused</span></code> if it concerns a previous head at the same level
-but in the previous round,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Branch_delayed</span></code> if it concerns a round in the future.</p></li>
-</ul>
-<p>This filtering strategy is implemented in the <code class="docutils literal notranslate"><span class="pre">prefilter</span></code> (see
-<a class="reference internal" href="../shell/prevalidation.html"><span class="doc">The Prevalidator</span></a>).</p>
-</section>
-<section id="prechecking-of-manager-operations">
-<span id="precheck-filter-alpha"></span><h3>Prechecking of manager operations<a class="headerlink" href="#prechecking-of-manager-operations" title="Link to this heading">#</a></h3>
-<p>The aim of the <code class="docutils literal notranslate"><span class="pre">precheck</span></code> filter is to avoid fully executing manager operations
-before deciding whether to gossip them to the network.</p>
-<p>The detailed description of this feature is given in
-<a class="reference internal" href="precheck.html"><span class="doc">Prechecking of manager operations</span></a>. For operations other than manager operations, the
-<code class="docutils literal notranslate"><span class="pre">precheck</span></code> filter is a no-op, which entails that these operations need to be
-fully executed to decide their propagation (see <a class="reference internal" href="../shell/prevalidation.html"><span class="doc">The Prevalidator</span></a>).</p>
-</section>
-<section id="one-manager-operation-per-manager-per-block">
-<h3>One manager operation per manager per block<a class="headerlink" href="#one-manager-operation-per-manager-per-block" title="Link to this heading">#</a></h3>
-<p>The mempool filters, <code class="docutils literal notranslate"><span class="pre">prefilter</span></code>, <code class="docutils literal notranslate"><span class="pre">precheck</span></code> and <code class="docutils literal notranslate"><span class="pre">postfilter</span></code>
-also ensure that, since the last head update (the last valid block which
-increased the chain’s fitness), only one operation per manager is propagated.
-All other received operations originating from the same manager will be classified
-as <code class="docutils literal notranslate"><span class="pre">Branch_delayed</span></code> and will not be propagated.</p>
-<p>Alternatively, a user can inject an operation with the same
-manager and the same counter, but with a higher fee to replace an already existing
-operation in the prevalidator. Only one of the two operations will be eventually
-included in a block. To be able to replace the first operation, the fee and the
-“fee/gas limit” ratio of the second one is supposed to be higher than the first’s
-by a factor (currently fixed to 5%). In case of successful replacement, the old
-operation is re-classified as <code class="docutils literal notranslate"><span class="pre">Outdated</span></code>.</p>
-<p>Concretely, a user can replace a successfully prechecked manager operation in the
-mempool, with the help of <code class="docutils literal notranslate"><span class="pre">octez-client</span></code>, using two methods :</p>
-<ul class="simple">
-<li><p>manually provide a higher fee to bump the “fee/gas limit” ratio by at least 5% for the new
-operation,</p></li>
-<li><p>via option <code class="docutils literal notranslate"><span class="pre">--replace</span></code>: In this case, <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> will automatically
-compute the minimal amount of fee for the second operation to be able to
-replace the one in the mempool.</p></li>
-</ul>
+<p>To prevent the network from being flooded by valid (pre)attestations regarding
+fanciful future levels and rounds, the plugin provides a filter that narrows down
+the number of consensus operations declared as valid based on a timestamp
+heuristic.</p>
+<p>This filter will classify a consensus operation as <code class="docutils literal notranslate"><span class="pre">Branch_refused</span></code> if the
+operation concerns a level and round combination that is far-fetched in the
+future in regard to the latest proposal predecessor and the current timestamp.
+It can be configured via the <code class="docutils literal notranslate"><span class="pre">clock_drift</span></code> (see <a class="reference internal" href="#active-filter-rpc-alpha"><span class="std std-ref">filter
+RPCs</span></a>) parameter of the filter configuration of your
+node.</p>
 </section>
 <section id="operations-prioritization-and-ordering">
 <h3>Operations prioritization and ordering<a class="headerlink" href="#operations-prioritization-and-ordering" title="Link to this heading">#</a></h3>
-<p>In addition to quick detection of operations that have no chance to be
-prechecked or applied in the current context, the mempool’s <code class="docutils literal notranslate"><span class="pre">prefilter</span></code> provides
-a priority for each successfully filtered operation. Concretely, the priority is
-either <code class="docutils literal notranslate"><span class="pre">High</span></code>, <code class="docutils literal notranslate"><span class="pre">Medium</span></code> or <code class="docutils literal notranslate"><span class="pre">Low</span></code> in the current implementation, depending
-on the <a class="reference internal" href="blocks_ops.html#validation-passes-alpha"><span class="std std-ref">validation pass</span></a>.Some extra information (like the fees, or the gas/fees
-ratio of manager operations) are also provided along the priorities to enable
-fine-grained operations ordering.
-This extra information is similar to the one used by the baker’s
-operations selection mechanism, that decides which operations will be included
-in the next block.</p>
+<p>In addition to quick filtering of undesired operations, the
+<code class="docutils literal notranslate"><span class="pre">prefilter</span></code> provides a priority for each successfully filtered operation.
+Concretely, the priority is either <code class="docutils literal notranslate"><span class="pre">High</span></code>, <code class="docutils literal notranslate"><span class="pre">Medium</span></code> or <code class="docutils literal notranslate"><span class="pre">Low</span></code> in the
+current implementation, depending on the <a class="reference internal" href="blocks_ops.html#validation-passes-alpha"><span class="std std-ref">validation
+pass</span></a>. Some extra information (like the fees, or the
+gas/fees ratio of manager operations) are also provided along the priorities to
+enable fine-grained operations ordering. This extra information is similar to
+the one used by the baker’s operations selection mechanism, that decides which
+operations will be included in the next block.</p>
 </section>
-<section id="bounding-the-number-of-propagated-manager-operations">
-<h3>Bounding the number of propagated manager operations<a class="headerlink" href="#bounding-the-number-of-propagated-manager-operations" title="Link to this heading">#</a></h3>
-<p>Up to Hangzhou protocol (see <a class="reference internal" href="../protocols/011_hangzhou.html"><span class="doc">Protocol Hangzhou</span></a>), the protocol plugin
-did not implement <code class="docutils literal notranslate"><span class="pre">precheck</span></code>, so the prevalidator exclusively relies on <code class="docutils literal notranslate"><span class="pre">apply_operation</span></code>
-to classify manager operations. As a consequence, it could also check their
-total gas consumption, and thus, naturally limit the number of successfully
-applied/propagated operations.</p>
-<p>Starting with Ithaca protocol (see <a class="reference internal" href="../protocols/012_ithaca.html"><span class="doc">Protocol Ithaca</span></a>), the plugin
-implements a lightweight classification function, called <code class="docutils literal notranslate"><span class="pre">precheck</span></code>, that
-doesn’t check the total gas consumption. So with this modication and those of
-Octez 12.0, the prevalidator, would propagate any succesfully prevalidated
-operation. In order to protect nodes from potential DDoS, a new mechanism has
-been added in the plugin to bound the number of successfully prechecked
-operations. This mechanism works as follows:</p>
-<ul class="simple">
-<li><p>Advertise the <em>best</em> <code class="docutils literal notranslate"><span class="pre">N</span></code> successfully prechecked manager operations
-(where “best” is w.r.t. the priority described above, and N is a tunable parameter)
-found in the set of pending operations to the network after a new head is
-chosen and operations’ classification reset. All other pending operations that
-should have been prechecked are instead classified as <code class="docutils literal notranslate"><span class="pre">Branch_delayed</span></code>;</p></li>
-<li><p>Once the limit <code class="docutils literal notranslate"><span class="pre">N</span></code> is reached, the node may still receive additional manager
-operations (via the network or RPC injection) with higher priorities than
-those previously prechecked/advertised. Any such operation that is
-successfully prechecked is advertised, and, in turn, the previously prechecked/advertised
-manager operation with the lowest priority (not necessarily from the same
-source) is reclassified as <code class="docutils literal notranslate"><span class="pre">Branch_delayed</span></code>.</p></li>
-</ul>
-<p>The default value of the parameter <code class="docutils literal notranslate"><span class="pre">N</span></code> is chosen such that a node will always propagate enough
-manager operations to allow the next baker to produce a filled block (if there are
-enough operations in the network). Its value is currently fixed to 5000.
-Indeed, the total size occupied by manager operations in a
-block is currently bounded by 512 <a class="reference external" href="https://en.wikipedia.org/wiki/Kilobyte">KiB</a>, and <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">deposits</span> <span class="pre">limit</span></code> seems
-to be the smallest manager operation, with 126 Bytes, so there are at most
-512 * 1024 / 126 = 4161 manager operations per block.</p>
+</section>
 <section id="filters-rpcs">
-<span id="active-filter-rpc-alpha"></span><h4>Filters RPCs<a class="headerlink" href="#filters-rpcs" title="Link to this heading">#</a></h4>
+<span id="active-filter-rpc-alpha"></span><h2>Filters RPCs<a class="headerlink" href="#filters-rpcs" title="Link to this heading">#</a></h2>
 <p>Filters are tunable by several parameters, whose values can be
 retrieved and changed by users via the following RPC calls,
 respectively:</p>
@@ -821,19 +757,19 @@ respectively:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">minimal_nanotez_per_byte</span></code>: type <code class="docutils literal notranslate"><span class="pre">int</span></code>, default <code class="docutils literal notranslate"><span class="pre">1000</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">allow_script_failure</span></code>: type <code class="docutils literal notranslate"><span class="pre">bool</span></code>, default <code class="docutils literal notranslate"><span class="pre">true</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">clock_drift</span></code> : type <code class="docutils literal notranslate"><span class="pre">Period.t</span> <span class="pre">option</span></code>, default <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">max_prechecked_manager_operations</span></code> : type <code class="docutils literal notranslate"><span class="pre">int</span></code>, default <code class="docutils literal notranslate"><span class="pre">5000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_operations</span></code> : type <code class="docutils literal notranslate"><span class="pre">int</span></code>, default <code class="docutils literal notranslate"><span class="pre">10_000</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_total_bytes</span></code> : type <code class="docutils literal notranslate"><span class="pre">int</span></code>, default <code class="docutils literal notranslate"><span class="pre">10_000_000</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">replace_by_fee_factor</span></code> : type <code class="docutils literal notranslate"><span class="pre">rational</span></code>, default <code class="docutils literal notranslate"><span class="pre">21/20</span></code> (ie. <code class="docutils literal notranslate"><span class="pre">1.05%</span></code>)</p></li>
 </ul>
 <p>For example, each command below modifies the provided parameter and resets all
 the others to their default values:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client rpc post /chains/main/mempool/filter with &#39;{ &quot;minimal_fees&quot;: &quot;42&quot; }&#39;
 octez-client rpc post /chains/main/mempool/filter with &#39;{ &quot;replace_by_fee_factor&quot;: [ &quot;23&quot;, &quot;20&quot; ] }&#39;
-octez-client rpc post /chains/main/mempool/filter with &#39;{ &quot;max_prechecked_manager_operations&quot;: 7500 }&#39;
+octez-client rpc post /chains/main/mempool/filter with &#39;{ &quot;max_operations&quot;: 7500 }&#39;
 </pre></div>
 </div>
-</section>
 <section id="changing-filters-default-configuration">
-<h4>Changing filters default configuration<a class="headerlink" href="#changing-filters-default-configuration" title="Link to this heading">#</a></h4>
+<h3>Changing filters default configuration<a class="headerlink" href="#changing-filters-default-configuration" title="Link to this heading">#</a></h3>
 <p>Changing filters configuration may not have the expected outcome.
 Because the configuration is only changed on your node, and not on all
 the gossip network nodes, this will only impact how operations of your
@@ -844,7 +780,6 @@ configuration so that <code class="docutils literal notranslate"><span class="pr
 propagate an operation with <code class="docutils literal notranslate"><span class="pre">0</span></code> fee to <code class="docutils literal notranslate"><span class="pre">B</span></code>. However, because <code class="docutils literal notranslate"><span class="pre">B</span></code>
 has the default filter configuration, this operation will not be
 propagated to <code class="docutils literal notranslate"><span class="pre">C</span></code> (so <code class="docutils literal notranslate"><span class="pre">C</span></code> may never see it).</p>
-</section>
 </section>
 </section>
 </section>
@@ -897,14 +832,11 @@ propagated to <code class="docutils literal notranslate"><span class="pre">C</sp
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prevalidator-filters">Prevalidator filters</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fees-filter">Fees filter</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consensus-filter">Consensus filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prechecking-of-manager-operations">Prechecking of manager operations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-manager-operation-per-manager-per-block">One manager operation per manager per block</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-prioritization-and-ordering">Operations prioritization and ordering</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounding-the-number-of-propagated-manager-operations">Bounding the number of propagated manager operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-rpcs">Filters RPCs</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-filters-default-configuration">Changing filters default configuration</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filters-rpcs">Filters RPCs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-filters-default-configuration">Changing filters default configuration</a></li>
 </ul>
 </li>
 </ul>

@@ -1,7 +1,7 @@
-Running a DAL node
-==================
+Running a DAL attester node
+===========================
 
-To run a node for the :doc:`DAL layer <./dal_overview>`, you need an active baker and node.
+To attest the data published on the :doc:`DAL<./dal_overview>`, you need an active baker and node.
 While you can run a DAL node without an active baker, when you do so, your account is not assigned DAL attestation rights and therefore your node can distribute data among other DAL nodes but cannot attest that it is available.
 Adding a DAL node to a baker's setup improves the Tezos ecosystem because the DAL greatly expands the amount of data that Tezos can distribute without causing congestion on layer 1.
 
@@ -32,11 +32,23 @@ Follow these steps to run a DAL node along with a layer 1 node and a baker.
 
    At minimum, you must specify with the ``--endpoint`` parameter the URL of an RPC node that the DAL node can use.
 
+#. Ensure that the port that the DAL node runs on is accessible from outside its system.
+
+   By default, it runs on port 11732, but you can change the port and address that the node listens on by setting the ``--net-addr`` argument, as in ``--net-addr 0.0.0.0:11732``.
+   Depending on your network, you may need to adapt your firewall rules or set up network address translation (NAT) to direct external traffic to the DAL node.
+   For example, you might need to redirect external traffic on TCP port ``<external_port>`` to your node at ``<local_ip_address>:<port>`` where ``<local_ip_address>`` is the IP address of the node on your local network and ``<port>`` is the port given in the ``--net-addr`` argument.
+
+   If ``<external_port>`` is different from ``<port>``, then you should set the public address of your node via its configuration or the CLI option ``--public-addr <external_ip_address>:<external_port>``.
+
+   This setup assumes that ``<external_ip_address>`` is fixed and won't change during the lifetime of the node.
+
 #. Start the DAL node by running its ``run`` command, using the URL of your ``octez-node`` instance.
 
    .. code-block:: shell
 
       octez-dal-node run
+
+   To set the address and port that the node listens on, pass the ``--net-addr`` argument.
 
    Leave the DAL node process running.
 
@@ -67,7 +79,7 @@ Follow these steps to run a DAL node along with a layer 1 node and a baker.
 
       This command should return topics in the form ``{"slot_index":<index>,"pkh":"<ADDRESS OF BAKER>"}`` to represent the topics that the node is subscribed to on the DAL peer-to-peer network.
 
-   #. Verify that the node is receiving shards by running this command and using your address:
+   #. Verify that the node is assigned to attest DAL shards by running this command and using your address:
 
       .. code-block:: shell
 

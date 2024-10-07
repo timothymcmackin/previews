@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Quebeca RPCs - Reference &#8212; Octez &amp; Protocol products documentation</title>
+    <title>Quebec RPCs - Reference &#8212; Octez &amp; Protocol products documentation</title>
   
   
   
@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=c488f85a" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=3b41d5a9"></script>
+    <script src="../_static/documentation_options.js?v=ffc3032e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,7 +275,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Quebeca Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Quebec Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="protocol_overview.html">Overview of the economic protocol</a></li>
 <li class="toctree-l3"><a class="reference internal" href="proof_of_stake.html">Proof-of-stake</a></li>
@@ -307,7 +307,7 @@
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Quebec RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
@@ -382,8 +382,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -611,7 +611,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Quebeca RPCs - Reference</h1>
+    <h1>Quebec RPCs - Reference</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -700,8 +700,8 @@ document.write(`
     var a = document.getElementsByClassName('defaultOpen');
     for (i = 0; i < a.length; i++) { a[i].click() }
   })
-</script><section id="quebeca-rpcs-reference">
-<span id="rpc-index-quebeca"></span><h1>Quebeca RPCs - Reference<a class="headerlink" href="#quebeca-rpcs-reference" title="Link to this heading">#</a></h1>
+</script><section id="quebec-rpcs-reference">
+<span id="rpc-index-quebeca"></span><h1>Quebec RPCs - Reference<a class="headerlink" href="#quebec-rpcs-reference" title="Link to this heading">#</a></h1>
 <p>This page describes the RPCs specific to the particular version of the Tezos protocol specified above.
 (The protocol-independent RPCs are described <a class="reference internal" href="../shell/rpc.html"><span class="doc">in this other page</span></a>.)</p>
 <div class="admonition warning">

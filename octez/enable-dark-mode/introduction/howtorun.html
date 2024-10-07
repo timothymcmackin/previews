@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=36da1785"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -622,11 +636,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delegating-your-coins">Delegating your coins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#staking-your-coins">Staking your coins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-delegate">Running a delegate</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-and-check-your-rights">Register and check your rights</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inactive-delegates">Inactive delegates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#baker">Baker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuser">Accuser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node">DAL node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 </ul>
 </li>
@@ -645,10 +661,11 @@ document.write(`
 <h1>Running Octez<a class="headerlink" href="#running-octez" title="Link to this heading">#</a></h1>
 <p>In this section, we discuss how to take part in the protocol that runs
 the network.
-There are two main ways to participate: delegating
-your coins and running a delegate.
+There are three main ways to participate: delegating
+your coins, staking, and running a delegate.
 The main advantage of delegating your coins is simplicity.
-The second way allows to participate more actively in the protocol, by baking blocks and voting, but is more demanding; however, the extra effort is compensated by more rewards in tez.</p>
+Staking your coins is also as simple, but significantly increases the potential rewards modulo some slightly increased risks.
+The third way allows to participate more actively in the protocol, by baking blocks and voting, but is more demanding; however, the extra effort is compensated by more rewards in tez.</p>
 <p>To learn more about the protocol refer to <a class="reference internal" href="../active/protocol_overview.html"><span class="doc">this page</span></a>.</p>
 <p>No matter how you decide to run Octez, your node must have an accurate time source and be properly synchronized to it, e.g. by configuring an NTP daemon.
 This is especially important for bakers, as baking nodes desynchronized from the correct time of day have caused operational problems in the past by “baking in the future”.</p>
@@ -689,6 +706,37 @@ them, they only add to its delegated balance.
 In turn, delegators can freely spend their own funds in spite of the active delegation (they are not locked, like in other PoS algorithms).
 Technically, delegation is a link between a delegator account and a delegate account, meaning that <em>all</em> the funds of the former are delegated to the latter, until the delegation is withdrawn.
 When a delegator spends their tokens, the delegated balance of their delegate decreases; conversely, when they receive tokens the delegated balance of their delegate increases.</p>
+<p>Since the activation of the <a class="reference internal" href="../active/adaptive_issuance.html#new-staking"><span class="std std-ref">new staking mechanism</span></a>,
+50% of your total funds count towards your delegator’s baking power (before the staking mechanism, 100% of your total funds counted towards your delegator baking power). The delegated funds still count for 100% for the voting power, just like before the activation of the new staking mechanism.</p>
+</section>
+<section id="staking-your-coins">
+<h2>Staking your coins<a class="headerlink" href="#staking-your-coins" title="Link to this heading">#</a></h2>
+<p>Since the activation of the new <a class="reference internal" href="../active/adaptive_issuance.html#new-staking"><span class="std std-ref">staking mechanism</span></a>,
+if you don’t want to deal with the complexity of running your own
+delegate, you can also take part in the protocol by staking part of your
+coins to accrue to your delegate’s staking power.</p>
+<p>Only user accounts (not smart contracts) can stake funds.</p>
+<p>Funds can only be staked to your current delegate. Therefore, staking requires previously declaring a delegate.
+Setting or resetting the delegate of a user account is done as for delegating, see above.</p>
+<p>The delegate has no control over your stake: cannot spend it nor unstake it, so your deposit remains yours and under your control.
+Staked coins cannot be spent by yourself, either; but you can unstake them later.
+Your staked funds add to your delegate’s staking balance (so staked funds count twice as much as delegated funds).
+In turn, your staked funds are frozen and subject to slashing in case of misbehavior of your delegate such as double signing, similarly to the delegate’s own staked funds.
+In compensation of this risk assumed by stakers, they may receive some part of the delegate’s rewards, the exact proportion being settable by the delegate.</p>
+<p>As opposed to delegation (where you always delegate all your funds), as a staker you can choose a specific amount from your balance to stake, as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client stake &lt;amount&gt; for &lt;staker&gt;
+</pre></div>
+</div>
+<p>Later on, you can unstake part or all of your staked funds:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client unstake &lt;amount|&quot;everything&quot;&gt; for &lt;staker&gt;
+</pre></div>
+</div>
+<p>The requested amount will immediately be unstaked, however it will remain frozen for some period (4 cycles), and only after that the funds are said to be both unstaked and finalizable.
+At that point, the staker can make them spendable again as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client finalize unstake for &lt;staker&gt;
+</pre></div>
+</div>
+<p>For more details on the staking interface, see <a class="reference internal" href="../active/adaptive_issuance.html#staked-funds-management"><span class="std std-ref">Staked funds management</span></a>.</p>
 </section>
 <section id="running-a-delegate">
 <h2>Running a delegate<a class="headerlink" href="#running-a-delegate" title="Link to this heading">#</a></h2>
@@ -697,28 +745,33 @@ accusing other delegates in case they try to double bake or double
 attest. A delegate is also responsible for taking part in the
 <a class="reference internal" href="../active/voting.html"><span class="doc">governance process</span></a>.</p>
 <p>Rights for baking and attesting are randomly assigned
-to delegates proportionally to their <a class="reference internal" href="../active/consensus.html#active-stake"><span class="std std-ref">active stake</span></a>,
-which usually is the same as their staking balance,
-that is, their own balance plus their delegated balance.</p>
-<p>A <a class="reference internal" href="../active/glossary.html#def-minimal-stake"><span class="std std-ref">minimal active stake</span></a> of 6kꜩ
-is required for participating in consensus and in governance.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Starting with the Adaptive-Issuance/Staking proposal, the staking mechanism changes, see <a class="reference internal" href="../alpha/adaptive_issuance.html"><span class="doc">Adaptive Issuance</span></a>. The rest of this page assumes the current staking mechanism in the active protocol.</p>
-</div>
-<p>Delegates are required to freeze around 10% of their active stake into
-a security deposit (more precisely, it’s 10% of the maximum active
-stake during the last 7 cycles). A delegate is
-<a class="reference internal" href="../active/consensus.html#slashing"><span class="std std-ref">slashed</span></a>, that is, it looses funds from its
-security deposits when it misbehaves by double-signing. The funds in
-the security deposit come from the delegate’s account. In case a
-delegate is over-delegated (that is, its own balance does not cover
-10% of its staking balance), the delegate’s active balance is then set
-to be 10 times its own balance. Delegates can set an upper limit to their
-frozen deposits with the following command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client set deposits limit for &lt;delegate&gt; to &lt;limit&gt;
+to delegates proportionally to their <a class="reference internal" href="../alpha/baking_power.html"><span class="doc">baking power</span></a>,
+which usually is their own staked funds plus the funds staked by external stakers, plus half of their total delegation.</p>
+<p>A <a class="reference internal" href="../active/glossary.html#def-minimal-stake"><span class="std std-ref">minimal active stake</span></a>
+is required for participating in consensus and in governance as a delegate.</p>
+<p>Delegates are required to freeze some of their funds into
+a security deposit (called their own stake), at least <code class="docutils literal notranslate"><span class="pre">MINIMAL_FROZEN_STAKE</span></code> (see <a class="reference internal" href="../active/proof_of_stake.html#ps-constants"><span class="std std-ref">Proof-of-stake parameters</span></a>).
+This can be done via the same commands used by external stakers in the previous section.
+Since the activation of the new <a class="reference internal" href="../active/adaptive_issuance.html#new-staking"><span class="std std-ref">staking mechanism</span></a>,
+a delegate may choose to accept (or not) staked funds from external stakers.
+Both the delegate’s own stake and the stake from external stakers can be
+<a class="reference internal" href="../active/consensus.html#slashing"><span class="std std-ref">slashed</span></a> (that is, partially lost), when the delegate misbehaves by double-signing.</p>
+<p>Delegates can set two parameters by configuring their <a class="reference internal" href="../active/adaptive_issuance.html#staking-policy-configuration"><span class="std std-ref">staking policy</span></a>:</p>
+<ul class="simple">
+<li><p>the maximum ratio of external stake over their own stake: a factor between 0 and 5, by default 0, which means that:</p>
+<ul>
+<li><p>for any factor <em>f</em>, the delegate accepts <em>f</em> times its own stake from external stakers</p></li>
+<li><p>by default, delegates don’t allow external staking</p></li>
+</ul>
+</li>
+<li><p>the proportion of rewards kept by the delegator (the rest being paid to external stakers): a factor between 0 and 1, by default 1.</p></li>
+</ul>
+<p>These paramaters are configured as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client set delegate parameters for  &lt;delegate&gt; --limit-of-staking-over-baking &lt;value&gt; --edge-of-baking-over-staking &lt;value&gt;
 </pre></div>
 </div>
+<p>If the delegated funds exceed 9 times the delegate’s own stake, the delegate is <em>overdelegated</em>. If the staked funds from external stakers exceed the proportion defined by the delegate, the delegate is <em>overstaked</em>.
+See details and consequences in <a class="reference internal" href="../active/adaptive_issuance.html#staking-policy-configuration"><span class="std std-ref">Staking policy configuration</span></a>.</p>
 <p>On testnets, when you obtain coins from <a class="reference internal" href="../user/multinetwork.html#faucet"><span class="std std-ref">a faucet</span></a>, if
 you are lucky to obtain more than the minimum required to be a
 delegate, you can register the obtained account as a delegate.
@@ -809,6 +862,10 @@ cause the offender to be <a class="reference internal" href="../active/consensus
 </div>
 <p>The accuser uses the same format of configuration file as the client (see <a class="reference internal" href="../user/client-configuration.html#client-conf-file"><span class="std std-ref">Client configuration file</span></a>).</p>
 </section>
+<section id="dal-node">
+<h3>DAL node<a class="headerlink" href="#dal-node" title="Link to this heading">#</a></h3>
+<p>When running a delegate, it is recommended to also run a <a class="reference internal" href="../shell/dal_overview.html"><span class="doc">Data Availability Layer (DAL) node</span></a> to support data transmission across the network, see <a class="reference internal" href="../shell/dal_run.html"><span class="doc">Running a DAL attester node</span></a>.</p>
+</section>
 <section id="docker">
 <h3>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h3>
 <p>If you are running the baker Docker image, you can watch the baker logs with
@@ -881,11 +938,13 @@ You should see lines such as:</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delegating-your-coins">Delegating your coins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#staking-your-coins">Staking your coins</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-a-delegate">Running a delegate</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-and-check-your-rights">Register and check your rights</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inactive-delegates">Inactive delegates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#baker">Baker</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accuser">Accuser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node">DAL node</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 </ul>
 </li>

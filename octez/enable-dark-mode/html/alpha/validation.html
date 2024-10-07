@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=3b41d5a9"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -630,9 +644,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-validation">Block Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-validation-and-application">Operation Validation and Application</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operations">Validity of Manager Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-individual-manager-operations">Validity of Individual Manager Operations</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operation-batches">Validity of Manager Operation Batches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-operations">Validity of operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operations">Validity of Manager Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-individual-manager-operations">Validity of Individual Manager Operations</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operation-batches">Validity of Manager Operation Batches</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#co-valid-operations">Co-valid operations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-manager-operations">Application of Manager Operations</a></li>
@@ -677,7 +695,7 @@ representation of the state of the Tezos ledger at a given blockchain
 level. For instance, the context contains the information of all
 activated accounts and contracts, and their balances. More
 generally, the context must provide enough information to determine
-the validity of operations, and blocks.</p></li>
+the validity of operations and blocks.</p></li>
 <li><p>The <em>apply_operation</em> method determines whether an operation is safe
 to be executed in a given context. If so, it proceeds to execute it
 and outputs the context resulting from the applied operation’s
@@ -716,7 +734,7 @@ and application for blocks and the operations supported.</p>
 <span id="validation-modes-alpha"></span><h2>Validation modes<a class="headerlink" href="#validation-modes" title="Link to this heading">#</a></h2>
 <p>The Tezos protocol provides different validation modes, intended to be
 used by the Tezos <em>shell</em> and <em>baker</em> software implementations when
-needing to apply (or to assert the validity) of blocks and operations
+needing to apply (or to assert the validity of) blocks and operations
 under different, or specialized, circumstances – for example, in
 order to <em>bake</em> a block. For each of these validation modes, the API
 specified by the protocol environment offers an entry point so that
@@ -791,14 +809,13 @@ still be used to form a consensus quorum.</p></li>
 </section>
 <section id="partial-application">
 <span id="partial-application-alpha"></span><h3>Partial Application<a class="headerlink" href="#partial-application" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">application</span></code> mode is used for <a class="reference internal" href="../shell/validation.html#multi-pass-validation"><span class="std std-ref">multi-pass
-validation</span></a>. Its aim is to provide Tezos shell
+<p>The <code class="docutils literal notranslate"><span class="pre">Partial</span> <span class="pre">application</span></code> mode is no longer used, but it subsists in the code. Its aim is to provide Tezos shell
 implementations with a light-weight (read “fast”) block application
 mechanism, which can determine whether a block has a <em>chance</em> of being
 valid or not, in a situation when the provided context is <em>not a
 recent one</em>. That is, when the block candidate succeeds neither the
 head of the chain, nor a close ancestor.</p>
-<p>This validation mode is typically used when the node receives a
+<p>This validation mode could be used when the node receives a
 significantly large branch – for instance, while bootstrapping. To
 check whether this branch is plausibly valid or potentially malicious
 spam, the shell retrieves the context from the most recent common
@@ -817,7 +834,7 @@ disk in order to prevent potential attacks.</p>
 </section>
 <section id="block-validation">
 <span id="block-validation-overview-alpha"></span><h2>Block Validation<a class="headerlink" href="#block-validation" title="Link to this heading">#</a></h2>
-<p>The validity of a blocks depends on a set of precondition checks
+<p>The validity of a block depends on a set of precondition checks
 implemented in different steps, which happen at different stages of
 the application (and the construction) of a block.</p>
 <p>The first step in the process is to decide whether a candidate block
@@ -867,14 +884,22 @@ side-effects) will not take effect, but fees will nonetheless be taken
 from the account submitting the smart contract call.</p>
 <p>In the sequel we refine the validity conditions and describe the
 application process for each of the different validation passes.</p>
+<section id="validity-of-operations">
+<span id="manager-operations-validity-alpha"></span><h3>Validity of operations<a class="headerlink" href="#validity-of-operations" title="Link to this heading">#</a></h3>
+<p>For consensus, voting, and anonymous validation passes, validation is sufficient
+to ensure successful application. For manager operations, validation only
+ensures that the manager’s balance is sufficient to cover the fees, in addition
+to verifying that the operation is well-formed. It does not guarantee that the
+operation’s execution will be error-free. If an operation does result in an
+error, all side effects will be canceled, but the fees will be forfeited.</p>
 <section id="validity-of-manager-operations">
-<span id="manager-operations-validity-alpha"></span><h3>Validity of Manager Operations<a class="headerlink" href="#validity-of-manager-operations" title="Link to this heading">#</a></h3>
+<h4>Validity of Manager Operations<a class="headerlink" href="#validity-of-manager-operations" title="Link to this heading">#</a></h4>
 <p>In this sub-section, we explain the conditions for manager operations
 (and batches of managers operations) to be considered valid and hence
 suitable for inclusion in a block.</p>
 <section id="validity-of-individual-manager-operations">
-<h4>Validity of Individual Manager Operations<a class="headerlink" href="#validity-of-individual-manager-operations" title="Link to this heading">#</a></h4>
-<p><a class="reference internal" href="blocks_ops.html#manager-operations-alpha"><span class="std std-ref">Manager operation</span></a> are a class of
+<h5>Validity of Individual Manager Operations<a class="headerlink" href="#validity-of-individual-manager-operations" title="Link to this heading">#</a></h5>
+<p><a class="reference internal" href="blocks_ops.html#manager-operations-alpha"><span class="std std-ref">Manager operations</span></a> are a class of
 operations, issued by a single <em>manager</em> account which signs the
 operation and pays their fees. The different manager operation kinds
 share several common fields:</p>
@@ -909,7 +934,7 @@ minimal treatment.</p></li>
 </ul>
 </section>
 <section id="validity-of-manager-operation-batches">
-<h4>Validity of Manager Operation Batches<a class="headerlink" href="#validity-of-manager-operation-batches" title="Link to this heading">#</a></h4>
+<h5>Validity of Manager Operation Batches<a class="headerlink" href="#validity-of-manager-operation-batches" title="Link to this heading">#</a></h5>
 <p>A <a class="reference internal" href="blocks_ops.html#manager-operations-batches-alpha"><span class="std std-ref">batch</span></a> of manager operations
 includes one or more manager operations for sequential and atomic
 execution. The atomicity property imposes that the validity of a batch
@@ -935,6 +960,27 @@ than the account’s balance. That is, the manager account must be
 solvent to pay the announced fees for all the operations in the
 batch.</p></li>
 </ul>
+</section>
+<section id="co-valid-operations">
+<span id="id1"></span><h5>Co-valid operations<a class="headerlink" href="#co-valid-operations" title="Link to this heading">#</a></h5>
+<p>However, two valid manager operations (or batches) do not always form a valid
+block together. For example, operations <code class="docutils literal notranslate"><span class="pre">op1</span></code> and <code class="docutils literal notranslate"><span class="pre">op2</span></code> might both be valid
+in the context <code class="docutils literal notranslate"><span class="pre">C</span></code>, but after applying <code class="docutils literal notranslate"><span class="pre">op1</span></code> to <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">op2</span></code> might no
+longer be valid in the resulting context because the manager’s balance may no
+longer cover the fees.</p>
+<p>In order to enforce that a set of valid managers
+operations forms a valib block, the protocol over-approximate this property by
+requiring the property of <em>co-validity</em>:</p>
+<p>Two manager operations are <em>compatible</em> if they correspond to distinct managers.</p>
+<p>Two manager operations are <em>co-valid</em> in a context if they are
+compatible and valid in this context.</p>
+<p>Considering two co-valid operations in a context, the
+application of one of them preserves the solvability of the other.</p>
+<p>This property extends to a set of operations if every pair of distinct
+operations is co-valid. In this case, the operations could be included in
+the next block in any order, modulo block limits (eg. maximum gas, block size
+limit, etc).</p>
+</section>
 </section>
 </section>
 <section id="application-of-manager-operations">
@@ -1034,9 +1080,13 @@ after <code class="docutils literal notranslate"><span class="pre">op2</span></c
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-validation">Block Validation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operation-validation-and-application">Operation Validation and Application</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operations">Validity of Manager Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-individual-manager-operations">Validity of Individual Manager Operations</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operation-batches">Validity of Manager Operation Batches</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-operations">Validity of operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operations">Validity of Manager Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-individual-manager-operations">Validity of Individual Manager Operations</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#validity-of-manager-operation-batches">Validity of Manager Operation Batches</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#co-valid-operations">Co-valid operations</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-of-manager-operations">Application of Manager Operations</a></li>

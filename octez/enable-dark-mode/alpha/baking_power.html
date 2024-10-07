@@ -39,7 +39,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=36da1785"></script>
+    <script src="../_static/documentation_options.js?v=c1386fac"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -202,7 +202,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../user/proxy-server.html">Proxy server</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
 </ul>
@@ -232,6 +231,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
 </ul>
 </details></li>
@@ -275,39 +275,39 @@
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../quebeca/index.html">Quebeca Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../quebeca/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/protocol_overview.html">Overview of the economic protocol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/proof_of_stake.html">Proof-of-stake</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/randomness_generation.html">Randomness generation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/baking_power.html">Baking Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/consensus.html">The consensus algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/voting.html">The Amendment (and Voting) Process</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/accounts.html">Accounts and addresses</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/views.html">On-chain Views</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/timelock.html">Time-lock</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/sapling.html">Sapling support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/liquidity_baking.html">Liquidity Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/global_constants.html">Global Constants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/precheck.html">Prechecking of manager operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/smart_rollups.html">Smart Optimistic Rollups</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/plugins.html">Protocol Plugins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/event.html">Contract events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/blocks_ops.html">Blocks and Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/validation.html">Validation and Application</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/tickets.html">Tickets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_issuance.html">Adaptive Issuance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/staking.html">Staking mechanism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../quebeca/dal_support.html">DAL support</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../qena/index.html">Qena Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../qena/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../qena/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../qena/dal_support.html">DAL support</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/glossary.html">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/cli-commands.html">Command Line Interface</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quebeca/rpc.html">Quebeca RPCs - Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qena/rpc.html">Qena RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -327,7 +327,7 @@
 <li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plugins.html">Protocol Plugins</a></li>
 <li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
@@ -355,7 +355,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
@@ -382,8 +383,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/019_paris.html">Protocol Paris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebeca.html">Protocol Quebeca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_qena.html">Protocol Qena</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
@@ -431,6 +432,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
@@ -451,7 +456,16 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
@@ -665,13 +679,13 @@ each delegate’s <a class="reference internal" href="voting.html#voting-power-a
 is computed in a similar but simpler way.</p>
 <div class="admonition note" id="rpc-path-shortcut-alpha">
 <p class="admonition-title">Note</p>
-<p>In this page, the prefix <code class="docutils literal notranslate"><span class="pre">../</span></code> in all RPC paths is standing for
+<p>In this page, the prefix <code class="docutils literal notranslate"><span class="pre">.../</span></code> in all RPC paths is standing for
 <code class="docutils literal notranslate"><span class="pre">/chain/&lt;chain_id&gt;/blocks/&lt;block_id&gt;/context/</span></code></p>
 <p>Besides, many RPCs presented here used to be known under different
-names. They have been renamed in the Quebec protocol in order to
+names. They have been renamed in the Alpha protocol in order to
 disambiguate and normalize the baking power lexicon; the old names
 have been deprecated. See the
-<a class="reference internal" href="../protocols/021_quebeca.html#delegates-rpcs-normalization"><span class="std std-ref">changelog</span></a> for more information.</p>
+<a class="reference internal" href="../protocols/021_qena.html#delegates-rpcs-normalization"><span class="std std-ref">changelog</span></a> for more information.</p>
 </div>
 <section id="overview">
 <span id="baking-power-overview-alpha"></span><h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
@@ -682,7 +696,7 @@ generates</span></a> the baking rights for cycle <code class="docutils literal n
 power</strong> as the weight for each delegate that meets the
 <a class="reference internal" href="#minimal-baking-power-alpha"><span class="std std-ref">requirements</span></a>. (<code class="docutils literal notranslate"><span class="pre">CONSENSUS_RIGHTS_DELAY</span>
 <span class="pre">=</span> <span class="pre">2</span></code> is a <a class="reference internal" href="consensus.html#cs-constants-alpha"><span class="std std-ref">protocol constant</span></a>.)</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/baking_power</span></code> RPC can be used to
+<p>The <code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/baking_power</span></code> RPC can be used to
 retrieve the current baking power of a delegate, that is, its baking
 power as of the end of the requested block <code class="docutils literal notranslate"><span class="pre">&lt;block_id&gt;</span></code> (see the
 note above on RPC paths). Therefore, the baking power used for the
@@ -702,20 +716,20 @@ computations of <code class="docutils literal notranslate"><span class="pre">tot
 account</span></a> that has registered as a delegate by
 emitting a self-<code class="docutils literal notranslate"><span class="pre">delegation</span></code> <a class="reference internal" href="blocks_ops.html#manager-operations-alpha"><span class="std std-ref">manager
 operation</span></a>. The list of all registered
-delegates is queried with the <code class="docutils literal notranslate"><span class="pre">../delegates</span></code> RPC.</p>
+delegates is queried with the <code class="docutils literal notranslate"><span class="pre">.../delegates</span></code> RPC.</p>
 <p>A <strong>delegator</strong> for a given baker is an <a class="reference internal" href="accounts.html"><span class="doc">account</span></a> that
 has registered this baker as its delegate by emitting a <code class="docutils literal notranslate"><span class="pre">delegation</span></code>
 operation. This includes the baker itself. A delegator may be a user
 account or a smart contract. The list of delegators for a given
 delegate is queried with the
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/delegators</span></code> RPC.</p>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/delegators</span></code> RPC.</p>
 <p>A <strong>staker</strong> is a delegator that has <a class="reference internal" href="staking.html"><span class="doc">staked</span></a> tez by
 emitting a <a class="reference internal" href="staking.html#staked-funds-management-alpha"><span class="std std-ref">stake operation</span></a>. This
 includes the delegate itself if it has staked funds. Note that stakers
 are always user accounts, because smart contracts cannot emit
 <code class="docutils literal notranslate"><span class="pre">stake</span></code> operations. The list of a delegate’s stakers and their
 respective staked balances (see below) are queried with the
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/stakers</span></code> RPC.</p>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/stakers</span></code> RPC.</p>
 <p>An <strong>external delegator</strong> (resp. <strong>external staker</strong>) is a delegator
 (resp. staker) that is not the delegate itself.</p>
 </section>
@@ -727,21 +741,21 @@ also function as a security deposit for baking, meaning that they may
 be <a class="reference internal" href="consensus.html#slashing-alpha"><span class="std std-ref">slashed</span></a> if the delegate misbehaves. That’s
 why they are also known as <strong>frozen deposits</strong>.</p>
 <p>The <strong>staked balance</strong> of an account is its amount of staked tez. It
-can be queried with the <code class="docutils literal notranslate"><span class="pre">../contracts/&lt;contract_id&gt;/staked_balance</span></code>
+can be queried with the <code class="docutils literal notranslate"><span class="pre">.../contracts/&lt;contract_id&gt;/staked_balance</span></code>
 RPC (in mutez). Note that if an account does not have a delegate, then
 it cannot have any staked tez so its staked balance is zero.</p>
 <p>For a given delegate, we define the following:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">own_staked</span></code> is the staked balance of the delegate itself. It can
 be queried with either RPC
-<code class="docutils literal notranslate"><span class="pre">../contracts/&lt;contract_id&gt;/staked_balance</span></code> or
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/own_staked</span></code> (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../contracts/&lt;contract_id&gt;/staked_balance</span></code> or
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/own_staked</span></code> (in mutez).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">external_staked</span></code> is the sum of the staked balances of the
 delegate’s external stakers. It is queried with the
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/external_staked</span></code> RPC (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/external_staked</span></code> RPC (in mutez).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">total_staked</span></code> is the sum of the staked balances of all stakers,
 including the delegate itself. It is queried with the
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/total_staked</span></code> RPC (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/total_staked</span></code> RPC (in mutez).</p></li>
 </ul>
 <p>All three values are of course related:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total_staked</span> <span class="o">=</span> <span class="n">own_staked</span> <span class="o">+</span> <span class="n">external_staked</span>
@@ -762,18 +776,18 @@ tez. It is the sum of the following balances:</p>
 <ul class="simple">
 <li><p>The <strong>spendable balance</strong> is the amount of tez that the account can
 freely access and spend at the current time. It can be queried with
-RPC <code class="docutils literal notranslate"><span class="pre">../contracts/&lt;contract_id&gt;/spendable</span></code> (in mutez).</p></li>
+RPC <code class="docutils literal notranslate"><span class="pre">.../contracts/&lt;contract_id&gt;/spendable</span></code> (in mutez).</p></li>
 <li><p>The <strong>unstaked balance</strong> is the sum of tez contained in <strong>unstake
 requests</strong>. These tez have been removed from the staked balance via
 an <code class="docutils literal notranslate"><span class="pre">unstake</span></code> operation, but have not been added back to the
 spendable balance yet; see
 <a class="reference internal" href="staking.html#staked-funds-management-alpha"><span class="std std-ref">Staked funds management</span></a>. Unstake requests can be
-queried with RPC <code class="docutils literal notranslate"><span class="pre">../contracts/&lt;contract_id&gt;/unstake_requests</span></code>
+queried with RPC <code class="docutils literal notranslate"><span class="pre">.../contracts/&lt;contract_id&gt;/unstake_requests</span></code>
 (returns a detailed view with unfinalizable/finalizable status,
 delegate-at-creation-time, cycle, and amount in mutez).</p></li>
 <li><p>The <strong>frozen bonds</strong> are a deposit for <a class="reference internal" href="smart_rollups.html#commitments-alpha"><span class="std std-ref">rollup
 commitments</span></a>. They can be queried with RPC
-<code class="docutils literal notranslate"><span class="pre">../contracts/&lt;contract_id&gt;/frozen_bonds</span></code> (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../contracts/&lt;contract_id&gt;/frozen_bonds</span></code> (in mutez).</p></li>
 </ul>
 <p>Together, the staked and delegated tez represent all the tez owned by
 an account, called the <strong>full balance</strong>.</p>
@@ -786,7 +800,8 @@ an account, called the <strong>full balance</strong>.</p>
 <section id="delegated-tez-to-a-baker">
 <span id="total-delegated-alpha"></span><h3>Delegated tez to a baker<a class="headerlink" href="#delegated-tez-to-a-baker" title="Link to this heading">#</a></h3>
 <p>Spendable tez and frozen bonds count as delegated to the account’s
-current delegate. However, unstake requests count as delegated to the
+current delegate. However, the tez involved in an unstake request
+count as delegated to the
 account’s <strong>delegate at the time of the unstake request’s creation</strong>
 (which is the account’s current delegate in most cases, but might be a
 former delegate instead).</p>
@@ -804,19 +819,21 @@ former delegate instead).</p>
 and counting as delegated to itself, that is, the
 <code class="docutils literal notranslate"><span class="pre">delegated_to_current_delegate</span></code> amount of the delegate’s
 account. It corresponds to all non-staked tez owned by the baker
-(except for any unstake requests from former delegates, but it’s
+(except for any tez involved in unstake requests created at a time
+when the baker was delegating to a different delegate, but it is
 rare for a delegate to still have such requests). It can be queried
-with RPC <code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/own_delegated</span></code> (in mutez).</p></li>
+with RPC <code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/own_delegated</span></code> (in mutez).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">external_delegated</span></code> is the sum of tez that count as delegated to
 the baker but are not owned by the baker itself. In other words, it
 is the sum of <code class="docutils literal notranslate"><span class="pre">delegated_to_current_delegate</span></code> over all current
-external delegators, plus the sum of any unstaked requests that
-might still exist from this baker to former external delegators. It
+external delegators, plus any tez involved in unstaked requests
+created by former external delegators when they were still
+delegating to the baker. It
 can be queried with RPC
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/external_delegated</span></code> (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/external_delegated</span></code> (in mutez).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">total_delegated</span></code> is the total amount that counts as delegated to
 this baker. It can be queried with RPC
-<code class="docutils literal notranslate"><span class="pre">../delegates/&lt;delegate_pkh&gt;/total_delegated</span></code> (in mutez).</p></li>
+<code class="docutils literal notranslate"><span class="pre">.../delegates/&lt;delegate_pkh&gt;/total_delegated</span></code> (in mutez).</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>total_delegated = own_delegated + external_delegated
 </pre></div>
@@ -848,7 +865,7 @@ by an account delegating to this baker during the whole cycle.</p>
 operations, the context for this minimum is not directly accessible
 via RPC. In that case, in order to retrieve this exact context, one
 needs to replay the block’s balance updates on their own.</p>
-<p>In the Quebec protocol, to solve these problems, only the total
+<p>In the Alpha protocol, to solve these problems, only the total
 delegated amounts <strong>at the end of blocks</strong> count when determining this
 minimum. This is known as the <strong>per-block min-delegated
 feature</strong>. This solution no longer penalizes baking rights when
@@ -912,7 +929,7 @@ first level of the current cycle is <code class="docutils literal notranslate"><
 <td><p>1050</p></td>
 <td><p>980</p></td>
 </tr>
-<tr class="row-odd"><td><p>Quebec RPC</p></td>
+<tr class="row-odd"><td><p>Alpha RPC</p></td>
 <td><p>Returned min (tez)</p></td>
 <td><p>1000</p></td>
 <td><p>1000</p></td>
@@ -920,7 +937,7 @@ first level of the current cycle is <code class="docutils literal notranslate"><
 <td><p>1000</p></td>
 <td><p>980</p></td>
 </tr>
-<tr class="row-even"><td><p>Quebec RPC</p></td>
+<tr class="row-even"><td><p>Alpha RPC</p></td>
 <td><p>Returned level</p></td>
 <td><p>129</p></td>
 <td><p>129</p></td>
@@ -952,7 +969,7 @@ the middle of the block application. Also, the
 <code class="docutils literal notranslate"><span class="pre">min_delegated_in_current_cycle</span></code> RPC returns the value in mutez, but
 here we use tez for simplicity.</p>
 <ul class="simple">
-<li><p>In Quebec:</p>
+<li><p>In Alpha:</p>
 <ul>
 <li><p>At levels <code class="docutils literal notranslate"><span class="pre">129</span></code> and <code class="docutils literal notranslate"><span class="pre">150</span></code>, the earliest level at the end of
 which the <code class="docutils literal notranslate"><span class="pre">total_delegated</span></code> is equal to the minimum <code class="docutils literal notranslate"><span class="pre">1000</span></code> is
@@ -996,17 +1013,21 @@ minimum of <code class="docutils literal notranslate"><span class="pre">900</spa
 <p>The <strong>limit_of_staking_over_baking</strong> is a <a class="reference internal" href="staking.html#staking-policy-configuration-alpha"><span class="std std-ref">configurable delegate
 parameter</span></a> that limits how much
 staked tez the external stakers can contribute to the baking power,
-depending on the baker’s own staked tez. It defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code> –
-meaning no staked contribution from external stakers at all, and will
-be overridden by the global limit of <code class="docutils literal notranslate"><span class="pre">5</span></code> if it is higher than this
-– meaning that external stakers may contribute up to five time as
-much staked tez as the baker itself. If the amount of external staked
+relative to the baker’s own staked tez. It defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>, meaning
+no staked contribution from external stakers at all. It can be set to
+any non-negative value (with a one millionth precision); however, the
+<code class="docutils literal notranslate"><span class="pre">GLOBAL_LIMIT_OF_STAKING_OVER_BAKING</span></code> constant, set to <code class="docutils literal notranslate"><span class="pre">9</span></code>,
+ensures that external stakers may never contribute more than nine times
+as much staked tez as the baker itself, regardless of the delegate’s
+own limit.
+If the amount of external staked
 tez exceeds this quota, the baker is said to be <strong>overstaked</strong>, and we
 also call <strong>overstaked</strong> the excess of external staked tez over the
-allowed maximum. Any overstaked tez will count toward baking rights as
+allowed maximum. Any overstaked tez will count toward the baking power as
 delegated instead of staked (provided that the baker is not
 overdelegated too), so they will weigh half as much.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">actual_limit_of_staking_over_baking</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">limit_of_staking_over_baking</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">global_limit_of_staking_over_baking</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">actual_limit_of_staking_over_baking</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">limit_of_staking_over_baking</span><span class="p">,</span> <span class="n">global_limit_of_staking_over_baking</span><span class="p">)</span>
 <span class="n">max_allowed_external_staked</span> <span class="o">=</span> <span class="n">own_staked</span> <span class="o">*</span> <span class="n">actual_limit_of_staking_over_baking</span>
 <span class="n">external_staked_after_limits</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">external_staked</span><span class="p">,</span> <span class="n">max_allowed_external_staked</span><span class="p">)</span>
 
@@ -1019,7 +1040,7 @@ overdelegated too), so they will weigh half as much.</p>
 <code class="docutils literal notranslate"><span class="pre">own_staked</span></code>, that is, the part of the security deposit that belongs
 to the baker itself, always represents a sizable portion of its
 baking power. In other words, it guarantees that the baker always has
-its own skin in the game. Besides, the global limit of <code class="docutils literal notranslate"><span class="pre">5</span></code> ensures
+its own skin in the game. Besides, the global limit of <code class="docutils literal notranslate"><span class="pre">9</span></code> ensures
 that a baker can never increase its own balance by denouncing its own
 double baking or double attesting misbehavior; indeed, the reward that
 would be given to the author of a denunciation is guaranteed to be
@@ -1027,16 +1048,16 @@ lower than the amount that would be slashed from the misbehaving
 baker’s own funds.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the baker’s <code class="docutils literal notranslate"><span class="pre">limit_of_staking_over_baking</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, external
-delegators are prevented from using <code class="docutils literal notranslate"><span class="pre">stake</span></code> operations at all. If
-the limit is positive, external delegators can stake as much tez as
-they wish, even if this causes the baker to become overstaked or if
-the baker is already overstaked. The only effect of a non-zero limit
-is to make overstaked tez count as delegated for the baking
-power. If the limit is set to a positive value then back to <code class="docutils literal notranslate"><span class="pre">0</span></code>,
-external delegators are again prevented from staking new funds, but
-any previously staked tez remain as such (although they are now all
-considered overstaked, so they all count as delegated).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">limit_of_staking_over_baking</span></code> has an additional effect when
+set to <code class="docutils literal notranslate"><span class="pre">0</span></code>: it prevents external delegators from using <code class="docutils literal notranslate"><span class="pre">stake</span></code>
+operations at all. This effect is completely removed when the limit
+is positive: external delegators can stake as much tez as they wish,
+even if this causes the baker to become overstaked or if the baker
+is already overstaked. If the limit is set to a positive value then
+back to <code class="docutils literal notranslate"><span class="pre">0</span></code>, then external delegators are again prevented from
+staking new funds, but any previously staked tez remain staked
+(although they are now all considered overstaked, so they all count
+as delegated when computing baking the power).</p>
 </div>
 </section>
 <section id="overdelegation">
@@ -1070,7 +1091,7 @@ requirements:</p>
 </ul>
 <p>where <code class="docutils literal notranslate"><span class="pre">MINIMAL_STAKE</span> <span class="pre">=</span> <span class="pre">6,000ꜩ</span></code> and <code class="docutils literal notranslate"><span class="pre">MINIMAL_FROZEN_STAKE</span> <span class="pre">=</span> <span class="pre">600ꜩ</span></code>
 are <a class="reference internal" href="consensus.html#cs-constants-alpha"><span class="std std-ref">protocol constants</span></a>.</p>
-<p>If any condition is not met at the end of cycle <code class="docutils literal notranslate"><span class="pre">n</span></code>, the delegate
+<p>If any of these conditions is not met at the end of cycle <code class="docutils literal notranslate"><span class="pre">n</span></code>, the delegate
 still has a <em>baking power</em> as computed above, but receives no <em>baking
 rights</em> at all for cycle <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">3</span></code>.</p>
 </section>

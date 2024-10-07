@@ -20484,7 +20484,8 @@ Full description
         "fitness": $fitness,
         "context": $Context_hash }
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $fitness:
       /* Block fitness

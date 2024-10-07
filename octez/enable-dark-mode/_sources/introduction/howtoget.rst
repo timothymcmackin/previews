@@ -89,6 +89,8 @@ There are several packages:
 - ``octez-smartrollup``: the Octez Smart Rollup daemons
 - ``octez-signer``: the remote signer, to hold keys on (and sign from) a different machine from the baker or client
 
+.. _installing_packages:
+
 Ubuntu and Debian Octez packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,6 +152,8 @@ possible to configure the software to use a different user (even root).
 The documentation for these packages, originally developed by Chris Pinnock,
 can be found here: https://chrispinnock.com/tezos/packages/
 
+.. _new_packages:
+
 New set of Debian packages
 """"""""""""""""""""""""""
 
@@ -187,7 +191,7 @@ For example using ``yum``::
 
 .. _using_docker_images:
 
-Using Docker Images And Docker-Compose
+Using Docker images and docker-compose
 --------------------------------------
 
 For every change committed in the GitLab repository, Docker images are
@@ -195,7 +199,7 @@ automatically generated and published on `DockerHub
 <https://hub.docker.com/r/tezos/tezos/>`_. This provides a convenient
 way to run an always up-to-date ``octez-node``.
 
-From version 22.0 all Docker images for tezos are signed using Cosign.
+From version 22.0 all Octez Docker images are signed using Cosign.
 You can verify if the images are correctly signed using the Cosign utility, as explained below:
 
 .. toctree::
@@ -205,16 +209,16 @@ You can verify if the images are correctly signed using the Cosign utility, as e
 
 One way to run those Docker images is with `docker-compose <https://docs.docker.com/compose>`_.
 We provide ``docker-compose`` files for all active
-protocols. You can pick one and start with the following command (we'll assume alpha on this guide):
+protocols in directory :src:`scripts/docker`. You can pick one and start with the following command (where ``$PROTO`` is the protocol of your choice):
 
 ::
 
     cd scripts/docker
     export LIQUIDITY_BAKING_VOTE=pass # You can choose between 'on', 'pass' or 'off'.
-    docker-compose -f alpha.yml up
+    docker-compose -f $PROTO.yml up
 
 The above command will launch a node, a client, a baker, and an accuser for
-the Alpha protocol.
+the given protocol.
 
 You can open a new shell session and run ``docker ps`` in it, to display all the available containers, e.g.::
 
@@ -227,7 +231,7 @@ The node's RPC interface will be available on localhost and can be queried with 
 
 ::
 
-    docker exec node-alpha octez-client rpc list
+    docker exec octez-node-$PROTO octez-client rpc list
 
 Building Docker Images Locally
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -258,9 +262,9 @@ environment variables:
 - ``NODE_RPC_ADDR``: The RPC address **inside the container** the node binds to (defaults to ``[::]``).
 - ``PROTOCOL``: The protocol used.
 
-These variables can be set in the docker-compose file, as demonstrated in ``alpha.yml``::
+These variables can be set in the docker-compose file, as demonstrated in :src:`scripts/docker/alpha.yml`::
 
-    node:
+    octez-node:
       ...
       environment:
         PROTOCOL: alpha
@@ -272,8 +276,8 @@ If the above options are not enough, you can always replace the default ``entryp
 
     version: "3"
     services:
-      node:
-        container_name: node-alpha
+      octez-node:
+        container_name: octez-node-alpha
         entrypoint: /bin/sh
         command: /etc/my-init-script.sh
         volumes:
@@ -450,6 +454,7 @@ Setting up the development environment from scratch
 If you plan to contribute to the Octez codebase, the way to go is to set up a
 complete development environment, by cloning the repository and compiling the
 sources using the provided makefile.
+You may either build all the executables, as illustrated below, or only a subset of the executables, as detailed in section :ref:`compile_sources`.
 
 **TL;DR**: From a fresh Debian Bookworm x86_64, you typically want to select a source branch in the Octez repository, e.g.:
 
@@ -629,16 +634,23 @@ command instead:
    * As a last resort, removing the ``_opam`` folder (as part of a ``git
      clean -dxf`` for example) allows to restart in a fresh environment.
 
+.. _compile_sources:
+
 Compile
 ~~~~~~~
 
 Once the dependencies are installed we can update OPAM's environment to
-refer to the new switch and compile the project:
+refer to the new switch and compile the project to build all the executables:
 
 .. literalinclude:: compile-sources.sh
   :language: shell
   :start-after: [compile sources]
   :end-before: [optional setup]
+
+.. note::
+
+  Instead of the simple ``make`` command above, you may use more restrictive targets in :src:`the makefile <Makefile>` to build only some subset of the executables.
+  For instance, you may exclude experimental executables using ``make release``; furthermore exclude executables such as the EVM node using ``make octez``; or even restrict to Layer 1 executables using ``make octez-layer1``.
 
 Lastly, you can also add the Octez binaries to your ``PATH`` variable,
 and after reading the Disclaimer a few

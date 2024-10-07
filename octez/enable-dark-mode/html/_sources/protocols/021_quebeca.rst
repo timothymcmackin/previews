@@ -1,10 +1,10 @@
-Protocol Quebeca
-=================
+Protocol Quebec
+===============
 
-This page documents the changes brought by protocol Quebeca with respect
+This page documents the changes brought by protocol Quebec with respect
 to Paris (see :ref:`naming_convention`).
 
-For changes brought by Paris with respect to Oxford, see :doc:`../protocols/019_paris`.
+For changes brought by Paris with respect to Oxford, see :doc:`../protocols/020_paris`.
 
 The code can be found in directory :src:`src/proto_021_PsquebeC` of the ``master``
 branch of Octez.
@@ -63,11 +63,6 @@ Gas improvements
 
 Breaking Changes
 ----------------
-
-- Deprecated legacy encoding of tickets (``Pair (Pair _ _) _``) in favor of
-  the ``Ticket`` constructor introduced in Paris. This new notation will
-  notably be used in operations metadata (MRs :gl:`!11619` :gl:`!11620`
-  :gl:`!12048`).
 
 - Reworked RPC ``GET
   /chains/<chain_id>/blocks/<block_id>/context/delegates/<baker_pkh>``,

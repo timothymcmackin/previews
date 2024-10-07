@@ -162,6 +162,10 @@ Index
     
     * /monitor/protocols (`GET <GET_--monitor--protocols_>`_)
     
+    * /monitor/received_blocks
+      
+      * /monitor/received_blocks/<chain_id> (`GET <GET_--monitor--received_blocks--chain_id_>`_)
+    
     * /monitor/validated_blocks (`GET <GET_--monitor--validated_blocks_>`_)
   
   * /network
@@ -393,7 +397,8 @@ Full description
       /* A block identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $unistring:
       /* Universal string representation
@@ -453,7 +458,8 @@ Full description
       /* A block identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $unistring:
       /* Universal string representation
@@ -3010,6 +3016,45 @@ Full description
     +===============+==========+==========+
     | Protocol_hash | 32 bytes | bytes    |
     +---------------+----------+----------+
+    
+    
+    </pre>
+    </div>
+  
+
+
+.. _GET_--monitor--received_blocks--chain_id :
+
+**GET /monitor/received_blocks/<chain_id>**
+
+.. raw:: html
+  
+  <div class="tab"><button class="tablinks defaultOpen" onclick="showTab(this, 'GET_--monitor--received_blocks--chain_iddescr', 'GET_--monitor--received_blocks--chain_id')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'GET_--monitor--received_blocks--chain_idoutput.json', 'GET_--monitor--received_blocks--chain_id')">Json output</button>
+    <button class="tablinks" onclick="showTab(this, 'GET_--monitor--received_blocks--chain_idoutput.bin', 'GET_--monitor--received_blocks--chain_id')">Binary output</button>
+    </div><div id="GET_--monitor--received_blocks--chain_iddescr" class="GET_--monitor--received_blocks--chain_id tabcontent">
+            <p>
+            Monitor all newly received blocks that are not yet known by the store.</p>
+            </div>
+  <div id="GET_--monitor--received_blocks--chain_idoutput.json" class="GET_--monitor--received_blocks--chain_id tabcontent">
+    <pre>
+    { "hash": $block_hash }
+    $block_hash:
+      /* A block identifier (Base58Check-encoded) */
+      $unistring
+    $unistring:
+      /* Universal string representation
+         Either a plain UTF8 string, or a sequence of bytes for strings that
+         contain invalid byte sequences. */
+      string || { "invalid_utf8_string": [ integer ∈ [0, 255] ... ] }</pre>
+    </div>
+  <div id="GET_--monitor--received_blocks--chain_idoutput.bin" class="GET_--monitor--received_blocks--chain_id tabcontent">
+    <pre>
+    +------+----------+----------+
+    | Name | Size     | Contents |
+    +======+==========+==========+
+    | hash | 32 bytes | bytes    |
+    +------+----------+----------+
     
     
     </pre>
@@ -7525,7 +7570,8 @@ Full description
       /* A block identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -7766,7 +7812,8 @@ Full description
       /* Network identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -7960,7 +8007,8 @@ Full description
       /* A block identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -8260,7 +8308,8 @@ Full description
       /* A Cryptobox public key ID (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -8469,7 +8518,8 @@ Full description
       /* A block identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -8704,7 +8754,8 @@ Full description
       /* Network identifier (Base58Check-encoded) */
       $unistring
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
@@ -8946,7 +8997,8 @@ Full description
          of the previous head. */
       "branch" | "ignored" | "increment"
     $error:
-      /* The full list of errors is available with the global RPC `GET errors` */
+      /* An error trace. The full list of errors is available with the global
+         RPC `GET errors` */
       any
     $int64:
       /* 64 bit integers
