@@ -1,0 +1,1149 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Making legacy code unit-testable &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=84cff897"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/unit_testing_legacy_code';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to Test a Protocol Proposal" href="proposal_testing.html" />
+    <link rel="prev" title="Alcotezt: An Alcotest Compatibility Wrapper for Tezt" href="alcotezt.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/data_availability_committees.html">Data Availability Committees</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Paris Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance and Staking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Paris RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../quebec/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../quebec/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quebec/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quebec/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.0~rc3</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/unit_testing_legacy_code.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making legacy code unit-testable</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-module-and-all-its-dependencies">Testing a module and all its dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-function-records">Using function records</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#store-dependencies-in-state">Store dependencies in state</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-dependencies-in-function-argument">Taking dependencies in function argument</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-for-function-records">Pros and Cons for Function records</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-functors">Using functors</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="making-legacy-code-unit-testable">
+<h1>Making legacy code unit-testable<a class="headerlink" href="#making-legacy-code-unit-testable" title="Link to this heading">#</a></h1>
+<p>This guide describes how to make legacy code testable and how to test it.
+The following techniques do not require any API change: they concern testing each single module as a <strong>unit</strong> without touching modules depending on it.
+These techniques are applicable to <strong>legacy</strong> code: you do not need to have an exact knowledge of every implementation detail of a module to test it.</p>
+<p>The goals are:</p>
+<ul class="simple">
+<li><p>to gain confidence in a module as a developer (or even part of test-driven development)</p></li>
+<li><p>to document it: tests are examples</p></li>
+<li><p>to have a safety net as a maintainer (non-regression testing), e.g., when:
+- adding/changing features
+- performing various forms of refactoring (changing the API or not)</p></li>
+</ul>
+<p>In the rest of this page, “testable” means “unit-testable”, for conciseness.</p>
+<p>Here “legacy” is a loose term, encompassing:</p>
+<ul class="simple">
+<li><p>existing code written by other developers, not necessarily containing a right amount of built-in unit tests</p></li>
+<li><p>code that is only tested by heavy/slow/high level tests, like <a class="reference internal" href="tezt.html"><span class="doc">Tezt</span></a> - this is often a symptom of code that is hard to unit-test</p></li>
+<li><p>tightly-coupled code (e.g. module <code class="docutils literal notranslate"><span class="pre">A</span></code> directly depends on functions of modules <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code>, thus unit-testing <code class="docutils literal notranslate"><span class="pre">A</span></code> requires setting everything up for <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">C</span></code> and <code class="docutils literal notranslate"><span class="pre">D</span></code> too, which not only makes unit testing harder, but is also complex and brittle)</p></li>
+<li><p>code that calls system functions (e.g. <code class="docutils literal notranslate"><span class="pre">Unix.chmod</span></code>, which requires modifying actual files on the filesystem, also making unit testing harder) or more generally any kind of side-effecting function</p></li>
+</ul>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<section id="testing-a-module-and-all-its-dependencies">
+<h3>Testing a module and all its dependencies<a class="headerlink" href="#testing-a-module-and-all-its-dependencies" title="Link to this heading">#</a></h3>
+<p>Sometimes, legacy modules depending on other modules may be “unit-tested” without modifying them at all.</p>
+<p>This approach is technically not “unit” testing, as the module/function is not tested in isolation from its dependencies. However as the intention is close to unit testing, we include it here.</p>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>No change at all in business code (not even an <code class="docutils literal notranslate"><span class="pre">Internal_for_tests</span></code> module)</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Code not tested in isolation</p></li>
+<li><p>Tests are harder to write and maintain</p></li>
+</ul>
+<p>Works best when:</p>
+<ul class="simple">
+<li><p>Code and its dependencies are pure, or “pure enough” (e.g. code may contain logging and other unharmful/unimportant side effects)</p></li>
+<li><p>Dependency tree is not too deep (e.g. if A depends on B which depends on C which depends on D, then it becomes hard to write/read/maintain unit tests)</p></li>
+</ul>
+</section>
+<section id="using-function-records">
+<h3>Using function records<a class="headerlink" href="#using-function-records" title="Link to this heading">#</a></h3>
+<p>This approach decouples the business code from its dependency functions, either by storing dependency functions in the state - if any - or by taking them as additional parameters in each module function.</p>
+<p>Note that this does not decouple types, only functions!
+If your module depends on a dependency type that can only be built by having side-effects, then you are forced to have those side effects too in your tests.</p>
+<p>As an example, consider the following <code class="docutils literal notranslate"><span class="pre">Counter</span></code> module (signature and implementation):</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">Counter</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">type</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">create_from_file</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span>
+  <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">counter</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create_from_file</span> <span class="bp">()</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">int_of_string</span> <span class="o">(</span><span class="nn">Files</span><span class="p">.</span><span class="n">read</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span><span class="o">)</span> <span class="k">in</span>
+    <span class="o">{</span><span class="n">counter</span><span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="n">t</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">}</span> <span class="k">in</span>
+    <span class="nn">Files</span><span class="p">.</span><span class="n">write</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span> <span class="o">(</span><span class="n">string_of_int</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span><span class="o">);</span>
+    <span class="n">t</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Counter</span></code> is hardly unit-testable because of the calls to <code class="docutils literal notranslate"><span class="pre">Files.read</span></code> and <code class="docutils literal notranslate"><span class="pre">Files.write</span></code> which have the side effect of reading from/writing into <code class="docutils literal notranslate"><span class="pre">/tmp/counter.txt</span></code> file.
+Thus we extract <code class="docutils literal notranslate"><span class="pre">Files.read</span></code> and <code class="docutils literal notranslate"><span class="pre">Files.write</span></code> into an argument that can be changed with a dumb (“mock”) function in tests.</p>
+<section id="store-dependencies-in-state">
+<h4>Store dependencies in state<a class="headerlink" href="#store-dependencies-in-state" title="Link to this heading">#</a></h4>
+<p>One way to achieve this - when your module has a state, usually a type <code class="docutils literal notranslate"><span class="pre">t</span></code> - is to store all dependency functions in a field, here <code class="docutils literal notranslate"><span class="pre">dependencies</span></code>:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">Counter</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">type</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">create_from_file</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">:</span> <span class="k">sig</span>
+    <span class="k">type</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+      <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">val</span> <span class="n">create_from_file</span> <span class="o">:</span> <span class="n">dependencies</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span>
+  <span class="k">type</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+    <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">counter</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+    <span class="n">dependencies</span> <span class="o">:</span> <span class="n">dependencies</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create_from_file_internal</span> <span class="n">dependencies</span> <span class="bp">()</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">int_of_string</span> <span class="o">(</span><span class="n">dependencies</span><span class="o">.</span><span class="n">files_read</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span><span class="o">)</span> <span class="k">in</span>
+    <span class="o">{</span><span class="n">counter</span><span class="o">;</span> <span class="n">dependencies</span><span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create_from_file</span> <span class="o">=</span> <span class="n">create_from_file_internal</span> <span class="o">{</span><span class="n">files_read</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">read</span><span class="o">;</span> <span class="n">files_write</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">write</span><span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="n">t</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span><span class="n">t</span> <span class="k">with</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">}</span> <span class="k">in</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">files_write</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span> <span class="o">(</span><span class="n">string_of_int</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span><span class="o">);</span>
+    <span class="n">t</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">=</span> <span class="k">struct</span>
+    <span class="k">type</span> <span class="n">nonrec</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+      <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">let</span> <span class="n">create_from_file</span> <span class="o">=</span> <span class="n">create_from_file_internal</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Note that the direct calls to <code class="docutils literal notranslate"><span class="pre">Files.read</span></code> and <code class="docutils literal notranslate"><span class="pre">Files.write</span></code> were replaced with indirect calls to <code class="docutils literal notranslate"><span class="pre">dependencies.files_read</span></code> and field <code class="docutils literal notranslate"><span class="pre">t.dependencies.files_write</span></code>:</p>
+<ul class="simple">
+<li><p>They are set to <code class="docutils literal notranslate"><span class="pre">Files.[read|write]</span></code> in the business constructor <code class="docutils literal notranslate"><span class="pre">Counter.create_from_file</span></code></p></li>
+<li><p>They are changed at will in the test constructor <code class="docutils literal notranslate"><span class="pre">Counter.Internal_for_tests.create_from_file</span></code></p></li>
+</ul>
+<p>Also note that while the API was extended with test artifacts under the <code class="docutils literal notranslate"><span class="pre">Internal_for_tests</span></code> sub-module, the public API is otherwise unchanged, thus keeping this refactoring local - you do not need to change any call sites!</p>
+<p>Now we can test this module without any side effect:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">test</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">counter_value_written</span> <span class="o">=</span> <span class="n">ref</span> <span class="s2">&quot;&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">fake_files_read</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;41&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">fake_files_write</span> <span class="n">file_name</span> <span class="n">text</span> <span class="o">=</span>
+    <span class="n">counter_value_written</span> <span class="o">:=</span> <span class="n">text</span>
+  <span class="k">in</span>
+  <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="nn">Internal_for_tests</span><span class="p">.</span><span class="n">create_from_file</span> <span class="o">{</span><span class="n">files_read</span> <span class="o">=</span> <span class="n">fake_files_read</span><span class="o">;</span> <span class="n">files_write</span> <span class="o">=</span> <span class="n">fake_files_write</span><span class="o">}</span> <span class="bp">()</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="o">_</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="n">increment_and_save_to_file</span> <span class="n">counter</span> <span class="k">in</span>
+  <span class="nn">Alcotest</span><span class="p">.</span><span class="o">(</span><span class="n">check</span> <span class="kt">string</span><span class="o">)</span> <span class="s2">&quot;counter value was incremented in file&quot;</span> <span class="o">!</span><span class="n">counter_value_written</span> <span class="s2">&quot;42&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="taking-dependencies-in-function-argument">
+<h4>Taking dependencies in function argument<a class="headerlink" href="#taking-dependencies-in-function-argument" title="Link to this heading">#</a></h4>
+<p>An alternative solution, more verbose but not requiring any “state” value available in each function, is to take the dependencies directly as an additional function argument:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">Counter</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">type</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">create_from_file</span> <span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">:</span> <span class="k">sig</span>
+    <span class="k">type</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+      <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">val</span> <span class="n">create_from_file</span> <span class="o">:</span> <span class="n">dependencies</span> <span class="o">-&gt;</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">dependencies</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span>
+  <span class="k">type</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+    <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">counter</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">business_dependencies</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">files_read</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">read</span><span class="o">;</span>
+    <span class="n">files_write</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">write</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create_from_file_internal</span> <span class="n">dependencies</span> <span class="n">counter</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">int_of_string</span> <span class="o">(</span><span class="n">dependencies</span><span class="o">.</span><span class="n">files_read</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span><span class="o">)</span> <span class="k">in</span>
+    <span class="o">{</span><span class="n">counter</span><span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create_from_file</span> <span class="o">=</span> <span class="n">create_from_file_internal</span> <span class="n">business_dependencies</span>
+
+  <span class="k">let</span> <span class="n">increment_and_save_to_file_internal</span> <span class="n">dependencies</span> <span class="n">t</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">}</span> <span class="k">in</span>
+    <span class="n">dependencies</span><span class="o">.</span><span class="n">files_write</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span> <span class="o">(</span><span class="n">string_of_int</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span><span class="o">);</span>
+    <span class="n">t</span>
+
+  <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="n">t</span> <span class="o">=</span> <span class="n">increment_and_save_to_file_internal</span> <span class="n">business_dependencies</span> <span class="n">t</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">=</span> <span class="k">struct</span>
+    <span class="k">type</span> <span class="n">nonrec</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="n">dependencies</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">files_read</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span><span class="o">;</span>
+      <span class="n">files_write</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">let</span> <span class="n">create_from_file</span> <span class="o">=</span> <span class="n">create_from_file_internal</span>
+    <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="o">=</span> <span class="n">increment_and_save_to_file_internal</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Note that the direct calls to <code class="docutils literal notranslate"><span class="pre">Files.read</span></code> and <code class="docutils literal notranslate"><span class="pre">Files.write</span></code> were replaced with indirect calls to arguments <code class="docutils literal notranslate"><span class="pre">dependencies.files_read</span></code> and <code class="docutils literal notranslate"><span class="pre">dependencies.files_write</span></code>:</p>
+<ul class="simple">
+<li><p>They are set to <code class="docutils literal notranslate"><span class="pre">Files.[read|write]</span></code> in each business function (<code class="docutils literal notranslate"><span class="pre">create_from_file</span></code> and <code class="docutils literal notranslate"><span class="pre">increment_and_save_to_file</span></code>)</p></li>
+<li><p>They are changed at will in the test function <code class="docutils literal notranslate"><span class="pre">Counter.Internal_for_tests.[create_from_file|increment_and_save_to_file]</span></code></p></li>
+</ul>
+<p>As in the previous solution, notice that the public API has not changed - save for additional APIs in <code class="docutils literal notranslate"><span class="pre">Internal_for_tests</span></code>.</p>
+<p>Now we can test this module without any side effect:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">test</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">counter_value_written</span> <span class="o">=</span> <span class="n">ref</span> <span class="s2">&quot;&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">fake_files_read</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;41&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">fake_files_write</span> <span class="n">file_name</span> <span class="n">text</span> <span class="o">=</span>
+    <span class="n">counter_value_written</span> <span class="o">:=</span> <span class="n">text</span>
+  <span class="k">in</span>
+  <span class="k">let</span> <span class="n">mock_dependencies</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="nn">Internal_for_tests</span><span class="p">.</span><span class="o">{</span>
+    <span class="n">files_read</span> <span class="o">=</span> <span class="n">fake_files_read</span><span class="o">;</span>
+    <span class="n">files_write</span> <span class="o">=</span> <span class="n">fake_files_write</span><span class="o">;</span>
+  <span class="o">}</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="nn">Internal_for_tests</span><span class="p">.</span><span class="n">create_from_file</span> <span class="n">mock_dependencies</span> <span class="bp">()</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="o">_</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="nn">Internal_for_tests</span><span class="p">.</span><span class="n">increment_and_save_to_file</span> <span class="n">mock_dependencies</span> <span class="n">counter</span> <span class="k">in</span>
+  <span class="nn">Alcotest</span><span class="p">.</span><span class="o">(</span><span class="n">check</span> <span class="kt">string</span><span class="o">)</span> <span class="s2">&quot;counter value was incremented in file&quot;</span> <span class="o">!</span><span class="n">counter_value_written</span> <span class="s2">&quot;42&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="pros-and-cons-for-function-records">
+<h4>Pros and Cons for Function records<a class="headerlink" href="#pros-and-cons-for-function-records" title="Link to this heading">#</a></h4>
+<p>Works best when:</p>
+<ul class="simple">
+<li><p>Dependency types are not too hard to build</p></li>
+</ul>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>No side-effecting function is called (they are replaced with mocks)</p></li>
+<li><p>Enables validating the arguments passed to mock functions (e.g. <code class="docutils literal notranslate"><span class="pre">counter_value_written</span></code>) have the right value</p></li>
+<li><p>Independent of the dependency depth (for functions): if <code class="docutils literal notranslate"><span class="pre">A</span></code> calls <code class="docutils literal notranslate"><span class="pre">B.f</span></code> which calls <code class="docutils literal notranslate"><span class="pre">C.g</span></code>, your mock of <code class="docutils literal notranslate"><span class="pre">B.f</span></code> will never call <code class="docutils literal notranslate"><span class="pre">C.g</span></code></p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>All dependency types remain, so if it is difficult/side-effectful to create those values, testing remains difficult/not so unitary</p></li>
+<li><p>Adds a bit of boilerplate in <code class="docutils literal notranslate"><span class="pre">Internal_for_tests</span></code> module</p></li>
+<li><p>Adds a bit of indirection, by introducing indirect calls to dependency functions. The associated performance overhead should be negligible in most practical cases. There also is a slight decrease in code readability, but documenting this unit-testability pattern should avoid many headaches.</p></li>
+</ul>
+<p>To choose between the field and the argument:</p>
+<ul class="simple">
+<li><p>If your module already has a kind of “state” (usually a type <code class="docutils literal notranslate"><span class="pre">t</span></code>), then add a <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> field</p></li>
+<li><p>Else add a <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> argument - but this requires duplicating each function, which ends up being very verbose if you have several functions</p></li>
+<li><p>If your “state” value (usually a value of type <code class="docutils literal notranslate"><span class="pre">t</span></code>) is passed to a polymorphic function like <code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">compare</span></code> (which throw on function fields, and are famous for being an anti-pattern), and it is not possible for you to fix this anti-pattern, then either switch to function arguments, or wrap in an object.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-functors">
+<h3>Using functors<a class="headerlink" href="#using-functors" title="Link to this heading">#</a></h3>
+<p>This approach decouples the business code from its dependency modules.
+Note that unlike the Function records solution, this decouples both dependency functions <strong>and abstract types</strong>!</p>
+<p>Consider the following code: it is similar to the previous <code class="docutils literal notranslate"><span class="pre">Counter</span></code> example but this time, the <code class="docutils literal notranslate"><span class="pre">Files</span></code> dependency module (which could be another module, a third party library, or even the <code class="docutils literal notranslate"><span class="pre">Stdlib</span></code>) also has an abstract type <code class="docutils literal notranslate"><span class="pre">t</span></code>:</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* The dependency *)</span>
+<span class="k">module</span> <span class="nc">Files</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">type</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">openf</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">write</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+  <span class="k">val</span> <span class="n">close</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+  <span class="c">(* Many other functions and types *)</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span> <span class="c">(* omitted implementation *)</span> <span class="k">end</span>
+
+<span class="k">module</span> <span class="nc">Counter</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">type</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span>
+  <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="n">counter</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">create</span> <span class="n">counter</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span><span class="o">}</span>
+
+  <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="n">t</span> <span class="o">=</span>
+    <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">}</span> <span class="k">in</span>
+    <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">openf</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span> <span class="k">in</span>
+    <span class="nn">Files</span><span class="p">.</span><span class="n">write</span> <span class="n">file</span> <span class="o">(</span><span class="n">string_of_int</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span><span class="o">);</span>
+    <span class="nn">Files</span><span class="p">.</span><span class="n">close</span> <span class="n">file</span><span class="o">;</span>
+    <span class="n">t</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>The technique is to transform <code class="docutils literal notranslate"><span class="pre">Counter</span></code> into a functor that takes a module looking like <code class="docutils literal notranslate"><span class="pre">Files</span></code> in argument - but which can now be changed in tests!</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">Counter</span> <span class="o">:</span> <span class="k">sig</span>
+  <span class="k">module</span> <span class="k">type</span> <span class="nc">S</span> <span class="o">=</span> <span class="k">sig</span>
+    <span class="k">type</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">end</span>
+
+  <span class="k">include</span> <span class="nc">S</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">:</span> <span class="k">sig</span>
+    <span class="k">module</span> <span class="k">type</span> <span class="nc">FILES</span> <span class="o">=</span> <span class="k">sig</span>
+      <span class="k">type</span> <span class="n">t</span>
+      <span class="k">val</span> <span class="n">openf</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
+      <span class="k">val</span> <span class="n">write</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+      <span class="k">val</span> <span class="n">close</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+    <span class="k">end</span>
+    <span class="k">module</span> <span class="nc">Make</span> <span class="o">(</span><span class="nc">Files</span> <span class="o">:</span> <span class="nc">FILES</span><span class="o">)</span> <span class="o">:</span> <span class="nc">S</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="o">=</span> <span class="k">struct</span>
+  <span class="k">module</span> <span class="k">type</span> <span class="nc">S</span> <span class="o">=</span> <span class="k">sig</span>
+    <span class="k">type</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">create</span> <span class="o">:</span> <span class="kt">int</span> <span class="o">-&gt;</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">increment_and_save_to_file</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">t</span>
+  <span class="k">end</span>
+
+  <span class="k">module</span> <span class="k">type</span> <span class="nc">FILES</span> <span class="o">=</span> <span class="k">sig</span>
+    <span class="k">type</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">openf</span> <span class="o">:</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="n">t</span>
+    <span class="k">val</span> <span class="n">write</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+    <span class="k">val</span> <span class="n">close</span> <span class="o">:</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+  <span class="k">end</span>
+
+  <span class="k">module</span> <span class="nc">Make</span> <span class="o">(</span><span class="nc">Files</span> <span class="o">:</span> <span class="nc">FILES</span><span class="o">)</span> <span class="o">=</span> <span class="k">struct</span>
+    <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span>
+      <span class="n">counter</span> <span class="o">:</span> <span class="kt">int</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">let</span> <span class="n">create</span> <span class="n">counter</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span><span class="o">}</span>
+
+    <span class="k">let</span> <span class="n">increment_and_save_to_file</span> <span class="n">t</span> <span class="o">=</span>
+      <span class="k">let</span> <span class="n">t</span> <span class="o">=</span> <span class="o">{</span><span class="n">counter</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span><span class="o">}</span> <span class="k">in</span>
+      <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">Files</span><span class="p">.</span><span class="n">openf</span> <span class="s2">&quot;/tmp/counter.txt&quot;</span> <span class="k">in</span>
+      <span class="nn">Files</span><span class="p">.</span><span class="n">write</span> <span class="n">file</span> <span class="o">(</span><span class="n">string_of_int</span> <span class="n">t</span><span class="o">.</span><span class="n">counter</span><span class="o">);</span>
+      <span class="nn">Files</span><span class="p">.</span><span class="n">close</span> <span class="n">file</span><span class="o">;</span>
+      <span class="n">t</span>
+  <span class="k">end</span>
+
+  <span class="c">(* Do not be mistaken: here [Files] refers to the real, business [Files] module! *)</span>
+  <span class="k">include</span> <span class="nc">Make</span> <span class="o">(</span><span class="nc">Files</span><span class="o">)</span>
+
+  <span class="k">module</span> <span class="nc">Internal_for_tests</span> <span class="o">=</span> <span class="k">struct</span>
+    <span class="k">module</span> <span class="k">type</span> <span class="nc">FILES</span> <span class="o">=</span> <span class="nc">FILES</span>
+
+    <span class="k">module</span> <span class="nc">Make</span> <span class="o">=</span> <span class="nc">Make</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>As you can see, this is significantly more verbose!</p>
+<p>However, now we can freely change/mock not only the dependency functions <code class="docutils literal notranslate"><span class="pre">Files.[openf|close|write]</span></code>, but also the implementation of type <code class="docutils literal notranslate"><span class="pre">Files.t</span></code>!</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">test</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">written_content</span> <span class="o">=</span> <span class="n">ref</span> <span class="s2">&quot;&quot;</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="k">module</span> <span class="nc">Counter</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="nn">Internal_for_tests</span><span class="p">.</span><span class="nc">Make</span> <span class="o">(</span><span class="k">struct</span>
+    <span class="k">type</span> <span class="n">t</span> <span class="o">=</span> <span class="kt">unit</span>
+    <span class="k">let</span> <span class="n">openf</span> <span class="o">_</span> <span class="o">=</span> <span class="bp">()</span>
+    <span class="k">let</span> <span class="n">close</span> <span class="o">_</span> <span class="o">=</span> <span class="bp">()</span>
+    <span class="k">let</span> <span class="n">write</span> <span class="o">_</span> <span class="n">content</span> <span class="o">=</span> <span class="n">written_content</span> <span class="o">:=</span> <span class="n">content</span>
+  <span class="k">end</span><span class="o">)</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">counter</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="n">create</span> <span class="mi">41</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="o">_</span> <span class="o">=</span> <span class="nn">Counter</span><span class="p">.</span><span class="n">increment_and_save_to_file</span> <span class="n">counter</span> <span class="k">in</span>
+  <span class="nn">Alcotest</span><span class="p">.</span><span class="o">(</span><span class="n">check</span> <span class="kt">string</span><span class="o">)</span> <span class="s2">&quot;counter value was incremented in file&quot;</span> <span class="o">!</span><span class="n">written_content</span> <span class="s2">&quot;42&quot;</span>
+</pre></div>
+</div>
+<p>While the real <code class="docutils literal notranslate"><span class="pre">Files.t</span></code> type probably contained a file descriptor, our mock module has no side effect outside of the test!</p>
+<p>Note on verbosity: some things are duplicated because of OCaml MLI syntax, e.g. module type declaration.
+This can be partially mitigated by using <a class="reference external" href="https://www.craigfe.io/posts/the-intf-trick">the _intf trick</a> but this in turn induces a bit more complexity, use with caution.</p>
+<p>Works best when:</p>
+<ul class="simple">
+<li><p>You need to decouple (abstract) types, not only functions. For example, because building values of those types adds too much complexity, or requires side-effects.</p></li>
+<li><p>There are linear dependencies in modules (<code class="docutils literal notranslate"><span class="pre">A</span></code> depends on <code class="docutils literal notranslate"><span class="pre">B</span></code> which depends on <code class="docutils literal notranslate"><span class="pre">C</span></code>, but <code class="docutils literal notranslate"><span class="pre">A</span></code> does not depend on <code class="docutils literal notranslate"><span class="pre">C</span></code>)</p></li>
+</ul>
+<p>Pros:</p>
+<ul class="simple">
+<li><p>Everything but exposed and private dependency types are mocked</p></li>
+<li><p>Enables validating the arguments passed to mock functions (e.g. <code class="docutils literal notranslate"><span class="pre">counter_value_written</span></code>) have the right value</p></li>
+<li><p>Independent of the dependency depth (for functions): if <code class="docutils literal notranslate"><span class="pre">A</span></code> calls <code class="docutils literal notranslate"><span class="pre">B</span></code> which calls <code class="docutils literal notranslate"><span class="pre">C</span></code>, your mock of <code class="docutils literal notranslate"><span class="pre">B</span></code> will never call <code class="docutils literal notranslate"><span class="pre">C</span></code> nor refer to its abstract types</p></li>
+</ul>
+<p>Cons:</p>
+<ul class="simple">
+<li><p>Verbosity</p></li>
+<li><p>Additional complexity (functors, module types)</p></li>
+<li><p>Does not scale well in more complex dependencies (<code class="docutils literal notranslate"><span class="pre">A</span></code> depends on <code class="docutils literal notranslate"><span class="pre">B</span></code> and <code class="docutils literal notranslate"><span class="pre">C</span></code> types, and <code class="docutils literal notranslate"><span class="pre">B</span></code> also depends on <code class="docutils literal notranslate"><span class="pre">C</span></code> types) as it induces a lot of destructive substitutions and module noise to convince the typechecker that <code class="docutils literal notranslate"><span class="pre">C.t</span></code> in <code class="docutils literal notranslate"><span class="pre">A</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">C.t</span></code> in <code class="docutils literal notranslate"><span class="pre">B</span></code></p></li>
+<li><p>Does not work for exposed and private (exposed in read-only) dependency types</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="alcotezt.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="proposal_testing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to Test a Protocol Proposal</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-module-and-all-its-dependencies">Testing a module and all its dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-function-records">Using function records</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#store-dependencies-in-state">Store dependencies in state</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#taking-dependencies-in-function-argument">Taking dependencies in function argument</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-and-cons-for-function-records">Pros and Cons for Function records</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-functors">Using functors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nomadic Labs <contact@nomadic-labs.com>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2023, Nomadic Labs &lt;contact@nomadic-labs.com&gt;.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
