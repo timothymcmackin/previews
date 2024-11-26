@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunketherlink_docs=self.webpackChunketherlink_docs||[]).push([[68408],{68408:(e,n,t)=>{t.r(n),t.d(n,{eth_getTransactionCount:()=>s});var a=t(75403);async function s(e,n){const t=await e({method:"eth_getTransactionCount",params:[n.address,n.blockNumber?(0,a.eC)(n.blockNumber):n.blockTag||"pending"]});return(0,a.ly)(t)}}}]);

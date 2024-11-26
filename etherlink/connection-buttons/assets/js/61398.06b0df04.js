@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunketherlink_docs=self.webpackChunketherlink_docs||[]).push([[61398],{61398:(e,t,s)=>{s.r(t),s.d(t,{eth_estimateGas:()=>n});var a=s(75403);async function n(e,t){const s=await e({method:"eth_estimateGas",params:[t]});return(0,a.y_)(s)}}}]);
