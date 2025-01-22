@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-architecture/smart-rollups" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Smart Rollups | Tezos Developer Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://timothymcmackin.github.io/previews/docs/biel-chatbot/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://timothymcmackin.github.io/previews/docs/biel-chatbot/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://timothymcmackin.github.io/previews/docs/biel-chatbot/architecture/smart-rollups"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Smart Rollups | Tezos Developer Documentation"><meta data-rh="true" name="description" content="Smart Rollups play a crucial part in providing high scalability on Tezos."><meta data-rh="true" property="og:description" content="Smart Rollups play a crucial part in providing high scalability on Tezos."><link data-rh="true" rel="icon" href="/previews/docs/biel-chatbot/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://timothymcmackin.github.io/previews/docs/biel-chatbot/architecture/smart-rollups"><link data-rh="true" rel="alternate" href="https://timothymcmackin.github.io/previews/docs/biel-chatbot/architecture/smart-rollups" hreflang="en"><link data-rh="true" rel="alternate" href="https://timothymcmackin.github.io/previews/docs/biel-chatbot/architecture/smart-rollups" hreflang="x-default"><link rel="preconnect" href="https://www.googletagmanager.com">
+<script>window.dataLayer=window.dataLayer||[]</script>
+<script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a);m.async=!0,m.src="https://www.googletagmanager.com/gtm.js?id=GTM-56M3FZ8",g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer")</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+
+<meta http-equiv="Content-Security-Policy" content=" default-src &#39;none&#39;; base-uri &#39;self&#39;; manifest-src &#39;self&#39;; script-src https://*.googletagmanager.com https://cdn.jsdelivr.net &#39;self&#39; &#39;unsafe-inline&#39;; style-src https://cdn.jsdelivr.net &#39;self&#39; &#39;unsafe-inline&#39;; font-src https://cdn.jsdelivr.net &#39;self&#39;; img-src &#39;self&#39; https://*.googletagmanager.com https://*.google-analytics.com data:; media-src &#39;self&#39;; form-action &#39;self&#39;; connect-src &#39;self&#39; https://*.algolia.net https://*.algolianet.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://app.pushfeedback.com wss://app.biel.ai https://app.biel.ai; frame-src https://tezosbot.vercel.app;">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/previews/docs/biel-chatbot/assets/css/styles.8d13b62a.css">
+<script src="/previews/docs/biel-chatbot/assets/js/runtime~main.30e16d3c.js" defer="defer"></script>
+<script src="/previews/docs/biel-chatbot/assets/js/main.9567d2cb.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56M3FZ8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/previews/docs/biel-chatbot/"><div class="navbar__logo"><img src="/previews/docs/biel-chatbot/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/previews/docs/biel-chatbot/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Tezos Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/previews/docs/biel-chatbot/overview/">Documentation</a><a class="navbar__item navbar__link" href="/previews/docs/biel-chatbot/tutorials">Tutorials</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/trilitech/tezos-developer-docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbarSearchContainer_Bca1"><biel-search-button project="w30c27l8fg" button-style="rounded" header-title="Documentation chatbot">AI-powered search</biel-search-button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/overview/">Overview</a><button aria-label="Expand sidebar category &#x27;Overview&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/using">Using Tezos</a><button aria-label="Expand sidebar category &#x27;Using Tezos&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/previews/docs/biel-chatbot/architecture">Architecture</a><button aria-label="Collapse sidebar category &#x27;Architecture&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-chatbot/architecture/nodes">Nodes</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-chatbot/architecture/bakers">Bakers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-chatbot/architecture/accusers">Accusers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-chatbot/architecture/accounts">Accounts and addresses</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/previews/docs/biel-chatbot/architecture/tokens">Tokens</a><button aria-label="Expand sidebar category &#x27;Tokens&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/previews/docs/biel-chatbot/architecture/smart-rollups">Smart Rollups</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-chatbot/architecture/data-availability-layer">The Data Availability Layer</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/previews/docs/biel-chatbot/architecture/governance">Governance</a><button aria-label="Expand sidebar category &#x27;Governance&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/developing">Developing on Tezos</a><button aria-label="Expand sidebar category &#x27;Developing on Tezos&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/smart-contracts">Smart contracts</a><button aria-label="Expand sidebar category &#x27;Smart contracts&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/dApps">Decentralized applications (dApps)</a><button aria-label="Expand sidebar category &#x27;Decentralized applications (dApps)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-chatbot/unity">Tezos Unity SDK</a><button aria-label="Expand sidebar category &#x27;Tezos Unity SDK&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/previews/docs/biel-chatbot/reference/style-guide">Reference</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/previews/docs/biel-chatbot/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/previews/docs/biel-chatbot/architecture"><span itemprop="name">Architecture</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Smart Rollups</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Smart Rollups</h1></header><p>Smart Rollups play a crucial part in providing high scalability on Tezos.
+They handle logic in a separate environment that can run transactions at a much higher rate and can use larger amounts of data than the main Tezos network.</p>
+<p>The transactions and logic that Smart Rollups run is called <em>layer 2</em> to differentiate it from the main network, which is called <em>layer 1</em>.</p>
+<p>Anyone can run a node based on a Smart Rollup to execute its code and verify that other nodes are running it correctly, just like anyone can run nodes, bakers, and accusers on layer 1.
+This code, called the <em>kernel</em>, runs in a deterministic manner and according to a given semantics, which guarantees that results are reproducible by any rollup node with the same kernel.
+The semantics is precisely defined by a reference virtual machine called a proof-generating virtual machine (PVM), able to generate a proof that executing a program in a given context results in a given state.
+During normal execution, the Smart Rollup can use any virtual machine that is compatible with the PVM semantics, which allows the Smart Rollup to be more efficient.</p>
+<p>Using the PVM and optionally a compatible VM guarantees that if a divergence in results is found, it can be tracked down to a single elementary step that was not executed correctly by some node.
+In this way, multiple nodes can run the same rollup and each node can verify the state of the rollup.</p>
+<p>For a tutorial on Smart Rollups, see <a href="/previews/docs/biel-chatbot/tutorials/smart-rollup">Deploy a Smart Rollup</a>.</p>
+<p>For reference on Smart Rollups, see <a href="https://tezos.gitlab.io/active/smart_rollups.html" target="_blank" rel="noopener noreferrer">Smart Optimistic Rollups</a> in the Octez documentation.</p>
+<p>This diagram shows a high-level view of how Smart Rollups interact with layer 1:</p>
+<p><img decoding="async" loading="lazy" alt="Diagram of Smart Rollup architecture" src="/previews/docs/biel-chatbot/assets/images/smart-rollup-architecture-ca6a56a655c8b1471559b011111c9ec9.png" width="1760" height="1312" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="uses-for-smart-rollups">Uses for Smart Rollups<a href="#uses-for-smart-rollups" class="hash-link" aria-label="Direct link to Uses for Smart Rollups" title="Direct link to Uses for Smart Rollups">​</a></h2>
+<ul>
+<li>
+<p>Smart Rollups allow you to run large amounts of processing and manipulate large amounts of data that would be too slow or expensive to run on layer 1.</p>
+</li>
+<li>
+<p>Smart Rollups can run far more transactions per second than layer 1.</p>
+</li>
+<li>
+<p>Smart Rollups allow you to avoid some transaction fees and storage fees.</p>
+</li>
+<li>
+<p>Smart Rollups can retrieve data from outside the blockchain in specific ways that smart contracts can&#x27;t.</p>
+</li>
+<li>
+<p>Smart Rollups can implement different execution environments, such as execution environments that are compatible with other blockchains.
+For example, Smart Rollups enable <a href="https://www.etherlink.com/" target="_blank" rel="noopener noreferrer">Etherlink</a>, which makes it possible to run EVM applications (originally written for Ethereum) on Tezos.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="communication">Communication<a href="#communication" class="hash-link" aria-label="Direct link to Communication" title="Direct link to Communication">​</a></h2>
+<p>Smart Rollups are limited to information from these sources:</p>
+<ul>
+<li>The Smart Rollup inbox, which contains messages from layer 1 to all rollups</li>
+<li>The reveal data channel, which allows Smart Rollups to request information from outside sources</li>
+<li>The <a href="/previews/docs/biel-chatbot/architecture/data-availability-layer">Data availability layer</a></li>
+</ul>
+<p>These are the only sources of information that rollups can use.
+In particular, Smart Rollup nodes cannot communicate directly with each other; they do not have a peer-to-peer communication channel like layer 1 nodes.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rollup-inbox">Rollup inbox<a href="#rollup-inbox" class="hash-link" aria-label="Direct link to Rollup inbox" title="Direct link to Rollup inbox">​</a></h3>
+<p>Each layer 1 block has a <em>rollup inbox</em> that contains messages from layer 1 to all rollups.
+Anyone can add a message to this inbox and all messages are visible to all rollups.
+Smart Rollups filter the inbox to the messages that they are interested in and act on them accordingly.</p>
+<p>The messages that users add to the rollup inbox are called <em>external messages</em>.
+For example, users can add messages to the inbox with the Octez client <code>send smart rollup message</code> command.</p>
+<p>Similarly, smart contracts can add messages in a way similar to calling a smart contract entrypoint, by using the Michelson <code>TRANSFER_TOKENS</code> instruction.
+The messages that smart contracts add to the inbox are called <em>internal messages</em>.</p>
+<p>Each block also contains the following internal messages, which are created by the protocol:</p>
+<ul>
+<li><code>Start of level</code>, which indicates the beginning of the block</li>
+<li><code>Info per level</code>, which includes the timestamp and block hash of the preceding block</li>
+<li><code>End of level</code>, which indicates the end of the block</li>
+</ul>
+<p>Smart Rollup nodes can use these internal messages to know when blocks begin and end.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="commitments">Commitments<a href="#commitments" class="hash-link" aria-label="Direct link to Commitments" title="Direct link to Commitments">​</a></h2>
+<p>Some Smart Rollup nodes post commitments to layer 1, which include a hash of the current state of the kernel.
+If any node&#x27;s commitment is different from the others, they play a refutation game to determine the correct commitment, eliminate incorrect commitments, and penalize the nodes that posted incorrect commitments.
+This process ensures the security of the Smart Rollup by verifying that the nodes are running the kernel faithfully.</p>
+<p>Only Smart Rollup nodes running in operator or maintenance mode post these commitments on a regular basis.
+Nodes running in other modes such as observer mode run the kernel and monitor the state of the Smart Rollup just like nodes in operator or maintenance mode, but they do not post commitments.
+Nodes running in accuser mode monitor other commitments and post their own commitment only when it differs from other commitments.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="bonds">Bonds<a href="#bonds" class="hash-link" aria-label="Direct link to Bonds" title="Direct link to Bonds">​</a></h2>
+<p>When a user runs a node that posts commitments, the protocol automatically locks a bond of 10,000 liquid, unstaked tez from user&#x27;s account as assurance that they are running the kernel faithfully.
+If the node posts a commitment that is refuted, they lose their bond, as described in <a href="#refutation-periods">Refutation periods</a>.</p>
+<p>Because nodes have the length of the refutation to challenge another node&#x27;s commitment, the bond stays locked until the end of the refutation period for the last commitment that the node posted.
+After that refutation period ends, the node operator can recover the bond, which unlocks their tez.
+To simplify the process, node operators can switch to bailout mode, which does not post commitments but continues to defend previously made commitments until the last refutation period ends.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reveal-data-channel">Reveal data channel<a href="#reveal-data-channel" class="hash-link" aria-label="Direct link to Reveal data channel" title="Direct link to Reveal data channel">​</a></h3>
+<p>Smart Rollups can request arbitrary information through the <em>reveal data channel</em>.
+Importantly, as opposed to internal and external messages, the information that passes through the reveal data channel does not pass through layer 1, so it is not limited by the bandwidth of layer 1 and can include large amounts of data.</p>
+<p>The reveal data channel supports these requests:</p>
+<ul>
+<li>
+<p>A rollup node can request an arbitrary data page up to 4KB if it knows the blake2b hash of the page, known as <em>preimage requests</em>.
+To transfer more than 4KB of data, rollups must use multiple pages, which may contain hashes that point to other pages.</p>
+</li>
+<li>
+<p>A rollup node can request information about the rollup, including the address and origination level of the rollup, known as <em>metadata requests</em>.</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="smart-rollup-lifecycle">Smart Rollup lifecycle<a href="#smart-rollup-lifecycle" class="hash-link" aria-label="Direct link to Smart Rollup lifecycle" title="Direct link to Smart Rollup lifecycle">​</a></h2>
+<p>The general flow of a Smart Rollup goes through these phases:</p>
+<ol>
+<li>Origination: A user originates the Smart Rollup to layer 1.</li>
+<li>One or more users start Smart Rollup nodes.</li>
+<li>Commitment periods: The Smart Rollup nodes receive the messages in the Smart Rollup inbox, run processing based on those messages, generate but do not run outbox messages, and publish a hash of their state at the end of the period, called a commitment.</li>
+<li>Refutation periods: Nodes can publish a concurrent commitment to refute a published commitment.</li>
+<li>Triggering outbox messages: When the commitment can no longer be refuted, any client can trigger outbox messages, which create transactions.</li>
+</ol>
+<p>Here is more information on each of these phases:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="origination">Origination<a href="#origination" class="hash-link" aria-label="Direct link to Origination" title="Direct link to Origination">​</a></h3>
+<p>Like smart contracts, users deploy Smart Rollups to layer 1 in a process called <em>origination</em>.</p>
+<p>The origination process stores data about the rollup on layer 1, including:</p>
+<ul>
+<li>An address for the rollup, which starts with <code>sr1</code></li>
+<li>The type of proof-generating virtual machine (PVM) for the rollup, which defines the execution engine of the rollup kernel; currently only the <code>wasm_2_0_0</code> PVM is supported</li>
+<li>The installer kernel, which is a WebAssembly program that allows nodes to download and install the complete rollup kernel</li>
+<li>The Michelson data type of the messages it receives from layer 1</li>
+<li>The genesis commitment that forms the basis for commitments that rollups nodes publish in the future</li>
+</ul>
+<p>After it is originated, anyone can run a Smart Rollup node based on this information.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="commitment-periods">Commitment periods<a href="#commitment-periods" class="hash-link" aria-label="Direct link to Commitment periods" title="Direct link to Commitment periods">​</a></h3>
+<p>Starting from the rollup origination level, levels are partitioned into <em>commitment periods</em> of 60 consecutive layer 1 blocks.
+During each commitment period, each rollup node receives the messages in the rollup inbox, processes them, and updates its state.</p>
+<p>Because Smart Rollup nodes behave in a deterministic manner, their states should all be the same if they have processed the same inbox messages with the same kernel starting from the same origination level.
+This state is referred to as the &quot;state of the rollup.&quot;</p>
+<p>Any time after each commitment period, Smart Rollup nodes in operator mode or maintenance mode publish a hash of their state to layer 1 as part of its commitment.
+Each commitment builds on the previous commitment, and so on, back to the genesis commitment from when the Smart Rollup was originated.
+The protocol locks 10,000 tez as a bond from the operator of each node that posts commitments.</p>
+<p>At the end of a commitment period, the next commitment period starts.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="refutation-periods">Refutation periods<a href="#refutation-periods" class="hash-link" aria-label="Direct link to Refutation periods" title="Direct link to Refutation periods">​</a></h3>
+<p>Because the PVM is deterministic and all of the inputs are the same for all nodes, any honest node that runs the same Smart Rollup produces the same commitment.
+As long as nodes publish matching commitments, they continue running normally.</p>
+<p>When the first commitment for a past commitment period is published, a refutation period starts, during which any rollup node can publish its own commitment for the same commitment period, especially if it did not achieve the same state.
+During the refutation period for a commitment period, if two or more nodes publish different commitments, two of them play a <em>refutation game</em> to identify the correct commitment.
+The nodes automatically play the refutation game by stepping through their logic using the PVM to identify the point at which they differ.
+At this point, the PVM is used to identify the correct commitment, if any.</p>
+<p>Each refutation game has one of two results:</p>
+<ul>
+<li>
+<p>Neither commitment is correct.
+In this case, the protocol burns both commitments&#x27; stakes and eliminates both commitments.</p>
+</li>
+<li>
+<p>One commitment is correct and the other is not.
+In this case, the protocol eliminates the incorrect commitment, burns half of the incorrect commitment&#x27;s stake, and gives the other half to the correct commitment&#x27;s stake.</p>
+</li>
+</ul>
+<p>This refutation game happens as many times as is necessary to eliminate incorrect commitments.
+Because the node that ran the PVM correctly is guaranteed to win the refutation game, a single honest node is enough to ensure that the Smart Rollup is running correctly.
+This kind of Smart Rollup is called a Smart Optimistic Rollup because the commitments are assumed to be correct until they are proven wrong by an honest rollup node.</p>
+<p>When there is only one commitment left, either because all nodes published identical commitments during the whole refutation period or because this commitment won the refutation games and eliminated all other commitments, then this correct commitment can be <em>cemented</em> by a dedicated layer 1 operation and becomes final and unchangeable.
+The commitments for the next commitment period build on the last cemented commitment.</p>
+<p>The refutation period lasts for a set number of blocks based on the <code>smart_rollup_challenge_window_in_blocks</code> protocol constant.
+This period adds up to two weeks on Mainnet and Ghostnet, but it could be different on other networks.</p>
+<p>However, the refutation period for a specific commitment can vary if it is uncemented when a protocol upgrade changes the block times.</p>
+<p>When the time between blocks changes, the protocol adjusts the number of blocks in the refutation period to keep the refutation period at the same real-world length.
+It uses this new number of blocks to determine whether commitments can be cemented.</p>
+<p>For this reason, if the block time gets shorter during the commitment&#x27;s refutation period, the number of blocks that must pass before cementing a commitment increases.
+Therefore, commitments that are not cemented when the number of blocks changes must wait slightly longer before they can be cemented.</p>
+<p>This variation affects only commitments that are not cemented when the layer 1 protocol upgrade happens.
+The delay is based on how much the block times changed and on how close a commitment is to being cemented when the number of blocks in the refutation period changes.</p>
+<p>The maximum change is the new block time divided by the old block time multiplied by the standard refutation period.
+For example, if the new block time is 8 seconds and the old block time is 10 seconds, the maximum addition to a commitment&#x27;s refutation period is 10 / 8, or 1.25 times the standard 14-day period.
+Commitments that are close to being cemented when the block time changes have the largest change to their refutation periods, while commitments that are made close to when the block time changes have a very small change.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="triggering-outbox-messages">Triggering outbox messages<a href="#triggering-outbox-messages" class="hash-link" aria-label="Direct link to Triggering outbox messages" title="Direct link to Triggering outbox messages">​</a></h3>
+<p>Smart Rollups can generate transactions to run on layer 1, but those transactions do not run immediately.
+When a commitment includes layer 1 transactions, these transactions go into the Smart Rollup outbox and wait for the commitment to be cemented.</p>
+<p>After the commitment is cemented, clients can trigger transactions in the outbox with the Octez client <code>execute outbox message</code> command.
+When they trigger a transaction, it runs like any other call to a smart contract.
+For more information, see <a href="https://tezos.gitlab.io/shell/smart_rollup_node.html?highlight=triggering" target="_blank" rel="noopener noreferrer">Triggering the execution of an outbox message</a> in the Octez documentation.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="bailout-process">Bailout process<a href="#bailout-process" class="hash-link" aria-label="Direct link to Bailout process" title="Direct link to Bailout process">​</a></h3>
+<p>Nodes that do not post commitments can stop running at any time without risk because they do not have a bond.
+Nodes that post commitments cannot stop immediately without risking their bonds because they will not be online to participate in the refutation game.</p>
+<p>For this reason, nodes can switch to bailout mode to prepare to shut down without risking their bonds.
+In bailout mode, nodes defend their existing commitments without posting new commitments.
+When their final commitment is cemented, they can shut down safely.
+For more information about node modes, see <a href="https://tezos.gitlab.io/shell/smart_rollup_node.html" target="_blank" rel="noopener noreferrer">Smart rollup node</a> in the Octez documentation.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="examples">Examples<a href="#examples" class="hash-link" aria-label="Direct link to Examples" title="Direct link to Examples">​</a></h2>
+<p>For examples of Smart Rollups, see this repository: <a href="https://gitlab.com/tezos/kernel-gallery" target="_blank" rel="noopener noreferrer">https://gitlab.com/tezos/kernel-gallery</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-01-17T05:00:00.000Z" itemprop="dateModified">Jan 17, 2025</time></b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/previews/docs/biel-chatbot/architecture/tokens/FA2.1"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">FA2.1 tokens</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/previews/docs/biel-chatbot/architecture/data-availability-layer"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">The Data Availability Layer</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#uses-for-smart-rollups" class="table-of-contents__link toc-highlight">Uses for Smart Rollups</a></li><li><a href="#communication" class="table-of-contents__link toc-highlight">Communication</a><ul><li><a href="#rollup-inbox" class="table-of-contents__link toc-highlight">Rollup inbox</a></li></ul></li><li><a href="#commitments" class="table-of-contents__link toc-highlight">Commitments</a></li><li><a href="#bonds" class="table-of-contents__link toc-highlight">Bonds</a><ul><li><a href="#reveal-data-channel" class="table-of-contents__link toc-highlight">Reveal data channel</a></li></ul></li><li><a href="#smart-rollup-lifecycle" class="table-of-contents__link toc-highlight">Smart Rollup lifecycle</a><ul><li><a href="#origination" class="table-of-contents__link toc-highlight">Origination</a></li><li><a href="#commitment-periods" class="table-of-contents__link toc-highlight">Commitment periods</a></li><li><a href="#refutation-periods" class="table-of-contents__link toc-highlight">Refutation periods</a></li><li><a href="#triggering-outbox-messages" class="table-of-contents__link toc-highlight">Triggering outbox messages</a></li><li><a href="#bailout-process" class="table-of-contents__link toc-highlight">Bailout process</a></li></ul></li><li><a href="#examples" class="table-of-contents__link toc-highlight">Examples</a></li></ul></div></div></div></div></main></div></div></div></div>
+<script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.esm.js"></script>
+<script>const feedbackButton=document.createElement("feedback-button");feedbackButton.setAttribute("project","80ja0zkj8v"),feedbackButton.setAttribute("modal-position","bottom-right"),feedbackButton.setAttribute("button-style","light"),feedbackButton.setAttribute("button-position","bottom-right"),feedbackButton.setAttribute("id","default"),feedbackButton.textContent="Feedback",document.body.appendChild(feedbackButton)</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+<script>const bielButton=document.createElement("biel-button");bielButton.setAttribute("project","w30c27l8fg"),bielButton.setAttribute("modal-position","bottom-right"),bielButton.setAttribute("button-style","dark"),bielButton.setAttribute("button-position","center-right"),bielButton.setAttribute("header-title","Chatbot"),bielButton.setAttribute("id","default"),bielButton.textContent="Ask AI",document.body.appendChild(bielButton)</script></body>
+</html>
