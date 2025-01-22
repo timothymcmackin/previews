@@ -1,0 +1,4 @@
+{0 tezos-tooling index}
+{1 Library tezos-tooling}
+The entry point of this library is the module:
+{!module-Tezos_tooling}.

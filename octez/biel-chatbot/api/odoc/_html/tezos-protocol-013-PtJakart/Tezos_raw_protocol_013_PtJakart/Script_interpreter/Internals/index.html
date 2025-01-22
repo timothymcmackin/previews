@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Internals (tezos-protocol-013-PtJakart.Tezos_raw_protocol_013_PtJakart.Script_interpreter.Internals)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">tezos-protocol-013-PtJakart</a> &#x00BB; <a href="../../index.html">Tezos_raw_protocol_013_PtJakart</a> &#x00BB; <a href="../index.html">Script_interpreter</a> &#x00BB; Internals</nav><header class="odoc-preamble"><h1>Module <code><span>Script_interpreter.Internals</span></code></h1><p>Internally, the interpretation loop uses a local gas counter.</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-next"><a href="#val-next" class="anchor"></a><code><span><span class="keyword">val</span> next : 
+  <span><span><a href="../../Script_typed_ir/index.html#type-logger">Script_typed_ir.logger</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<a href="../../Local_gas_counter/index.html#type-outdated_context">Local_gas_counter.outdated_context</a> * <a href="../index.html#type-step_constants">step_constants</a>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Local_gas_counter/index.html#type-local_gas_counter">Local_gas_counter.local_gas_counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'s</span>, <span class="type-var">'r</span>, <span class="type-var">'f</span>)</span> <a href="../../Script_typed_ir/index.html#type-continuation">Script_typed_ir.continuation</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'s</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span class="type-var">'r</span>
+   * <span class="type-var">'f</span>
+   * <a href="../../Local_gas_counter/index.html#type-outdated_context">Local_gas_counter.outdated_context</a>
+   * <a href="../../Local_gas_counter/index.html#type-local_gas_counter">Local_gas_counter.local_gas_counter</a>)</span>
+    <a href="../../../Tezos_protocol_environment_013_PtJakart/Error_monad/index.html#type-tzresult">Tezos_protocol_environment_013_PtJakart.Error_monad.tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_013_PtJakart/Lwt/index.html#type-t">Tezos_protocol_environment_013_PtJakart.Lwt.t</a></span></span></code></div><div class="spec-doc"><p><code>next logger (ctxt, step_constants) local_gas_counter ks accu
+      stack</code> is an internal function which interprets the continuation <code>ks</code> to execute the interpreter on the current A-stack.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-step"><a href="#val-step" class="anchor"></a><code><span><span class="keyword">val</span> step : 
+  <span><span>(<a href="../../Local_gas_counter/index.html#type-outdated_context">Local_gas_counter.outdated_context</a> * <a href="../index.html#type-step_constants">step_constants</a>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Local_gas_counter/index.html#type-local_gas_counter">Local_gas_counter.local_gas_counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'s</span>, <span class="type-var">'r</span>, <span class="type-var">'f</span>)</span> <a href="../../Script_typed_ir/index.html#type-kinstr">Script_typed_ir.kinstr</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'s</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span class="type-var">'r</span>
+   * <span class="type-var">'f</span>
+   * <a href="../../Local_gas_counter/index.html#type-outdated_context">Local_gas_counter.outdated_context</a>
+   * <a href="../../Local_gas_counter/index.html#type-local_gas_counter">Local_gas_counter.local_gas_counter</a>)</span>
+    <a href="../../../Tezos_protocol_environment_013_PtJakart/Error_monad/index.html#type-tzresult">Tezos_protocol_environment_013_PtJakart.Error_monad.tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_013_PtJakart/Lwt/index.html#type-t">Tezos_protocol_environment_013_PtJakart.Lwt.t</a></span></span></code></div></div></div></body></html>

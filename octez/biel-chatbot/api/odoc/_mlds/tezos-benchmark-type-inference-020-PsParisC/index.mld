@@ -1,0 +1,4 @@
+{0 tezos-benchmark-type-inference-020-PsParisC index}
+{1 Library tezos-benchmark-type-inference-020-PsParisC}
+The entry point of this library is the module:
+{!module-Tezos_benchmark_type_inference_020_PsParisC}.

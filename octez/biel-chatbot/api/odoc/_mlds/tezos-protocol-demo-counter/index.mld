@@ -1,0 +1,16 @@
+{0 tezos-protocol-demo-counter index}
+{1 Library tezos-protocol-demo-counter.embedded-protocol}
+The entry point of this library is the module:
+{!module-Tezos_embedded_protocol_demo_counter}.
+{1 Library tezos-protocol-demo-counter.protocol}
+The entry point of this library is the module:
+{!module-Tezos_protocol_demo_counter}.
+{1 Library tezos-protocol-demo-counter.protocol.environment}
+The entry point of this library is the module:
+{!module-Tezos_protocol_environment_demo_counter}.
+{1 Library tezos-protocol-demo-counter.protocol.lifted}
+The entry point of this library is the module:
+{!module-Tezos_protocol_demo_counter_lifted}.
+{1 Library tezos-protocol-demo-counter.protocol.raw}
+The entry point of this library is the module:
+{!module-Tezos_raw_protocol_demo_counter}.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Services (tezos-dal-node-services.Tezos_dal_node_services.Services)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">tezos-dal-node-services</a> &#x00BB; <a href="../index.html">Tezos_dal_node_services</a> &#x00BB; Services</nav><header class="odoc-preamble"><h1>Module <code><span>Tezos_dal_node_services.Services</span></code></h1><p>This module provides different services related to DAL slots.</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec type anchored" id="type-service"><a href="#type-service" class="anchor"></a><code><span><span class="keyword">type</span> <span>'rpc service</span></span><span> =
+  <span><span>(<span class="type-var">'meth</span>, <span class="type-var">'prefix</span>, <span class="type-var">'params</span>, <span class="type-var">'query</span>, <span class="type-var">'input</span>, <span class="type-var">'output</span>)</span> <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-service">Tezos_rpc.Service.service</a></span></span><span>
+  <span class="keyword">constraint</span>
+    <span class="type-var">'rpc</span> =
+    <span>&lt; meth : <span class="type-var">'meth</span>
+    ; prefix : <span class="type-var">'prefix</span>
+    ; params : <span class="type-var">'params</span>
+    ; query : <span class="type-var">'query</span>
+    ; input : <span class="type-var">'input</span>
+    ; output : <span class="type-var">'output</span> &gt;</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-health"><a href="#val-health" class="anchor"></a><code><span><span class="keyword">val</span> health : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../Types/Health/index.html#type-t">Types.Health.t</a>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-post_slot"><a href="#val-post_slot" class="anchor"></a><code><span><span class="keyword">val</span> post_slot : 
+  <span><span>&lt; meth : <span>[ `POST ]</span>
+    ; input : string
+    ; output : 
+      <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-commitment">Tezos_crypto_dal.Cryptobox.commitment</a>
+      * <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-commitment_proof">Tezos_crypto_dal.Cryptobox.commitment_proof</a>
+    ; prefix : unit
+    ; params : unit
+    ; query : <span>&lt; padding : char ; slot_index : <span><a href="../Types/index.html#type-slot_index">Types.slot_index</a> option</span> &gt;</span> &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>This RPC should be used by a slot producer. It allows to produce a commitment, a commitment proof and the shards from a slot. A padding is added if the slot is not of the expected size (<code>slot_size</code> from the Cryptobox).</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-patch_commitment"><a href="#val-patch_commitment" class="anchor"></a><code><span><span class="keyword">val</span> patch_commitment : 
+  <span><span>&lt; meth : <span>[ `PATCH ]</span>
+    ; input : <a href="../Types/index.html#type-slot_id">Types.slot_id</a>
+    ; output : unit
+    ; prefix : unit
+    ; params : unit * <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-commitment">Tezos_crypto_dal.Cryptobox.commitment</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Associate a commitment to a level and a slot index. See <code>
+Slot_manager.associate_slot_id_with_commitment</code> for more details.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_content"><a href="#val-get_slot_content" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_content : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-slot">Tezos_crypto_dal.Cryptobox.slot</a>
+    ; prefix : unit
+    ; params : <span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Retrieve the content of the slot associated with the given slot id.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_pages"><a href="#val-get_slot_pages" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_pages : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-page">Tezos_crypto_dal.Cryptobox.page</a> list</span>
+    ; prefix : unit
+    ; params : <span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Returns the pages of the slot identified by the given slot id.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_page_proof"><a href="#val-get_slot_page_proof" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_page_proof : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-page_proof">Tezos_crypto_dal.Cryptobox.page_proof</a>
+    ; prefix : unit
+    ; params : <span>(<span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>)</span> * <a href="../Types/index.html#type-page_index">Types.page_index</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Compute the proof associated to the page whose index is given of the given slot.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_commitment"><a href="#val-get_slot_commitment" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_commitment : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-commitment">Tezos_crypto_dal.Cryptobox.commitment</a>
+    ; prefix : unit
+    ; params : <span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the accepted commitment associated to the given slot index and published at the given level, if any.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_status"><a href="#val-get_slot_status" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_status : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../Types/index.html#type-header_status">Types.header_status</a>
+    ; prefix : unit
+    ; params : <span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the status for the given slot.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-patch_profiles"><a href="#val-patch_profiles" class="anchor"></a><code><span><span class="keyword">val</span> patch_profiles : 
+  <span><span>&lt; meth : <span>[ `PATCH ]</span>
+    ; input : <a href="../Operator_profile/index.html#type-t">Operator_profile.t</a>
+    ; output : unit
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Update the list of profiles tracked by the DAL node. Note that it does not take the bootstrap profile as it is incompatible with other profiles.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_profiles"><a href="#val-get_profiles" class="anchor"></a><code><span><span class="keyword">val</span> get_profiles : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../Types/index.html#type-profile">Types.profile</a>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the list of current profiles tracked by the DAL node</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_assigned_shard_indices"><a href="#val-get_assigned_shard_indices" class="anchor"></a><code><span><span class="keyword">val</span> get_assigned_shard_indices : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><a href="../Types/index.html#type-shard_index">Types.shard_index</a> list</span>
+    ; prefix : unit
+    ; params : 
+      <span>(unit * <a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-public_key_hash">Tezos_base.TzPervasives.Signature.public_key_hash</a>)</span> * <a href="../Types/index.html#type-level">Types.level</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the shard indexes assigned to the given public key hash at the given level.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_attestable_slots"><a href="#val-get_attestable_slots" class="anchor"></a><code><span><span class="keyword">val</span> get_attestable_slots : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../Types/index.html#type-attestable_slots">Types.attestable_slots</a>
+    ; prefix : unit
+    ; params : 
+      <span>(unit * <a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-public_key_hash">Tezos_base.TzPervasives.Signature.public_key_hash</a>)</span> * <a href="../Types/index.html#type-level">Types.level</a>
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the set of currently attestable slots. A slot is attestable at level <code>l</code> if it is published at level <code>l - attestation_lag</code> and *all* the shards assigned at level <code>l</code> to the given public key hash are available in the DAL node's store.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_shard"><a href="#val-get_slot_shard" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_shard : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../../../octez-libs/Tezos_crypto_dal/Cryptobox/index.html#type-shard">Tezos_crypto_dal.Cryptobox.shard</a>
+    ; prefix : unit
+    ; params : <span>(<span>(unit * <a href="../Types/index.html#type-level">Types.level</a>)</span> * <a href="../Types/index.html#type-slot_index">Types.slot_index</a>)</span> * int
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div><div class="spec-doc"><p>Return the shard associated to the given index.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-version"><a href="#val-version" class="anchor"></a><code><span><span class="keyword">val</span> version : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <a href="../Types/Version/index.html#type-t">Types.Version.t</a>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec module anchored" id="module-P2P"><a href="#module-P2P" class="anchor"></a><code><span><span class="keyword">module</span> <a href="P2P/index.html">P2P</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code></div></div></div></body></html>

@@ -1,0 +1,7 @@
+{0 tezos-dal-node-lib index}
+{1 Library tezos-dal-node-lib}
+The entry point of this library is the module:
+{!module-Tezos_dal_node_lib}.
+{1 Library tezos-dal-node-lib.gossipsub}
+The entry point of this library is the module:
+{!module-Tezos_dal_node_lib_gossipsub}.

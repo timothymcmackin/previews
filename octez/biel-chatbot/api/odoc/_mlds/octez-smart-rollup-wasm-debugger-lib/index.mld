@@ -1,0 +1,4 @@
+{0 octez-smart-rollup-wasm-debugger-lib index}
+{1 Library octez-smart-rollup-wasm-debugger-lib}
+The entry point of this library is the module:
+{!module-Octez_smart_rollup_wasm_debugger_lib}.

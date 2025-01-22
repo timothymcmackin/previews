@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Make (octez-evm-node-libs.Evm_node_lib_dev.Durable_storage.Make)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">octez-evm-node-libs</a> &#x00BB; <a href="../../index.html">Evm_node_lib_dev</a> &#x00BB; <a href="../index.html">Durable_storage</a> &#x00BB; Make</nav><header class="odoc-preamble"><h1>Module <code><span>Durable_storage.Make</span></code></h1></header><nav class="odoc-toc"><ul><li><a href="#parameters">Parameters</a></li><li><a href="#signature">Signature</a></li></ul></nav><div class="odoc-content"><h2 id="parameters"><a href="#parameters" class="anchor"></a>Parameters</h2><div class="odoc-spec"><div class="spec parameter anchored" id="argument-1-Reader"><a href="#argument-1-Reader" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="argument-1-Reader/index.html">Reader</a></span><span> : <a href="../module-type-READER/index.html">READER</a></span></code></div></div><h2 id="signature"><a href="#signature" class="anchor"></a>Signature</h2><div class="odoc-spec"><div class="spec value anchored" id="val-read"><a href="#val-read" class="anchor"></a><code><span><span class="keyword">val</span> read : 
+  <span><a href="argument-1-Reader/index.html#type-state">Reader.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Durable_storage_path/index.html#type-path">Durable_storage_path.path</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>bytes option</span> <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-read_with_state"><a href="#val-read_with_state" class="anchor"></a><code><span><span class="keyword">val</span> read_with_state : 
+  <span><span class="optlabel">?block</span>:<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><a href="../../Durable_storage_path/index.html#type-path">Durable_storage_path.path</a> <span class="arrow">&#45;&gt;</span></span>
+    <span><span><span>bytes option</span> <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-balance"><a href="#val-balance" class="anchor"></a><code><span><span class="keyword">val</span> balance : 
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-address">Evm_node_lib_dev_encoding.Ethereum_types.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-nonce"><a href="#val-nonce" class="anchor"></a><code><span><span class="keyword">val</span> nonce : 
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-address">Evm_node_lib_dev_encoding.Ethereum_types.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a> option</span>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-code"><a href="#val-code" class="anchor"></a><code><span><span class="keyword">val</span> code : 
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-address">Evm_node_lib_dev_encoding.Ethereum_types.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-hex">Evm_node_lib_dev_encoding.Ethereum_types.hex</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-chain_id"><a href="#val-chain_id" class="anchor"></a><code><span><span class="keyword">val</span> chain_id : 
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-base_fee_per_gas"><a href="#val-base_fee_per_gas" class="anchor"></a><code><span><span class="keyword">val</span> base_fee_per_gas : 
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-kernel_version"><a href="#val-kernel_version" class="anchor"></a><code><span><span class="keyword">val</span> kernel_version : 
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(string, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-kernel_root_hash"><a href="#val-kernel_root_hash" class="anchor"></a><code><span><span class="keyword">val</span> kernel_root_hash : 
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span>string option</span>, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-storage_at"><a href="#val-storage_at" class="anchor"></a><code><span><span class="keyword">val</span> storage_at : 
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-address">Evm_node_lib_dev_encoding.Ethereum_types.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-hex">Evm_node_lib_dev_encoding.Ethereum_types.hex</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-coinbase"><a href="#val-coinbase" class="anchor"></a><code><span><span class="keyword">val</span> coinbase : 
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-address">Evm_node_lib_dev_encoding.Ethereum_types.address</a>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div></div></body></html>

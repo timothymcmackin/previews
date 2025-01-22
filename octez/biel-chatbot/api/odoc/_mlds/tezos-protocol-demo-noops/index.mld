@@ -1,0 +1,16 @@
+{0 tezos-protocol-demo-noops index}
+{1 Library tezos-protocol-demo-noops.embedded-protocol}
+The entry point of this library is the module:
+{!module-Tezos_embedded_protocol_demo_noops}.
+{1 Library tezos-protocol-demo-noops.protocol}
+The entry point of this library is the module:
+{!module-Tezos_protocol_demo_noops}.
+{1 Library tezos-protocol-demo-noops.protocol.environment}
+The entry point of this library is the module:
+{!module-Tezos_protocol_environment_demo_noops}.
+{1 Library tezos-protocol-demo-noops.protocol.lifted}
+The entry point of this library is the module:
+{!module-Tezos_protocol_demo_noops_lifted}.
+{1 Library tezos-protocol-demo-noops.protocol.raw}
+The entry point of this library is the module:
+{!module-Tezos_raw_protocol_demo_noops}.

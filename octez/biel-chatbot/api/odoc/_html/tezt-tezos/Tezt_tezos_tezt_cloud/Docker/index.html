@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Docker (tezt-tezos.Tezt_tezos_tezt_cloud.Docker)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">tezt-tezos</a> &#x00BB; <a href="../index.html">Tezt_tezos_tezt_cloud</a> &#x00BB; Docker</nav><header class="odoc-preamble"><h1>Module <code><span>Tezt_tezos_tezt_cloud.Docker</span></code></h1><p>Wrapper module for docker commands. By default, <code>tag</code> is <code>&quot;latest&quot;</code>.</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-build"><a href="#val-build" class="anchor"></a><code><span><span class="keyword">val</span> build : 
+  <span><span class="optlabel">?image_name</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?tag</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?dockerfile</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">args</span>:<span><span>(string * string)</span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>build</code> is an alias for <code>docker build</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-tag"><a href="#val-tag" class="anchor"></a><code><span><span class="keyword">val</span> tag : 
+  <span><span class="optlabel">?image_name</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?tag</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">registry_uri</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>tag</code> is an alias for <code>docker tag</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-push"><a href="#val-push" class="anchor"></a><code><span><span class="keyword">val</span> push : 
+  <span><span class="optlabel">?image_name</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?tag</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">registry_uri</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>push</code> is an alias for <code>docker push</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-pull"><a href="#val-pull" class="anchor"></a><code><span><span class="keyword">val</span> pull : 
+  <span><span class="optlabel">?image_name</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?tag</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">registry_uri</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>pull</code> is an alias for <code>docker pull</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run"><a href="#val-run" class="anchor"></a><code><span><span class="keyword">val</span> run : 
+  <span><span class="optlabel">?rm</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?name</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?network</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?publish_ports</span>:<span>(string * string * string * string)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>run</code> is an alias for <code>docker run</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-kill"><a href="#val-kill" class="anchor"></a><code><span><span class="keyword">val</span> kill : <span>string <span class="arrow">&#45;&gt;</span></span> <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>kill</code> is an alias for <code>docker kill</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-rm"><a href="#val-rm" class="anchor"></a><code><span><span class="keyword">val</span> rm : <span>string <span class="arrow">&#45;&gt;</span></span> <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>rm</code> is an alias for <code>docker rm</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-cp"><a href="#val-cp" class="anchor"></a><code><span><span class="keyword">val</span> cp : 
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">kind</span>:<span>[ `From_host <span>| `To_host</span> ]</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">destination</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt</span>.Process.t</span></code></div><div class="spec-doc"><p><code>cp</code> is an alias for <code>docker cp</code>.</p></div></div></div></body></html>

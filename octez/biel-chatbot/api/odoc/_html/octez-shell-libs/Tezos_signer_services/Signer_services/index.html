@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Signer_services (octez-shell-libs.Tezos_signer_services.Signer_services)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">octez-shell-libs</a> &#x00BB; <a href="../index.html">Tezos_signer_services</a> &#x00BB; Signer_services</nav><header class="odoc-preamble"><h1>Module <code><span>Tezos_signer_services.Signer_services</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-sign"><a href="#val-sign" class="anchor"></a><code><span><span class="keyword">val</span> sign : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    unit * <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a>,
+    <span><a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-t">Tezos_crypto.Signature.t</a> option</span>,
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>,
+    <a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-t">Tezos_crypto.Signature.t</a>)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-deterministic_nonce"><a href="#val-deterministic_nonce" class="anchor"></a><code><span><span class="keyword">val</span> deterministic_nonce : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    unit * <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a>,
+    <span><a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-t">Tezos_crypto.Signature.t</a> option</span>,
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>,
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-deterministic_nonce_hash"><a href="#val-deterministic_nonce_hash" class="anchor"></a><code><span><span class="keyword">val</span> deterministic_nonce_hash : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    unit * <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a>,
+    <span><a href="../../../octez-libs/Tezos_crypto/Signature/index.html#type-t">Tezos_crypto.Signature.t</a> option</span>,
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>,
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-supports_deterministic_nonces"><a href="#val-supports_deterministic_nonces" class="anchor"></a><code><span><span class="keyword">val</span> supports_deterministic_nonces : 
+  <span><span>(<span>[ `GET ]</span>,
+    unit,
+    unit * <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a>,
+    unit,
+    unit,
+    bool)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-public_key"><a href="#val-public_key" class="anchor"></a><code><span><span class="keyword">val</span> public_key : 
+  <span><span>(<span>[ `GET ]</span>,
+    unit,
+    unit * <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a>,
+    unit,
+    unit,
+    <a href="../../../octez-libs/Tezos_crypto/Signature/Public_key/index.html#type-t">Tezos_crypto.Signature.Public_key.t</a>)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-authorized_keys"><a href="#val-authorized_keys" class="anchor"></a><code><span><span class="keyword">val</span> authorized_keys : 
+  <span><span>(<span>[ `GET ]</span>,
+    unit,
+    unit,
+    unit,
+    unit,
+    <span><span><a href="../../../octez-libs/Tezos_crypto/Signature/Public_key_hash/index.html#type-t">Tezos_crypto.Signature.Public_key_hash.t</a> list</span> option</span>)</span>
+    <a href="../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div></div></body></html>

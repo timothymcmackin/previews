@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>RPC (tezt-tezos.Tezt_tezos.Client.RPC)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">tezt-tezos</a> &#x00BB; <a href="../../index.html">Tezt_tezos</a> &#x00BB; <a href="../index.html">Client</a> &#x00BB; RPC</nav><header class="odoc-preamble"><h1>Module <code><span>Client.RPC</span></code></h1><p>Perform RPC calls using <code>octez-client</code>.</p></header><div class="odoc-content"><p>RPC calls performed this way are slower and should only be used to test the <code>rpc</code> command of the client.</p><div class="odoc-spec"><div class="spec value anchored" id="val-call"><a href="#val-call" class="anchor"></a><code><span><span class="keyword">val</span> call : 
+  <span><span class="optlabel">?log_command</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_status_on_exit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_output</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?better_errors</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?endpoint</span>:<a href="../index.html#type-endpoint">endpoint</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?env</span>:<span>string <span class="xref-unresolved">Tezt_wrapper</span>.Base.String_map.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?protocol_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'result</span> <a href="../../RPC_core/index.html#type-t">RPC_core.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Call an RPC using <code>octez-client rpc</code>.</p><p>The response body is parsed as JSON, then decoded using the decode function of the RPC description.</p><p>The following arguments:</p><ul><li><code>log_command</code>;</li><li><code>log_status_on_exit</code>;</li><li><code>log_output</code>;</li><li><code>better_errors</code>;</li><li><code>endpoint</code>;</li><li><code>hooks</code>;</li><li><code>env</code>;</li><li><code>protocol_hash</code>; are passed to <code>Client.rpc</code>.</li></ul></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-call_raw"><a href="#val-call_raw" class="anchor"></a><code><span><span class="keyword">val</span> call_raw : 
+  <span><span class="optlabel">?log_command</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_status_on_exit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_output</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?better_errors</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?endpoint</span>:<a href="../index.html#type-endpoint">endpoint</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?env</span>:<span>string <span class="xref-unresolved">Tezt_wrapper</span>.Base.String_map.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?protocol_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'result</span> <a href="../../RPC_core/index.html#type-t">RPC_core.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Call an RPC, but do not parse the client output.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-call_json"><a href="#val-call_json" class="anchor"></a><code><span><span class="keyword">val</span> call_json : 
+  <span><span class="optlabel">?log_command</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_status_on_exit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_output</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?better_errors</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?endpoint</span>:<a href="../index.html#type-endpoint">endpoint</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?env</span>:<span>string <span class="xref-unresolved">Tezt_wrapper</span>.Base.String_map.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?protocol_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'result</span> <a href="../../RPC_core/index.html#type-t">RPC_core.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Tezt_wrapper</span>.JSON.t <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Call an RPC, but do not decode the client output, only parse it.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-schema"><a href="#val-schema" class="anchor"></a><code><span><span class="keyword">val</span> schema : 
+  <span><span class="optlabel">?log_command</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_status_on_exit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_output</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?better_errors</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?endpoint</span>:<a href="../index.html#type-endpoint">endpoint</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?env</span>:<span>string <span class="xref-unresolved">Tezt_wrapper</span>.Base.String_map.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?protocol_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'result</span> <a href="../../RPC_core/index.html#type-t">RPC_core.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Tezt_wrapper</span>.JSON.t <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Get the schema of an RPC as JSON.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-spawn"><a href="#val-spawn" class="anchor"></a><code><span><span class="keyword">val</span> spawn : 
+  <span><span class="optlabel">?log_command</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_status_on_exit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?log_output</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?better_errors</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?endpoint</span>:<a href="../index.html#type-endpoint">endpoint</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?env</span>:<span>string <span class="xref-unresolved">Tezt_wrapper</span>.Base.String_map.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?protocol_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'result</span> <a href="../../RPC_core/index.html#type-t">RPC_core.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Tezt_wrapper</span>.JSON.t <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Same as <code>call_raw</code>, but do not wait for the process to exit.</p><p>Because this function is mostly used to test error cases, the response body is not decoded.</p></div></div></div></body></html>

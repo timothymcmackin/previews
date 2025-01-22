@@ -1,0 +1,7 @@
+{0 bls12-381 index}
+{1 Library bls12-381}
+The entry point of this library is the module:
+{!module-Bls12_381}.
+{1 Library bls12-381.archive}
+The entry point of this library is the module:
+{!module-Bls12_381_archive}.

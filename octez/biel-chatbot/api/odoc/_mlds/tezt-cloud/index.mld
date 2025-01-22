@@ -1,0 +1,4 @@
+{0 tezt-cloud index}
+{1 Library tezt-cloud}
+The entry point of this library is the module:
+{!module-Tezt_cloud}.

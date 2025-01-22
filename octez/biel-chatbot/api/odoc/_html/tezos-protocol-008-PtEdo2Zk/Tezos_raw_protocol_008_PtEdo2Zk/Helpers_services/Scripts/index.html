@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Scripts (tezos-protocol-008-PtEdo2Zk.Tezos_raw_protocol_008_PtEdo2Zk.Helpers_services.Scripts)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">tezos-protocol-008-PtEdo2Zk</a> &#x00BB; <a href="../../index.html">Tezos_raw_protocol_008_PtEdo2Zk</a> &#x00BB; <a href="../index.html">Helpers_services</a> &#x00BB; Scripts</nav><header class="odoc-preamble"><h1>Module <code><span>Helpers_services.Scripts</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec module anchored" id="module-Traced_interpreter"><a href="#module-Traced_interpreter" class="anchor"></a><code><span><span class="keyword">module</span> <a href="Traced_interpreter/index.html">Traced_interpreter</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_code"><a href="#val-run_code" class="anchor"></a><code><span><span class="keyword">val</span> run_code : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?gas</span>:<a href="../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?entrypoint</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">storage</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">input</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">amount</span>:<a href="../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">balance</span>:<a href="../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">chain_id</span>:<a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Chain_id/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Chain_id.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<span><a href="../../Alpha_context/Contract/index.html#type-t">Alpha_context.Contract.t</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">payer</span>:<span><a href="../../Alpha_context/Contract/index.html#type-t">Alpha_context.Contract.t</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a>
+   * <span><a href="../../Alpha_context/index.html#type-packed_internal_operation">Alpha_context.packed_internal_operation</a> list</span>
+   * <span><a href="../../Alpha_context/Lazy_storage/index.html#type-diffs">Alpha_context.Lazy_storage.diffs</a> option</span>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-trace_code"><a href="#val-trace_code" class="anchor"></a><code><span><span class="keyword">val</span> trace_code : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?gas</span>:<a href="../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?entrypoint</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">storage</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">input</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">amount</span>:<a href="../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">balance</span>:<a href="../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">chain_id</span>:<a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Chain_id/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Chain_id.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<span><a href="../../Alpha_context/Contract/index.html#type-t">Alpha_context.Contract.t</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">payer</span>:<span><a href="../../Alpha_context/Contract/index.html#type-t">Alpha_context.Contract.t</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a>
+   * <span><a href="../../Alpha_context/index.html#type-packed_internal_operation">Alpha_context.packed_internal_operation</a> list</span>
+   * <a href="../../Script_interpreter/index.html#type-execution_trace">Script_interpreter.execution_trace</a>
+   * <span><a href="../../Alpha_context/Lazy_storage/index.html#type-diffs">Alpha_context.Lazy_storage.diffs</a> option</span>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-typecheck_code"><a href="#val-typecheck_code" class="anchor"></a><code><span><span class="keyword">val</span> typecheck_code : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?gas</span>:<a href="../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?legacy</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../Script_tc_errors/index.html#type-type_map">Script_tc_errors.type_map</a> * <a href="../../Alpha_context/Gas/index.html#type-t">Alpha_context.Gas.t</a>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-typecheck_data"><a href="#val-typecheck_data" class="anchor"></a><code><span><span class="keyword">val</span> typecheck_data : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?gas</span>:<a href="../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?legacy</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">data</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">ty</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../Alpha_context/Gas/index.html#type-t">Alpha_context.Gas.t</a>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-pack_data"><a href="#val-pack_data" class="anchor"></a><code><span><span class="keyword">val</span> pack_data : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?gas</span>:<a href="../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">data</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">ty</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(bytes * <a href="../../Alpha_context/Gas/index.html#type-t">Alpha_context.Gas.t</a>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_operation"><a href="#val-run_operation" class="anchor"></a><code><span><span class="keyword">val</span> run_operation : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">op</span>:<a href="../../Alpha_context/index.html#type-packed_operation">Alpha_context.packed_operation</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">chain_id</span>:<a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Chain_id/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Chain_id.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../Alpha_context/index.html#type-packed_protocol_data">Alpha_context.packed_protocol_data</a> * <a href="../../Apply_results/index.html#type-packed_operation_metadata">Apply_results.packed_operation_metadata</a>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-entrypoint_type"><a href="#val-entrypoint_type" class="anchor"></a><code><span><span class="keyword">val</span> entrypoint_type : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">entrypoint</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-list_entrypoints"><a href="#val-list_entrypoints" class="anchor"></a><code><span><span class="keyword">val</span> list_entrypoints : 
+  <span><span><span class="type-var">'a</span> <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_008_PtEdo2Zk.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><span><a href="../../Michelson_v1_primitives/index.html#type-prim">Michelson_v1_primitives.prim</a> list</span> list</span>
+   * <span><span>(string * <a href="../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a>)</span> list</span>)</span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_008_PtEdo2Zk.Error_monad.shell_tzresult</a></span>
+    <a href="../../../Tezos_protocol_environment_008_PtEdo2Zk/Lwt/index.html#type-t">Tezos_protocol_environment_008_PtEdo2Zk.Lwt.t</a></span></span></code></div></div></div></body></html>

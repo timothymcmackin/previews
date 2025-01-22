@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Wallet (octez-protocol-018-Proxford-libs.Tezos_client_sapling_018_Proxford.Wallet)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">octez-protocol-018-Proxford-libs</a> &#x00BB; <a href="../index.html">Tezos_client_sapling_018_Proxford</a> &#x00BB; Wallet</nav><header class="odoc-preamble"><h1>Module <code><span>Tezos_client_sapling_018_Proxford.Wallet</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-register"><a href="#val-register" class="anchor"></a><code><span><span class="keyword">val</span> register : 
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Client_context/class-type-full/index.html">Tezos_client_base.Client_context.full</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?unencrypted</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Bip39/index.html#type-t">Tezos_client_base.Bip39.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../octez-libs/Tezos_sapling/Core/Client/Viewing_key/index.html#type-t">Tezos_sapling.Core.Client.Viewing_key.t</a> <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Add to the wallet a new spending key derived from a mnemonic and identified by an alias. The wallet is updated and the corresponding viewing key is returned. If <code>force</code> it will overwrite an existing alias.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-derive"><a href="#val-derive" class="anchor"></a><code><span><span class="keyword">val</span> derive : 
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Client_context/class-type-full/index.html">Tezos_client_base.Client_context.full</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?unencrypted</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span>int <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(string * <a href="../../../octez-libs/Tezos_sapling/Core/Client/Viewing_key/index.html#type-t">Tezos_sapling.Core.Client.Viewing_key.t</a>)</span>
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p><code>derive parent child index</code> derives a key with alias <code>child</code> from an existing key with alias <code>parent</code> at <code>index</code> using ZIP32. If a new index is required the state of the wallet is updated. The path and viewing key corresponding to the generated key are returned.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-find_vk"><a href="#val-find_vk" class="anchor"></a><code><span><span class="keyword">val</span> find_vk : 
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Client_context/class-type-full/index.html">Tezos_client_base.Client_context.full</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../octez-libs/Tezos_sapling/Core/Client/Viewing_key/index.html#type-t">Tezos_sapling.Core.Client.Viewing_key.t</a> <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-new_address"><a href="#val-new_address" class="anchor"></a><code><span><span class="keyword">val</span> new_address : 
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Client_context/class-type-full/index.html">Tezos_client_base.Client_context.full</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span>int option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<a href="../../../octez-libs/Tezos_sapling/Core/Client/Spending_key/index.html#type-t">Tezos_sapling.Core.Client.Spending_key.t</a>
+   * <a href="../../../octez-libs/Tezos_sapling/Core/Client/Viewing_key/index.html#type-index">Tezos_sapling.Core.Client.Viewing_key.index</a>
+   * <a href="../../../octez-libs/Tezos_sapling/Core/Client/Viewing_key/index.html#type-address">Tezos_sapling.Core.Client.Viewing_key.address</a>)</span>
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Generate a new address. If an optional index is provided, try to derive the address at this index, otherwise use the first viable one. Not all indexes correspond to a valid address so successive ones are tried. Once a valid index is found it is recorded in the wallet. Return also the corresponding sk and vk to avoid asking the user multiple times for the description password.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-export_vk"><a href="#val-export_vk" class="anchor"></a><code><span><span class="keyword">val</span> export_vk : 
+  <span><a href="../../../octez-shell-libs/Tezos_client_base/Client_context/class-type-full/index.html">Tezos_client_base.Client_context.full</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../octez-libs/Data_encoding/V1/Json/index.html#type-json">Tezos_base.TzPervasives.Data_encoding.Json.json</a>
+    <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div></div></body></html>

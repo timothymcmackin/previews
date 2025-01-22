@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Operations (octez-shell-libs.Tezos_mockup_registration.Registration_intf.MOCKUP.Block_services.S.Operations)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../../../index.html">octez-shell-libs</a> &#x00BB; <a href="../../../../../index.html">Tezos_mockup_registration</a> &#x00BB; <a href="../../../../index.html">Registration_intf</a> &#x00BB; <a href="../../../index.html">MOCKUP</a> &#x00BB; <a href="../../index.html">Block_services</a> &#x00BB; <a href="../index.html">S</a> &#x00BB; Operations</nav><header class="odoc-preamble"><h1>Module <code><span>S.Operations</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-operations"><a href="#val-operations" class="anchor"></a><code><span><span class="keyword">val</span> operations : 
+  <span><span>(<span>[ `GET ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>&lt; force_metadata : bool
+    ; metadata : <span><span>[ `Always <span>| `Never</span> ]</span> option</span>
+    ; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    unit,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> * <span><span><a href="../../index.html#type-operation">operation</a> list</span> list</span>)</span>
+    <a href="../../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-operations_in_pass"><a href="#val-operations_in_pass" class="anchor"></a><code><span><span class="keyword">val</span> operations_in_pass : 
+  <span><span>(<span>[ `GET ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>(<span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+     * <span>[ `Genesis
+       <span><span>| `Head</span> of int</span>
+       <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+       <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+       <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>)</span>
+    * int,
+    <span>&lt; force_metadata : bool
+    ; metadata : <span><span>[ `Always <span>| `Never</span> ]</span> option</span>
+    ; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    unit,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> * <span><a href="../../index.html#type-operation">operation</a> list</span>)</span>
+    <a href="../../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-operation"><a href="#val-operation" class="anchor"></a><code><span><span class="keyword">val</span> operation : 
+  <span><span>(<span>[ `GET ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>(<span>(<span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+      * <span>[ `Genesis
+        <span><span>| `Head</span> of int</span>
+        <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+        <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+        <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>)</span>
+     * int)</span>
+    * int,
+    <span>&lt; force_metadata : bool
+    ; metadata : <span><span>[ `Always <span>| `Never</span> ]</span> option</span>
+    ; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    unit,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> * <a href="../../index.html#type-operation">operation</a>)</span>
+    <a href="../../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div></div></body></html>

@@ -1,0 +1,4 @@
+{0 octez-performance-metrics index}
+{1 Library octez-performance-metrics}
+The entry point of this library is the module:
+{!module-Octez_performance_metrics}.

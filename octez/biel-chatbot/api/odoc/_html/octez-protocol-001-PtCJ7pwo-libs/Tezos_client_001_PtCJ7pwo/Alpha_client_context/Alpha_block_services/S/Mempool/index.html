@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Mempool (octez-protocol-001-PtCJ7pwo-libs.Tezos_client_001_PtCJ7pwo.Alpha_client_context.Alpha_block_services.S.Mempool)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../../index.html">octez-protocol-001-PtCJ7pwo-libs</a> &#x00BB; <a href="../../../../index.html">Tezos_client_001_PtCJ7pwo</a> &#x00BB; <a href="../../../index.html">Alpha_client_context</a> &#x00BB; <a href="../../index.html">Alpha_block_services</a> &#x00BB; <a href="../index.html">S</a> &#x00BB; Mempool</nav><header class="odoc-preamble"><h1>Module <code><span>S.Mempool</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-pending_operations"><a href="#val-pending_operations" class="anchor"></a><code><span><span class="keyword">val</span> pending_operations : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `GET ]</span>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span>&lt; branch_delayed : bool
+    ; branch_refused : bool
+    ; operation_hash : <span>string list</span>
+    ; outdated : bool
+    ; refused : bool
+    ; sources : <span>string list</span>
+    ; validated : bool
+    ; validation_passes : <span>int list</span>
+    ; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    unit,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> * <a href="../../Mempool/index.html#type-t">Mempool.t</a>)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-ban_operation"><a href="#val-ban_operation" class="anchor"></a><code><span><span class="keyword">val</span> ban_operation : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `POST ]</span>, <span class="type-var">'a</span>, <span class="type-var">'b</span>, unit, <a href="../../../../../../octez-libs/Tezos_crypto/Hashed/Operation_hash/index.html#type-t">Tezos_base.TzPervasives.Operation_hash.t</a>, unit)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-unban_operation"><a href="#val-unban_operation" class="anchor"></a><code><span><span class="keyword">val</span> unban_operation : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `POST ]</span>, <span class="type-var">'a</span>, <span class="type-var">'b</span>, unit, <a href="../../../../../../octez-libs/Tezos_crypto/Hashed/Operation_hash/index.html#type-t">Tezos_base.TzPervasives.Operation_hash.t</a>, unit)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-unban_all_operations"><a href="#val-unban_all_operations" class="anchor"></a><code><span><span class="keyword">val</span> unban_all_operations : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `POST ]</span>, <span class="type-var">'a</span>, <span class="type-var">'b</span>, unit, unit, unit)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-monitor_operations"><a href="#val-monitor_operations" class="anchor"></a><code><span><span class="keyword">val</span> monitor_operations : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `GET ]</span>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span>&lt; branch_delayed : bool
+    ; branch_refused : bool
+    ; outdated : bool
+    ; refused : bool
+    ; sources : <span>string list</span>
+    ; validated : bool
+    ; validation_passes : <span>int list</span>
+    ; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    unit,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span>
+    * <span><span>(<span>(<a href="../../../../../../octez-libs/Tezos_crypto/Hashed/Operation_hash/index.html#type-t">Tezos_base.TzPervasives.Operation_hash.t</a> * <a href="../../../../../../tezos-protocol-001-PtCJ7pwo/Tezos_protocol_001_PtCJ7pwo_lifted/Lifted_protocol/index.html#type-operation">Lifted_protocol.operation</a>)</span>
+       * <span><span><a href="../../../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-error">Tezos_base.TzPervasives.error</a> <a href="../../../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-trace">Tezos_base.TzPervasives.trace</a></span> option</span>)</span>
+        list</span>)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_filter"><a href="#val-get_filter" class="anchor"></a><code><span><span class="keyword">val</span> get_filter : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `GET ]</span>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span>&lt; include_default : bool &gt;</span>,
+    unit,
+    <a href="../../../../../../octez-libs/Data_encoding/index.html#type-json">Tezos_base.TzPervasives.Data_encoding.json</a>)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-set_filter"><a href="#val-set_filter" class="anchor"></a><code><span><span class="keyword">val</span> set_filter : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `POST ]</span>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    unit,
+    <a href="../../../../../../octez-libs/Data_encoding/index.html#type-json">Tezos_base.TzPervasives.Data_encoding.json</a>,
+    <a href="../../../../../../octez-libs/Data_encoding/index.html#type-json">Tezos_base.TzPervasives.Data_encoding.json</a>)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-request_operations"><a href="#val-request_operations" class="anchor"></a><code><span><span class="keyword">val</span> request_operations : 
+  <span><span><span>(<span class="type-var">'a</span>, <span class="type-var">'b</span>)</span> <a href="../../../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>[ `POST ]</span>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span>&lt; peer_id : <span><a href="../../../../../../octez-libs/Tezos_base/P2p_peer_id/index.html#type-t">Tezos_base.P2p_peer_id.t</a> option</span> &gt;</span>,
+    unit,
+    unit)</span>
+    <a href="../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div></div></body></html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Setup (tezt-etherlink.Tezt_etherlink.Setup)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">tezt-etherlink</a> &#x00BB; <a href="../index.html">Tezt_etherlink</a> &#x00BB; Setup</nav><header class="odoc-preamble"><h1>Module <code><span>Tezt_etherlink.Setup</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec type anchored" id="type-l1_contracts"><a href="#type-l1_contracts" class="anchor"></a><code><span><span class="keyword">type</span> l1_contracts</span><span> = </span><span>{</span></code><ol><li id="type-l1_contracts.delayed_transaction_bridge" class="def record field anchored"><a href="#type-l1_contracts.delayed_transaction_bridge" class="anchor"></a><code><span>delayed_transaction_bridge : string;</span></code></li><li id="type-l1_contracts.exchanger" class="def record field anchored"><a href="#type-l1_contracts.exchanger" class="anchor"></a><code><span>exchanger : string;</span></code></li><li id="type-l1_contracts.bridge" class="def record field anchored"><a href="#type-l1_contracts.bridge" class="anchor"></a><code><span>bridge : string;</span></code></li><li id="type-l1_contracts.admin" class="def record field anchored"><a href="#type-l1_contracts.admin" class="anchor"></a><code><span>admin : string;</span></code></li><li id="type-l1_contracts.sequencer_governance" class="def record field anchored"><a href="#type-l1_contracts.sequencer_governance" class="anchor"></a><code><span>sequencer_governance : string;</span></code></li><li id="type-l1_contracts.ticket_router_tester" class="def record field anchored"><a href="#type-l1_contracts.ticket_router_tester" class="anchor"></a><code><span>ticket_router_tester : string;</span></code></li></ol><code><span>}</span></code></div></div><div class="odoc-spec"><div class="spec type anchored" id="type-sequencer_setup"><a href="#type-sequencer_setup" class="anchor"></a><code><span><span class="keyword">type</span> sequencer_setup</span><span> = </span><span>{</span></code><ol><li id="type-sequencer_setup.node" class="def record field anchored"><a href="#type-sequencer_setup.node" class="anchor"></a><code><span>node : <a href="../../../tezt-tezos/Tezt_tezos/Node/index.html#type-t">Tezt_tezos.Node.t</a>;</span></code></li><li id="type-sequencer_setup.client" class="def record field anchored"><a href="#type-sequencer_setup.client" class="anchor"></a><code><span>client : <a href="../../../tezt-tezos/Tezt_tezos/Client/index.html#type-t">Tezt_tezos.Client.t</a>;</span></code></li><li id="type-sequencer_setup.sc_rollup_address" class="def record field anchored"><a href="#type-sequencer_setup.sc_rollup_address" class="anchor"></a><code><span>sc_rollup_address : string;</span></code></li><li id="type-sequencer_setup.sc_rollup_node" class="def record field anchored"><a href="#type-sequencer_setup.sc_rollup_node" class="anchor"></a><code><span>sc_rollup_node : <a href="../../../tezt-tezos/Tezt_tezos/Sc_rollup_node/index.html#type-t">Tezt_tezos.Sc_rollup_node.t</a>;</span></code></li><li id="type-sequencer_setup.observer" class="def record field anchored"><a href="#type-sequencer_setup.observer" class="anchor"></a><code><span>observer : <a href="../Evm_node/index.html#type-t">Evm_node.t</a>;</span></code></li><li id="type-sequencer_setup.sequencer" class="def record field anchored"><a href="#type-sequencer_setup.sequencer" class="anchor"></a><code><span>sequencer : <a href="../Evm_node/index.html#type-t">Evm_node.t</a>;</span></code></li><li id="type-sequencer_setup.proxy" class="def record field anchored"><a href="#type-sequencer_setup.proxy" class="anchor"></a><code><span>proxy : <a href="../Evm_node/index.html#type-t">Evm_node.t</a>;</span></code></li><li id="type-sequencer_setup.l1_contracts" class="def record field anchored"><a href="#type-sequencer_setup.l1_contracts" class="anchor"></a><code><span>l1_contracts : <a href="#type-l1_contracts">l1_contracts</a>;</span></code></li><li id="type-sequencer_setup.boot_sector" class="def record field anchored"><a href="#type-sequencer_setup.boot_sector" class="anchor"></a><code><span>boot_sector : string;</span></code></li><li id="type-sequencer_setup.kernel" class="def record field anchored"><a href="#type-sequencer_setup.kernel" class="anchor"></a><code><span>kernel : <a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a>;</span></code></li><li id="type-sequencer_setup.enable_dal" class="def record field anchored"><a href="#type-sequencer_setup.enable_dal" class="anchor"></a><code><span>enable_dal : bool;</span></code></li></ol><code><span>}</span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-uses"><a href="#val-uses" class="anchor"></a><code><span><span class="keyword">val</span> uses : <span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a> list</span></span></code></div><div class="spec-doc"><p><code>uses protocol</code> returns the list of dependencies for the tests.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-setup_l1_contracts"><a href="#val-setup_l1_contracts" class="anchor"></a><code><span><span class="keyword">val</span> setup_l1_contracts : 
+  <span><span class="optlabel">?dictator</span>:<a href="../../../tezt-tezos/Tezt_tezos/Account/index.html#type-key">Tezt_tezos.Account.key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">kernel</span>:<a href="../Kernel/index.html#type-t">Kernel.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../tezt-tezos/Tezt_tezos/Client/index.html#type-t">Tezt_tezos.Client.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="#type-l1_contracts">l1_contracts</a> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p><code>setup_l1_contracts ~dictator ~kernel client</code> setups the necessary contracts for the rollup.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_new_rpc_endpoint"><a href="#val-run_new_rpc_endpoint" class="anchor"></a><code><span><span class="keyword">val</span> run_new_rpc_endpoint : <span><a href="../Evm_node/index.html#type-t">Evm_node.t</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../Evm_node/index.html#type-t">Evm_node.t</a> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p><code>run_new_rpc_endpoint node</code> starts a new rpc node following the setup.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_new_observer_node"><a href="#val-run_new_observer_node" class="anchor"></a><code><span><span class="keyword">val</span> run_new_observer_node : 
+  <span><span class="optlabel">?finalized_view</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?patch_config</span>:<span>(<span><span class="xref-unresolved">Tezt_wrapper</span>.JSON.t <span class="arrow">&#45;&gt;</span></span> <span class="xref-unresolved">Tezt_wrapper</span>.JSON.t)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">sc_rollup_node</span>:<a href="../../../tezt-tezos/Tezt_tezos/Sc_rollup_node/index.html#type-t">Tezt_tezos.Sc_rollup_node.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?rpc_server</span>:<a href="../Evm_node/index.html#type-rpc_server">Evm_node.rpc_server</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?websockets</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Evm_node/index.html#type-t">Evm_node.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Evm_node/index.html#type-t">Evm_node.t</a> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p><code>run_new_rpc_endpoint ~sc_rollup_node node</code> starts a new observer following the setup.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-register_test"><a href="#val-register_test" class="anchor"></a><code><span><span class="keyword">val</span> register_test : 
+  <span><span class="label">__FILE__</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_delayed_inbox_blueprint_length</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?block_storage_sqlite3</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_private_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?genesis_timestamp</span>:<a href="../../../tezt-tezos/Tezt_tezos/Client/index.html#type-timestamp">Tezt_tezos.Client.timestamp</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?time_between_blocks</span>:<a href="../Evm_node/index.html#type-time_between_blocks">Evm_node.time_between_blocks</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_lag</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_ahead</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_catchup</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?catchup_cooldown</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_timeout</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_min_levels</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_number_of_chunks</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?bootstrap_accounts</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer</span>:<a href="../../../tezt-tezos/Tezt_tezos/Account/index.html#type-key">Tezt_tezos.Account.key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_pool_address</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">kernel</span>:<a href="../Kernel/index.html#type-t">Kernel.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?da_fee</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?minimum_base_fee_per_gas</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?preimages_dir</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_allowed_ticks</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_gas_per_transaction</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprint_lookahead_in_seconds</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?enable_fa_bridge</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?commitment_period</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?challenge_window</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?threshold_encryption</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?uses</span>:<span>(<span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a> list</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?additional_uses</span>:<span><a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?history_mode</span>:<a href="../../../tezt-tezos/Tezt_tezos/Sc_rollup_node/index.html#type-history_mode">Tezt_tezos.Sc_rollup_node.history_mode</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">enable_dal</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?dal_slots</span>:<span><span>int list</span> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?rpc_server</span>:<a href="../Evm_node/index.html#type-rpc_server">Evm_node.rpc_server</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?websockets</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span><a href="#type-sequencer_setup">sequencer_setup</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span> <span>unit <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">title</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div><div class="spec-doc"><p><code>register_test</code> setups the full sequencer environment for the tests and starts the test. For each of the parameters, please refer to <code>Evm_node</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-register_test_for_kernels"><a href="#val-register_test_for_kernels" class="anchor"></a><code><span><span class="keyword">val</span> register_test_for_kernels : 
+  <span><span class="label">__FILE__</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_delayed_inbox_blueprint_length</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?block_storage_sqlite3</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_private_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?genesis_timestamp</span>:<a href="../../../tezt-tezos/Tezt_tezos/Client/index.html#type-timestamp">Tezt_tezos.Client.timestamp</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?time_between_blocks</span>:<a href="../Evm_node/index.html#type-time_between_blocks">Evm_node.time_between_blocks</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_lag</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_ahead</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_catchup</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?catchup_cooldown</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_timeout</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_min_levels</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_number_of_chunks</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?bootstrap_accounts</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer</span>:<a href="../../../tezt-tezos/Tezt_tezos/Account/index.html#type-key">Tezt_tezos.Account.key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_pool_address</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?kernels</span>:<span><a href="../Kernel/index.html#type-t">Kernel.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?da_fee</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?minimum_base_fee_per_gas</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?preimages_dir</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_allowed_ticks</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_gas_per_transaction</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprint_lookahead_in_seconds</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?enable_fa_bridge</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?history_mode</span>:<a href="../../../tezt-tezos/Tezt_tezos/Sc_rollup_node/index.html#type-history_mode">Tezt_tezos.Sc_rollup_node.history_mode</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?commitment_period</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?challenge_window</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?additional_uses</span>:<span><a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">threshold_encryption</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">enable_dal</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?dal_slots</span>:<span><span>int list</span> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?rpc_server</span>:<a href="../Evm_node/index.html#type-rpc_server">Evm_node.rpc_server</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?websockets</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">title</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span><a href="#type-sequencer_setup">sequencer_setup</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span> <span>unit <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div><div class="spec-doc"><p><code>register_test_for_kernels</code> setups the full sequencer environment for the tests and starts the test. For each of the parameters, please refer to <code>Evm_node</code>. The test is registered for each kernel.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-setup_sequencer"><a href="#val-setup_sequencer" class="anchor"></a><code><span><span class="keyword">val</span> setup_sequencer : 
+  <span><span class="optlabel">?max_delayed_inbox_blueprint_length</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?next_wasm_runtime</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?block_storage_sqlite3</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_private_rpc_port</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">mainnet_compat</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?genesis_timestamp</span>:<a href="../../../tezt-tezos/Tezt_tezos/Client/index.html#type-timestamp">Tezt_tezos.Client.timestamp</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?time_between_blocks</span>:<a href="../Evm_node/index.html#type-time_between_blocks">Evm_node.time_between_blocks</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_lag</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_ahead</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprints_catchup</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?catchup_cooldown</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_timeout</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delayed_inbox_min_levels</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_number_of_chunks</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?commitment_period</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?challenge_window</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?bootstrap_accounts</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer</span>:<a href="../../../tezt-tezos/Tezt_tezos/Account/index.html#type-key">Tezt_tezos.Account.key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sequencer_pool_address</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?kernel</span>:<a href="../../../octez-libs/Tezt_wrapper/Uses/index.html#type-t">Tezt_wrapper.Uses.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?da_fee</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?minimum_base_fee_per_gas</span>:<a href="../Wei/index.html#type-t">Wei.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?preimages_dir</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_allowed_ticks</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?maximum_gas_per_transaction</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?max_blueprint_lookahead_in_seconds</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?enable_fa_bridge</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?threshold_encryption</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?drop_duplicate_when_injection</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?blueprints_publisher_order_enabled</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?history_mode</span>:<a href="../../../tezt-tezos/Tezt_tezos/Sc_rollup_node/index.html#type-history_mode">Tezt_tezos.Sc_rollup_node.history_mode</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">enable_dal</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?dal_slots</span>:<span>int list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?rpc_server</span>:<a href="../Evm_node/index.html#type-rpc_server">Evm_node.rpc_server</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?websockets</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../tezt-tezos/Tezt_tezos/Protocol/index.html#type-t">Tezt_tezos.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="#type-sequencer_setup">sequencer_setup</a> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div></div></body></html>

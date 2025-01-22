@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Coordinator (tezos-dac-lib.Tezos_dac_lib.RPC_services.V0.Coordinator)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../index.html">tezos-dac-lib</a> &#x00BB; <a href="../../../index.html">Tezos_dac_lib</a> &#x00BB; <a href="../../index.html">RPC_services</a> &#x00BB; <a href="../index.html">V0</a> &#x00BB; Coordinator</nav><header class="odoc-preamble"><h1>Module <code><span>V0.Coordinator</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-post_preimage"><a href="#val-post_preimage" class="anchor"></a><code><span><span class="keyword">val</span> post_preimage : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    unit,
+    unit,
+    <a href="../../../../../octez-libs/Tezos_base/TzPervasives/Bytes/index.html#type-t">Tezos_base.TzPervasives.Bytes.t</a>,
+    <a href="../../../Dac_plugin/index.html#type-raw_hash">Dac_plugin.raw_hash</a>)</span>
+    <a href="../../../../../octez-libs/Tezos_rpc/Service/index.html#type-service">Tezos_rpc.Service.service</a></span></span></code></div><div class="spec-doc"><p>&quot;POST v0/preimage&quot; sends a <code>payload</code> to the DAC <code>Coordinator</code>. It returns a hex encoded root page hash, produced by <code>Merkle_tree_V0</code> pagination scheme. On the backend side it also pushes root page hash of the preimage to all the subscribed DAC Members and Observers.</p></div></div></div></body></html>

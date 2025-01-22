@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Make_services (octez-l2-libs.Octez_smart_rollup.Rollup_node_services.Make_services)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">octez-l2-libs</a> &#x00BB; <a href="../../index.html">Octez_smart_rollup</a> &#x00BB; <a href="../index.html">Rollup_node_services</a> &#x00BB; Make_services</nav><header class="odoc-preamble"><h1>Module <code><span>Rollup_node_services.Make_services</span></code></h1></header><nav class="odoc-toc"><ul><li><a href="#parameters">Parameters</a></li><li><a href="#signature">Signature</a></li></ul></nav><div class="odoc-content"><h2 id="parameters"><a href="#parameters" class="anchor"></a>Parameters</h2><div class="odoc-spec"><div class="spec parameter anchored" id="argument-1-P"><a href="#argument-1-P" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="argument-1-P/index.html">P</a></span><span> : <a href="../module-type-PREFIX/index.html">PREFIX</a></span></code></div></div><h2 id="signature"><a href="#signature" class="anchor"></a>Signature</h2><div class="odoc-include"><details open="open"><summary class="spec include"><code><span><span class="keyword">include</span> <span class="keyword">module</span> <span class="keyword">type</span> <span class="keyword">of</span> <span class="keyword">struct</span> <span class="keyword">include</span> <a href="argument-1-P/index.html">P</a> <span class="keyword">end</span></span></code></summary><div class="odoc-spec"><div class="spec type anchored" id="type-prefix"><a href="#type-prefix" class="anchor"></a><code><span><span class="keyword">type</span> prefix</span><span> = <a href="argument-1-P/index.html#type-prefix">P.prefix</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-prefix"><a href="#val-prefix" class="anchor"></a><code><span><span class="keyword">val</span> prefix : <span><span>(unit, <a href="#type-prefix">prefix</a>)</span> <a href="../../../../octez-libs/Tezos_rpc/Path/index.html#type-t">Tezos_rpc.Path.t</a></span></span></code></div></div></details></div><div class="odoc-spec"><div class="spec value anchored" id="val-path"><a href="#val-path" class="anchor"></a><code><span><span class="keyword">val</span> path : <span><a href="#type-prefix">prefix</a> <a href="../../../../octez-libs/Tezos_rpc/Path/index.html#type-context">Tezos_rpc.Path.context</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-make_call"><a href="#val-make_call" class="anchor"></a><code><span><span class="keyword">val</span> make_call : 
+  <span><span><span>(<span>[&lt; <a href="../../../../octez-libs/Resto/index.html#type-meth">Resto.meth</a> ]</span>,
+    <a href="#type-prefix">prefix</a>,
+    <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span class="type-var">'c</span>,
+    <span class="type-var">'d</span>,
+    <span><a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-error">Tezos_error_monad.Error_monad.error</a> list</span>)</span>
+    <a href="../../../../octez-libs/Tezos_rpc/Service/index.html#type-raw">Tezos_rpc.Service.raw</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../../octez-libs/Tezos_rpc/Context/class-type-simple/index.html">Tezos_rpc.Context.simple</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'b</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'d</span> <a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-tzresult">Tezos_error_monad.Error_monad.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-make_call1"><a href="#val-make_call1" class="anchor"></a><code><span><span class="keyword">val</span> make_call1 : 
+  <span><span><span>(<span>[&lt; <a href="../../../../octez-libs/Resto/index.html#type-meth">Resto.meth</a> ]</span>,
+    <a href="#type-prefix">prefix</a>,
+    unit * <span class="type-var">'a</span>,
+    <span class="type-var">'b</span>,
+    <span class="type-var">'c</span>,
+    <span class="type-var">'d</span>,
+    <span><a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-error">Tezos_error_monad.Error_monad.error</a> list</span>)</span>
+    <a href="../../../../octez-libs/Tezos_rpc/Service/index.html#type-raw">Tezos_rpc.Service.raw</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../../octez-libs/Tezos_rpc/Context/class-type-simple/index.html">Tezos_rpc.Context.simple</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'b</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'d</span> <a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-tzresult">Tezos_error_monad.Error_monad.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-make_call2"><a href="#val-make_call2" class="anchor"></a><code><span><span class="keyword">val</span> make_call2 : 
+  <span><span><span>(<span>[&lt; <a href="../../../../octez-libs/Resto/index.html#type-meth">Resto.meth</a> ]</span>,
+    <a href="#type-prefix">prefix</a>,
+    <span>(unit * <span class="type-var">'a</span>)</span> * <span class="type-var">'b</span>,
+    <span class="type-var">'c</span>,
+    <span class="type-var">'d</span>,
+    <span class="type-var">'e</span>,
+    <span><a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-error">Tezos_error_monad.Error_monad.error</a> list</span>)</span>
+    <a href="../../../../octez-libs/Tezos_rpc/Service/index.html#type-raw">Tezos_rpc.Service.raw</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../../octez-libs/Tezos_rpc/Context/class-type-simple/index.html">Tezos_rpc.Context.simple</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'b</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'e</span> <a href="../../../../octez-libs/Tezos_error_monad/Error_monad/index.html#type-tzresult">Tezos_error_monad.Error_monad.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div></div></body></html>

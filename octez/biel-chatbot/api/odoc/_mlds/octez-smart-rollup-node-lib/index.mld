@@ -1,0 +1,4 @@
+{0 octez-smart-rollup-node-lib index}
+{1 Library octez-smart-rollup-node-lib}
+The entry point of this library is the module:
+{!module-Octez_smart_rollup_node}.

@@ -1,0 +1,4 @@
+{0 tezos-dac-client-lib index}
+{1 Library tezos-dac-client-lib}
+The entry point of this library is the module:
+{!module-Tezos_dac_client_lib}.

@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tenderbake &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=70b85459"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'protocols/tenderbake';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Quebec Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/precheck.html">Prechecking of manager operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fprotocols/tenderbake.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tenderbake</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol">Protocol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-headers">Block headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rpcs">RPCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signer">Signer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daemons">Daemons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tenderbake">
+<h1>Tenderbake<a class="headerlink" href="#tenderbake" title="Link to this heading">#</a></h1>
+<p>This page contains a summary of the changes brought by the Tenderbake merge request (<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/3738">!3738</a>).
+Please refer to <a class="reference internal" href="../alpha/consensus.html"><span class="doc">the documentation</span></a> and to this <a class="reference external" href="https://research-development.nomadic-labs.com/a-look-ahead-to-tenderbake.html">blog post</a> for an overview of the Tenderbake consensus algorithm and its motivation.</p>
+<p>Note that the notion of “attestation” was called “endorsement” at the time when Tenderbake was introduced. Hence, this page still uses the old term, which has been renamed only later.</p>
+<section id="protocol">
+<h2>Protocol<a class="headerlink" href="#protocol" title="Link to this heading">#</a></h2>
+<p>The whole incentives scheme has been updated.
+In particular the security deposit mechanism has been overhauled.
+See <a class="reference internal" href="../alpha/consensus.html"><span class="doc">the documentation</span></a>.</p>
+<p>Rolls do not play an essential role anymore, in that the computation of delegates’ rights is based directly on the delegates’ stake.
+Snapshots are still used: it is the entire delegate’s stake that is snapshot.
+Rolls still play the following roles:</p>
+<ul class="simple">
+<li><p>A delegate can participate in consensus (receiving baking and endorsing rights) if it has at least <code class="docutils literal notranslate"><span class="pre">tokens_per_roll</span></code> tez.</p></li>
+<li><p>A delegate’s voting power in the governance process is still in terms of rolls, as in Hangzhou.</p></li>
+</ul>
+<p>Baking and endorsing rights are no longer independent of each other:
+delegates that participate in consensus at a given level are called
+<a class="reference internal" href="../active/consensus.html#tb-validator"><span class="std std-ref">validators</span></a> in Tenderbake and validator rights in
+Tenderbake are similar to endorsing rights in Emmy*. Baking rights are
+deduced from endorsing rights: the baker at round <code class="docutils literal notranslate"><span class="pre">r</span></code> is the
+validator that owns the endorsing slot <code class="docutils literal notranslate"><span class="pre">r</span></code>.</p>
+<section id="operations">
+<h3>Operations<a class="headerlink" href="#operations" title="Link to this heading">#</a></h3>
+<p>The layout of the endorsement operations has changed. It consists of a level, a round, a slot, and a payload hash.
+A validator emits at most one endorsement per round, but can emit more
+endorsements per level; therefore, the current high-water mark
+mechanism used by the signer has been adapted (see <a class="reference internal" href="#signer-chgs"><span class="std std-ref">Signer</span></a>).</p>
+<p>There is a new consensus operation, <code class="docutils literal notranslate"><span class="pre">preendorsement</span></code>, with the same layout as an endorsement.</p>
+<p>There is a new anonymous operation, <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">preendorsement</span> <span class="pre">evidence</span></code>, with the same layout as a double endorsement evidence.</p>
+<p>There is a new manager operation, <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">deposits</span> <span class="pre">limit</span></code>, which takes an
+optional positive integer argument. When the limit argument is given,
+the given limit on the signer’s security deposit is set. When the
+limit argument is not present, the previous limit is unset and no
+limit is imposed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">branch</span></code> field of non-consensus operations is set by default by
+the Octez client to <code class="docutils literal notranslate"><span class="pre">HEAD~2</span></code>. Setting the <code class="docutils literal notranslate"><span class="pre">branch</span></code> field to
+<code class="docutils literal notranslate"><span class="pre">HEAD</span></code> or <code class="docutils literal notranslate"><span class="pre">HEAD~1</span></code> may result in the operation not being included
+because it will not be anchored on a block belonging to the
+chain. (The blocks at the current and previous levels are not
+necessary final.)</p>
+</section>
+<section id="block-headers">
+<h3>Block headers<a class="headerlink" href="#block-headers" title="Link to this heading">#</a></h3>
+<p>The block fitness (included in the shell part of the block header)
+changes, mainly to allow block
+<a class="reference internal" href="../active/consensus.html#candidate-block"><span class="std std-ref">candidates</span></a> to be accepted by nodes.</p>
+<p>The protocol part of the block header changes as follows:</p>
+<ul class="simple">
+<li><p>it no longer contains the priority entry.</p></li>
+<li><p>it contains two additional fields:</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">payload_hash</span></code> is the hash of the sequence of the block’s
+non-consensus operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payload_round</span></code> is the round at which the block’s payload has
+been first proposed (at the current level); it is equal to the
+block’s round in case of a fresh
+<a class="reference internal" href="../active/consensus.html#candidate-block"><span class="std std-ref">proposal</span></a> and it is strictly smaller
+in case of a reproposal.</p></li>
+</ul>
+</div></blockquote>
+<p>As in Emmy*, a block includes a set of endorsements for the
+predecessor block. These endorsements constitute a
+<a class="reference internal" href="../active/consensus.html#quorum"><span class="std std-ref">quorum</span></a> and serve as a justification that the previous
+block has been agreed upon. In case of a reproposal, a block also
+includes a quorum of preendorsements for the same round to justify
+that the payload is indeed a reproposal.</p>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>The following protocol parameters have been removed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time_between_blocks</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endorsers_per_block</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blocks_per_roll_snapshot</span></code> (it is replaced by <code class="docutils literal notranslate"><span class="pre">blocks_per_stake_snapshot</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">block_security_deposit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endorsement_security_deposit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baking_reward_per_endorsement</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endorsement_reward</span></code></p></li>
+</ul>
+<p>The following protocol parameters have been introduced:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">baking_reward_fixed_portion</span></code> = 10 tez</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">baking_reward_bonus_per_slot</span></code> = 0.004286 tez</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endorsing_reward_per_slot</span></code> = 0.002857 tez</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delay_increment_per_round</span></code> = 15</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimal_participation_ratio</span></code> = 2/3</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consensus_committee_size</span></code> = 7000</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consensus_threshold</span></code> = 4667</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max_slashing_period</span></code> = 2 cycles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frozen_deposits_percentage</span></code> = 10</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double_baking_punishment</span></code> = 640 tez</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ratio_of_frozen_deposits_slashed_per_double_endorsement</span></code> = 1/2</p></li>
+</ul>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">minimal_block_delay</span></code> is reused to specify the duration of round 0.</p>
+<p>The values of the following protocol parameters has changed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tokens_per_roll</span></code> has changed from 8000 to 6000 tez.</p></li>
+</ul>
+</section>
+<section id="metadata">
+<h3>Metadata<a class="headerlink" href="#metadata" title="Link to this heading">#</a></h3>
+<p>The receipt of a block has a new field: <code class="docutils literal notranslate"><span class="pre">proposer</span></code>, which is the
+public key hash of the block’s payload
+producer. <a class="reference internal" href="../alpha/consensus.html"><span class="doc">Recall</span></a> that the payload producer
+may be different from the block producer, which is stored in the field
+<code class="docutils literal notranslate"><span class="pre">baker</span></code>.</p>
+<p>Previously, some internal transfers of tokens did not generate balance updates. Also, a credit balance update was not always balanced by a debit balance update. In order to make token movements easier to audit, we have remedied that by introducing new ‘kinds’ and ‘types’ of balance updates. Hence, balance updates in the metadata are now always balanced, i.e. the sum of credits is equal to the sum of debits.</p>
+<p>The balance updates have been updated as follows:</p>
+<ul class="simple">
+<li><p>The new balance categories <code class="docutils literal notranslate"><span class="pre">legacy_rewards</span></code>, <code class="docutils literal notranslate"><span class="pre">legacy_deposits</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">legacy_fees</span></code> correspond to the old <code class="docutils literal notranslate"><span class="pre">rewards</span></code>, <code class="docutils literal notranslate"><span class="pre">deposits</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">fees</span></code> categories, and are only generated during migration (their
+<code class="docutils literal notranslate"><span class="pre">origin</span></code> field is <code class="docutils literal notranslate"><span class="pre">migration</span></code>).</p></li>
+<li><p>There is a new type of <code class="docutils literal notranslate"><span class="pre">origin</span></code>, called <code class="docutils literal notranslate"><span class="pre">simulation</span></code> which is for internal use only (when a smart contract simulation run is performed via the RPC <code class="docutils literal notranslate"><span class="pre">../helpers/scripts/run_code</span></code>). This <code class="docutils literal notranslate"><span class="pre">origin</span></code> will not appear in metadata during normal operation on mainnet.</p></li>
+<li><p>The following new balance types have been introduced:</p>
+<ul>
+<li><p>deposits, with the kind <code class="docutils literal notranslate"><span class="pre">freezer</span></code>, category <code class="docutils literal notranslate"><span class="pre">deposits</span></code>, and 3rd field <code class="docutils literal notranslate"><span class="pre">delegate</span></code>;</p></li>
+<li><p>nonce revelation rewards, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">nonce</span> <span class="pre">revelation</span> <span class="pre">rewards</span></code>;</p></li>
+<li><p>double signing evidence rewards, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">signing</span> <span class="pre">evidence</span> <span class="pre">rewards</span></code>;</p></li>
+<li><p>endorsing rewards, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">endorsing</span> <span class="pre">rewards</span></code>;</p></li>
+<li><p>baking rewards, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">baking</span> <span class="pre">rewards</span></code>;</p></li>
+<li><p>baking bonuses, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">baking</span> <span class="pre">bonuses</span></code>;</p></li>
+<li><p>block fees, with the kind <code class="docutils literal notranslate"><span class="pre">accumulator</span></code> and category <code class="docutils literal notranslate"><span class="pre">block</span> <span class="pre">fees</span></code>;</p></li>
+<li><p>storage fees, with the kind <code class="docutils literal notranslate"><span class="pre">burned</span></code> and category <code class="docutils literal notranslate"><span class="pre">storage</span> <span class="pre">fees</span></code>;</p></li>
+<li><p>double signing punishments, with the kind <code class="docutils literal notranslate"><span class="pre">burned</span></code> and category <code class="docutils literal notranslate"><span class="pre">punishments</span></code>;</p></li>
+<li><p>lost endorsing rewards, with the kind <code class="docutils literal notranslate"><span class="pre">burned</span></code>, category <code class="docutils literal notranslate"><span class="pre">lost</span> <span class="pre">endorsing</span> <span class="pre">rewards</span></code>, 3rd field <code class="docutils literal notranslate"><span class="pre">delegate</span></code>, 4th field <code class="docutils literal notranslate"><span class="pre">participation</span></code> (a boolean with value <code class="docutils literal notranslate"><span class="pre">true</span></code> if and only if the reward was lost because of insufficient participation), and 5th field <code class="docutils literal notranslate"><span class="pre">revelation</span></code> (a boolean with value <code class="docutils literal notranslate"><span class="pre">true</span></code> if and only if the reward was lost because of unrevealed nonces);</p></li>
+<li><p>liquidity baking subsidies, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">subsidy</span></code>;</p></li>
+<li><p>commitments, with the kind <code class="docutils literal notranslate"><span class="pre">commitment</span></code> and category <code class="docutils literal notranslate"><span class="pre">commitment</span></code>;</p></li>
+<li><p>invoices, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">invoice</span></code>;</p></li>
+</ul>
+</li>
+<li><p>The following new balance types are for internal use, they will not appear in the metadata during normal operation on mainnet,
+but may appear on test networks, or in sandboxed mode:</p>
+<ul>
+<li><p>“bootstrap” with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code>;</p></li>
+<li><p>“initial commitments”, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">commitment</span></code>;</p></li>
+<li><p>“burned”, with the kind <code class="docutils literal notranslate"><span class="pre">burned</span></code> and category <code class="docutils literal notranslate"><span class="pre">burned</span></code>;</p></li>
+<li><p>“minted”, with the kind <code class="docutils literal notranslate"><span class="pre">minted</span></code> and category <code class="docutils literal notranslate"><span class="pre">minted</span></code></p></li>
+</ul>
+</li>
+<li><p>The following balance types represent external sources of tokens that can only be debited :
+nonce revelation rewards, endorsing rewards, baking rewards, baking bonuses, liquidity baking subsidies, invoices,
+initial commitments, bootstrap, minted</p></li>
+<li><p>The following balance types represent destinations of tokens burned that can only be credited :
+storage fees, double signing punishments, lost endorsing rewards, burned</p></li>
+</ul>
+<p>The receipt for (pre)endorsement operations contains three fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">balance_updates</span></code>, which is always empty;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delegate</span></code>, the signer’s public key hash;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(pre)endorsement_power</span></code>, the number of slots the delegate had at the corresponding level.</p></li>
+</ul>
+<p>The receipt for double preendorsement evidence operations has the same format as for double endorsement evidence operations.</p>
+<p>The receipt for set deposits limit operations has one field: the <code class="docutils literal notranslate"><span class="pre">consumed_gas</span></code>.</p>
+<p>A more detailed documentation of balance updates is available <a class="reference internal" href="../alpha/token_management.html"><span class="doc">here</span></a>.</p>
+</section>
+</section>
+<section id="rpcs">
+<h2>RPCs<a class="headerlink" href="#rpcs" title="Link to this heading">#</a></h2>
+<p>The following RPCs have been removed or renamed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">../minimal_valid_time</span></code> has been removed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/frozen_balance_by_cycle</span></code> has been removed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/frozen_balance</span></code>, has been renamed to <code class="docutils literal notranslate"><span class="pre">frozen_deposits</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/balance</span></code>, renamed to <code class="docutils literal notranslate"><span class="pre">full_balance</span></code></p></li>
+</ul>
+<p>The following RPCs have changed:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">../helpers/baking_rights</span></code>:</p>
+<ul>
+<li><p>Instead of an optional list of <code class="docutils literal notranslate"><span class="pre">cycle</span></code> arguments, the RPC only takes one optional <code class="docutils literal notranslate"><span class="pre">cycle</span></code> argument.</p></li>
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">max_priority</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">max_round</span></code>.</p></li>
+<li><p>The output field <code class="docutils literal notranslate"><span class="pre">priority</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">round</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../helpers/endorsing_rights</span></code>:</p>
+<ul>
+<li><p>Instead of an optional list of <code class="docutils literal notranslate"><span class="pre">cycle</span></code> arguments, the RPC only takes one optional <code class="docutils literal notranslate"><span class="pre">cycle</span></code> argument.</p></li>
+<li><p>The output is now grouped per level. For each level, the output
+contains the delegates’ rights and the estimated time at which the
+rights can be exercised. For each delegate that has some rights at
+the given level, the output contains the delegate’s public key
+hash, the delegate’s first slot, and the delegate’s endorsing power.</p></li>
+</ul>
+</li>
+</ul>
+<p>The following RPCs are new:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">../helpers/round</span></code>: gives the round of a block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../helpers/validators</span></code>: is a variant of <code class="docutils literal notranslate"><span class="pre">endorsing_rights</span></code> RPC, used by the Octez baker daemon.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/current_frozen_deposits</span></code>: gives the
+current amount of the delegate’s frozen deposits, in contrast to
+<code class="docutils literal notranslate"><span class="pre">../&lt;pkh&gt;/frozen_deposits</span></code> which returns the initial amount (that
+is, at the beginning of a cycle) of the frozen deposits. The two
+amounts are different only when the delegate has been punished.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/frozen_deposits_limit</span></code>: gives the frozen deposits limit of a registered delegate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">../context/delegates/&lt;pkh&gt;/participation</span></code>: gives information on the participation (in consensus) of a registered delegate, as follows:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_cycle_activity</span></code> indicates the number of endorsing
+slots the delegate is expected to have in the cycle based on its
+active stake. This number does not necessary equal the number of
+slots the delegate actually has, which are also dependent on the
+cycle’s seed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimal_cycle_activity</span></code> indicates the minimal endorsing slots
+in the cycle required to get endorsing rewards. It is computed
+based on the <code class="docutils literal notranslate"><span class="pre">expected_cycle_activity</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">missed_slots</span></code> indicates the number of missed endorsing slots in the cycle so far.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">missed_levels</span></code> indicates the number of missed levels for endorsing in the cycle so far.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remaining_allowed_missed_slots</span></code> indicates the remaining amount
+of endorsing slots that can be missed in the cycle before
+forfeiting the rewards.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_endorsing_rewards</span></code> indicates the endorsing rewards
+that will be distributed at the end of the cycle if activity at
+that point will be greater than the minimal required; if the
+activity is already known to be below the required minimum, then
+the rewards are zero.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="signer">
+<span id="signer-chgs"></span><h2>Signer<a class="headerlink" href="#signer" title="Link to this heading">#</a></h2>
+<p>The signer’s messages were of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;magic_byte&gt;&lt;chain_id&gt;&lt;block|endorsement&gt;</span></code> and are now of the form
+<code class="docutils literal notranslate"><span class="pre">&lt;magic_byte&gt;&lt;chain_id&gt;&lt;block|preendorsement|endorsement&gt;</span></code>, where
+the magic byte has changed from <code class="docutils literal notranslate"><span class="pre">0x01</span></code> for blocks and <code class="docutils literal notranslate"><span class="pre">0x02</span></code> for
+endorsements, to <code class="docutils literal notranslate"><span class="pre">0x11</span></code> for blocks, <code class="docutils literal notranslate"><span class="pre">0x12</span></code> for preendorsements,
+<code class="docutils literal notranslate"><span class="pre">0x13</span></code> for endorsements.</p>
+<p>The high-water mark for blocks and (pre)endorsements is now given by
+both the level and the round of the signed block, respectively of the
+signed (pre)endorsement. The signer is authorized to sign whenever the
+level is strictly higher than the previous level, or the level is the
+same, but the round is strictly higher.</p>
+</section>
+<section id="daemons">
+<h2>Daemons<a class="headerlink" href="#daemons" title="Link to this heading">#</a></h2>
+<p>There is no endorser daemon anymore. Its role is performed by the baker daemon.
+The baker daemon takes the same options as in Hangzhou.</p>
+</section>
+<section id="client">
+<h2>Client<a class="headerlink" href="#client" title="Link to this heading">#</a></h2>
+<p>The command <code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">bake</span> <span class="pre">for</span></code> has been changed:</p>
+<ul class="simple">
+<li><p>It takes a (possibly empty) list of delegate references. It then bakes a block and (pre)endorses this block, using the rights of all the specified delegates. When the list is empty is does so for all delegates whose secret keys are known.</p></li>
+<li><p>It performs a full consensus round: it “proposes” a block (that is, it injects a block candidate), it preendorses the block, and it endorses the block, if possible.</p></li>
+</ul>
+<p>The following commands have been added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">propose</span> <span class="pre">for</span></code>: forge and inject a candidate block (a <code class="docutils literal notranslate"><span class="pre">proposal</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">preendorse</span> <span class="pre">for</span></code>: forge and inject a preendorsement operation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">endorse</span> <span class="pre">for</span></code>: forge and inject an endorsement operation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">set</span> <span class="pre">deposits</span> <span class="pre">limit</span> <span class="pre">for</span> <span class="pre">&lt;src&gt;</span> <span class="pre">to</span> <span class="pre">&lt;deposits_limit&gt;</span></code>: sets the deposits limit for a registered delegate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">unset</span> <span class="pre">deposits</span> <span class="pre">limit</span> <span class="pre">for</span> <span class="pre">&lt;src&gt;</span></code>: remove the deposits limit of a registered delegate.</p></li>
+</ul>
+</section>
+</section>
+
+            <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let bielBtn = document.createElement("biel-button");
+                        bielBtn.innerHTML = "Ask AI";
+                        bielBtn.setAttribute("project", "w30c27l8fg");
+                    bielBtn.setAttribute("button-text", "Ask AI");
+                    bielBtn.setAttribute("header-title", "Tezos chatbot");
+                    bielBtn.setAttribute("button-style", "dark");
+                    bielBtn.setAttribute("button-position", "bottom-right");
+                    bielBtn.setAttribute("version", "latest");
+                        document.body.appendChild(bielBtn);
+                    });
+                </script>
+            
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol">Protocol</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-headers">Block headers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata">Metadata</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rpcs">RPCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signer">Signer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daemons">Daemons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#client">Client</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

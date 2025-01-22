@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Manager (tezos-protocol-007-PsDELPH1.Tezos_raw_protocol_007_PsDELPH1.Helpers_services.Forge.Manager)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../index.html">tezos-protocol-007-PsDELPH1</a> &#x00BB; <a href="../../../index.html">Tezos_raw_protocol_007_PsDELPH1</a> &#x00BB; <a href="../../index.html">Helpers_services</a> &#x00BB; <a href="../index.html">Forge</a> &#x00BB; Manager</nav><header class="odoc-preamble"><h1>Module <code><span>Forge.Manager</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-operations"><a href="#val-operations" class="anchor"></a><code><span><span class="keyword">val</span> operations : 
+  <span><span><span class="type-var">'a</span> <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_007_PsDELPH1.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">branch</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Block_hash/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Block_hash.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sourcePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key">Alpha_context.public_key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">counter</span>:<a href="../../../Alpha_context/index.html#type-counter">Alpha_context.counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">fee</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">gas_limit</span>:<a href="../../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">storage_limit</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Z/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Z.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../Alpha_context/index.html#type-packed_manager_operation">Alpha_context.packed_manager_operation</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../Tezos_protocol_environment_007_PsDELPH1/MBytes/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.MBytes.t</a>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_007_PsDELPH1.Error_monad.shell_tzresult</a></span>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Lwt/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-reveal"><a href="#val-reveal" class="anchor"></a><code><span><span class="keyword">val</span> reveal : 
+  <span><span><span class="type-var">'a</span> <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_007_PsDELPH1.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">branch</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Block_hash/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Block_hash.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">sourcePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key">Alpha_context.public_key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">counter</span>:<a href="../../../Alpha_context/index.html#type-counter">Alpha_context.counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">fee</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../Tezos_protocol_environment_007_PsDELPH1/MBytes/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.MBytes.t</a>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_007_PsDELPH1.Error_monad.shell_tzresult</a></span>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Lwt/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-transaction"><a href="#val-transaction" class="anchor"></a><code><span><span class="keyword">val</span> transaction : 
+  <span><span><span class="type-var">'a</span> <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_007_PsDELPH1.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">branch</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Block_hash/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Block_hash.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sourcePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key">Alpha_context.public_key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">counter</span>:<a href="../../../Alpha_context/index.html#type-counter">Alpha_context.counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">amount</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">destination</span>:<a href="../../../Alpha_context/Contract/index.html#type-t">Alpha_context.Contract.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?entrypoint</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?parameters</span>:<a href="../../../Alpha_context/Script/index.html#type-expr">Alpha_context.Script.expr</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">gas_limit</span>:<a href="../../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">storage_limit</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Z/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Z.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">fee</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../Tezos_protocol_environment_007_PsDELPH1/MBytes/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.MBytes.t</a>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_007_PsDELPH1.Error_monad.shell_tzresult</a></span>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Lwt/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-origination"><a href="#val-origination" class="anchor"></a><code><span><span class="keyword">val</span> origination : 
+  <span><span><span class="type-var">'a</span> <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_007_PsDELPH1.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">branch</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Block_hash/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Block_hash.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sourcePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key">Alpha_context.public_key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">counter</span>:<a href="../../../Alpha_context/index.html#type-counter">Alpha_context.counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">balance</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?delegatePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">script</span>:<a href="../../../Alpha_context/Script/index.html#type-t">Alpha_context.Script.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">gas_limit</span>:<a href="../../../Alpha_context/Gas/Arith/index.html#type-integral">Alpha_context.Gas.Arith.integral</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">storage_limit</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Z/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Z.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">fee</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../Tezos_protocol_environment_007_PsDELPH1/MBytes/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.MBytes.t</a>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_007_PsDELPH1.Error_monad.shell_tzresult</a></span>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Lwt/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Lwt.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-delegation"><a href="#val-delegation" class="anchor"></a><code><span><span class="keyword">val</span> delegation : 
+  <span><span><span class="type-var">'a</span> <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/RPC_context/class-type-simple/index.html">Tezos_protocol_environment_007_PsDELPH1.RPC_context.simple</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">branch</span>:<a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Block_hash/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Block_hash.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">source</span>:<a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?sourcePubKey</span>:<a href="../../../Alpha_context/index.html#type-public_key">Alpha_context.public_key</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">counter</span>:<a href="../../../Alpha_context/index.html#type-counter">Alpha_context.counter</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">fee</span>:<a href="../../../Alpha_context/Tez/index.html#type-t">Alpha_context.Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../Alpha_context/index.html#type-public_key_hash">Alpha_context.public_key_hash</a> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../Tezos_protocol_environment_007_PsDELPH1/MBytes/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.MBytes.t</a>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Error_monad/index.html#type-shell_tzresult">Tezos_protocol_environment_007_PsDELPH1.Error_monad.shell_tzresult</a></span>
+    <a href="../../../../Tezos_protocol_environment_007_PsDELPH1/Lwt/index.html#type-t">Tezos_protocol_environment_007_PsDELPH1.Lwt.t</a></span></span></code></div></div></div></body></html>

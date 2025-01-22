@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Gossipsub (tezos-dal-node-services.Tezos_dal_node_services.Services.P2P.Gossipsub)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../index.html">tezos-dal-node-services</a> &#x00BB; <a href="../../../index.html">Tezos_dal_node_services</a> &#x00BB; <a href="../../index.html">Services</a> &#x00BB; <a href="../index.html">P2P</a> &#x00BB; Gossipsub</nav><header class="odoc-preamble"><h1>Module <code><span>P2P.Gossipsub</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-get_topics"><a href="#val-get_topics" class="anchor"></a><code><span><span class="keyword">val</span> get_topics : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><a href="../../../Types/Topic/index.html#type-t">Types.Topic.t</a> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_topics_peers"><a href="#val-get_topics_peers" class="anchor"></a><code><span><span class="keyword">val</span> get_topics_peers : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(<a href="../../../Types/Topic/index.html#type-t">Types.Topic.t</a> * <span><a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> list</span>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : <span>&lt; all : bool &gt;</span> &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_slot_indexes_peers"><a href="#val-get_slot_indexes_peers" class="anchor"></a><code><span><span class="keyword">val</span> get_slot_indexes_peers : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(<a href="../../../Types/index.html#type-slot_index">Types.slot_index</a> * <span><a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> list</span>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : <span>&lt; all : bool &gt;</span> &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_pkhs_peers"><a href="#val-get_pkhs_peers" class="anchor"></a><code><span><span class="keyword">val</span> get_pkhs_peers : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : 
+      <span><span>(<a href="../../../../../octez-libs/Tezos_crypto/Signature/index.html#type-public_key_hash">Tezos_base.TzPervasives.Signature.public_key_hash</a> * <span><a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> list</span>)</span>
+        list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : <span>&lt; all : bool &gt;</span> &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_connections"><a href="#val-get_connections" class="anchor"></a><code><span><span class="keyword">val</span> get_connections : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(<a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> * <a href="../../../Types/Gossipsub/index.html#type-connection">Types.Gossipsub.connection</a>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_scores"><a href="#val-get_scores" class="anchor"></a><code><span><span class="keyword">val</span> get_scores : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(<a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> * <a href="../../../Types/Score/index.html#type-t">Types.Score.t</a>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_backoffs"><a href="#val-get_backoffs" class="anchor"></a><code><span><span class="keyword">val</span> get_backoffs : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(<a href="../../../Types/Topic/index.html#type-t">Types.Topic.t</a> * <span><span>(<a href="../../../Types/Peer/index.html#type-t">Types.Peer.t</a> * <a href="../../../Types/Time/index.html#type-t">Types.Time.t</a>)</span> list</span>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-get_message_cache"><a href="#val-get_message_cache" class="anchor"></a><code><span><span class="keyword">val</span> get_message_cache : 
+  <span><span>&lt; meth : <span>[ `GET ]</span>
+    ; input : unit
+    ; output : <span><span>(int64 * <span><span>(<a href="../../../Types/Topic/index.html#type-t">Types.Topic.t</a> * int)</span> list</span>)</span> list</span>
+    ; prefix : unit
+    ; params : unit
+    ; query : unit &gt;</span>
+    <a href="../../index.html#type-service">service</a></span></span></code></div></div></div></body></html>

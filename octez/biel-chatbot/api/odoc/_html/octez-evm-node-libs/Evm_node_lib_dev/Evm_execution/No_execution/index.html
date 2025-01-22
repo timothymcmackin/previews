@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>No_execution (octez-evm-node-libs.Evm_node_lib_dev.Evm_execution.No_execution)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">octez-evm-node-libs</a> &#x00BB; <a href="../../index.html">Evm_node_lib_dev</a> &#x00BB; <a href="../index.html">Evm_execution</a> &#x00BB; No_execution</nav><header class="odoc-preamble"><h1>Module <code><span>Evm_execution.No_execution</span></code></h1><p>A placeholder module for when executing EVM code is not available.</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-replay"><a href="#val-replay" class="anchor"></a><code><span><span class="keyword">val</span> replay : 
+  <span><span class="optlabel">?log_file</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?profile</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?alter_evm_state</span>:
+    <span>(<span><a href="../../../../octez-l2-libs/Tezos_layer2_irmin_context/Irmin_context/index.html#type-tree">Tezos_layer2_irmin_context.Irmin_context.tree</a> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><a href="../../../../octez-l2-libs/Tezos_layer2_irmin_context/Irmin_context/index.html#type-tree">Tezos_layer2_irmin_context.Irmin_context.tree</a>
+        <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+        <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../Evm_state/index.html#type-apply_result">Evm_state.apply_result</a> <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>See <code>Evm_context.replay</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-execute"><a href="#val-execute" class="anchor"></a><code><span><span class="keyword">val</span> execute : 
+  <span><span class="optlabel">?alter_evm_state</span>:
+    <span>(<span><a href="../../../../octez-l2-libs/Tezos_layer2_irmin_context/Irmin_context/index.html#type-tree">Tezos_layer2_irmin_context.Irmin_context.tree</a> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><a href="../../../../octez-l2-libs/Tezos_layer2_irmin_context/Irmin_context/index.html#type-tree">Tezos_layer2_irmin_context.Irmin_context.tree</a>
+        <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+        <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Simulation/Encodings/index.html#type-simulate_input">Simulation.Encodings.simulate_input</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../../octez-l2-libs/Tezos_layer2_irmin_context/Irmin_context/index.html#type-tree">Tezos_layer2_irmin_context.Irmin_context.tree</a>
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>See <code>Evm_context.execute</code>.</p></div></div></div></body></html>

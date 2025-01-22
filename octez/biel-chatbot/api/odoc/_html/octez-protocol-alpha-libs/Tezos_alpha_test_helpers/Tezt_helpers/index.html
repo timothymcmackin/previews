@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Tezt_helpers (octez-protocol-alpha-libs.Tezos_alpha_test_helpers.Tezt_helpers)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">octez-protocol-alpha-libs</a> &#x00BB; <a href="../index.html">Tezos_alpha_test_helpers</a> &#x00BB; Tezt_helpers</nav><header class="odoc-preamble"><h1>Module <code><span>Tezos_alpha_test_helpers.Tezt_helpers</span></code></h1><p>Test registration</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-register_test"><a href="#val-register_test" class="anchor"></a><code><span><span class="keyword">val</span> register_test : 
+  <span><span class="label">__FILE__</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?file_tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">title</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?additional_tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?slow</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>unit <span class="arrow">&#45;&gt;</span></span> <span>unit <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div><div class="spec-doc"><p>Registers a test. The protocol's name is added to the title and tags. File-specific title prefix and tags can also be specified.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-register_test_es"><a href="#val-register_test_es" class="anchor"></a><code><span><span class="keyword">val</span> register_test_es : 
+  <span><span class="label">__FILE__</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?file_tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">title</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?additional_tags</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?slow</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span>unit <span class="arrow">&#45;&gt;</span></span> <span><span><span>(unit, <a href="../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div><div class="spec-doc"><p>Same as <code>register_test</code>, but for a test function returning <code>unit
+    tzresult Lwt.t</code>. If the result is an error, the test fails.</p></div></div></div></body></html>

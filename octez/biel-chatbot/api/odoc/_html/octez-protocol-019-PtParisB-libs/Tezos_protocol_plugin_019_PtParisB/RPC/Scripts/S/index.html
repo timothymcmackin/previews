@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>S (octez-protocol-019-PtParisB-libs.Tezos_protocol_plugin_019_PtParisB.RPC.Scripts.S)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../index.html">octez-protocol-019-PtParisB-libs</a> &#x00BB; <a href="../../../index.html">Tezos_protocol_plugin_019_PtParisB</a> &#x00BB; <a href="../../index.html">RPC</a> &#x00BB; <a href="../index.html">Scripts</a> &#x00BB; S</nav><header class="odoc-preamble"><h1>Module <code><span>Scripts.S</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-path"><a href="#val-path" class="anchor"></a><code><span><span class="keyword">val</span> path : 
+  <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_path/index.html#type-path">Tezos_protocol_019_PtParisB.Environment.RPC_path.path</a></span></span></code></div></div><div class="odoc-spec"><div class="spec type anchored" id="type-other_contract_description"><a href="#type-other_contract_description" class="anchor"></a><code><span><span class="keyword">type</span> other_contract_description</span><span> = </span><span>{</span></code><ol><li id="type-other_contract_description.address" class="def record field anchored"><a href="#type-other_contract_description.address" class="anchor"></a><code><span>address : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Contract_hash.t</a>;</span></code></li><li id="type-other_contract_description.ty" class="def record field anchored"><a href="#type-other_contract_description.ty" class="anchor"></a><code><span>ty : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>;</span></code></li></ol><code><span>}</span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-other_contracts_encoding"><a href="#val-other_contracts_encoding" class="anchor"></a><code><span><span class="keyword">val</span> other_contracts_encoding : 
+  <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec type anchored" id="type-extra_big_map_description"><a href="#type-extra_big_map_description" class="anchor"></a><code><span><span class="keyword">type</span> extra_big_map_description</span><span> = </span><span>{</span></code><ol><li id="type-extra_big_map_description.id" class="def record field anchored"><a href="#type-extra_big_map_description.id" class="anchor"></a><code><span>id : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Big_map/Id/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Big_map.Id.t</a>;</span></code></li><li id="type-extra_big_map_description.kty" class="def record field anchored"><a href="#type-extra_big_map_description.kty" class="anchor"></a><code><span>kty : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>;</span></code></li><li id="type-extra_big_map_description.vty" class="def record field anchored"><a href="#type-extra_big_map_description.vty" class="anchor"></a><code><span>vty : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>;</span></code></li><li id="type-extra_big_map_description.items" class="def record field anchored"><a href="#type-extra_big_map_description.items" class="anchor"></a><code><span>items : <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>;</span></code></li></ol><code><span>}</span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-extra_big_maps_encoding"><a href="#val-extra_big_maps_encoding" class="anchor"></a><code><span><span class="keyword">val</span> extra_big_maps_encoding : 
+  <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_code_input_encoding"><a href="#val-run_code_input_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_code_input_encoding : 
+  <span><span>(<span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>)</span>
+   * <span>(<span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+        option</span>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+          option</span>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+      * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+          <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+          option</span>
+      * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+      * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_code_output_encoding"><a href="#val-run_code_output_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_code_output_encoding : 
+  <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+   * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_internal_results/index.html#type-packed_internal_operation">Tezos_protocol_019_PtParisB.Protocol.Apply_internal_results.packed_internal_operation</a>
+       list</span>
+   * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Lazy_storage/index.html#type-diffs">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Lazy_storage.diffs</a>
+       option</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-trace_code_input_encoding"><a href="#val-trace_code_input_encoding" class="anchor"></a><code><span><span class="keyword">val</span> trace_code_input_encoding : 
+  <span><span>(<span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>)</span>
+   * <span>(<span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+        option</span>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+          option</span>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+      * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+          <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+          option</span>
+      * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+      * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-trace_encoding"><a href="#val-trace_encoding" class="anchor"></a><code><span><span class="keyword">val</span> trace_encoding : 
+  <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_typed_ir/index.html#type-execution_trace">Tezos_protocol_019_PtParisB.Protocol.Script_typed_ir.execution_trace</a>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-trace_code_output_encoding"><a href="#val-trace_code_output_encoding" class="anchor"></a><code><span><span class="keyword">val</span> trace_code_output_encoding : 
+  <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+   * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_internal_results/index.html#type-packed_internal_operation">Tezos_protocol_019_PtParisB.Protocol.Apply_internal_results.packed_internal_operation</a>
+       list</span>
+   * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_typed_ir/index.html#type-execution_trace">Tezos_protocol_019_PtParisB.Protocol.Script_typed_ir.execution_trace</a>
+   * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Lazy_storage/index.html#type-diffs">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Lazy_storage.diffs</a>
+       option</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-stack_encoding"><a href="#val-stack_encoding" class="anchor"></a><code><span><span class="keyword">val</span> stack_encoding : 
+  <span><span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+   * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    list</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_instr_input_encoding"><a href="#val-run_instr_input_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_instr_input_encoding : 
+  <span><span>(<span>(<span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+      list</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+    * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+        <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a> option</span>)</span>
+   * <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+      * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+      * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>
+      * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+          option</span>
+      * bool)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_instr_output_encoding"><a href="#val-run_instr_output_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_instr_output_encoding : 
+  <span><span>(<span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+     list</span>
+   * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.t</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_tzip4_view_encoding"><a href="#val-run_tzip4_view_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_tzip4_view_encoding : 
+  <span><span>(<span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+    * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+        <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+        option</span>)</span>
+   * <span>(<span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+      * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_script_view_encoding"><a href="#val-run_script_view_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_script_view_encoding : 
+  <span><span>(<span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a>
+    * string
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * bool
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+        option</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>)</span>
+   * <span>(<span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+        <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+        option</span>
+      * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+      * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_stack_input_encoding"><a href="#val-normalize_stack_input_encoding" class="anchor"></a><code><span><span class="keyword">val</span> normalize_stack_input_encoding : 
+  <span><span>(<span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+     list</span>
+   * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+   * bool
+   * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+   * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_stack_output_encoding"><a href="#val-normalize_stack_output_encoding" class="anchor"></a><code><span><span class="keyword">val</span> normalize_stack_output_encoding : 
+  <span><span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+   * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    list</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_code"><a href="#val-run_code" class="anchor"></a><code><span><span class="keyword">val</span> run_code : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>)</span>
+    * <span>(<span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+         option</span>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+           option</span>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+       * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+           <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+           option</span>
+       * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+       * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_internal_results/index.html#type-packed_internal_operation">Tezos_protocol_019_PtParisB.Protocol.Apply_internal_results.packed_internal_operation</a>
+        list</span>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Lazy_storage/index.html#type-diffs">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Lazy_storage.diffs</a>
+        option</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-trace_code"><a href="#val-trace_code" class="anchor"></a><code><span><span class="keyword">val</span> trace_code : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>)</span>
+    * <span>(<span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+         option</span>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+           option</span>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+       * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+           <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+           option</span>
+       * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+       * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_internal_results/index.html#type-packed_internal_operation">Tezos_protocol_019_PtParisB.Protocol.Apply_internal_results.packed_internal_operation</a>
+        list</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_typed_ir/index.html#type-execution_trace">Tezos_protocol_019_PtParisB.Protocol.Script_typed_ir.execution_trace</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Lazy_storage/index.html#type-diffs">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Lazy_storage.diffs</a>
+        option</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_tzip4_view"><a href="#val-run_tzip4_view" class="anchor"></a><code><span><span class="keyword">val</span> run_tzip4_view : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+         option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+     * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+         <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+         option</span>)</span>
+    * <span>(<span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+       * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_script_view"><a href="#val-run_script_view" class="anchor"></a><code><span><span class="keyword">val</span> run_script_view : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a>
+     * string
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * bool
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+         option</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>)</span>
+    * <span>(<span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+         <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+         option</span>
+       * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+       * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>)</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_instr"><a href="#val-run_instr" class="anchor"></a><code><span><span class="keyword">val</span> run_instr : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span>(<span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+      * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+       list</span>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_timestamp/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Script_timestamp.t</a> option</span>
+     * <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-n">Tezos_protocol_019_PtParisB.Protocol.Script_int.n</a>
+         <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_int/index.html#type-num">Tezos_protocol_019_PtParisB.Protocol.Script_int.num</a></span>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Contract/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Contract.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Signature/Public_key_hash/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Signature.Public_key_hash.t</a>
+         option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Contract_hash/index.html#type-t">Tezos_raw_protocol_019_PtParisB.Contract_hash.t</a> option</span>
+     * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a> option</span>)</span>
+    * <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Tez/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Tez.t</a> option</span>
+       * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+       * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>
+       * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+           option</span>
+       * bool)</span>,
+    <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+      list</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.t</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-typecheck_code"><a href="#val-typecheck_code" class="anchor"></a><code><span><span class="keyword">val</span> typecheck_code : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * bool
+    * bool,
+    <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-location">Tezos_raw_protocol_019_PtParisB.Alpha_context.Script.location</a>
+     * <span>(<span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_raw_protocol_019_PtParisB.Alpha_context.Script.expr</a> list</span>
+        * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_raw_protocol_019_PtParisB.Alpha_context.Script.expr</a> list</span>)</span>)</span>
+      list</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.t</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-script_size"><a href="#val-script_size" class="anchor"></a><code><span><span class="keyword">val</span> script_size : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * bool,
+    int)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-typecheck_data"><a href="#val-typecheck_data" class="anchor"></a><code><span><span class="keyword">val</span> typecheck_data : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>
+    * bool,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.t</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-pack_data"><a href="#val-pack_data" class="anchor"></a><code><span><span class="keyword">val</span> pack_data : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/Arith/index.html#type-integral">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.Arith.integral</a>
+        option</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Bytes/index.html#type-t">Tezos_protocol_environment_019_PtParisB.Bytes.t</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Gas/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Gas.t</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_data"><a href="#val-normalize_data" class="anchor"></a><code><span><span class="keyword">val</span> normalize_data : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+    * bool
+    * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+    * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_stack"><a href="#val-normalize_stack" class="anchor"></a><code><span><span class="keyword">val</span> normalize_stack : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+      list</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>
+    * bool
+    * <span><span><a href="#type-other_contract_description">other_contract_description</a> list</span> option</span>
+    * <span><span><a href="#type-extra_big_map_description">extra_big_map_description</a> list</span> option</span>,
+    <span><span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+     * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+      list</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_script"><a href="#val-normalize_script" class="anchor"></a><code><span><span class="keyword">val</span> normalize_script : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Script_ir_unparser/index.html#type-unparsing_mode">Tezos_protocol_019_PtParisB.Protocol.Script_ir_unparser.unparsing_mode</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-normalize_type"><a href="#val-normalize_type" class="anchor"></a><code><span><span class="keyword">val</span> normalize_type : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_operation_query"><a href="#val-run_operation_query" class="anchor"></a><code><span><span class="keyword">val</span> run_operation_query : 
+  <span><span>&lt; version : <a href="../../index.html#type-version">version</a> &gt;</span> <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_query/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.RPC_query.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-operations_encodings"><a href="#val-operations_encodings" class="anchor"></a><code><span><span class="keyword">val</span> operations_encodings : 
+  <span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Operation.packed</a>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_operation_output_encoding"><a href="#val-run_operation_output_encoding" class="anchor"></a><code><span><span class="keyword">val</span> run_operation_output_encoding : 
+  <span><span>(<a href="../../index.html#type-version">version</a>
+   * <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed_protocol_data">Tezos_raw_protocol_019_PtParisB.Alpha_context.Operation.packed_protocol_data</a>
+      * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_results/index.html#type-packed_operation_metadata">Tezos_protocol_019_PtParisB.Protocol.Apply_results.packed_operation_metadata</a>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Data_encoding/index.html#type-encoding">Tezos_protocol_019_PtParisB.Environment.Data_encoding.encoding</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-run_operation"><a href="#val-run_operation" class="anchor"></a><code><span><span class="keyword">val</span> run_operation : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <span>&lt; version : <a href="../../index.html#type-version">version</a> &gt;</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Operation.packed</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>,
+    <a href="../../index.html#type-version">version</a>
+    * <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed_protocol_data">Tezos_raw_protocol_019_PtParisB.Alpha_context.Operation.packed_protocol_data</a>
+       * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_results/index.html#type-packed_operation_metadata">Tezos_protocol_019_PtParisB.Protocol.Apply_results.packed_operation_metadata</a>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-simulate_query"><a href="#val-simulate_query" class="anchor"></a><code><span><span class="keyword">val</span> simulate_query : 
+  <span><span>&lt; successor_level : bool
+    ; version : <a href="../../index.html#type-version">version</a> &gt;</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_query/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.RPC_query.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-simulate_operation"><a href="#val-simulate_operation" class="anchor"></a><code><span><span class="keyword">val</span> simulate_operation : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <span>&lt; successor_level : bool
+    ; version : <a href="../../index.html#type-version">version</a> &gt;</span>,
+    <span>int32 option</span>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Operation.packed</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Chain_id/index.html#type-t">Tezos_protocol_019_PtParisB.Environment.Chain_id.t</a>
+    * int,
+    <a href="../../index.html#type-version">version</a>
+    * <span>(<a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Operation/index.html#type-packed_protocol_data">Tezos_raw_protocol_019_PtParisB.Alpha_context.Operation.packed_protocol_data</a>
+       * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Apply_results/index.html#type-packed_operation_metadata">Tezos_protocol_019_PtParisB.Protocol.Apply_results.packed_operation_metadata</a>)</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-entrypoint_type"><a href="#val-entrypoint_type" class="anchor"></a><code><span><span class="keyword">val</span> entrypoint_type : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>
+    * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Entrypoint/index.html#type-t">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Entrypoint.t</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-list_entrypoints"><a href="#val-list_entrypoints" class="anchor"></a><code><span><span class="keyword">val</span> list_entrypoints : 
+  <span><span>(<span>[ `POST ]</span>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/Updater/index.html#type-rpc_context">Tezos_protocol_019_PtParisB.Environment.Updater.rpc_context</a>,
+    unit,
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>,
+    <span><span><a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Michelson_v1_primitives/index.html#type-prim">Tezos_protocol_019_PtParisB.Protocol.Michelson_v1_primitives.prim</a> list</span> list</span>
+    * <span><span>(string * <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_raw_protocol_019_PtParisB/Alpha_context/Script/index.html#type-expr">Tezos_protocol_019_PtParisB.Protocol.Alpha_context.Script.expr</a>)</span>
+        list</span>)</span>
+    <a href="../../../../../tezos-protocol-019-PtParisB/Tezos_protocol_environment_019_PtParisB/RPC_service/index.html#type-service">Tezos_protocol_019_PtParisB.Environment.RPC_service.service</a></span></span></code></div></div></div></body></html>

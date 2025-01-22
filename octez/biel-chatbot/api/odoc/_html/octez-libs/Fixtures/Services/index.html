@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Services (octez-libs.Fixtures.Services)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">octez-libs</a> &#x00BB; <a href="../index.html">Fixtures</a> &#x00BB; Services</nav><header class="odoc-preamble"><h1>Module <code><span>Fixtures.Services</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec module anchored" id="module-Service"><a href="#module-Service" class="anchor"></a><code><span><span class="keyword">module</span> <a href="Service/index.html">Service</a></span><span> : <span class="keyword">sig</span> ... <span class="keyword">end</span></span></code></div></div><p>Shared part</p><div class="odoc-spec"><div class="spec value anchored" id="val-repeat_service"><a href="#val-repeat_service" class="anchor"></a><code><span><span class="keyword">val</span> repeat_service : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    unit * int,
+    unit,
+    <a href="../../Json_repr/index.html#type-ezjsonm">Json_repr.ezjsonm</a>,
+    <a href="../../Json_repr/index.html#type-ezjsonm">Json_repr.ezjsonm</a>,
+    unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-add_service"><a href="#val-add_service" class="anchor"></a><code><span><span class="keyword">val</span> add_service : 
+  <span><span>(<span>[ `POST ]</span>, unit, unit * int, unit, int, int, unit)</span> <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-alternate_add_service"><a href="#val-alternate_add_service" class="anchor"></a><code><span><span class="keyword">val</span> alternate_add_service : 
+  <span><span>(<span>[ `GET ]</span>, unit, <span>(unit * int)</span> * float, unit, unit, float, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-alternate_add_service'"><a href="#val-alternate_add_service'" class="anchor"></a><code><span><span class="keyword">val</span> alternate_add_service' : 
+  <span><span>(<span>[ `POST ]</span>, unit, <span>(unit * int)</span> * float, unit, unit, int, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-alternate_add_service_inverted"><a href="#val-alternate_add_service_inverted" class="anchor"></a><code><span><span class="keyword">val</span> alternate_add_service_inverted : 
+  <span><span>(<span>[ `GET ]</span>, unit, <span>(unit * float)</span> * int, unit, unit, float, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-alternate_add_service_patch"><a href="#val-alternate_add_service_patch" class="anchor"></a><code><span><span class="keyword">val</span> alternate_add_service_patch : 
+  <span><span>(<span>[ `POST ]</span>, unit, <span>(unit * int)</span> * float, unit, int, int, unit)</span> <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-alternate_add_service_delete"><a href="#val-alternate_add_service_delete" class="anchor"></a><code><span><span class="keyword">val</span> alternate_add_service_delete : 
+  <span><span>(<span>[ `POST ]</span>, unit, <span>(unit * int)</span> * float, unit, unit, unit, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-minus_service"><a href="#val-minus_service" class="anchor"></a><code><span><span class="keyword">val</span> minus_service : 
+  <span><span>(<span>[ `POST ]</span>, unit * float, <span>(unit * float)</span> * int, unit, unit, float, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-describe_service"><a href="#val-describe_service" class="anchor"></a><code><span><span class="keyword">val</span> describe_service : <span><span>(unit, unit, unit)</span> <a href="Service/index.html#type-description_service">Service.description_service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-dummy_service"><a href="#val-dummy_service" class="anchor"></a><code><span><span class="keyword">val</span> dummy_service : 
+  <span><span>(<span>[ `POST ]</span>,
+    unit,
+    <span>(<span>(<span>(<span>(<span>(<span>(unit * float)</span> * float)</span> * float)</span> * float)</span> * float)</span> * float)</span> * float,
+    unit,
+    unit,
+    unit,
+    unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-sum_service"><a href="#val-sum_service" class="anchor"></a><code><span><span class="keyword">val</span> sum_service : 
+  <span><span>(<span>[ `GET ]</span>, unit, unit * <span>int list</span>, unit, unit, int, unit)</span> <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-prefix_dir1"><a href="#val-prefix_dir1" class="anchor"></a><code><span><span class="keyword">val</span> prefix_dir1 : <span><span>(unit, unit * float)</span> <a href="../../Resto/Path/index.html#type-path">Resto.Path.path</a></span></span></code></div></div><p>Client only</p><div class="odoc-spec"><div class="spec value anchored" id="val-real_minus_service1"><a href="#val-real_minus_service1" class="anchor"></a><code><span><span class="keyword">val</span> real_minus_service1 : 
+  <span><span>(<span>[ `POST ]</span>, unit, <span>(unit * float)</span> * int, unit, unit, float, unit)</span>
+    <a href="Service/index.html#type-service">Service.service</a></span></span></code></div></div></div></body></html>

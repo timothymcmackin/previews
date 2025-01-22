@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Preapply (octez-protocol-013-PtJakart-libs.Tezos_client_013_PtJakart.Protocol_client_context.Alpha_block_services.S.Helpers.Preapply)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../../../index.html">octez-protocol-013-PtJakart-libs</a> &#x00BB; <a href="../../../../../index.html">Tezos_client_013_PtJakart</a> &#x00BB; <a href="../../../../index.html">Protocol_client_context</a> &#x00BB; <a href="../../../index.html">Alpha_block_services</a> &#x00BB; <a href="../../index.html">S</a> &#x00BB; <a href="../index.html">Helpers</a> &#x00BB; Preapply</nav><header class="odoc-preamble"><h1>Module <code><span>Helpers.Preapply</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec type anchored" id="type-block_param"><a href="#type-block_param" class="anchor"></a><code><span><span class="keyword">type</span> block_param</span><span> = </span><span>{</span></code><ol><li id="type-block_param.protocol_data" class="def record field anchored"><a href="#type-block_param.protocol_data" class="anchor"></a><code><span>protocol_data : <a href="../../../../../../../tezos-protocol-013-PtJakart/Tezos_protocol_013_PtJakart_lifted/Lifted_protocol/index.html#type-block_header_data">Lifted_protocol.block_header_data</a>;</span></code></li><li id="type-block_param.operations" class="def record field anchored"><a href="#type-block_param.operations" class="anchor"></a><code><span>operations : <span><span><a href="../../../../../../../tezos-protocol-013-PtJakart/Tezos_protocol_013_PtJakart_lifted/Lifted_protocol/index.html#type-operation">Lifted_protocol.operation</a> list</span> list</span>;</span></code></li></ol><code><span>}</span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-block"><a href="#val-block" class="anchor"></a><code><span><span class="keyword">val</span> block : 
+  <span><span>(<span>[ `POST ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>&lt; sort_operations : bool
+    ; timestamp : <span><a href="../../../../../../../octez-libs/Tezos_base/Time/Protocol/index.html#type-t">Tezos_base.Time.Protocol.t</a> option</span> &gt;</span>,
+    <a href="#type-block_param">block_param</a>,
+    <a href="../../../../../../../octez-libs/Tezos_base/Block_header/index.html#type-shell_header">Tezos_base.Block_header.shell_header</a>
+    * <span><span><a href="../../../../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-error">Tezos_base.TzPervasives.error</a> <a href="../../../../../../../octez-shell-libs/Tezos_shell_services/Preapply_result/index.html#type-t">Tezos_shell_services.Preapply_result.t</a></span> list</span>)</span>
+    <a href="../../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-operations"><a href="#val-operations" class="anchor"></a><code><span><span class="keyword">val</span> operations : 
+  <span><span>(<span>[ `POST ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>(unit * <span>[ `Main <span>| `Test</span> <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Chain_id/index.html#type-t">Tezos_base.TzPervasives.Chain_id.t</a></span> ]</span>)</span>
+    * <span>[ `Genesis
+      <span><span>| `Head</span> of int</span>
+      <span><span>| `Alias</span> of <span>[ `Caboose <span>| `Checkpoint</span> <span>| `Savepoint</span> ]</span> * int</span>
+      <span><span>| `Hash</span> of <a href="../../../../../../../octez-libs/Tezos_crypto/Hashed/Block_hash/index.html#type-t">Tezos_base.TzPervasives.Block_hash.t</a> * int</span>
+      <span><span>| `Level</span> of <span class="xref-unresolved">Stdlib</span>.Int32.t</span> ]</span>,
+    <span>&lt; version : <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span> &gt;</span>,
+    <span><a href="../../../../../../../tezos-protocol-013-PtJakart/Tezos_protocol_013_PtJakart_lifted/Lifted_protocol/index.html#type-operation">Lifted_protocol.operation</a> list</span>,
+    <span class="xref-unresolved">Tezos_shell_services__Block_services.version</span>
+    * <span><span>(<a href="../../../../../../../tezos-protocol-013-PtJakart/Tezos_protocol_013_PtJakart_lifted/Lifted_protocol/index.html#type-operation_data">Lifted_protocol.operation_data</a> * <a href="../../../../../../../tezos-protocol-013-PtJakart/Tezos_protocol_013_PtJakart_lifted/Lifted_protocol/index.html#type-operation_receipt">Lifted_protocol.operation_receipt</a>)</span> list</span>)</span>
+    <a href="../../../../../../../octez-libs/Tezos_rpc/Service/index.html#type-t">Tezos_rpc.Service.t</a></span></span></code></div></div></div></body></html>

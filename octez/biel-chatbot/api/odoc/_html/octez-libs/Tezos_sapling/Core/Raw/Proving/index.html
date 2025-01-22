@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Proving (octez-libs.Tezos_sapling.Core.Raw.Proving)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../../index.html">octez-libs</a> &#x00BB; <a href="../../../index.html">Tezos_sapling</a> &#x00BB; <a href="../../index.html">Core</a> &#x00BB; <a href="../index.html">Raw</a> &#x00BB; Proving</nav><header class="odoc-preamble"><h1>Module <code><span>Raw.Proving</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec type anchored" id="type-t"><a href="#type-t" class="anchor"></a><code><span><span class="keyword">type</span> t</span><span> = <a href="../../../Rustzcash/index.html#type-proving_ctx">R.proving_ctx</a></span></code></div></div><div class="odoc-spec"><div class="spec type anchored" id="type-ar"><a href="#type-ar" class="anchor"></a><code><span><span class="keyword">type</span> ar</span><span> = <a href="../../../Rustzcash/index.html#type-ar">R.ar</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-with_proving_ctx"><a href="#val-with_proving_ctx" class="anchor"></a><code><span><span class="keyword">val</span> with_proving_ctx : <span><span>(<span><a href="../../../Rustzcash/index.html#type-proving_ctx">R.proving_ctx</a> <span class="arrow">&#45;&gt;</span></span> <span class="type-var">'a</span>)</span> <span class="arrow">&#45;&gt;</span></span> <span class="type-var">'a</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-ar_random"><a href="#val-ar_random" class="anchor"></a><code><span><span class="keyword">val</span> ar_random : <span>unit <span class="arrow">&#45;&gt;</span></span> <a href="../../../Rustzcash/index.html#type-ar">R.ar</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-spend_proof"><a href="#val-spend_proof" class="anchor"></a><code><span><span class="keyword">val</span> spend_proof : 
+  <span><a href="../../../Rustzcash/index.html#type-proving_ctx">R.proving_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Viewing_key/index.html#type-t">Viewing_key.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Spending_key/index.html#type-t">Spending_key.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Viewing_key/index.html#type-address">Viewing_key.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-rcm">R.rcm</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-ar">R.ar</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">amount</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">root</span>:<a href="../../../Rustzcash/index.html#type-hash">R.hash</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">witness</span>:<span class="xref-unresolved">Stdlib</span>.Bytes.t <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../../Rustzcash/index.html#type-cv">R.cv</a> * <a href="../../../Rustzcash/index.html#type-rk">R.rk</a> * <a href="../../../Rustzcash/index.html#type-spend_proof">R.spend_proof</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-spend_sig"><a href="#val-spend_sig" class="anchor"></a><code><span><span class="keyword">val</span> spend_sig : 
+  <span><a href="../Spending_key/index.html#type-t">Spending_key.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-ar">R.ar</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-cv">R.cv</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-nullifier">R.nullifier</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-rk">R.rk</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-spend_proof">R.spend_proof</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../../Rustzcash/index.html#type-spend_sig">R.spend_sig</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-output_proof"><a href="#val-output_proof" class="anchor"></a><code><span><span class="keyword">val</span> output_proof : 
+  <span><a href="../../../Rustzcash/index.html#type-proving_ctx">R.proving_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-esk">R.esk</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../Viewing_key/index.html#type-address">Viewing_key.address</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Rustzcash/index.html#type-rcm">R.rcm</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">amount</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../../Rustzcash/index.html#type-cv">R.cv</a> * <a href="../../../Rustzcash/index.html#type-output_proof">R.output_proof</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-make_binding_sig"><a href="#val-make_binding_sig" class="anchor"></a><code><span><span class="keyword">val</span> make_binding_sig : 
+  <span><a href="../../../Rustzcash/index.html#type-proving_ctx">R.proving_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../UTXO/index.html#type-input">UTXO.input</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../UTXO/index.html#type-output">UTXO.output</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">balance</span>:int64 <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">bound_data</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../../Rustzcash/index.html#type-binding_sig">R.binding_sig</a></span></code></div></div></div></body></html>

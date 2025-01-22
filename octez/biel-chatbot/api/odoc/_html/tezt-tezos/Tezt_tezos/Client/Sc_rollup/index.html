@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Sc_rollup (tezt-tezos.Tezt_tezos.Client.Sc_rollup)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">tezt-tezos</a> &#x00BB; <a href="../../index.html">Tezt_tezos</a> &#x00BB; <a href="../index.html">Client</a> &#x00BB; Sc_rollup</nav><header class="odoc-preamble"><h1>Module <code><span>Client.Sc_rollup</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value anchored" id="val-remember_smart_rollup"><a href="#val-remember_smart_rollup" class="anchor"></a><code><span><span class="keyword">val</span> remember_smart_rollup : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">address</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client remember smart rollup &lt;alias&gt; &lt;address&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-list_known_smart_rollups"><a href="#val-list_known_smart_rollups" class="anchor"></a><code><span><span class="keyword">val</span> list_known_smart_rollups : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(string * string)</span> list</span> <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client list known smart rollups</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-forget_all_smart_rollups"><a href="#val-forget_all_smart_rollups" class="anchor"></a><code><span><span class="keyword">val</span> forget_all_smart_rollups : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client forget all smart rollups</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-show_known_smart_rollup"><a href="#val-show_known_smart_rollup" class="anchor"></a><code><span><span class="keyword">val</span> show_known_smart_rollup : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span>string <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client show known smart rollup &lt;alias&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-originate"><a href="#val-originate" class="anchor"></a><code><span><span class="keyword">val</span> originate : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?whitelist</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">kind</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">parameters_ty</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">boot_sector</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>string <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Run <code>octez-client originate sc rollup &lt;alias&gt; from &lt;src&gt; of kind &lt;kind&gt; booting with &lt;boot_sector&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-spawn_originate"><a href="#val-spawn_originate" class="anchor"></a><code><span><span class="keyword">val</span> spawn_originate : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?force</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?whitelist</span>:<span>string list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">alias</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">kind</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">parameters_ty</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">boot_sector</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt_wrapper</span>.Process.t</span></code></div><div class="spec-doc"><p>Same as <code>originate</code>, but do not wait for the process to exit.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-send_message"><a href="#val-send_message" class="anchor"></a><code><span><span class="keyword">val</span> send_message : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">msg</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p>Run <code>octez-client send rollup message &lt;msg&gt; from &lt;src&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-spawn_send_message"><a href="#val-spawn_send_message" class="anchor"></a><code><span><span class="keyword">val</span> spawn_send_message : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">msg</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span class="xref-unresolved">Tezt_wrapper</span>.Process.t</span></code></div><div class="spec-doc"><p>Same as <code>send_message</code>, but do not wait for the process to exit.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-publish_commitment"><a href="#val-publish_commitment" class="anchor"></a><code><span><span class="keyword">val</span> publish_commitment : 
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">sc_rollup</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">compressed_state</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">inbox_level</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">predecessor</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">number_of_ticks</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client publish commitment from &lt;src&gt; for sc rollup &lt;sc_rollup&gt;
+      with compressed state &lt;compressed_state&gt; at inbox level &lt;inbox_level&gt;
+      and predecessor &lt;predecessor&gt; and number of ticks &lt;number_of_ticks&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-cement_commitment"><a href="#val-cement_commitment" class="anchor"></a><code><span><span class="keyword">val</span> cement_commitment : 
+  <span><a href="../../Protocol/index.html#type-t">Protocol.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">dst</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client cement commitment &lt;hash&gt; from &lt;src&gt; for sc rollup &lt;rollup&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-timeout"><a href="#val-timeout" class="anchor"></a><code><span><span class="keyword">val</span> timeout : 
+  <span><span class="optlabel">?expect_failure</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">staker1</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">staker2</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">dst</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client timeout dispute on sc rollup &lt;dst&gt; with
+     &lt;staker1&gt; against &lt;staker2&gt; from &lt;src&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-submit_recover_bond"><a href="#val-submit_recover_bond" class="anchor"></a><code><span><span class="keyword">val</span> submit_recover_bond : 
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?storage_limit</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">rollup</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">staker</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client submit sc rollup recover bond of &lt;staker&gt; for &lt;sc_rollup&gt; from &lt;src&gt;</code>.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-execute_outbox_message"><a href="#val-execute_outbox_message" class="anchor"></a><code><span><span class="keyword">val</span> execute_outbox_message : 
+  <span><span class="optlabel">?wait</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?burn_cap</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?storage_limit</span>:int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?fee</span>:<a href="../../Tez/index.html#type-t">Tez.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="optlabel">?hooks</span>:<span class="xref-unresolved">Tezt_wrapper</span>.Process.hooks <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">rollup</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">src</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">commitment_hash</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">proof</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../index.html#type-t">t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>unit <a href="../../Runnable/index.html#type-process">Runnable.process</a></span></span></code></div><div class="spec-doc"><p>Run <code>octez-client execute outbox message of sc rollup &lt;rollup&gt; from &lt;src&gt;
+      for commitment hash &lt;hash&gt; and output proof &lt;proof&gt;</code>.</p></div></div></div></body></html>

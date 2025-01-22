@@ -1,0 +1,4 @@
+{0 tezos-openapi index}
+{1 Library tezos-openapi}
+The entry point of this library is the module:
+{!module-Tezos_openapi}.

@@ -1,0 +1,4 @@
+{0 octez-protocol-compiler-compat index}
+{1 Library octez-protocol-compiler-compat}
+The entry point of this library is the module:
+{!module-Octez_protocol_compiler_compat}.

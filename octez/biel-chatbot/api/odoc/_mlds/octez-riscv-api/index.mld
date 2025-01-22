@@ -1,0 +1,4 @@
+{0 octez-riscv-api index}
+{1 Library octez-riscv-api}
+The entry point of this library is the module:
+{!module-Octez_riscv_api}.

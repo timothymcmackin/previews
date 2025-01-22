@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Make (octez-evm-node-libs.Evm_node_lib_dev.Simulator.Make)</title><meta charset="utf-8"/><link rel="stylesheet" href="../../../../odoc.support/odoc.css"/><meta name="generator" content="odoc 2.4.3"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../odoc.support/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">octez-evm-node-libs</a> &#x00BB; <a href="../../index.html">Evm_node_lib_dev</a> &#x00BB; <a href="../index.html">Simulator</a> &#x00BB; Make</nav><header class="odoc-preamble"><h1>Module <code><span>Simulator.Make</span></code></h1></header><nav class="odoc-toc"><ul><li><a href="#parameters">Parameters</a></li><li><a href="#signature">Signature</a></li></ul></nav><div class="odoc-content"><h2 id="parameters"><a href="#parameters" class="anchor"></a>Parameters</h2><div class="odoc-spec"><div class="spec parameter anchored" id="argument-1-SimulationBackend"><a href="#argument-1-SimulationBackend" class="anchor"></a><code><span><span class="keyword">module</span> </span><span><a href="argument-1-SimulationBackend/index.html">SimulationBackend</a></span><span> : <a href="../module-type-SimulationBackend/index.html">SimulationBackend</a></span></code></div></div><h2 id="signature"><a href="#signature" class="anchor"></a>Signature</h2><div class="odoc-spec"><div class="spec value anchored" id="val-call_simulation"><a href="#val-call_simulation" class="anchor"></a><code><span><span class="keyword">val</span> call_simulation : 
+  <span><span class="optlabel">?state_override</span>:<a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-state_override">Evm_node_lib_dev_encoding.Ethereum_types.state_override</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">log_file</span>:string <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">input_encoder</span>:
+    <span>(<span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span> <span><span>(<span>string list</span>, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">input</span>:<span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="argument-1-SimulationBackend/index.html#type-state">SimulationBackend.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(bytes, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-simulation_input"><a href="#val-simulation_input" class="anchor"></a><code><span><span class="keyword">val</span> simulation_input : 
+  <span><span class="label">simulation_version</span>:<span>[&lt; `V0 <span>| `V1</span> <span>| `V2</span> ]</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">with_da_fees</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">timestamp</span>:<a href="../../../../octez-libs/Tezos_base/Time/Protocol/index.html#type-t">Tezos_base.TzPervasives.Time.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-call">Evm_node_lib_dev_encoding.Ethereum_types.call</a> <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../Simulation/index.html#type-estimate_gas_input">Simulation.estimate_gas_input</a></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-simulation_version"><a href="#val-simulation_version" class="anchor"></a><code><span><span class="keyword">val</span> simulation_version : 
+  <span><a href="argument-1-SimulationBackend/index.html#type-state">SimulationBackend.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span>[&gt; `V0 <span>| `V1</span> <span>| `V2</span> ]</span>, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-simulate_call"><a href="#val-simulate_call" class="anchor"></a><code><span><span class="keyword">val</span> simulate_call : 
+  <span><span class="label">overwrite_tick_limit</span>:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-call">Evm_node_lib_dev_encoding.Ethereum_types.call</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/Block_parameter/index.html#type-extended">Evm_node_lib_dev_encoding.Ethereum_types.Block_parameter.extended</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-state_override">Evm_node_lib_dev_encoding.Ethereum_types.state_override</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><span>(<span><span>(<a href="../../Simulation/index.html#type-execution_result">Simulation.execution_result</a>,
+      <a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-hash">Evm_node_lib_dev_encoding.Ethereum_types.hash</a>)</span>
+      <span class="xref-unresolved">Stdlib</span>.result</span>,
+     string)</span>
+     <span class="xref-unresolved">Stdlib</span>.result</span>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-call_estimate_gas"><a href="#val-call_estimate_gas" class="anchor"></a><code><span><span class="keyword">val</span> call_estimate_gas : 
+  <span><a href="../../Simulation/index.html#type-estimate_gas_input">Simulation.estimate_gas_input</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="argument-1-SimulationBackend/index.html#type-state">SimulationBackend.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><span>(<span><span>(<a href="../../Simulation/index.html#type-execution_result">Simulation.execution_result</a>,
+      <a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-hash">Evm_node_lib_dev_encoding.Ethereum_types.hash</a>)</span>
+      <span class="xref-unresolved">Stdlib</span>.result</span>,
+     string)</span>
+     <span class="xref-unresolved">Stdlib</span>.result</span>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-gas_for_fees"><a href="#val-gas_for_fees" class="anchor"></a><code><span><span class="keyword">val</span> gas_for_fees : 
+  <span><a href="argument-1-SimulationBackend/index.html#type-state">SimulationBackend.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span>bytes <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span class="xref-unresolved">Z</span>.t, <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span> <span class="xref-unresolved">Stdlib</span>.result</span> <span class="xref-unresolved">Lwt</span>.t</span></span></code></div><div class="spec-doc"><p><code>gas_for_fees simulation_state tx_data</code> returns the DA fees, i.e. the gas unit necessary for the data availability.</p><p>The gas for fees must be computed based on a context, to retrieve the base fee per gas and da_fee_per_byte, these information are taken from <code>simulation_state</code>.</p><p>/!\ This function must return enough gas for fees. Therefore it must be synchronised to fee model in the kernel. /!\</p><p>The whole point of this function is to avoid an unncessary call to the WASM PVM to improve the performances.</p></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-confirm_gas"><a href="#val-confirm_gas" class="anchor"></a><code><span><span class="keyword">val</span> confirm_gas : 
+  <span><span class="label">timestamp</span>:<a href="../../../../octez-libs/Tezos_base/Time/Protocol/index.html#type-t">Tezos_base.TzPervasives.Time.Protocol.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">maximum_gas_per_transaction</span>:<span class="xref-unresolved">Z</span>.t <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="label">simulation_version</span>:<span>[&lt; `V0 <span>| `V1</span> <span>| `V2</span> V0 ]</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-call">Evm_node_lib_dev_encoding.Ethereum_types.call</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="argument-1-SimulationBackend/index.html#type-state">SimulationBackend.state</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-quantity">Evm_node_lib_dev_encoding.Ethereum_types.quantity</a>
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tzresult">Tezos_base.TzPervasives.tzresult</a></span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div><div class="odoc-spec"><div class="spec value anchored" id="val-estimate_gas"><a href="#val-estimate_gas" class="anchor"></a><code><span><span class="keyword">val</span> estimate_gas : 
+  <span><a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-call">Evm_node_lib_dev_encoding.Ethereum_types.call</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>(<span><span>(<span><span>(<a href="../../Simulation/index.html#type-execution_result">Simulation.execution_result</a>,
+      <a href="../../../Evm_node_lib_dev_encoding/Ethereum_types/index.html#type-hash">Evm_node_lib_dev_encoding.Ethereum_types.hash</a>)</span>
+      <span class="xref-unresolved">Stdlib</span>.result</span>,
+     string)</span>
+     <span class="xref-unresolved">Stdlib</span>.result</span>,
+    <a href="../../../../octez-libs/Tezos_base/TzPervasives/index.html#type-tztrace">Tezos_base.TzPervasives.tztrace</a>)</span>
+    <span class="xref-unresolved">Stdlib</span>.result</span>
+    <span class="xref-unresolved">Lwt</span>.t</span></span></code></div></div></div></body></html>
