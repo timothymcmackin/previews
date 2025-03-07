@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktezos_developer_docs=self.webpackChunktezos_developer_docs||[]).push([[9647],{18122:(e,s,r)=>{r.r(s),r.d(s,{default:()=>l});r(96540);var c=r(34164),o=r(81769),d=r(204),t=r(22831),u=r(53511),a=r(74848);function l(e){return(0,a.jsx)(o.e3,{className:(0,c.A)(d.G.wrapper.docsPages),children:(0,a.jsx)(u.A,{children:(0,t.v)(e.route.routes)})})}}}]);

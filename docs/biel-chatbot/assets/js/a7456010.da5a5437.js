@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktezos_developer_docs=self.webpackChunktezos_developer_docs||[]).push([[1235],{88552:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
