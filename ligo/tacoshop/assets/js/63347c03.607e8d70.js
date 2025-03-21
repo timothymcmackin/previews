@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[50739],{86607:e=>{e.exports=JSON.parse('{"label":"explainer","permalink":"/previews/ligo/tacoshop/blog/tags/explainer","allTagsPath":"/previews/ligo/tacoshop/blog/tags","count":2}')}}]);

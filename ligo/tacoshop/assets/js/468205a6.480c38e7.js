@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[65764],{68709:e=>{e.exports=JSON.parse('[{"label":"migration","permalink":"/previews/ligo/tacoshop/blog/tags/migration","count":1},{"label":"explainer","permalink":"/previews/ligo/tacoshop/blog/tags/explainer","count":2}]')}}]);

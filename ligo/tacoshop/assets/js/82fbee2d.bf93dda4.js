@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[62811],{24863:e=>{e.exports=JSON.parse('{"permalink":"/previews/ligo/tacoshop/blog/tags/explainer","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"On the Ligo Blog, you will find news, release guides and explainers.","blogTitle":"Ligo Blog"}')}}]);
