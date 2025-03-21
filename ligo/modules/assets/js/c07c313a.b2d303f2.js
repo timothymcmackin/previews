@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[71537],{86155:e=>{e.exports=JSON.parse('{"label":"explainer","permalink":"/previews/ligo/modules/blog/tags/explainer","allTagsPath":"/previews/ligo/modules/blog/tags","count":2}')}}]);

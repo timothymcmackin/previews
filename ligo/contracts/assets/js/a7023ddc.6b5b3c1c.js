@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[11713],{53457:e=>{e.exports=JSON.parse('[{"label":"migration","permalink":"/blog/tags/migration","count":1},{"label":"explainer","permalink":"/blog/tags/explainer","count":2}]')}}]);

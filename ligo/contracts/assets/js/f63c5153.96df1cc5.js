@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[92167],{75052:e=>{e.exports=JSON.parse('{"label":"migration","permalink":"/previews/ligo/contracts/blog/tags/migration","allTagsPath":"/previews/ligo/contracts/blog/tags","count":1}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[78200],{75043:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/migration","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"On the Ligo Blog, you will find news, release guides and explainers.","blogTitle":"Ligo Blog"}')}}]);

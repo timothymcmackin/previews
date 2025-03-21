@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[50837],{75436:e=>{e.exports=JSON.parse('{"permalink":"/previews/ligo/contracts/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"On the Ligo Blog, you will find news, release guides and explainers.","blogTitle":"Ligo Blog"}')}}]);
