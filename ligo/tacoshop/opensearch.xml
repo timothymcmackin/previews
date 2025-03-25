@@ -4,8 +4,8 @@
   <ShortName>Ligo</ShortName>
   <Description>Search Ligo</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Image width="16" height="16" type="image/x-icon">https://ligolang.org/previews/ligo/tacoshop/img/favicon.svg</Image>
-  <Url type="text/html" method="get" template="https://ligolang.org/previews/ligo/tacoshop/search?q={searchTerms}"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://ligolang.org/previews/ligo/tacoshop/opensearch.xml" />
-  <moz:SearchForm>https://ligolang.org/previews/ligo/tacoshop/</moz:SearchForm>
+  <Image width="16" height="16" type="image/x-icon">https://timothymcmackin.github.io/previews/ligo/tacoshop/img/favicon.svg</Image>
+  <Url type="text/html" method="get" template="https://timothymcmackin.github.io/previews/ligo/tacoshop/search?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://timothymcmackin.github.io/previews/ligo/tacoshop/opensearch.xml" />
+  <moz:SearchForm>https://timothymcmackin.github.io/previews/ligo/tacoshop/</moz:SearchForm>
 </OpenSearchDescription>
