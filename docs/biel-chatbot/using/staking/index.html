@@ -15,9 +15,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
 
 <meta http-equiv="Content-Security-Policy" content=" default-src &#39;none&#39;; base-uri &#39;self&#39;; manifest-src &#39;self&#39;; script-src https://*.googletagmanager.com https://cdn.jsdelivr.net &#39;self&#39; &#39;unsafe-inline&#39;; style-src https://cdn.jsdelivr.net https://fonts.googleapis.com &#39;self&#39; &#39;unsafe-inline&#39;; font-src https://cdn.jsdelivr.net &#39;self&#39;; img-src &#39;self&#39; https://projects.gitlab.io https://gitlab.com https://*.googletagmanager.com https://*.google-analytics.com data:; media-src &#39;self&#39;; form-action &#39;self&#39;; connect-src &#39;self&#39; https://*.algolia.net https://*.algolianet.com https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://app.pushfeedback.com wss://app.biel.ai https://app.biel.ai; frame-src https://tezosbot.vercel.app;">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/previews/docs/biel-chatbot/assets/css/styles.eaed00ac.css">
-<script src="/previews/docs/biel-chatbot/assets/js/runtime~main.7d586935.js" defer="defer"></script>
-<script src="/previews/docs/biel-chatbot/assets/js/main.8a96b0ce.js" defer="defer"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/previews/docs/biel-chatbot/assets/css/styles.3cefed86.css">
+<script src="/previews/docs/biel-chatbot/assets/js/runtime~main.9227dc65.js" defer="defer"></script>
+<script src="/previews/docs/biel-chatbot/assets/js/main.6559faed.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56M3FZ8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -92,7 +92,8 @@ In the rare event that your baker is punished (&quot;slashed&quot;) for misbehav
 <p>The easiest way to stake is to use the staking web application at <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>, which walks you through the process.
 If you don&#x27;t want to use this application, some wallets have built-in staking functionality that you can use instead.
 Similarly, some cryptocurrency exchanges allow you to stake directly from their interfaces.
-However, you should evaluate these staking functions carefully because they may have different conditions and rewards than staking directly through the Tezos system and <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>.</p>
+However, you should evaluate these staking functions carefully because they may have different conditions and rewards than staking directly through the Tezos system and <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>.
+For testing purposes, there is a Ghostnet staking site at <a href="https://stake-ghostnet.tezos.com" target="_blank" rel="noopener noreferrer">https://stake-ghostnet.tezos.com</a>.</p>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Make sure that you are staking at the right URL (<a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>).
 As with all decentralized applications, do not trust unknown sites asking you to sign transactions and never give your private seed phrase to anyone.</p></div></div>
 <ol>
@@ -104,13 +105,21 @@ For a list of popular wallets, see <a href="/previews/docs/biel-chatbot/using/wa
 <p>Go to <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a> in a web browser.</p>
 </li>
 <li>
-<p>Click <strong>Connect your wallet</strong>, select your wallet, and accept the connection in your wallet app.
+<p>Click <strong>Connect</strong>, select your wallet, and accept the connection in your wallet app.
 The staking app shows your account balance and how much you have staked.</p>
 <img src="/img/using/staking-current-balance.png" alt="The wallet app, showing an account with 100 tez and 0 tez staked" style="width:500px">
 </li>
 <li>
-<p>Click <strong>Select Baker</strong> and select a baker to delegate and stake to.</p>
-<p>To choose a baker, you can look up bakers in a block explorer by their addresses.
+<p>Click <strong>Start Earning</strong>.</p>
+</li>
+<li>
+<p>In the popup window, click the option to delegate or stake; in most cases, click <strong>Stake</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Select Baker</strong>.</p>
+<p>The window shows bakers and information about their fees and free space for staking:</p>
+<img alt="Selecting a baker, with information about their free space and fee" src="/img/using/staking-select-baker.png" style="width:500px">
+<p>For more information about bakers, you can look them up in a block explorer by their addresses.
 For example, the block explorer tzkt.io has information on bakers at <a href="https://tzkt.io/bakers" target="_blank" rel="noopener noreferrer">https://tzkt.io/bakers</a> and tzstats.com has information at <a href="https://tzstats.com/bakers" target="_blank" rel="noopener noreferrer">https://tzstats.com/bakers</a>.
 Evaluate bakers by comparing information about them, including:</p>
 <ul>
@@ -125,28 +134,24 @@ Evaluate bakers by comparing information about them, including:</p>
 <img alt="The TzKT block explorer, showing bakers with different capacities for staking" src="/img/using/staking-capacity.png" style="width:500px">
 </li>
 <li>
-<p>On the Select Baker page, select the baker.</p>
+<p>Choose a baker and click <strong>Select</strong> next to them.</p>
 <p>The application prompts you to delegate your account to that baker, as in this screenshot:</p>
 <img alt="Delegating to the baker" src="/img/using/staking-delegating.png" style="width:500px">
 </li>
 <li>
-<p>Click <strong>Delegate</strong> and approve the operation in your wallet to delegate to that baker.
-It may take a few seconds for the operation to be final.</p>
-<p>Now the web application shows that your account is delegated to the baker, as in this screenshot:</p>
-<img alt="Account information, showing that the account is delegated" src="/img/using/staking-delegated-account.png" style="width:500px">
+<p>Click <strong>Continue</strong> and approve the operation in your wallet to delegate to that baker.
+It may take a few seconds for the operation to be final.
+When the transaction is final, the Stake Amount window opens.</p>
 </li>
 <li>
-<p>Click <strong>Stake</strong> and confirm the terms of use for the staking application.</p>
-</li>
-<li>
-<p>Specify the amount to stake.</p>
+<p>In the Stake Amount window, specify the amount to stake.</p>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Don&#x27;t stake all of the tez in the account; you need some liquid tez to pay transaction fees.
 For this transaction, the application deducts the transaction fee from the amount that you stake.
 However, you will need liquid, unstaked tez later to unstake the tez.</p></div></div>
 <img alt="Setting 50 tez to stake" src="/img/using/staking-amount.png" style="width:500px">
 </li>
 <li>
-<p>When you have selected the amount to stake, click <strong>Stake</strong> and approve the operation in your wallet to stake that amount.
+<p>Click <strong>Stake</strong>, confirm the terms of use for the staking application, click <strong>Stake</strong> again, and confirm the transaction in your wallet.
 This operation may also take a few seconds.</p>
 </li>
 </ol>
@@ -201,9 +206,9 @@ Therefore, funds staked with that baker stay frozen until the end of cycle 5 in 
 Then, the user can finalize their unstake request.</p>
 <p><img decoding="async" loading="lazy" alt="A diagram of an unstake request and the period that the user must wait to finalize that request" src="/previews/docs/biel-chatbot/assets/images/staking-periods-diagram-9fb201b41debd9a847a5daedd6285f9f.png" width="2763" height="1311" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-information">More information<a href="#more-information" class="hash-link" aria-label="Direct link to More information" title="Direct link to More information">​</a></h2>
-<p>For more information about the staking web application and the process of staking from the Tezos user perspective, see the blog post <a href="https://spotlight.tezos.com/how-to-stake/" target="_blank" rel="noopener noreferrer">How to stake your tez and earn 2x rewards</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-01-16T05:00:00.000Z" itemprop="dateModified">Jan 16, 2025</time></b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/previews/docs/biel-chatbot/using/dapps"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Applications</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/previews/docs/biel-chatbot/architecture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#staking-as-a-tezos-user" class="table-of-contents__link toc-highlight">Staking as a Tezos user</a></li><li><a href="#how-to-stake" class="table-of-contents__link toc-highlight">How to stake</a></li><li><a href="#how-to-unstake" class="table-of-contents__link toc-highlight">How to unstake</a></li><li><a href="#viewing-your-rewards" class="table-of-contents__link toc-highlight">Viewing your rewards</a></li><li><a href="#staking-periods-and-delays" class="table-of-contents__link toc-highlight">Staking periods and delays</a></li><li><a href="#more-information" class="table-of-contents__link toc-highlight">More information</a></li></ul></div></div></div></div></main></div></div></div></div>
+<p>For more information about the staking web application and the process of staking from the Tezos user perspective, see the blog post <a href="https://spotlight.tezos.com/how-to-stake/" target="_blank" rel="noopener noreferrer">How to stake your tez and earn 2x rewards</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-03-19T04:00:00.000Z" itemprop="dateModified">Mar 19, 2025</time></b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/previews/docs/biel-chatbot/using/dapps"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Applications</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/previews/docs/biel-chatbot/architecture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#staking-as-a-tezos-user" class="table-of-contents__link toc-highlight">Staking as a Tezos user</a></li><li><a href="#how-to-stake" class="table-of-contents__link toc-highlight">How to stake</a></li><li><a href="#how-to-unstake" class="table-of-contents__link toc-highlight">How to unstake</a></li><li><a href="#viewing-your-rewards" class="table-of-contents__link toc-highlight">Viewing your rewards</a></li><li><a href="#staking-periods-and-delays" class="table-of-contents__link toc-highlight">Staking periods and delays</a></li><li><a href="#more-information" class="table-of-contents__link toc-highlight">More information</a></li></ul></div></div></div></div></main></div></div></div></div>
 <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.esm.js"></script>
 <script>const feedbackButton=document.createElement("feedback-button");feedbackButton.setAttribute("project","80ja0zkj8v"),feedbackButton.setAttribute("modal-position","bottom-right"),feedbackButton.setAttribute("button-style","light"),feedbackButton.setAttribute("button-position","bottom-right"),feedbackButton.setAttribute("id","default"),feedbackButton.textContent="Feedback",document.body.appendChild(feedbackButton)</script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
-<script>const bielButton=document.createElement("biel-button");bielButton.setAttribute("project","w30c27l8fg"),bielButton.setAttribute("modal-position","bottom-right"),bielButton.setAttribute("button-style","dark"),bielButton.setAttribute("button-position","center-right"),bielButton.setAttribute("header-title","Tezos documentation chatbot"),bielButton.setAttribute("footer-text",'AI-generated answers may contain errors. Verify the information before use. For more information, see <a href="https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot">Using the chatbot</a>.'),bielButton.setAttribute("id","default"),bielButton.textContent="Ask AI",document.body.appendChild(bielButton)</script></body>
+<script>const bielButton=document.createElement("biel-button");bielButton.setAttribute("project","w30c27l8fg"),bielButton.setAttribute("modal-position","bottom-right"),bielButton.setAttribute("button-style","dark"),bielButton.setAttribute("button-position","center-right"),bielButton.setAttribute("header-title","Tezos documentation chatbot (beta)"),bielButton.setAttribute("footer-text",'AI-generated answers may contain errors. Verify the information before use. For more information, see <a href="https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot">Using the chatbot</a>.'),bielButton.setAttribute("id","default"),bielButton.textContent="Ask AI",document.body.appendChild(bielButton)</script></body>
 </html>
