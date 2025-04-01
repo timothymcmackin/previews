@@ -1,4 +1,0 @@
-{0 octez-protocol-000-Ps9mPmXa-libs index}
-{1 Library octez-protocol-000-Ps9mPmXa-libs.client}
-The entry point of this library is the module:
-{!module-Tezos_client_000_Ps9mPmXa}.

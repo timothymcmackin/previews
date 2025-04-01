@@ -1,7 +1,0 @@
-{0 tezt-tezos index}
-{1 Library tezt-tezos}
-The entry point of this library is the module:
-{!module-Tezt_tezos}.
-{1 Library tezt-tezos.tezt-performance-regression}
-The entry point of this library is the module:
-{!module-Tezt_tezos_tezt_performance_regression}.

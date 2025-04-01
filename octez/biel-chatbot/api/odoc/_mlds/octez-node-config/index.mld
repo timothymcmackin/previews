@@ -1,4 +1,0 @@
-{0 octez-node-config index}
-{1 Library octez-node-config}
-The entry point of this library is the module:
-{!module-Octez_node_config}.

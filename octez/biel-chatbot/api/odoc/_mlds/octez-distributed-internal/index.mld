@@ -1,4 +1,0 @@
-{0 octez-distributed-internal index}
-{1 Library octez-distributed-internal}
-The entry point of this library is the module:
-{!module-Distributed}.

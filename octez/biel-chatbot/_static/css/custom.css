@@ -10,6 +10,10 @@ a:hover {
     color: rgb(0, 83, 173);
 }
 
+:root {
+    --biel-bot-footer-link: rgb(27, 85, 126);
+}
+
 /* sidebar
  * ------
  */

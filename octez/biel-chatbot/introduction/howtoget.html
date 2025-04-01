@@ -16,32 +16,36 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19338697" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=70b85459"></script>
+    <script src="../_static/documentation_options.js?v=aaadc52b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -62,6 +66,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduction/howtoget';</script>
     <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/biel-chatbot/introduction/howtoget.html" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +74,7 @@
     <link rel="prev" title="Octez &amp; Protocol overview" href="tezos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
   </head>
   
   
@@ -84,19 +90,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -112,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,7 +123,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,21 +154,42 @@
     
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
   
   
 </a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -189,7 +205,8 @@
 <li class="toctree-l1"><a class="reference internal" href="services.html">Setting up Octez Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="versioning.html">Octez &amp; Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="breaking_changes.html">BREAKING CHANGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="breaking_changes.html">Breaking changes</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
 <ul class="nav bd-sidenav">
@@ -276,12 +293,47 @@
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rio/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../rio/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rio/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/rpc.html">Rio RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -311,7 +363,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
@@ -329,7 +381,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -358,6 +411,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
@@ -408,6 +462,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -477,9 +532,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -540,6 +600,23 @@
       
       
       
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/introduction/howtoget.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
       <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fintroduction/howtoget.html&issue[description]=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
@@ -575,24 +652,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -616,40 +685,37 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-static-binaries">Getting static binaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-and-debian-octez-packages">Ubuntu and Debian Octez packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-set-of-debian-packages">New set of Debian packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-and-debian-octez-packages">Ubuntu and Debian Octez packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-static-binaries">Getting static binaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images">Using Docker images</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-docker-images">Plain Docker images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-compose-files">Docker compose files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-binaries">Installing binaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-sources-via-opam">Building from sources via OPAM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images">Using Docker images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-docker-images">Plain Docker images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-compose-files">Docker compose files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-opam">Install OPAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-opam-packages">Install Octez OPAM packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-via-opam">Updating via OPAM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-development-environment-from-scratch">Setting up the development environment from scratch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-binaries">Installing binaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-sources-via-opam">Building from sources via OPAM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-opam">Install OPAM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-opam-packages">Install Octez OPAM packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-via-opam">Updating via OPAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-rust">Install Rust</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-zcash-parameters">Install Zcash Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dal-trusted-setup">Install DAL trusted setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sources">Get the sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-dependencies">Install Octez dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile">Compile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-development-environment-from-scratch">Setting up the development environment from scratch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-rust">Install Rust</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-zcash-parameters">Install Zcash Parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dal-trusted-setup">Install DAL trusted setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sources">Get the sources</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-dependencies">Install Octez dependencies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile">Compile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
 </ul>
             </nav>
         </div>
@@ -669,7 +735,7 @@ on any network (either on the mainnet or on one of the test networks).
 Octez consists of <a class="reference internal" href="howtouse.html#tezos-binaries"><span class="std std-ref">several binaries</span></a> (i.e., executable files), including: a client, a node, and a baker.</p>
 <p>There are several options for getting the binaries, depending on how you plan to use Octez:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#installing-binaries"><span class="std std-ref">installing binaries</span></a>.
+<li><p><a class="reference internal" href="#installing-packages"><span class="std std-ref">installing packages</span></a>.
 This is the easiest way to install native binaries for the latest stable release, together with their dependencies, using a package manager.</p></li>
 <li><p><a class="reference internal" href="#using-docker-images"><span class="std std-ref">using docker images</span></a>.
 This is the easiest way to run the latest stable release of the binaries in
@@ -704,24 +770,16 @@ is not under Tezos control. In particular, compiling from sources enforces a fix
 <p>All our installation scenarios are tested daily, including by automated means, to ensure that they are correct and up to date.
 These tests are performed by applying scenarios in several standard environments, from scratch.
 However, if you encounter problems when performing one of the installation scenarios in your own environment, you may want to take a look at <a class="reference internal" href="get_troubleshooting.html"><span class="doc">Installation troubleshooting</span></a>.</p>
-<section id="getting-static-binaries">
-<span id="id1"></span><h2>Getting static binaries<a class="headerlink" href="#getting-static-binaries" title="Link to this heading">#</a></h2>
-<p>You can get static Linux binaries of the latest release from the
-<a class="reference external" href="https://gitlab.com/tezos/tezos/-/packages/">Octez package registry</a>.</p>
-<p>This repository provides static binaries for x86_64 and arm64 architectures. Since these binaries
-are static, they can be used on any Linux distribution without any additional prerequisites.
-However, note that, by embedding all dependencies, static binary executables are typically much larger than dynamically-linked executables.</p>
-<p>For upgrading to a newer release, you just have to download and run the new
-versions of the binaries.</p>
 <section id="ubuntu-and-debian-octez-packages">
-<span id="installing-packages"></span><h3>Ubuntu and Debian Octez packages<a class="headerlink" href="#ubuntu-and-debian-octez-packages" title="Link to this heading">#</a></h3>
-<p>If you’re using Ubuntu or Debian, you can install the same packages as in the release page
-using <code class="docutils literal notranslate"><span class="pre">apt</span></code> directly from our APT repository, instead of going to the Octez
-release page as explained above.</p>
-<p>We support the following distribution/releases:
-- <code class="docutils literal notranslate"><span class="pre">debian/bookworm</span></code>
-- <code class="docutils literal notranslate"><span class="pre">ubuntu/noble</span></code>
-- <code class="docutils literal notranslate"><span class="pre">ubuntu/jammy</span></code></p>
+<span id="installing-packages"></span><h2>Ubuntu and Debian Octez packages<a class="headerlink" href="#ubuntu-and-debian-octez-packages" title="Link to this heading">#</a></h2>
+<p>If you’re using Ubuntu or Debian, you can install the packages
+using <code class="docutils literal notranslate"><span class="pre">apt</span></code> directly from our APT repository.</p>
+<p>We support the following distribution/releases:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">debian/bookworm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu/noble</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ubuntu/jammy</span></code></p></li>
+</ul>
 <p>both on <code class="docutils literal notranslate"><span class="pre">amd64</span></code> and <code class="docutils literal notranslate"><span class="pre">arm64</span></code> architectures.</p>
 <p>In order to add the Tezos package repository to your machine, do:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export distribution=debian
@@ -729,11 +787,9 @@ export release=bookworm
 </pre></div>
 </div>
 <p>and run:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>curl
-
-<span class="w">  </span>curl<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/octez.asc&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="w">    </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/trusted.gpg.d/octez.gpg
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2"> </span><span class="nv">$release</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/octez.asc&quot;</span><span class="w"> </span><span class="p">|</span>
+<span class="w">    </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/octez.gpg
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/etc/apt/keyrings/octez.gpg] https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2"> </span><span class="nv">$release</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span>
 <span class="w">    </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/octez.list
 <span class="w">  </span>apt-get<span class="w"> </span>update
 </pre></div>
@@ -741,70 +797,82 @@ export release=bookworm
 <p>We also maintain a separate repository for release candidates. To install
 the last release candidate simply prepend <code class="docutils literal notranslate"><span class="pre">RC/</span></code> to the distribution name
 as in <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">distribution=RC/debian</span></code></p>
-<p>Then, to install the binaries, run the following commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>octez-client
-apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>octez-node
-apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>octez-baker
-apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>octez-dal-node
-</pre></div>
-</div>
-<p>To remove the Octez packages you can simply run the following command.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>autopurge<span class="w"> </span>-y<span class="w"> </span>octez-node<span class="w"> </span>octez-client<span class="w"> </span>octez-baker<span class="w"> </span>octez-dal-node
-</pre></div>
-</div>
-<p>Also there are some experimental packages:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">octez-experimental</span></code> - binaries that are considered experimental including
-the Alpha baker</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">octez-evm-node</span></code> - the EVM endpoint node for Etherlink</p></li>
-</ul>
-<p>The packages are set up to run under a dedicated user. The <code class="docutils literal notranslate"><span class="pre">octez-node</span></code>,
-<code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-smartrollup</span></code> packages use a user and group called
-tezos. The <code class="docutils literal notranslate"><span class="pre">octez-signer</span></code> package uses a user and group called tzsigner. It’s
-possible to configure the software to use a different user (even root).</p>
-<p>The documentation for these packages, originally developed by Chris Pinnock,
-can be found here: <a class="reference external" href="https://chrispinnock.com/tezos/packages/">https://chrispinnock.com/tezos/packages/</a></p>
-<section id="new-set-of-debian-packages">
-<span id="new-packages"></span><h4>New set of Debian packages<a class="headerlink" href="#new-set-of-debian-packages" title="Link to this heading">#</a></h4>
-<p>We are developing a new set of Octez Debian packages. They are distributed with latest Octez releases for testing purposes only, and should be considered experimental.</p>
-<p>You can use them to test new packaging features, compatibility and integration with other software and <a class="reference internal" href="../developer/contributing.html"><span class="doc">share your feedback with us</span></a>.</p>
-<p>These will eventually replace the Debian packages mentioned above.</p>
-<p>The new set of packages can be installed by adding the following apt repository:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export distribution=next/debian
-export release=bookworm
-</pre></div>
-</div>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>curl
-
-<span class="w">  </span>curl<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/octez.asc&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="w">    </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/trusted.gpg.d/octez.gpg
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64] https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2"> </span><span class="nv">$release</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="w">    </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/octez.list
-<span class="w">  </span>apt-get<span class="w"> </span>update
+<p>Then, to install the binaries, run the following command to install the octez-baker and all its dependencies:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install octez-baker
 </pre></div>
 </div>
 <p>Once the Octez binary packages are installed, they can be set up as services
 as explained in <a class="reference internal" href="services.html"><span class="doc">Setting up Octez Services</span></a>.</p>
+<p>To remove the Octez packages you can simply run the following command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt-get<span class="w"> </span>autopurge<span class="w"> </span>-y<span class="w"> </span>octez-node<span class="w"> </span>octez-client<span class="w"> </span>octez-baker<span class="w"> </span>octez-dal-node
+</pre></div>
+</div>
 <p>If migrating from Serokell packages you can check out migration documentation
 <a class="reference internal" href="serokell.html"><span class="doc">Migrating from Serokell’s to Nomadic Labs’ packages</span></a>.</p>
 </section>
-</section>
 <section id="fedora-octez-packages">
-<span id="installing-rpm"></span><h3>Fedora Octez packages<a class="headerlink" href="#fedora-octez-packages" title="Link to this heading">#</a></h3>
-<p>If you’re using Fedora, you can install packages with Octez binaries
-from the Octez release page indicated above
-using <code class="docutils literal notranslate"><span class="pre">rpm</span></code> or <code class="docutils literal notranslate"><span class="pre">dnf</span></code>. Currently it supports the latest LTS release for
-Fedora and for RockyLinux.</p>
-<p>Upgrading to a new or more recent release requires downloading again all the <code class="docutils literal notranslate"><span class="pre">rpm</span></code>
-packages and repeat the installation.</p>
-<p>For example using <code class="docutils literal notranslate"><span class="pre">yum</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>yum install ./octez-client-19.1-1.x86_64.rpm
+<span id="installing-rpm"></span><h2>Fedora Octez packages<a class="headerlink" href="#fedora-octez-packages" title="Link to this heading">#</a></h2>
+<p>If you’re using Fedora, you can install packages with Octez binaries from the
+Octez from our DNF repository. Currently we support the latest LTS release for
+Fedora and for RockyLinux :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rockylinux/9.3</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fedora/39</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fedora/42</span></code></p></li>
+</ul>
+<p>both on <code class="docutils literal notranslate"><span class="pre">amd64</span></code> and <code class="docutils literal notranslate"><span class="pre">arm64</span></code> architectures.</p>
+<p>In order to add the Tezos package repository to your machine, do:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export distribution=rockylinux
+export release=9.3
 </pre></div>
 </div>
-</section>
+<p>and run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1"># Update and install the config-mananger plugin</span>
+<span class="w">  </span>dnf<span class="w"> </span>-y<span class="w"> </span>update
+<span class="w">  </span>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>dnf-plugins-core
+
+<span class="w">  </span><span class="c1"># Add the repository</span>
+<span class="w">  </span>dnf<span class="w"> </span>-y<span class="w"> </span>config-manager<span class="w"> </span>--add-repo<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/dists/</span><span class="nv">$release</span><span class="s2">/&quot;</span>
+<span class="w">  </span><span class="c1"># Install public key</span>
+<span class="w">  </span>rpm<span class="w"> </span>--import<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/octez.asc&quot;</span>
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">rockylinux</span></code> user you also need to add the <code class="docutils literal notranslate"><span class="pre">devel</span></code> repository</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnf -y config-manager --set-enabled devel
+</pre></div>
+</div>
+<p>To update the local dnf registry run:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dnf update
+</pre></div>
+</div>
+<p>We also maintain a separate repository for release candidates. To install
+the last release candidate simply prepend <code class="docutils literal notranslate"><span class="pre">RC/</span></code> to the distribution name
+as in <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">distribution=RC/rockylinux</span></code></p>
+<p>Then, to install the binaries, run the following commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-node
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-client
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-node
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-baker
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-dal-node
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>octez-smart-rollup-node
+</pre></div>
+</div>
+<p>To remove the Octez packages you can simply run the following command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dnf<span class="w"> </span>-y<span class="w"> </span>remove<span class="w"> </span>octez-node<span class="w"> </span>octez-client<span class="w"> </span>octez-baker<span class="w"> </span>octez-dal-node<span class="w"> </span>octez-smart-rollup-node
+</pre></div>
+</div>
+<section id="getting-static-binaries">
+<span id="id1"></span><h3>Getting static binaries<a class="headerlink" href="#getting-static-binaries" title="Link to this heading">#</a></h3>
+<p>You can get static Linux binaries of the latest release from the
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/packages/">Octez package registry</a>.</p>
+<p>This repository provides static binaries for x86_64 and arm64 architectures. Since these binaries
+are static, they can be used on any Linux distribution without any additional prerequisites.
+However, note that, by embedding all dependencies, static binary executables are typically much larger than dynamically-linked executables.</p>
+<p>For upgrading to a newer release, you just have to download and run the new
+versions of the binaries.</p>
 </section>
 <section id="using-docker-images">
-<span id="id2"></span><h2>Using Docker images<a class="headerlink" href="#using-docker-images" title="Link to this heading">#</a></h2>
+<span id="id2"></span><h3>Using Docker images<a class="headerlink" href="#using-docker-images" title="Link to this heading">#</a></h3>
 <p>For every change committed in the GitLab repository, Docker images are
 automatically generated and published on <a class="reference external" href="https://hub.docker.com/r/tezos/tezos/">DockerHub</a>. This provides a convenient
 way to run an always up-to-date <code class="docutils literal notranslate"><span class="pre">octez-node</span></code>.</p>
@@ -822,8 +890,10 @@ You can verify if the images are correctly signed using the Cosign utility, as e
 </div>
 <p>You can use the Docker images either directly or using Docker compose files, as explained next.
 In both cases, you need to have <a class="reference external" href="https://www.docker.com">Docker</a> installed and started (<a class="reference external" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> would suffice for the instructions below).</p>
+</section>
+</section>
 <section id="plain-docker-images">
-<h3>Plain Docker images<a class="headerlink" href="#plain-docker-images" title="Link to this heading">#</a></h3>
+<h2>Plain Docker images<a class="headerlink" href="#plain-docker-images" title="Link to this heading">#</a></h2>
 <p>The Docker images can be directly used to run the different Octez binaries.
 To make sure you use the most recent version of Octez, run:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker pull tezos/tezos-bare:latest
@@ -865,7 +935,7 @@ docker start octez-local-node
 </div>
 </section>
 <section id="docker-compose-files">
-<h3>Docker compose files<a class="headerlink" href="#docker-compose-files" title="Link to this heading">#</a></h3>
+<h2>Docker compose files<a class="headerlink" href="#docker-compose-files" title="Link to this heading">#</a></h2>
 <p>Another way to run those Docker images is with <a class="reference external" href="https://docs.docker.com/compose">docker-compose</a>.
 <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> files are available for all active
 protocols in directory <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/scripts/docker">scripts/docker</a>.
@@ -922,7 +992,7 @@ docker compose -f $PROTO.yml up octez-node
 </div>
 </section>
 <section id="building-docker-images-locally">
-<h3>Building Docker Images Locally<a class="headerlink" href="#building-docker-images-locally" title="Link to this heading">#</a></h3>
+<h2>Building Docker Images Locally<a class="headerlink" href="#building-docker-images-locally" title="Link to this heading">#</a></h2>
 <p>The docker image used throughout the docker-compose files is fetched from upstream, but you can also
 build one locally and reference it. Run the following command to build the image:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./scripts/create_docker_image.sh
@@ -936,7 +1006,7 @@ build one locally and reference it. Run the following command to build the image
 </div>
 </section>
 <section id="docker-image-configuration">
-<h3>Docker Image Configuration<a class="headerlink" href="#docker-image-configuration" title="Link to this heading">#</a></h3>
+<h2>Docker Image Configuration<a class="headerlink" href="#docker-image-configuration" title="Link to this heading">#</a></h2>
 <p>Lastly, the entrypoint script (<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/scripts/docker/entrypoint.sh">scripts/docker/entrypoint.sh</a>) provides the following configurable
 environment variables:</p>
 <ul class="simple">
@@ -969,10 +1039,8 @@ services:
  ...
 </pre></div>
 </div>
-</section>
-</section>
 <section id="installing-binaries">
-<span id="id3"></span><h2>Installing binaries<a class="headerlink" href="#installing-binaries" title="Link to this heading">#</a></h2>
+<span id="id3"></span><h3>Installing binaries<a class="headerlink" href="#installing-binaries" title="Link to this heading">#</a></h3>
 <p>Depending on your operating system, you may install Octez (dynamically-linked)
 binaries and their dependencies by first downloading the packages for your
 distribution from the <a class="reference external" href="https://gitlab.com/tezos/tezos/-/releases">Octez release page</a>, browsing to your distribution
@@ -991,7 +1059,7 @@ particular regarding the home directory for the <code class="docutils literal no
 </ul>
 </section>
 <section id="building-from-sources-via-opam">
-<span id="building-with-opam"></span><h2>Building from sources via OPAM<a class="headerlink" href="#building-from-sources-via-opam" title="Link to this heading">#</a></h2>
+<span id="building-with-opam"></span><h3>Building from sources via OPAM<a class="headerlink" href="#building-from-sources-via-opam" title="Link to this heading">#</a></h3>
 <p>The easiest way to build the binaries from the source code is to use the OPAM
 source package manager for OCaml.</p>
 <p>This is easier than <a class="reference internal" href="#build-from-sources"><span class="std std-ref">setting up a complete development environment</span></a>, like developers do.
@@ -1001,8 +1069,10 @@ workflow. In particular, upgrading Octez from release to
 release might require tinkering with different options of the OPAM
 package manager to adjust the local environment for the new
 dependencies.</p>
+</section>
+</section>
 <section id="environment">
-<span id="build-environment"></span><h3>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h3>
+<span id="build-environment"></span><h2>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h2>
 <p>Currently Octez is being developed for Linux x86_64, mostly for
 Ubuntu and Fedora Linux. The following OSes are also reported to
 work: macOS (x86_64), Arch Linux ARM (aarch64), Debian Linux (x86_64). A Windows port is feasible and might be
@@ -1024,7 +1094,7 @@ an error like this, it may be that you have tools from both LLVM and GNU in scop
 </div>
 </section>
 <section id="install-opam">
-<h3>Install OPAM<a class="headerlink" href="#install-opam" title="Link to this heading">#</a></h3>
+<h2>Install OPAM<a class="headerlink" href="#install-opam" title="Link to this heading">#</a></h2>
 <p>First, you need to install the <a class="reference external" href="https://opam.ocaml.org/">OPAM</a>
 package manager, at least version 2.1, that you can get by following the <a class="reference external" href="https://opam.ocaml.org/doc/Install.html">install instructions</a>.</p>
 <p>After the first install of OPAM, use <code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">init</span> <span class="pre">--bare</span></code> to set it up
@@ -1032,7 +1102,7 @@ while avoiding to compile an OCaml compiler now, as this will be done in
 the next step.</p>
 </section>
 <section id="install-octez-opam-packages">
-<span id="install-opam-packages"></span><h3>Install Octez OPAM packages<a class="headerlink" href="#install-octez-opam-packages" title="Link to this heading">#</a></h3>
+<span id="install-opam-packages"></span><h2>Install Octez OPAM packages<a class="headerlink" href="#install-octez-opam-packages" title="Link to this heading">#</a></h2>
 <p>The latest Octez release is available (as soon as possible after the
 release) directly as OPAM packages.</p>
 <div class="admonition note">
@@ -1089,7 +1159,7 @@ macro meta-package <code class="docutils literal notranslate"><span class="pre">
 </div>
 </section>
 <section id="updating-via-opam">
-<span id="updating-with-opam"></span><h3>Updating via OPAM<a class="headerlink" href="#updating-via-opam" title="Link to this heading">#</a></h3>
+<span id="updating-with-opam"></span><h2>Updating via OPAM<a class="headerlink" href="#updating-via-opam" title="Link to this heading">#</a></h2>
 <p>Installation via OPAM is especially convenient for updating to newer
 versions. Once some libraries/binaries are installed and new versions
 released, you can update by:</p>
@@ -1122,10 +1192,8 @@ unclear.
 The solution will be defined when delivering the first release with Rust
 dependencies.</p></li>
 </ul>
-</section>
-</section>
 <section id="setting-up-the-development-environment-from-scratch">
-<span id="compiling-with-make"></span><span id="build-from-sources"></span><h2>Setting up the development environment from scratch<a class="headerlink" href="#setting-up-the-development-environment-from-scratch" title="Link to this heading">#</a></h2>
+<span id="compiling-with-make"></span><span id="build-from-sources"></span><h3>Setting up the development environment from scratch<a class="headerlink" href="#setting-up-the-development-environment-from-scratch" title="Link to this heading">#</a></h3>
 <p>If you plan to contribute to the Octez codebase, the way to go is to set up a
 complete development environment, by cloning the repository and compiling the
 sources using the provided makefile.
@@ -1187,8 +1255,10 @@ Makefile:53: *** Unexpected opam version (found: , expected: 2.*).  Stop.
 <p class="admonition-title">Note</p>
 <p>Besides compiling the sources, it is recommended to also <a class="reference internal" href="../developer/python_environment.html#install-python"><span class="std std-ref">install Python and some related tools</span></a>, which are needed, among others, to build the documentation and to use the Git <a class="reference internal" href="../developer/pre_commit_hook.html"><span class="doc">pre-commit hook</span></a>.</p>
 </div>
+</section>
+</section>
 <section id="install-rust">
-<span id="setup-rust"></span><h3>Install Rust<a class="headerlink" href="#install-rust" title="Link to this heading">#</a></h3>
+<span id="setup-rust"></span><h2>Install Rust<a class="headerlink" href="#install-rust" title="Link to this heading">#</a></h2>
 <p>Compiling Octez requires the Rust compiler (see recommended version in variable
 <code class="docutils literal notranslate"><span class="pre">$recommended_rust_version</span></code> in file <code class="docutils literal notranslate"><span class="pre">scripts/version.sh</span></code>) and the
 Cargo package manager to be installed. If you have <a class="reference external" href="https://rustup.rs/">rustup</a> installed, it should work without any
@@ -1213,7 +1283,7 @@ you installed rustup. See the documentation of your rustup distribution
 if file <code class="docutils literal notranslate"><span class="pre">.cargo</span></code> does not exist in your home directory.</p>
 </section>
 <section id="install-zcash-parameters">
-<span id="setup-zcash-params"></span><h3>Install Zcash Parameters<a class="headerlink" href="#install-zcash-parameters" title="Link to this heading">#</a></h3>
+<span id="setup-zcash-params"></span><h2>Install Zcash Parameters<a class="headerlink" href="#install-zcash-parameters" title="Link to this heading">#</a></h2>
 <p>Octez binaries require the Zcash parameter files to run.
 Docker images come with those files, and the source distribution also
 includes those files. But if you compile from source and move Octez to
@@ -1255,7 +1325,7 @@ If Zcash is located elsewhere on your system (typically, on MacOS X), you may tr
 <p>Note that the script <code class="docutils literal notranslate"><span class="pre">fetch-params.sh</span></code> downloads a third file containing parameters for Sprout (currently called <code class="docutils literal notranslate"><span class="pre">sprout-groth16.params</span></code>), which is not loaded by Sapling and can be deleted to save a significant amount of space (this file is <em>much</em> bigger than the two other files).</p>
 </section>
 <section id="install-dal-trusted-setup">
-<span id="setup-dal-crypto-params"></span><h3>Install DAL trusted setup<a class="headerlink" href="#install-dal-trusted-setup" title="Link to this heading">#</a></h3>
+<span id="setup-dal-crypto-params"></span><h2>Install DAL trusted setup<a class="headerlink" href="#install-dal-trusted-setup" title="Link to this heading">#</a></h2>
 <p>Users running <a class="reference internal" href="../shell/dal.html"><span class="doc">DAL</span></a> in <strong>operator or observer</strong> <a class="reference internal" href="../shell/dal_node.html#dal-profiles"><span class="std std-ref">profiles</span></a>
 need to have a set of cryptographic parameters (known as an SRS) installed in
 order to run their <a class="reference internal" href="../shell/dal_node.html"><span class="doc">DAL node</span></a>.
@@ -1267,7 +1337,7 @@ However, for simplicity, on some test networks the initialization parameters are
 </div>
 </section>
 <section id="get-the-sources">
-<h3>Get the sources<a class="headerlink" href="#get-the-sources" title="Link to this heading">#</a></h3>
+<h2>Get the sources<a class="headerlink" href="#get-the-sources" title="Link to this heading">#</a></h2>
 <p>Octez <code class="docutils literal notranslate"><span class="pre">git</span></code> repository is hosted at <a class="reference external" href="https://gitlab.com/tezos/tezos/">GitLab</a>. All development happens here. Do
 <strong>not</strong> use our <a class="reference external" href="https://github.com/tezos/tezos">GitHub mirror</a>
 which we don’t use anymore and only mirrors what happens on GitLab.</p>
@@ -1275,7 +1345,7 @@ which we don’t use anymore and only mirrors what happens on GitLab.</p>
 Alternatively, you can checkout a specific version based on its tag.</p>
 </section>
 <section id="install-octez-dependencies">
-<h3>Install Octez dependencies<a class="headerlink" href="#install-octez-dependencies" title="Link to this heading">#</a></h3>
+<h2>Install Octez dependencies<a class="headerlink" href="#install-octez-dependencies" title="Link to this heading">#</a></h2>
 <p>Install the OCaml compiler and the libraries that Octez depends on:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make build-deps
 </pre></div>
@@ -1308,7 +1378,7 @@ package manager but it currently does not handle version checking.</p></li>
 </div>
 </section>
 <section id="compile">
-<span id="compile-sources"></span><h3>Compile<a class="headerlink" href="#compile" title="Link to this heading">#</a></h3>
+<span id="compile-sources"></span><h2>Compile<a class="headerlink" href="#compile" title="Link to this heading">#</a></h2>
 <p>Once the dependencies are installed we can update OPAM’s environment to
 refer to the new switch and compile the project to build all the executables:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>opam<span class="w"> </span>env<span class="k">)</span>
@@ -1335,16 +1405,14 @@ completion (refer to the <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="update">
-<span id="update-from-sources"></span><h3>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h3>
+<span id="update-from-sources"></span><h2>Update<a class="headerlink" href="#update" title="Link to this heading">#</a></h2>
 <p>For updating to a new version, you typically have to
 update the sources by doing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> in the <code class="docutils literal notranslate"><span class="pre">tezos/</span></code> directory and replay
 the compilation scenario starting from <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build-deps</span></code>.
 You may also use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> (and <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-Rf</span> <span class="pre">_opam/</span></code> if needed) before that, for restarting compilation in a
 fresh state.</p>
-</section>
-</section>
 <section id="appendix">
-<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h2>
+<h3>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h3>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="get_troubleshooting.html">Installation troubleshooting</a><ul>
@@ -1357,7 +1425,26 @@ fresh state.</p>
 </div>
 </section>
 </section>
+</section>
 
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
             <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
         
                 <script>
@@ -1366,9 +1453,10 @@ fresh state.</p>
                         bielBtn.innerHTML = "Ask AI";
                         bielBtn.setAttribute("project", "w30c27l8fg");
                     bielBtn.setAttribute("button-text", "Ask AI");
-                    bielBtn.setAttribute("header-title", "Tezos chatbot");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
                     bielBtn.setAttribute("button-style", "dark");
-                    bielBtn.setAttribute("button-position", "bottom-right");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot/' target='_blank'>Using the chatbot</a>.");
                     bielBtn.setAttribute("version", "latest");
                         document.body.appendChild(bielBtn);
                     });
@@ -1410,7 +1498,8 @@ fresh state.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1419,40 +1508,37 @@ fresh state.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-static-binaries">Getting static binaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-and-debian-octez-packages">Ubuntu and Debian Octez packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-set-of-debian-packages">New set of Debian packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu-and-debian-octez-packages">Ubuntu and Debian Octez packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-static-binaries">Getting static binaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images">Using Docker images</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fedora-octez-packages">Fedora Octez packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-docker-images">Plain Docker images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-compose-files">Docker compose files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-binaries">Installing binaries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-sources-via-opam">Building from sources via OPAM</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-docker-images">Using Docker images</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-docker-images">Plain Docker images</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-compose-files">Docker compose files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-docker-images-locally">Building Docker Images Locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-image-configuration">Docker Image Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-opam">Install OPAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-opam-packages">Install Octez OPAM packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-via-opam">Updating via OPAM</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-development-environment-from-scratch">Setting up the development environment from scratch</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-binaries">Installing binaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-sources-via-opam">Building from sources via OPAM</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-opam">Install OPAM</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-opam-packages">Install Octez OPAM packages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-via-opam">Updating via OPAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-rust">Install Rust</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-zcash-parameters">Install Zcash Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dal-trusted-setup">Install DAL trusted setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sources">Get the sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-dependencies">Install Octez dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compile">Compile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-development-environment-from-scratch">Setting up the development environment from scratch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-rust">Install Rust</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-zcash-parameters">Install Zcash Parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dal-trusted-setup">Install DAL trusted setup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-sources">Get the sources</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-octez-dependencies">Install Octez dependencies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile">Compile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update">Update</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a></li>
 </ul>
   </nav></div>
 
@@ -1477,7 +1563,7 @@ By Contributors to the Octez & Tezos protocol documentation
 
   <p class="copyright">
     
-      © Copyright 2018-2024.
+      © Copyright 2018-1980.
       <br/>
     
   </p>
@@ -1501,8 +1587,8 @@ By Contributors to the Octez & Tezos protocol documentation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

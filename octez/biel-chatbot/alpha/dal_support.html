@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DAL support &#8212; Octez &amp; Protocol products documentation</title>
+    <title>DAL integration &#8212; Octez &amp; Protocol products documentation</title>
   
   
   
@@ -16,32 +16,36 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19338697" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=70b85459"></script>
+    <script src="../_static/documentation_options.js?v=aaadc52b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -62,6 +66,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'alpha/dal_support';</script>
     <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/biel-chatbot/alpha/dal_support.html" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +74,7 @@
     <link rel="prev" title="Adaptive Slashing" href="adaptive_slashing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
   </head>
   
   
@@ -84,19 +90,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -112,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,7 +123,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,21 +154,42 @@
     
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
   
   
 </a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -189,7 +205,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
 <ul class="nav bd-sidenav">
@@ -276,12 +293,47 @@
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rio/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../rio/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rio/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/rpc.html">Rio RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -311,7 +363,7 @@
 <li class="toctree-l3"><a class="reference internal" href="adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">DAL support</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
@@ -329,7 +381,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -358,6 +411,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
@@ -408,6 +462,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -477,9 +532,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -540,6 +600,23 @@
       
       
       
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/alpha/dal_support.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
       <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Falpha/dal_support.html&issue[description]=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
@@ -575,24 +652,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -606,7 +675,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DAL support</h1>
+    <h1>DAL integration</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -626,7 +695,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-metadata">Block metadata</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups-integration">Smart rollups integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-incentives-scheme">DAL incentives scheme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-participation">Minimal participation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-participation-rewards">DAL participation rewards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trap-mechanism">Trap mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penalties">Penalties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups-integration">Smart Rollups integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-related-protocol-constants">DAL-related protocol constants</a></li>
 </ul>
             </nav>
@@ -639,20 +716,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="dal-support">
-<h1>DAL support<a class="headerlink" href="#dal-support" title="Link to this heading">#</a></h1>
-<p>The support for the <a class="reference internal" href="../shell/dal.html"><span class="doc">DAL</span></a> within the economic protocol relies on two operations:</p>
+  <section id="dal-integration">
+<h1>DAL integration<a class="headerlink" href="#dal-integration" title="Link to this heading">#</a></h1>
+<p>The <a class="reference internal" href="../shell/dal.html"><span class="doc">DAL</span></a>’s integration within the economic protocol relies on three operations:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DAL_publish_commitment</span></code>: a manager operation, allowing anyone to publish a DAL commitment</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">attestation</span></code>: the existing <a class="reference internal" href="blocks_ops.html#consensus-operations-alpha"><span class="std std-ref">consensus operation</span></a>, allowing bakers to attach a DAL payload attesting the data seen on the DAL P2P network</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DAL_entrapment_evidence</span></code>: an anonymous operation to denounce a baker that has attested a trap shard</p></li>
 </ol>
+<p>and on an <a class="reference internal" href="#dal-incentives-scheme-alpha"><span class="std std-ref">incentives scheme</span></a> for the DAL.</p>
 <section id="dal-publish-commitment">
 <h2>DAL publish commitment<a class="headerlink" href="#dal-publish-commitment" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">DAL_publish_commitment</span></code> is a manager operation that can be issued by a user wishing to publish data onto the DAL. The payload of this operation consists in the following fields:</p>
 <ul class="simple">
-<li><p>Slot index: Identifies the specific slot for which the data is being published. It is an integer between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">number_of_slots</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Slot index: Identifies the specific slot for which the data is being published. It is an integer between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">NUMBER_OF_SLOTS</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
 <li><p>Commitment: The <a class="reference external" href="https://dankradfeist.de/ethereum/2020/06/16/kate-polynomial-commitments.html">KZG commitment</a> over the data.</p></li>
-<li><p>Commitment proof: A proof that the commitment commits over data that does not exceed the size <code class="docutils literal notranslate"><span class="pre">slot_size</span></code>.</p></li>
+<li><p>Commitment proof: A proof that the commitment commits over data that does not exceed the size <code class="docutils literal notranslate"><span class="pre">SLOT_SIZE</span></code>.</p></li>
 </ul>
 <p>Users can create and manage these commitments and proofs through the <a class="reference internal" href="../shell/dal_node.html"><span class="doc">DAL node</span></a> using these RPCs:</p>
 <ul class="simple">
@@ -679,16 +758,83 @@ assigned shards by the baker for that slot, while 0 indicates an unsuccessful
 attempt.  The least significant bit corresponds to the smallest slot index.</p>
 <section id="attestation-timing">
 <h3>Attestation timing<a class="headerlink" href="#attestation-timing" title="Link to this heading">#</a></h3>
-<p>When a commitment is published at a certain level, say level <code class="docutils literal notranslate"><span class="pre">PL</span></code>, the corresponding DAL payloads are expected to be included in the attestations contained in the block at level <code class="docutils literal notranslate"><span class="pre">PL</span> <span class="pre">+</span> <span class="pre">attestation_lag</span></code>.</p>
+<p>When a commitment is published at a certain level, say level <code class="docutils literal notranslate"><span class="pre">n</span></code>, the corresponding DAL payloads are expected to be included in the attestations contained in the block at level <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">ATTESTATION_LAG</span></code>.</p>
 </section>
 <section id="block-metadata">
 <h3>Block metadata<a class="headerlink" href="#block-metadata" title="Link to this heading">#</a></h3>
-<p>In the block’s metadata, there is a specific field for the DAL. This field reflects the availability of slots based on the DAL payloads received. It is a bitfield with one bit per slot (its format is the same as the attestation payload of the <code class="docutils literal notranslate"><span class="pre">attestation</span></code> operation). The bit is set to 1 if the slot is declared available. The smallest slot index corresponds to the least significant bit. To consider a slot as available, there must be a minimum number of shards, as defined by the <code class="docutils literal notranslate"><span class="pre">availability_threshold</span></code> parameter, marked as available by the attesters for that slot (e.g. if the number of shards is 2048 and the availability threshold is 50%, then 1024 shards are required).</p>
-<p>Therefore, for data committed (published) at level <code class="docutils literal notranslate"><span class="pre">L</span></code>, the slot’s availability is determined by the metadata of the block at level <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">+</span> <span class="pre">attestation_lag</span></code>. Consequently, a smart rollup can only utilize this data from level <code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">+</span> <span class="pre">attestation_lag</span> <span class="pre">+</span> <span class="pre">1</span></code> onward.</p>
+<p>In the block’s metadata, there is a specific field for the DAL, called <code class="docutils literal notranslate"><span class="pre">&quot;dal_attestation&quot;</span></code>. This field reflects the availability of slots based on the DAL payloads received. It is a bitfield with one bit per slot (its format is the same as the attestation payload of the <code class="docutils literal notranslate"><span class="pre">attestation</span></code> operation). The bit is set to 1 if the slot is declared available. The smallest slot index corresponds to the least significant bit. To consider a slot as available, there must be a minimum number of shards, as defined by the <code class="docutils literal notranslate"><span class="pre">AVAILABILITY_THRESHOLD</span></code> parameter, marked as available by the attesters for that slot (e.g. if the number of shards is 2048 and the availability threshold is 50%, then 1024 shards are required).</p>
+<p>Therefore, for data committed (published) at level <code class="docutils literal notranslate"><span class="pre">n</span></code>, the slot’s availability is determined by the metadata of the block at level <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">ATTESTATION_LAG</span></code>. Consequently, a smart rollup can only utilize this data from level <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">ATTESTATION_LAG</span> <span class="pre">+</span> <span class="pre">1</span></code> onward.</p>
+</section>
+</section>
+<section id="dal-incentives-scheme">
+<span id="dal-incentives-scheme-alpha"></span><h2>DAL incentives scheme<a class="headerlink" href="#dal-incentives-scheme" title="Link to this heading">#</a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h3>
+<p>Bakers must meet a 64% minimal participation threshold in a cycle to earn a fixed percentage of the total participation rewards allocated for them.
+As part of participation rewards, the DAL rewards are subject to the adjustments done by <a class="reference internal" href="adaptive_issuance.html#adaptive-issuance-alpha"><span class="std std-ref">Adaptive Issuance</span></a>.</p>
+<p>To ensure DAL attestations match the actual availability of data shards, there are special shards, known as <em>traps</em>, which are designed to test whether bakers have genuinely downloaded and processed their assigned shards. Bakers must correctly identify these traps to avoid losing the DAL rewards allocated to them.</p>
+</section>
+<section id="minimal-participation">
+<h3>Minimal participation<a class="headerlink" href="#minimal-participation" title="Link to this heading">#</a></h3>
+<p>Any baker that can take part in consensus is eligible for rewards.</p>
+<p>Bakers meeting the minimum participation ratio <code class="docutils literal notranslate"><span class="pre">MINIMAL_PARTICIPATION_RATIO</span></code> over a cycle, set to 64%, receive rewards for that cycle.</p>
+<p>The participation ratio of the baker is the proportion of slots the baker attested over the slots that were attestable by this baker during the cycle. Both slot numbers only count those slots that are deemed available by the protocol.</p>
+<p>A new RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/chains/main/blocks/&lt;block&gt;/delegates/&lt;pkh&gt;/dal_participation</span></code> can be used to obtain the DAL participation information for a given baker. The output contains the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_assigned_shards_per_slot</span></code>: the number of shards assigned to this baker (per slot) in the current cycle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delegate_attested_dal_slots</span></code>: the number of DAL slots the baker has attested so far</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delegate_attestable_dal_slots</span></code>: the number of DAL slots that are attestable by the baker</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expected_dal_rewards</span></code>: the rewards (in mutez) the delegate will receive if it meets the participation threshold and is not denounced</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sufficient_dal_participation</span></code>: a Boolean flag indicating if the delegate’s current attestation rate meets the threshold (64%) to qualify for rewards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">denounced</span></code>: a Boolean flag indicating if the delegate has been denounced in the current cycle.</p></li>
+</ul>
+<p>A delegate’s participation is the ratio between <code class="docutils literal notranslate"><span class="pre">delegate_attested_dal_slots</span></code> and <code class="docutils literal notranslate"><span class="pre">delegate_attestable_dal_slots</span></code>.</p>
+<p>All fields except <code class="docutils literal notranslate"><span class="pre">expected_assigned_shards_per_slot</span></code> and <code class="docutils literal notranslate"><span class="pre">expected_dal_rewards</span></code> may vary depending on the moment of the call during a cycle.</p>
+<p>As an example (with made up numbers), let’s consider the following output:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;expected_assigned_shards_per_slot&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">409</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;delegate_attested_dal_slots&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;delegate_attestable_dal_slots&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;expected_dal_rewards&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1278125&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;sufficient_dal_participation&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;denounced&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>corresponding to the following scenario. Suppose there are five delegates with equal baking power, <code class="docutils literal notranslate"><span class="pre">8</span></code> blocks per cycle, and <code class="docutils literal notranslate"><span class="pre">256</span></code> shards per slot. The delegate is expected to be assigned 409 shards per slot (because <code class="docutils literal notranslate"><span class="pre">256</span> <span class="pre">*</span> <span class="pre">8</span> <span class="pre">/</span> <span class="pre">5</span> <span class="pre">≈</span> <span class="pre">409</span></code>). If the delegate reached <code class="docutils literal notranslate"><span class="pre">64%</span></code> participation, it would receive <code class="docutils literal notranslate"><span class="pre">1,278,125</span></code> μꜩ. However, the delegate has only attested <code class="docutils literal notranslate"><span class="pre">2</span></code> out of <code class="docutils literal notranslate"><span class="pre">5</span></code> available slots (<code class="docutils literal notranslate"><span class="pre">~40%</span></code>), which is currently below the <code class="docutils literal notranslate"><span class="pre">64%</span></code> threshold and disqualifies it from rewards unless it improves participation within this cycle.</p>
+</section>
+<section id="dal-participation-rewards">
+<h3>DAL participation rewards<a class="headerlink" href="#dal-participation-rewards" title="Link to this heading">#</a></h3>
+<p>A fixed percentage, defined by a protocol parameter called <code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_RATIO</span></code>, set to %10, of the total <a class="reference internal" href="adaptive_issuance.html#adaptive-rewards-alpha"><span class="std std-ref">participation rewards</span></a> is allocated to the DAL.</p>
+<p>The DAL rewards per level are implicitly given by their weight, <code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_WEIGHT</span></code>, as for the other types of <a class="reference internal" href="adaptive_issuance.html#rewards-weights-alpha"><span class="std std-ref">participation rewards</span></a>.
+The value of <code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_WEIGHT</span></code> is such that it represents <code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_RATIO</span></code> of all reward weights.</p>
+<p>The rewards are distributed at the end of a cycle, and are computed in the same manner as for the other <a class="reference internal" href="adaptive_issuance.html#adaptive-rewards-alpha"><span class="std std-ref">participation rewards</span></a>.
+For instance, the stakers’ share of these reward is proportional to the weight of their stake in relation to their baker’s baking power.</p>
+<p>The metadata of the last block of a cycle contains the <a class="reference internal" href="token_management.html"><span class="doc">balance updates</span></a> corresponding to the allocated DAL rewards for that cycle. These balance updates are identified by two categories for DAL rewards, analogous to consensus attestation rewards, namely:</p>
+<ul class="simple">
+<li><p>DAL attesting rewards (kind: <code class="docutils literal notranslate"><span class="pre">&quot;minted&quot;</span></code>, category: <code class="docutils literal notranslate"><span class="pre">&quot;DAL</span> <span class="pre">attesting</span> <span class="pre">rewards&quot;</span></code>) and</p></li>
+<li><p>lost DAL attesting rewards (kind: <code class="docutils literal notranslate"><span class="pre">&quot;burned&quot;</span></code>, category: <code class="docutils literal notranslate"><span class="pre">&quot;lost</span> <span class="pre">DAL</span> <span class="pre">attesting</span> <span class="pre">rewards&quot;</span></code>).</p></li>
+</ul>
+<p>The RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/chains/main/blocks/&lt;block&gt;/context/issuance/expected_issuance</span></code> has a new field <code class="docutils literal notranslate"><span class="pre">&quot;dal_attesting_reward_per_shard&quot;</span></code> indicating the DAL reward allocated for a single shard.
+A delegate’s total potential DAL rewards in a cycle are then: <code class="docutils literal notranslate"><span class="pre">expected_dal_rewards</span> <span class="pre">=</span> <span class="pre">expected_assigned_shards_per_slot</span> <span class="pre">*</span> <span class="pre">dal_attesting_reward_per_shard</span></code>, where the <code class="docutils literal notranslate"><span class="pre">expected_dal_rewards</span></code> and <code class="docutils literal notranslate"><span class="pre">expected_assigned_shards_per_slot</span></code> are the values given by the <code class="docutils literal notranslate"><span class="pre">dal_participation</span></code> RPC (see above).</p>
+</section>
+<section id="trap-mechanism">
+<h3>Trap mechanism<a class="headerlink" href="#trap-mechanism" title="Link to this heading">#</a></h3>
+<p>A deterministic function <code class="docutils literal notranslate"><span class="pre">trap(pkh,</span> <span class="pre">shard)</span></code> returning a boolean flag indicates whether a shard is a trap for a specific baker identified by its public key hash (<code class="docutils literal notranslate"><span class="pre">pkh</span></code>).</p>
+<p>The protocol parameter <code class="docutils literal notranslate"><span class="pre">TRAPS_FRACTION</span></code> controls the fraction of shards marked as traps.</p>
+<p>Bakers detect traps by retrieving shard content via their DAL node and applying the trap function. A trap invalidates the corresponding attestation: the baker should not attest a slot if one of the slot’s shards assigned to him is a trap.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DAL_entrapment_evidence</span></code> accusation operation can be used to accuse a baker of wrongly attesting a slot due to an undetected trap.
+This accusation operation includes the attestation operation containing the wrongly attested slot, the slot index, and the undetected shard.</p>
+<p>As for double-signing accusations, any baker can include a DAL accusation in its block.
+Accusations can be included during a period of <code class="docutils literal notranslate"><span class="pre">DENUNCIATION_PERIOD</span></code> cycles after the misbehavior event, which is that of the corresponding attestation operation.</p>
+</section>
+<section id="penalties">
+<h3>Penalties<a class="headerlink" href="#penalties" title="Link to this heading">#</a></h3>
+<p>A baker that is correctly accused, through an accusation operation included in a block, loses their DAL rewards for the cycle containing the block.</p>
 </section>
 </section>
 <section id="smart-rollups-integration">
-<h2>Smart rollups integration<a class="headerlink" href="#smart-rollups-integration" title="Link to this heading">#</a></h2>
+<span id="dal-rollups-integration-alpha"></span><h2>Smart Rollups integration<a class="headerlink" href="#smart-rollups-integration" title="Link to this heading">#</a></h2>
 <p>The DAL is integrated with <a class="reference internal" href="../active/smart_rollups.html"><span class="doc">smart rollups</span></a> so that kernels can request pages from the DAL via the <a class="reference internal" href="smart_rollups.html#reveal-data-channel-smart-rollups-alpha"><span class="std std-ref">reveal data channel</span></a>. A smart rollup can fetch any page from the DAL node if the commitment respects some conditions:</p>
 <ul class="simple">
 <li><p>The commitment should have been published after the rollup origination (this constraint will be leveraged so that the kernel can request any commitment in the past)</p></li>
@@ -702,20 +848,41 @@ This constraint might be leveraged thanks to the internal messages <code class="
 <span id="dal-constants-alpha"></span><h2>DAL-related protocol constants<a class="headerlink" href="#dal-related-protocol-constants" title="Link to this heading">#</a></h2>
 <p>This section describes the protocol constants specific to the DAL as well as their default values on mainnet (see <a class="reference internal" href="protocol_overview.html#protocol-constants-alpha"><span class="std std-ref">Protocol constants</span></a> on how to find the values for tests networks):</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">feature_enable</span></code> (true): Whether the DAL is available</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">incentives_enable</span></code> (false): Whether baker incentives are available</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">number_of_slots</span></code> (32): How many slots are available per block</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">attestation_lag</span></code> (8): The timeframe for bakers to download shards between the published level of a commitment and the time they must attest the availability of those shards</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">attestation_threshold</span></code> (66): The percentage of shards attested for a given slot to declare the slot available</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">blocks_per_epoch</span></code> (1): Unused. Could be removed in the future</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">page_size</span></code> (3967B, ~4KiB): The size of a page (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">slot_size</span></code> (126944B, ~128KiB): The size of a slot (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">redundancy_factor</span></code> (8): The erasure-code factor (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">number_of_shards</span></code> (512): The number of shards per slot (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FEATURE_ENABLE</span></code> (true): whether the DAL is available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INCENTIVES_ENABLE</span></code> (true): whether baker incentives are available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NUMBER_OF_SLOTS</span></code> (32): how many slots are available per block</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTESTATION_LAG</span></code> (8 level): the timeframe for bakers to download shards between the published level of a commitment and the time they must attest the availability of those shards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ATTESTATION_THRESHOLD</span></code> (66%): the minimum percentage of shards attested for a given slot to declare the slot available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAGE_SIZE</span></code> (3967B, ~4KiB): the size of a page (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SLOT_SIZE</span></code> (126944B, ~128KiB): the size of a slot (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REDUNDANCY_FACTOR</span></code> (8): the erasure-code factor (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NUMBER_OF_SHARDS</span></code> (512): the number of shards per slot (see <a class="reference internal" href="../shell/dal_overview.html#dal-slots"><span class="std std-ref">DAL slots</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MINIMAL_PARTICIPATION_RATIO</span></code> (64%): the minimum percentage of slots attested by a baker during a cycle (among all slots deemed available) that entitles them to rewards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_RATIO</span></code> (10%): the ratio of the DAL rewards over the total participation rewards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DAL_REWARDS_WEIGHT</span></code> (2275): the weight of the DAL rewards (relative to other participation rewards)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAPS_FRACTION</span></code> (0.0005): the fraction of shards that are traps</p></li>
 </ul>
 </section>
 </section>
 
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
             <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
         
                 <script>
@@ -724,9 +891,10 @@ This constraint might be leveraged thanks to the internal messages <code class="
                         bielBtn.innerHTML = "Ask AI";
                         bielBtn.setAttribute("project", "w30c27l8fg");
                     bielBtn.setAttribute("button-text", "Ask AI");
-                    bielBtn.setAttribute("header-title", "Tezos chatbot");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
                     bielBtn.setAttribute("button-style", "dark");
-                    bielBtn.setAttribute("button-position", "bottom-right");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot/' target='_blank'>Using the chatbot</a>.");
                     bielBtn.setAttribute("version", "latest");
                         document.body.appendChild(bielBtn);
                     });
@@ -768,7 +936,8 @@ This constraint might be leveraged thanks to the internal messages <code class="
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -787,7 +956,15 @@ This constraint might be leveraged thanks to the internal messages <code class="
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-metadata">Block metadata</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups-integration">Smart rollups integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-incentives-scheme">DAL incentives scheme</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimal-participation">Minimal participation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-participation-rewards">DAL participation rewards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trap-mechanism">Trap mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penalties">Penalties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups-integration">Smart Rollups integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-related-protocol-constants">DAL-related protocol constants</a></li>
 </ul>
   </nav></div>
@@ -813,7 +990,7 @@ By Contributors to the Octez & Tezos protocol documentation
 
   <p class="copyright">
     
-      © Copyright 2018-2024.
+      © Copyright 2018-1980.
       <br/>
     
   </p>
@@ -837,8 +1014,8 @@ By Contributors to the Octez & Tezos protocol documentation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

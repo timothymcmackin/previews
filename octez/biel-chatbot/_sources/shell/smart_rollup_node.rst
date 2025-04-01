@@ -218,9 +218,8 @@ First, we need to decide on a mode the rollup node will run:
 #. ``bailout`` mode is designed to assist committers in recovering their bonds.
    It functions as a slightly modified version of "Accuser", differing in that it does not post any new
    commitments but instead focuses on defending the ones that have been previously
-   submitted. When operating in bailout mode, the expectation is to initiate a recover bond
-   operation when the operator is no longer staking on any commitment. If the node detects that this
-   operation has been successful, it can gratefully exit.
+   submitted. When the operator is no longer staking on any commitment, the node runs the recover bond
+   operation. If the node detects that this operation has been successful, it exits.
 
 #. ``custom`` mode refers to a mode where the users individually select which
    kinds of operations the rollup node injects. It provides tailored control and
@@ -1526,7 +1525,7 @@ Define these functions in the ``lib.rs`` as follows:
 
    mod host;
    use crate::host::read_input;
-   use crate::host:ReadInputMessageInfo;
+   use crate::host::ReadInputMessageInfo;
 
    pub const MAX_MESSAGE_SIZE: u32 = 4096u32;
 

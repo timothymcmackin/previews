@@ -1,4 +1,0 @@
-{0 octez-rpc-process index}
-{1 Library octez-rpc-process}
-The entry point of this library is the module:
-{!module-Octez_rpc_process}.

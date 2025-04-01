@@ -1,7 +1,0 @@
-{0 tezos-time-measurement index}
-{1 Library tezos-time-measurement}
-The entry point of this library is the module:
-{!module-Tezos_time_measurement_runtime}.
-{1 Library tezos-time-measurement.ppx}
-The entry point of this library is the module:
-{!module-Tezos_time_measurement_ppx}.

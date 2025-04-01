@@ -16,32 +16,36 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19338697" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=70b85459"></script>
+    <script src="../_static/documentation_options.js?v=aaadc52b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -62,6 +66,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'developer/contributing';</script>
     <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/biel-chatbot/developer/contributing.html" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +74,7 @@
     <link rel="prev" title="How to contribute" href="contributing_index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
   </head>
   
   
@@ -84,19 +90,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -112,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,7 +123,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,21 +154,42 @@
     
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
   
   
 </a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -189,7 +205,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">BREAKING CHANGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
 <ul class="nav bd-sidenav">
@@ -276,12 +293,47 @@
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rio/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../rio/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rio/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/rpc.html">Rio RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -311,7 +363,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
@@ -329,7 +381,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -358,6 +411,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
@@ -408,6 +462,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_architecture.html">RPC handling architecture</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -477,9 +532,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -540,6 +600,23 @@
       
       
       
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/developer/contributing.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
       <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/contributing.html&issue[description]=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
@@ -575,24 +652,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -617,15 +686,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#providing-feedback-on-documentation">Providing feedback on documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-typos">Fixing typos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-non-code-contributions">Other non-code contributions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-further">Going further</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-git-strategy">Our git strategy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-an-mr">Workflow of an MR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-queue-order">Merge Queue Order</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-merge-request">Preparing a Merge Request</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-merge-request">Creating the Merge Request</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#favoring-small-merge-requests">Favoring Small Merge Requests</a></li>
@@ -645,9 +714,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-approvals">Merge Request Approvals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#author-perspective">Author Perspective</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviewer-perspective">Reviewer Perspective</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-merge-request-bot">The Merge-Request Bot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-tools">Developer Tools</a></li>
 </ul>
 </li>
@@ -668,10 +734,42 @@ document.write(`
 Octez.</p>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
-<p>There are several ways to get involved with the codebase, and you may want to start with some preliminary steps.</p>
+<p>There are several ways to get involved with the codebase and its documentation, and you may want to start with some preliminary steps.</p>
+<section id="providing-feedback-on-documentation">
+<span id="feedback-doc"></span><h3>Providing feedback on documentation<a class="headerlink" href="#providing-feedback-on-documentation" title="Link to this heading">#</a></h3>
+<p>As your journey will likely start by reading this documentation, please consider giving us feedback using the “Send feedback” button available in all entries.
+You can use it to mention aspects you like or don’t like.
+Many kinds of feedback are useful!
+For instance, there are more objective aspects of documentation, such as:</p>
+<ul class="simple">
+<li><p>reliable: are the explanations accurate? up-to-date?</p></li>
+<li><p>consistent: are there any contradictions between the different parts?</p></li>
+<li><p>complete: are there important topics or aspects not described?</p></li>
+<li><p>precise: are the explanations detailed enough?</p></li>
+<li><p>grammatically correct: is the phrasing correct?</p></li>
+</ul>
+<p>or more subjective aspects such as:</p>
+<ul class="simple">
+<li><p>clear: are the explanations easy to understand?</p></li>
+<li><p>easy to find: did you have troubles locating some information?</p></li>
+<li><p>useful: does the text help in some way?</p></li>
+</ul>
+<p>However, if the feedback is about grammar, spelling, and other similar aspects, please consider implementing your suggested changes by submitting fixes to the Octez Docs’ typo train – explained next.</p>
+</section>
+<section id="fixing-typos">
+<h3>Fixing typos<a class="headerlink" href="#fixing-typos" title="Link to this heading">#</a></h3>
+<p>You may want to fix some typos and minor errors or incoherencies in the documentation, which is situated in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> subfolder of the code repository, or within <em>comments</em> or <em>docstrings</em> within the code.
+Small tweaks like these can be contributed without creating a merge request and commits can rather be pushed directly to the <code class="docutils literal notranslate"><span class="pre">typo-doc</span></code> branch in the <code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code> repository. This branch is regularly merged into the master branch, e.g., every one or two weeks.
+(If the branch has been automatically deleted following a merge, just create it again.)
+This periodic merging is implemented by a series of MRs named “the Typo Train”, created for you by a volunteer, and batching the currently pending fixes.
+Of course, all these commits will be reviewed before being integrated.
+The current edition of the typo train MR can be found in meta-issue <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues/2329">#2329</a>.</p>
+<p>If you don’t have enough permissions to push to the branch above, you can still make commits in your own fork of the Octez repository, and ask for them to be cherry-picked on the typo/train on the <code class="docutils literal notranslate"><span class="pre">#documentation</span></code> channel on the Tezos Dev Slack space.
+Alternatively, you may of course create your own MRs on the tezos/tezos repository for submitting documentations changes without using the Typo Train. In that case, Doc owners might contact you on the MR to suggest changes, including integrating these in a current open train.</p>
+</section>
 <section id="reporting-issues">
 <h3>Reporting issues<a class="headerlink" href="#reporting-issues" title="Link to this heading">#</a></h3>
-<p>The simplest way to contribute to Octez is to report issues that you may
+<p>Another simple way to contribute to Octez is to report issues that you may
 find with the software on <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues">GitLab</a>.
 If you are unsure about an issue
 consult the <a class="reference internal" href="../introduction/tezos.html#tezos-community"><span class="std std-ref">Tezos community</span></a>
@@ -683,17 +781,6 @@ Stretch</em>), the network you are connected to (e.g. <em>Ghostnet</em>), the
 binary or component (e.g. <em>octez-node crashes</em> or <em>rpc X returns Y
 while Z was expected</em>).</p>
 <p>Other useful contributions consist in inspecting existing issues and adding details, suggesting workarounds, etc.</p>
-</section>
-<section id="fixing-typos">
-<h3>Fixing typos<a class="headerlink" href="#fixing-typos" title="Link to this heading">#</a></h3>
-<p>You may also want to fix some typos and minor errors or incoherencies in the <em>documentation</em>, which is situated in the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> subfolder of the code repository, or within <em>comments</em> or <em>docstrings</em> within the code.
-Small tweaks like these can be contributed without creating a merge request and commits can rather be pushed directly to the <code class="docutils literal notranslate"><span class="pre">typo-doc</span></code> branch in the <code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code> repository. This branch is regularly merged into the master branch, e.g., every one or two weeks.
-(If the branch has been automatically deleted following a merge, just create it again.)
-This periodic merging is implemented by a series of MRs named “the typo train”, created for you by a volunteer, and batching the currently pending fixes.
-Of course, all these commits will be reviewed before being integrated.
-The current edition of the typo train MR can be found in meta-issue <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues/2329">#2329</a>.</p>
-<p>If you don’t have enough permissions to push to the branch above, you can  still make commits in your own fork of the Octez repository, and ask for them to be cherry-picked on the typo/train on the <code class="docutils literal notranslate"><span class="pre">#documentation</span></code> channel on the Tezos Dev Slack space.
-Alternatively, you may of course create your own MRs for submitting your changes, without using the typo train.</p>
 </section>
 <section id="other-non-code-contributions">
 <h3>Other non-code contributions<a class="headerlink" href="#other-non-code-contributions" title="Link to this heading">#</a></h3>
@@ -737,7 +824,7 @@ to contribute, simply create an account there.</p>
 meaning that nobody should be pushing into the master branch directly. Once a
 merge request is ready, it is reviewed and approved, then merged with a merge commit.</p>
 <p>Therefore, you can bring useful contributions both by creating your own MRs and by reviewing MRs submitted by others.</p>
-<p>We maintain a <a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/reviews/index.html#semi-linear-history-merge-requests">semi-linear history</a>,
+<p>We maintain a <a class="reference external" href="https://docs.gitlab.com/user/project/merge_requests/reviews/#semi-linear-history-merge-requests">semi-linear history</a>,
 which means that merge requests are only
 merged if they are direct suffixes of the master branch.
 This means that merge requests are rebased on top of <code class="docutils literal notranslate"><span class="pre">master</span></code> before they are merged.
@@ -785,7 +872,7 @@ can add additional commits to address each comment. This incremental
 approach will make it easier for the reviewer to keep interacting till
 each discussion is resolved. When the reviewer is satisfied, they
 will mark the discussion resolved.</p>
-<p>The <a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/drafts.html">Draft:</a>
+<p>The <a class="reference external" href="https://docs.gitlab.com/user/project/merge_requests/drafts/">Draft:</a>
 status can be set at any time during the
 authoring/review process to signal that the MR is not yet ready for
 merge (for instance, the <code class="docutils literal notranslate"><span class="pre">git</span></code> history might not be clean). But, the
@@ -829,21 +916,8 @@ assigning the MR to the developer.</p>
 approvals from Octez Merge Team members, the developer should squash
 any fix-up commits that were applied (remembering to edit the commit
 message appropriately). Then the developer (or anyone else when not possible) can assign the MR to the <a class="reference external" href="https://gitlab.com/nomadic-margebot">Nomadic
-Marge-bot</a>, which will
-automatically rebase the branch on top of master and finally merge it.</p>
-</section>
-<section id="merge-queue-order">
-<h2>Merge Queue Order<a class="headerlink" href="#merge-queue-order" title="Link to this heading">#</a></h2>
-<p>By default, Marge-bot will merge MRs assigned to it in the assignment order. That is, the first MR assigned is the first that is merged. There are situations when it is desirable to modify this order. To achieve this, Marge-bot respects two priority labels, whose usage is reserved to the <a class="reference internal" href="merge_team.html"><span class="doc">Octez merge team</span></a>:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">marge-priority::critical</span></code>: is reserved for MRs
-resolving critical production issues (e.g., fixing a blocked CI).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">marge-priority::high</span></code>: can be applied to MRs that needs to be
-merged urgently. For instance, it can applied to MRs for urgent
-releases or to reduce the merge delay between MRs that compose a
-stack.</p></li>
-</ul>
-<p>MRs with <code class="docutils literal notranslate"><span class="pre">marge-priority::critical</span></code> will be treated before those with <code class="docutils literal notranslate"><span class="pre">marge-priority::high</span></code> who in turn will be treated before all MRs lacking either of these labels.</p>
+Marge-bot</a>, which will check the MR and
+automatically add it to a <a class="reference external" href="https://docs.gitlab.com/ci/pipelines/merge_trains/">merge train</a>.</p>
 </section>
 <section id="preparing-a-merge-request">
 <span id="preparing-mr"></span><h2>Preparing a Merge Request<a class="headerlink" href="#preparing-a-merge-request" title="Link to this heading">#</a></h2>
@@ -1099,7 +1173,7 @@ consists of a link to the MR and a one sentence summary.</p></li>
 <li><p>Ask help to the <a class="reference internal" href="merge_team.html#merge-coordinator"><span class="std std-ref">merge coordinator</span></a>, either
 by asking them on Slack or mentioning them in a comment (see next paragraph).</p></li>
 </ul>
-<p>Depending on your <a class="reference external" href="https://docs.gitlab.com/ee/user/permissions.html">GitLab role</a>
+<p>Depending on your <a class="reference external" href="https://docs.gitlab.com/user/permissions/">GitLab role</a>
 you may or may not be able to use the <em>Reviewers</em> field for specifying
 the reviewers. If you don’t have the right, mention the reviewers using
 their GitLab handle (username prefixed with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) in a comment.
@@ -1108,7 +1182,7 @@ It causes GitLab to send a notification to them.</p>
 <section id="merge-request-draft-mode">
 <span id="draft-mode"></span><h3>Merge Request “Draft” Mode<a class="headerlink" href="#merge-request-draft-mode" title="Link to this heading">#</a></h3>
 <p>A merge request that is not yet ready to be merged should be marked as
-<a class="reference external" href="https://docs.gitlab.com/ee/user/project/merge_requests/drafts.html">draft</a>
+<a class="reference external" href="https://docs.gitlab.com/user/project/merge_requests/drafts/">draft</a>
 by prefixing its title with <code class="docutils literal notranslate"><span class="pre">Draft:</span></code>. Typical reasons for this is
 that the author still has some minor tasks to accomplish, such as
 cleaning up the merge request’s <code class="docutils literal notranslate"><span class="pre">git</span></code> history (e.g. squashing <code class="docutils literal notranslate"><span class="pre">fixup!</span></code> commits), even
@@ -1330,25 +1404,6 @@ general remark is valid for any comment.</p></li>
 </ul>
 <p>When reviewing MRs involving documentation, you may check the built documentation directly within the GitLab interface, see <a class="reference internal" href="../README.html#build-doc-ci"><span class="std std-ref">Building the documentation in the CI</span></a>.</p>
 </section>
-</section>
-<section id="the-merge-request-bot">
-<span id="merge-bot"></span><h2>The Merge-Request Bot<a class="headerlink" href="#the-merge-request-bot" title="Link to this heading">#</a></h2>
-<p>Every 6 hours, an automated process running as the
-<a class="reference external" href="https://gitlab.com/tezbocop">Tezbocop</a> 🤖 user, inspects recent MRs and posts
-or edits comments on them, giving an inspection report on the contents of the
-MR.</p>
-<p>Some warnings/comments are for you to potentially improve your MR, other
-comments just help us in the assignment &amp; review process.</p>
-<p>The first time Tezbocop posts a message you should receive a notification; for
-the subsequent edits there won’t be notifications; feel free to check Tezbocop’s
-comments any time.</p>
-<p>If you think some of the remarks/warnings do not apply to your MR feel free to
-add a comment to justify it.</p>
-<p>In particular, the Merge-Request Bot may complain about <a class="reference internal" href="guidelines.html#todo-fixme"><span class="std std-ref">TODO/FIXME comments</span></a> without an issue number ensuring that the intended evolution is tracked.</p>
-<p>The code for the bot is at
-<a class="reference external" href="https://gitlab.com/oxheadalpha/merbocop">oxheadalpha/merbocop</a>. It is of
-course work-in-progress and new warnings and comments will appear little by
-little. We welcome specific issues or contributions there too.</p>
 <section id="developer-tools">
 <span id="dev-tools"></span><h3>Developer Tools<a class="headerlink" href="#developer-tools" title="Link to this heading">#</a></h3>
 <p>Some tools to make protocol development more convenient can be found in the <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/src/tooling/">src/tooling/</a> folder.
@@ -1357,6 +1412,24 @@ In particular, it contains <code class="docutils literal notranslate"><span clas
 </section>
 </section>
 
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
             <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
         
                 <script>
@@ -1365,9 +1438,10 @@ In particular, it contains <code class="docutils literal notranslate"><span clas
                         bielBtn.innerHTML = "Ask AI";
                         bielBtn.setAttribute("project", "w30c27l8fg");
                     bielBtn.setAttribute("button-text", "Ask AI");
-                    bielBtn.setAttribute("header-title", "Tezos chatbot");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
                     bielBtn.setAttribute("button-style", "dark");
-                    bielBtn.setAttribute("button-position", "bottom-right");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot/' target='_blank'>Using the chatbot</a>.");
                     bielBtn.setAttribute("version", "latest");
                         document.body.appendChild(bielBtn);
                     });
@@ -1409,7 +1483,8 @@ In particular, it contains <code class="docutils literal notranslate"><span clas
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1419,15 +1494,15 @@ In particular, it contains <code class="docutils literal notranslate"><span clas
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#providing-feedback-on-documentation">Providing feedback on documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-typos">Fixing typos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-issues">Reporting issues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-non-code-contributions">Other non-code contributions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#going-further">Going further</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#our-git-strategy">Our git strategy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-an-mr">Workflow of an MR</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-queue-order">Merge Queue Order</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-a-merge-request">Preparing a Merge Request</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-merge-request">Creating the Merge Request</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#favoring-small-merge-requests">Favoring Small Merge Requests</a></li>
@@ -1447,9 +1522,6 @@ In particular, it contains <code class="docutils literal notranslate"><span clas
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-request-approvals">Merge Request Approvals</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#author-perspective">Author Perspective</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reviewer-perspective">Reviewer Perspective</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-merge-request-bot">The Merge-Request Bot</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-tools">Developer Tools</a></li>
 </ul>
 </li>
@@ -1477,7 +1549,7 @@ By Contributors to the Octez & Tezos protocol documentation
 
   <p class="copyright">
     
-      © Copyright 2018-2024.
+      © Copyright 2018-1980.
       <br/>
     
   </p>
@@ -1501,8 +1573,8 @@ By Contributors to the Octez & Tezos protocol documentation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

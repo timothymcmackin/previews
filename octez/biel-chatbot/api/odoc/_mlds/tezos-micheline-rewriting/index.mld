@@ -1,4 +1,0 @@
-{0 tezos-micheline-rewriting index}
-{1 Library tezos-micheline-rewriting}
-The entry point of this library is the module:
-{!module-Tezos_micheline_rewriting}.

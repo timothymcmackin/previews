@@ -1,4 +1,0 @@
-{0 dal_node_migrations index}
-{1 Library dal_node_migrations}
-The entry point of this library is the module:
-{!module-Dal_node_migrations}.

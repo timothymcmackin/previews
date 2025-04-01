@@ -22,6 +22,7 @@ Staked and delegated funds **have different weights** in the computation
 of delegates’ baking and voting powers: staked funds (both external
 stakes by stakers and the delegate’s own) count **three times** as much as
 delegated funds.
+This ratio is defined by the protocol constant ``EDGE_OF_STAKING_OVER_DELEGATION``.
 
 Unlike delegated funds, staked funds are considered to contribute to the
 security deposit associated with their chosen delegate. Thus, they are
@@ -58,7 +59,8 @@ Freezing and unfreezing of staked funds is controlled directly by delegates and
 stakers.
 This entails that staked funds are frozen until manually
 unfrozen by stakers. This is a two step process which spans for at least
-4 cycles (cf. :ref:`Staked funds management <staked_funds_management_alpha>`).
+``UNSTAKE_FINALIZATION_DELAY`` cycles (cf. :ref:`Staked funds
+management <staked_funds_management_alpha>`).
 
 .. _pseudo_operations_alpha:
 
@@ -91,7 +93,7 @@ parameters:
    the maximum portion of external stake by stakers over the
    delegate’s own staked funds. It defaults to 0 – which entails that
    delegates do not accept external stakes by default. It is moreover
-   capped by a global constant, set to 5 starting in the Paris
+   capped by a global constant, set to 9 starting in the Quebec
    protocol, which ensures the baker controls a significant part of
    the stake.
 
@@ -130,6 +132,12 @@ Stakers (and delegates) can use the ``stake``, ``unstake``, and
 while these pseudo-operations change the *state* of the involved funds,
 they remain otherwise within the staker’s account at all times.
 
+.. note::
+
+  Due to rounding that occurs at various stages of fund management,
+  stakers' staked balances may deviate by a few mutez (millionth of
+  tez) with respect to transferred amounts.
+
 .. figure:: staked_funds_transitions.png
 
   Figure 1: staked funds management using pseudo-operations.
@@ -166,8 +174,12 @@ or more conveniently::
 
 The requested amount will be **unstaked** but will remain **frozen**,
 a.k.a. **unfinalizable**.
-After 4 cycles, unstaked frozen tokens are no longer considered at stake
-nor slashable. They are said then to be both **unstaked** and
+
+After ``UNSTAKE_FINALIZATION_DELAY + 1`` cycles (more precisely, after
+the cycle in which the unstake was requested has ended and then
+another :ref:`UNSTAKE_FINALIZATION_DELAY<cs_constants_alpha>` full
+cycles have passed), unstaked frozen tokens are no longer considered
+at stake nor slashable. They are said then to be both **unstaked** and
 **finalizable**.
 
 A staker can retrieve all unstaked and finalizable tokens at any time,

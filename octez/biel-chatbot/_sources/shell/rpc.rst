@@ -218,6 +218,10 @@ Index
       
       * /private/injection/operations (`POST <POST_--private--injection--operations_>`_)
   
+  * /profiler
+    
+    * /profiler/registered_backend (`GET <GET_--profiler--registered_backend_>`_)
+  
   * /protocols (`GET <GET_--protocols_>`_)
     
     * /protocols/<Protocol_hash> (`GET <GET_--protocols--Protocol_hash_>`_)
@@ -8005,6 +8009,77 @@ Full description
     | Unnamed field 0       | Variable | sequence of bytes                  |
     +-----------------------+----------+------------------------------------+
     
+    
+    </pre>
+    </div>
+  
+
+
+.. _GET_--profiler--registered_backend :
+
+**GET /profiler/registered_backend**
+
+.. raw:: html
+  
+  <div class="tab"><button class="tablinks defaultOpen" onclick="showTab(this, 'GET_--profiler--registered_backenddescr', 'GET_--profiler--registered_backend')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'GET_--profiler--registered_backendoutput.json', 'GET_--profiler--registered_backend')">Json output</button>
+    <button class="tablinks" onclick="showTab(this, 'GET_--profiler--registered_backendoutput.bin', 'GET_--profiler--registered_backend')">Binary output</button>
+    </div><div id="GET_--profiler--registered_backenddescr" class="GET_--profiler--registered_backend tabcontent">
+            <p>
+            Registered backend.</p>
+            </div>
+  <div id="GET_--profiler--registered_backendoutput.json" class="GET_--profiler--registered_backend tabcontent">
+    <pre>
+    { /* Registered backend. */
+      "registered_backend": [ "plain_text" || "json" ... ],
+      "backends": $backends_encoding }
+    $backends_encoding:
+      /* Backends encoding
+         Backends encoding */
+      [ [ $unistring, "plain_text" || "json" ] ... ]
+    $unistring:
+      /* Universal string representation
+         Either a plain UTF8 string, or a sequence of bytes for strings that
+         contain invalid byte sequences. */
+      string || { "invalid_utf8_string": [ integer ∈ [0, 255] ... ] }</pre>
+    </div>
+  <div id="GET_--profiler--registered_backendoutput.bin" class="GET_--profiler--registered_backend tabcontent">
+    <pre>
+    +--------------------------------------+----------+------------------------------------+
+    | Name                                 | Size     | Contents                           |
+    +======================================+==========+====================================+
+    | # bytes in next field                | 4 bytes  | unsigned 30-bit big-endian integer |
+    +--------------------------------------+----------+------------------------------------+
+    | registered_backend                   | Variable | sequence of $X_0                   |
+    +--------------------------------------+----------+------------------------------------+
+    | # bytes in field "backends_encoding" | 4 bytes  | unsigned 30-bit big-endian integer |
+    +--------------------------------------+----------+------------------------------------+
+    | backends                             | Variable | sequence of $X_1                   |
+    +--------------------------------------+----------+------------------------------------+
+    
+    
+    X_0
+    ***
+    
+    +-----------------------+----------+------------------------------------+
+    | Name                  | Size     | Contents                           |
+    +=======================+==========+====================================+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
+    +-----------------------+----------+------------------------------------+
+    | Unnamed field 0       | Variable | bytes                              |
+    +-----------------------+----------+------------------------------------+
+    
+    
+    X_1
+    ***
+    
+    +-----------------+----------------------+----------+
+    | Name            | Size                 | Contents |
+    +=================+======================+==========+
+    | Unnamed field 0 | Determined from data | $X_0     |
+    +-----------------+----------------------+----------+
+    | Unnamed field 1 | Determined from data | $X_0     |
+    +-----------------+----------------------+----------+
     
     </pre>
     </div>

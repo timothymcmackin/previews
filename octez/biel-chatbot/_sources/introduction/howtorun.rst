@@ -165,12 +165,17 @@ To run a delegate, you first need to register as one using
 your user account::
 
    octez-client register key bob as delegate
+   
+You also need to stake some tez, as explained above, so as to have at least ``MINIMAL_STAKE = 6000`` :ref:`baking power <minimal_baking_power>`, taking into account your own and all your delegators' staked balances, as well as their delegated balances with a lesser weight.
+Most commonly, you would stake (at least) the needed amount from your own tez, without waiting for delegators::
 
-Once registered, you need to wait ``consensus_rights_delay + 2 = 7`` cycles
+   octez-client stake 6000 for bob
+
+Once you registered and staked tez, you need to wait the end of the current cycle plus ``CONSENSUS_RIGHTS_DELAY = 2`` cycles,
 for your rights to be considered.
 
-There is a simple rpc that can be used to check your rights for every
-cycle, up to 5 cycles in the future.
+There is an RPC that can be used to check your rights for every
+cycle, up to 2 cycles in the future.
 
 ::
 
@@ -214,7 +219,7 @@ accounts have the necessary rights.
 Let's launch the daemon pointing to the standard node directory and
 baking for user *bob*::
 
-   octez-baker-<PROTO_HASH> run with local node ~/.tezos-node bob --liquidity-baking-toggle-vote pass
+   octez-baker-<PROTO_HASH> run with local node ~/.tezos-node bob --liquidity-baking-toggle-vote pass --without-dal
 
 where ``PROTO_HASH`` is the short hash of the current protocol of the network you want to bake on.
 
@@ -223,6 +228,7 @@ the node data directory for performance reasons (to reduce the number of RPC cal
 Note also that since version 13.0, option ``--liquidity-baking-toggle-vote`` is mandatory, see :ref:`the changelog <changes_13_0_rc1_baker>`.
 Note that ``--liquidity-baking-toggle-vote`` must be placed
 **after** ``run`` on the command-line.
+Note that option ``--without-dal`` exists since version 21.3 and will be mandatory starting from 22.0.
 
 .. warning::
 

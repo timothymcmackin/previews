@@ -10,6 +10,7 @@ Welcome to the Octez and Protocol Documentation!
 ================================================
 
 This documentation describes an implementation of the `Tezos blockchain <https://tezos.com>`__ consisting of the **Octez toolsuite** and the **Tezos protocol**, for technical users of various kinds, including Tezos application developers, bakers, and Octez/protocol developers.
+Enjoy reading this website and consider using the feedback button available in any page (:ref:`more details <feedback_doc>`).
 
 .. note::
 
@@ -147,6 +148,7 @@ Platform developers are also provided reference materials for internal APIs of O
 
     </div></details><br/>
 
+You may also access this whole documentation as a single `text file <https://octez.tezos.com/docs/octezdoc.txt>`__.
 
 .. toctree::
    :maxdepth: 2
@@ -193,6 +195,7 @@ Platform developers are also provided reference materials for internal APIs of O
    :hidden:
 
    Quebec Protocol Reference <active/index>
+   Rio Protocol Reference <rio/index>
    Alpha Dev Protocol Reference <alpha/index>
 
 .. toctree::
@@ -211,6 +214,7 @@ Platform developers are also provided reference materials for internal APIs of O
 
    releases/releases
    releases/version-21
+   releases/version-22
    releases/history
 
 .. toctree::
@@ -220,6 +224,7 @@ Platform developers are also provided reference materials for internal APIs of O
 
    protocols/naming
    protocols/021_quebec
+   protocols/022_rio
    protocols/alpha
    protocols/history
 

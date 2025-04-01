@@ -1,4 +1,0 @@
-{0 tezos-benchmarks-proto-alpha index}
-{1 Library tezos-benchmarks-proto-alpha}
-The entry point of this library is the module:
-{!module-Tezos_benchmarks_proto_alpha}.

@@ -1,4 +1,0 @@
-{0 tezos-benchmark-examples index}
-{1 Library tezos-benchmark-examples}
-The entry point of this library is the module:
-{!module-Tezos_benchmark_examples}.

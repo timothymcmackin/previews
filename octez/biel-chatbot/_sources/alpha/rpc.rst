@@ -266,6 +266,9 @@ Full description
     $Blinded public key hash:
       /* A blinded public key hash (Base58Check-encoded) */
       $unistring
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Chain_id:
       /* Network identifier (Base58Check-encoded) */
       $unistring
@@ -294,7 +297,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -357,7 +360,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.bond_id:
       { /* Smart_rollup_bond_id */
         "smart_rollup": $smart_rollup_address }
@@ -410,7 +413,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -429,7 +432,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -656,18 +659,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -675,6 +672,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -781,7 +791,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -1005,7 +1015,7 @@ Full description
                "proof": /^([a-zA-Z0-9][a-zA-Z0-9])*$/ } }
     $alpha.operation.alpha.contents_and_signature:
       { "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.operation.alpha.internal_operation_result.delegation:
       { /* Applied */
         "status": "applied",
@@ -1162,6 +1172,20 @@ Full description
                "delegate": $Signature.Public_key_hash,
                "consensus_power": integer ∈ [-2^30, 2^30],
                "consensus_key": $Signature.Public_key_hash } }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ],
+           "metadata":
+             { "balance_updates"?:
+                 $alpha.operation_metadata.alpha.balance_updates,
+               "committee":
+                 [ { "delegate": $Signature.Public_key_hash,
+                     "consensus_pkh": $Signature.Public_key_hash } ... ],
+               "consensus_power": integer ∈ [-2^30, 2^30] } }
       || { /* Double_attestation_evidence */
            "kind": "double_attestation_evidence",
            "op1": $alpha.inlined.attestation,
@@ -1360,7 +1384,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1,
+           "proof"?: $Bls12_381_signature,
            "metadata":
              { "balance_updates"?:
                  $alpha.operation_metadata.alpha.balance_updates,
@@ -2158,10 +2182,10 @@ Full description
       { /* Operation_with_metadata */
         "contents":
           [ $alpha.operation.alpha.operation_contents_and_result ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
       || { /* Operation_without_metadata */
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $alpha.operation.alpha.successful_manager_operation_result:
       { /* reveal */
         "kind": "reveal",
@@ -3078,7 +3102,7 @@ Full description
         "hash": $Operation_hash,
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1,
+        "signature"?: $Signature.V2,
         "metadata": "too large" }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
@@ -3086,7 +3110,7 @@ Full description
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
@@ -3094,14 +3118,14 @@ Full description
            "branch": $block_hash,
            "contents":
              [ $alpha.operation.alpha.operation_contents_and_result ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -3124,7 +3148,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $sapling.DH.epk: /^([a-zA-Z0-9][a-zA-Z0-9])*$/
     $sapling.transaction.ciphertext:
       { "cv": $sapling.transaction.commitment_value,
@@ -5756,7 +5780,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -5907,6 +5931,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_110
+    *****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -5962,7 +6000,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_111
+    X_112
     *****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -5974,19 +6012,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_110
+    X_111
     *****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_111   |
+    | shard | Determined from data | $X_112   |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_113
+    X_114
     *****
     
     +-----------------+-----------+----------+
@@ -6162,7 +6200,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_113                 |
+    | solution | 200 bytes | $X_114                 |
     +----------+-----------+------------------------+
     
     
@@ -6266,8 +6304,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_110                             |
+    | shard_with_proof      | Determined from data | $X_111                             |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_110                                         |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -6820,7 +6874,7 @@ Full description
     +---------------+----------------------+------------------------+
     
     
-    X_126
+    X_127
     *****
     
     +-----------------------+----------+------------------------------------+
@@ -6887,7 +6941,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -6948,7 +7002,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_126                              |
+    | errors                       | Determined from data | $X_127                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -7007,7 +7061,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7082,7 +7136,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true)       |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | errors                                                            | Determined from data | $X_126                                    |
+    | errors                                                            | Determined from data | $X_127                                    |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -7104,7 +7158,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     
     
-    X_226 (Determined from data, 8-bit tag)
+    X_227 (Determined from data, 8-bit tag)
     ***************************************
     
     To_contract (tag 0)
@@ -7172,7 +7226,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_226                 |
+    | Unnamed field 0 | Determined from data | $X_227                 |
     +-----------------+----------------------+------------------------+
     
     
@@ -7210,9 +7264,9 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_126                              |
+    | errors                       | Determined from data | $X_127                              |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_226                              |
+    | Unnamed field 0              | Determined from data | $X_227                              |
     +------------------------------+----------------------+-------------------------------------+
     
     
@@ -7313,7 +7367,7 @@ Full description
     +-------------------------------+----------------------+--------------------------------------------------------+
     
     
-    X_122
+    X_123
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -7386,7 +7440,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7398,7 +7452,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_268
+    X_269
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -7473,7 +7527,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7487,7 +7541,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_411
+    X_412
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -7505,7 +7559,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_557 (54 bytes, 8-bit tag)
+    X_558 (54 bytes, 8-bit tag)
     ***************************
     
     v0 (tag 0)
@@ -7535,7 +7589,7 @@ Full description
     +===================+======================+========================+
     | Tag               | 1 byte               | unsigned 8-bit integer |
     +-------------------+----------------------+------------------------+
-    | slot_header       | 54 bytes             | $X_557                 |
+    | slot_header       | 54 bytes             | $X_558                 |
     +-------------------+----------------------+------------------------+
     | consumed_milligas | Determined from data | $N.t                   |
     +-------------------+----------------------+------------------------+
@@ -7575,15 +7629,15 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_126                              |
+    | errors                       | Determined from data | $X_127                              |
     +------------------------------+----------------------+-------------------------------------+
-    | slot_header                  | 54 bytes             | $X_557                              |
+    | slot_header                  | 54 bytes             | $X_558                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_552
+    X_553
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -7654,7 +7708,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7664,7 +7718,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_688
+    X_689
     *****
     
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -7682,7 +7736,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     
     
-    X_842 (Determined from data, 8-bit tag)
+    X_843 (Determined from data, 8-bit tag)
     ***************************************
     
     Public (tag 0)
@@ -7728,7 +7782,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_842                              |
+    | whitelist_update                                                  | Determined from data | $X_843                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7770,7 +7824,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7782,7 +7836,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_842                              |
+    | whitelist_update                                                  | Determined from data | $X_843                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7790,7 +7844,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_828
+    X_829
     *****
     
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -7808,7 +7862,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     
     
-    X_988 (1 byte, 8-bit tag)
+    X_989 (1 byte, 8-bit tag)
     *************************
     
     Conflict_resolved (tag 0)
@@ -7831,7 +7885,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_989 (Determined from data, 8-bit tag)
+    X_990 (Determined from data, 8-bit tag)
     ***************************************
     
     Loser (tag 0)
@@ -7842,7 +7896,7 @@ Full description
     +========+==========+========================+
     | Tag    | 1 byte   | unsigned 8-bit integer |
     +--------+----------+------------------------+
-    | reason | 1 byte   | $X_988                 |
+    | reason | 1 byte   | $X_989                 |
     +--------+----------+------------------------+
     | player | 21 bytes | $public_key_hash       |
     +--------+----------+------------------------+
@@ -7858,7 +7912,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_990 (Determined from data, 8-bit tag)
+    X_991 (Determined from data, 8-bit tag)
     ***************************************
     
     Ongoing (tag 0)
@@ -7879,7 +7933,7 @@ Full description
     +========+======================+========================+
     | Tag    | 1 byte               | unsigned 8-bit integer |
     +--------+----------------------+------------------------+
-    | result | Determined from data | $X_989                 |
+    | result | Determined from data | $X_990                 |
     +--------+----------------------+------------------------+
     
     
@@ -7896,7 +7950,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | game_status                                                       | Determined from data | $X_990                             |
+    | game_status                                                       | Determined from data | $X_991                             |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -7938,11 +7992,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | game_status                                                       | Determined from data | $X_990                              |
+    | game_status                                                       | Determined from data | $X_991                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -7950,7 +8004,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_983
+    X_984
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8025,7 +8079,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -8039,7 +8093,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1282
+    X_1283
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8110,7 +8164,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_126                              |
+    | errors                       | Determined from data | $X_127                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -8120,7 +8174,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_1422
+    X_1423
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8138,7 +8192,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_1557
+    X_1558
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8215,7 +8269,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -8231,7 +8285,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1693
+    X_1694
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8308,7 +8362,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -8324,7 +8378,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1833
+    X_1834
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8399,7 +8453,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_126                              |
+    | errors                                                            | Determined from data | $X_127                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -8413,7 +8467,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_2392
+    X_2393
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8431,7 +8485,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2532
+    X_2533
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8449,7 +8503,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2672
+    X_2673
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8516,13 +8570,13 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_126                              |
+    | errors                       | Determined from data | $X_127                              |
     +------------------------------+----------------------+-------------------------------------+
     | Unnamed field 0              | Determined from data | $X_77                               |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_2853
+    X_2854
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -8540,6 +8594,36 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
+    X_3197
+    ******
+    
+    +---------------+----------+------------------+
+    | Name          | Size     | Contents         |
+    +===============+==========+==================+
+    | delegate      | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    | consensus_pkh | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    
+    
+    X_3193
+    ******
+    
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | Name                                                              | Size     | Contents                                                                |
+    +===================================================================+==========+=========================================================================+
+    | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | balance_updates                                                   | Variable | sequence of $X_8                                                        |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | # bytes in next field                                             | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | committee                                                         | Variable | sequence of $X_3197                                                     |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | consensus_power                                                   | 4 bytes  | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    
+    
     alpha.operation_metadata.alpha.balance_updates
     **********************************************
     
@@ -8552,7 +8636,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     
     
-    X_3197
+    X_3204
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -8570,7 +8654,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
-    X_3209
+    X_3216
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -8584,7 +8668,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
-    X_3217
+    X_3224
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -8635,7 +8719,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.attestation         |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3217                            |
+    | metadata              | Determined from data | $X_3224                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -8655,7 +8739,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | bh2                   | Variable             | $raw_block_header                  |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3217                            |
+    | metadata              | Determined from data | $X_3224                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -8727,7 +8811,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.preattestation      |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3217                            |
+    | metadata              | Determined from data | $X_3224                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -8739,7 +8823,7 @@ Full description
     +==========+======================+=================================================+
     | Tag      | 1 byte               | unsigned 8-bit integer                          |
     +----------+----------------------+-------------------------------------------------+
-    | solution | 200 bytes            | $X_113                                          |
+    | solution | 200 bytes            | $X_114                                          |
     +----------+----------------------+-------------------------------------------------+
     | metadata | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +----------+----------------------+-------------------------------------------------+
@@ -8759,7 +8843,7 @@ Full description
     +---------------+----------------------+------------------------+
     | destination   | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_3209                |
+    | metadata      | Determined from data | $X_3216                |
     +---------------+----------------------+------------------------+
     
     
@@ -8779,7 +8863,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3197                            |
+    | metadata           | Determined from data | $X_3204                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -8799,7 +8883,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3197                            |
+    | metadata           | Determined from data | $X_3204                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -8821,7 +8905,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | dal_attestation    | Determined from data | $Z.t                               |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3197                            |
+    | metadata           | Determined from data | $X_3204                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -8839,10 +8923,28 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer                          |
     +-----------------------+----------------------+-------------------------------------------------+
-    | shard_with_proof      | Determined from data | $X_110                                          |
+    | shard_with_proof      | Determined from data | $X_111                                          |
     +-----------------------+----------------------+-------------------------------------------------+
     | metadata              | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +-----------------------+----------------------+-------------------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------------------+------------------------------------------------+
+    | Name                  | Size                 | Contents                                       |
+    +=======================+======================+================================================+
+    | Tag                   | 1 byte               | unsigned 8-bit integer                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | consensus_content     | 40 bytes             | $X_110                                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------------------+------------------------------------------------+
+    | committee             | Variable             | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------------------+------------------------------------------------+
+    | metadata              | Determined from data | $X_3193                                        |
+    +-----------------------+----------------------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -8865,7 +8967,7 @@ Full description
     +---------------+----------------------+------------------------+
     | public_key    | Determined from data | $public_key            |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1557                |
+    | metadata      | Determined from data | $X_1558                |
     +---------------+----------------------+------------------------+
     
     
@@ -8895,7 +8997,7 @@ Full description
     +----------------------------------+----------------------+-------------------------------------+
     | parameters                       | Determined from data | $X_109                              |
     +----------------------------------+----------------------+-------------------------------------+
-    | metadata                         | Determined from data | $X_2853                             |
+    | metadata                         | Determined from data | $X_2854                             |
     +----------------------------------+----------------------+-------------------------------------+
     
     
@@ -8925,7 +9027,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | script                         | Determined from data | $alpha.scripted.contracts           |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2672                             |
+    | metadata                       | Determined from data | $X_2673                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -8951,7 +9053,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | delegate                       | 21 bytes             | $public_key_hash                    |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2532                             |
+    | metadata                       | Determined from data | $X_2533                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -8977,7 +9079,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | value                 | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_2392                            |
+    | metadata              | Determined from data | $X_2393                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -9003,7 +9105,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | limit                       | Determined from data | $N.t                                |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1557                             |
+    | metadata                    | Determined from data | $X_1558                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -9029,7 +9131,7 @@ Full description
     +---------------+----------------------+-------------------------------+
     | destination   | 22 bytes             | $alpha.contract_id.originated |
     +---------------+----------------------+-------------------------------+
-    | metadata      | Determined from data | $X_688                        |
+    | metadata      | Determined from data | $X_689                        |
     +---------------+----------------------+-------------------------------+
     
     
@@ -9057,7 +9159,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | proof                       | Determined from data | $X_108                              |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1557                             |
+    | metadata                    | Determined from data | $X_1558                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -9097,7 +9199,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | entrypoint            | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1833                            |
+    | metadata              | Determined from data | $X_1834                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -9133,7 +9235,7 @@ Full description
     +---------------------------------+----------------------+------------------------------------------------------------+
     | whitelist                       | Determined from data | $X_107                                                     |
     +---------------------------------+----------------------+------------------------------------------------------------+
-    | metadata                        | Determined from data | $X_1693                                                    |
+    | metadata                        | Determined from data | $X_1694                                                    |
     +---------------------------------+----------------------+------------------------------------------------------------+
     
     
@@ -9159,7 +9261,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | message               | Variable             | sequence of $X_81                  |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1557                            |
+    | metadata              | Determined from data | $X_1558                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -9183,7 +9285,7 @@ Full description
     +---------------+----------------------+------------------------+
     | rollup        | 20 bytes             | bytes                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1422                |
+    | metadata      | Determined from data | $X_1423                |
     +---------------+----------------------+------------------------+
     
     
@@ -9209,7 +9311,7 @@ Full description
     +---------------+----------------------+------------------------+
     | commitment    | 76 bytes             | $X_104                 |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1282                |
+    | metadata      | Determined from data | $X_1283                |
     +---------------+----------------------+------------------------+
     
     
@@ -9237,7 +9339,7 @@ Full description
     +---------------+----------------------+------------------------+
     | refutation    | Determined from data | $X_103                 |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_983                 |
+    | metadata      | Determined from data | $X_984                 |
     +---------------+----------------------+------------------------+
     
     
@@ -9263,7 +9365,7 @@ Full description
     +---------------+----------------------+------------------------+
     | stakers       | 42 bytes             | $X_97                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_983                 |
+    | metadata      | Determined from data | $X_984                 |
     +---------------+----------------------+------------------------+
     
     
@@ -9293,7 +9395,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | output_proof          | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_828                             |
+    | metadata              | Determined from data | $X_829                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -9319,7 +9421,7 @@ Full description
     +---------------+----------------------+------------------------+
     | staker        | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_688                 |
+    | metadata      | Determined from data | $X_689                 |
     +---------------+----------------------+------------------------+
     
     
@@ -9343,7 +9445,7 @@ Full description
     +---------------+----------------------+------------------------+
     | slot_header   | 145 bytes            | $X_96                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_552                 |
+    | metadata      | Determined from data | $X_553                 |
     +---------------+----------------------+------------------------+
     
     
@@ -9379,7 +9481,7 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     | nb_ops                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
-    | metadata              | Determined from data | $X_411                                                                  |
+    | metadata              | Determined from data | $X_412                                                                  |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     
     
@@ -9407,7 +9509,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op                    | Variable             | sequence of $X_87                  |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_268                             |
+    | metadata              | Determined from data | $X_269                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -9433,11 +9535,11 @@ Full description
     +---------------+----------------------+------------------------+
     | update        | Determined from data | $X_79                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_122                 |
+    | metadata      | Determined from data | $X_123                 |
     +---------------+----------------------+------------------------+
     
     
-    X_3235 (Variable, 8-bit tag)
+    X_3242 (Variable, 8-bit tag)
     ****************************
     
     Operation_with_metadata (tag 0)
@@ -9616,7 +9718,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_113                 |
+    | solution | 200 bytes | $X_114                 |
     +----------+-----------+------------------------+
     
     
@@ -9720,8 +9822,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_110                             |
+    | shard_with_proof      | Determined from data | $X_111                             |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_110                                         |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -10286,7 +10404,7 @@ Full description
     +------------------+----------+------------------------+
     
     
-    X_3306 (Variable, 8-bit tag)
+    X_3315 (Variable, 8-bit tag)
     ****************************
     
     Operation with too large metadata (tag 0)
@@ -10325,7 +10443,7 @@ Full description
     +=================+==========+========================+
     | Tag             | 1 byte   | unsigned 8-bit integer |
     +-----------------+----------+------------------------+
-    | Unnamed field 0 | Variable | $X_3235                |
+    | Unnamed field 0 | Variable | $X_3242                |
     +-----------------+----------+------------------------+
     
     
@@ -10345,7 +10463,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | $X_3306                            |
+    | Unnamed field 0       | Variable | $X_3315                            |
     +-----------------------+----------+------------------------------------+
     
     
@@ -10695,7 +10813,7 @@ Full description
       "minimal_block_delay": $int64,
       "delay_increment_per_round": $int64,
       "consensus_committee_size": integer ∈ [-2^30, 2^30],
-      "consensus_threshold": integer ∈ [-2^30, 2^30],
+      "consensus_threshold_size": integer ∈ [-2^30, 2^30],
       "minimal_participation_ratio":
         { "numerator": integer ∈ [0, 2^16-1],
           "denominator": integer ∈ [0, 2^16-1] },
@@ -10780,7 +10898,8 @@ Full description
       "direct_ticket_spending_enable": boolean,
       "aggregate_attestation": boolean,
       "allow_tz4_delegate_enable": boolean,
-      "all_bakers_attest_activation_level"?: integer ∈ [0, 2^31],
+      "all_bakers_attest_activation_level":
+        integer ∈ [0, 2^31] /* Some */ || null /* None */,
       "issuance_modification_delay": integer ∈ [0, 255],
       "consensus_key_activation_delay": integer ∈ [0, 255],
       "unstake_finalization_delay": integer ∈ [0, 255] }
@@ -10812,181 +10931,179 @@ Full description
     </div>
   <div id="GET_..--block_id--context--constantsoutput.bin" class="GET_..--block_id--context--constants tabcontent">
     <pre>
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | Name                                                     | Size                 | Contents                                                                |
-    +==========================================================+======================+=========================================================================+
-    | proof_of_work_nonce_size                                 | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | nonce_length                                             | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_anon_ops_per_block                                   | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_operation_data_length                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_proposals_per_delegate                               | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_micheline_node_count                                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_micheline_bytes_limit                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_allowed_global_constants_depth                       | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_layout_size                                        | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | michelson_maximum_type_size                              | 2 bytes              | unsigned 16-bit big-endian integer                                      |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | denunciation_period                                      | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | slashing_delay                                           | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_wrapped_proof_binary_size               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_message_size_limit                          | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_number_of_messages_per_level            | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_rights_delay                                   | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_preservation_cycles                               | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | delegate_parameters_activation_delay                     | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | tolerated_inactivity_period                              | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_per_cycle                                         | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_per_commitment                                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | nonce_revelation_threshold                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cycles_per_voting_period                                 | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_gas_limit_per_operation                             | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_gas_limit_per_block                                 | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | proof_of_work_threshold                                  | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_stake                                            | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_frozen_stake                                     | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | vdf_difficulty                                           | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | origination_size                                         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | issuance_weights                                         | Determined from data | $X_0                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cost_per_byte                                            | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_storage_limit_per_operation                         | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | quorum_min                                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | quorum_max                                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | min_proposal_quorum                                      | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | liquidity_baking_subsidy                                 | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | liquidity_baking_toggle_ema_threshold                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_operations_time_to_live                              | 2 bytes              | signed 16-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_block_delay                                      | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | delay_increment_per_round                                | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_committee_size                                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_threshold                                      | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_participation_ratio                              | 4 bytes              | $X_1                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | limit_of_delegation_over_baking                          | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | percentage_of_frozen_deposits_slashed_per_double_baking  | 2 bytes              | unsigned 16-bit big-endian integer                                      |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_slashing_per_block                                   | 2 bytes              | unsigned 16-bit big-endian integer                                      |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_slashing_threshold                                   | 4 bytes              | $X_1                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "testnet_dictator"                   | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | testnet_dictator                                         | 21 bytes             | $public_key_hash                                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "initial_seed"                       | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | initial_seed                                             | 32 bytes             | bytes                                                                   |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_script_size                                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_stake_distribution_cycles                          | 1 byte               | signed 8-bit integer                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_sampler_state_cycles                               | 1 byte               | signed 8-bit integer                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | dal_parametric                                           | Determined from data | $X_3                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_arith_pvm_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_origination_size                            | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_challenge_window_in_blocks                  | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_stake_amount                                | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_commitment_period_in_blocks                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_lookahead_in_blocks                     | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_active_outbox_levels                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_outbox_messages_per_level               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_number_of_sections_in_dissection            | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_timeout_period_in_blocks                    | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_number_of_cemented_commitments          | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_number_of_parallel_games                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_reveal_activation_level                     | 20 bytes             | $X_7                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_private_enable                              | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_riscv_pvm_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_enable                                         | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_origination_size                               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_min_pending_to_process                         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_max_ticket_payload_size                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | global_limit_of_staking_over_baking                      | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | edge_of_staking_over_delegation                          | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | adaptive_rewards_params                                  | Determined from data | $X_8                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | direct_ticket_spending_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | aggregate_attestation                                    | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | allow_tz4_delegate_enable                                | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "all_bakers_attest_activation_level" | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | all_bakers_attest_activation_level                       | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | issuance_modification_delay                              | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_key_activation_delay                           | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | unstake_finalization_delay                               | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | Name                                                    | Size                 | Contents                                                                |
+    +=========================================================+======================+=========================================================================+
+    | proof_of_work_nonce_size                                | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | nonce_length                                            | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_anon_ops_per_block                                  | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_operation_data_length                               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_proposals_per_delegate                              | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_micheline_node_count                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_micheline_bytes_limit                               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_allowed_global_constants_depth                      | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_layout_size                                       | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | michelson_maximum_type_size                             | 2 bytes              | unsigned 16-bit big-endian integer                                      |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | denunciation_period                                     | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | slashing_delay                                          | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_wrapped_proof_binary_size              | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_message_size_limit                         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_number_of_messages_per_level           | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_rights_delay                                  | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_preservation_cycles                              | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | delegate_parameters_activation_delay                    | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | tolerated_inactivity_period                             | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_per_cycle                                        | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_per_commitment                                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | nonce_revelation_threshold                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cycles_per_voting_period                                | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_gas_limit_per_operation                            | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_gas_limit_per_block                                | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | proof_of_work_threshold                                 | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_stake                                           | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_frozen_stake                                    | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | vdf_difficulty                                          | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | origination_size                                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | issuance_weights                                        | Determined from data | $X_0                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cost_per_byte                                           | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_storage_limit_per_operation                        | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | quorum_min                                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | quorum_max                                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | min_proposal_quorum                                     | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | liquidity_baking_subsidy                                | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | liquidity_baking_toggle_ema_threshold                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_operations_time_to_live                             | 2 bytes              | signed 16-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_block_delay                                     | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | delay_increment_per_round                               | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_committee_size                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_threshold_size                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_participation_ratio                             | 4 bytes              | $X_1                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | limit_of_delegation_over_baking                         | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | percentage_of_frozen_deposits_slashed_per_double_baking | 2 bytes              | unsigned 16-bit big-endian integer                                      |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_slashing_per_block                                  | 2 bytes              | unsigned 16-bit big-endian integer                                      |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_slashing_threshold                                  | 4 bytes              | $X_1                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | ? presence of field "testnet_dictator"                  | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | testnet_dictator                                        | 21 bytes             | $public_key_hash                                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | ? presence of field "initial_seed"                      | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | initial_seed                                            | 32 bytes             | bytes                                                                   |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_script_size                                       | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_stake_distribution_cycles                         | 1 byte               | signed 8-bit integer                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_sampler_state_cycles                              | 1 byte               | signed 8-bit integer                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | dal_parametric                                          | Determined from data | $X_3                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_arith_pvm_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_origination_size                           | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_challenge_window_in_blocks                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_stake_amount                               | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_commitment_period_in_blocks                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_lookahead_in_blocks                    | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_active_outbox_levels                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_outbox_messages_per_level              | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_number_of_sections_in_dissection           | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_timeout_period_in_blocks                   | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_number_of_cemented_commitments         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_number_of_parallel_games               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_reveal_activation_level                    | 20 bytes             | $X_7                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_private_enable                             | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_riscv_pvm_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_enable                                        | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_origination_size                              | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_min_pending_to_process                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_max_ticket_payload_size                       | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | global_limit_of_staking_over_baking                     | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | edge_of_staking_over_delegation                         | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | adaptive_rewards_params                                 | Determined from data | $X_8                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | direct_ticket_spending_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | aggregate_attestation                                   | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | allow_tz4_delegate_enable                               | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | all_bakers_attest_activation_level                      | Determined from data | $X_16                                                                   |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | issuance_modification_delay                             | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_key_activation_delay                          | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | unstake_finalization_delay                              | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
     
     
     N.t
@@ -11186,6 +11303,31 @@ Full description
     +----------------------------+----------------------+----------------------------------+
     | radius_dz                  | Determined from data | $X_4                             |
     +----------------------------+----------------------+----------------------------------+
+    
+    
+    X_16 (Determined from data, 8-bit tag)
+    **************************************
+    
+    None (tag 0)
+    ============
+    
+    +------+--------+------------------------+
+    | Name | Size   | Contents               |
+    +======+========+========================+
+    | Tag  | 1 byte | unsigned 8-bit integer |
+    +------+--------+------------------------+
+    
+    
+    Some (tag 1)
+    ============
+    
+    +-----------------+---------+----------------------------------+
+    | Name            | Size    | Contents                         |
+    +=================+=========+==================================+
+    | Tag             | 1 byte  | unsigned 8-bit integer           |
+    +-----------------+---------+----------------------------------+
+    | Unnamed field 0 | 4 bytes | signed 32-bit big-endian integer |
+    +-----------------+---------+----------------------------------+
     
     </pre>
     </div>
@@ -11273,7 +11415,7 @@ Full description
       "minimal_block_delay": $int64,
       "delay_increment_per_round": $int64,
       "consensus_committee_size": integer ∈ [-2^30, 2^30],
-      "consensus_threshold": integer ∈ [-2^30, 2^30],
+      "consensus_threshold_size": integer ∈ [-2^30, 2^30],
       "minimal_participation_ratio":
         { "numerator": integer ∈ [0, 2^16-1],
           "denominator": integer ∈ [0, 2^16-1] },
@@ -11358,7 +11500,8 @@ Full description
       "direct_ticket_spending_enable": boolean,
       "aggregate_attestation": boolean,
       "allow_tz4_delegate_enable": boolean,
-      "all_bakers_attest_activation_level"?: integer ∈ [0, 2^31] }
+      "all_bakers_attest_activation_level":
+        integer ∈ [0, 2^31] /* Some */ || null /* None */ }
     $Signature.Public_key_hash:
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
@@ -11387,145 +11530,143 @@ Full description
     </div>
   <div id="GET_..--block_id--context--constants--parametricoutput.bin" class="GET_..--block_id--context--constants--parametric tabcontent">
     <pre>
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | Name                                                     | Size                 | Contents                                                                |
-    +==========================================================+======================+=========================================================================+
-    | consensus_rights_delay                                   | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_preservation_cycles                               | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | delegate_parameters_activation_delay                     | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | tolerated_inactivity_period                              | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_per_cycle                                         | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | blocks_per_commitment                                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | nonce_revelation_threshold                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cycles_per_voting_period                                 | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_gas_limit_per_operation                             | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_gas_limit_per_block                                 | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | proof_of_work_threshold                                  | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_stake                                            | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_frozen_stake                                     | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | vdf_difficulty                                           | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | origination_size                                         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | issuance_weights                                         | Determined from data | $X_0                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cost_per_byte                                            | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | hard_storage_limit_per_operation                         | Determined from data | $Z.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | quorum_min                                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | quorum_max                                               | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | min_proposal_quorum                                      | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | liquidity_baking_subsidy                                 | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | liquidity_baking_toggle_ema_threshold                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_operations_time_to_live                              | 2 bytes              | signed 16-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_block_delay                                      | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | delay_increment_per_round                                | 8 bytes              | signed 64-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_committee_size                                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | consensus_threshold                                      | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | minimal_participation_ratio                              | 4 bytes              | $X_1                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | limit_of_delegation_over_baking                          | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | percentage_of_frozen_deposits_slashed_per_double_baking  | 2 bytes              | unsigned 16-bit big-endian integer                                      |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_slashing_per_block                                   | 2 bytes              | unsigned 16-bit big-endian integer                                      |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | max_slashing_threshold                                   | 4 bytes              | $X_1                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "testnet_dictator"                   | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | testnet_dictator                                         | 21 bytes             | $public_key_hash                                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "initial_seed"                       | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | initial_seed                                             | 32 bytes             | bytes                                                                   |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_script_size                                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_stake_distribution_cycles                          | 1 byte               | signed 8-bit integer                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | cache_sampler_state_cycles                               | 1 byte               | signed 8-bit integer                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | dal_parametric                                           | Determined from data | $X_3                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_arith_pvm_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_origination_size                            | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_challenge_window_in_blocks                  | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_stake_amount                                | Determined from data | $N.t                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_commitment_period_in_blocks                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_lookahead_in_blocks                     | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_active_outbox_levels                    | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_outbox_messages_per_level               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_number_of_sections_in_dissection            | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_timeout_period_in_blocks                    | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_number_of_cemented_commitments          | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_max_number_of_parallel_games                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_reveal_activation_level                     | 20 bytes             | $X_7                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_private_enable                              | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | smart_rollup_riscv_pvm_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_enable                                         | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_origination_size                               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_min_pending_to_process                         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | zk_rollup_max_ticket_payload_size                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | global_limit_of_staking_over_baking                      | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | edge_of_staking_over_delegation                          | 1 byte               | unsigned 8-bit integer                                                  |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | adaptive_rewards_params                                  | Determined from data | $X_8                                                                    |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | direct_ticket_spending_enable                            | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | aggregate_attestation                                    | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | allow_tz4_delegate_enable                                | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | ? presence of field "all_bakers_attest_activation_level" | 1 byte               | boolean (0 for false, 255 for true)                                     |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
-    | all_bakers_attest_activation_level                       | 4 bytes              | signed 32-bit big-endian integer                                        |
-    +----------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | Name                                                    | Size                 | Contents                                                                |
+    +=========================================================+======================+=========================================================================+
+    | consensus_rights_delay                                  | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_preservation_cycles                              | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | delegate_parameters_activation_delay                    | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | tolerated_inactivity_period                             | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_per_cycle                                        | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | blocks_per_commitment                                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | nonce_revelation_threshold                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cycles_per_voting_period                                | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_gas_limit_per_operation                            | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_gas_limit_per_block                                | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | proof_of_work_threshold                                 | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_stake                                           | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_frozen_stake                                    | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | vdf_difficulty                                          | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | origination_size                                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | issuance_weights                                        | Determined from data | $X_0                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cost_per_byte                                           | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | hard_storage_limit_per_operation                        | Determined from data | $Z.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | quorum_min                                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | quorum_max                                              | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | min_proposal_quorum                                     | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | liquidity_baking_subsidy                                | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | liquidity_baking_toggle_ema_threshold                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_operations_time_to_live                             | 2 bytes              | signed 16-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_block_delay                                     | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | delay_increment_per_round                               | 8 bytes              | signed 64-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_committee_size                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | consensus_threshold_size                                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | minimal_participation_ratio                             | 4 bytes              | $X_1                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | limit_of_delegation_over_baking                         | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | percentage_of_frozen_deposits_slashed_per_double_baking | 2 bytes              | unsigned 16-bit big-endian integer                                      |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_slashing_per_block                                  | 2 bytes              | unsigned 16-bit big-endian integer                                      |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | max_slashing_threshold                                  | 4 bytes              | $X_1                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | ? presence of field "testnet_dictator"                  | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | testnet_dictator                                        | 21 bytes             | $public_key_hash                                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | ? presence of field "initial_seed"                      | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | initial_seed                                            | 32 bytes             | bytes                                                                   |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_script_size                                       | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_stake_distribution_cycles                         | 1 byte               | signed 8-bit integer                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | cache_sampler_state_cycles                              | 1 byte               | signed 8-bit integer                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | dal_parametric                                          | Determined from data | $X_3                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_arith_pvm_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_origination_size                           | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_challenge_window_in_blocks                 | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_stake_amount                               | Determined from data | $N.t                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_commitment_period_in_blocks                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_lookahead_in_blocks                    | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_active_outbox_levels                   | 4 bytes              | signed 32-bit big-endian integer                                        |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_outbox_messages_per_level              | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_number_of_sections_in_dissection           | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_timeout_period_in_blocks                   | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_number_of_cemented_commitments         | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_max_number_of_parallel_games               | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_reveal_activation_level                    | 20 bytes             | $X_7                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_private_enable                             | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | smart_rollup_riscv_pvm_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_enable                                        | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_origination_size                              | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_min_pending_to_process                        | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | zk_rollup_max_ticket_payload_size                       | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | global_limit_of_staking_over_baking                     | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | edge_of_staking_over_delegation                         | 1 byte               | unsigned 8-bit integer                                                  |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | adaptive_rewards_params                                 | Determined from data | $X_8                                                                    |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | direct_ticket_spending_enable                           | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | aggregate_attestation                                   | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | allow_tz4_delegate_enable                               | 1 byte               | boolean (0 for false, 255 for true)                                     |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
+    | all_bakers_attest_activation_level                      | Determined from data | $X_16                                                                   |
+    +---------------------------------------------------------+----------------------+-------------------------------------------------------------------------+
     
     
     Z.t
@@ -11725,6 +11866,31 @@ Full description
     +----------------------------+----------------------+----------------------------------+
     | radius_dz                  | Determined from data | $X_4                             |
     +----------------------------+----------------------+----------------------------------+
+    
+    
+    X_16 (Determined from data, 8-bit tag)
+    **************************************
+    
+    None (tag 0)
+    ============
+    
+    +------+--------+------------------------+
+    | Name | Size   | Contents               |
+    +======+========+========================+
+    | Tag  | 1 byte | unsigned 8-bit integer |
+    +------+--------+------------------------+
+    
+    
+    Some (tag 1)
+    ============
+    
+    +-----------------+---------+----------------------------------+
+    | Name            | Size    | Contents                         |
+    +=================+=========+==================================+
+    | Tag             | 1 byte  | unsigned 8-bit integer           |
+    +-----------------+---------+----------------------------------+
+    | Unnamed field 0 | 4 bytes | signed 32-bit big-endian integer |
+    +-----------------+---------+----------------------------------+
     
     </pre>
     </div>
@@ -12046,7 +12212,8 @@ Full description
         "baking_reward_bonus_per_slot": $alpha.mutez,
         "attesting_reward_per_slot": $alpha.mutez,
         "seed_nonce_revelation_tip": $alpha.mutez,
-        "vdf_revelation_tip": $alpha.mutez } ... ]
+        "vdf_revelation_tip": $alpha.mutez,
+        "dal_attesting_reward_per_shard": $alpha.mutez } ... ]
     $alpha.mutez: $positive_bignum
     $positive_bignum:
       /* Positive big number
@@ -12079,21 +12246,23 @@ Full description
     X_0
     ***
     
-    +------------------------------+----------------------+----------------------------------+
-    | Name                         | Size                 | Contents                         |
-    +==============================+======================+==================================+
-    | cycle                        | 4 bytes              | signed 32-bit big-endian integer |
-    +------------------------------+----------------------+----------------------------------+
-    | baking_reward_fixed_portion  | Determined from data | $N.t                             |
-    +------------------------------+----------------------+----------------------------------+
-    | baking_reward_bonus_per_slot | Determined from data | $N.t                             |
-    +------------------------------+----------------------+----------------------------------+
-    | attesting_reward_per_slot    | Determined from data | $N.t                             |
-    +------------------------------+----------------------+----------------------------------+
-    | seed_nonce_revelation_tip    | Determined from data | $N.t                             |
-    +------------------------------+----------------------+----------------------------------+
-    | vdf_revelation_tip           | Determined from data | $N.t                             |
-    +------------------------------+----------------------+----------------------------------+
+    +--------------------------------+----------------------+----------------------------------+
+    | Name                           | Size                 | Contents                         |
+    +================================+======================+==================================+
+    | cycle                          | 4 bytes              | signed 32-bit big-endian integer |
+    +--------------------------------+----------------------+----------------------------------+
+    | baking_reward_fixed_portion    | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
+    | baking_reward_bonus_per_slot   | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
+    | attesting_reward_per_slot      | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
+    | seed_nonce_revelation_tip      | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
+    | vdf_revelation_tip             | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
+    | dal_attesting_reward_per_shard | Determined from data | $N.t                             |
+    +--------------------------------+----------------------+----------------------------------+
     
     </pre>
     </div>
@@ -16889,7 +17058,7 @@ Full description
       "seed_nonce_hash"?: $cycle_nonce,
       "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
       "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-      "signature": $Signature.V1 }
+      "signature": $Signature.V2 }
     $Chain_id:
       /* Network identifier (Base58Check-encoded) */
       $unistring
@@ -16899,7 +17068,7 @@ Full description
     $Operation_list_list_hash:
       /* A list of list of operations (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $alpha.adaptive_issuance_vote: "on" || "off" || "pass"
@@ -17103,8 +17272,8 @@ Full description
       "seed_nonce_hash"?: $cycle_nonce,
       "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
       "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-      "signature": $Signature.V1 }
-    $Signature.V1:
+      "signature": $Signature.V2 }
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $alpha.adaptive_issuance_vote: "on" || "off" || "pass"
@@ -17585,8 +17754,11 @@ Full description
           "seed_nonce_hash"?: $cycle_nonce,
           "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
           "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-          "signature": $Signature.V1 },
+          "signature": $Signature.V2 },
       "operations": [ [ $next_operation ... ] ... ] }
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Context_hash:
       /* A hash of context (Base58Check-encoded) */
       $unistring
@@ -17609,7 +17781,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -17634,7 +17806,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.contract_id:
       /* A contract handle
          A contract notation as given to an RPC or inside scripts. Can be a
@@ -17664,7 +17836,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -17683,7 +17855,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -17853,18 +18025,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -17872,6 +18038,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -17978,7 +18157,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -18243,7 +18422,7 @@ Full description
       { "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -19554,7 +19733,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -19722,6 +19901,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_33
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -19777,7 +19970,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_34
+    X_35
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -19789,19 +19982,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_33
+    X_34
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_34    |
+    | shard | Determined from data | $X_35    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_36
+    X_37
     ****
     
     +-----------------+-----------+----------+
@@ -20029,7 +20222,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_36                  |
+    | solution | 200 bytes | $X_37                  |
     +----------+-----------+------------------------+
     
     
@@ -20133,8 +20326,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_33                              |
+    | shard_with_proof      | Determined from data | $X_34                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_33                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -20957,6 +21166,9 @@ Full description
   <div id="POST_..--block_id--helpers--preapply--operationsinput.json" class="POST_..--block_id--helpers--preapply--operations tabcontent">
     <pre>
     [ $next_operation ... ]
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Context_hash:
       /* A hash of context (Base58Check-encoded) */
       $unistring
@@ -20979,7 +21191,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -21004,7 +21216,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.contract_id:
       /* A contract handle
          A contract notation as given to an RPC or inside scripts. Can be a
@@ -21034,7 +21246,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -21053,7 +21265,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -21223,18 +21435,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -21242,6 +21448,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -21348,7 +21567,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -21613,7 +21832,7 @@ Full description
       { "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -22805,7 +23024,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -22973,6 +23192,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_31
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -23028,7 +23261,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_32
+    X_33
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -23040,19 +23273,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_31
+    X_32
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_32    |
+    | shard | Determined from data | $X_33    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_34
+    X_35
     ****
     
     +-----------------+-----------+----------+
@@ -23373,7 +23606,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_34                  |
+    | solution | 200 bytes | $X_35                  |
     +----------+-----------+------------------------+
     
     
@@ -23477,8 +23710,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                              |
+    | shard_with_proof      | Determined from data | $X_32                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_31                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -24069,6 +24318,9 @@ Full description
     $Blinded public key hash:
       /* A blinded public key hash (Base58Check-encoded) */
       $unistring
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Context_hash:
       /* A hash of context (Base58Check-encoded) */
       $unistring
@@ -24094,7 +24346,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -24157,7 +24409,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.bond_id:
       { /* Smart_rollup_bond_id */
         "smart_rollup": $smart_rollup_address }
@@ -24210,7 +24462,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -24229,7 +24481,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -24456,18 +24708,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -24475,6 +24721,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -24581,7 +24840,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -24959,6 +25218,20 @@ Full description
                "delegate": $Signature.Public_key_hash,
                "consensus_power": integer ∈ [-2^30, 2^30],
                "consensus_key": $Signature.Public_key_hash } }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ],
+           "metadata":
+             { "balance_updates"?:
+                 $alpha.operation_metadata.alpha.balance_updates,
+               "committee":
+                 [ { "delegate": $Signature.Public_key_hash,
+                     "consensus_pkh": $Signature.Public_key_hash } ... ],
+               "consensus_power": integer ∈ [-2^30, 2^30] } }
       || { /* Double_attestation_evidence */
            "kind": "double_attestation_evidence",
            "op1": $alpha.inlined.attestation,
@@ -25157,7 +25430,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1,
+           "proof"?: $Bls12_381_signature,
            "metadata":
              { "balance_updates"?:
                  $alpha.operation_metadata.alpha.balance_updates,
@@ -25955,10 +26228,10 @@ Full description
       { /* Operation_with_metadata */
         "contents":
           [ $alpha.operation.alpha.operation_contents_and_result ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
       || { /* Operation_without_metadata */
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $alpha.operation_metadata.alpha.balance_updates:
       [ { /* Contract */
           "kind": "contract",
@@ -27916,7 +28189,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -28084,6 +28357,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_32
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -28139,7 +28426,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_33
+    X_34
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -28151,19 +28438,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_32
+    X_33
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_33    |
+    | shard | Determined from data | $X_34    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_35
+    X_36
     ****
     
     +-----------------+-----------+----------+
@@ -28484,7 +28771,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_35                  |
+    | solution | 200 bytes | $X_36                  |
     +----------+-----------+------------------------+
     
     
@@ -28588,8 +28875,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_32                              |
+    | shard_with_proof      | Determined from data | $X_33                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_32                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -29239,7 +29542,7 @@ Full description
     +------------+----------+------------------------+
     
     
-    X_46 (Determined from data, 8-bit tag)
+    X_47 (Determined from data, 8-bit tag)
     **************************************
     
     Contract (tag 0)
@@ -29568,7 +29871,7 @@ Full description
     +----------+----------+----------------------------------+
     
     
-    X_47 (Determined from data, 8-bit tag)
+    X_48 (Determined from data, 8-bit tag)
     **************************************
     
     Block_application (tag 0)
@@ -29623,19 +29926,19 @@ Full description
     +------------------------+----------+------------------------+
     
     
-    X_45
+    X_46
     ****
     
     +-----------------+----------------------+----------+
     | Name            | Size                 | Contents |
     +=================+======================+==========+
-    | Unnamed field 0 | Determined from data | $X_46    |
+    | Unnamed field 0 | Determined from data | $X_47    |
     +-----------------+----------------------+----------+
-    | Unnamed field 1 | Determined from data | $X_47    |
+    | Unnamed field 1 | Determined from data | $X_48    |
     +-----------------+----------------------+----------+
     
     
-    X_48
+    X_49
     ****
     
     +-----------------------+----------+------------------------------------+
@@ -29660,7 +29963,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -29702,11 +30005,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -29820,7 +30123,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -29841,7 +30144,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -29879,13 +30182,13 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
@@ -29911,7 +30214,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     
     
-    X_70
+    X_71
     ****
     
     +-----------------+----------------------+---------------------------------+
@@ -29923,7 +30226,7 @@ Full description
     +-----------------+----------------------+---------------------------------+
     
     
-    X_69
+    X_70
     ****
     
     +-----------------------------+----------+------------------------------------+
@@ -29931,7 +30234,7 @@ Full description
     +=============================+==========+====================================+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
-    | commitments_and_ciphertexts | Variable | sequence of $X_70                  |
+    | commitments_and_ciphertexts | Variable | sequence of $X_71                  |
     +-----------------------------+----------+------------------------------------+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
@@ -29939,7 +30242,7 @@ Full description
     +-----------------------------+----------+------------------------------------+
     
     
-    X_75 (Determined from data, 8-bit tag)
+    X_76 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -29950,7 +30253,7 @@ Full description
     +=========+======================+========================+
     | Tag     | 1 byte               | unsigned 8-bit integer |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_69                  |
+    | updates | Determined from data | $X_70                  |
     +---------+----------------------+------------------------+
     
     
@@ -29974,7 +30277,7 @@ Full description
     +---------+----------------------+------------------------+
     | source  | Determined from data | $Z.t                   |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_69                  |
+    | updates | Determined from data | $X_70                  |
     +---------+----------------------+------------------------+
     
     
@@ -29986,13 +30289,13 @@ Full description
     +===========+======================+====================================+
     | Tag       | 1 byte               | unsigned 8-bit integer             |
     +-----------+----------------------+------------------------------------+
-    | updates   | Determined from data | $X_69                              |
+    | updates   | Determined from data | $X_70                              |
     +-----------+----------------------+------------------------------------+
     | memo_size | 2 bytes              | unsigned 16-bit big-endian integer |
     +-----------+----------------------+------------------------------------+
     
     
-    X_76
+    X_77
     ****
     
     +-----------------------------+----------------------+------------------------------------------+
@@ -30008,7 +30311,7 @@ Full description
     +-----------------------------+----------------------+------------------------------------------+
     
     
-    X_87 (Determined from data, 8-bit tag)
+    X_88 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -30021,7 +30324,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | updates               | Variable | sequence of $X_76                  |
+    | updates               | Variable | sequence of $X_77                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -30047,7 +30350,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_76                  |
+    | updates               | Variable             | sequence of $X_77                  |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -30061,7 +30364,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer       |
     +-----------------------+----------------------+------------------------------------------+
-    | updates               | Variable             | sequence of $X_76                        |
+    | updates               | Variable             | sequence of $X_77                        |
     +-----------------------+----------------------+------------------------------------------+
     | key_type              | Determined from data | $micheline.alpha.michelson_v1.expression |
     +-----------------------+----------------------+------------------------------------------+
@@ -30069,7 +30372,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     
     
-    X_88 (Determined from data, 8-bit tag)
+    X_89 (Determined from data, 8-bit tag)
     **************************************
     
     big_map (tag 0)
@@ -30082,7 +30385,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_87                  |
+    | diff | Determined from data | $X_88                  |
     +------+----------------------+------------------------+
     
     
@@ -30096,7 +30399,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_75                  |
+    | diff | Determined from data | $X_76                  |
     +------+----------------------+------------------------+
     
     
@@ -30108,7 +30411,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_88                  |
+    | Unnamed field 0       | Variable | sequence of $X_89                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -30125,7 +30428,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -30177,11 +30480,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true)       |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | errors                                                            | Determined from data | $X_48                                     |
+    | errors                                                            | Determined from data | $X_49                                     |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -30199,7 +30502,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     
     
-    X_115
+    X_116
     *****
     
     +--------------+----------------------+------------------------------------------+
@@ -30213,7 +30516,7 @@ Full description
     +--------------+----------------------+------------------------------------------+
     
     
-    X_118
+    X_119
     *****
     
     +---------+----------------------+--------------------------------+
@@ -30225,21 +30528,21 @@ Full description
     +---------+----------------------+--------------------------------+
     
     
-    X_114
+    X_115
     *****
     
     +-----------------------+----------------------+------------------------------------+
     | Name                  | Size                 | Contents                           |
     +=======================+======================+====================================+
-    | ticket_token          | Determined from data | $X_115                             |
+    | ticket_token          | Determined from data | $X_116                             |
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_118                 |
+    | updates               | Variable             | sequence of $X_119                 |
     +-----------------------+----------------------+------------------------------------+
     
     
-    X_148 (Determined from data, 8-bit tag)
+    X_149 (Determined from data, 8-bit tag)
     ***************************************
     
     To_contract (tag 0)
@@ -30256,11 +30559,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_receipt                                                    | Variable             | sequence of $X_114                        |
+    | ticket_receipt                                                    | Variable             | sequence of $X_115                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -30292,7 +30595,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_receipt        | Variable             | sequence of $X_114                 |
+    | ticket_receipt        | Variable             | sequence of $X_115                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -30307,7 +30610,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_148                 |
+    | Unnamed field 0 | Determined from data | $X_149                 |
     +-----------------+----------------------+------------------------+
     
     
@@ -30345,9 +30648,9 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_148                              |
+    | Unnamed field 0              | Determined from data | $X_149                              |
     +------------------------------+----------------------+-------------------------------------+
     
     
@@ -30448,7 +30751,7 @@ Full description
     +-------------------------------+----------------------+--------------------------------------------------------+
     
     
-    X_44
+    X_45
     ****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30456,7 +30759,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_update         |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30479,7 +30782,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -30521,11 +30824,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -30533,7 +30836,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_190
+    X_191
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30541,7 +30844,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_publish        |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30564,7 +30867,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -30608,11 +30911,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -30622,7 +30925,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_333
+    X_334
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30630,7 +30933,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_origination    |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30640,7 +30943,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_479 (54 bytes, 8-bit tag)
+    X_480 (54 bytes, 8-bit tag)
     ***************************
     
     v0 (tag 0)
@@ -30670,7 +30973,7 @@ Full description
     +===================+======================+========================+
     | Tag               | 1 byte               | unsigned 8-bit integer |
     +-------------------+----------------------+------------------------+
-    | slot_header       | 54 bytes             | $X_479                 |
+    | slot_header       | 54 bytes             | $X_480                 |
     +-------------------+----------------------+------------------------+
     | consumed_milligas | Determined from data | $N.t                   |
     +-------------------+----------------------+------------------------+
@@ -30710,15 +31013,15 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | slot_header                  | 54 bytes             | $X_479                              |
+    | slot_header                  | 54 bytes             | $X_480                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_474
+    X_475
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30726,7 +31029,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.dal_publish_commitment   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -30749,7 +31052,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -30789,17 +31092,17 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_610
+    X_611
     *****
     
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -30807,7 +31110,7 @@ Full description
     +===================================================================+======================+===================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                 |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                 |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_recover_bond |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -30817,7 +31120,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     
     
-    X_764 (Determined from data, 8-bit tag)
+    X_765 (Determined from data, 8-bit tag)
     ***************************************
     
     Public (tag 0)
@@ -30855,15 +31158,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_764                              |
+    | whitelist_update                                                  | Determined from data | $X_765                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -30905,19 +31208,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_764                              |
+    | whitelist_update                                                  | Determined from data | $X_765                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -30925,7 +31228,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_750
+    X_751
     *****
     
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -30933,7 +31236,7 @@ Full description
     +===================================================================+======================+=============================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                          |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                           |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                           |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_execute_outbox_message |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -30943,7 +31246,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     
     
-    X_910 (1 byte, 8-bit tag)
+    X_911 (1 byte, 8-bit tag)
     *************************
     
     Conflict_resolved (tag 0)
@@ -30966,7 +31269,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_911 (Determined from data, 8-bit tag)
+    X_912 (Determined from data, 8-bit tag)
     ***************************************
     
     Loser (tag 0)
@@ -30977,7 +31280,7 @@ Full description
     +========+==========+========================+
     | Tag    | 1 byte   | unsigned 8-bit integer |
     +--------+----------+------------------------+
-    | reason | 1 byte   | $X_910                 |
+    | reason | 1 byte   | $X_911                 |
     +--------+----------+------------------------+
     | player | 21 bytes | $public_key_hash       |
     +--------+----------+------------------------+
@@ -30993,7 +31296,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_912 (Determined from data, 8-bit tag)
+    X_913 (Determined from data, 8-bit tag)
     ***************************************
     
     Ongoing (tag 0)
@@ -31014,7 +31317,7 @@ Full description
     +========+======================+========================+
     | Tag    | 1 byte               | unsigned 8-bit integer |
     +--------+----------------------+------------------------+
-    | result | Determined from data | $X_911                 |
+    | result | Determined from data | $X_912                 |
     +--------+----------------------+------------------------+
     
     
@@ -31031,11 +31334,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | game_status                                                       | Determined from data | $X_912                             |
+    | game_status                                                       | Determined from data | $X_913                             |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -31073,19 +31376,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | game_status                                                       | Determined from data | $X_912                              |
+    | game_status                                                       | Determined from data | $X_913                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_905
+    X_906
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31093,7 +31396,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_timeout     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31122,7 +31425,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -31160,7 +31463,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -31170,11 +31473,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1204
+    X_1205
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31182,7 +31485,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_publish     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31245,7 +31548,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -31255,7 +31558,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_1344
+    X_1345
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31263,7 +31566,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_cement      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31273,7 +31576,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_1479
+    X_1480
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31281,7 +31584,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.event           |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31304,7 +31607,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | address                                                           | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -31350,11 +31653,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | address                                                           | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -31366,7 +31669,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1615
+    X_1616
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31374,7 +31677,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_originate   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31397,11 +31700,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                 |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                 |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -31443,15 +31746,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -31459,7 +31762,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1755
+    X_1756
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31467,7 +31770,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transfer_ticket          |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31490,7 +31793,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -31534,11 +31837,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -31548,7 +31851,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_2314
+    X_2315
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31556,7 +31859,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.register_global_constant |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31566,7 +31869,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2454
+    X_2455
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31574,7 +31877,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.delegation      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31584,7 +31887,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2594
+    X_2595
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31592,7 +31895,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.origination     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31602,7 +31905,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2814 (Determined from data, 8-bit tag)
+    X_2815 (Determined from data, 8-bit tag)
     ****************************************
     
     To_contract (tag 0)
@@ -31619,11 +31922,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                        |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -31655,7 +31958,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_updates        | Variable             | sequence of $X_114                 |
+    | ticket_updates        | Variable             | sequence of $X_115                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -31670,7 +31973,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_2814                |
+    | Unnamed field 0 | Determined from data | $X_2815                |
     +-----------------+----------------------+------------------------+
     
     
@@ -31708,13 +32011,13 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_2814                             |
+    | Unnamed field 0              | Determined from data | $X_2815                             |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_2775
+    X_2776
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31722,7 +32025,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transaction              |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -31730,6 +32033,36 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | internal_operation_results                                        | Variable             | sequence of $alpha.apply_internal_results.alpha.operation_result |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
+    
+    
+    X_3119
+    ******
+    
+    +---------------+----------+------------------+
+    | Name          | Size     | Contents         |
+    +===============+==========+==================+
+    | delegate      | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    | consensus_pkh | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    
+    
+    X_3115
+    ******
+    
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | Name                                                              | Size     | Contents                                                                |
+    +===================================================================+==========+=========================================================================+
+    | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | balance_updates                                                   | Variable | sequence of $X_46                                                       |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | # bytes in next field                                             | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | committee                                                         | Variable | sequence of $X_3119                                                     |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | consensus_power                                                   | 4 bytes  | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
     alpha.operation_metadata.alpha.balance_updates
@@ -31740,11 +32073,11 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_45                  |
+    | Unnamed field 0       | Variable | sequence of $X_46                  |
     +-----------------------+----------+------------------------------------+
     
     
-    X_3119
+    X_3126
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -31752,7 +32085,7 @@ Full description
     +===================================================================+==========+=========================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
+    | balance_updates                                                   | Variable | sequence of $X_46                                                       |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     | delegate                                                          | 21 bytes | $public_key_hash                                                        |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -31762,7 +32095,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
-    X_3131
+    X_3138
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -31770,13 +32103,13 @@ Full description
     +===================================================================+==========+=====================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                   |
+    | balance_updates                                                   | Variable | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | allocated_destination_contract                                    | 1 byte   | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
-    X_3139
+    X_3146
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -31788,7 +32121,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                   |
+    | balance_updates                                                   | Variable | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
@@ -31827,7 +32160,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.attestation         |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3139                            |
+    | metadata              | Determined from data | $X_3146                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -31847,7 +32180,7 @@ Full description
     +-----------------------+----------------------+---------------------------------------+
     | bh2                   | Variable             | $alpha.block_header.alpha.full_header |
     +-----------------------+----------------------+---------------------------------------+
-    | metadata              | Determined from data | $X_3139                               |
+    | metadata              | Determined from data | $X_3146                               |
     +-----------------------+----------------------+---------------------------------------+
     
     
@@ -31919,7 +32252,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.preattestation      |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3139                            |
+    | metadata              | Determined from data | $X_3146                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -31931,7 +32264,7 @@ Full description
     +==========+======================+=================================================+
     | Tag      | 1 byte               | unsigned 8-bit integer                          |
     +----------+----------------------+-------------------------------------------------+
-    | solution | 200 bytes            | $X_35                                           |
+    | solution | 200 bytes            | $X_36                                           |
     +----------+----------------------+-------------------------------------------------+
     | metadata | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +----------+----------------------+-------------------------------------------------+
@@ -31951,7 +32284,7 @@ Full description
     +---------------+----------------------+------------------------+
     | destination   | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_3131                |
+    | metadata      | Determined from data | $X_3138                |
     +---------------+----------------------+------------------------+
     
     
@@ -31971,7 +32304,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -31991,7 +32324,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -32013,7 +32346,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | dal_attestation    | Determined from data | $Z.t                               |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -32031,10 +32364,28 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer                          |
     +-----------------------+----------------------+-------------------------------------------------+
-    | shard_with_proof      | Determined from data | $X_32                                           |
+    | shard_with_proof      | Determined from data | $X_33                                           |
     +-----------------------+----------------------+-------------------------------------------------+
     | metadata              | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +-----------------------+----------------------+-------------------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------------------+------------------------------------------------+
+    | Name                  | Size                 | Contents                                       |
+    +=======================+======================+================================================+
+    | Tag                   | 1 byte               | unsigned 8-bit integer                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | consensus_content     | 40 bytes             | $X_32                                          |
+    +-----------------------+----------------------+------------------------------------------------+
+    | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------------------+------------------------------------------------+
+    | committee             | Variable             | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------------------+------------------------------------------------+
+    | metadata              | Determined from data | $X_3115                                        |
+    +-----------------------+----------------------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -32057,7 +32408,7 @@ Full description
     +---------------+----------------------+------------------------+
     | public_key    | Determined from data | $public_key            |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1479                |
+    | metadata      | Determined from data | $X_1480                |
     +---------------+----------------------+------------------------+
     
     
@@ -32087,7 +32438,7 @@ Full description
     +----------------------------------+----------------------+-------------------------------------+
     | parameters                       | Determined from data | $X_31                               |
     +----------------------------------+----------------------+-------------------------------------+
-    | metadata                         | Determined from data | $X_2775                             |
+    | metadata                         | Determined from data | $X_2776                             |
     +----------------------------------+----------------------+-------------------------------------+
     
     
@@ -32117,7 +32468,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | script                         | Determined from data | $alpha.scripted.contracts           |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2594                             |
+    | metadata                       | Determined from data | $X_2595                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -32143,7 +32494,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | delegate                       | 21 bytes             | $public_key_hash                    |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2454                             |
+    | metadata                       | Determined from data | $X_2455                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -32169,7 +32520,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | value                 | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_2314                            |
+    | metadata              | Determined from data | $X_2315                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -32195,7 +32546,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | limit                       | Determined from data | $N.t                                |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1479                             |
+    | metadata                    | Determined from data | $X_1480                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -32221,7 +32572,7 @@ Full description
     +---------------+----------------------+-------------------------------+
     | destination   | 22 bytes             | $alpha.contract_id.originated |
     +---------------+----------------------+-------------------------------+
-    | metadata      | Determined from data | $X_610                        |
+    | metadata      | Determined from data | $X_611                        |
     +---------------+----------------------+-------------------------------+
     
     
@@ -32249,7 +32600,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | proof                       | Determined from data | $X_30                               |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1479                             |
+    | metadata                    | Determined from data | $X_1480                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -32289,7 +32640,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | entrypoint            | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1755                            |
+    | metadata              | Determined from data | $X_1756                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -32325,7 +32676,7 @@ Full description
     +---------------------------------+----------------------+-----------------------------------------------------------+
     | whitelist                       | Determined from data | $X_29                                                     |
     +---------------------------------+----------------------+-----------------------------------------------------------+
-    | metadata                        | Determined from data | $X_1615                                                   |
+    | metadata                        | Determined from data | $X_1616                                                   |
     +---------------------------------+----------------------+-----------------------------------------------------------+
     
     
@@ -32351,7 +32702,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | message               | Variable             | sequence of $X_3                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1479                            |
+    | metadata              | Determined from data | $X_1480                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -32375,7 +32726,7 @@ Full description
     +---------------+----------------------+------------------------+
     | rollup        | 20 bytes             | bytes                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1344                |
+    | metadata      | Determined from data | $X_1345                |
     +---------------+----------------------+------------------------+
     
     
@@ -32401,7 +32752,7 @@ Full description
     +---------------+----------------------+------------------------+
     | commitment    | 76 bytes             | $X_26                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1204                |
+    | metadata      | Determined from data | $X_1205                |
     +---------------+----------------------+------------------------+
     
     
@@ -32429,7 +32780,7 @@ Full description
     +---------------+----------------------+------------------------+
     | refutation    | Determined from data | $X_25                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_905                 |
+    | metadata      | Determined from data | $X_906                 |
     +---------------+----------------------+------------------------+
     
     
@@ -32455,7 +32806,7 @@ Full description
     +---------------+----------------------+------------------------+
     | stakers       | 42 bytes             | $X_19                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_905                 |
+    | metadata      | Determined from data | $X_906                 |
     +---------------+----------------------+------------------------+
     
     
@@ -32485,7 +32836,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | output_proof          | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_750                             |
+    | metadata              | Determined from data | $X_751                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -32511,7 +32862,7 @@ Full description
     +---------------+----------------------+------------------------+
     | staker        | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_610                 |
+    | metadata      | Determined from data | $X_611                 |
     +---------------+----------------------+------------------------+
     
     
@@ -32535,7 +32886,7 @@ Full description
     +---------------+----------------------+------------------------+
     | slot_header   | 145 bytes            | $X_18                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_474                 |
+    | metadata      | Determined from data | $X_475                 |
     +---------------+----------------------+------------------------+
     
     
@@ -32571,7 +32922,7 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     | nb_ops                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
-    | metadata              | Determined from data | $X_333                                                                  |
+    | metadata              | Determined from data | $X_334                                                                  |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     
     
@@ -32599,7 +32950,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op                    | Variable             | sequence of $X_9                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_190                             |
+    | metadata              | Determined from data | $X_191                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -32625,11 +32976,11 @@ Full description
     +---------------+----------------------+------------------------+
     | update        | Determined from data | $X_1                   |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_44                  |
+    | metadata      | Determined from data | $X_45                  |
     +---------------+----------------------+------------------------+
     
     
-    X_3157 (Variable, 8-bit tag)
+    X_3164 (Variable, 8-bit tag)
     ****************************
     
     Operation_with_metadata (tag 0)
@@ -32672,7 +33023,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | $X_3157                            |
+    | Unnamed field 0       | Variable | $X_3164                            |
     +-----------------------+----------+------------------------------------+
     
     </pre>
@@ -36139,6 +36490,9 @@ Full description
     $Blinded public key hash:
       /* A blinded public key hash (Base58Check-encoded) */
       $unistring
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Chain_id:
       /* Network identifier (Base58Check-encoded) */
       $unistring
@@ -36167,7 +36521,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -36230,7 +36584,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.bond_id:
       { /* Smart_rollup_bond_id */
         "smart_rollup": $smart_rollup_address }
@@ -36283,7 +36637,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -36302,7 +36656,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -36529,18 +36883,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -36548,6 +36896,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -36654,7 +37015,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -36878,7 +37239,7 @@ Full description
                "proof": /^([a-zA-Z0-9][a-zA-Z0-9])*$/ } }
     $alpha.operation.alpha.contents_and_signature:
       { "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.operation.alpha.internal_operation_result.delegation:
       { /* Applied */
         "status": "applied",
@@ -37035,6 +37396,20 @@ Full description
                "delegate": $Signature.Public_key_hash,
                "consensus_power": integer ∈ [-2^30, 2^30],
                "consensus_key": $Signature.Public_key_hash } }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ],
+           "metadata":
+             { "balance_updates"?:
+                 $alpha.operation_metadata.alpha.balance_updates,
+               "committee":
+                 [ { "delegate": $Signature.Public_key_hash,
+                     "consensus_pkh": $Signature.Public_key_hash } ... ],
+               "consensus_power": integer ∈ [-2^30, 2^30] } }
       || { /* Double_attestation_evidence */
            "kind": "double_attestation_evidence",
            "op1": $alpha.inlined.attestation,
@@ -37233,7 +37608,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1,
+           "proof"?: $Bls12_381_signature,
            "metadata":
              { "balance_updates"?:
                  $alpha.operation_metadata.alpha.balance_updates,
@@ -38031,10 +38406,10 @@ Full description
       { /* Operation_with_metadata */
         "contents":
           [ $alpha.operation.alpha.operation_contents_and_result ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
       || { /* Operation_without_metadata */
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $alpha.operation_metadata.alpha.balance_updates:
       [ { /* Contract */
           "kind": "contract",
@@ -38812,7 +39187,7 @@ Full description
         "hash": $Operation_hash,
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1,
+        "signature"?: $Signature.V2,
         "metadata": "too large" }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
@@ -38820,7 +39195,7 @@ Full description
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
@@ -38828,14 +39203,14 @@ Full description
            "branch": $block_hash,
            "contents":
              [ $alpha.operation.alpha.operation_contents_and_result ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -40023,7 +40398,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -40191,6 +40566,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_32
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -40246,7 +40635,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_33
+    X_34
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -40258,19 +40647,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_32
+    X_33
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_33    |
+    | shard | Determined from data | $X_34    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_35
+    X_36
     ****
     
     +-----------------+-----------+----------+
@@ -40591,7 +40980,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_35                  |
+    | solution | 200 bytes | $X_36                  |
     +----------+-----------+------------------------+
     
     
@@ -40695,8 +41084,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_32                              |
+    | shard_with_proof      | Determined from data | $X_33                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_32                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -41346,7 +41751,7 @@ Full description
     +------------+----------+------------------------+
     
     
-    X_46 (Determined from data, 8-bit tag)
+    X_47 (Determined from data, 8-bit tag)
     **************************************
     
     Contract (tag 0)
@@ -41675,7 +42080,7 @@ Full description
     +----------+----------+----------------------------------+
     
     
-    X_47 (Determined from data, 8-bit tag)
+    X_48 (Determined from data, 8-bit tag)
     **************************************
     
     Block_application (tag 0)
@@ -41730,19 +42135,19 @@ Full description
     +------------------------+----------+------------------------+
     
     
-    X_45
+    X_46
     ****
     
     +-----------------+----------------------+----------+
     | Name            | Size                 | Contents |
     +=================+======================+==========+
-    | Unnamed field 0 | Determined from data | $X_46    |
+    | Unnamed field 0 | Determined from data | $X_47    |
     +-----------------+----------------------+----------+
-    | Unnamed field 1 | Determined from data | $X_47    |
+    | Unnamed field 1 | Determined from data | $X_48    |
     +-----------------+----------------------+----------+
     
     
-    X_48
+    X_49
     ****
     
     +-----------------------+----------+------------------------------------+
@@ -41767,7 +42172,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -41809,11 +42214,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -41927,7 +42332,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -41948,7 +42353,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -41986,13 +42391,13 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
@@ -42018,7 +42423,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     
     
-    X_70
+    X_71
     ****
     
     +-----------------+----------------------+---------------------------------+
@@ -42030,7 +42435,7 @@ Full description
     +-----------------+----------------------+---------------------------------+
     
     
-    X_69
+    X_70
     ****
     
     +-----------------------------+----------+------------------------------------+
@@ -42038,7 +42443,7 @@ Full description
     +=============================+==========+====================================+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
-    | commitments_and_ciphertexts | Variable | sequence of $X_70                  |
+    | commitments_and_ciphertexts | Variable | sequence of $X_71                  |
     +-----------------------------+----------+------------------------------------+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
@@ -42046,7 +42451,7 @@ Full description
     +-----------------------------+----------+------------------------------------+
     
     
-    X_75 (Determined from data, 8-bit tag)
+    X_76 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -42057,7 +42462,7 @@ Full description
     +=========+======================+========================+
     | Tag     | 1 byte               | unsigned 8-bit integer |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_69                  |
+    | updates | Determined from data | $X_70                  |
     +---------+----------------------+------------------------+
     
     
@@ -42081,7 +42486,7 @@ Full description
     +---------+----------------------+------------------------+
     | source  | Determined from data | $Z.t                   |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_69                  |
+    | updates | Determined from data | $X_70                  |
     +---------+----------------------+------------------------+
     
     
@@ -42093,13 +42498,13 @@ Full description
     +===========+======================+====================================+
     | Tag       | 1 byte               | unsigned 8-bit integer             |
     +-----------+----------------------+------------------------------------+
-    | updates   | Determined from data | $X_69                              |
+    | updates   | Determined from data | $X_70                              |
     +-----------+----------------------+------------------------------------+
     | memo_size | 2 bytes              | unsigned 16-bit big-endian integer |
     +-----------+----------------------+------------------------------------+
     
     
-    X_76
+    X_77
     ****
     
     +-----------------------------+----------------------+------------------------------------------+
@@ -42115,7 +42520,7 @@ Full description
     +-----------------------------+----------------------+------------------------------------------+
     
     
-    X_87 (Determined from data, 8-bit tag)
+    X_88 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -42128,7 +42533,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | updates               | Variable | sequence of $X_76                  |
+    | updates               | Variable | sequence of $X_77                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -42154,7 +42559,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_76                  |
+    | updates               | Variable             | sequence of $X_77                  |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -42168,7 +42573,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer       |
     +-----------------------+----------------------+------------------------------------------+
-    | updates               | Variable             | sequence of $X_76                        |
+    | updates               | Variable             | sequence of $X_77                        |
     +-----------------------+----------------------+------------------------------------------+
     | key_type              | Determined from data | $micheline.alpha.michelson_v1.expression |
     +-----------------------+----------------------+------------------------------------------+
@@ -42176,7 +42581,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     
     
-    X_88 (Determined from data, 8-bit tag)
+    X_89 (Determined from data, 8-bit tag)
     **************************************
     
     big_map (tag 0)
@@ -42189,7 +42594,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_87                  |
+    | diff | Determined from data | $X_88                  |
     +------+----------------------+------------------------+
     
     
@@ -42203,7 +42608,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_75                  |
+    | diff | Determined from data | $X_76                  |
     +------+----------------------+------------------------+
     
     
@@ -42215,7 +42620,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_88                  |
+    | Unnamed field 0       | Variable | sequence of $X_89                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -42232,7 +42637,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -42284,11 +42689,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true)       |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | errors                                                            | Determined from data | $X_48                                     |
+    | errors                                                            | Determined from data | $X_49                                     |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -42306,7 +42711,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     
     
-    X_115
+    X_116
     *****
     
     +--------------+----------------------+------------------------------------------+
@@ -42320,7 +42725,7 @@ Full description
     +--------------+----------------------+------------------------------------------+
     
     
-    X_118
+    X_119
     *****
     
     +---------+----------------------+--------------------------------+
@@ -42332,21 +42737,21 @@ Full description
     +---------+----------------------+--------------------------------+
     
     
-    X_114
+    X_115
     *****
     
     +-----------------------+----------------------+------------------------------------+
     | Name                  | Size                 | Contents                           |
     +=======================+======================+====================================+
-    | ticket_token          | Determined from data | $X_115                             |
+    | ticket_token          | Determined from data | $X_116                             |
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_118                 |
+    | updates               | Variable             | sequence of $X_119                 |
     +-----------------------+----------------------+------------------------------------+
     
     
-    X_148 (Determined from data, 8-bit tag)
+    X_149 (Determined from data, 8-bit tag)
     ***************************************
     
     To_contract (tag 0)
@@ -42363,11 +42768,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_receipt                                                    | Variable             | sequence of $X_114                        |
+    | ticket_receipt                                                    | Variable             | sequence of $X_115                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -42399,7 +42804,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_receipt        | Variable             | sequence of $X_114                 |
+    | ticket_receipt        | Variable             | sequence of $X_115                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -42414,7 +42819,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_148                 |
+    | Unnamed field 0 | Determined from data | $X_149                 |
     +-----------------+----------------------+------------------------+
     
     
@@ -42452,9 +42857,9 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_148                              |
+    | Unnamed field 0              | Determined from data | $X_149                              |
     +------------------------------+----------------------+-------------------------------------+
     
     
@@ -42555,7 +42960,7 @@ Full description
     +-------------------------------+----------------------+--------------------------------------------------------+
     
     
-    X_44
+    X_45
     ****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42563,7 +42968,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_update         |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42586,7 +42991,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -42628,11 +43033,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -42640,7 +43045,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_190
+    X_191
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42648,7 +43053,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_publish        |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42671,7 +43076,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -42715,11 +43120,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -42729,7 +43134,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_333
+    X_334
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42737,7 +43142,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_origination    |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42747,7 +43152,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_479 (54 bytes, 8-bit tag)
+    X_480 (54 bytes, 8-bit tag)
     ***************************
     
     v0 (tag 0)
@@ -42777,7 +43182,7 @@ Full description
     +===================+======================+========================+
     | Tag               | 1 byte               | unsigned 8-bit integer |
     +-------------------+----------------------+------------------------+
-    | slot_header       | 54 bytes             | $X_479                 |
+    | slot_header       | 54 bytes             | $X_480                 |
     +-------------------+----------------------+------------------------+
     | consumed_milligas | Determined from data | $N.t                   |
     +-------------------+----------------------+------------------------+
@@ -42817,15 +43222,15 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | slot_header                  | 54 bytes             | $X_479                              |
+    | slot_header                  | 54 bytes             | $X_480                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_474
+    X_475
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42833,7 +43238,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.dal_publish_commitment   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -42856,7 +43261,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -42896,17 +43301,17 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_610
+    X_611
     *****
     
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -42914,7 +43319,7 @@ Full description
     +===================================================================+======================+===================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                 |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                 |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_recover_bond |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -42924,7 +43329,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     
     
-    X_764 (Determined from data, 8-bit tag)
+    X_765 (Determined from data, 8-bit tag)
     ***************************************
     
     Public (tag 0)
@@ -42962,15 +43367,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_764                              |
+    | whitelist_update                                                  | Determined from data | $X_765                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43012,19 +43417,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_764                              |
+    | whitelist_update                                                  | Determined from data | $X_765                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43032,7 +43437,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_750
+    X_751
     *****
     
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -43040,7 +43445,7 @@ Full description
     +===================================================================+======================+=============================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                          |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                           |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                           |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_execute_outbox_message |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -43050,7 +43455,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     
     
-    X_910 (1 byte, 8-bit tag)
+    X_911 (1 byte, 8-bit tag)
     *************************
     
     Conflict_resolved (tag 0)
@@ -43073,7 +43478,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_911 (Determined from data, 8-bit tag)
+    X_912 (Determined from data, 8-bit tag)
     ***************************************
     
     Loser (tag 0)
@@ -43084,7 +43489,7 @@ Full description
     +========+==========+========================+
     | Tag    | 1 byte   | unsigned 8-bit integer |
     +--------+----------+------------------------+
-    | reason | 1 byte   | $X_910                 |
+    | reason | 1 byte   | $X_911                 |
     +--------+----------+------------------------+
     | player | 21 bytes | $public_key_hash       |
     +--------+----------+------------------------+
@@ -43100,7 +43505,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_912 (Determined from data, 8-bit tag)
+    X_913 (Determined from data, 8-bit tag)
     ***************************************
     
     Ongoing (tag 0)
@@ -43121,7 +43526,7 @@ Full description
     +========+======================+========================+
     | Tag    | 1 byte               | unsigned 8-bit integer |
     +--------+----------------------+------------------------+
-    | result | Determined from data | $X_911                 |
+    | result | Determined from data | $X_912                 |
     +--------+----------------------+------------------------+
     
     
@@ -43138,11 +43543,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | game_status                                                       | Determined from data | $X_912                             |
+    | game_status                                                       | Determined from data | $X_913                             |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -43180,19 +43585,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | game_status                                                       | Determined from data | $X_912                              |
+    | game_status                                                       | Determined from data | $X_913                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_905
+    X_906
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43200,7 +43605,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_timeout     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43229,7 +43634,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -43267,7 +43672,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43277,11 +43682,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1204
+    X_1205
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43289,7 +43694,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_publish     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43352,7 +43757,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -43362,7 +43767,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_1344
+    X_1345
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43370,7 +43775,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_cement      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43380,7 +43785,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_1479
+    X_1480
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43388,7 +43793,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.event           |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43411,7 +43816,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | address                                                           | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -43457,11 +43862,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | address                                                           | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43473,7 +43878,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1615
+    X_1616
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43481,7 +43886,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_originate   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43504,11 +43909,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                 |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                 |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -43550,15 +43955,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43566,7 +43971,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1755
+    X_1756
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43574,7 +43979,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transfer_ticket          |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43597,7 +44002,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                  |
+    | balance_updates                                                   | Variable             | sequence of $X_46                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -43641,11 +44046,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_48                               |
+    | errors                                                            | Determined from data | $X_49                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                   |
+    | balance_updates                                                   | Variable             | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -43655,7 +44060,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_2314
+    X_2315
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43663,7 +44068,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.register_global_constant |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43673,7 +44078,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2454
+    X_2455
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43681,7 +44086,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.delegation      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43691,7 +44096,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2594
+    X_2595
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43699,7 +44104,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.origination     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43709,7 +44114,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2814 (Determined from data, 8-bit tag)
+    X_2815 (Determined from data, 8-bit tag)
     ****************************************
     
     To_contract (tag 0)
@@ -43726,11 +44131,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                         |
+    | balance_updates                                                   | Variable             | sequence of $X_46                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_114                        |
+    | ticket_updates                                                    | Variable             | sequence of $X_115                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -43762,7 +44167,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_updates        | Variable             | sequence of $X_114                 |
+    | ticket_updates        | Variable             | sequence of $X_115                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -43777,7 +44182,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_2814                |
+    | Unnamed field 0 | Determined from data | $X_2815                |
     +-----------------+----------------------+------------------------+
     
     
@@ -43815,13 +44220,13 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_48                               |
+    | errors                       | Determined from data | $X_49                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_2814                             |
+    | Unnamed field 0              | Determined from data | $X_2815                             |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_2775
+    X_2776
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43829,7 +44234,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_46                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transaction              |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -43837,6 +44242,36 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | internal_operation_results                                        | Variable             | sequence of $alpha.apply_internal_results.alpha.operation_result |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
+    
+    
+    X_3119
+    ******
+    
+    +---------------+----------+------------------+
+    | Name          | Size     | Contents         |
+    +===============+==========+==================+
+    | delegate      | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    | consensus_pkh | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    
+    
+    X_3115
+    ******
+    
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | Name                                                              | Size     | Contents                                                                |
+    +===================================================================+==========+=========================================================================+
+    | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | balance_updates                                                   | Variable | sequence of $X_46                                                       |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | # bytes in next field                                             | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | committee                                                         | Variable | sequence of $X_3119                                                     |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | consensus_power                                                   | 4 bytes  | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
     alpha.operation_metadata.alpha.balance_updates
@@ -43847,11 +44282,11 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_45                  |
+    | Unnamed field 0       | Variable | sequence of $X_46                  |
     +-----------------------+----------+------------------------------------+
     
     
-    X_3119
+    X_3126
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -43859,7 +44294,7 @@ Full description
     +===================================================================+==========+=========================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
+    | balance_updates                                                   | Variable | sequence of $X_46                                                       |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     | delegate                                                          | 21 bytes | $public_key_hash                                                        |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -43869,7 +44304,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
-    X_3131
+    X_3138
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -43877,13 +44312,13 @@ Full description
     +===================================================================+==========+=====================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                   |
+    | balance_updates                                                   | Variable | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | allocated_destination_contract                                    | 1 byte   | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
-    X_3139
+    X_3146
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -43895,7 +44330,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_45                   |
+    | balance_updates                                                   | Variable | sequence of $X_46                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
@@ -43934,7 +44369,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.attestation         |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3139                            |
+    | metadata              | Determined from data | $X_3146                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -43954,7 +44389,7 @@ Full description
     +-----------------------+----------------------+---------------------------------------+
     | bh2                   | Variable             | $alpha.block_header.alpha.full_header |
     +-----------------------+----------------------+---------------------------------------+
-    | metadata              | Determined from data | $X_3139                               |
+    | metadata              | Determined from data | $X_3146                               |
     +-----------------------+----------------------+---------------------------------------+
     
     
@@ -44026,7 +44461,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.preattestation      |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3139                            |
+    | metadata              | Determined from data | $X_3146                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44038,7 +44473,7 @@ Full description
     +==========+======================+=================================================+
     | Tag      | 1 byte               | unsigned 8-bit integer                          |
     +----------+----------------------+-------------------------------------------------+
-    | solution | 200 bytes            | $X_35                                           |
+    | solution | 200 bytes            | $X_36                                           |
     +----------+----------------------+-------------------------------------------------+
     | metadata | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +----------+----------------------+-------------------------------------------------+
@@ -44058,7 +44493,7 @@ Full description
     +---------------+----------------------+------------------------+
     | destination   | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_3131                |
+    | metadata      | Determined from data | $X_3138                |
     +---------------+----------------------+------------------------+
     
     
@@ -44078,7 +44513,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -44098,7 +44533,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -44120,7 +44555,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | dal_attestation    | Determined from data | $Z.t                               |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3119                            |
+    | metadata           | Determined from data | $X_3126                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -44138,10 +44573,28 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer                          |
     +-----------------------+----------------------+-------------------------------------------------+
-    | shard_with_proof      | Determined from data | $X_32                                           |
+    | shard_with_proof      | Determined from data | $X_33                                           |
     +-----------------------+----------------------+-------------------------------------------------+
     | metadata              | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +-----------------------+----------------------+-------------------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------------------+------------------------------------------------+
+    | Name                  | Size                 | Contents                                       |
+    +=======================+======================+================================================+
+    | Tag                   | 1 byte               | unsigned 8-bit integer                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | consensus_content     | 40 bytes             | $X_32                                          |
+    +-----------------------+----------------------+------------------------------------------------+
+    | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------------------+------------------------------------------------+
+    | committee             | Variable             | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------------------+------------------------------------------------+
+    | metadata              | Determined from data | $X_3115                                        |
+    +-----------------------+----------------------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -44164,7 +44617,7 @@ Full description
     +---------------+----------------------+------------------------+
     | public_key    | Determined from data | $public_key            |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1479                |
+    | metadata      | Determined from data | $X_1480                |
     +---------------+----------------------+------------------------+
     
     
@@ -44194,7 +44647,7 @@ Full description
     +----------------------------------+----------------------+-------------------------------------+
     | parameters                       | Determined from data | $X_31                               |
     +----------------------------------+----------------------+-------------------------------------+
-    | metadata                         | Determined from data | $X_2775                             |
+    | metadata                         | Determined from data | $X_2776                             |
     +----------------------------------+----------------------+-------------------------------------+
     
     
@@ -44224,7 +44677,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | script                         | Determined from data | $alpha.scripted.contracts           |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2594                             |
+    | metadata                       | Determined from data | $X_2595                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -44250,7 +44703,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | delegate                       | 21 bytes             | $public_key_hash                    |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2454                             |
+    | metadata                       | Determined from data | $X_2455                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -44276,7 +44729,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | value                 | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_2314                            |
+    | metadata              | Determined from data | $X_2315                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44302,7 +44755,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | limit                       | Determined from data | $N.t                                |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1479                             |
+    | metadata                    | Determined from data | $X_1480                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -44328,7 +44781,7 @@ Full description
     +---------------+----------------------+-------------------------------+
     | destination   | 22 bytes             | $alpha.contract_id.originated |
     +---------------+----------------------+-------------------------------+
-    | metadata      | Determined from data | $X_610                        |
+    | metadata      | Determined from data | $X_611                        |
     +---------------+----------------------+-------------------------------+
     
     
@@ -44356,7 +44809,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | proof                       | Determined from data | $X_30                               |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1479                             |
+    | metadata                    | Determined from data | $X_1480                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -44396,7 +44849,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | entrypoint            | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1755                            |
+    | metadata              | Determined from data | $X_1756                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44432,7 +44885,7 @@ Full description
     +---------------------------------+----------------------+-----------------------------------------------------------+
     | whitelist                       | Determined from data | $X_29                                                     |
     +---------------------------------+----------------------+-----------------------------------------------------------+
-    | metadata                        | Determined from data | $X_1615                                                   |
+    | metadata                        | Determined from data | $X_1616                                                   |
     +---------------------------------+----------------------+-----------------------------------------------------------+
     
     
@@ -44458,7 +44911,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | message               | Variable             | sequence of $X_3                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1479                            |
+    | metadata              | Determined from data | $X_1480                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44482,7 +44935,7 @@ Full description
     +---------------+----------------------+------------------------+
     | rollup        | 20 bytes             | bytes                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1344                |
+    | metadata      | Determined from data | $X_1345                |
     +---------------+----------------------+------------------------+
     
     
@@ -44508,7 +44961,7 @@ Full description
     +---------------+----------------------+------------------------+
     | commitment    | 76 bytes             | $X_26                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1204                |
+    | metadata      | Determined from data | $X_1205                |
     +---------------+----------------------+------------------------+
     
     
@@ -44536,7 +44989,7 @@ Full description
     +---------------+----------------------+------------------------+
     | refutation    | Determined from data | $X_25                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_905                 |
+    | metadata      | Determined from data | $X_906                 |
     +---------------+----------------------+------------------------+
     
     
@@ -44562,7 +45015,7 @@ Full description
     +---------------+----------------------+------------------------+
     | stakers       | 42 bytes             | $X_19                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_905                 |
+    | metadata      | Determined from data | $X_906                 |
     +---------------+----------------------+------------------------+
     
     
@@ -44592,7 +45045,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | output_proof          | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_750                             |
+    | metadata              | Determined from data | $X_751                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44618,7 +45071,7 @@ Full description
     +---------------+----------------------+------------------------+
     | staker        | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_610                 |
+    | metadata      | Determined from data | $X_611                 |
     +---------------+----------------------+------------------------+
     
     
@@ -44642,7 +45095,7 @@ Full description
     +---------------+----------------------+------------------------+
     | slot_header   | 145 bytes            | $X_18                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_474                 |
+    | metadata      | Determined from data | $X_475                 |
     +---------------+----------------------+------------------------+
     
     
@@ -44678,7 +45131,7 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     | nb_ops                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
-    | metadata              | Determined from data | $X_333                                                                  |
+    | metadata              | Determined from data | $X_334                                                                  |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     
     
@@ -44706,7 +45159,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op                    | Variable             | sequence of $X_9                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_190                             |
+    | metadata              | Determined from data | $X_191                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -44732,11 +45185,11 @@ Full description
     +---------------+----------------------+------------------------+
     | update        | Determined from data | $X_1                   |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_44                  |
+    | metadata      | Determined from data | $X_45                  |
     +---------------+----------------------+------------------------+
     
     
-    X_3157 (Variable, 8-bit tag)
+    X_3164 (Variable, 8-bit tag)
     ****************************
     
     Operation_with_metadata (tag 0)
@@ -44915,7 +45368,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_35                  |
+    | solution | 200 bytes | $X_36                  |
     +----------+-----------+------------------------+
     
     
@@ -45019,8 +45472,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_32                              |
+    | shard_with_proof      | Determined from data | $X_33                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_32                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -45585,7 +46054,7 @@ Full description
     +------------------+----------+------------------------+
     
     
-    X_3228 (Variable, 8-bit tag)
+    X_3237 (Variable, 8-bit tag)
     ****************************
     
     Operation with too large metadata (tag 0)
@@ -45624,7 +46093,7 @@ Full description
     +=================+==========+========================+
     | Tag             | 1 byte   | unsigned 8-bit integer |
     +-----------------+----------+------------------------+
-    | Unnamed field 0 | Variable | $X_3157                |
+    | Unnamed field 0 | Variable | $X_3164                |
     +-----------------+----------+------------------------+
     
     
@@ -45644,7 +46113,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | $X_3228                            |
+    | Unnamed field 0       | Variable | $X_3237                            |
     +-----------------------+----------+------------------------------------+
     
     
@@ -45684,6 +46153,9 @@ Full description
     $Blinded public key hash:
       /* A blinded public key hash (Base58Check-encoded) */
       $unistring
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
+      $unistring
     $Chain_id:
       /* Network identifier (Base58Check-encoded) */
       $unistring
@@ -45712,7 +46184,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -45775,7 +46247,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.bond_id:
       { /* Smart_rollup_bond_id */
         "smart_rollup": $smart_rollup_address }
@@ -45828,7 +46300,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -45847,7 +46319,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -46074,18 +46546,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -46093,6 +46559,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -46199,7 +46678,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -46423,7 +46902,7 @@ Full description
                "proof": /^([a-zA-Z0-9][a-zA-Z0-9])*$/ } }
     $alpha.operation.alpha.contents_and_signature:
       { "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.operation.alpha.internal_operation_result.delegation:
       { /* Applied */
         "status": "applied",
@@ -46580,6 +47059,20 @@ Full description
                "delegate": $Signature.Public_key_hash,
                "consensus_power": integer ∈ [-2^30, 2^30],
                "consensus_key": $Signature.Public_key_hash } }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ],
+           "metadata":
+             { "balance_updates"?:
+                 $alpha.operation_metadata.alpha.balance_updates,
+               "committee":
+                 [ { "delegate": $Signature.Public_key_hash,
+                     "consensus_pkh": $Signature.Public_key_hash } ... ],
+               "consensus_power": integer ∈ [-2^30, 2^30] } }
       || { /* Double_attestation_evidence */
            "kind": "double_attestation_evidence",
            "op1": $alpha.inlined.attestation,
@@ -46778,7 +47271,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1,
+           "proof"?: $Bls12_381_signature,
            "metadata":
              { "balance_updates"?:
                  $alpha.operation_metadata.alpha.balance_updates,
@@ -47576,10 +48069,10 @@ Full description
       { /* Operation_with_metadata */
         "contents":
           [ $alpha.operation.alpha.operation_contents_and_result ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
       || { /* Operation_without_metadata */
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $alpha.operation_metadata.alpha.balance_updates:
       [ { /* Contract */
           "kind": "contract",
@@ -48357,7 +48850,7 @@ Full description
         "hash": $Operation_hash,
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1,
+        "signature"?: $Signature.V2,
         "metadata": "too large" }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
@@ -48365,7 +48858,7 @@ Full description
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
@@ -48373,14 +48866,14 @@ Full description
            "branch": $block_hash,
            "contents":
              [ $alpha.operation.alpha.operation_contents_and_result ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -49568,7 +50061,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -49736,6 +50229,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_31
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -49791,7 +50298,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_32
+    X_33
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -49803,19 +50310,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_31
+    X_32
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_32    |
+    | shard | Determined from data | $X_33    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_34
+    X_35
     ****
     
     +-----------------+-----------+----------+
@@ -50136,7 +50643,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_34                  |
+    | solution | 200 bytes | $X_35                  |
     +----------+-----------+------------------------+
     
     
@@ -50240,8 +50747,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                              |
+    | shard_with_proof      | Determined from data | $X_32                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_31                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -50891,7 +51414,7 @@ Full description
     +------------+----------+------------------------+
     
     
-    X_45 (Determined from data, 8-bit tag)
+    X_46 (Determined from data, 8-bit tag)
     **************************************
     
     Contract (tag 0)
@@ -51220,7 +51743,7 @@ Full description
     +----------+----------+----------------------------------+
     
     
-    X_46 (Determined from data, 8-bit tag)
+    X_47 (Determined from data, 8-bit tag)
     **************************************
     
     Block_application (tag 0)
@@ -51275,19 +51798,19 @@ Full description
     +------------------------+----------+------------------------+
     
     
-    X_44
+    X_45
     ****
     
     +-----------------+----------------------+----------+
     | Name            | Size                 | Contents |
     +=================+======================+==========+
-    | Unnamed field 0 | Determined from data | $X_45    |
+    | Unnamed field 0 | Determined from data | $X_46    |
     +-----------------+----------------------+----------+
-    | Unnamed field 1 | Determined from data | $X_46    |
+    | Unnamed field 1 | Determined from data | $X_47    |
     +-----------------+----------------------+----------+
     
     
-    X_47
+    X_48
     ****
     
     +-----------------------+----------+------------------------------------+
@@ -51312,7 +51835,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -51354,11 +51877,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -51472,7 +51995,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -51493,7 +52016,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -51531,13 +52054,13 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
@@ -51563,7 +52086,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     
     
-    X_69
+    X_70
     ****
     
     +-----------------+----------------------+---------------------------------+
@@ -51575,7 +52098,7 @@ Full description
     +-----------------+----------------------+---------------------------------+
     
     
-    X_68
+    X_69
     ****
     
     +-----------------------------+----------+------------------------------------+
@@ -51583,7 +52106,7 @@ Full description
     +=============================+==========+====================================+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
-    | commitments_and_ciphertexts | Variable | sequence of $X_69                  |
+    | commitments_and_ciphertexts | Variable | sequence of $X_70                  |
     +-----------------------------+----------+------------------------------------+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
@@ -51591,7 +52114,7 @@ Full description
     +-----------------------------+----------+------------------------------------+
     
     
-    X_74 (Determined from data, 8-bit tag)
+    X_75 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -51602,7 +52125,7 @@ Full description
     +=========+======================+========================+
     | Tag     | 1 byte               | unsigned 8-bit integer |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_68                  |
+    | updates | Determined from data | $X_69                  |
     +---------+----------------------+------------------------+
     
     
@@ -51626,7 +52149,7 @@ Full description
     +---------+----------------------+------------------------+
     | source  | Determined from data | $Z.t                   |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_68                  |
+    | updates | Determined from data | $X_69                  |
     +---------+----------------------+------------------------+
     
     
@@ -51638,13 +52161,13 @@ Full description
     +===========+======================+====================================+
     | Tag       | 1 byte               | unsigned 8-bit integer             |
     +-----------+----------------------+------------------------------------+
-    | updates   | Determined from data | $X_68                              |
+    | updates   | Determined from data | $X_69                              |
     +-----------+----------------------+------------------------------------+
     | memo_size | 2 bytes              | unsigned 16-bit big-endian integer |
     +-----------+----------------------+------------------------------------+
     
     
-    X_75
+    X_76
     ****
     
     +-----------------------------+----------------------+------------------------------------------+
@@ -51660,7 +52183,7 @@ Full description
     +-----------------------------+----------------------+------------------------------------------+
     
     
-    X_86 (Determined from data, 8-bit tag)
+    X_87 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -51673,7 +52196,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | updates               | Variable | sequence of $X_75                  |
+    | updates               | Variable | sequence of $X_76                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -51699,7 +52222,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_75                  |
+    | updates               | Variable             | sequence of $X_76                  |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -51713,7 +52236,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer       |
     +-----------------------+----------------------+------------------------------------------+
-    | updates               | Variable             | sequence of $X_75                        |
+    | updates               | Variable             | sequence of $X_76                        |
     +-----------------------+----------------------+------------------------------------------+
     | key_type              | Determined from data | $micheline.alpha.michelson_v1.expression |
     +-----------------------+----------------------+------------------------------------------+
@@ -51721,7 +52244,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     
     
-    X_87 (Determined from data, 8-bit tag)
+    X_88 (Determined from data, 8-bit tag)
     **************************************
     
     big_map (tag 0)
@@ -51734,7 +52257,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_86                  |
+    | diff | Determined from data | $X_87                  |
     +------+----------------------+------------------------+
     
     
@@ -51748,7 +52271,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_74                  |
+    | diff | Determined from data | $X_75                  |
     +------+----------------------+------------------------+
     
     
@@ -51760,7 +52283,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_87                  |
+    | Unnamed field 0       | Variable | sequence of $X_88                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -51777,7 +52300,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -51829,11 +52352,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true)       |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | errors                                                            | Determined from data | $X_47                                     |
+    | errors                                                            | Determined from data | $X_48                                     |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -51851,7 +52374,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     
     
-    X_114
+    X_115
     *****
     
     +--------------+----------------------+------------------------------------------+
@@ -51865,7 +52388,7 @@ Full description
     +--------------+----------------------+------------------------------------------+
     
     
-    X_117
+    X_118
     *****
     
     +---------+----------------------+--------------------------------+
@@ -51877,21 +52400,21 @@ Full description
     +---------+----------------------+--------------------------------+
     
     
-    X_113
+    X_114
     *****
     
     +-----------------------+----------------------+------------------------------------+
     | Name                  | Size                 | Contents                           |
     +=======================+======================+====================================+
-    | ticket_token          | Determined from data | $X_114                             |
+    | ticket_token          | Determined from data | $X_115                             |
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_117                 |
+    | updates               | Variable             | sequence of $X_118                 |
     +-----------------------+----------------------+------------------------------------+
     
     
-    X_147 (Determined from data, 8-bit tag)
+    X_148 (Determined from data, 8-bit tag)
     ***************************************
     
     To_contract (tag 0)
@@ -51908,11 +52431,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_receipt                                                    | Variable             | sequence of $X_113                        |
+    | ticket_receipt                                                    | Variable             | sequence of $X_114                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -51944,7 +52467,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_receipt        | Variable             | sequence of $X_113                 |
+    | ticket_receipt        | Variable             | sequence of $X_114                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -51959,7 +52482,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_147                 |
+    | Unnamed field 0 | Determined from data | $X_148                 |
     +-----------------+----------------------+------------------------+
     
     
@@ -51997,9 +52520,9 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_147                              |
+    | Unnamed field 0              | Determined from data | $X_148                              |
     +------------------------------+----------------------+-------------------------------------+
     
     
@@ -52100,7 +52623,7 @@ Full description
     +-------------------------------+----------------------+--------------------------------------------------------+
     
     
-    X_43
+    X_44
     ****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52108,7 +52631,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_update         |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52131,7 +52654,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -52173,11 +52696,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -52185,7 +52708,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_189
+    X_190
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52193,7 +52716,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_publish        |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52216,7 +52739,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -52260,11 +52783,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -52274,7 +52797,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_332
+    X_333
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52282,7 +52805,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_origination    |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52292,7 +52815,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_478 (54 bytes, 8-bit tag)
+    X_479 (54 bytes, 8-bit tag)
     ***************************
     
     v0 (tag 0)
@@ -52322,7 +52845,7 @@ Full description
     +===================+======================+========================+
     | Tag               | 1 byte               | unsigned 8-bit integer |
     +-------------------+----------------------+------------------------+
-    | slot_header       | 54 bytes             | $X_478                 |
+    | slot_header       | 54 bytes             | $X_479                 |
     +-------------------+----------------------+------------------------+
     | consumed_milligas | Determined from data | $N.t                   |
     +-------------------+----------------------+------------------------+
@@ -52362,15 +52885,15 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | slot_header                  | 54 bytes             | $X_478                              |
+    | slot_header                  | 54 bytes             | $X_479                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_473
+    X_474
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52378,7 +52901,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.dal_publish_commitment   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52401,7 +52924,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -52441,17 +52964,17 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_609
+    X_610
     *****
     
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -52459,7 +52982,7 @@ Full description
     +===================================================================+======================+===================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                 |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                 |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_recover_bond |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -52469,7 +52992,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     
     
-    X_763 (Determined from data, 8-bit tag)
+    X_764 (Determined from data, 8-bit tag)
     ***************************************
     
     Public (tag 0)
@@ -52507,15 +53030,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_763                              |
+    | whitelist_update                                                  | Determined from data | $X_764                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -52557,19 +53080,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_763                              |
+    | whitelist_update                                                  | Determined from data | $X_764                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -52577,7 +53100,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_749
+    X_750
     *****
     
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -52585,7 +53108,7 @@ Full description
     +===================================================================+======================+=============================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                          |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                           |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                           |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_execute_outbox_message |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -52595,7 +53118,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     
     
-    X_909 (1 byte, 8-bit tag)
+    X_910 (1 byte, 8-bit tag)
     *************************
     
     Conflict_resolved (tag 0)
@@ -52618,7 +53141,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_910 (Determined from data, 8-bit tag)
+    X_911 (Determined from data, 8-bit tag)
     ***************************************
     
     Loser (tag 0)
@@ -52629,7 +53152,7 @@ Full description
     +========+==========+========================+
     | Tag    | 1 byte   | unsigned 8-bit integer |
     +--------+----------+------------------------+
-    | reason | 1 byte   | $X_909                 |
+    | reason | 1 byte   | $X_910                 |
     +--------+----------+------------------------+
     | player | 21 bytes | $public_key_hash       |
     +--------+----------+------------------------+
@@ -52645,7 +53168,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_911 (Determined from data, 8-bit tag)
+    X_912 (Determined from data, 8-bit tag)
     ***************************************
     
     Ongoing (tag 0)
@@ -52666,7 +53189,7 @@ Full description
     +========+======================+========================+
     | Tag    | 1 byte               | unsigned 8-bit integer |
     +--------+----------------------+------------------------+
-    | result | Determined from data | $X_910                 |
+    | result | Determined from data | $X_911                 |
     +--------+----------------------+------------------------+
     
     
@@ -52683,11 +53206,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | game_status                                                       | Determined from data | $X_911                             |
+    | game_status                                                       | Determined from data | $X_912                             |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -52725,19 +53248,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | game_status                                                       | Determined from data | $X_911                              |
+    | game_status                                                       | Determined from data | $X_912                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_904
+    X_905
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52745,7 +53268,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_timeout     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52774,7 +53297,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -52812,7 +53335,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -52822,11 +53345,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1203
+    X_1204
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52834,7 +53357,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_publish     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52897,7 +53420,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -52907,7 +53430,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_1343
+    X_1344
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52915,7 +53438,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_cement      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52925,7 +53448,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_1478
+    X_1479
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52933,7 +53456,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.event           |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -52956,7 +53479,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | address                                                           | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -53002,11 +53525,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | address                                                           | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -53018,7 +53541,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1614
+    X_1615
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53026,7 +53549,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_originate   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53049,11 +53572,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                 |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                 |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -53095,15 +53618,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -53111,7 +53634,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1754
+    X_1755
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53119,7 +53642,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transfer_ticket          |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53142,7 +53665,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -53186,11 +53709,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -53200,7 +53723,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_2313
+    X_2314
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53208,7 +53731,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.register_global_constant |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53218,7 +53741,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2453
+    X_2454
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53226,7 +53749,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.delegation      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53236,7 +53759,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2593
+    X_2594
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53244,7 +53767,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.origination     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53254,7 +53777,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2813 (Determined from data, 8-bit tag)
+    X_2814 (Determined from data, 8-bit tag)
     ****************************************
     
     To_contract (tag 0)
@@ -53271,11 +53794,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                        |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -53307,7 +53830,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_updates        | Variable             | sequence of $X_113                 |
+    | ticket_updates        | Variable             | sequence of $X_114                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -53322,7 +53845,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_2813                |
+    | Unnamed field 0 | Determined from data | $X_2814                |
     +-----------------+----------------------+------------------------+
     
     
@@ -53360,13 +53883,13 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_2813                             |
+    | Unnamed field 0              | Determined from data | $X_2814                             |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_2774
+    X_2775
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53374,7 +53897,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transaction              |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -53382,6 +53905,36 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | internal_operation_results                                        | Variable             | sequence of $alpha.apply_internal_results.alpha.operation_result |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
+    
+    
+    X_3118
+    ******
+    
+    +---------------+----------+------------------+
+    | Name          | Size     | Contents         |
+    +===============+==========+==================+
+    | delegate      | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    | consensus_pkh | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    
+    
+    X_3114
+    ******
+    
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | Name                                                              | Size     | Contents                                                                |
+    +===================================================================+==========+=========================================================================+
+    | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | # bytes in next field                                             | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | committee                                                         | Variable | sequence of $X_3118                                                     |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | consensus_power                                                   | 4 bytes  | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
     alpha.operation_metadata.alpha.balance_updates
@@ -53392,11 +53945,11 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_44                  |
+    | Unnamed field 0       | Variable | sequence of $X_45                  |
     +-----------------------+----------+------------------------------------+
     
     
-    X_3118
+    X_3125
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -53404,7 +53957,7 @@ Full description
     +===================================================================+==========+=========================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                                                       |
+    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     | delegate                                                          | 21 bytes | $public_key_hash                                                        |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -53414,7 +53967,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
-    X_3130
+    X_3137
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -53422,13 +53975,13 @@ Full description
     +===================================================================+==========+=====================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                   |
+    | balance_updates                                                   | Variable | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | allocated_destination_contract                                    | 1 byte   | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
-    X_3138
+    X_3145
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -53440,7 +53993,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                   |
+    | balance_updates                                                   | Variable | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
@@ -53479,7 +54032,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.attestation         |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3138                            |
+    | metadata              | Determined from data | $X_3145                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -53499,7 +54052,7 @@ Full description
     +-----------------------+----------------------+---------------------------------------+
     | bh2                   | Variable             | $alpha.block_header.alpha.full_header |
     +-----------------------+----------------------+---------------------------------------+
-    | metadata              | Determined from data | $X_3138                               |
+    | metadata              | Determined from data | $X_3145                               |
     +-----------------------+----------------------+---------------------------------------+
     
     
@@ -53571,7 +54124,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.preattestation      |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3138                            |
+    | metadata              | Determined from data | $X_3145                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -53583,7 +54136,7 @@ Full description
     +==========+======================+=================================================+
     | Tag      | 1 byte               | unsigned 8-bit integer                          |
     +----------+----------------------+-------------------------------------------------+
-    | solution | 200 bytes            | $X_34                                           |
+    | solution | 200 bytes            | $X_35                                           |
     +----------+----------------------+-------------------------------------------------+
     | metadata | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +----------+----------------------+-------------------------------------------------+
@@ -53603,7 +54156,7 @@ Full description
     +---------------+----------------------+------------------------+
     | destination   | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_3130                |
+    | metadata      | Determined from data | $X_3137                |
     +---------------+----------------------+------------------------+
     
     
@@ -53623,7 +54176,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -53643,7 +54196,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -53665,7 +54218,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | dal_attestation    | Determined from data | $Z.t                               |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -53683,10 +54236,28 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer                          |
     +-----------------------+----------------------+-------------------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                                           |
+    | shard_with_proof      | Determined from data | $X_32                                           |
     +-----------------------+----------------------+-------------------------------------------------+
     | metadata              | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +-----------------------+----------------------+-------------------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------------------+------------------------------------------------+
+    | Name                  | Size                 | Contents                                       |
+    +=======================+======================+================================================+
+    | Tag                   | 1 byte               | unsigned 8-bit integer                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | consensus_content     | 40 bytes             | $X_31                                          |
+    +-----------------------+----------------------+------------------------------------------------+
+    | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------------------+------------------------------------------------+
+    | committee             | Variable             | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------------------+------------------------------------------------+
+    | metadata              | Determined from data | $X_3114                                        |
+    +-----------------------+----------------------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -53709,7 +54280,7 @@ Full description
     +---------------+----------------------+------------------------+
     | public_key    | Determined from data | $public_key            |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1478                |
+    | metadata      | Determined from data | $X_1479                |
     +---------------+----------------------+------------------------+
     
     
@@ -53739,7 +54310,7 @@ Full description
     +----------------------------------+----------------------+-------------------------------------+
     | parameters                       | Determined from data | $X_30                               |
     +----------------------------------+----------------------+-------------------------------------+
-    | metadata                         | Determined from data | $X_2774                             |
+    | metadata                         | Determined from data | $X_2775                             |
     +----------------------------------+----------------------+-------------------------------------+
     
     
@@ -53769,7 +54340,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | script                         | Determined from data | $alpha.scripted.contracts           |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2593                             |
+    | metadata                       | Determined from data | $X_2594                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -53795,7 +54366,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | delegate                       | 21 bytes             | $public_key_hash                    |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2453                             |
+    | metadata                       | Determined from data | $X_2454                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -53821,7 +54392,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | value                 | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_2313                            |
+    | metadata              | Determined from data | $X_2314                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -53847,7 +54418,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | limit                       | Determined from data | $N.t                                |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1478                             |
+    | metadata                    | Determined from data | $X_1479                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -53873,7 +54444,7 @@ Full description
     +---------------+----------------------+-------------------------------+
     | destination   | 22 bytes             | $alpha.contract_id.originated |
     +---------------+----------------------+-------------------------------+
-    | metadata      | Determined from data | $X_609                        |
+    | metadata      | Determined from data | $X_610                        |
     +---------------+----------------------+-------------------------------+
     
     
@@ -53901,7 +54472,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | proof                       | Determined from data | $X_29                               |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1478                             |
+    | metadata                    | Determined from data | $X_1479                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -53941,7 +54512,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | entrypoint            | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1754                            |
+    | metadata              | Determined from data | $X_1755                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -53977,7 +54548,7 @@ Full description
     +---------------------------------+----------------------+-----------------------------------------------------------+
     | whitelist                       | Determined from data | $X_28                                                     |
     +---------------------------------+----------------------+-----------------------------------------------------------+
-    | metadata                        | Determined from data | $X_1614                                                   |
+    | metadata                        | Determined from data | $X_1615                                                   |
     +---------------------------------+----------------------+-----------------------------------------------------------+
     
     
@@ -54003,7 +54574,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | message               | Variable             | sequence of $X_2                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1478                            |
+    | metadata              | Determined from data | $X_1479                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -54027,7 +54598,7 @@ Full description
     +---------------+----------------------+------------------------+
     | rollup        | 20 bytes             | bytes                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1343                |
+    | metadata      | Determined from data | $X_1344                |
     +---------------+----------------------+------------------------+
     
     
@@ -54053,7 +54624,7 @@ Full description
     +---------------+----------------------+------------------------+
     | commitment    | 76 bytes             | $X_25                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1203                |
+    | metadata      | Determined from data | $X_1204                |
     +---------------+----------------------+------------------------+
     
     
@@ -54081,7 +54652,7 @@ Full description
     +---------------+----------------------+------------------------+
     | refutation    | Determined from data | $X_24                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_904                 |
+    | metadata      | Determined from data | $X_905                 |
     +---------------+----------------------+------------------------+
     
     
@@ -54107,7 +54678,7 @@ Full description
     +---------------+----------------------+------------------------+
     | stakers       | 42 bytes             | $X_18                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_904                 |
+    | metadata      | Determined from data | $X_905                 |
     +---------------+----------------------+------------------------+
     
     
@@ -54137,7 +54708,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | output_proof          | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_749                             |
+    | metadata              | Determined from data | $X_750                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -54163,7 +54734,7 @@ Full description
     +---------------+----------------------+------------------------+
     | staker        | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_609                 |
+    | metadata      | Determined from data | $X_610                 |
     +---------------+----------------------+------------------------+
     
     
@@ -54187,7 +54758,7 @@ Full description
     +---------------+----------------------+------------------------+
     | slot_header   | 145 bytes            | $X_17                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_473                 |
+    | metadata      | Determined from data | $X_474                 |
     +---------------+----------------------+------------------------+
     
     
@@ -54223,7 +54794,7 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     | nb_ops                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
-    | metadata              | Determined from data | $X_332                                                                  |
+    | metadata              | Determined from data | $X_333                                                                  |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     
     
@@ -54251,7 +54822,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op                    | Variable             | sequence of $X_8                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_189                             |
+    | metadata              | Determined from data | $X_190                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -54277,11 +54848,11 @@ Full description
     +---------------+----------------------+------------------------+
     | update        | Determined from data | $X_0                   |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_43                  |
+    | metadata      | Determined from data | $X_44                  |
     +---------------+----------------------+------------------------+
     
     
-    X_3156 (Variable, 8-bit tag)
+    X_3163 (Variable, 8-bit tag)
     ****************************
     
     Operation_with_metadata (tag 0)
@@ -54460,7 +55031,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_34                  |
+    | solution | 200 bytes | $X_35                  |
     +----------+-----------+------------------------+
     
     
@@ -54564,8 +55135,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                              |
+    | shard_with_proof      | Determined from data | $X_32                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_31                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -55130,7 +55717,7 @@ Full description
     +------------------+----------+------------------------+
     
     
-    X_3227 (Variable, 8-bit tag)
+    X_3236 (Variable, 8-bit tag)
     ****************************
     
     Operation with too large metadata (tag 0)
@@ -55169,7 +55756,7 @@ Full description
     +=================+==========+========================+
     | Tag             | 1 byte   | unsigned 8-bit integer |
     +-----------------+----------+------------------------+
-    | Unnamed field 0 | Variable | $X_3156                |
+    | Unnamed field 0 | Variable | $X_3163                |
     +-----------------+----------+------------------------+
     
     
@@ -55189,7 +55776,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | $X_3227                            |
+    | Unnamed field 0       | Variable | $X_3236                            |
     +-----------------------+----------+------------------------------------+
     
     </pre>
@@ -55214,6 +55801,9 @@ Full description
     $operation /* operation_encoding_v1 */
     $Blinded public key hash:
       /* A blinded public key hash (Base58Check-encoded) */
+      $unistring
+    $Bls12_381_signature:
+      /* A Bls12_381 signature (Base58Check-encoded) */
       $unistring
     $Chain_id:
       /* Network identifier (Base58Check-encoded) */
@@ -55243,7 +55833,7 @@ Full description
       /* A Ed25519, Secp256k1, P256, or BLS public key hash
          (Base58Check-encoded) */
       $unistring
-    $Signature.V1:
+    $Signature.V2:
       /* A Ed25519, Secp256k1, P256 or BLS signature (Base58Check-encoded) */
       $unistring
     $Zk_rollup_hash:
@@ -55306,7 +55896,7 @@ Full description
         "seed_nonce_hash"?: $cycle_nonce,
         "liquidity_baking_toggle_vote": $alpha.liquidity_baking_vote,
         "adaptive_issuance_vote": $alpha.adaptive_issuance_vote,
-        "signature": $Signature.V1 }
+        "signature": $Signature.V2 }
     $alpha.bond_id:
       { /* Smart_rollup_bond_id */
         "smart_rollup": $smart_rollup_address }
@@ -55359,7 +55949,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.attestation_mempool.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.attestation_mempool.contents:
       { /* Attestation */
         "kind": "attestation",
@@ -55378,7 +55968,7 @@ Full description
       /* An operation's shell header. */
       { "branch": $block_hash,
         "operations": $alpha.inlined.preattestation.contents,
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.inlined.preattestation.contents:
       { /* Preattestation */
         "kind": "preattestation",
@@ -55605,18 +56195,12 @@ Full description
       | "code"
     $alpha.mutez: $positive_bignum
     $alpha.operation.alpha.contents:
-      { /* Preattestation */
-        "kind": "preattestation",
+      { /* Attestation */
+        "kind": "attestation",
         "slot": integer ∈ [0, 2^16-1],
         "level": integer ∈ [0, 2^31],
         "round": integer ∈ [-2^31-1, 2^31],
         "block_payload_hash": $value_hash }
-      || { /* Attestation */
-           "kind": "attestation",
-           "slot": integer ∈ [0, 2^16-1],
-           "level": integer ∈ [0, 2^31],
-           "round": integer ∈ [-2^31-1, 2^31],
-           "block_payload_hash": $value_hash }
       || { /* Attestation_with_dal */
            "kind": "attestation_with_dal",
            "slot": integer ∈ [0, 2^16-1],
@@ -55624,6 +56208,19 @@ Full description
            "round": integer ∈ [-2^31-1, 2^31],
            "block_payload_hash": $value_hash,
            "dal_attestation": $bignum }
+      || { /* Preattestation */
+           "kind": "preattestation",
+           "slot": integer ∈ [0, 2^16-1],
+           "level": integer ∈ [0, 2^31],
+           "round": integer ∈ [-2^31-1, 2^31],
+           "block_payload_hash": $value_hash }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ] }
       || { /* Double_preattestation_evidence */
            "kind": "double_preattestation_evidence",
            "op1": $alpha.inlined.preattestation,
@@ -55730,7 +56327,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1 }
+           "proof"?: $Bls12_381_signature }
       || { /* Drain_delegate */
            "kind": "drain_delegate",
            "consensus_key": $Signature.Public_key_hash,
@@ -55954,7 +56551,7 @@ Full description
                "proof": /^([a-zA-Z0-9][a-zA-Z0-9])*$/ } }
     $alpha.operation.alpha.contents_and_signature:
       { "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
     $alpha.operation.alpha.internal_operation_result.delegation:
       { /* Applied */
         "status": "applied",
@@ -56111,6 +56708,20 @@ Full description
                "delegate": $Signature.Public_key_hash,
                "consensus_power": integer ∈ [-2^30, 2^30],
                "consensus_key": $Signature.Public_key_hash } }
+      || { /* Attestations_aggregate */
+           "kind": "attestations_aggregate",
+           "consensus_content":
+             { "level": integer ∈ [0, 2^31],
+               "round": integer ∈ [-2^31-1, 2^31],
+               "block_payload_hash": $value_hash },
+           "committee": [ integer ∈ [0, 2^16-1] ... ],
+           "metadata":
+             { "balance_updates"?:
+                 $alpha.operation_metadata.alpha.balance_updates,
+               "committee":
+                 [ { "delegate": $Signature.Public_key_hash,
+                     "consensus_pkh": $Signature.Public_key_hash } ... ],
+               "consensus_power": integer ∈ [-2^30, 2^30] } }
       || { /* Double_attestation_evidence */
            "kind": "double_attestation_evidence",
            "op1": $alpha.inlined.attestation,
@@ -56309,7 +56920,7 @@ Full description
            "gas_limit": $positive_bignum,
            "storage_limit": $positive_bignum,
            "pk": $Signature.Public_key,
-           "proof"?: $Signature.V1,
+           "proof"?: $Bls12_381_signature,
            "metadata":
              { "balance_updates"?:
                  $alpha.operation_metadata.alpha.balance_updates,
@@ -57107,10 +57718,10 @@ Full description
       { /* Operation_with_metadata */
         "contents":
           [ $alpha.operation.alpha.operation_contents_and_result ... ],
-        "signature"?: $Signature.V1 }
+        "signature"?: $Signature.V2 }
       || { /* Operation_without_metadata */
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $alpha.operation_metadata.alpha.balance_updates:
       [ { /* Contract */
           "kind": "contract",
@@ -57888,7 +58499,7 @@ Full description
         "hash": $Operation_hash,
         "branch": $block_hash,
         "contents": [ $alpha.operation.alpha.contents ... ],
-        "signature"?: $Signature.V1,
+        "signature"?: $Signature.V2,
         "metadata": "too large" }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
@@ -57896,7 +58507,7 @@ Full description
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
@@ -57904,14 +58515,14 @@ Full description
            "branch": $block_hash,
            "contents":
              [ $alpha.operation.alpha.operation_contents_and_result ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
       || { /* An operation's shell header. */
            "protocol": "ProtoALphaALphaALphaALphaALphaALphaALphaALphaDdp3zK",
            "chain_id": $Chain_id,
            "hash": $Operation_hash,
            "branch": $block_hash,
            "contents": [ $alpha.operation.alpha.contents ... ],
-           "signature"?: $Signature.V1 }
+           "signature"?: $Signature.V2 }
     $positive_bignum:
       /* Positive big number
          Decimal representation of a positive big number */
@@ -57967,7 +58578,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | $X_3227                            |
+    | Unnamed field 0       | Variable | $X_3236                            |
     +-----------------------+----------+------------------------------------+
     
     
@@ -59107,7 +59718,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Signature.V1          | Variable | bytes                              |
+    | Bls12_381_signature   | 96 bytes | bytes                              |
     +-----------------------+----------+------------------------------------+
     
     
@@ -59275,6 +59886,20 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     
     
+    X_31
+    ****
+    
+    +--------------------+----------+----------------------------------+
+    | Name               | Size     | Contents                         |
+    +====================+==========+==================================+
+    | level              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | round              | 4 bytes  | signed 32-bit big-endian integer |
+    +--------------------+----------+----------------------------------+
+    | block_payload_hash | 32 bytes | bytes                            |
+    +--------------------+----------+----------------------------------+
+    
+    
     alpha.inlined.attestation_mempool.contents (Determined from data, 8-bit tag)
     ****************************************************************************
     
@@ -59330,7 +59955,7 @@ Full description
     +------------+----------------------+---------------------------------------------+
     
     
-    X_32
+    X_33
     ****
     
     +-----------------+----------------------+-------------------------------------------------------------------------+
@@ -59342,19 +59967,19 @@ Full description
     +-----------------+----------------------+-------------------------------------------------------------------------+
     
     
-    X_31
+    X_32
     ****
     
     +-------+----------------------+----------+
     | Name  | Size                 | Contents |
     +=======+======================+==========+
-    | shard | Determined from data | $X_32    |
+    | shard | Determined from data | $X_33    |
     +-------+----------------------+----------+
     | proof | 48 bytes             | bytes    |
     +-------+----------------------+----------+
     
     
-    X_34
+    X_35
     ****
     
     +-----------------+-----------+----------+
@@ -59675,7 +60300,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_34                  |
+    | solution | 200 bytes | $X_35                  |
     +----------+-----------+------------------------+
     
     
@@ -59779,8 +60404,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                              |
+    | shard_with_proof      | Determined from data | $X_32                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_31                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -60430,7 +61071,7 @@ Full description
     +------------+----------+------------------------+
     
     
-    X_45 (Determined from data, 8-bit tag)
+    X_46 (Determined from data, 8-bit tag)
     **************************************
     
     Contract (tag 0)
@@ -60759,7 +61400,7 @@ Full description
     +----------+----------+----------------------------------+
     
     
-    X_46 (Determined from data, 8-bit tag)
+    X_47 (Determined from data, 8-bit tag)
     **************************************
     
     Block_application (tag 0)
@@ -60814,19 +61455,19 @@ Full description
     +------------------------+----------+------------------------+
     
     
-    X_44
+    X_45
     ****
     
     +-----------------+----------------------+----------+
     | Name            | Size                 | Contents |
     +=================+======================+==========+
-    | Unnamed field 0 | Determined from data | $X_45    |
+    | Unnamed field 0 | Determined from data | $X_46    |
     +-----------------+----------------------+----------+
-    | Unnamed field 1 | Determined from data | $X_46    |
+    | Unnamed field 1 | Determined from data | $X_47    |
     +-----------------+----------------------+----------+
     
     
-    X_47
+    X_48
     ****
     
     +-----------------------+----------+------------------------------------+
@@ -60851,7 +61492,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -60893,11 +61534,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -61011,7 +61652,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -61032,7 +61673,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -61070,13 +61711,13 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
@@ -61102,7 +61743,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     
     
-    X_69
+    X_70
     ****
     
     +-----------------+----------------------+---------------------------------+
@@ -61114,7 +61755,7 @@ Full description
     +-----------------+----------------------+---------------------------------+
     
     
-    X_68
+    X_69
     ****
     
     +-----------------------------+----------+------------------------------------+
@@ -61122,7 +61763,7 @@ Full description
     +=============================+==========+====================================+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
-    | commitments_and_ciphertexts | Variable | sequence of $X_69                  |
+    | commitments_and_ciphertexts | Variable | sequence of $X_70                  |
     +-----------------------------+----------+------------------------------------+
     | # bytes in next field       | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------------+----------+------------------------------------+
@@ -61130,7 +61771,7 @@ Full description
     +-----------------------------+----------+------------------------------------+
     
     
-    X_74 (Determined from data, 8-bit tag)
+    X_75 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -61141,7 +61782,7 @@ Full description
     +=========+======================+========================+
     | Tag     | 1 byte               | unsigned 8-bit integer |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_68                  |
+    | updates | Determined from data | $X_69                  |
     +---------+----------------------+------------------------+
     
     
@@ -61165,7 +61806,7 @@ Full description
     +---------+----------------------+------------------------+
     | source  | Determined from data | $Z.t                   |
     +---------+----------------------+------------------------+
-    | updates | Determined from data | $X_68                  |
+    | updates | Determined from data | $X_69                  |
     +---------+----------------------+------------------------+
     
     
@@ -61177,13 +61818,13 @@ Full description
     +===========+======================+====================================+
     | Tag       | 1 byte               | unsigned 8-bit integer             |
     +-----------+----------------------+------------------------------------+
-    | updates   | Determined from data | $X_68                              |
+    | updates   | Determined from data | $X_69                              |
     +-----------+----------------------+------------------------------------+
     | memo_size | 2 bytes              | unsigned 16-bit big-endian integer |
     +-----------+----------------------+------------------------------------+
     
     
-    X_75
+    X_76
     ****
     
     +-----------------------------+----------------------+------------------------------------------+
@@ -61199,7 +61840,7 @@ Full description
     +-----------------------------+----------------------+------------------------------------------+
     
     
-    X_86 (Determined from data, 8-bit tag)
+    X_87 (Determined from data, 8-bit tag)
     **************************************
     
     update (tag 0)
@@ -61212,7 +61853,7 @@ Full description
     +-----------------------+----------+------------------------------------+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | updates               | Variable | sequence of $X_75                  |
+    | updates               | Variable | sequence of $X_76                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -61238,7 +61879,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_75                  |
+    | updates               | Variable             | sequence of $X_76                  |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -61252,7 +61893,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer       |
     +-----------------------+----------------------+------------------------------------------+
-    | updates               | Variable             | sequence of $X_75                        |
+    | updates               | Variable             | sequence of $X_76                        |
     +-----------------------+----------------------+------------------------------------------+
     | key_type              | Determined from data | $micheline.alpha.michelson_v1.expression |
     +-----------------------+----------------------+------------------------------------------+
@@ -61260,7 +61901,7 @@ Full description
     +-----------------------+----------------------+------------------------------------------+
     
     
-    X_87 (Determined from data, 8-bit tag)
+    X_88 (Determined from data, 8-bit tag)
     **************************************
     
     big_map (tag 0)
@@ -61273,7 +61914,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_86                  |
+    | diff | Determined from data | $X_87                  |
     +------+----------------------+------------------------+
     
     
@@ -61287,7 +61928,7 @@ Full description
     +------+----------------------+------------------------+
     | id   | Determined from data | $Z.t                   |
     +------+----------------------+------------------------+
-    | diff | Determined from data | $X_74                  |
+    | diff | Determined from data | $X_75                  |
     +------+----------------------+------------------------+
     
     
@@ -61299,7 +61940,7 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_87                  |
+    | Unnamed field 0       | Variable | sequence of $X_88                  |
     +-----------------------+----------+------------------------------------+
     
     
@@ -61316,7 +61957,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -61368,11 +62009,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true)       |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | errors                                                            | Determined from data | $X_47                                     |
+    | errors                                                            | Determined from data | $X_48                                     |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -61390,7 +62031,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     
     
-    X_114
+    X_115
     *****
     
     +--------------+----------------------+------------------------------------------+
@@ -61404,7 +62045,7 @@ Full description
     +--------------+----------------------+------------------------------------------+
     
     
-    X_117
+    X_118
     *****
     
     +---------+----------------------+--------------------------------+
@@ -61416,21 +62057,21 @@ Full description
     +---------+----------------------+--------------------------------+
     
     
-    X_113
+    X_114
     *****
     
     +-----------------------+----------------------+------------------------------------+
     | Name                  | Size                 | Contents                           |
     +=======================+======================+====================================+
-    | ticket_token          | Determined from data | $X_114                             |
+    | ticket_token          | Determined from data | $X_115                             |
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | updates               | Variable             | sequence of $X_117                 |
+    | updates               | Variable             | sequence of $X_118                 |
     +-----------------------+----------------------+------------------------------------+
     
     
-    X_147 (Determined from data, 8-bit tag)
+    X_148 (Determined from data, 8-bit tag)
     ***************************************
     
     To_contract (tag 0)
@@ -61447,11 +62088,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_receipt                                                    | Variable             | sequence of $X_113                        |
+    | ticket_receipt                                                    | Variable             | sequence of $X_114                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -61483,7 +62124,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_receipt        | Variable             | sequence of $X_113                 |
+    | ticket_receipt        | Variable             | sequence of $X_114                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -61498,7 +62139,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_147                 |
+    | Unnamed field 0 | Determined from data | $X_148                 |
     +-----------------+----------------------+------------------------+
     
     
@@ -61536,9 +62177,9 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_147                              |
+    | Unnamed field 0              | Determined from data | $X_148                              |
     +------------------------------+----------------------+-------------------------------------+
     
     
@@ -61639,7 +62280,7 @@ Full description
     +-------------------------------+----------------------+--------------------------------------------------------+
     
     
-    X_43
+    X_44
     ****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61647,7 +62288,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_update         |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61670,7 +62311,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -61712,11 +62353,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -61724,7 +62365,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_189
+    X_190
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61732,7 +62373,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_publish        |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61755,7 +62396,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -61799,11 +62440,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | originated_zk_rollup                                              | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -61813,7 +62454,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_332
+    X_333
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61821,7 +62462,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.zk_rollup_origination    |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61831,7 +62472,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_478 (54 bytes, 8-bit tag)
+    X_479 (54 bytes, 8-bit tag)
     ***************************
     
     v0 (tag 0)
@@ -61861,7 +62502,7 @@ Full description
     +===================+======================+========================+
     | Tag               | 1 byte               | unsigned 8-bit integer |
     +-------------------+----------------------+------------------------+
-    | slot_header       | 54 bytes             | $X_478                 |
+    | slot_header       | 54 bytes             | $X_479                 |
     +-------------------+----------------------+------------------------+
     | consumed_milligas | Determined from data | $N.t                   |
     +-------------------+----------------------+------------------------+
@@ -61901,15 +62542,15 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | slot_header                  | 54 bytes             | $X_478                              |
+    | slot_header                  | 54 bytes             | $X_479                              |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_473
+    X_474
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61917,7 +62558,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.dal_publish_commitment   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -61940,7 +62581,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -61980,17 +62621,17 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_609
+    X_610
     *****
     
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -61998,7 +62639,7 @@ Full description
     +===================================================================+======================+===================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                 |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                 |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_recover_bond |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
@@ -62008,7 +62649,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------------------------------+
     
     
-    X_763 (Determined from data, 8-bit tag)
+    X_764 (Determined from data, 8-bit tag)
     ***************************************
     
     Public (tag 0)
@@ -62046,15 +62687,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_763                              |
+    | whitelist_update                                                  | Determined from data | $X_764                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62096,19 +62737,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "whitelist_update"                            | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | whitelist_update                                                  | Determined from data | $X_763                              |
+    | whitelist_update                                                  | Determined from data | $X_764                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62116,7 +62757,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_749
+    X_750
     *****
     
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -62124,7 +62765,7 @@ Full description
     +===================================================================+======================+=============================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                                          |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                           |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                           |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_execute_outbox_message |
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
@@ -62134,7 +62775,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-----------------------------------------------------------------------------+
     
     
-    X_909 (1 byte, 8-bit tag)
+    X_910 (1 byte, 8-bit tag)
     *************************
     
     Conflict_resolved (tag 0)
@@ -62157,7 +62798,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_910 (Determined from data, 8-bit tag)
+    X_911 (Determined from data, 8-bit tag)
     ***************************************
     
     Loser (tag 0)
@@ -62168,7 +62809,7 @@ Full description
     +========+==========+========================+
     | Tag    | 1 byte   | unsigned 8-bit integer |
     +--------+----------+------------------------+
-    | reason | 1 byte   | $X_909                 |
+    | reason | 1 byte   | $X_910                 |
     +--------+----------+------------------------+
     | player | 21 bytes | $public_key_hash       |
     +--------+----------+------------------------+
@@ -62184,7 +62825,7 @@ Full description
     +------+--------+------------------------+
     
     
-    X_911 (Determined from data, 8-bit tag)
+    X_912 (Determined from data, 8-bit tag)
     ***************************************
     
     Ongoing (tag 0)
@@ -62205,7 +62846,7 @@ Full description
     +========+======================+========================+
     | Tag    | 1 byte               | unsigned 8-bit integer |
     +--------+----------------------+------------------------+
-    | result | Determined from data | $X_910                 |
+    | result | Determined from data | $X_911                 |
     +--------+----------------------+------------------------+
     
     
@@ -62222,11 +62863,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | game_status                                                       | Determined from data | $X_911                             |
+    | game_status                                                       | Determined from data | $X_912                             |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -62264,19 +62905,19 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | game_status                                                       | Determined from data | $X_911                              |
+    | game_status                                                       | Determined from data | $X_912                              |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_904
+    X_905
     *****
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62284,7 +62925,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_timeout     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62313,7 +62954,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     
     
@@ -62351,7 +62992,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62361,11 +63002,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1203
+    X_1204
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62373,7 +63014,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_publish     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62436,7 +63077,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
     | consumed_milligas            | Determined from data | $N.t                                |
     +------------------------------+----------------------+-------------------------------------+
@@ -62446,7 +63087,7 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_1343
+    X_1344
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62454,7 +63095,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_cement      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62464,7 +63105,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_1478
+    X_1479
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62472,7 +63113,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.event           |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62495,7 +63136,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | address                                                           | 20 bytes             | bytes                              |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -62541,11 +63182,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | address                                                           | 20 bytes             | bytes                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62557,7 +63198,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1614
+    X_1615
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62565,7 +63206,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.smart_rollup_originate   |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62588,11 +63229,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                 |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                 |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -62634,15 +63275,15 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                  |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62650,7 +63291,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_1754
+    X_1755
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62658,7 +63299,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transfer_ticket          |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62681,7 +63322,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                  |
+    | balance_updates                                                   | Variable             | sequence of $X_45                  |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------+
@@ -62725,11 +63366,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors"                                      | 1 byte               | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | errors                                                            | Determined from data | $X_47                               |
+    | errors                                                            | Determined from data | $X_48                               |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                   |
+    | balance_updates                                                   | Variable             | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     | consumed_milligas                                                 | Determined from data | $N.t                                |
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
@@ -62739,7 +63380,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------+
     
     
-    X_2313
+    X_2314
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62747,7 +63388,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.register_global_constant |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62757,7 +63398,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2453
+    X_2454
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62765,7 +63406,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.delegation      |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62775,7 +63416,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2593
+    X_2594
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62783,7 +63424,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.internal_operation_result.origination     |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62793,7 +63434,7 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     
     
-    X_2813 (Determined from data, 8-bit tag)
+    X_2814 (Determined from data, 8-bit tag)
     ****************************************
     
     To_contract (tag 0)
@@ -62810,11 +63451,11 @@ Full description
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                         |
+    | balance_updates                                                   | Variable             | sequence of $X_45                         |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
-    | ticket_updates                                                    | Variable             | sequence of $X_113                        |
+    | ticket_updates                                                    | Variable             | sequence of $X_114                        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
     | # bytes in next field                                             | 4 bytes              | unsigned 30-bit big-endian integer        |
     +-------------------------------------------------------------------+----------------------+-------------------------------------------+
@@ -62846,7 +63487,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer |
     +-----------------------+----------------------+------------------------------------+
-    | ticket_updates        | Variable             | sequence of $X_113                 |
+    | ticket_updates        | Variable             | sequence of $X_114                 |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -62861,7 +63502,7 @@ Full description
     +=================+======================+========================+
     | Tag             | 1 byte               | unsigned 8-bit integer |
     +-----------------+----------------------+------------------------+
-    | Unnamed field 0 | Determined from data | $X_2813                |
+    | Unnamed field 0 | Determined from data | $X_2814                |
     +-----------------+----------------------+------------------------+
     
     
@@ -62899,13 +63540,13 @@ Full description
     +------------------------------+----------------------+-------------------------------------+
     | ? presence of field "errors" | 1 byte               | boolean (0 for false, 255 for true) |
     +------------------------------+----------------------+-------------------------------------+
-    | errors                       | Determined from data | $X_47                               |
+    | errors                       | Determined from data | $X_48                               |
     +------------------------------+----------------------+-------------------------------------+
-    | Unnamed field 0              | Determined from data | $X_2813                             |
+    | Unnamed field 0              | Determined from data | $X_2814                             |
     +------------------------------+----------------------+-------------------------------------+
     
     
-    X_2774
+    X_2775
     ******
     
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62913,7 +63554,7 @@ Full description
     +===================================================================+======================+==================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes              | unsigned 30-bit big-endian integer                               |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
-    | balance_updates                                                   | Variable             | sequence of $X_44                                                |
+    | balance_updates                                                   | Variable             | sequence of $X_45                                                |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | operation_result                                                  | Determined from data | $alpha.operation.alpha.operation_result.transaction              |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
@@ -62921,6 +63562,36 @@ Full description
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
     | internal_operation_results                                        | Variable             | sequence of $alpha.apply_internal_results.alpha.operation_result |
     +-------------------------------------------------------------------+----------------------+------------------------------------------------------------------+
+    
+    
+    X_3118
+    ******
+    
+    +---------------+----------+------------------+
+    | Name          | Size     | Contents         |
+    +===============+==========+==================+
+    | delegate      | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    | consensus_pkh | 21 bytes | $public_key_hash |
+    +---------------+----------+------------------+
+    
+    
+    X_3114
+    ******
+    
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | Name                                                              | Size     | Contents                                                                |
+    +===================================================================+==========+=========================================================================+
+    | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | # bytes in next field                                             | 4 bytes  | unsigned 30-bit big-endian integer                                      |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | committee                                                         | Variable | sequence of $X_3118                                                     |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
+    | consensus_power                                                   | 4 bytes  | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
+    +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
     alpha.operation_metadata.alpha.balance_updates
@@ -62931,11 +63602,11 @@ Full description
     +=======================+==========+====================================+
     | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer |
     +-----------------------+----------+------------------------------------+
-    | Unnamed field 0       | Variable | sequence of $X_44                  |
+    | Unnamed field 0       | Variable | sequence of $X_45                  |
     +-----------------------+----------+------------------------------------+
     
     
-    X_3118
+    X_3125
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -62943,7 +63614,7 @@ Full description
     +===================================================================+==========+=========================================================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer                                      |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                                                       |
+    | balance_updates                                                   | Variable | sequence of $X_45                                                       |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     | delegate                                                          | 21 bytes | $public_key_hash                                                        |
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
@@ -62953,7 +63624,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------------------------------------------+
     
     
-    X_3130
+    X_3137
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -62961,13 +63632,13 @@ Full description
     +===================================================================+==========+=====================================+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                   |
+    | balance_updates                                                   | Variable | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | allocated_destination_contract                                    | 1 byte   | boolean (0 for false, 255 for true) |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
-    X_3138
+    X_3145
     ******
     
     +-------------------------------------------------------------------+----------+-------------------------------------+
@@ -62979,7 +63650,7 @@ Full description
     +-------------------------------------------------------------------+----------+-------------------------------------+
     | # bytes in field "alpha.operation_metadata.alpha.balance_updates" | 4 bytes  | unsigned 30-bit big-endian integer  |
     +-------------------------------------------------------------------+----------+-------------------------------------+
-    | balance_updates                                                   | Variable | sequence of $X_44                   |
+    | balance_updates                                                   | Variable | sequence of $X_45                   |
     +-------------------------------------------------------------------+----------+-------------------------------------+
     
     
@@ -63018,7 +63689,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.attestation         |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3138                            |
+    | metadata              | Determined from data | $X_3145                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63038,7 +63709,7 @@ Full description
     +-----------------------+----------------------+---------------------------------------+
     | bh2                   | Variable             | $alpha.block_header.alpha.full_header |
     +-----------------------+----------------------+---------------------------------------+
-    | metadata              | Determined from data | $X_3138                               |
+    | metadata              | Determined from data | $X_3145                               |
     +-----------------------+----------------------+---------------------------------------+
     
     
@@ -63110,7 +63781,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op2                   | Variable             | $alpha.inlined.preattestation      |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_3138                            |
+    | metadata              | Determined from data | $X_3145                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63122,7 +63793,7 @@ Full description
     +==========+======================+=================================================+
     | Tag      | 1 byte               | unsigned 8-bit integer                          |
     +----------+----------------------+-------------------------------------------------+
-    | solution | 200 bytes            | $X_34                                           |
+    | solution | 200 bytes            | $X_35                                           |
     +----------+----------------------+-------------------------------------------------+
     | metadata | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +----------+----------------------+-------------------------------------------------+
@@ -63142,7 +63813,7 @@ Full description
     +---------------+----------------------+------------------------+
     | destination   | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_3130                |
+    | metadata      | Determined from data | $X_3137                |
     +---------------+----------------------+------------------------+
     
     
@@ -63162,7 +63833,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -63182,7 +63853,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | block_payload_hash | 32 bytes             | bytes                              |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -63204,7 +63875,7 @@ Full description
     +--------------------+----------------------+------------------------------------+
     | dal_attestation    | Determined from data | $Z.t                               |
     +--------------------+----------------------+------------------------------------+
-    | metadata           | Determined from data | $X_3118                            |
+    | metadata           | Determined from data | $X_3125                            |
     +--------------------+----------------------+------------------------------------+
     
     
@@ -63222,10 +63893,28 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer                          |
     +-----------------------+----------------------+-------------------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                                           |
+    | shard_with_proof      | Determined from data | $X_32                                           |
     +-----------------------+----------------------+-------------------------------------------------+
     | metadata              | Determined from data | $alpha.operation_metadata.alpha.balance_updates |
     +-----------------------+----------------------+-------------------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------------------+------------------------------------------------+
+    | Name                  | Size                 | Contents                                       |
+    +=======================+======================+================================================+
+    | Tag                   | 1 byte               | unsigned 8-bit integer                         |
+    +-----------------------+----------------------+------------------------------------------------+
+    | consensus_content     | 40 bytes             | $X_31                                          |
+    +-----------------------+----------------------+------------------------------------------------+
+    | # bytes in next field | 4 bytes              | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------------------+------------------------------------------------+
+    | committee             | Variable             | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------------------+------------------------------------------------+
+    | metadata              | Determined from data | $X_3114                                        |
+    +-----------------------+----------------------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -63248,7 +63937,7 @@ Full description
     +---------------+----------------------+------------------------+
     | public_key    | Determined from data | $public_key            |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1478                |
+    | metadata      | Determined from data | $X_1479                |
     +---------------+----------------------+------------------------+
     
     
@@ -63278,7 +63967,7 @@ Full description
     +----------------------------------+----------------------+-------------------------------------+
     | parameters                       | Determined from data | $X_30                               |
     +----------------------------------+----------------------+-------------------------------------+
-    | metadata                         | Determined from data | $X_2774                             |
+    | metadata                         | Determined from data | $X_2775                             |
     +----------------------------------+----------------------+-------------------------------------+
     
     
@@ -63308,7 +63997,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | script                         | Determined from data | $alpha.scripted.contracts           |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2593                             |
+    | metadata                       | Determined from data | $X_2594                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -63334,7 +64023,7 @@ Full description
     +--------------------------------+----------------------+-------------------------------------+
     | delegate                       | 21 bytes             | $public_key_hash                    |
     +--------------------------------+----------------------+-------------------------------------+
-    | metadata                       | Determined from data | $X_2453                             |
+    | metadata                       | Determined from data | $X_2454                             |
     +--------------------------------+----------------------+-------------------------------------+
     
     
@@ -63360,7 +64049,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | value                 | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_2313                            |
+    | metadata              | Determined from data | $X_2314                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63386,7 +64075,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | limit                       | Determined from data | $N.t                                |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1478                             |
+    | metadata                    | Determined from data | $X_1479                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -63412,7 +64101,7 @@ Full description
     +---------------+----------------------+-------------------------------+
     | destination   | 22 bytes             | $alpha.contract_id.originated |
     +---------------+----------------------+-------------------------------+
-    | metadata      | Determined from data | $X_609                        |
+    | metadata      | Determined from data | $X_610                        |
     +---------------+----------------------+-------------------------------+
     
     
@@ -63440,7 +64129,7 @@ Full description
     +-----------------------------+----------------------+-------------------------------------+
     | proof                       | Determined from data | $X_29                               |
     +-----------------------------+----------------------+-------------------------------------+
-    | metadata                    | Determined from data | $X_1478                             |
+    | metadata                    | Determined from data | $X_1479                             |
     +-----------------------------+----------------------+-------------------------------------+
     
     
@@ -63480,7 +64169,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | entrypoint            | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1754                            |
+    | metadata              | Determined from data | $X_1755                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63516,7 +64205,7 @@ Full description
     +---------------------------------+----------------------+-----------------------------------------------------------+
     | whitelist                       | Determined from data | $X_28                                                     |
     +---------------------------------+----------------------+-----------------------------------------------------------+
-    | metadata                        | Determined from data | $X_1614                                                   |
+    | metadata                        | Determined from data | $X_1615                                                   |
     +---------------------------------+----------------------+-----------------------------------------------------------+
     
     
@@ -63542,7 +64231,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | message               | Variable             | sequence of $X_2                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_1478                            |
+    | metadata              | Determined from data | $X_1479                            |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63566,7 +64255,7 @@ Full description
     +---------------+----------------------+------------------------+
     | rollup        | 20 bytes             | bytes                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1343                |
+    | metadata      | Determined from data | $X_1344                |
     +---------------+----------------------+------------------------+
     
     
@@ -63592,7 +64281,7 @@ Full description
     +---------------+----------------------+------------------------+
     | commitment    | 76 bytes             | $X_25                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_1203                |
+    | metadata      | Determined from data | $X_1204                |
     +---------------+----------------------+------------------------+
     
     
@@ -63620,7 +64309,7 @@ Full description
     +---------------+----------------------+------------------------+
     | refutation    | Determined from data | $X_24                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_904                 |
+    | metadata      | Determined from data | $X_905                 |
     +---------------+----------------------+------------------------+
     
     
@@ -63646,7 +64335,7 @@ Full description
     +---------------+----------------------+------------------------+
     | stakers       | 42 bytes             | $X_18                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_904                 |
+    | metadata      | Determined from data | $X_905                 |
     +---------------+----------------------+------------------------+
     
     
@@ -63676,7 +64365,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | output_proof          | Variable             | bytes                              |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_749                             |
+    | metadata              | Determined from data | $X_750                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63702,7 +64391,7 @@ Full description
     +---------------+----------------------+------------------------+
     | staker        | 21 bytes             | $public_key_hash       |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_609                 |
+    | metadata      | Determined from data | $X_610                 |
     +---------------+----------------------+------------------------+
     
     
@@ -63726,7 +64415,7 @@ Full description
     +---------------+----------------------+------------------------+
     | slot_header   | 145 bytes            | $X_17                  |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_473                 |
+    | metadata      | Determined from data | $X_474                 |
     +---------------+----------------------+------------------------+
     
     
@@ -63762,7 +64451,7 @@ Full description
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     | nb_ops                | 4 bytes              | signed 31-bit big-endian integer in the range -1073741824 to 1073741823 |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
-    | metadata              | Determined from data | $X_332                                                                  |
+    | metadata              | Determined from data | $X_333                                                                  |
     +-----------------------+----------------------+-------------------------------------------------------------------------+
     
     
@@ -63790,7 +64479,7 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | op                    | Variable             | sequence of $X_8                   |
     +-----------------------+----------------------+------------------------------------+
-    | metadata              | Determined from data | $X_189                             |
+    | metadata              | Determined from data | $X_190                             |
     +-----------------------+----------------------+------------------------------------+
     
     
@@ -63816,11 +64505,11 @@ Full description
     +---------------+----------------------+------------------------+
     | update        | Determined from data | $X_0                   |
     +---------------+----------------------+------------------------+
-    | metadata      | Determined from data | $X_43                  |
+    | metadata      | Determined from data | $X_44                  |
     +---------------+----------------------+------------------------+
     
     
-    X_3156 (Variable, 8-bit tag)
+    X_3163 (Variable, 8-bit tag)
     ****************************
     
     Operation_with_metadata (tag 0)
@@ -63999,7 +64688,7 @@ Full description
     +==========+===========+========================+
     | Tag      | 1 byte    | unsigned 8-bit integer |
     +----------+-----------+------------------------+
-    | solution | 200 bytes | $X_34                  |
+    | solution | 200 bytes | $X_35                  |
     +----------+-----------+------------------------+
     
     
@@ -64103,8 +64792,24 @@ Full description
     +-----------------------+----------------------+------------------------------------+
     | slot_index            | 1 byte               | unsigned 8-bit integer             |
     +-----------------------+----------------------+------------------------------------+
-    | shard_with_proof      | Determined from data | $X_31                              |
+    | shard_with_proof      | Determined from data | $X_32                              |
     +-----------------------+----------------------+------------------------------------+
+    
+    
+    Attestations_aggregate (tag 31)
+    ===============================
+    
+    +-----------------------+----------+------------------------------------------------+
+    | Name                  | Size     | Contents                                       |
+    +=======================+==========+================================================+
+    | Tag                   | 1 byte   | unsigned 8-bit integer                         |
+    +-----------------------+----------+------------------------------------------------+
+    | consensus_content     | 40 bytes | $X_31                                          |
+    +-----------------------+----------+------------------------------------------------+
+    | # bytes in next field | 4 bytes  | unsigned 30-bit big-endian integer             |
+    +-----------------------+----------+------------------------------------------------+
+    | committee             | Variable | sequence of unsigned 16-bit big-endian integer |
+    +-----------------------+----------+------------------------------------------------+
     
     
     Reveal (tag 107)
@@ -64669,7 +65374,7 @@ Full description
     +------------------+----------+------------------------+
     
     
-    X_3227 (Variable, 8-bit tag)
+    X_3236 (Variable, 8-bit tag)
     ****************************
     
     Operation with too large metadata (tag 0)
@@ -64708,7 +65413,7 @@ Full description
     +=================+==========+========================+
     | Tag             | 1 byte   | unsigned 8-bit integer |
     +-----------------+----------+------------------------+
-    | Unnamed field 0 | Variable | $X_3156                |
+    | Unnamed field 0 | Variable | $X_3163                |
     +-----------------+----------+------------------------+
     
     </pre>

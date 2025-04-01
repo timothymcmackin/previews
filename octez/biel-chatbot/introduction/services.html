@@ -16,32 +16,36 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e44384e2" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=19338697" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=70b85459"></script>
+    <script src="../_static/documentation_options.js?v=aaadc52b"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -62,6 +66,7 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduction/services';</script>
     <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/biel-chatbot/introduction/services.html" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +74,7 @@
     <link rel="prev" title="Running Octez" href="howtorun.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
   </head>
   
   
@@ -84,19 +90,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -104,7 +99,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -112,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -129,7 +123,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -159,21 +154,42 @@
     
     
     <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
-    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
   
   
 </a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
@@ -189,7 +205,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Setting up Octez Services</a></li>
 <li class="toctree-l1"><a class="reference internal" href="serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="versioning.html">Octez &amp; Protocol versioning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="breaking_changes.html">BREAKING CHANGES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="breaking_changes.html">Breaking changes</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
 <ul class="nav bd-sidenav">
@@ -276,12 +293,47 @@
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Quebec RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rio/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../rio/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rio/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rio/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rio/rpc.html">Rio RPCs - Reference</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -311,7 +363,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
@@ -329,7 +381,8 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.0~rc3</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -358,6 +411,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
@@ -408,6 +462,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -477,9 +532,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -540,6 +600,23 @@
       
       
       
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/introduction/services.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
       <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fintroduction/services.html&issue[description]=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
@@ -575,24 +652,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -616,12 +685,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-binary-packages">Why Use Binary Packages?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-deb-or-rpm-binary-packages">Why Use Deb or Rpm Binary Packages?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-octez">Installing Octez</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation">Verify Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-daemons">Enabling Daemons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-node">Configuring the node</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-octez-node">Running the Octez node</a></li>
 </ul>
@@ -644,38 +712,39 @@ document.write(`
 <h1>Setting up Octez Services<a class="headerlink" href="#setting-up-octez-services" title="Link to this heading">#</a></h1>
 <p>The Octez suite consists of <a class="reference internal" href="howtouse.html#tezos-binaries"><span class="std std-ref">several executables</span></a>, some to be run interactively, while others are to be run as daemons.</p>
 <p>Previous tutorials in this section showed how to <a class="reference internal" href="howtouse.html"><span class="doc">get started with the different executables</span></a>, and different <a class="reference internal" href="howtorun.html"><span class="doc">options for participating to Tezos</span></a> such as delegating, staking, and baking.
-However, in these tutorials, daemons are just run in background or left in another terminal.
-This page shows how Octez daemons can be safely run from the official binary packages, as Unix services, which can ensure that they are started automatically and restarted in case of failures.</p>
-<section id="why-use-binary-packages">
-<h2>Why Use Binary Packages?<a class="headerlink" href="#why-use-binary-packages" title="Link to this heading">#</a></h2>
+However, in these tutorials, daemons are just run in background or left in another terminal.</p>
+<p>This page shows how Octez daemons can be safely run from the official binary packages, as Unix services, which can ensure that they are started automatically and restarted in case of failures.</p>
+<section id="why-use-deb-or-rpm-binary-packages">
+<h2>Why Use Deb or Rpm Binary Packages?<a class="headerlink" href="#why-use-deb-or-rpm-binary-packages" title="Link to this heading">#</a></h2>
 <p>When it comes to installing software, especially for critical
 applications like Tezos/Octez, it’s crucial to ensure a secure and
 stable environment. While compiling from source can provide
 customization options, it often introduces complexities and risks.
-Instead, opting for binary packages from a trusted source simplifies
+Instead, opting for deb or rpm packages from a trusted source simplifies
 installation and enhances security.</p>
-<p>Binary packages compiled for a specific platform should be always
-preferred over source or statically compiled packages. These packages
-can be used to simplify the creation of OCI images or deployed on bare
-metal.</p>
-<p>Using the official binary packages offers several advantages:</p>
+<p>Deb or Rpm packages compiled for a specific platform should be always preferred
+over statically compiled binaries. Deb or Rpm packages can also be used to
+simplify the creation of [OCI](<a class="reference external" href="https://opencontainers.org/">https://opencontainers.org/</a>) images or simply
+deployed on bare metal using provisioning tools such as
+[Ansible](<a class="reference external" href="https://docs.ansible.com/">https://docs.ansible.com/</a>).</p>
+<p>Using the official deb or rpm packages offers several advantages:</p>
 <ul class="simple">
-<li><p><strong>Security</strong>: Binary packages are pre-compiled and thoroughly tested,
+<li><p><strong>Security</strong>: Packages are pre-compiled and thoroughly tested,
 reducing the risk of vulnerabilities introduced during compilation.
 All our packages are signed and our supply chain is strictly
 monitored to make sure the packages that we deliver only use
 components that were vetted by our engineering team.</p></li>
-<li><p><strong>Stability</strong>: Binaries from a trusted repository undergo rigorous
-testing, ensuring stability and compatibility with the target system.
-We make sure to compile our binaries in a clean environment and
-using an up-to-date software distribution. We use LTS (long-term service) distributions to
-enhance stability and reduce the attack surface.</p></li>
-<li><p><strong>Ease of Installation</strong>: Binary packages can be installed using
-standard package management tools, streamlining the process. For instance, <code class="docutils literal notranslate"><span class="pre">apt</span></code> is
+<li><p><strong>Stability</strong>: Packages from a trusted repository undergo rigorous testing,
+ensuring stability and compatibility with the target system. We make sure to
+compile our binaries in a clean environment and using an up-to-date software
+distribution. We use LTS (long-term service) distributions to enhance
+stability and reduce the attack surface.</p></li>
+<li><p><strong>Ease of Installation</strong>: Packages can be installed using standard package
+management tools, streamlining the process. For instance, <code class="docutils literal notranslate"><span class="pre">apt</span></code> is
 ubiquitous in the Debian world. These tools allow us to sign our packages
 that can be automatically verified by the end user during installation. We
-provide packages that allow the end user to easily tailor their
-installation for different use cases.</p></li>
+provide packages that allow the end user to easily tailor their installation
+for different use cases.</p></li>
 <li><p><strong>Reduced Downtime</strong>: With reliable binaries and straightforward
 installation, system downtime due to installation errors or
 compatibility issues is minimized. We carefully test the upgrade
@@ -695,19 +764,9 @@ octez-client<span class="w"> </span>--version
 </pre></div>
 </div>
 <p>These binaries can be used by any user. However, to run Octez in
-production our package setup a special user named <code class="docutils literal notranslate"><span class="pre">tezos</span></code> to run all
+production our packages set up a special user named <code class="docutils literal notranslate"><span class="pre">tezos</span></code> to run all
 daemons via <code class="docutils literal notranslate"><span class="pre">systemd</span></code> and without direct user intervention.</p>
 </section>
-</section>
-<section id="enabling-daemons">
-<h2>Enabling Daemons<a class="headerlink" href="#enabling-daemons" title="Link to this heading">#</a></h2>
-<p>To ensure that Octez services start automatically on system boot and can
-be managed using <code class="docutils literal notranslate"><span class="pre">systemd</span></code>, we need to enable the services.
-Indeed, these services are installed by <code class="docutils literal notranslate"><span class="pre">apt</span></code> but left disabled by default.</p>
-<p>For example, to enable the Octez node <code class="docutils literal notranslate"><span class="pre">systemd</span></code> service:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>octez-node
-</pre></div>
-</div>
 </section>
 <section id="configuring-the-node">
 <h2>Configuring the node<a class="headerlink" href="#configuring-the-node" title="Link to this heading">#</a></h2>
@@ -721,36 +780,38 @@ configure each daemon using commands such as:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su<span class="w"> </span>tezos<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;octez-node config ...&quot;</span>
 </pre></div>
 </div>
-<p>For more details on configuring the Octez node, see <a class="reference internal" href="../user/setup-node.html"><span class="doc">Setting up the node</span></a>.
-In particular:</p>
-<ul class="simple">
-<li><p>to accelerate the node’s bootstrap, you usually <a class="reference internal" href="../user/snapshots.html#importing-a-snapshot"><span class="std std-ref">import a snapshot file</span></a> before starting the node;</p></li>
-<li><p>you may want to connect to a test network if your goal is learning, developing, or testing.</p></li>
-</ul>
+<p>For more details on configuring the Octez node, see <a class="reference internal" href="../user/setup-node.html"><span class="doc">Setting up the node</span></a>.</p>
+<p>The default for the octez-node is to connect to <code class="docutils literal notranslate"><span class="pre">mainnet</span></code>. You may want to
+connect to a test network if your goal is learning, developing, or testing.</p>
 <section id="running-the-octez-node">
 <h3>Running the Octez node<a class="headerlink" href="#running-the-octez-node" title="Link to this heading">#</a></h3>
 <p>Once the node is configured, we can use <code class="docutils literal notranslate"><span class="pre">systemd</span></code> to start the daemon:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>octez-node
 </pre></div>
 </div>
-<p>We can also check the status of the daemon in the logs of the node that
+<p>If configured to do so during package installation, this will automatically download a snapshot
+and import it before starting the <code class="docutils literal notranslate"><span class="pre">octez-node</span></code> service.</p>
+<p>We can check the status of the daemon in the logs of the node that
 are stored by default in <code class="docutils literal notranslate"><span class="pre">/var/log/tezos/node.log</span></code>. Logs are
 automatically rotated using <code class="docutils literal notranslate"><span class="pre">logrotate</span></code>.</p>
-<p>The Octez baker can be configured in a similar way. However, because of
-the sensitive nature of the private keys needed by the baker to
-function, we suggest hereafter a slightly more involved configuration procedure
-using the Octez signer.</p>
+<p>If you need to relocate the datadir of the octez-node, you would first need to change the home
+directory of the <code class="docutils literal notranslate"><span class="pre">tezos</span></code> user with the command <code class="docutils literal notranslate"><span class="pre">usermod</span> <span class="pre">-m</span> <span class="pre">-d</span> <span class="pre">/custom</span> <span class="pre">tezos</span></code>
+and then configure the <code class="docutils literal notranslate"><span class="pre">DATADIR</span></code> variable in <code class="docutils literal notranslate"><span class="pre">/etc/default/octez-node</span></code>
+accordingly.</p>
 </section>
 </section>
 <section id="configuring-the-signer">
 <h2>Configuring the signer<a class="headerlink" href="#configuring-the-signer" title="Link to this heading">#</a></h2>
-<p>First, logged as the user chosen to run the signer, we must create a set of
-keys. These are the private keys that will be entrusted to the signer to
-actually sign operations on behalf of the baker. The signer will run in a
-different process (possibly on a separate host), and ideally using a hardware
-enclave such as a <a class="reference internal" href="../user/key-management.html#ledger"><span class="std std-ref">hardware ledger</span></a>. For the sake of brevity, in
-this example, the keys will be simply stored on the disk, but this is not a
-recomended setting for a production baker.</p>
+<p>Because of the sensitive nature of the private keys needed by the baker to
+function, we suggest a slightly involved configuration procedure using the
+Octez signer.</p>
+<p>To configure the octez-signer, first, logged as the user chosen to run the
+signer, we must create a set of keys. These are the private keys that will be
+entrusted to the signer to actually sign operations on behalf of the baker. The
+signer will run in a different process (possibly on a separate host), and
+ideally using a hardware enclave such as a <a class="reference internal" href="../user/key-management.html#ledger"><span class="std std-ref">hardware ledger</span></a>. For
+the sake of brevity, in this example, the keys will be simply stored on the
+disk, but this is not a recommended setting for a production baker.</p>
 <p>We create an authentication key that is going to be used to authenticate
 the baker with the signer, and a signing key to sign the operations.</p>
 <p>The signer secret key is stored in the current user directory and
@@ -769,20 +830,20 @@ Hash:<span class="w"> </span>tz1V7TgBR52wAjjqsh24w8y9CymFGdegt9qs
 Public<span class="w"> </span>Key:<span class="w"> </span>edpk123456789....
 
 <span class="c1"># add the auth key to the octez-signer. This is the default</span>
-<span class="c1"># options set in the octez-signer.service file</span>
+<span class="c1"># options set in the octez-signer service file</span>
 $<span class="w"> </span>octez-signer<span class="w"> </span>add<span class="w"> </span>authorized<span class="w"> </span>key<span class="w"> </span>edpk123456789...<span class="w"> </span>--name<span class="w"> </span>auth
 </pre></div>
 </div>
 <p>Now we need to configure the <code class="docutils literal notranslate"><span class="pre">octez-signer</span></code> service. We use again <code class="docutils literal notranslate"><span class="pre">systemd</span></code>
-and we run it as a user service. The <code class="docutils literal notranslate"><span class="pre">octez-signer.service</span></code> file can be
+and we run it as a user service. The <code class="docutils literal notranslate"><span class="pre">octez-signer</span></code> service file can be
 customized by the user if needed to allow for more complex and secure
 scenarios.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># customize the signer service if needed</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># customize the octez-signer service if needed</span>
 $<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/systemd/user/
 $<span class="w"> </span>cp<span class="w"> </span>/usr/share/doc/octez-signer/octez-signer.service<span class="w"> </span><span class="se">\</span>
 <span class="w">     </span>~/.config/systemd/user/
 
-<span class="c1"># start the service</span>
+<span class="c1"># start the octez-signer service</span>
 $<span class="w"> </span>systemctl<span class="w"> </span>--user<span class="w"> </span>start<span class="w"> </span>octez-signer
 
 <span class="c1"># examine the logs</span>
@@ -790,11 +851,19 @@ $<span class="w"> </span>journalctl<span class="w"> </span>--user-unit<span clas
 </pre></div>
 </div>
 <p>For more advanced configurations, see the <a class="reference internal" href="../user/key-management.html#signer"><span class="std std-ref">signer guide</span></a>.</p>
+<p>Configuring and using the octez-signer is recommended but not essential to
+configure the baker. For testing, you can also simple create a key with the
+following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>tezos<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;octez-client gen keys alice&quot;</span>
+</pre></div>
+</div>
+<p>and the baker will use it automatically.</p>
 </section>
 <section id="configuring-the-baker">
 <h2>Configuring the baker<a class="headerlink" href="#configuring-the-baker" title="Link to this heading">#</a></h2>
 <p>Now that the signer is running, we need to configure the baker.
-Since the baker runs as the user <code class="docutils literal notranslate"><span class="pre">tezos</span></code>, we use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">tezos</span> <span class="pre">-c</span></code> to wrap the configuration command below:</p>
+Since the baker runs as the user <code class="docutils literal notranslate"><span class="pre">tezos</span></code>, we use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">tezos</span> <span class="pre">-c</span></code> to wrap
+the configuration command below:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the tz1 address of our signing key</span>
 $<span class="w"> </span>octez-signer<span class="w"> </span>show<span class="w"> </span>address<span class="w"> </span>alice
 Hash:<span class="w"> </span>tz1V7TgBR52wAjjqsh24w8y9CymFGdegt9qs
@@ -805,21 +874,13 @@ sudo<span class="w"> </span>su<span class="w"> </span>tezos<span class="w"> </sp
 <span class="s2">   import secret key alice remote:tz1V7TgBR52wAjjqsh24w8y9CymFGdegt9qs&quot;</span>
 </pre></div>
 </div>
-<p>Now that everything is in place, as for the node, we can first enable,
-then start the Octez baker.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>octez-baker-active.service
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>octez-baker-active.service
+<p>Now that everything is in place, we can start the Octez baker.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>octez-baker
 </pre></div>
 </div>
-<p>The logs of the baker are available in <code class="docutils literal notranslate"><span class="pre">/var/log/tezos/baker-active.log</span></code>.</p>
-<p>Notice that the Octez baker package defines two services,
-<code class="docutils literal notranslate"><span class="pre">octez-baker-active</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-baker-next</span></code> respectively associated
-with the active protocol and the next proposed protocol upgrade. The
-names of the protocols associated with these daemons are specified in
-<code class="docutils literal notranslate"><span class="pre">/etc/default/octez-baker-*</span></code> files. <code class="docutils literal notranslate"><span class="pre">octez-baker-next</span></code>
-should be used for testing and during a protocol upgrade. Running
-<code class="docutils literal notranslate"><span class="pre">octez-baker-next</span></code> together with <code class="docutils literal notranslate"><span class="pre">octez-baker-active</span></code> is
-possible and recommended to avoid downtime.</p>
+<p>This service will automatically start all accusers and bakers for all protocols
+shipped with the package.</p>
+<p>The logs of the baker are available in <code class="docutils literal notranslate"><span class="pre">/var/log/tezos/baker-&lt;protocol</span> <span class="pre">name&gt;.log</span></code>.</p>
 </section>
 <section id="upgrading-octez">
 <h2>Upgrading Octez<a class="headerlink" href="#upgrading-octez" title="Link to this heading">#</a></h2>
@@ -833,10 +894,29 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade<span class="w
 <p>When necessary, the upgrade scripts will make the user aware of breaking
 changes and required actions such as new configuration parameters or
 changes in governance.</p>
-<p>Mind restarting the running services using <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">&lt;service&gt;</span></code>.</p>
+<p>Mind reloading the new services using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code> and then
+restarting the running services using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">&lt;service&gt;</span></code>.</p>
 </section>
 </section>
 
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
             <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
         
                 <script>
@@ -845,9 +925,10 @@ changes in governance.</p>
                         bielBtn.innerHTML = "Ask AI";
                         bielBtn.setAttribute("project", "w30c27l8fg");
                     bielBtn.setAttribute("button-text", "Ask AI");
-                    bielBtn.setAttribute("header-title", "Tezos chatbot");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
                     bielBtn.setAttribute("button-style", "dark");
-                    bielBtn.setAttribute("button-position", "bottom-right");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://timothymcmackin.github.io/previews/docs/biel-chatbot/overview/chatbot/' target='_blank'>Using the chatbot</a>.");
                     bielBtn.setAttribute("version", "latest");
                         document.body.appendChild(bielBtn);
                     });
@@ -889,7 +970,8 @@ changes in governance.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -898,12 +980,11 @@ changes in governance.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-binary-packages">Why Use Binary Packages?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-deb-or-rpm-binary-packages">Why Use Deb or Rpm Binary Packages?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-octez">Installing Octez</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-installation">Verify Installation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enabling-daemons">Enabling Daemons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-the-node">Configuring the node</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-octez-node">Running the Octez node</a></li>
 </ul>
@@ -935,7 +1016,7 @@ By Contributors to the Octez & Tezos protocol documentation
 
   <p class="copyright">
     
-      © Copyright 2018-2024.
+      © Copyright 2018-1980.
       <br/>
     
   </p>
@@ -959,8 +1040,8 @@ By Contributors to the Octez & Tezos protocol documentation
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,7 +1,0 @@
-{0 octez-version index}
-{1 Library octez-version.print}
-The entry point of this library is the module:
-{!module-Octez_version_print}.
-{1 Library octez-version.value}
-The entry point of this library is the module:
-{!module-Tezos_version_value}.
