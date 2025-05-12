@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-tutorials/smart-contract/cameligo" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Deploy a smart contract with CameLIGO | Tezos Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.tezos.com/previews/docs/biel-ai-search/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.tezos.com/previews/docs/biel-ai-search/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.tezos.com/previews/docs/biel-ai-search/tutorials/smart-contract/cameligo"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Deploy a smart contract with CameLIGO | Tezos Documentation"><meta data-rh="true" name="description" content="This tutorial covers writing and deploying a simple smart contract with the LIGO programming language."><meta data-rh="true" property="og:description" content="This tutorial covers writing and deploying a simple smart contract with the LIGO programming language."><link data-rh="true" rel="icon" href="/previews/docs/biel-ai-search/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.tezos.com/previews/docs/biel-ai-search/tutorials/smart-contract/cameligo"><link data-rh="true" rel="alternate" href="https://docs.tezos.com/previews/docs/biel-ai-search/tutorials/smart-contract/cameligo" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.tezos.com/previews/docs/biel-ai-search/tutorials/smart-contract/cameligo" hreflang="x-default"><link rel="preconnect" href="https://www.googletagmanager.com">
+<script>window.dataLayer=window.dataLayer||[]</script>
+<script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a);m.async=!0,m.src="https://www.googletagmanager.com/gtm.js?id=GTM-56M3FZ8",g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer")</script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+
+<meta http-equiv="Content-Security-Policy" content=" default-src &#39;none&#39;; base-uri &#39;self&#39;; manifest-src &#39;self&#39;; script-src https://*.googletagmanager.com https://cdn.jsdelivr.net &#39;self&#39; &#39;unsafe-inline&#39;; style-src https://cdn.jsdelivr.net https://fonts.googleapis.com &#39;self&#39; &#39;unsafe-inline&#39;; font-src https://cdn.jsdelivr.net &#39;self&#39;; img-src &#39;self&#39; https://projects.gitlab.io https://gitlab.com https://*.googletagmanager.com https://*.google-analytics.com data:; media-src &#39;self&#39;; form-action &#39;self&#39;; connect-src &#39;self&#39; https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://app.pushfeedback.com wss://app.biel.ai https://app.biel.ai; frame-src https://tezosbot.vercel.app;">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/previews/docs/biel-ai-search/assets/css/styles.606186a4.css">
+<script src="/previews/docs/biel-ai-search/assets/js/runtime~main.03815d93.js" defer="defer"></script>
+<script src="/previews/docs/biel-ai-search/assets/js/main.1845fa02.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56M3FZ8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/previews/docs/biel-ai-search/"><div class="navbar__logo"><img src="/previews/docs/biel-ai-search/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/previews/docs/biel-ai-search/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Tezos Docs</b></a><a class="navbar__item navbar__link" href="/previews/docs/biel-ai-search/overview/">Documentation</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/previews/docs/biel-ai-search/tutorials">Tutorials</a><a class="navbar__item navbar__link" href="/previews/docs/biel-ai-search/overview/resources#documentation-map">Map</a></div><div class="navbar__items navbar__items--right"><a href="https://gitlab.com/tezos/docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbarSearchContainer_Bca1"><biel-search-button project="w30c27l8fg" button-style="rounded" header-title="Search or use AI to learn about Tezos" footer-text="AI-generated answers may contain errors. Verify the information before use. For more information, see &lt;a href=&quot;https://docs.tezos.com/overview/chatbot&quot;&gt;Using the chatbot&lt;/a&gt;.">AI-powered search</biel-search-button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/previews/docs/biel-ai-search/tutorials">Tutorials home</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__divider"><div>Beginner</div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/previews/docs/biel-ai-search/tutorials/smart-contract">Deploy a smart contract</a><button aria-label="Collapse sidebar category &#x27;Deploy a smart contract&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/tutorials/smart-contract/jsligo">Deploy a smart contract with JsLIGO</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/previews/docs/biel-ai-search/tutorials/smart-contract/cameligo">Deploy a smart contract with CameLIGO</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/tutorials/smart-contract/smartpy">Deploy a smart contract with SmartPy</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/tutorials/smart-contract/archetype">Deploy a smart contract with Archetype</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/dapp">Start with a minimum dApp and add new features</a><button aria-label="Expand sidebar category &#x27;Start with a minimum dApp and add new features&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__divider"><div>Intermediate</div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/build-your-first-app">Build a simple web application</a><button aria-label="Expand sidebar category &#x27;Build a simple web application&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/smartpy-fa2-fungible">Create a fungible token with the SmartPy FA2 library</a><button aria-label="Expand sidebar category &#x27;Create a fungible token with the SmartPy FA2 library&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/create-nfts">Create NFTs</a><button aria-label="Expand sidebar category &#x27;Create NFTs&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/join-dal-baker">Run a Tezos node in 5 steps</a><button aria-label="Expand sidebar category &#x27;Run a Tezos node in 5 steps&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/bake-with-ledger">Bake using a Ledger device</a><button aria-label="Expand sidebar category &#x27;Bake using a Ledger device&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__divider"><div>Advanced</div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/smart-rollup">Deploy a Smart Rollup</a><button aria-label="Expand sidebar category &#x27;Deploy a Smart Rollup&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/build-an-nft-marketplace">Build an NFT marketplace</a><button aria-label="Expand sidebar category &#x27;Build an NFT marketplace&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/security">Learn and play with security</a><button aria-label="Expand sidebar category &#x27;Learn and play with security&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/mobile">Create a mobile game</a><button aria-label="Expand sidebar category &#x27;Create a mobile game&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/tutorials/build-files-archive-with-dal">Implement a file archive with the DAL</a><button aria-label="Expand sidebar category &#x27;Implement a file archive with the DAL&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/previews/docs/biel-ai-search/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/previews/docs/biel-ai-search/tutorials/smart-contract"><span itemprop="name">Deploy a smart contract</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Deploy a smart contract with CameLIGO</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Deploy a smart contract with CameLIGO</h1></header><p>This tutorial covers writing and deploying a simple smart contract with the LIGO programming language.
+Specifically, this tutorial uses the CameLIGO version of LIGO, which has syntax similar to OCaml, but you don&#x27;t need any experience with OCaml or LIGO to do this tutorial.</p>
+<ul>
+<li>If you are more familiar with JavaScript, try <a href="/previews/docs/biel-ai-search/tutorials/smart-contract/jsligo">Deploy a smart contract with JsLIGO</a>.</li>
+<li>If you are more familiar with Python, try <a href="/previews/docs/biel-ai-search/tutorials/smart-contract/smartpy">Deploy a smart contract with SmartPy</a>.</li>
+<li>To learn the Archetype language, try <a href="/previews/docs/biel-ai-search/tutorials/smart-contract/archetype">Deploy a smart contract with Archetype</a>.</li>
+</ul>
+<p>LIGO is a high-level programming language that you can use to write smart contracts for the Tezos blockchain.
+It abstracts away the complexity of using Michelson (the smart contract language directly available on-chain) to make it easier to write smart contracts on Tezos.</p>
+<p>In this tutorial, you will learn how to:</p>
+<ul>
+<li>Create a wallet to store cryptocurrency tokens</li>
+<li>Get free tez tokens (the native cryptocurrency token on Tezos) from a faucet</li>
+<li>Code a contract in LIGO, including:<!-- -->
+<ul>
+<li>Defining the storage for the contract</li>
+<li>Defining entrypoints in the contract</li>
+<li>Writing code to run when the entrypoints are called</li>
+</ul>
+</li>
+<li>Deploy (or originate) the contract to Tezos and set its starting storage value</li>
+<li>Look up the current state of the contract</li>
+<li>Call the contract</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-a-smart-contract">What is a smart contract?<a href="#what-is-a-smart-contract" class="hash-link" aria-label="Direct link to What is a smart contract?" title="Direct link to What is a smart contract?">​</a></h2>
+<p>A smart contract is a computer program that is stored on a blockchain and runs on a blockchain.
+Because the blockchain is spread across many computer nodes, you don&#x27;t have to think about where to host the program or worry whether a computer will run it or not.
+Responsibility for running the contract is distributed across all of the nodes in the Tezos system, so when you deploy a smart contract, you can be confident that it will be available and unmodified when someone wants to run it.</p>
+<p>A smart contract has these parts:</p>
+<ul>
+<li>Persistent storage, data that the contract can read and write</li>
+<li>One or more entrypoints, which are a kind of function that clients can call, like endpoints in an API or functions or methods in many programming languages</li>
+<li>A Tezos account that can store tokens (technically, the contract is itself a type of Tezos account, but you can think of it as a program with a Tezos account)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tutorial-contract">Tutorial contract<a href="#tutorial-contract" class="hash-link" aria-label="Direct link to Tutorial contract" title="Direct link to Tutorial contract">​</a></h2>
+<p>The contract that you deploy in this tutorial stores a single integer.
+It provides entrypoints that clients can call to change the value of that integer:</p>
+<ul>
+<li>The <code>increment</code> entrypoint accepts an integer as a parameter and adds that integer to the value in storage</li>
+<li>The <code>decrement</code> entrypoint accepts an integer as a parameter and subtracts that integer from the value in storage</li>
+<li>The <code>reset</code> entrypoint takes no parameters and resets the value in storage to 0</li>
+</ul>
+<p>After you deploy the contract, you or any other user can call it from various sources, including web applications, other contracts, and the Octez command-line client.
+However, no one can prevent it from running or tamper with its code or its storage.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-and-funding-a-wallet">Creating and funding a wallet<a href="#creating-and-funding-a-wallet" class="hash-link" aria-label="Direct link to Creating and funding a wallet" title="Direct link to Creating and funding a wallet">​</a></h2>
+<p>To deploy and work with the contract, you need a wallet and some tez tokens.
+You can get test tokens for free on the Ghostnet test network:</p>
+<ol>
+<li>
+<p>Install a Tezos-compatible wallet.
+Which wallet you install is up to you and whether you want to install a wallet on your computer, in a browser extension, or as a mobile app.</p>
+<p>If you don&#x27;t know which one to choose, try the <a href="https://templewallet.com/" target="_blank" rel="noopener noreferrer">Temple</a> browser extension.</p>
+<p>Desktop wallets for Tezos include the <a href="https://templewallet.com/" target="_blank" rel="noopener noreferrer">Temple</a> browser extension, <a href="https://wallet.kukai.app/" target="_blank" rel="noopener noreferrer">Kukai</a>, and <a href="https://umamiwallet.com/" target="_blank" rel="noopener noreferrer">Umami</a>.</p>
+<p>Mobile apps include <a href="https://templewallet.com/" target="_blank" rel="noopener noreferrer">Temple</a>, <a href="https://wallet.kukai.app/" target="_blank" rel="noopener noreferrer">Kukai</a>, and <a href="https://umamiwallet.com/" target="_blank" rel="noopener noreferrer">Umami</a>.</p>
+</li>
+<li>
+<p>Switch the wallet to use the Ghostnet testnet instead of Tezos Mainnet.
+Ghostnet is a network for testing Tezos applications where tokens are free so you don&#x27;t have to spend real currency to work with your applications.</p>
+<p>For example, for the Temple browser wallet, click <strong>Tezos Mainnet</strong> at the top and then click <strong>Ghostnet Testnet</strong>, as in this picture:</p>
+<p><img decoding="async" loading="lazy" alt="Selecting the Ghostnet testnet in the Temple wallet" src="/previews/docs/biel-ai-search/assets/images/temple-switch-network-f922c04d15102345f2102373aabbfd9d.png" width="363" height="377" class="img_ev3q"></p>
+</li>
+<li>
+<p>From your wallet, get the address of your account, which starts with <code>tz1</code>.
+This is the address that applications use to work with your wallet.</p>
+</li>
+<li>
+<p>Go to the Ghostnet faucet page at <a href="https://faucet.ghostnet.teztnets.com" target="_blank" rel="noopener noreferrer">https://faucet.ghostnet.teztnets.com</a>.</p>
+</li>
+<li>
+<p>On the faucet page, paste your wallet address into the input field labeled &quot;Or fund any address&quot; and click the button for the amount of tez to add to your wallet.
+20 tez is enough to work with the tutorial contract, and you can return to the faucet later if you need more tez.</p>
+<p>It may take a few minutes for the faucet to send the tokens and for those tokens to appear in your wallet.</p>
+<p>You can use the faucet as much as you need to get tokens on the testnet, but those tokens are worthless and cannot be used on Mainnet.</p>
+<p><img decoding="async" loading="lazy" alt="Fund your wallet using the Ghostnet Faucet" src="/previews/docs/biel-ai-search/assets/images/wallet-funding-e05c7102fac15a32ea27494ec05e8ab5.png" width="629" height="238" class="img_ev3q"></p>
+</li>
+</ol>
+<p>Now you have an account and funds that you can use to work with Tezos.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="creating-the-contract">Creating the contract<a href="#creating-the-contract" class="hash-link" aria-label="Direct link to Creating the contract" title="Direct link to Creating the contract">​</a></h2>
+<p>The contract that you will create has these basic parts:</p>
+<ul>
+<li>
+<p>A type that describes the contract&#x27;s storage, in this case an integer.
+The storage can be a primitive type such as an integer, string, or timestamp, or a complex data type that contains multiple values.
+For more information on contract data types, see <a href="/previews/docs/biel-ai-search/smart-contracts/data-types">Data types</a>.</p>
+</li>
+<li>
+<p>Functions called entrypoints that run code when clients call the contract.</p>
+</li>
+<li>
+<p>A type that describes the return value of the entrypoints.</p>
+</li>
+</ul>
+<p>Follow these steps to create the code for the contract:</p>
+<ol>
+<li>
+<p>Open the LIGO online IDE at <a href="https://ide.ligolang.org/" target="_blank" rel="noopener noreferrer">https://ide.ligolang.org/</a>.
+You can work with LIGO code in any IDE, but this online IDE keeps you from having to install software on your computer, and it also simplifies the process of deploying contracts.</p>
+</li>
+<li>
+<p>At the top right of the page, in the <strong>Network</strong> menu, select Ghostnet, as shown in this picture:</p>
+<p><img decoding="async" loading="lazy" alt="Selecting Ghostnet in the list of networks" src="/previews/docs/biel-ai-search/assets/images/ligo-online-ide-select-ghostnet-65b217313a5a4d1b1c17f9f66278355f.png" width="403" height="230" class="img_ev3q"></p>
+</li>
+<li>
+<p>Connect a wallet to the IDE:</p>
+<ol>
+<li>
+<p>At the top right of the page, click the <strong>Keypair Manager</strong> <img src="/img/tutorials/ligo-online-ide-keypair-manager.png" alt="" style="width:24px"> button.</p>
+</li>
+<li>
+<p>In the Keypair Manager window, import the account that you created earlier or create and fund a new account to use with the IDE.</p>
+<ul>
+<li>
+<p>To import the account that you created earlier, export the private key from your wallet app, click <strong>Import</strong> in the Keypair Manager window, and paste the private key.
+Now you can use your account in the IDE.</p>
+</li>
+<li>
+<p>To create an account to use with the IDE, click <strong>Create</strong> in the Keypair Manager window, give the new keypair a name, and click <strong>Create</strong>.
+Then, copy the address of the keypair and get tez from the faucet as you did in <a href="#creating-and-funding-a-wallet">Creating and funding a wallet</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>In the IDE, create a project from the empty template and select the CameLIGO syntax, as shown in this picture:</p>
+<img src="/img/tutorials/ligo-online-ide-new-project-camel.png" alt="Creating a project" style="width:500px">
+<p>The IDE creates a project and a contract file named <code>Contract.mligo</code>.</p>
+</li>
+<li>
+<p>In the contract file, create a type to set the storage type to an integer:</p>
+<div class="language-cameligo codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cameligo codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">type</span><span class="token plain"> storage </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> int</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Add this code to define the return type for the entrypoints.
+Tezos entrypoints return two values: a list of other operations to call and the new value of the contract&#x27;s storage.</p>
+<div class="language-cameligo codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cameligo codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">type</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> operation list </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> storage</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>Add the code for the increment and decrement entrypoints:</p>
+<div class="language-cameligo codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cameligo codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Increment entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> increment </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">delta </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> int</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">store </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> store </span><span class="token operator" style="color:#393A34">+</span><span class="token plain"> delta</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Decrement entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> decrement </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">delta </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> int</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">store </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> store </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> delta</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>These functions begin with the <code>@entry</code> annotation to indicate that they are entrypoints.
+They accept two parameters: the change in the storage value (an integer) and the current value of the storage (in the <code>storage</code> type that you created earlier in the code).
+They return a value of the type <code>returnValue</code> that you created in the previous step.</p>
+<p>Each function returns an empty list of other operations to call and the new value of the storage.</p>
+</li>
+<li>
+<p>Add this code for the reset entrypoint:</p>
+<div class="language-cameligo codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cameligo codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Reset entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> reset </span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> unit</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">_</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>This function is similar to the others, but it does not take the current value of the storage into account.
+It always returns an empty list of operations and 0.</p>
+</li>
+</ol>
+<p>The complete contract code looks like this:</p>
+<div class="language-cameligo codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-cameligo codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">type</span><span class="token plain"> storage </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> int</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">type</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> operation list </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> storage</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Increment entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> increment </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">delta </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> int</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">store </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> store </span><span class="token operator" style="color:#393A34">+</span><span class="token plain"> delta</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Decrement entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> decrement </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">delta </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> int</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">store </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> store </span><span class="token operator" style="color:#393A34">-</span><span class="token plain"> delta</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Reset entrypoint</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">[</span><span class="token operator" style="color:#393A34">@</span><span class="token plain">entry</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">let</span><span class="token plain"> reset </span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> unit</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">_</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> storage</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> returnValue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">0</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="testing-and-compiling-the-contract">Testing and compiling the contract<a href="#testing-and-compiling-the-contract" class="hash-link" aria-label="Direct link to Testing and compiling the contract" title="Direct link to Testing and compiling the contract">​</a></h2>
+<p>Before you can deploy the contract to Tezos, you must compile it to Michelson, the base language of Tezos contracts.</p>
+<ol>
+<li>
+<p>Set the compiler to target the module to compile in your code:</p>
+<ol>
+<li>On the left side of the page, under <strong>Actions</strong>, click <strong>Project Settings</strong>.</li>
+<li>On the Project Settings tab, in the <strong>Module name</strong> field, set the module name to <code>Counter</code>.</li>
+<li>Close the Project Settings tab.</li>
+</ol>
+</li>
+<li>
+<p>Test the contract by passing parameters and the storage value to the LIGO <code>dry-run</code> command:</p>
+<ol>
+<li>
+<p>On the left side of the page, under <strong>Actions</strong>, click <strong>Dry Run</strong>.</p>
+</li>
+<li>
+<p>In the Dry Run window, select the <code>Increment</code> entrypoint, set the input parameter to <code>32</code> and the storage to <code>10</code>.
+The Dry Run window looks like this:</p>
+<img src="/img/tutorials/ligo-online-ide-dry-run-window-camel.png" alt="The Dry Run window, showing the entrypoint to run, the parameter to pass, and the value of the storage" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Run</strong>.</p>
+<p>At the bottom of the window, the Result field shows the response <code>(LIST_EMPTY(), 42)</code>.
+This response means that the contract did not call any other contracts, so the list of operations is empty.
+Then it shows the new value of the storage.
+You can test the decrement function in the same way.
+If you see any errors, make sure that the code of your contract matches the code in the previous section.</p>
+</li>
+<li>
+<p>Test the <code>Reset</code> entrypoint in the same way, but pass <code>unit</code> as the input parameter and any integer in the storage field.
+The <code>Reset</code> entrypoint takes no parameters, but technically it accepts the value <code>unit</code>, which means no parameter.</p>
+<p>The Result field shows the response <code>(LIST_EMPTY(), 0)</code>, which means that the storage value is now 0.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>On the left side of the page, under <strong>Actions</strong>, click <strong>Compile</strong>, and in the Compile window, click <strong>Compile</strong> again.</p>
+</li>
+</ol>
+<p>If the compilation succeeds, the IDE prints the compiled code to the terminal and saves it to the file <code>build/contracts/Contract.tz</code>.
+You can see the code by expanding your project on the left side of the page, under <code>.workspaces</code>, and double-clicking <code>Contract.tz</code>.
+If you see error messages, verify that your contract code matches the code in the previous section.</p>
+<p>Now you can deploy the contract.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="deploying-originating-to-the-testnet">Deploying (originating) to the testnet<a href="#deploying-originating-to-the-testnet" class="hash-link" aria-label="Direct link to Deploying (originating) to the testnet" title="Direct link to Deploying (originating) to the testnet">​</a></h2>
+<p>Deploying a contract to the network is called &quot;originating.&quot;
+Originating the contract requires a small amount of Tezos tokens as a fee.</p>
+<ol>
+<li>
+<p>On the left side of the page, under <strong>Actions</strong>, click <strong>Deploy</strong>.
+You may see a warning that the initial storage is not set.
+You can ignore this warning because you can set the initial storage now.</p>
+</li>
+<li>
+<p>In the Deploy contract window, in the <strong>Init storage</strong> field, set the initial value for the contract&#x27;s storage to an integer.</p>
+</li>
+<li>
+<p>In the <strong>Signer</strong> field, make sure your account is selected.</p>
+</li>
+<li>
+<p>Click <strong>Estimate</strong>.</p>
+<p>The window shows the estimated fees to deploy the contract, as in this picture:</p>
+<img src="/img/tutorials/ligo-online-ide-deploy-estimate-camel.png" alt="The estimate of the fees to deploy the contract" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Deploy</strong>.</p>
+<p>The deployment process can take a few minutes.
+When the contract is deployed, the Deploy contract window shows the address at the bottom of the window.</p>
+</li>
+<li>
+<p>Copy the address of the deployed contract, which starts with <code>KT1</code>.</p>
+</li>
+</ol>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Copy the contract address now, because it will not be shown again.</p></div></div>
+<p>Now you can call the contract from any Tezos client, including web applications and command-line applications like <a href="/previews/docs/biel-ai-search/developing/octez-client">The Octez client</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="calling-the-contract">Calling the contract<a href="#calling-the-contract" class="hash-link" aria-label="Direct link to Calling the contract" title="Direct link to Calling the contract">​</a></h2>
+<p>These steps show you how to inspect the contract with a block explorer, which is a web application that shows information about Tezos.
+It also allows you to call the contract.</p>
+<ol>
+<li>
+<p>Open the block explorer Better Call Dev at this link: <a href="https://better-call.dev/" target="_blank" rel="noopener noreferrer">https://better-call.dev/</a></p>
+</li>
+<li>
+<p>Paste the address of the contract in the search field and press Enter.</p>
+<p>The block explorer shows information about the contract, including recent transactions and the current state of its storage.</p>
+<img src="/img/tutorials/bcd-originated-contract.png" alt="The block explorer, showing information about the contract" style="width:500px">
+</li>
+<li>
+<p>Try calling one of the entrypoints:</p>
+<ol>
+<li>
+<p>Go to the <strong>Storage</strong> tab and check the current state of the storage, which should be the integer that you put in the Deploy window.</p>
+</li>
+<li>
+<p>Go to the <strong>Interact</strong> tab.
+This tab shows the entrypoints in the contract and lets you use them.</p>
+</li>
+<li>
+<p>For the <code>increment</code> entrypoint, in the <strong>Parameters</strong> section, put an integer in the field, as shown in this image:</p>
+<img src="/img/tutorials/bcd-interact-parameters-increment.png" alt="Putting in a value for an entrypoint parameter" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Execute</strong> and then click <strong>Wallet</strong>.</p>
+</li>
+<li>
+<p>Select your wallet and connect it to the application.</p>
+</li>
+<li>
+<p>Confirm the transaction in your wallet.</p>
+</li>
+<li>
+<p>Wait for a success message that says &quot;The transaction has successfully been broadcasted to the network.&quot;</p>
+</li>
+<li>
+<p>Go back to the <strong>Storage</strong> tab and see the new value of the storage, as in this picture:</p>
+<img src="/img/tutorials/bcd-updated-storage-counter.png" alt="Updated storage value" style="width:500px">
+</li>
+</ol>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>Now the contract is running on the Tezos blockchain.
+You or any other user can call it from any source that can send transactions to Tezos, including Octez, dApps, and other contracts.</p>
+<p>If you want to continue working with this contract, here are some ideas:</p>
+<ul>
+<li>Change permissions for the contract so only your account can call its entrypoints</li>
+<li>Add your own entrypoints and originate a new contract; note that you cannot update the existing contract after it is deployed</li>
+<li>Create a dApp to call the contract from a web application, similar to the dApp that you create in the tutorial <a href="/previews/docs/biel-ai-search/tutorials/build-your-first-app/">Build a simple web application</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2024-03-15T04:00:00.000Z" itemprop="dateModified">Mar 15, 2024</time></b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/previews/docs/biel-ai-search/tutorials/smart-contract/jsligo"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Deploy a smart contract with JsLIGO</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/previews/docs/biel-ai-search/tutorials/smart-contract/smartpy"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Deploy a smart contract with SmartPy</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-a-smart-contract" class="table-of-contents__link toc-highlight">What is a smart contract?</a></li><li><a href="#tutorial-contract" class="table-of-contents__link toc-highlight">Tutorial contract</a></li><li><a href="#creating-and-funding-a-wallet" class="table-of-contents__link toc-highlight">Creating and funding a wallet</a></li><li><a href="#creating-the-contract" class="table-of-contents__link toc-highlight">Creating the contract</a></li><li><a href="#testing-and-compiling-the-contract" class="table-of-contents__link toc-highlight">Testing and compiling the contract</a></li><li><a href="#deploying-originating-to-the-testnet" class="table-of-contents__link toc-highlight">Deploying (originating) to the testnet</a></li><li><a href="#calling-the-contract" class="table-of-contents__link toc-highlight">Calling the contract</a></li><li><a href="#summary" class="table-of-contents__link toc-highlight">Summary</a></li></ul></div></div></div></div></main></div></div></div></div>
+<script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.esm.js"></script>
+<script>const feedbackButton=document.createElement("feedback-button");feedbackButton.setAttribute("project","80ja0zkj8v"),feedbackButton.setAttribute("modal-position","bottom-right"),feedbackButton.setAttribute("button-style","light"),feedbackButton.setAttribute("button-position","bottom-right"),feedbackButton.setAttribute("footer-text",'For information about providing feedback and the kinds of feedback that we are interested in, see <a href="/overview/feedback" target="_blank">Providing feedback</a>.'),feedbackButton.setAttribute("message-placeholder","Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)"),feedbackButton.setAttribute("id","default"),feedbackButton.textContent="Feedback",document.body.appendChild(feedbackButton)</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+<script>const bielButton=document.createElement("biel-button");bielButton.setAttribute("project","w30c27l8fg"),bielButton.setAttribute("modal-position","bottom-right"),bielButton.setAttribute("button-style","dark"),bielButton.setAttribute("button-position","center-right"),bielButton.setAttribute("header-title","Tezos documentation chatbot (beta)"),bielButton.setAttribute("footer-text",'AI-generated answers may contain errors. Verify the information before use. For more information, see <a href="https://docs.tezos.com/overview/chatbot">Using the chatbot</a>.'),bielButton.setAttribute("id","default"),bielButton.textContent="Ask AI",document.body.appendChild(bielButton)</script></body>
+</html>

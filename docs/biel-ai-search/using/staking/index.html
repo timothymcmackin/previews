@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-using/staking" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Staking | Tezos Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.tezos.com/previews/docs/biel-ai-search/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.tezos.com/previews/docs/biel-ai-search/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.tezos.com/previews/docs/biel-ai-search/using/staking"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Staking | Tezos Documentation"><meta data-rh="true" name="description" content="Staking is the process of temporarily locking tez on the Tezos platform."><meta data-rh="true" property="og:description" content="Staking is the process of temporarily locking tez on the Tezos platform."><link data-rh="true" rel="icon" href="/previews/docs/biel-ai-search/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.tezos.com/previews/docs/biel-ai-search/using/staking"><link data-rh="true" rel="alternate" href="https://docs.tezos.com/previews/docs/biel-ai-search/using/staking" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.tezos.com/previews/docs/biel-ai-search/using/staking" hreflang="x-default"><link rel="preconnect" href="https://www.googletagmanager.com">
+<script>window.dataLayer=window.dataLayer||[]</script>
+<script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a);m.async=!0,m.src="https://www.googletagmanager.com/gtm.js?id=GTM-56M3FZ8",g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer")</script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css">
+
+<meta http-equiv="Content-Security-Policy" content=" default-src &#39;none&#39;; base-uri &#39;self&#39;; manifest-src &#39;self&#39;; script-src https://*.googletagmanager.com https://cdn.jsdelivr.net &#39;self&#39; &#39;unsafe-inline&#39;; style-src https://cdn.jsdelivr.net https://fonts.googleapis.com &#39;self&#39; &#39;unsafe-inline&#39;; font-src https://cdn.jsdelivr.net &#39;self&#39;; img-src &#39;self&#39; https://projects.gitlab.io https://gitlab.com https://*.googletagmanager.com https://*.google-analytics.com data:; media-src &#39;self&#39;; form-action &#39;self&#39;; connect-src &#39;self&#39; https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://app.pushfeedback.com wss://app.biel.ai https://app.biel.ai; frame-src https://tezosbot.vercel.app;">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/previews/docs/biel-ai-search/assets/css/styles.606186a4.css">
+<script src="/previews/docs/biel-ai-search/assets/js/runtime~main.03815d93.js" defer="defer"></script>
+<script src="/previews/docs/biel-ai-search/assets/js/main.1845fa02.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56M3FZ8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top navbar--primary"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/previews/docs/biel-ai-search/"><div class="navbar__logo"><img src="/previews/docs/biel-ai-search/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/previews/docs/biel-ai-search/img/logo-tezos.svg" alt="Developer Docs for Tezos" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Tezos Docs</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/previews/docs/biel-ai-search/overview/">Documentation</a><a class="navbar__item navbar__link" href="/previews/docs/biel-ai-search/tutorials">Tutorials</a><a class="navbar__item navbar__link" href="/previews/docs/biel-ai-search/overview/resources#documentation-map">Map</a></div><div class="navbar__items navbar__items--right"><a href="https://gitlab.com/tezos/docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="navbarSearchContainer_Bca1"><biel-search-button project="w30c27l8fg" button-style="rounded" header-title="Search or use AI to learn about Tezos" footer-text="AI-generated answers may contain errors. Verify the information before use. For more information, see &lt;a href=&quot;https://docs.tezos.com/overview/chatbot&quot;&gt;Using the chatbot&lt;/a&gt;.">AI-powered search</biel-search-button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/overview/">Overview</a><button aria-label="Expand sidebar category &#x27;Overview&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/previews/docs/biel-ai-search/using">Using Tezos</a><button aria-label="Collapse sidebar category &#x27;Using Tezos&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/using/user-accounts">Accounts</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/using/wallets">Wallets</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/previews/docs/biel-ai-search/using/dapps">Applications</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/previews/docs/biel-ai-search/using/staking">Staking</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/architecture">Architecture</a><button aria-label="Expand sidebar category &#x27;Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/developing">Developing on Tezos</a><button aria-label="Expand sidebar category &#x27;Developing on Tezos&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/smart-contracts">Smart contracts</a><button aria-label="Expand sidebar category &#x27;Smart contracts&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/dApps">Decentralized applications (dApps)</a><button aria-label="Expand sidebar category &#x27;Decentralized applications (dApps)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/previews/docs/biel-ai-search/unity">Tezos Unity SDK</a><button aria-label="Expand sidebar category &#x27;Tezos Unity SDK&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/previews/docs/biel-ai-search/reference/style-guide">Reference</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/previews/docs/biel-ai-search/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/previews/docs/biel-ai-search/using"><span itemprop="name">Using Tezos</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Staking</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Staking</h1></header><p>Staking is the process of temporarily locking tez on the Tezos platform.
+Staking contributes to the economic security of the network.
+As an incentive for staking, stakers receive rewards proportional to how much they stake.</p>
+<p>Staked tez stays in the staker&#x27;s account, but the staker cannot transfer (or spend) that tez.
+Stakers can unstake the tez at any time, which makes the tez spendable again after a delay; see <a href="#staking-periods-and-delays">Staking periods and delays</a>.</p>
+<p>Two main groups stake on Tezos:</p>
+<ul>
+<li>
+<p>Bakers, the creators and validators of new blocks in Tezos, must have a baking power of at least 6,000 tez to receive the right to &quot;bake&quot; blocks, validate other bakers&#x27; blocks, and receive rewards for baking and validating.
+A baker&#x27;s baking power includes the tez that the baker stakes and the tez that users stake with them.
+The staked tez ensures that they bake correctly, because part of their baking power is taken (&quot;slashed&quot;) if they misbehave.
+In this way, staking provides an economic incentive to keep Tezos running properly.
+For more information about staking for baking purposes, see <a href="/previews/docs/biel-ai-search/architecture/bakers">Bakers</a>.</p>
+</li>
+<li>
+<p>Any Tezos user can stake tez with a baker and earn rewards.
+In exchange for staking tez with a baker, users automatically receive a portion of the baker&#x27;s rewards in proportion to how much they stake.
+Users can stake any amount of tez, but there is a limit to how much staked tez a given baker can accept, and bakers must opt in to allow users to stake with them.</p>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>How much tez do I receive in return for staking tez?</div><div class="admonitionContent_BuS1"><p>The amount of tez that you receive for staking tez depends on how much you stake, but also on how well your baker performs.
+If your baker misses opportunities to bake blocks, they don&#x27;t get rewards for those blocks, which decreases rewards for you, too.
+You can look up an estimated rate of return on <a href="/previews/docs/biel-ai-search/developing/information/block-explorers">block explorers</a>.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="staking-with-a-baker">Staking with a baker<a href="#staking-with-a-baker" class="hash-link" aria-label="Direct link to Staking with a baker" title="Direct link to Staking with a baker">​</a></h2>
+<p>The process of staking with a baker (without being a baker yourself) has these main steps:</p>
+<ol>
+<li>
+<p>You select a baker as a delegate for your account.
+As described in <a href="/previews/docs/biel-ai-search/architecture/bakers#delegating-to-a-baker">Delegating to a baker</a>, delegating tez to a baker puts that tez toward the baker&#x27;s voting and baking power.
+Delegating incurs no risk to you; you retain full control of the tez, you can spend it at any time, and you are not punished if the baker misbehaves.</p>
+</li>
+<li>
+<p>You choose an amount of tez and stake that tez with the baker.
+Staking the tez locks them temporarily, but the tez stay in your account.</p>
+<p>You can stake any amount of your tez, up to the limit of what the baker can accept.
+However, you should always retain at least a small amount of unstaked tez to pay for transaction fees, including the fee for the transaction to unstake the tez later.</p>
+<p>If the baker misbehaves, their punishment also affects tez staked with them, so it&#x27;s important to choose a responsible baker.</p>
+</li>
+<li>
+<p>You can leave your tez staked for as long as you want.
+During this time the rewards are added to your account automatically.</p>
+</li>
+</ol>
+<p>The process of unstaking has these main steps:</p>
+<ol>
+<li>
+<p>When you want to stop staking, you decrease the amount that you have staked or unstake all of your staked tez.</p>
+</li>
+<li>
+<p>After a delay of up to 5 days (4 blockchain cycles plus the time remaining in the current cycle), the tez are unfrozen, and you must finalize the unstake request in order to make the tez available in your account.</p>
+</li>
+</ol>
+<p>Here are a few other things to know about delegating and staking as a Tezos user:</p>
+<ul>
+<li>
+<p>A Tezos account can have only one delegate at a time.
+For this reason, an account can stake with only one baker at a time.
+If you change bakers while staked, the staking app automatically creates an unstake request for all tez staked with your former baker.
+After the unstaking delay has elapsed, you can finalize the unstake operation, and only then you will be able to stake with the new baker.</p>
+</li>
+<li>
+<p>Although bakers have no control over any tez that is staked with them, staked and delegated tez counts toward their voting rights when it&#x27;s time to vote on upgrades to Tezos, as described in <a href="/previews/docs/biel-ai-search/architecture/governance">Governance and self-amendment</a>.</p>
+</li>
+<li>
+<p>Before user staking was introduced to Tezos, only bakers could stake.
+Users delegated their tez to bakers and bakers could choose to reward users for doing so.
+Currently, you can still choose to delegate without staking, but the primary way users earn rewards now is to both delegate and stake.
+Delegating without staking incurs less risks but brings only a fraction of the rewards.</p>
+</li>
+</ul>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Risks of staking</div><div class="admonitionContent_BuS1"><p>Your staked tez is subject to the same penalties as the baker&#x27;s staked tez — they are indeed <em>at stake</em> as a part of the baker&#x27;s security deposit.
+In the rare event that your baker is punished (&quot;slashed&quot;) for misbehaving, your tez is also slashed.
+The amount of your tez that is slashed is in proportion to your stake&#x27;s weight towards the baker&#x27;s total baking power.</p></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-stake">How to stake<a href="#how-to-stake" class="hash-link" aria-label="Direct link to How to stake" title="Direct link to How to stake">​</a></h2>
+<p>The easiest way to stake is to use the staking web application at <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>, which walks you through the process.
+If you don&#x27;t want to use this application, some wallets (such as <a href="https://umamiwallet.com/" target="_blank" rel="noopener noreferrer">Umami</a> and <a href="https://templewallet.com/" target="_blank" rel="noopener noreferrer">Temple</a>) have built-in staking functionality that you can use instead.
+Similarly, some cryptocurrency exchanges allow you to stake directly from their interfaces.
+However, you should evaluate these staking functions carefully because they may have different conditions and rewards than staking directly through the Tezos system and <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>.
+For testing purposes, there is a Ghostnet staking site at <a href="https://stake-ghostnet.tezos.com" target="_blank" rel="noopener noreferrer">https://stake-ghostnet.tezos.com</a>.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Make sure that you are staking at the right URL (<a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a>).
+As with all decentralized applications, do not trust unknown sites asking you to sign transactions and never give your private seed phrase to anyone.</p></div></div>
+<ol>
+<li>
+<p>Make sure you have tez tokens in a supported Tezos wallet.
+For a list of popular wallets, see <a href="/previews/docs/biel-ai-search/using/wallets">Wallets</a>.</p>
+</li>
+<li>
+<p>Go to <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a> in a web browser.</p>
+</li>
+<li>
+<p>Click <strong>Connect</strong>, select your wallet, and accept the connection in your wallet app.
+The staking app shows your account balance and how much you have staked.</p>
+<img src="/img/using/staking-current-balance.png" alt="The wallet app, showing an account with 100 tez and 0 tez staked" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Start Earning</strong>.</p>
+</li>
+<li>
+<p>In the popup window, click the option to delegate or stake; in most cases, click <strong>Stake</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Select Baker</strong>.</p>
+<p>The window shows bakers and information about their fees and free space for staking:</p>
+<img alt="Selecting a baker, with information about their free space and fee" src="/img/using/staking-select-baker.png" style="width:500px">
+<p>For more information about bakers, you can look them up in a block explorer by their addresses.
+For example, the block explorer tzkt.io has information on bakers at <a href="https://tzkt.io/bakers" target="_blank" rel="noopener noreferrer">https://tzkt.io/bakers</a> and tzstats.com has information at <a href="https://tzstats.com/bakers" target="_blank" rel="noopener noreferrer">https://tzstats.com/bakers</a>.
+Evaluate bakers by comparing information about them, including:</p>
+<ul>
+<li>The fees they charge (commission) on rewards</li>
+<li>Their capacity for additional staked funds (free space)</li>
+<li>How reliable they are as a baker (how often they bake blocks when they have the opportunity)</li>
+<li>Whether they have been penalized (slashed) in the past</li>
+</ul>
+<p>For example, the bakers in this picture all have free space for staking:</p>
+<img alt="The TzKT block explorer, showing bakers with different capacities for staking" src="/img/using/staking-capacity.png" style="width:500px">
+</li>
+<li>
+<p>Choose a baker and click <strong>Select</strong> next to them.</p>
+<p>The application prompts you to delegate your account to that baker, as in this screenshot:</p>
+<img alt="Delegating to the baker" src="/img/using/staking-delegating.png" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Continue</strong> and approve the operation in your wallet to delegate to that baker.
+It may take a few seconds for the operation to be final.
+When the transaction is final, the Stake Amount window opens.</p>
+</li>
+<li>
+<p>In the Stake Amount window, specify the amount to stake.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><p>Don&#x27;t stake all of the tez in the account; you need some liquid tez to pay transaction fees.
+For this transaction, the application deducts the transaction fee from the amount that you stake.
+However, you will need liquid, unstaked tez later to unstake the tez.
+Leaving 1 tez in your liquid balance is enough.</p></div></div>
+<img alt="Setting 50 tez to stake" src="/img/using/staking-amount.png" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Stake</strong>, confirm the terms of use for the staking application, click <strong>Stake</strong> again, and confirm the transaction in your wallet.
+This operation may also take a few seconds.</p>
+</li>
+</ol>
+<p>When the staking operation is complete, a confirmation page shows how much you have staked and provides a link to tzkt.io that you can use to see information about your account.
+The web application also shows the current status of your account, as in this screenshot:</p>
+<img alt="The information page showing the staked amount" src="/img/using/staking-status-complete.png" style="width:500px">
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-unstake">How to unstake<a href="#how-to-unstake" class="hash-link" aria-label="Direct link to How to unstake" title="Direct link to How to unstake">​</a></h2>
+<p>You can unstake any amount of staked tez at any time, but you must wait for the 5-day delay before you can finalize the unstake operation.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Why do I have to wait to finalize the unstake request?</div><div class="admonitionContent_BuS1"><p>Staked funds are part of the security deposit of the chosen baker, so they must remain frozen while they remain at stake.
+Tezos calculates how much is staked with a baker at the end of blockchain cycles, and it requires tez staked at the end of the current cycle to be frozen for the next three cycles.
+For this reason, you must wait three cycles to finalize an unstake request, which can take up to 11 days.</p><p>For more information, see <a href="#staking-periods-and-delays">Staking periods and delays</a>.</p></div></div>
+<ol>
+<li>
+<p>Go to <a href="https://stake.tezos.com" target="_blank" rel="noopener noreferrer">https://stake.tezos.com</a> in a web browser and connect your wallet.</p>
+</li>
+<li>
+<p>Click <strong>Unstake</strong>, read the notice about the delay, and click <strong>I Understand</strong>.</p>
+</li>
+<li>
+<p>Select the amount to unstake, up to the total amount that is currently staked, as in this screenshot:</p>
+<img alt="Selecting the amount to unstake" src="/img/using/staking-unstaking-amount.png" style="width:500px">
+</li>
+<li>
+<p>Click <strong>Unstake</strong> and confirm the transaction in your wallet.
+When the unstaking operation is complete, a confirmation page shows how much you have unstaked and provides a link to tzkt.io that you can use to see information about your account.</p>
+<p>Then, the application shows the pending unstake request and the cycle in which you can finalize the request, as in this screenshot:</p>
+<img alt="Pending unstake request" src="/img/using/staking-unstaking-pending.png" style="width:500px">
+</li>
+<li>
+<p>Wait until the unstake request is ready to be finalized.
+You can see the current cycle and the time to the next cycle on block explorers such as <a href="https://tzkt.io" target="_blank" rel="noopener noreferrer">https://tzkt.io</a>.</p>
+<p>When the request is ready to be finalized, the application shows a <strong>Finalize</strong> button next to it:</p>
+<img alt="Ready unstake request" src="/img/using/staking-unstaking-ready.png" style="width:500px">
+</li>
+<li>
+<p>To finalize the unstaking request, click <strong>Finalize</strong>, click <strong>Finalize</strong> again in the pop-up window, and confirm the transaction in your wallet.
+The application shows a confirmation message.</p>
+</li>
+</ol>
+<p>Now the application shows your liquid balance and any tez that remain staked.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="viewing-your-rewards">Viewing your rewards<a href="#viewing-your-rewards" class="hash-link" aria-label="Direct link to Viewing your rewards" title="Direct link to Viewing your rewards">​</a></h2>
+<p>The Tezos protocol distributes staking rewards automatically, without requiring any manual action.
+To see them, look up your account on a block explorer such as <a href="https://tzkt.io" target="_blank" rel="noopener noreferrer">TzKT</a>.</p>
+<p>If your baker pays delegation rewards (this concerns the amount of liquid, non-staked tez in your account), the baker distributes those rewards to you using transactions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="staking-periods-and-delays">Staking periods and delays<a href="#staking-periods-and-delays" class="hash-link" aria-label="Direct link to Staking periods and delays" title="Direct link to Staking periods and delays">​</a></h2>
+<p>The following diagram shows the reason for the unstaking delay.
+The diagram shows cycles as a timeline and assumes that the user has already staked tez with a baker at the start of the timeline.</p>
+<p>The system calculates rights for bakers two cycles ahead, so at the end of cycle 1, the system calculates rights for a baker in cycle 4 based on the amount staked with that baker as of the end of cycle 1.
+The example user in the diagram submits an unstake request in the middle of cycle 2.
+When cycle 2 ends, the system calculates rights for bakers in cycle 5, so the baker will have reduced staking rights in cycle 5 depending on how much the user requested to unstake.
+During this time, the funds in the unstake request are no longer considered staked to tbe baker, but they are still delegated to the baker, so they still affect the baker&#x27;s baking rights.</p>
+<p>The diagram also shows why users must wait to unfreeze their staked tez.
+Because the rights in cycles 3 and 4 were computed before the unstake request, the funds being unstaked must still guarantee the honest behavior of the baker during that period.
+The diagram shows a baker misbehaving in cycle 4.
+Other bakers have the remainder of cycle 4 and all of cycle 5 to denounce the misbehaving baker, which results in that baker being slashed.
+Therefore, funds staked with that baker stay frozen until the end of cycle 5 in case they need to be penalized.
+Then, the user can finalize their unstake request.</p>
+<p><img decoding="async" loading="lazy" alt="A diagram of an unstake request and the period that the user must wait to finalize that request" src="/previews/docs/biel-ai-search/assets/images/staking-periods-diagram-fa031882f96d25e8b2e666b03a779647.png" width="1051" height="447" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-information">More information<a href="#more-information" class="hash-link" aria-label="Direct link to More information" title="Direct link to More information">​</a></h2>
+<p>For technical information about delegating, staking, and rewards, see these pages in the Octez documentation:</p>
+<ul>
+<li><a href="https://octez.tezos.com/docs/active/staking.html" target="_blank" rel="noopener noreferrer">https://octez.tezos.com/docs/active/staking.html</a></li>
+<li><a href="https://octez.tezos.com/docs/active/adaptive_issuance.html" target="_blank" rel="noopener noreferrer">https://octez.tezos.com/docs/active/adaptive_issuance.html</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2025-04-09T04:00:00.000Z" itemprop="dateModified">Apr 9, 2025</time></b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/previews/docs/biel-ai-search/using/dapps"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Applications</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/previews/docs/biel-ai-search/architecture"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#staking-with-a-baker" class="table-of-contents__link toc-highlight">Staking with a baker</a></li><li><a href="#how-to-stake" class="table-of-contents__link toc-highlight">How to stake</a></li><li><a href="#how-to-unstake" class="table-of-contents__link toc-highlight">How to unstake</a></li><li><a href="#viewing-your-rewards" class="table-of-contents__link toc-highlight">Viewing your rewards</a></li><li><a href="#staking-periods-and-delays" class="table-of-contents__link toc-highlight">Staking periods and delays</a></li><li><a href="#more-information" class="table-of-contents__link toc-highlight">More information</a></li></ul></div></div></div></div></main></div></div></div></div>
+<script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback@latest/dist/pushfeedback/pushfeedback.esm.js"></script>
+<script>const feedbackButton=document.createElement("feedback-button");feedbackButton.setAttribute("project","80ja0zkj8v"),feedbackButton.setAttribute("modal-position","bottom-right"),feedbackButton.setAttribute("button-style","light"),feedbackButton.setAttribute("button-position","bottom-right"),feedbackButton.setAttribute("footer-text",'For information about providing feedback and the kinds of feedback that we are interested in, see <a href="/overview/feedback" target="_blank">Providing feedback</a>.'),feedbackButton.setAttribute("message-placeholder","Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)"),feedbackButton.setAttribute("id","default"),feedbackButton.textContent="Feedback",document.body.appendChild(feedbackButton)</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+<script>const bielButton=document.createElement("biel-button");bielButton.setAttribute("project","w30c27l8fg"),bielButton.setAttribute("modal-position","bottom-right"),bielButton.setAttribute("button-style","dark"),bielButton.setAttribute("button-position","center-right"),bielButton.setAttribute("header-title","Tezos documentation chatbot (beta)"),bielButton.setAttribute("footer-text",'AI-generated answers may contain errors. Verify the information before use. For more information, see <a href="https://docs.tezos.com/overview/chatbot">Using the chatbot</a>.'),bielButton.setAttribute("id","default"),bielButton.textContent="Ask AI",document.body.appendChild(bielButton)</script></body>
+</html>
