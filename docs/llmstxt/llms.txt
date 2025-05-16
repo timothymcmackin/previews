@@ -1,0 +1,162 @@
+# Tezos Documentation
+
+> Get started using Tezos or developing on Tezos, by learning about its features, following tutorials and exploring the development tools.
+
+This file contains links to all documentation sections following the llmtxt.org standard.
+
+## Table of Contents
+
+- [Accounts](https://docs.tezos.com/docs/using/user-accounts): From the user's perspective, a Tezos account is much like an account that you might have on a web application or computer system.
+- [Accounts and addresses](https://docs.tezos.com/docs/architecture/accounts): ## Accounts
+- [Accusers](https://docs.tezos.com/docs/architecture/accusers): Accusers are programs that monitor new blocks, look for problems, and denounce bakers that introduce blocks with problems.
+- [An introduction to smart contracts](https://docs.tezos.com/docs/smart-contracts): import Figure from '@site/src/components/Figure';
+- [Archetype](https://docs.tezos.com/docs/smart-contracts/languages/archetype): Archetype is an elegant generic-purpose language to develop smart contracts on the Tezos blockchain. It's a DSL (domain-specific language) for Tezos that facilitates formal verification and transcodes contracts to SmartPy and LIGO.
+- [Architecture](https://docs.tezos.com/docs/architecture): The Tezos blockchain is composed of many Tezos nodes running around the world, complemented by other programs such as bakers and accusers.
+- [Bake using a Ledger device](https://docs.tezos.com/docs/tutorials/bake-with-ledger): ## What is a Ledger device?
+- [Bakers](https://docs.tezos.com/docs/architecture/bakers): Baking is the process of creating new blocks in the Tezos blockchain.
+- [Best practices and avoiding flaws](https://docs.tezos.com/docs/dApps/best-practices): When creating a frontend application that uses the Tezos blockchain, you will most probably use a JavaScript framework, may it be React, Vue, Svelte, or another one.
+- [Block explorers](https://docs.tezos.com/docs/developing/information/block-explorers): A _blockchain explorer_, also known as a _block explorer_, is an app that tracks activity on a blockchain.
+- [Build a simple web application](https://docs.tezos.com/docs/tutorials/build-your-first-app): This tutorial shows you how to create a simple web application that uses Tezos.
+- [Build an NFT marketplace](https://docs.tezos.com/docs/tutorials/build-an-nft-marketplace): This tutorial guides you through creating a web application that allows users to buy and sell tokens of different types.
+- [Calling contracts with the Unity SDK](https://docs.tezos.com/docs/unity/calling-contracts): Smart contracts are backend programs that run on blockchains.
+- [Comparing values](https://docs.tezos.com/docs/smart-contracts/logic/comparing): The ways that you can compare values depends on the types of those values.
+- [Complex data types](https://docs.tezos.com/docs/smart-contracts/data-types/complex-data-types): Tezos contracts support these complex data types.
+- [Conclusion](https://docs.tezos.com/docs/tutorials/join-dal-baker/conclusion): In this guide you have gone through all the steps needed to participate as a baker and DAL node.
+- [Connecting accounts](https://docs.tezos.com/docs/unity/connecting-accounts): Connecting to a user's wallet allows your application to see the tokens in it and to prompt the user to submit transactions, but it does not give your application direct control over the wallet.
+- [Connecting to wallets](https://docs.tezos.com/docs/dApps/wallets): dApps must connect to user wallets to view the tokens in the account and to submit transactions on behalf of the wallet's owner.
+- [Create a fungible token with the SmartPy FA2 library](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible): This tutorial shows you how to use SmartPy's FA2 library to create standards-compliant tokens.
+- [Create a mobile game](https://docs.tezos.com/docs/tutorials/mobile): ![home](/img/tutorials/mobile-picHOME.png)
+- [Create NFTs from a web application](https://docs.tezos.com/docs/tutorials/create-nfts): This tutorial shows you how to create a web application that interacts with the Tezos blockchain to create (mint) non-fungible tokens (NFTs).
+- [Create your minimum dapp on Tezos](https://docs.tezos.com/docs/tutorials/dapp): > dApp : A decentralized application is a type of distributed open source software application that runs on a peer-to-peer (P2P) blockchain network rather than on a single computer. DApps are visibly similar to other software applications that are supported on a website or mobile device.
+- [Creating accounts](https://docs.tezos.com/docs/developing/octez-client/accounts): You can create or import accounts into the Octez client just like you do so in wallet applications.
+- [Creating smart contracts](https://docs.tezos.com/docs/smart-contracts/creating): You can select a language based on your familiarity with programming paradigms, the complexity of the contract you want to deploy, and the specific features you require. Here's a more detailed table for each language:
+- [Cryptographic data types](https://docs.tezos.com/docs/smart-contracts/data-types/crypto-data-types): Tezos provides hash functions for cryptographic purposes.
+- [Data types](https://docs.tezos.com/docs/smart-contracts/data-types): See these pages for information about the data types that Tezos supports:
+- [DataProviderConfigSO scriptable object](https://docs.tezos.com/docs/unity/reference/DataProviderConfigSO): The DataProviderConfigSO scriptable object sets the indexer that the SDK uses to get information about Tezos, such as an account's token balances.
+- [Decentralized applications (dApps)](https://docs.tezos.com/docs/dApps): One of the main features of blockchains is _decentralization_: each transaction is verified by multiple nodes and its validation process does not rely on a single trusted third party.
+- [Delegation](https://docs.tezos.com/docs/smart-contracts/delegation): Placing your tez in a smart contract means you can't stake them towards baking or delegate them to get rewards.
+- [Deploy a smart contract](https://docs.tezos.com/docs/tutorials/smart-contract): This tutorial covers deploying a smart contract to Tezos.
+- [Deploy a smart contract with Archetype](https://docs.tezos.com/docs/tutorials/smart-contract/archetype): This tutorial covers writing a smart contract and deploying it to Tezos in the Archetype programming language.
+- [Deploy a smart contract with CameLIGO](https://docs.tezos.com/docs/tutorials/smart-contract/cameligo): This tutorial covers writing and deploying a simple smart contract with the LIGO programming language.
+- [Deploy a smart contract with JsLIGO](https://docs.tezos.com/docs/tutorials/smart-contract/jsligo): This tutorial covers writing and deploying a simple smart contract with the LIGO programming language.
+- [Deploy a smart contract with SmartPy](https://docs.tezos.com/docs/tutorials/smart-contract/smartpy): This tutorial covers writing and deploying a simple smart contract with the SmartPy programming language.
+- [Deploy a Smart Rollup](https://docs.tezos.com/docs/tutorials/smart-rollup): This tutorial covers how to deploy a Smart Rollup in a Tezos sandbox.
+- [Deploying smart contracts](https://docs.tezos.com/docs/smart-contracts/deploying): When you deploy a contract, you initialize its storage.
+- [Developing on Tezos](https://docs.tezos.com/docs/developing): Developing dApps on Tezos is not very different from developing other types of computer applications: you set up a development environment, develop the components of the application locally, test them locally, and then test them on a test network before deploying them to production.
+- [Documentation style guide](https://docs.tezos.com/docs/reference/style-guide): ## Overall Tezos-related issues
+- [Entrypoints](https://docs.tezos.com/docs/smart-contracts/entrypoints): The entrypoints of a contract represent the different ways that it can be called, similar to a method or function in many programming languages or an endpoint of an API.
+- [Events](https://docs.tezos.com/docs/smart-contracts/events): Events are a type of internal operation on Tezos.
+- [FA1.2 tokens](https://docs.tezos.com/docs/architecture/tokens/FA1.2): The FA1.2 standard is for _fungible tokens_, which are collections of identical, interchangeable tokens.
+- [FA2 tokens](https://docs.tezos.com/docs/architecture/tokens/FA2): The FA2 standard supports several different token types, including fungible and non-fungible tokens.
+- [FA2.1 tokens](https://docs.tezos.com/docs/architecture/tokens/FA2.1): The FA2.1 standard adds several features to tokens while remaining backward-compatible with the FA2 standard.
+- [Getting information about the blockchain](https://docs.tezos.com/docs/developing/information): Developers and dApps can get information about the Tezos blockchain, such as account balances, from these sources:
+- [Global table of constants](https://docs.tezos.com/docs/smart-contracts/constants): Tezos provides a feature that lets user store data in a global table of constants.
+- [Glossary](https://docs.tezos.com/docs/overview/glossary): import GlossaryAnchorScript from '@site/src/components/GlossaryAnchorScript';
+- [Governance and self-amendment](https://docs.tezos.com/docs/architecture/governance): Tezos incorporates a built-in, on-chain mechanism for proposing, selecting, testing, and activating protocol upgrades without the need to hard fork.
+- [Handling errors](https://docs.tezos.com/docs/smart-contracts/logic/errors): Unlike in many programming languages, there is no exception management on Tezos.
+- [History of amendments](https://docs.tezos.com/docs/architecture/governance/amendment-history): As presented in [Governance](/architecture/governance), the Tezos blockchain is constantly evolving through new amendments.
+- [Implement a file archive with the DAL and a Smart Rollup](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal): The Data Availability Layer (DAL) is a companion peer-to-peer network for the Tezos blockchain, designed to provide additional data bandwidth to Smart Rollups.
+- [Indexers](https://docs.tezos.com/docs/developing/information/indexers): Indexers are off-chain applications that retrieve blockchain data, process it, and store it in a way that makes it easier to search and use.
+- [Install the Ledger baking application of Tezos](https://docs.tezos.com/docs/tutorials/bake-with-ledger/install-app): [`Tezos Baking`](https://github.com/trilitech/ledger-app-tezos-baking) is the application developed to bake on Tezos using your Ledger device.
+- [Installing and funding a wallet](https://docs.tezos.com/docs/developing/wallet-setup): import PopularWallets from '@site/docs/conrefs/popular-wallets.md';
+- [Installing the Octez client](https://docs.tezos.com/docs/developing/octez-client/installing): You can install the Octez client directly on your computer or use a Docker image that has the most recent version of the Octez tools installed.
+- [Interacting with contracts](https://docs.tezos.com/docs/developing/octez-client/transactions): Before sending transactions to contracts with the Octez client, make sure that your client is configured to use an RPC node for the network that you want to use.
+- [Languages](https://docs.tezos.com/docs/smart-contracts/languages): You can write Tezos smart contracts in any of these high-level languages:
+- [Learn and play with security](https://docs.tezos.com/docs/tutorials/security): # Security
+- [LIGO](https://docs.tezos.com/docs/smart-contracts/languages/ligo): LIGO is a functional programming language that is intended to be both user-friendly and to avoid patterns that make formal verification difficult.
+- [Loops and iterations](https://docs.tezos.com/docs/smart-contracts/logic/loops): A smart contract can contain loops, which take two general forms:
+- [Managing tokens](https://docs.tezos.com/docs/unity/managing-tokens): Tezos supports a variety of types of tokens, including:
+- [Michelson](https://docs.tezos.com/docs/smart-contracts/languages/michelson): import Figure from '@site/src/components/Figure';
+- [Multi-signature contracts](https://docs.tezos.com/docs/smart-contracts/multisig): Multi-signature (or multisig) contracts require multiple accounts to authorize operations before running them.
+- [Nodes](https://docs.tezos.com/docs/architecture/nodes): Tezos nodes are peer-to-peer programs running the Tezos protocol to participate in the Tezos network.
+- [Operations](https://docs.tezos.com/docs/smart-contracts/logic/operations): The execution of the code of an entrypoint can have only two effects:
+- [Oracles](https://docs.tezos.com/docs/smart-contracts/oracles): Oracles provide data to smart contracts that they wouldn't be able to access otherwise.
+- [Other resources and technical support](https://docs.tezos.com/docs/overview/resources): import Docmap from '@site/src/components/Docmap';
+- [Part 1: Create the smart contract](https://docs.tezos.com/docs/tutorials/mobile/part-1): On this first section, you will:
+- [Part 1: Create your minimum dApp on Tezos](https://docs.tezos.com/docs/tutorials/dapp/part-1): To start working with the application, you create a Taqueria project and use it to deploy the Poke contract.
+- [Part 1: Minting tokens](https://docs.tezos.com/docs/tutorials/build-an-nft-marketplace/part-1): To start working with the application, you create a Taqueria project and use it to deploy an FA2 contract.
+- [Part 1: Programming errors](https://docs.tezos.com/docs/tutorials/security/part-1): > Note: clone this [project](https://github.com/marigold-dev/training-security-1.git) for compiling and testing this tutorial.
+- [Part 1: Setting up a simple FA2 token](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible/basic-fa2-token): In the first part of this tutorial, you create an FA2 token contact that has only the basic features that the standard requires.
+- [Part 1: Setting up an environment](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal/set-up-environment): These steps cover how to set up a development environment to work with Smart Rollups and the DAL.
+- [Part 1: Setting up the application](https://docs.tezos.com/docs/tutorials/build-your-first-app/setting-up-app): You can access Tezos through any JavaScript framework.
+- [Part 1: Setting up the application](https://docs.tezos.com/docs/tutorials/create-nfts/setting-up-app): You can access Tezos through any JavaScript framework.
+- [Part 1: Setting up the application](https://docs.tezos.com/docs/tutorials/smart-rollup/set-up): To set up the application for the tutorial, you must configure Rust to build the kernel and start a Docker container that has resources that are needed to debug and deploy it.
+- [Part 2: Accessing wallets](https://docs.tezos.com/docs/tutorials/build-your-first-app/wallets-tokens): Accessing the user's wallet is a prerequisite for interacting with the Tezos blockchain.
+- [Part 2: Adding minting and burning entrypoints](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible/minting-and-burning): In this part, you add entrypoints that allow an administrator account to create tokens and allow users to burn their own tokens.
+- [Part 2: Buying and selling tokens](https://docs.tezos.com/docs/tutorials/build-an-nft-marketplace/part-2): In this section, you give users the ability to list a bottle for sale and buy bottles that are listed for sale.
+- [Part 2: Connecting to wallets](https://docs.tezos.com/docs/tutorials/create-nfts/connect-wallet): Before the application can interact with Tezos, you must connect to the user's wallet.
+- [Part 2: Create an Ionic mobile application](https://docs.tezos.com/docs/tutorials/mobile/part-2): A web3 mobile application is not different from a web2 one in terms of its basic functionality and user interface. Both types of applications can run on smartphones, tablets, and other mobile devices, and both can access the internet and provide various services to users. However, a web3 mobile application differs from a web2 one in terms of its underlying architecture and design principles. A web3 mobile application is built on decentralized technologies, such as blockchain, smart contracts, and peer-to-peer networks, that enable more transparency, security, and autonomy for users and developers.
+- [Part 2: Getting the DAL parameters](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal/get-dal-params): The Data Availability Layer stores information about the available data in layer 1 blocks.
+- [Part 2: Inter-contract calls and testing](https://docs.tezos.com/docs/tutorials/dapp/part-2): Previously, you learned how to create your first dApp.
+- [Part 2: Leaks](https://docs.tezos.com/docs/tutorials/security/part-2): > Note: clone this [project](https://github.com/marigold-dev/training-security-2.git) for compiling and testing this tutorial.
+- [Part 2: Running the kernel in debug mode](https://docs.tezos.com/docs/tutorials/smart-rollup/debug): Octez provides a command named `octez-smart-rollup-wasm-debugger` that runs Smart Rollups in debug mode to make it easier to test and observe them.
+- [Part 3: Adding metadata](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible/adding-metadata): In this part, you configure the metadata for the contract.
+- [Part 3: Create the game pages](https://docs.tezos.com/docs/tutorials/mobile/part-3): In this section, you will create the pages to:
+- [Part 3: Getting slot information](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal/get-slot-info): When clients send data to the DAL, they must choose which slot to put it in.
+- [Part 3: Managing tokens with quantities](https://docs.tezos.com/docs/tutorials/build-an-nft-marketplace/part-3): Because only one of each NFT can exist, they are not the right token type to represent wine bottles, which have a type and a quantity of bottles of that type.
+- [Part 3: Optimizing the kernel](https://docs.tezos.com/docs/tutorials/smart-rollup/optimize): To originate the kernel on Tezos, it must fit within the maximum size for a layer 1 operation (32KB).
+- [Part 3: Sending transactions](https://docs.tezos.com/docs/tutorials/build-your-first-app/sending-transactions): Now that the application can connect to the user's wallet, it can get the user's approval to send transactions to Tezos with that wallet.
+- [Part 3: Sending transactions](https://docs.tezos.com/docs/tutorials/create-nfts/send-transactions): To send a transaction to Tezos, a dApp creates the transaction, including its parameters.
+- [Part 3: Tickets](https://docs.tezos.com/docs/tutorials/dapp/part-3): Previously, you learned how to do inter-contract calls, use views, and do unit testing.
+- [Part 3: User trust & management](https://docs.tezos.com/docs/tutorials/security/part-3): ## Governance
+- [Part 4: Creating the contract](https://docs.tezos.com/docs/tutorials/create-nfts/create-contract): Up to this point, your web application used a pre-deployed smart contract to manage tokens.
+- [Part 4: Customizing operations](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible/customizing-operations): As shown in previous parts, the SmartPy FA2 library provides the entrypoints that the standard requires.
+- [Part 4: Deploying (originating) the rollup](https://docs.tezos.com/docs/tutorials/smart-rollup/deploy): Smart Rollups are originated in a way similar to smart contracts.
+- [Part 4: Getting information](https://docs.tezos.com/docs/tutorials/build-your-first-app/getting-information): In this section, you improve the user experience of the application by providing information from Tezos on the page.
+- [Part 4: Handling multi-asset tokens](https://docs.tezos.com/docs/tutorials/build-an-nft-marketplace/part-4): Because a wine store can have many bottles of many different types, the appropriate template to use is the multi-asset template.
+- [Part 4: Publish on the Android store](https://docs.tezos.com/docs/tutorials/mobile/part-4): Your game will be more successful if you publish it on the Android or Apple store. A recommendation is to start with Android as it is easy and cheaper than the iOS version.
+- [Part 4: Publishing on the DAL](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal/publishing-on-the-dal): Now that you can get information about the DAL, the next step is to publish data to it and verify that the kernel can access it.
+- [Part 4: Smart contract upgrades](https://docs.tezos.com/docs/tutorials/dapp/part-4): # Upgradable Poke game
+- [Part 5: Deploying the contract](https://docs.tezos.com/docs/tutorials/smartpy-fa2-fungible/deploying-contract): So far you have used the token in the SmartPy test scenario and in the Octez client local sandbox.
+- [Part 5: Running and interacting with the rollup node](https://docs.tezos.com/docs/tutorials/smart-rollup/run): Now that the Smart Rollup is originated on layer 1, anyone can run a Smart Rollup node for it.
+- [Part 5: Showing token information](https://docs.tezos.com/docs/tutorials/create-nfts/show-info): You can use Taquito to retrieve information about tokens from Tezos.
+- [Part 5: Using the entire slot](https://docs.tezos.com/docs/tutorials/build-files-archive-with-dal/using-full-slot): In some cases, you may want to retrieve the entire contents of a slot.
+- [Popular Wallets](https://docs.tezos.com/docs/conrefs/popular-wallets): These are some wallets that you can use with Tezos:
+- [Primitive data types](https://docs.tezos.com/docs/smart-contracts/data-types/primitive-data-types): Tezos contracts support these primitive data types.
+- [Private transactions (Sapling)](https://docs.tezos.com/docs/smart-contracts/sapling): Sapling is a protocol that enables transactions of fungible tokens while increasing privacy.
+- [Providing feedback](https://docs.tezos.com/docs/overview/feedback): Please consider providing feedback on this documentation by using the "Feedback" button available on every page.
+- [Quickstart](https://docs.tezos.com/docs/unity/quickstart): Follow these steps to install the Tezos Unity SDK in an existing Unity project and start using it.
+- [Run a Tezos node in 5 steps](https://docs.tezos.com/docs/tutorials/join-dal-baker): As described in [Nodes](/architecture/nodes), Tezos nodes are peer-to-peer programs that run the Tezos network.
+- [Running a baker signing using a Ledger baking key](https://docs.tezos.com/docs/tutorials/bake-with-ledger/run-baker): Now that the Ledger baking key is set up, you can follow the steps of [Run a Tezos node in 5 steps](/tutorials/join-dal-baker). However, some steps will differ.
+- [Sample dApps](https://docs.tezos.com/docs/dApps/samples): Here are some sample web applications that access Tezos:
+- [Sample smart contracts](https://docs.tezos.com/docs/smart-contracts/samples): Here are some places to find sample smart contacts:
+- [Sending transactions](https://docs.tezos.com/docs/dApps/sending-transactions): <!-- TODO originating contracts: https://tezostaquito.io/docs/originate -->
+- [Serialization](https://docs.tezos.com/docs/smart-contracts/serialization): Between contract calls, the code of a contract, as well as its storage, are stored as a serialized sequence of bytes, for efficiency purposes.
+- [Set up your ledger](https://docs.tezos.com/docs/tutorials/bake-with-ledger/setup-ledger): ## Disable PIN lock
+- [Set up your Ledger baking key with octez-signer](https://docs.tezos.com/docs/tutorials/bake-with-ledger/setup-baker): It’s recommended to use a separate machine to run the remote signer. For simplicity, in this tutorial, we assume a setup where the Ledger device is connected to the same machine running the baker binary. On the same machine, the following commands can be used to set up the baking key with `octez-signer`.
+- [Smart Rollups](https://docs.tezos.com/docs/architecture/smart-rollups): Smart Rollups play a crucial part in providing high scalability on Tezos.
+- [SmartPy](https://docs.tezos.com/docs/smart-contracts/languages/smartpy): SmartPy is a comprehensive solution for developing, testing, and deploying smart contracts on Tezos. With its easy-to-use Python syntax, developers can create contracts in a familiar and intuitive way, while SmartPy's type inference provides added safety.
+- [Special values](https://docs.tezos.com/docs/smart-contracts/special-values): The code of a contract can access some special values.
+- [Staking](https://docs.tezos.com/docs/using/staking): Staking is the process of temporarily locking tez on the Tezos platform.
+- [Step 1: Run an Octez node](https://docs.tezos.com/docs/tutorials/join-dal-baker/run-node): The first thing you need is a Tezos layer 1 node, which is an instance of the `octez-node` program and part of the Octez suite of programs.
+- [Step 2: Set up baker accounts](https://docs.tezos.com/docs/tutorials/join-dal-baker/prepare-account): In this section you use the Octez client to set up two accounts for your baker:
+- [Step 3: Run an Octez DAL node](https://docs.tezos.com/docs/tutorials/join-dal-baker/run-dal-node): The DAL node is responsible for temporarily storing data and providing it to bakers and Smart Rollups.
+- [Step 4: Run an Octez baking daemon](https://docs.tezos.com/docs/tutorials/join-dal-baker/run-baker): Now that you have a layer 1 node and a DAL node, you can run a baking daemon that can create blocks and attests to DAL data.
+- [Step 5: Verifications](https://docs.tezos.com/docs/tutorials/join-dal-baker/verify-rights): After the delay that you calculated in [Step 4: Run an Octez baking daemon](/tutorials/join-dal-baker/run-baker), follow these instructions to verify the activity or diagnose and fix issues.
+- [Storage](https://docs.tezos.com/docs/smart-contracts/storage): Each contract has associated storage, which is persistent internal data that it can read and write to.
+- [Storing data and files with IPFS](https://docs.tezos.com/docs/developing/ipfs): Because storage space on blockchains is expensive, developers don't put large files or large pieces of static data on Tezos.
+- [Summary](https://docs.tezos.com/docs/tutorials/create-nfts/summary): Now you have an application that can connect to a user's wallet, send transactions on the user's behalf, and get information from Tezos.
+- [Taquito dApp SDK for TypeScript](https://docs.tezos.com/docs/dApps/taquito): [Taquito](https://tezostaquito.io) is a TypeScript library that dApp developers can use to get information about Tezos and submit transactions.
+- [Testing locally](https://docs.tezos.com/docs/developing/testing): Tezos smart contracts are immutable after deployment, so you must rigorously test them before deploying them to ensure functionality, prevent errors, and avoid potential financial losses. Importantly, contract testing doesn't require any tokens or a wallet account to execute.
+- [Testing on testnets](https://docs.tezos.com/docs/developing/testnets): :::note
+- [Text files](https://docs.tezos.com/docs/reference/textfiles): To access the documentation on this site for use with an LLM, download these text files:
+- [Tezos Improvement Process (TZIP)](https://docs.tezos.com/docs/architecture/governance/improvement-process): Because Tezos is a large decentralized project that is constantly evolving, its members need to have a mechanism for proposing improvements to the ecosystem.
+- [Tezos overview](https://docs.tezos.com/docs/overview): Tezos is an open-source, decentralized blockchain [created in 2014](https://tezos.com/whitepaper.pdf) by Arthur and Kathleen Breitman. It raised awareness and support in 2017 with its crowdfunding and launched the following year. Since its inception, Tezos has gone through multiple iterations of upgrades and development, staying true to its ethos -- "a blockchain designed to evolve".
+- [Tezos Unity SDK](https://docs.tezos.com/docs/unity): The Tezos Unity SDK provides tools that let you access user wallets and blockchains in games and other Unity projects.
+- [TezosConfig scriptable object](https://docs.tezos.com/docs/unity/reference/TezosConfigSO): The TezosConfig scriptable object sets the RPC node that the SDK sends Tezos transactions to.
+- [The Data Availability Layer](https://docs.tezos.com/docs/architecture/data-availability-layer): The Data Availability Layer (DAL) is a companion peer-to-peer network for the Tezos blockchain, designed to provide additional data bandwidth to Smart Rollups.
+- [The Octez client](https://docs.tezos.com/docs/developing/octez-client): The Octez command-line client is part of the Octez suite of tools for interacting with Tezos and running nodes.
+- [Timelocks](https://docs.tezos.com/docs/smart-contracts/timelocks): Timelocks are a way to prevent exploits known as _front-running_, or more properly, _extractable value (EV) attacks_.
+- [Tokens](https://docs.tezos.com/docs/architecture/tokens): In a blockchain ecosystem, a digital asset that can be transferred between accounts is called a _token_.
+- [Tutorials](https://docs.tezos.com/docs/tutorials): These tutorials can help you get started developing different kinds of applications on Tezos in as little as 15 minutes.
+- [Unity SDK events](https://docs.tezos.com/docs/unity/reference/events): The Tezos Unity SDK uses events that you can add listeners to.
+- [Unity SDK reference](https://docs.tezos.com/docs/unity/reference): The Tezos Unity SDK provides several objects that your Unity project can use to work with Tezos.
+- [Unity SDK TezosAPI object](https://docs.tezos.com/docs/unity/reference/API): The Unity SDK class `Tezos.API.TezosAPI` provides methods for many Tezos-related tasks, including connecting to wallets, sending transactions to Tezos, and getting information about about the Tezos blockchain, such as what tokens accounts or contracts control.
+- [Unity SDK tutorial scenes](https://docs.tezos.com/docs/unity/scenes): The SDK includes tutorial scenes that demonstrate how to use the SDK.
+- [Upgrading the Unity SDK](https://docs.tezos.com/docs/unity/upgrading): Version 4.0.0 of the Unity SDK includes breaking changes from the previous version.
+- [Using a local sandbox](https://docs.tezos.com/docs/developing/sandbox): Local sandboxes allow you to test your work without sending any transactions to Tezos Mainnet or testnets.
+- [Using Tezos](https://docs.tezos.com/docs/using): This section presents Tezos for end users who need to access applications that use Tezos as part of their platform.
+- [Using Tezos applications (dApps)](https://docs.tezos.com/docs/using/dapps): Decentralized applications (dApps) are programs that, at their core, run independently, without any person or group in charge of them.
+- [Using the chatbot](https://docs.tezos.com/docs/overview/chatbot): The AI-powered chatbot on this website (the "Ask AI" box on the right side) is a conversational agent answering questions in plain English, based on the documentation (see [documentation sources](#documentation-sources)).
+- [Views](https://docs.tezos.com/docs/smart-contracts/views): Views are a way for contracts to expose information to other contracts and to off-chain consumers.
+- [Wallets](https://docs.tezos.com/docs/using/wallets): import PopularWallets from '@site/docs/conrefs/popular-wallets.md';
