@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RPC How-To &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/rpc_howto';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/routing-section/developer/rpc_howto.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documenting" href="../README.html" />
+    <link rel="prev" title="Adding a new protocol environment" href="protocol_environment_upgrade.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/routing.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/developer/rpc_howto.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/rpc_howto.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RPC How-To</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-declare-a-service">How to declare a service</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefix-vs-params"><code class="docutils literal notranslate"><span class="pre">'prefix</span></code> vs <code class="docutils literal notranslate"><span class="pre">'params</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example">Usage example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-usage-example">Another usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-services-by-declaring-a-directory">How to register services by declaring a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example-1">Usage example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-usage-example">Additional usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-serve-a-directory">How to serve a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example-2">Usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-call-rpcs">How to call RPCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-an-rpc-in-the-protocol">How to register an RPC in the protocol</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rpc-how-to">
+<h1>RPC How-To<a class="headerlink" href="#rpc-how-to" title="Link to this heading">#</a></h1>
+<p>This document explains how to declare, register, and serve RPC
+entry-points in the Octez codebase. A lot of the complexity comes from
+the following facts:</p>
+<ul class="simple">
+<li><p>Resto was developped in a separate repository</p></li>
+<li><p>the code of Octez was split by OS usage (Unix vs others)</p></li>
+<li><p>Resto and the RPC stack in general have accumulated significant
+technical debt</p></li>
+</ul>
+<p>For background knowledge about the RPC architecture, see <a class="reference internal" href="rpc_architecture.html"><span class="doc">RPC handling architecture</span></a>.</p>
+<p>The main operations related to the RPC lifetime, explained below, are:
+- declaring an RPC (service): describing the service, including a textual description and the types and de/serialization of arguments and return value
+- declaring an RPC directory that bundles multiple services
+- registering RPCs: associating a handler to each service
+- serving an RPC directory: launching a server listening and serving RPC requests
+- calling an RPC: using externals tools to invoke Tezos RPCs</p>
+<section id="how-to-declare-a-service">
+<h2>How to declare a service<a class="headerlink" href="#how-to-declare-a-service" title="Link to this heading">#</a></h2>
+<p>Declaring a service is the same as declaring a module signature. This includes a textual description and the types and de/serialization of its inputs/outputs.
+The short answer is: call <code class="docutils literal notranslate"><span class="pre">{get,post,put,…}_service</span></code> in
+<a class="reference external" href="../api/odoc/_html/octez-libs/Tezos_rpc/Service/index.html">Tezos_rpc.Service </a>.
+Usage examples <a class="reference internal" href="#declare-rpc-examples"><span class="std std-ref">below</span></a>.</p>
+<p>These functions are defined in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc/RPC_service.ml">src/lib_rpc/RPC_service.ml</a> as a
+wrapper (for de/serialisation and error management) around
+<code class="docutils literal notranslate"><span class="pre">Resto.MakeService</span></code> (from <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/resto/src/resto.ml">resto/src/resto.ml</a>).</p>
+<p>The call returns a
+<code class="docutils literal notranslate"><span class="pre">('method,'prefix,'params,'query,'input,'output)</span> <span class="pre">service</span></code> where the
+parameters have the following meaning:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'method</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'m</span></code>): one of <code class="docutils literal notranslate"><span class="pre">[`GET]</span></code>,
+<code class="docutils literal notranslate"><span class="pre">[`POST]</span></code>, <code class="docutils literal notranslate"><span class="pre">[`PUT]</span></code>, etc. matching the service’s
+method. (See <a class="reference external" href="https://en.wikipedia.org/wiki/HTTP#Request_methods">https://en.wikipedia.org/wiki/HTTP#Request_methods</a>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'prefix</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'pr</span></code>): the type of arguments passed to the
+service handler, which the client passes as part of the path. Unlike
+<code class="docutils literal notranslate"><span class="pre">'params</span></code> (see next), the <code class="docutils literal notranslate"><span class="pre">'prefix</span></code> parameters are set when
+declaring the directory of services (see later) rather than in this
+here declaration. (See example below.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'params</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'p</span></code>): the type of arguments passed to the
+service handler, which the client passes as part of the path of the
+URL. Think <code class="docutils literal notranslate"><span class="pre">/blocks/&lt;id&gt;/operations/&lt;index&gt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'query</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'q</span></code>): the type of arguments passed to the
+service handler, which the client passes as part of the query
+parameters of the URL. Think <code class="docutils literal notranslate"><span class="pre">?order=ascending&amp;sort=author</span></code>. (See
+<a class="reference external" href="https://en.wikipedia.org/wiki/Query_string">https://en.wikipedia.org/wiki/Query_string</a>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'input</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'i</span></code>): the type of arguments passed to the
+service handler, which the client passes as the request’s body. (See
+<a class="reference external" href="https://en.wikipedia.org/wiki/HTTP_message_body">https://en.wikipedia.org/wiki/HTTP_message_body</a>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'output</span></code> (a.k.a. <code class="docutils literal notranslate"><span class="pre">'o</span></code>): the type of values the service handler
+returns. The handler is actually expected to return values of the type
+<code class="docutils literal notranslate"><span class="pre">'output</span> <span class="pre">tzresult</span></code> which is what the :src`src/lib_rpc/RPC_service.ml`
+wrapper provides: the services in <code class="docutils literal notranslate"><span class="pre">resto/src/resto.ml</span></code> have an
+additional type parameter for <code class="docutils literal notranslate"><span class="pre">'error</span></code> which is hard-coded in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc/RPC_service.ml">src/lib_rpc/RPC_service.ml</a>. (See
+<a class="reference external" href="https://en.wikipedia.org/wiki/HTTP_message_body">https://en.wikipedia.org/wiki/HTTP_message_body</a>.)</p></li>
+</ul>
+<p>These <code class="docutils literal notranslate"><span class="pre">service</span></code> values are <em>description</em> of services: they list the
+number and type of arguments, their de/serialisation format, the type of
+the return value, and some documentation. They do not have an associated
+handler: this is registered separately (see <a class="reference internal" href="#howto-register"><span class="std std-ref">How to register services by declaring a directory</span></a>). Think of these
+values as the items in a <code class="docutils literal notranslate"><span class="pre">.mli</span></code> file: a description of inputs and
+outputs without code.</p>
+<section id="prefix-vs-params">
+<h3><code class="docutils literal notranslate"><span class="pre">'prefix</span></code> vs <code class="docutils literal notranslate"><span class="pre">'params</span></code><a class="headerlink" href="#prefix-vs-params" title="Link to this heading">#</a></h3>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">'prefix</span></code> and <code class="docutils literal notranslate"><span class="pre">'params</span></code> type parameters describe arguments
+passed to the service handler. They differ in that <code class="docutils literal notranslate"><span class="pre">'prefix</span></code> is
+provided by the directory that multiple services are bundled under
+whereas <code class="docutils literal notranslate"><span class="pre">'params</span></code> is provided by the service itself.</p>
+<p>Thus the prefix can be used for common arguments that a set of services
+use. Just a way to avoid repeating some common argument. E.g., if we
+wanted to have a version number in all the RPC entry-points
+(<code class="docutils literal notranslate"><span class="pre">/&lt;version&gt;/chain/&lt;chain-id&gt;/heads</span></code>) that would be the way to do it.</p>
+<p>The prefix can also be used when an argument cannot be described at the point
+where the service is declared but it is available when the service is
+registered (see <a class="reference internal" href="#howto-register"><span class="std std-ref">How to register services by declaring a directory</span></a>) as described in the documentation of <code class="docutils literal notranslate"><span class="pre">subst</span></code> in
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/resto/src/resto.mli">resto/src/resto.mli</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">'prefix</span></code> is always a subset of the <code class="docutils literal notranslate"><span class="pre">'params</span></code>. Meaning that if
+<code class="docutils literal notranslate"><span class="pre">'prefix</span></code> parameters exist, they also appear (in duplicate) in the
+<code class="docutils literal notranslate"><span class="pre">'params</span></code>. This is enforced by construction of paths (see the module
+<code class="docutils literal notranslate"><span class="pre">Path</span></code> in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/resto/src/resto.ml">resto/src/resto.ml</a>). The <code class="docutils literal notranslate"><span class="pre">'prefix</span></code> is used to enforce
+that the directory does define the necessary parameters (thus you cannot
+register a service in a directory without providing the descriptions for
+the prefix parameters, see <a class="reference internal" href="#howto-register"><span class="std std-ref">How to register services by declaring a directory</span></a>); the <code class="docutils literal notranslate"><span class="pre">'params</span></code> is used to enforce that
+the service handler has the matching number of parameters.</p>
+</section>
+<section id="usage-example">
+<span id="declare-rpc-examples"></span><h3>Usage example<a class="headerlink" href="#usage-example" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_p2p_services/p2p_services.ml">src/lib_p2p_services/p2p_services.ml</a> declares all the p2p-related
+RPC services. Excerpt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let list =
+  Tezos_rpc.Service.get_service  (* a GET service *)
+    ~description:&quot;List the running P2P connection.&quot;
+    ~query:Tezos_rpc.Query.empty  (* no qeury parameters *)
+    ~output:(Data_encoding.list connection_info_encoding)  (* what the service returns
+                                                              and how it&#39;s de/serialised *)
+    Tezos_rpc.Path.(root / &quot;network&quot; / &quot;connections&quot;)  (* plain path without parameters *)
+
+let kick =
+  Tezos_rpc.Service.delete_service  (* a DELETE service *)
+    ~query:wait_query  (* a query parameter defined earlier in the file as a flag (yes/no) *)
+    ~output:Data_encoding.empty  (* no value returned *)
+    ~description:
+      &quot;Forced close of the current P2P connection to the given peer.&quot;
+    Tezos_rpc.Path.(root / &quot;network&quot; / &quot;connections&quot; /: P2p_peer.Id.rpc_arg)
+        (* a path with an argument identifying a peer *)
+</pre></div>
+</div>
+<p>And the matching <code class="docutils literal notranslate"><span class="pre">.mli</span></code> excerpt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>val list :
+  ( [`GET]  (* method: get *)
+  , unit  (* prefix: none *)
+  , unit  (* params: none *)
+  , unit  (* query: none *)
+  , unit  (* input: none *)
+  , connection_info list  (* output *)
+  ) Tezos_rpc.Service.t
+
+val kick :
+ ( [`DELETE]  (* method: delete *)
+ , unit  (* prefix: none *)
+ , unit * P2p_peer.Id.t  (* params: one parameter *)
+ , &lt; wait : bool &gt;  (* query: one parameter *)
+ , unit  (* input: none *)
+ , unit  (* output: none *)
+ ) Tezos_rpc.Service.t
+</pre></div>
+</div>
+<p>Note that params (and prefix) parameters are represented as nested tuples
+of parameters. Zero parameters is represented as <code class="docutils literal notranslate"><span class="pre">unit</span></code>, a single
+<code class="docutils literal notranslate"><span class="pre">x</span></code> parameter is represented as <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">*</span> <span class="pre">x</span></code>, two parameters <code class="docutils literal notranslate"><span class="pre">x</span></code> and
+<code class="docutils literal notranslate"><span class="pre">y</span></code> are represented as <code class="docutils literal notranslate"><span class="pre">(unit</span> <span class="pre">*</span> <span class="pre">x)</span> <span class="pre">*</span> <span class="pre">y</span></code>, etc.</p>
+<p>Note that query parameters are represented as objects.
+This helps naming the different components of the query (it could also have been a record).
+In our case, it’s only a single query argument.</p>
+</section>
+<section id="another-usage-example">
+<h3>Another usage example<a class="headerlink" href="#another-usage-example" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_shell_services/chain_services.ml">src/lib_shell_services/chain_services.ml</a> declares all the
+chain-data-query RPC services. Excerpt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>module Levels = struct
+  (* define a path for that part of the services, as a kind of hierarchy of
+     paths matching a hierarchy of concepts *)
+  let path = Tezos_rpc.Path.(path / &quot;levels&quot;)
+
+  let checkpoint =
+    Tezos_rpc.Service.get_service  (* GET *)
+      ~description:&quot;The current checkpoint for this chain.&quot;
+      ~query:Tezos_rpc.Query.empty  (* no query *)
+      ~output:block_descriptor_encoding  (* output de/serialisation *)
+      Tezos_rpc.Path.(path / &quot;checkpoint&quot;)  (* sub-path *)
+
+  let savepoint = …
+
+  let caboose = …
+end
+</pre></div>
+</div>
+<p>And the matching <code class="docutils literal notranslate"><span class="pre">.mli</span></code> excerpt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type prefix = unit * chain
+…
+module Levels : sig
+  val checkpoint :
+    ( [`GET]  (* method: get *)
+    , prefix  (* prefix: one parameter (defined above) *)
+    , prefix  (* params: same as the prefix, no additional service-specific parameters *)
+    , unit  (* query: none *)
+    , unit  (* input: none *)
+    , Block_hash.t * int32  (* output *)
+    ) Tezos_rpc.Service.t
+
+  val savepoint : …
+
+  val caboose : …
+end
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-register-services-by-declaring-a-directory">
+<span id="howto-register"></span><h2>How to register services by declaring a directory<a class="headerlink" href="#how-to-register-services-by-declaring-a-directory" title="Link to this heading">#</a></h2>
+<p>Directories are sets of services, each with a handler.
+Therefore, declaring the directory and registering its services is done at the same time.</p>
+<p>More specifically, you:</p>
+<ol class="arabic">
+<li><p>start with the empty directory <code class="docutils literal notranslate"><span class="pre">Tezos_rpc.Directory.empty</span></code></p></li>
+<li><p>populate the directory by calling the registration functions in
+<a class="reference external" href="../api/odoc/_html/octez-libs/Tezos_rpc/Directory/index.html">Tezos_rpc.Directory </a></p>
+<p>There are a variety of registration functions in
+<code class="docutils literal notranslate"><span class="pre">Tezos_rpc.Directory</span></code> depending on the number of path parameter the
+service has, whether the service can fail with an error or not, etc.
+E.g., <code class="docutils literal notranslate"><span class="pre">register2</span></code> registers a 2-parameter service which may fail.
+E.g., <code class="docutils literal notranslate"><span class="pre">lwt_register1</span></code> registers a 1-parameter service which cannot
+fail (its handler uses lwt as its monad, hence the prefix).</p>
+</li>
+<li><p>may combine multiple directories together by calling
+<code class="docutils literal notranslate"><span class="pre">Tezos_rpc.Directory.merge</span></code>.</p>
+<p>Note that the merging of directories may fail by raising an exception
+if there are services registered for conflicting paths. You can use
+the other directory combinator <code class="docutils literal notranslate"><span class="pre">prefix</span></code> to put a whole directory
+under a given namespace. (You can also use <code class="docutils literal notranslate"><span class="pre">map</span></code> to provide prefix
+parameters (see above).)</p>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">Tezos_rpc.Directory</span></code> is the module for the file
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc/RPC_directory.ml">src/lib_rpc/RPC_directory.ml</a> and it is a thin wrapper around
+<a class="reference external" href="../api/odoc/_html/octez-libs/Resto_directory/index.html">Resto_directory.Make </a> which is in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/resto/src/resto_directory.ml">resto/src/resto_directory.ml</a>.
+The wrapper instantiates the functor with de/serialisation functions and
+shadows the <code class="docutils literal notranslate"><span class="pre">*register*</span></code> functions with some error-handling features.</p>
+<section id="usage-example-1">
+<span id="id1"></span><h3>Usage example<a class="headerlink" href="#usage-example-1" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_p2p/p2p_directory.ml">src/lib_p2p/p2p_directory.ml</a> assembles the p2p-related services
+defined in <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/src/lib_p2p_services/">src/lib_p2p_services/</a>. More specifically, it provides a
+<code class="docutils literal notranslate"><span class="pre">build_rpc_directory</span></code> function which returns a directory of the
+p2p-related services.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let build_rpc_directory net =
+  let dir = Tezos_rpc.Directory.empty in
+  … (* some registrations *)
+  let dir =
+    Tezos_rpc.Directory.lwt_register1
+      dir  (* the dir being populated *)
+      P2p_services.Connections.S.kick  (* the pre-declared service being registered *)
+      (fun peer_id q () -&gt;  (* the handler for the service, with the different
+                               parameters: the path parameter, the query parameter *)
+        match P2p.pool net with
+        | None -&gt; Lwt.return_unit
+        | Some pool -&gt; …)
+  in
+  let dir =
+    Tezos_rpc.Directory.register0
+      dir
+      P2p_services.Connections.S.list
+      (fun () () -&gt;
+        match P2p.pool net with
+        | None -&gt; tzfail P2p_errors.P2p_layer_disabled
+        | Some pool -&gt; …)
+  in
+  … (* more registrations *)
+  dir
+</pre></div>
+</div>
+<p>Note the differences between the two registrations. The <code class="docutils literal notranslate"><span class="pre">kick</span></code>
+registration uses <code class="docutils literal notranslate"><span class="pre">lwt_register1</span></code> because it cannot fail (it’s “lwt
+only”) and it takes one (1) path parameter. The <code class="docutils literal notranslate"><span class="pre">list</span></code> registration
+uses <code class="docutils literal notranslate"><span class="pre">register0</span></code> because it can fail (general case, no prefix) and it
+takes zero (0) path parameters.</p>
+<p>Also note that the helper functions for registration convert between the
+nested-tuples representation of the <code class="docutils literal notranslate"><span class="pre">'params</span></code> parameters and the curried
+representation of parameters for the handler function. E.g., the handler
+for <code class="docutils literal notranslate"><span class="pre">kick</span></code> takes a <code class="docutils literal notranslate"><span class="pre">peer_id</span></code> parameter instead of <code class="docutils literal notranslate"><span class="pre">((),</span> <span class="pre">peer_id)</span></code>.</p>
+</section>
+<section id="additional-usage-example">
+<h3>Additional usage example<a class="headerlink" href="#additional-usage-example" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_shell/node.ml">src/lib_shell/node.ml</a> brings in multiple directories from different
+parts of the code.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let build_rpc_directory ~node_version ~commit_info node =
+  let dir : unit Tezos_rpc.Directory.t ref = ref Tezos_rpc.Directory.empty in
+  let merge d = dir := Tezos_rpc.Directory.merge !dir d in
+  merge (Chain_directory.build_rpc_directory node.validator) ;
+  merge (P2p_directory.build_rpc_directory node.p2p) ;
+  …  (* more directories being merged *)
+  !dir
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-serve-a-directory">
+<h2>How to serve a directory<a class="headerlink" href="#how-to-serve-a-directory" title="Link to this heading">#</a></h2>
+<p>Serving a directory involves configuring and launching a server that listens to a port and handles RPC requests.</p>
+<p>First, get a <code class="docutils literal notranslate"><span class="pre">server</span></code> value by calling
+<code class="docutils literal notranslate"><span class="pre">Tezos_rpc_http.RPC_server.init_server</span></code>. This function takes a
+directory (see <a class="reference internal" href="#howto-register"><span class="std std-ref">How to register services by declaring a directory</span></a>).</p>
+<p>Then, call <code class="docutils literal notranslate"><span class="pre">Tezos_rpc_http.RPC_server.launch</span></code>. This function takes the
+<code class="docutils literal notranslate"><span class="pre">server</span></code> value initialised above as well as some server-configuration
+parameters (think port number and such). The executable which calls this
+function now serves the RPC services registered in the directory.</p>
+<p>The responsibilities are handled as follows:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="../api/odoc/_html/octez-libs/Tezos_rpc_http_server/RPC_server/index.html">Tezos_rpc_http.RPC_server </a>
+provides a thin wrapper (for de/serialisation and logging) around <code class="docutils literal notranslate"><span class="pre">Resto_server</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Resto_server</span></code> translates the directory into a callback: it takes an
+HTTP request and finds the matching handler to call.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Resto_server</span></code> provides a thin wrapper (error management, startup and teardown, some
+de/serialisation glue, etc.) around Cohttp.</p></li>
+<li><p>Cohttp does the low-level HTTP management (parsing HTTP requests, printing HTTP responses,
+populating headers, etc.) and delegates the actual network management
+(sockets, connections, etc.) to Conduit.</p></li>
+<li><p>Conduit does the bind/accept/etc. dance.</p></li>
+</ul>
+<p>For details about RPC handling and RPC server initialization, see <a class="reference internal" href="rpc_architecture.html"><span class="doc">RPC handling architecture</span></a>.</p>
+<section id="usage-example-2">
+<span id="id2"></span><h3>Usage example<a class="headerlink" href="#usage-example-2" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/bin_node/node_run_command.ml">src/bin_node/node_run_command.ml</a> spins up the RPC server which is
+part of the <code class="docutils literal notranslate"><span class="pre">octez-node</span></code> executable.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let launch_rpc_server (config : Config_file.t) dir rpc_server_kind addr =
+  … (* some things ommitted for scope *)
+  let server =
+    RPC_server.init_server
+      ~cors
+      ?acl
+      ~media_types:(Media_type.Command_line.of_command_line media_types)
+      dir  (* this is the directory of services, passed to the server *)
+  in
+  … (* some things ommitted for scope *)
+  RPC_server.launch
+    ~host
+    server  (* this is the server (with its directory) being started *)
+    ~callback
+    ~max_active_connections:config.rpc.max_active_rpc_connections
+    mode
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">dir</span></code> is initialised in another part of the code as</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>let dir = Node.build_rpc_directory ~node_version ~commit_info node in
+let dir = Node_directory.build_node_directory config dir in
+let dir =
+  Tezos_rpc.Directory.register_describe_directory_service
+    dir
+    Tezos_rpc.Service.description_service
+in
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-call-rpcs">
+<h2>How to call RPCs<a class="headerlink" href="#how-to-call-rpcs" title="Link to this heading">#</a></h2>
+<p>In principle, you can call RPCs using curl or whichever HTTP client, but it can be difficult to
+de/serialise arguments and responses. It is even more difficult when
+using the <code class="docutils literal notranslate"><span class="pre">application/octet-stream</span></code> media type. Although
+<a class="reference internal" href="../introduction/howtouse.html#octez-codec"><span class="std std-ref">octez-codec</span></a>, the executable from <code class="docutils literal notranslate"><span class="pre">src/bin_codec</span></code>, can help, it is
+still difficult and further explanations are beyond the scope of this
+document.</p>
+<p>Instead, you can use the <a class="reference internal" href="../introduction/howtouse.html#howtouse-tezos-client"><span class="std std-ref">octez-client</span></a> executable. This provides some
+safety checks, some UI/UX niceties, and some built-in de/serialisation.
+The <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> executable uses abstractions similar to the node’s
+RPC server in order to make RPC calls.</p>
+<p>The stack is:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">src/bin_client/*</span></code> defines the actual UI of the <code class="docutils literal notranslate"><span class="pre">octez-client</span></code>
+binary: the commands, the parameters, etc. These commands use a
+client-context (variable name: <code class="docutils literal notranslate"><span class="pre">cctxt</span></code>) (see <a class="reference internal" href="rpc_architecture.html#rpc-cctx"><span class="std std-ref">details</span></a>) to actually make
+the call.</p></li>
+<li><p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc_http/RPC_client_unix.ml">src/lib_rpc_http/RPC_client_unix.ml</a> instantiates an <code class="docutils literal notranslate"><span class="pre">RPC_client</span></code>
+(see next item) with the actual underlying calling method. The actual
+underlying calling method is a thin wrapper around the one provided by
+cohttp-client.</p></li>
+<li><p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc_http/RPC_client.ml">src/lib_rpc_http/RPC_client.ml</a> provides a thin wrapper (error
+management, de/serialisation, some media-type dispatch) around
+<code class="docutils literal notranslate"><span class="pre">resto_client</span></code> to package it into a client-context.</p></li>
+<li><p><a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/lib_rpc/RPC_context.ml">src/lib_rpc/RPC_context.ml</a> defines a client-context: a simple
+class (in the OOP sense) with methods to perform RPC calls.</p>
+<ul>
+<li><p>The main idea behind this abstraction is roughly dependency
+injection: code can handle all the logic of calling RPC entry-points
+and using the returned value but the actual backend is passed
+dynamically as a client-context parameter. This is a leftover from a
+time we were trying to separate the code into native-vs-javascript
+parts and it could be greatly simplified.</p></li>
+<li><p>The methods for performing the calls take a service as an argument
+as well as all the arguments (path, query, body) that the service
+expects. It computes the correct path based on the service
+declaration.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="how-to-register-an-rpc-in-the-protocol">
+<h2>How to register an RPC in the protocol<a class="headerlink" href="#how-to-register-an-rpc-in-the-protocol" title="Link to this heading">#</a></h2>
+<p>Shortly: declaring and registering an RPC in the protocol is the same as for other services but is done inside the
+plugin part of the protocol so the protocol services can be patched without having to
+inject a new protocol.</p>
+</section>
+</section>
+
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                    feedbackBtn.setAttribute("footer-text", "For information about providing feedback and the kinds of feedback that we are interested in, see <a href='https://octez.tezos.com/docs/developer/contributing.html#providing-feedback-on-documentation' target='_blank'>Providing feedback on documentation</a>.");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
+            <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let bielBtn = document.createElement("biel-button");
+                        bielBtn.innerHTML = "Ask AI";
+                        bielBtn.setAttribute("project", "w30c27l8fg");
+                    bielBtn.setAttribute("button-text", "Ask AI");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
+                    bielBtn.setAttribute("button-style", "dark");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://docs.tezos.com/overview/chatbot' target='_blank'>Using the chatbot</a>.");
+                    bielBtn.setAttribute("version", "latest");
+                        document.body.appendChild(bielBtn);
+                    });
+                </script>
+            
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="protocol_environment_upgrade.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Adding a new protocol environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Documenting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-declare-a-service">How to declare a service</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefix-vs-params"><code class="docutils literal notranslate"><span class="pre">'prefix</span></code> vs <code class="docutils literal notranslate"><span class="pre">'params</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example">Usage example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-usage-example">Another usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-services-by-declaring-a-directory">How to register services by declaring a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example-1">Usage example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-usage-example">Additional usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-serve-a-directory">How to serve a directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-example-2">Usage example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-call-rpcs">How to call RPCs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-register-an-rpc-in-the-protocol">How to register an RPC in the protocol</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

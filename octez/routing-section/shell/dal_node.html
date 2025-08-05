@@ -1,0 +1,1200 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The DAL node &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shell/dal_node';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/routing-section/shell/dal_node.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running a DAL attester node" href="dal_run.html" />
+    <link rel="prev" title="DAL overview" href="dal_overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/routing.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="dal.html">Data Availability Layer</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/shell/dal_node.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fshell/dal_node.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The DAL node</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-and-features">Concepts and features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-p2p-network">DAL P2P network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modes">Modes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiles">Profiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#routing">Routing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-monitoring">L1 monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-server">RPC server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-aspects">Operational aspects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-commands">DAL node commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-configuration-of-the-l1-node">DAL configuration of the L1 node</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System requirements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-attesters">DAL attesters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-producer-node">DAL producer node</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bootstrap-mechanism">The bootstrap mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifetime-of-slots-and-shards">Lifetime of slots and shards</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-dal-node">
+<h1>The DAL node<a class="headerlink" href="#the-dal-node" title="Link to this heading">#</a></h1>
+<p>A DAL node is an executable (called <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code>) whose main roles are to publish, store, and exchange data for the <a class="reference internal" href="dal_overview.html"><span class="doc">DAL layer</span></a>. Interacting with a DAL node is done through the command-line interface (CLI) and through RPCs. In what follows, we describe the main components and features of a DAL node, and then present some operational aspects on configuring and running a DAL node.</p>
+<section id="concepts-and-features">
+<h2>Concepts and features<a class="headerlink" href="#concepts-and-features" title="Link to this heading">#</a></h2>
+<section id="dal-p2p-network">
+<h3>DAL P2P network<a class="headerlink" href="#dal-p2p-network" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code> executable runs a node in the DAL’s P2P network. Recall that <a class="reference internal" href="dal_overview.html#dal-p2p"><span class="std std-ref">the DAL’s P2P protocol</span></a> is based on a gossipsub algorithm for distributing shards, running on top of a networking layer using the same P2P library as L1 nodes.</p>
+<p>Actors with various roles run DAL nodes, but they need different views of the network depending on their role:</p>
+<ul class="simple">
+<li><p>Operators of Smart Rollups care about data on the slots that their Smart Rollups use, but not about the slots used by other rollups.</p></li>
+<li><p>Bakers only care about the shards that they are assigned to attest to, but they must watch all slots because the assigned shards can be in any slot.</p></li>
+<li><p>Bootstrap node operators care about other nodes connecting to peers that are interested in the same messages via the P2P network but don’t care about the content of the messages on the network or any specific slot or shard more than any other.</p></li>
+</ul>
+<p>Non-bootstrap DAL nodes distinguish themselves only in the topics they subscribe to:</p>
+<ul class="simple">
+<li><p>Operators subscribe to all topics containing some specified slot indexes.</p></li>
+<li><p>Bakers subscribe to all topics containing the attester identities they run for (for all possible slot indexes).</p></li>
+</ul>
+<p>Bootstrap nodes are DAL network entry points that are used for network discovery.
+A bootstrap node remains connected to a large number of peers and is subscribed to all topics.
+When a DAL node starts, it gets the URLs of the bootstrap nodes from its layer 1 node and uses these bootstrap nodes to connect to peers.
+When a DAL node does not have the necessary connections to the P2P network, bootstrap nodes provide connection points with the relevant topics.</p>
+<section id="modes">
+<h4>Modes<a class="headerlink" href="#modes" title="Link to this heading">#</a></h4>
+<p>The DAL node has two modes:</p>
+<ul>
+<li><p><strong>Controller mode</strong> is appropriate for most nodes; it is for nodes that post, share, or attest data.
+Nodes in this mode run in one or more profiles to determine what data they post, share, or attest, as described below.</p></li>
+<li><p><strong>Bootstrap mode</strong> is for nodes that help other nodes connect to peers.
+Bootstrap nodes are already running on most Tezos networks, so in most cases, you don’t need to run a node in bootstrap mode unless you are starting a new Tezos network.</p>
+<p>To run a DAL node in bootstrap mode, pass the <code class="docutils literal notranslate"><span class="pre">--bootstrap-profile</span></code> argument, as in this example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>octez-dal-node<span class="w"> </span>run<span class="w"> </span>--endpoint<span class="w"> </span>http://127.0.0.1:8732<span class="w"> </span>--bootstrap-profile<span class="w"> </span>--data-dir<span class="w"> </span><span class="nv">$DATA_DIR</span>
+</pre></div>
+</div>
+<p>The configuration file for a DAL node running in bootstrap mode shows only the base information about the node, as in this example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dal-node/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8732&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bootstrap&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="profiles">
+<span id="dal-profiles"></span><h4>Profiles<a class="headerlink" href="#profiles" title="Link to this heading">#</a></h4>
+<p>As described above, different actors are interested in different roles when running DAL nodes.
+Some want to produce data, others want to share data, and others want to attest data.
+For this reason, DAL controller nodes run in different profiles; these profiles control which data the nodes post, share, and attest.
+You can set these profiles in the node’s configuration file, as CLI arguments to the node’s commands, or via RPC calls.</p>
+<p>Currently, a DAL node in controller mode can use any combination of profiles.
+However, for future-proofing and for production installations, run a DAL controller node in a single profile.</p>
+<p>A DAL node in controller mode can run in these profiles:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile (formerly the <code class="docutils literal notranslate"><span class="pre">producer</span></code> profile) is for users who are running a Smart Rollup as an operator and want to post data. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--operator-profiles</span></code> argument with the indexes of the slots to accept data for, as in this example:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>octez-dal-node<span class="w"> </span>run<span class="w"> </span>--endpoint<span class="w"> </span>http://127.0.0.1:8732<span class="w"> </span>--operator-profiles<span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>--data-dir<span class="w"> </span><span class="nv">$DATA_DIR</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile is for bakers who want to attest to data. DAL nodes in this profile must pass the <code class="docutils literal notranslate"><span class="pre">--attester-profiles</span></code> argument with the public key hashes of the bakers to attest data for (their delegate or manager keys, not their <a class="reference internal" href="../active/proof_of_stake.html#consensus-key"><span class="std std-ref">consensus keys</span></a>), as in this example:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>octez-dal-node<span class="w"> </span>run<span class="w"> </span>--endpoint<span class="w"> </span>http://127.0.0.1:8732<span class="w"> </span>--attester-profiles<span class="o">=</span>tz1QCVQinE8iVj1H2fckqx6oiM85CNJSK9Sx<span class="w"> </span>--data-dir<span class="w"> </span><span class="nv">$DATA_DIR</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile contributes to the resilience of network by helping distribute data in the specified slots. To run a DAL node with the <code class="docutils literal notranslate"><span class="pre">observer</span></code> profile, pass the <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span></code> argument with the indexes of the slots to monitor or an empty string (as in <code class="docutils literal notranslate"><span class="pre">--observer-profiles</span> <span class="pre">''</span></code>) to use a random index, as in this example:</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>octez-dal-node<span class="w"> </span>run<span class="w"> </span>--endpoint<span class="w"> </span>http://127.0.0.1:8732<span class="w"> </span>--observer-profiles<span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>--data-dir<span class="w"> </span><span class="nv">$DATA_DIR</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>The configuration file for a DAL controller node shows its active profiles.
+For example, this configuration file shows that it is running in the <code class="docutils literal notranslate"><span class="pre">operator</span></code> profile and accepting data for slots 0 and 1:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dal-node/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8732&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;controller_profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;operators&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;observers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;attesters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The configuration file for a DAL node running with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile shows the public key hashes of the associated bakers, as in this example:</p>
+<blockquote>
+<div><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dal-node/&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://127.0.0.1:8732&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;controller&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;controller_profiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;operators&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;observers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;attesters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;tz1QCVQinE8iVj1H2fckqx6oiM85CNJSK9Sx&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>By default, the DAL node runs in controller mode without any profile.</p>
+<p>When a baker starts with the <code class="docutils literal notranslate"><span class="pre">--dal-node</span></code> argument, it checks the DAL node’s configuration.
+If the DAL node is not in bootstrap mode and not already set up with the <code class="docutils literal notranslate"><span class="pre">attester</span></code> profile, the baker configures the DAL node to use the attester profile associated with the keys that it is using.</p>
+</section>
+<section id="routing">
+<h4>Routing<a class="headerlink" href="#routing" title="Link to this heading">#</a></h4>
+<p>DAL nodes must be able to initiate connections outside their local network and accept connections from outside their local network.
+By default, the DAL node accepts P2P connections on port 11732, but you can change the address and port that the node listens on by setting the <code class="docutils literal notranslate"><span class="pre">--net-addr</span></code> argument.
+In simple setups with a single DAL node, routing configuration is usually not necessary.
+However, if you are using a load balancer or running multiple DAL nodes, you may need to configure port forwarding on your router and the ports and addresses that the DAL nodes use.</p>
+<p>For more information, see <a class="reference internal" href="../user/routing.html"><span class="doc">Routing</span></a>.</p>
+</section>
+</section>
+<section id="storage">
+<h3>Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h3>
+<p>The DAL node essentially stores slots and shards. Slots are injected into the node through an RPC (see details at <a class="reference internal" href="#slots-lifetime"><span class="std std-ref">Lifetime of slots and shards</span></a>), at which moment the corresponding commitment is computed and stored. Shards and their proofs are computed and stored via another RPC. It is important to also compute the shards’ proofs, because shards can be exchanged over the P2P network only if they are accompanied by their proof. Shards received over the P2P network are also stored. The node also tracks and stores the status of commitments by monitoring the L1 chain, connecting to this end to an L1 node specified at startup.</p>
+<p>The amount of storage space a DAL node needs depends on how long it keeps the data, and different profiles keep the data for different amounts of time:</p>
+<ul class="simple">
+<li><p>Bootstrap nodes store no DAL data and therefore require negligible storage.</p></li>
+<li><p>Attester and observer nodes store data in memory for a few blocks after the attestation delay by default.</p></li>
+<li><p>Operator nodes store data on disk for the slots registered with this profile for 3 months by default because the data may be needed for the Smart Rollup refutation game.</p></li>
+</ul>
+<p>You can set how long the node stores data with the <code class="docutils literal notranslate"><span class="pre">--history-mode</span></code> option.</p>
+</section>
+<section id="l1-monitoring">
+<h3>L1 monitoring<a class="headerlink" href="#l1-monitoring" title="Link to this heading">#</a></h3>
+<p>The DAL node tracks the L1 chain, in particular it monitors the heads of the L1 chain via an RPC. Each time a block becomes <a class="reference internal" href="../active/consensus.html#finality"><span class="std std-ref">final</span></a>, it retrieves and stores the commitments published in that block, and if its storage contains shards for these commitments, it publishes them on the P2P network. The DAL node also retrieves the slot attestation status from the block’s metadata. Finally, based on this information it updates the status of the stored commitments, where the status of a commitment can be one of the following:</p>
+<ul class="simple">
+<li><p><em>waiting for attestation</em>: The commitment was included and applied in a finalized L1 block but the corresponding slot remains to be attested.</p></li>
+<li><p><em>attested</em>: The commitment was included in an L1 block and the corresponding slot is attested.</p></li>
+<li><p><em>unattested</em>: The commitment was included in an L1 block but the corresponding slot was not timely attested.</p></li>
+<li><p><em>not selected</em>: The commitment was included in an L1 block but was not selected for that slot index. This can happen if there is another commitment in the same block for the same slot index that was placed before the commitment in question (in operation order) by the baker.</p></li>
+<li><p><em>unseen or not finalized</em>: The commitment was not seen in a final L1 block. For instance, this could happen if the RPC <code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/commitments/&lt;commitment&gt;</span></code> was called but the corresponding commitment was never included into a block; or the commitment was included in a non-final block. This means that the publish operation was not sent (yet) to L1, or sent but not included (yet) in a block, or included in a not (yet) final block.</p></li>
+</ul>
+</section>
+<section id="rpc-server">
+<h3>RPC server<a class="headerlink" href="#rpc-server" title="Link to this heading">#</a></h3>
+<p>The DAL node incorporates an RPC server which answers to RPC queries to update or retrieve information about the node’s state.
+For instance, one can post slots, ask the node to compute and store shards, to update profiles, or to connect to or disconnect from peers.</p>
+<p>The default listening port for RPCs is 10732, but can be changed using option <code class="docutils literal notranslate"><span class="pre">--rpc-addr</span></code>.
+The RPC server is started by default, even if this option is not given.
+Look at  <a class="reference internal" href="../api/openapi.html#dal-node-openapi"><span class="std std-ref">openapi description</span></a> for the list of available RPC.</p>
+</section>
+</section>
+<section id="operational-aspects">
+<h2>Operational aspects<a class="headerlink" href="#operational-aspects" title="Link to this heading">#</a></h2>
+<section id="dal-node-commands">
+<span id="id1"></span><h3>DAL node commands<a class="headerlink" href="#dal-node-commands" title="Link to this heading">#</a></h3>
+<p>The DAL node has two commands <code class="docutils literal notranslate"><span class="pre">config</span> <span class="pre">init</span></code> and <code class="docutils literal notranslate"><span class="pre">run</span></code>.</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">init</span> <span class="pre">config</span></code> creates a new configuration file in the specified data directory or in the default location (ie <code class="docutils literal notranslate"><span class="pre">~/.tezos-dal-node</span></code>) with the parameters provided on the command-line by the corresponding arguments, in case no configuration file exists already. If such a file already exists, it overrides it with the provided parameters (old parameters are lost).</p>
+<p>The command <code class="docutils literal notranslate"><span class="pre">run</span></code> runs the DAL node. The CLI arguments take precedence over the configuration file arguments, except for the list of bootstrap peers and of profiles, which are considered in addition to the ones from the configuration file. The configuration file is however not overridden with the new values of the node’s parameters. However, at the end of the execution, the node’s profiles, which may have been given as arguments or set via RPCs, are written to the configuration file.</p>
+<p>Both commands have the same arguments, which can be seen by executing, e.g., <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span> <span class="pre">config</span> <span class="pre">init</span> <span class="pre">--help</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OPTIONS
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="cli-commands.html#dal-node-manual"><span class="std std-ref">DAL node manual</span></a> for more details.</p>
+<p>The concrete operational steps for participating in the DAL network are described in page <a class="reference internal" href="dal_run.html"><span class="doc">Running a DAL attester node</span></a>.</p>
+</section>
+<section id="dal-configuration-of-the-l1-node">
+<h3>DAL configuration of the L1 node<a class="headerlink" href="#dal-configuration-of-the-l1-node" title="Link to this heading">#</a></h3>
+<p>All operator and observer DAL nodes should use the same initialization parameters of the cryptographic primitives used by the DAL, see section <a class="reference internal" href="../introduction/howtobuild.html#setup-dal-crypto-params"><span class="std std-ref">Install DAL trusted setup</span></a> (<strong>NB:</strong> just that section, not the rest of the page such as compiling sources, etc.).</p>
+<p>Also, in order for the nodes to be able to join the P2P network, a set of bootstrap nodes can be provided using the <code class="docutils literal notranslate"><span class="pre">network.dal_config.bootstrap_peers</span></code> configuration parameter of the L1 node (thus using the same mechanism as for L1 nodes, see <a class="reference internal" href="../user/multinetwork.html"><span class="doc">Connecting to a Network</span></a> and <a class="reference internal" href="../user/node-configuration.html#configure-p2p"><span class="std std-ref">P2P parameters</span></a>).</p>
+</section>
+<section id="system-requirements">
+<span id="dal-node-specs"></span><h3>System requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">#</a></h3>
+<p>The system requirements for the DAL node depend on whether the node is being run by a baker for the purpose of attesting DAL data or by a slot producer for the purpose of publishing data to the DAL.
+The following sections provide system requirements for these cases based on experimentation.
+For more information about the experimentation, see <a class="reference external" href="https://forum.tezosagora.org/t/hardware-and-bandwidth-requirements-for-the-tezos-dal/6230">Hardware and bandwidth requirements for the Tezos DAL</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These requirements are for DAL nodes that run independently of any other Octez binary.
+The requirements are higher if they are running on the same system as other Octez binaries.</p>
+</div>
+<section id="dal-attesters">
+<h4>DAL attesters<a class="headerlink" href="#dal-attesters" title="Link to this heading">#</a></h4>
+<p>The amount of data that a DAL node must attest to depends on how much baking power the associated baker has.
+The larger the baking power, the more data the DAL sends to the DAL node to attest and the more system resources the DAL node needs.</p>
+<p>This table shows the system requirements for a DAL node (independent of any other Octez binary) that attests 100% of the data assigned to it.
+The specifications in this table are an estimate based on experimentation with Google Cloud Platform compute instances; you must monitor your DAL node to ensure that it attests all or nearly all of the data that it is assigned to attest.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Baking power</p></th>
+<th class="head"><p>0.5% of total</p></th>
+<th class="head"><p>1% of total</p></th>
+<th class="head"><p>2% of total</p></th>
+<th class="head"><p>5% of total</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Machine type</p></td>
+<td><p>e2-small (ssd)</p></td>
+<td><p>e2-small (ssd)</p></td>
+<td><p>e2-small (ssd)</p></td>
+<td><p>e2-medium (ssd)</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU clock</p></td>
+<td><p>2.25 GHz</p></td>
+<td><p>2.25 GHz</p></td>
+<td><p>2.25 GHz</p></td>
+<td><p>2.25 GHz</p></td>
+</tr>
+<tr class="row-even"><td><p>RAM</p></td>
+<td><p>2 GiB</p></td>
+<td><p>2 GiB</p></td>
+<td><p>2 GiB</p></td>
+<td><p>4 GiB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disk space</p></td>
+<td><p>20 GiB</p></td>
+<td><p>20 GiB</p></td>
+<td><p>20 GiB</p></td>
+<td><p>20 GiB</p></td>
+</tr>
+<tr class="row-even"><td><p>Bandwidth (upload)</p></td>
+<td><p>250 KiB/s</p></td>
+<td><p>250 KiB/s</p></td>
+<td><p>250 KiB/s</p></td>
+<td><p>250 KiB/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bandwidth (download)</p></td>
+<td><p>250 KiB/s</p></td>
+<td><p>350 KiB/s</p></td>
+<td><p>400 KiB/s</p></td>
+<td><p>600 KiB/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dal-producer-node">
+<h4>DAL producer node<a class="headerlink" href="#dal-producer-node" title="Link to this heading">#</a></h4>
+<p>The system resources that a DAL producer node needs depends on how much data it needs to publish to the DAL.
+This example is an estimate based on experimentation with a DAL producer node that publishes data into one slot in each block:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>CPU</p></td>
+<td><p>n2-standard-2</p></td>
+</tr>
+<tr class="row-even"><td><p>RAM</p></td>
+<td><p>4 GiB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Disk space</p></td>
+<td><p>500 GiB</p></td>
+</tr>
+<tr class="row-even"><td><p>Bandwidth (upload)</p></td>
+<td><p>2.5 MiB/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bandwidth (download)</p></td>
+<td><p>0.5 MiB/s</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="monitoring">
+<h3>Monitoring<a class="headerlink" href="#monitoring" title="Link to this heading">#</a></h3>
+<p>As for L1 nodes, to monitor the DAL node, one can inspect the node’s logs, query the node through RPCs, or use the incorporated Octez Metrics server. The usage of metrics is analogous to that for the L1 nodes, and we therefore refer to the <a class="reference internal" href="../user/node-monitoring.html"><span class="doc">L1 node’s documentation</span></a> for details.</p>
+</section>
+<section id="the-bootstrap-mechanism">
+<h3>The bootstrap mechanism<a class="headerlink" href="#the-bootstrap-mechanism" title="Link to this heading">#</a></h3>
+<p>The gossipsub algorithm establishes upper bounds on the size of a topic mesh. Whenever a peer B would like to join the mesh of a peer A, but the peer A cannot add B to its mesh due to the upper bound, peer A responds with a random list of peers it knows are subscribed to the same topic. Peer B will then try to connect to these advertised peers. This peer exchange mechanism is used to bootstrap the P2P network: for bootstrap DAL nodes, the upper bound is set to 0, and thus, while they do not participate in exchanging shards, they keep advertising known peers so that new peers can connect to them and thus enter the P2P network.</p>
+<p>If a node is behind a NAT, it is important to make the distinction between its “public address” and its “network address”. It is the public address that is advertised, and this should be the node’s external address, while the network address should be the node’s internal address. In other words, the public address behaves as the <code class="docutils literal notranslate"><span class="pre">--advertised-net-port</span></code> option of the L1 node, see <a class="reference internal" href="../user/node-configuration.html#private-mode"><span class="std std-ref">Listening ports</span></a>.</p>
+</section>
+<section id="lifetime-of-slots-and-shards">
+<span id="slots-lifetime"></span><h3>Lifetime of slots and shards<a class="headerlink" href="#lifetime-of-slots-and-shards" title="Link to this heading">#</a></h3>
+<p>The life cycle of slots and shards is described by the following steps:</p>
+<ol class="arabic">
+<li><p>The operator posts the slot data to some DAL node of its choice. The node computes the corresponding commitment and adds the association commitment - slot to the store.
+This is done via the RPC <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/commitments/&lt;slot_data&gt;</span></code>, which returns the corresponding commitment.</p></li>
+<li><p>The operator instructs the DAL node to compute and save the shards of the slot associated with the given commitment.
+It is important to set the query flag <code class="docutils literal notranslate"><span class="pre">with_proof</span></code> to true to be able to publish the shards on the P2P network.
+This is done via the RPC <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/commitments/&lt;commitment&gt;/shards</span></code>.</p></li>
+<li><p>The operator instructs the DAL node to compute the proof associated with the commitment.
+This is done via the RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/commitments/&lt;commitment&gt;/proof</span></code>, which returns the corresponding commitment proof.</p></li>
+<li><p>The operator selects a slot index for its slot, and posts the commitment to L1, via the <code class="docutils literal notranslate"><span class="pre">publish_commitment</span></code> operation.
+This can be done via RPCs for injecting an operation into L1, or using the Octez client, via the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client publish dal commitment &lt;commitment&gt; from &lt;pkh&gt; for slot &lt;slot_index&gt; with proof &lt;proof&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Once the operation is included in a final block (that is, there are at least two blocks on top of the one including the operation), and the slot is considered published (see <a class="reference internal" href="dal_overview.html"><span class="doc">DAL overview</span></a>), all DAL nodes exchange the slot’s shards they have in their store on the P2P network, depending on their profile (see <a class="reference internal" href="dal_overview.html#dal-p2p"><span class="std std-ref">The DAL’s P2P protocol</span></a>), and they store previously unknown shards.</p></li>
+<li><p>Attesters check, for all published slots, the availability of the shards they are assigned by interrogating their DAL node, via the RPC <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/profiles/&lt;pkh&gt;/attested_levels/&lt;level&gt;/attestable_slots</span></code>, where level is the level at which the slot was published plus <code class="docutils literal notranslate"><span class="pre">attestation_lag</span></code>, and <code class="docutils literal notranslate"><span class="pre">pkh</span></code> is the attester’s public key hash. (See also <a class="reference internal" href="dal_bakers.html"><span class="doc">Bakers &amp; the DAL</span></a>)</p></li>
+<li><p>Attesters attach a DAL payload containing the information received at step 6 to their attestation operation, via their baker binary. (See also <a class="reference internal" href="dal_bakers.html"><span class="doc">Bakers &amp; the DAL</span></a>)</p></li>
+<li><p>The protocol aggregates the received attestations, and declares each published slot as available or unavailable, depending on whether some threshold is reached, via the blocks metadata.</p></li>
+<li><p>Rollups and other users can request stored pages or shards for an attested slot from any DAL node via the RPCs <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/slot/pages/&lt;commitment&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/shards/&lt;commitment&gt;</span></code> respectively. Only nodes that store enough shards to reconstruct the slot can provide the requested pages.</p></li>
+</ol>
+<p>Step 2 can be done in parallel with steps 3-4, but before step 5.</p>
+</section>
+</section>
+</section>
+
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                    feedbackBtn.setAttribute("footer-text", "For information about providing feedback and the kinds of feedback that we are interested in, see <a href='https://octez.tezos.com/docs/developer/contributing.html#providing-feedback-on-documentation' target='_blank'>Providing feedback on documentation</a>.");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
+            <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let bielBtn = document.createElement("biel-button");
+                        bielBtn.innerHTML = "Ask AI";
+                        bielBtn.setAttribute("project", "w30c27l8fg");
+                    bielBtn.setAttribute("button-text", "Ask AI");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
+                    bielBtn.setAttribute("button-style", "dark");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://docs.tezos.com/overview/chatbot' target='_blank'>Using the chatbot</a>.");
+                    bielBtn.setAttribute("version", "latest");
+                        document.body.appendChild(bielBtn);
+                    });
+                </script>
+            
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dal_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">DAL overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dal_run.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running a DAL attester node</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts-and-features">Concepts and features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-p2p-network">DAL P2P network</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modes">Modes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#profiles">Profiles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#routing">Routing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#l1-monitoring">L1 monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-server">RPC server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operational-aspects">Operational aspects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-commands">DAL node commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-configuration-of-the-l1-node">DAL configuration of the L1 node</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System requirements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-attesters">DAL attesters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-producer-node">DAL producer node</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring">Monitoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-bootstrap-mechanism">The bootstrap mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lifetime-of-slots-and-shards">Lifetime of slots and shards</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
