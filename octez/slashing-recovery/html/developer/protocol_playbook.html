@@ -1,0 +1,1270 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Protocol Proposals &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9e990f31"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/protocol_playbook';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://octez.tezos.com/docs/developer/protocol_playbook.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Protocol Release Checklist" href="protocol_release_checklist.html" />
+    <link rel="prev" title="Adding a new instruction to Michelson language" href="michelson_instructions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Protocol Proposals</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/developer/protocol_playbook.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/protocol_playbook.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Protocol Proposals</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-protocol-proposal">Developing a Protocol Proposal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-protocol-code-and-public-documentation">Proposed protocol code and public documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-proposal-testnet-and-hash">Protocol Proposal testnet and hash</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-completeness">Feature-completeness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilization">Stabilization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing-a-protocol-proposal">Releasing a Protocol Proposal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-via-on-chain-governance">Validation via on-chain governance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-proposal-proposition">Protocol Proposal proposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation">Activation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-activation">Before Activation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-time">Activation time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-activation">After Activation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-and-mitigations">Issues and mitigations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-in-case-of-issues">Decision Tree in case of issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-activated-actions">User-Activated Actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uapo-user-activated-protocol-override">UAPO: <em>User-Activated Protocol Override</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uau-user-activated-upgrade">UAU: <em>User-Activated Upgrade</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uaac-user-activated-activation-cancelation">UAAC: <em>User-Activated Activation Cancelation</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ko-cancel-organically">KO: Cancel organically</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="protocol-proposals">
+<h1>Protocol Proposals<a class="headerlink" href="#protocol-proposals" title="Link to this heading">#</a></h1>
+<p>This document explains in detail the process followed by a team crosscutting Nomadic Labs, Trilitech and Functori for developing and submitting Protocol Proposals (hereafter called “the protocol team”), which are proposals for amending the Tezos <a class="reference internal" href="../active/index.html"><span class="doc">economic protocol</span></a>.
+This playbook covers more generally their whole lifecycle, including discovering and managing related issues.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The processes documented here present the best practices followed by the protocol team.
+They are documented for improving predictability and reproducibility between protocol proposals submitted by this team, and for easing the onboarding of new members in this team,
+and possibly more largely in the Tezos ecosystem, by demystifying the protocol amendment process.
+These best practices may also be useful as inspiration for other proposers of protocol amendments, but they do not aim to provide any guidelines or standards.</p>
+</div>
+<p>Protocol Proposals are regularly submitted (non-exclusively) by the protocol team, typically every 3-4 months, to the
+on-chain governance – the bakers – who decide
+whether one of these Proposals will be activated on
+the mainnet and become the effective Protocol.</p>
+<p>Activation of a Protocol Proposal involves a self-amendment of the mainnet
+Protocol through hot swapping. This requires baker infrastructure to be ready
+for a specific period – the Protocol programmatically decides the activation
+block once voted.</p>
+<p>The life cycle of a successful Protocol Proposal unfolds as follows:</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#develop-proposal"><span class="std std-ref">Developing a Protocol Proposal</span></a></p></li>
+<li><p><a class="reference internal" href="#release-proposal"><span class="std std-ref">Releasing the Protocol Proposal</span></a></p></li>
+<li><p><a class="reference internal" href="#validate-proposal"><span class="std std-ref">Validation via on-chain governance</span></a></p></li>
+<li><p><a class="reference internal" href="#activate-proposal"><span class="std std-ref">Activation on mainnet</span></a></p></li>
+</ol>
+<p>During any of these phases, issues may possibly be discovered.
+Handling such issues is covered by the different procedures described in section <a class="reference internal" href="#protocol-issues"><span class="std std-ref">Issues and mitigations</span></a>.</p>
+<section id="developing-a-protocol-proposal">
+<span id="develop-proposal"></span><h2>Developing a Protocol Proposal<a class="headerlink" href="#developing-a-protocol-proposal" title="Link to this heading">#</a></h2>
+<p>The development of a protocol proposal proceeds in different phases, and covers not only its code, but also other related artefacts such as documentation or testnets.</p>
+<section id="proposed-protocol-code-and-public-documentation">
+<h3>Proposed protocol code and public documentation<a class="headerlink" href="#proposed-protocol-code-and-public-documentation" title="Link to this heading">#</a></h3>
+<p>The Protocol Proposal code consists of feature implementations that can be
+either ready to be activated or under a feature flag. The features that are
+ready for activation will be considered as part of the Protocol Proposal. It’s
+important to note that the code under feature flags will also
+be included in the Protocol Proposal code, even if it is unreachable under mainnet.</p>
+<p>A feature is <strong>complete</strong> once fully implemented, documented, and validated. A
+feature is validated when the corresponding feature team has enough confidence in its
+implementation thanks to a validation process, usually designed with safety and
+security analysis, feature tests, and regression tests (and potentially external
+audits).</p>
+<p>The Protocol Proposal must not introduce unbearable and unpredicted performance
+regressions during its activation or lifetime: it has to be <em>validated against</em>
+<em>global and performance tests</em>.</p>
+<p>A Protocol Proposal is <strong>feature-complete</strong> when all its features are complete,
+and its whole code is validated by global performance testing.</p>
+<p>A feature-complete Protocol Proposal may transit to the <strong>stabilization period</strong>, during which it undergoes additional testing cycles, including
+performance and manual testing, QA testing, integration testing by tool providers.
+During stabilization, the protocol documentation is improved and completed to cover all new features and changes.</p>
+<p>During the development of a protocol proposal, feedback requests involve bakers, tooling providers, and other stakeholders to gather early input on the design and implementation of new features. These aim to reach a consensus on feature design as early in the development process as possible, avoiding delays in downstream support when features are eventually released.</p>
+<p>It is especially important to bring onboard the developers from hardware wallets, web wallets, indexers to inform them of the new features and identify possible changes (specially breaking changes), arising from changes in the new proposal.</p>
+<p>It is imperative that these tools are ready before the potential activation date of the new protocol proposal.</p>
+<p>Under exceptional circumstances, particular inputs from the feedback loop might be taken into account during the protocol stabilization period. In this case:</p>
+<ul class="simple">
+<li><p>The stabilization period is extended accordingly to allow gathering feedback and providing recommendations.</p></li>
+<li><p>Changes originating from this process may be incorporated in the protocol proposal code, or may translate in a new <em>variant</em> to be submitted along the original proposal.</p></li>
+<li><p>Modified proposals and/or new variants will also be subject to stablization.</p></li>
+</ul>
+<p>During stabilization, the feature-complete Protocol Proposal lives in
+<code class="docutils literal notranslate"><span class="pre">proto-beta/</span></code>, and changes can only be triggered by a bug fix, a QA or
+performance improvement, or a decided change from a feedback loop.</p>
+<p>Once stabilized, a feature-complete Protocol Proposal can be declared <strong>ready for release.</strong></p>
+<p>The code lives within the following directories under <code class="docutils literal notranslate"><span class="pre">src/</span></code>:</p>
+<ul class="simple">
+<li><p>Before being feature-complete, the Protocol Proposal code is in
+<code class="docutils literal notranslate"><span class="pre">proto-alpha</span></code>.</p></li>
+<li><p>A feature-complete Protocol Proposal code is in <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code>.</p></li>
+<li><p>A ready-for-release Protocol Proposal code is in <code class="docutils literal notranslate"><span class="pre">proto-&lt;proposal</span> <span class="pre">name&gt;</span></code>.</p></li>
+</ul>
+</section>
+<section id="protocol-proposal-testnet-and-hash">
+<h3>Protocol Proposal testnet and hash<a class="headerlink" href="#protocol-proposal-testnet-and-hash" title="Link to this heading">#</a></h3>
+<p>The following testnets are used for protocol proposals:</p>
+<ul class="simple">
+<li><p>Before being feature-complete, the Protocol Proposal (protocol Alpha) can be tested on
+<code class="docutils literal notranslate"><span class="pre">weeklynet</span></code>.</p></li>
+<li><p>A feature-complete Protocol Proposal stabilization requires a dedicated
+testnet: <code class="docutils literal notranslate"><span class="pre">betanet</span></code> is used for testing campaigns happening during
+stabilization. This testnet is shut down when the Proposal testnet starts.</p></li>
+<li><p>A ready-for-release Protocol Proposal testnet is <code class="docutils literal notranslate"><span class="pre">&lt;proposal</span> <span class="pre">name&gt;net</span></code> and
+its start is announced within the Protocol Proposal release.</p></li>
+</ul>
+<p>A testnet needs an Octez suite and a testnet configuration for running. An
+Octez suite needs a Protocol to activate hence a hash of the code of this
+Protocol.</p>
+<p>Consequently:</p>
+<ul class="simple">
+<li><p>A first hash of <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code> is computed before entering into the stabilization</p></li>
+<li><p>At each upgrade of <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code>, it has to be rehashed so that <code class="docutils literal notranslate"><span class="pre">betanet</span></code>
+enables testing on the accurate Proposal</p></li>
+<li><p>For each version of <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code>, a version of Octez, compatible with
+<code class="docutils literal notranslate"><span class="pre">proto-beta</span></code>, is released as <code class="docutils literal notranslate"><span class="pre">octez-beta</span></code></p></li>
+</ul>
+<p>The stabilization period continues until the feature-complete Protocol
+Proposal code is ready for release.</p>
+</section>
+<section id="feature-completeness">
+<h3>Feature-completeness<a class="headerlink" href="#feature-completeness" title="Link to this heading">#</a></h3>
+<p>The objectives of this phase are:</p>
+<ul class="simple">
+<li><p>assessing the set of features from <code class="docutils literal notranslate"><span class="pre">proto-alpha</span></code> that are complete (with
+feature flag activated) to be part of a Protocol Proposal</p></li>
+<li><p>producing all the artifacts required for entering the stabilization
+period:</p>
+<ol class="arabic simple">
+<li><p>a feature-complete Protocol Proposal in a dedicated directory called
+<code class="docutils literal notranslate"><span class="pre">proto-beta</span></code> (using proto-betaN in case we need to stabilize several
+versions of proto-alpha with a different set of activated features) from
+proto-alpha</p></li>
+<li><p>Its initial hash and the initial <code class="docutils literal notranslate"><span class="pre">octez-beta</span></code> suite</p></li>
+<li><p>Testnet configuration for <code class="docutils literal notranslate"><span class="pre">betanet</span></code></p></li>
+</ol>
+</li>
+</ul>
+<p>Artifacts 1. and 2. are produced using the script <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/scripts/proto_manager.sh">scripts/proto_manager.sh</a>
+by the protocol team (this script supersedes the older <a class="reference external" href="https://gitlab.com/tezos/tezos/-/tree/master/scripts/snapshot_alpha.sh">snapshot script </a> by automating much more steps, for instance related to testing and CI). In case of breaking changes in the protocol, the
+script should be updated by its maintainers. If necessary, manual
+commits may be introduced in the Merge Request introducing the
+stabilized protocol. In any case, such changes should be taken into
+account and the script should be updated by its maintainers
+afterwards.
+Artifact 3 should be produced by the protocol team.</p>
+<p>Two weeks before the feature-complete expected date, open a milestone (along the lines of another recent milestone titled “&lt;X&gt; Protocol Proposal is feature-complete”)
+and open a dedicated channel &lt;x&gt;-protocol with the tech leads and managers for
+each feature team and for release management, the Protocol
+shepherd, the Head of Core Engineering and the testnets manager. Make
+sure the <code class="docutils literal notranslate"><span class="pre">proto_manager</span></code> script is usable with the current state of
+<code class="docutils literal notranslate"><span class="pre">proto_alpha</span></code>.</p>
+<p>While the productions of both the <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code> snapshot and <code class="docutils literal notranslate"><span class="pre">octez-beta</span></code>
+are under the responsibility of the protocol team, Release Management must be
+involved in their review and actual releases.</p>
+</section>
+<section id="stabilization">
+<h3>Stabilization<a class="headerlink" href="#stabilization" title="Link to this heading">#</a></h3>
+<p>The objectives of this phase are:</p>
+<ul class="simple">
+<li><p>Stabilizing the feature-complete Protocol Proposal on <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code></p></li>
+<li><p>Potentially adding decided changes triggered by feedback loops</p></li>
+<li><p>Producing artifacts for the Protocol Proposal release:</p>
+<ul>
+<li><p>Final hash</p></li>
+<li><p>Compatible Octez suite</p></li>
+<li><p>Testnet configuration for <code class="docutils literal notranslate"><span class="pre">proto-&lt;proposal</span> <span class="pre">name&gt;</span></code></p></li>
+<li><p>Technical description of the Protocol Proposal features</p></li>
+</ul>
+</li>
+</ul>
+<p>To plan the end of the stabilization period, open a milestone (along the lines of another recent milestone titled “&lt;X&gt; Protocol Proposal is release-ready”).</p>
+<p>As with <code class="docutils literal notranslate"><span class="pre">proto-beta</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-beta</span></code>, producing the final protocol
+snapshot and its associated release candidate are under the
+responsibility of the protocol team. Obviously, Release Management must
+be involved in their review and actual releases.</p>
+</section>
+</section>
+<section id="releasing-a-protocol-proposal">
+<span id="release-proposal"></span><h2>Releasing a Protocol Proposal<a class="headerlink" href="#releasing-a-protocol-proposal" title="Link to this heading">#</a></h2>
+<p>A Protocol Proposal consists of:</p>
+<ol class="arabic simple">
+<li><p>A hash of the proposed protocol code.</p></li>
+<li><p>The proposed protocol public documentation.</p></li>
+<li><p>An Octez suite release candidate that allows nodes, bakers, and
+accusers to support this Proposal.</p></li>
+<li><p>A testnet.</p></li>
+</ol>
+<p>Releasing a Protocol Proposal involves publishing these 4 elements in a blog
+post, on Agora and on company blogs.
+Make sure of the technical consistency of the blogpost content and social
+media package.</p>
+<p>It is recommended to release a protocol proposal as early as possible during the first half of a Proposal period of the on-chain governance process, so as to allow bakers sufficient time to evaluate proposals and cast their votes.</p>
+<p>For more details on the release phase, see:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_release_checklist.html#timeline-and-checklist">Timeline and Checklist</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="validation-via-on-chain-governance">
+<span id="validate-proposal"></span><h2>Validation via on-chain governance<a class="headerlink" href="#validation-via-on-chain-governance" title="Link to this heading">#</a></h2>
+<section id="protocol-proposal-proposition">
+<h3>Protocol Proposal proposition<a class="headerlink" href="#protocol-proposal-proposition" title="Link to this heading">#</a></h3>
+<p>The on-chain governance of Tezos L1 consists of 5 consecutive periods
+of 5 cycles (~ 2 weeks):</p>
+<ul class="simple">
+<li><p>Proposal period:</p>
+<ul>
+<li><p>This is when the released Protocol Proposal is injected by a baker and
+submitted to the on-chain governance.</p></li>
+<li><p>From potentially multiple proposals, bakers decide which is the only one to remain</p></li>
+<li><p>Quorum: 5% of the stake</p></li>
+<li><p>If no proposal reaches the quorum, we go back to a Proposal period</p></li>
+</ul>
+</li>
+<li><p>Exploration period:</p>
+<ul>
+<li><p>Are the bakers happy with the one Protocol Proposal that wins the Proposal
+period</p></li>
+<li><p>Or, it fails and we go back to a Proposal period</p></li>
+<li><p>Quorum: For a proposal to be approved, the participation (yea, nay and
+pass votes) should be higher than the expected quorum (currently around
+50%) <strong>and</strong> 80% of the casted votes (either yea or nay) should be yea
+votes</p></li>
+</ul>
+</li>
+<li><p>Cooldown (also called testing on some block explorers) period:</p>
+<ul>
+<li><p>Supposedly readiness of the ecosystems, bakers’ discussions</p></li>
+<li><p>no vote</p></li>
+</ul>
+</li>
+<li><p>Promotion period:</p>
+<ul>
+<li><p>After whatever happens during the cooldown period, are bakers
+still happy with the Protocol Proposal under vote</p></li>
+<li><p>Or, it fails and we go back to a Proposal period</p></li>
+<li><p>Quorum: For a proposal to be approved, the participation (yea, nay and
+pass votes) should be higher than the expected quorum (currently around
+50%) <strong>and</strong> 80% of the casted votes (either yea or nay) should be yea
+votes</p></li>
+</ul>
+</li>
+<li><p>Adoption period:</p>
+<ul>
+<li><p>The Protocol Proposal will be activated in 5 cycles, the ecosystem is
+getting ready.
+This constitutes a hard deadline for critical tools (such as Tezos apps on hardware wallets, or major indexers and block explorers) to support the test protocol and be deployed, if not already so.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="activation">
+<span id="activate-proposal"></span><h2>Activation<a class="headerlink" href="#activation" title="Link to this heading">#</a></h2>
+<section id="before-activation">
+<h3>Before Activation<a class="headerlink" href="#before-activation" title="Link to this heading">#</a></h3>
+<p><strong>One Month Before Potential Activation</strong></p>
+<ul class="simple">
+<li><p><strong>Test Network End of Life</strong>: announce the end of the previous test
+network. More precisely, announce that the test network for protocol
+<code class="docutils literal notranslate"><span class="pre">n-1</span></code> will be stopped when (if) protocol <code class="docutils literal notranslate"><span class="pre">n+1</span></code> activates.
+This gives one month for users to migrate to the test network for
+protocol <code class="docutils literal notranslate"><span class="pre">n</span></code> or <code class="docutils literal notranslate"><span class="pre">n+1</span></code>.</p></li>
+</ul>
+<p><strong>A Few Days Before Activation</strong></p>
+<ul>
+<li><p>Reminder for bakers to upgrade.</p>
+<p>The goal is to ensure that 3 first block proposers for the activation, the first new protocol block, and &lt;P&gt; second blocks are informed and have upgraded their infrastructure following the operation procedure for bakers.</p>
+</li>
+</ul>
+<p><strong>Before Activation, the following are prepared</strong></p>
+<ul class="simple">
+<li><p>Communication launch: blog article, social media, news/press release preparation for succesful activation</p></li>
+<li><p>Doc Update MR: A documentation update reflecting the new active protocol and droping the documentation of the previous protocol has to be ready. Technically, an MR instantiating meta-issue <a class="reference external" href="https://gitlab.com/tezos/tezos/-/issues/2170">#2170</a> (Section “Protocol activation”) for the new protocol has to be ready and must have sufficient approvals to be triggered right after activation.</p></li>
+</ul>
+</section>
+<section id="activation-time">
+<h3>Activation time<a class="headerlink" href="#activation-time" title="Link to this heading">#</a></h3>
+<p>The activation of the Protocol Proposal happens at the end of the Adoption
+period.</p>
+<p>Switching to the new protocol happens at the same time on the nodes in the network and requires a coordinated
+distributed deployment on every baker infrastructure (node, baker,
+accuser) – as we must have ⅔ + 1 of each block’s consensus committee up to date,
+to have a smooth activation we target the whole stake, and tolerate at least 85%
+of the stake – and nodes on the network need also to deploy Octez binaries that
+“understand” the new Protocol.</p>
+<p>All the preparation before activation, even before release should have ensured
+that the activation is smooth. Hence pre-activation readiness data, monitoring,
+war room, snapshot to restore &lt;O&gt; states, and – most importantly — readiness to
+celebrate the success of the activation in the activation room.</p>
+</section>
+<section id="after-activation">
+<h3>After Activation<a class="headerlink" href="#after-activation" title="Link to this heading">#</a></h3>
+<p>A few hours after activation, when it is certain that everything has
+happened successfully, a blog post goes out to Agora and company
+blogs, and then a
+news release is sent out.</p>
+<p>On the main <a class="reference external" href="https://gitlab.com/tezos/tezos">tezos/tezos</a> repository, on the
+master branch, the <code class="docutils literal notranslate"><span class="pre">proto_alpha</span></code> directory is reset to the newly activated
+protocol and its associated daemons, with the exception of vanity nonce and
+migration that should be reverted.</p>
+<p>Soon after the activation (preferably on the same or next day), the MR updating the documentation to reflect the new active protocol (see above) has to be merged. Also, part
+of the code related to the old protocol can now be dropped, see
+<a class="reference internal" href="howto-freeze-protocols.html"><span class="doc">How to Freeze Protocols</span></a>.</p>
+<p>One month after the activation of protocol N, we deactivate the N-1 test
+network. (For example, the Babylon net was deactivated one month after
+Carthage went live on the main network.) This deactivation has been already
+announced one month before activation (see above).</p>
+</section>
+</section>
+<section id="issues-and-mitigations">
+<span id="protocol-issues"></span><h2>Issues and mitigations<a class="headerlink" href="#issues-and-mitigations" title="Link to this heading">#</a></h2>
+<section id="decision-tree-in-case-of-issues">
+<h3>Decision Tree in case of issues<a class="headerlink" href="#decision-tree-in-case-of-issues" title="Link to this heading">#</a></h3>
+<p>The following decision tree applies in case an issue has been found in an active
+protocol or a protocol proposal already submitted to on-chain governance, during
+any of the voting periods.</p>
+<p>This decision tree is extended to the Tezos Layer 2 by a <strong>Solidarity Principle</strong>.
+This Solidarity Principle ensures that Layer 1 of the Tezos protocol extends its
+responsibility to enshrined Layer 2 components such as Etherlink. In practice,
+this means that if an issue arises in these components that can be resolved or
+mitigated by actions at the Layer 1 level, the protocol team will help the Layer 2 team with
+the same level of commitment as if the issue were within Layer 1 itself. This principle aims to strengthen trust
+in Layer 2 and other enshrined components by guaranteeing not only their
+security through Layer 1 but also the commitment of Layer 1 to support and
+safeguard their operation when necessary.</p>
+<img alt="Decision Tree in case of issues" class="align-center" src="../_images/protocol_playbook_decision_tree.svg" />
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>To enable a user activated action, more than 2/3rd of the stake has to
+trigger it. Thus one must ensure a large majority of the
+stake has been upgraded.</p>
+</div>
+</section>
+<section id="user-activated-actions">
+<h3>User-Activated Actions<a class="headerlink" href="#user-activated-actions" title="Link to this heading">#</a></h3>
+<section id="uapo-user-activated-protocol-override">
+<h4>UAPO: <em>User-Activated Protocol Override</em><a class="headerlink" href="#uapo-user-activated-protocol-override" title="Link to this heading">#</a></h4>
+<p>The process to amend a Protocol Proposal under the governance voting
+process.</p>
+<p>In the following, we denoted &lt;P&gt; the Protocol Proposal that needs to
+be UAPOed.</p>
+<ol class="arabic simple">
+<li><p>The patched <code class="docutils literal notranslate"><span class="pre">&lt;P&gt;</span></code> Protocol Proposal should be done and validated</p></li>
+<li><p>If it does not create an attack vector, a public MR that is targeting
+alpha and has no relation to &lt;P&gt; nor mentions any issue should be
+ready to be merged ASAP</p></li>
+<li><p>A snapshot and a hash for the patched &lt;P&gt; Protocol are
+prepared with the release manager</p></li>
+<li><p>Migration tests, monitoring, etc should be ready</p></li>
+<li><p>The comm must be ready</p></li>
+<li><p>Then a public merge of the patched &lt;P&gt; Protocol on <code class="docutils literal notranslate"><span class="pre">master</span></code> of
+<code class="docutils literal notranslate"><span class="pre">tezos/tezos</span></code> (this will be public and demand comms to be ready), this MR
+should include the necessary code for the UAPO in the Octez shell (which
+would have already been produced to test the migration anyway)</p></li>
+<li><p>Form then a (quick) release of Octez with the UAPO and everything
+can go back to the usual business</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;P&gt;</span></code>net must be upgraded and the tool providers might
+need some time to update their tools.</p></li>
+<li><p>Ensure with bakers that a large majority of the stake has been upgraded.</p></li>
+<li><p>In terms of communication, we favor transparency.</p></li>
+</ul>
+</div>
+</section>
+<section id="uau-user-activated-upgrade">
+<h4>UAU: <em>User-Activated Upgrade</em><a class="headerlink" href="#uau-user-activated-upgrade" title="Link to this heading">#</a></h4>
+<p>Process to amend the active protocol, to be avoided as much as
+possible (particularly on Mainnet), and only occur in an extreme
+emergency.</p>
+<ol class="arabic simple">
+<li><p>The patched <code class="docutils literal notranslate"><span class="pre">&lt;P&gt;</span></code> Protocol Proposal should be done and validated.</p></li>
+<li><p>A beta-like protocol is prepared using the same tools used
+to produce a stabilized protocol.</p></li>
+<li><p>This protocol is patched to include the necessary fixes</p></li>
+<li><p>It is tested accordingly</p></li>
+<li><p>It is snapshotted into a new <code class="docutils literal notranslate"><span class="pre">proto-&lt;proto</span> <span class="pre">name&gt;</span></code>
+protocol</p></li>
+<li><p>The shell is updated to produce the automatic upgrade at a decided
+block (preferably <strong>the last block of a cycle</strong>).</p></li>
+<li><p>Communication must be ready</p></li>
+<li><p>Then, a public merge of the patched &lt;P&gt; protocol on master including
+the Octez shell changes</p></li>
+<li><p>A (quick) release of Octez with the UAU</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;P&gt;</span></code>net must be upgraded and the tool providers might
+need some time to update their tools.</p></li>
+<li><p>Ensure with bakers that a large majority of the stake has been upgraded.</p></li>
+<li><p>In terms of communication, we favor transparency.</p></li>
+</ul>
+</div>
+</section>
+<section id="uaac-user-activated-activation-cancelation">
+<h4>UAAC: <em>User-Activated Activation Cancelation</em><a class="headerlink" href="#uaac-user-activated-activation-cancelation" title="Link to this heading">#</a></h4>
+<p>The process to cancel a Protocol Activation at the end of the governance
+voting process.</p>
+<ul class="simple">
+<li><p>Prepare a configuration with the UAAC</p></li>
+<li><p>Optionally: prepare an Octez release hardcoding the UAAC</p></li>
+</ul>
+</section>
+</section>
+<section id="ko-cancel-organically">
+<h3>KO: Cancel organically<a class="headerlink" href="#ko-cancel-organically" title="Link to this heading">#</a></h3>
+<p>This process consists in transparently provide information on the issue and leave the decision in bakers’ hands to reject (or not) the proposal using the governance process.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="michelson_instructions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Adding a new instruction to Michelson language</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="protocol_release_checklist.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Protocol Release Checklist</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-a-protocol-proposal">Developing a Protocol Proposal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proposed-protocol-code-and-public-documentation">Proposed protocol code and public documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-proposal-testnet-and-hash">Protocol Proposal testnet and hash</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-completeness">Feature-completeness</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilization">Stabilization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing-a-protocol-proposal">Releasing a Protocol Proposal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-via-on-chain-governance">Validation via on-chain governance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-proposal-proposition">Protocol Proposal proposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation">Activation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-activation">Before Activation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-time">Activation time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#after-activation">After Activation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#issues-and-mitigations">Issues and mitigations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree-in-case-of-issues">Decision Tree in case of issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-activated-actions">User-Activated Actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uapo-user-activated-protocol-override">UAPO: <em>User-Activated Protocol Override</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uau-user-activated-upgrade">UAU: <em>User-Activated Upgrade</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#uaac-user-activated-activation-cancelation">UAAC: <em>User-Activated Activation Cancelation</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ko-cancel-organically">KO: Cancel organically</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

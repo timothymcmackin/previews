@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The Profiler module &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=9e990f31"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer/profiler_module';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://octez.tezos.com/docs/developer/profiler_module.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Profiler PPX" href="ppx_profiler.html" />
+    <link rel="prev" title="Performance profiling" href="profiler_perf.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tools.html">Platform Development tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="profiling.html">Profiling the Octez node</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">The Profiler module</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/developer/profiler_module.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fdeveloper/profiler_module.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>The Profiler module</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-use">Example of use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-file">Example file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-profiler">Create a new profiler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-profiler">Use the profiler</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-profiler-module">
+<h1>The Profiler module<a class="headerlink" href="#the-profiler-module" title="Link to this heading">#</a></h1>
+<p>Octez offers a profiler module that is better suited than external tools like
+<code class="docutils literal notranslate"><span class="pre">perf</span></code> for the monadic programming model of Lwt and for generating traces, as
+it offers more control and is able to handle the elusive nature of Lwt.</p>
+<section id="example-of-use">
+<h2>Example of use<a class="headerlink" href="#example-of-use" title="Link to this heading">#</a></h2>
+<p>This step-by-step guide shows how a profiler is created, plugged and used in
+Octez (based on the <code class="docutils literal notranslate"><span class="pre">lib_shell</span></code> profiling):</p>
+</section>
+<section id="example-file">
+<h2>Example file<a class="headerlink" href="#example-file" title="Link to this heading">#</a></h2>
+<p>We’ll start with this simple file:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">read_int</span> <span class="n">ic</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="k">rec</span> <span class="n">aux</span> <span class="n">acc</span> <span class="o">=</span>
+    <span class="k">match</span> <span class="n">input_char</span> <span class="n">ic</span> <span class="k">with</span>
+    <span class="o">|</span> <span class="sc">&#39; &#39;</span> <span class="o">|</span> <span class="sc">&#39;\n&#39;</span> <span class="o">-&gt;</span> <span class="n">acc</span>
+    <span class="o">|</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">aux</span> <span class="o">((</span><span class="mi">10</span> <span class="o">*</span> <span class="n">acc</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="nn">Char</span><span class="p">.</span><span class="n">code</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">48</span><span class="o">))</span>
+  <span class="k">in</span>
+  <span class="n">aux</span> <span class="mi">0</span>
+
+<span class="k">let</span> <span class="n">read_test_int</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">ic</span> <span class="o">=</span> <span class="n">open_in</span> <span class="n">sample</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span> <span class="k">in</span>
+  <span class="k">try</span>
+    <span class="k">while</span> <span class="bp">true</span> <span class="k">do</span>
+      <span class="k">let</span> <span class="n">e</span> <span class="o">=</span> <span class="n">read_int</span> <span class="n">ic</span> <span class="k">in</span>
+      <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span>
+    <span class="k">done</span>
+  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span>
+    <span class="n">close_in</span> <span class="n">ic</span> <span class="o">;</span>
+    <span class="nn">Format</span><span class="p">.</span><span class="n">eprintf</span> <span class="s2">&quot;%d@.&quot;</span> <span class="o">!</span><span class="n">max</span>
+
+<span class="k">let</span> <span class="n">read_test_line</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="n">ic</span> <span class="o">=</span> <span class="n">open_in</span> <span class="n">sample</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span> <span class="k">in</span>
+  <span class="k">try</span>
+    <span class="k">while</span> <span class="bp">true</span> <span class="k">do</span>
+      <span class="n">input_line</span> <span class="n">ic</span> <span class="o">|&gt;</span> <span class="nn">String</span><span class="p">.</span><span class="n">split_on_char</span> <span class="sc">&#39; &#39;</span>
+      <span class="o">|&gt;</span> <span class="nn">List</span><span class="p">.</span><span class="n">iter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span>
+             <span class="k">let</span> <span class="n">e</span> <span class="o">=</span> <span class="n">int_of_string</span> <span class="n">e</span> <span class="k">in</span>
+             <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span><span class="o">)</span>
+    <span class="k">done</span>
+  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span>
+    <span class="n">close_in</span> <span class="n">ic</span> <span class="o">;</span>
+    <span class="nn">Format</span><span class="p">.</span><span class="n">eprintf</span> <span class="s2">&quot;%d@.&quot;</span> <span class="o">!</span><span class="n">max</span>
+
+<span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="n">read_test_int</span> <span class="bp">()</span> <span class="o">;</span>
+  <span class="n">read_test_line</span> <span class="bp">()</span> <span class="o">;</span>
+  <span class="n">read_test_scanf</span> <span class="bp">()</span>
+</pre></div>
+</div>
+<p>We have three functions that we would want to profile to see which one is faster
+and to see what’s taking the longest time in each.</p>
+</section>
+<section id="create-a-new-profiler">
+<h2>Create a new profiler<a class="headerlink" href="#create-a-new-profiler" title="Link to this heading">#</a></h2>
+<p>Start by creating a unique profiler:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">read_profiler</span> <span class="o">=</span> <span class="n">unplugged</span> <span class="bp">()</span>
+</pre></div>
+</div>
+<p>You can see it as an API to the profiling machinery that isn’t able to do
+anything useful for now. Why is that? Because you need to attach it to a
+<code class="docutils literal notranslate"><span class="pre">backend</span></code>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">backend</span></code> is defined in two steps:</p>
+<ul class="simple">
+<li><p>Select a <code class="docutils literal notranslate"><span class="pre">Driver</span></code> (like “this driver writes text files in an unix
+filesystem”)</p></li>
+<li><p>Define a specific <code class="docutils literal notranslate"><span class="pre">instance</span></code> of a <code class="docutils literal notranslate"><span class="pre">Driver</span></code> (like “this driver will write in
+this file with this level of detail”)</p></li>
+</ul>
+<p>Octez already provides two <code class="docutils literal notranslate"><span class="pre">Drivers</span></code>:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">auto_write_as_txt_to_file</span> <span class="o">:</span> <span class="o">(</span><span class="kt">string</span> <span class="o">*</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">verbosity</span><span class="o">)</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">driver</span>
+
+<span class="k">val</span> <span class="n">auto_write_as_json_to_file</span> <span class="o">:</span> <span class="o">(</span><span class="kt">string</span> <span class="o">*</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">verbosity</span><span class="o">)</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">driver</span>
+</pre></div>
+</div>
+<p>These <code class="docutils literal notranslate"><span class="pre">Drivers</span></code> are specifically crafted to write text or JSON files in an Unix
+filesystem. As you can see, they expect two ‘arguments’, a <code class="docutils literal notranslate"><span class="pre">string</span></code> (where to
+write) and a <code class="docutils literal notranslate"><span class="pre">Profiler.verbosity</span></code> (the maximum level of detail/verbosity
+expected from the profiler).</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="n">verbosity</span> <span class="o">=</span> <span class="nc">Notice</span> <span class="o">|</span> <span class="nc">Info</span> <span class="o">|</span> <span class="nc">Debug</span>
+</pre></div>
+</div>
+<p>For this tutorial, we will use <code class="docutils literal notranslate"><span class="pre">verbosity</span> <span class="pre">=</span> <span class="pre">Info</span></code>, but developers are
+encouraged to use their preferred option.</p>
+<p>To choose the verbosity of the profiler at runtime, the <code class="docutils literal notranslate"><span class="pre">PROFILING</span></code>
+environment variable is used. It follows the same pattern as the <code class="docutils literal notranslate"><span class="pre">TEZOS_LOG</span></code>
+environment variable (see <a class="reference internal" href="../user/logging.html"><span class="doc">Logging features</span></a>) except that it doesn’t execute
+profilers which verbosity is not set.</p>
+<p>Starting a node with
+<code class="docutils literal notranslate"><span class="pre">PROFILING='shell_profiling-&gt;Notice;mempool_profiling-&gt;Debug'</span></code> will set the
+maximum verbosity for these two profilers and not execute the rest of the profilers.</p>
+<p>We can now easily create an instance for a <code class="docutils literal notranslate"><span class="pre">Driver</span></code>:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">read_instance</span> <span class="o">=</span>
+  <span class="nn">Tezos_profiler</span><span class="p">.</span><span class="nn">Profiler</span><span class="p">.</span><span class="n">instance</span>
+    <span class="nn">Tezos_profiler_backends</span><span class="p">.</span><span class="nn">Simple_profiler</span><span class="p">.</span><span class="n">auto_write_as_txt_to_file</span>
+    <span class="o">(</span><span class="s2">&quot;read_profiling.txt&quot;</span><span class="o">,</span> <span class="nn">Profiler</span><span class="p">.</span><span class="nc">Info</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>We just need one last thing. We have a <code class="docutils literal notranslate"><span class="pre">read_profiler</span></code> and a <code class="docutils literal notranslate"><span class="pre">read_instance</span></code> that
+writes in <code class="docutils literal notranslate"><span class="pre">read_profiling.txt</span></code> but they are not connected. That’s where the
+following function needs to be used:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">plug</span> <span class="o">:</span> <span class="n">profiler</span> <span class="o">-&gt;</span> <span class="n">instance</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+</pre></div>
+</div>
+<p>So we just need to</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Profiler</span><span class="p">.</span><span class="n">plug</span> <span class="n">read_profiler</span> <span class="n">read_instance</span>
+</pre></div>
+</div>
+<p>And voilà!, when we’ll call functions attached to <code class="docutils literal notranslate"><span class="pre">read_profiler</span></code> the reports
+will be properly written in <code class="docutils literal notranslate"><span class="pre">read_profiling.txt</span></code> (It should be noted here that
+a profiler can be plugged to multiple instances allowing to write infos in
+different files or with different format).</p>
+<p>Since it would be a little bit annoying to call each functions by giving it
+<code class="docutils literal notranslate"><span class="pre">read_profiler</span></code> as a parameter, the <code class="docutils literal notranslate"><span class="pre">Profiler</span></code> module offers a convenient
+function that creates a module allowing to call all the <code class="docutils literal notranslate"><span class="pre">read_profiler</span></code> functions
+without providing it:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">wrap</span> <span class="o">:</span> <span class="n">profiler</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="k">module</span> <span class="nc">GLOBAL_PROFILER</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>This will give access to the functions in <a class="reference external" href="../../api/odoc/_html/octez-libs/Tezos_profiler/Profiler/module-type-GLOBAL_PROFILER/index.html">the Profiler.GLOBAL_PROFILER module </a>.</p>
+</section>
+<section id="use-the-profiler">
+<h2>Use the profiler<a class="headerlink" href="#use-the-profiler" title="Link to this heading">#</a></h2>
+<p>We can now wrap our profiler to create a module that we will use to profile our
+code.</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">module</span> <span class="nc">Read_profiler</span> <span class="o">=</span> <span class="o">(</span><span class="k">val</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">wrap</span> <span class="n">read_profiler</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Since <code class="docutils literal notranslate"><span class="pre">Read_profiler</span></code> is already plugged to <code class="docutils literal notranslate"><span class="pre">read_instance</span></code>, calling
+<code class="docutils literal notranslate"><span class="pre">Read_profiler</span></code> functions will work as expected.</p>
+<p>We can now start monitoring our code.</p>
+<p>First, we need to plug our profilers to backends to gather results. Plugging a
+profiler to one or more backends is done with <code class="docutils literal notranslate"><span class="pre">PROFILING_BACKENDS=&lt;list</span> <span class="pre">of</span> <span class="pre">;</span>
+<span class="pre">separated</span> <span class="pre">backends&gt;</span></code>. For example, you could run a node with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PROFILING=&quot;*-&gt;Debug&quot; PROFILING_BACKENDS=&quot;txt; json&quot; octez-node run
+</pre></div>
+</div>
+<p>We can start with a simple change:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">plug</span> <span class="n">instance</span> <span class="o">;</span>
+  <span class="o">(</span><span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_line&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="n">read_test_line</span> <span class="bp">()</span><span class="o">)</span> <span class="o">;</span>
+  <span class="o">(</span><span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_int&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="n">read_test_int</span> <span class="bp">()</span><span class="o">)</span> <span class="o">;</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_scanf&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="n">read_test_scanf</span> <span class="bp">()</span>
+</pre></div>
+</div>
+<p>Note: the <code class="docutils literal notranslate"><span class="pre">Read_profiler</span></code> functions take a <code class="docutils literal notranslate"><span class="pre">(id,</span> <span class="pre">metadata)</span> <span class="pre">:</span> <span class="pre">string</span> <span class="pre">*</span> <span class="pre">metadata</span></code> as their
+first parameter:
+- <code class="docutils literal notranslate"><span class="pre">id</span></code> is used to create sections and represent the part being profiled by the function
+- <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is used by backends that need specific informations (like Prometheus)</p>
+<p>Looking at the result gives us:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span><span class="n">T09</span><span class="o">:</span><span class="mi">46</span><span class="o">:</span><span class="mi">46</span><span class="o">.</span><span class="mi">376</span><span class="o">-</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span> <span class="n">read_test_line</span> <span class="o">....</span> <span class="mi">1</span>           <span class="mi">42</span><span class="o">.</span><span class="mi">707</span><span class="n">ms</span> <span class="mi">100</span><span class="o">%</span> <span class="o">+</span><span class="mi">0</span><span class="o">.</span><span class="mi">002</span><span class="n">ms</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span><span class="n">T09</span><span class="o">:</span><span class="mi">46</span><span class="o">:</span><span class="mi">46</span><span class="o">.</span><span class="mi">419</span><span class="o">-</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span> <span class="n">read_test_int</span> <span class="o">.....</span> <span class="mi">1</span>          <span class="mi">106</span><span class="o">.</span><span class="mi">481</span><span class="n">ms</span> <span class="mi">100</span><span class="o">%</span> <span class="o">+</span><span class="mi">42</span><span class="o">.</span><span class="mi">865</span><span class="n">ms</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">18</span><span class="n">T09</span><span class="o">:</span><span class="mi">46</span><span class="o">:</span><span class="mi">46</span><span class="o">.</span><span class="mi">525</span><span class="o">-</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span> <span class="n">read_test_scanf</span> <span class="o">...</span> <span class="mi">1</span>          <span class="mi">122</span><span class="o">.</span><span class="mi">623</span><span class="n">ms</span> <span class="mi">100</span><span class="o">%</span> <span class="o">+</span><span class="mi">149</span><span class="o">.</span><span class="mi">439</span><span class="n">ms</span>
+</pre></div>
+</div>
+<p>Now that we know that the profiler outputs correctly to our chosen file, let’s
+monitor our functions more precisely:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">profiler</span> <span class="o">=</span> <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">unplugged</span> <span class="bp">()</span>
+
+<span class="k">module</span> <span class="nc">Read_profiler</span> <span class="o">=</span> <span class="o">(</span><span class="k">val</span> <span class="nn">Profiler</span><span class="p">.</span><span class="n">wrap</span> <span class="n">profiler</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="n">instance</span> <span class="o">=</span>
+  <span class="nn">Profiler</span><span class="p">.</span><span class="n">instance</span> <span class="nn">Tezos_profiler_backends</span><span class="p">.</span><span class="nn">Simple_profiler</span><span class="p">.</span><span class="n">auto_write_as_txt_to_file</span>
+    <span class="o">(</span><span class="s2">&quot;/tmp/test_profiler.txt&quot;</span><span class="o">,</span> <span class="nn">Profiler</span><span class="p">.</span><span class="nc">Info</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="n">read_int</span> <span class="n">ic</span> <span class="o">=</span>
+  <span class="k">let</span> <span class="k">rec</span> <span class="n">aux</span> <span class="n">acc</span> <span class="o">=</span>
+    <span class="k">match</span> <span class="n">input_char</span> <span class="n">ic</span> <span class="k">with</span>
+    <span class="o">|</span> <span class="sc">&#39; &#39;</span> <span class="o">|</span> <span class="sc">&#39;\n&#39;</span> <span class="o">-&gt;</span> <span class="n">acc</span>
+    <span class="o">|</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">aux</span> <span class="o">((</span><span class="mi">10</span> <span class="o">*</span> <span class="n">acc</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="nn">Char</span><span class="p">.</span><span class="n">code</span> <span class="n">c</span> <span class="o">-</span> <span class="mi">48</span><span class="o">))</span>
+  <span class="k">in</span>
+  <span class="n">aux</span> <span class="mi">0</span>
+
+<span class="k">let</span> <span class="n">read_test_int</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span>  <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_int&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+  <span class="k">let</span> <span class="n">ic</span> <span class="o">=</span> <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;open_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="n">open_in</span> <span class="n">sample</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span> <span class="k">in</span>
+  <span class="k">try</span>
+    <span class="k">while</span> <span class="bp">true</span> <span class="k">do</span>
+      <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_int&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+      <span class="n">read_int</span> <span class="n">ic</span> <span class="o">|&gt;</span> <span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span>
+    <span class="k">done</span>
+  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span>
+    <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;close_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+    <span class="n">close_in</span> <span class="n">ic</span> <span class="o">;</span>
+    <span class="nn">Format</span><span class="p">.</span><span class="n">eprintf</span> <span class="s2">&quot;%d@.&quot;</span> <span class="o">!</span><span class="n">max</span>
+
+<span class="k">let</span> <span class="n">read_test_line</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_line&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+  <span class="k">let</span> <span class="n">ic</span> <span class="o">=</span> <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;open_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="n">open_in</span> <span class="n">sample</span> <span class="k">in</span>
+  <span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span> <span class="k">in</span>
+  <span class="k">try</span>
+    <span class="k">while</span> <span class="bp">true</span> <span class="k">do</span>
+      <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">span_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">([</span><span class="s2">&quot;input_line&quot;</span><span class="o">],</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+      <span class="n">input_line</span> <span class="n">ic</span> <span class="o">|&gt;</span> <span class="nn">String</span><span class="p">.</span><span class="n">split_on_char</span> <span class="sc">&#39; &#39;</span>
+      <span class="o">|&gt;</span> <span class="nn">List</span><span class="p">.</span><span class="n">iter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span>
+             <span class="k">let</span> <span class="n">e</span> <span class="o">=</span> <span class="n">int_of_string</span> <span class="n">e</span> <span class="k">in</span>
+             <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span><span class="o">)</span>
+    <span class="k">done</span>
+  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span>
+    <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;close_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+    <span class="n">close_in</span> <span class="n">ic</span> <span class="o">;</span>
+    <span class="nn">Format</span><span class="p">.</span><span class="n">eprintf</span> <span class="s2">&quot;%d@.&quot;</span> <span class="o">!</span><span class="n">max</span>
+
+<span class="k">let</span> <span class="n">read_test_scanf</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">record_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_test_scanf&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+  <span class="k">let</span> <span class="n">ic</span> <span class="o">=</span>
+    <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;open_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span> <span class="nn">Scanf</span><span class="p">.</span><span class="nn">Scanning</span><span class="p">.</span><span class="n">open_in</span> <span class="n">sample</span>
+  <span class="k">in</span>
+  <span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span> <span class="k">in</span>
+  <span class="k">try</span>
+    <span class="k">while</span> <span class="bp">true</span> <span class="k">do</span>
+      <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">mark</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">([</span><span class="s2">&quot;Scanf.bscanf&quot;</span><span class="o">],</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">;</span>
+      <span class="nn">Scanf</span><span class="p">.</span><span class="n">bscanf</span> <span class="n">ic</span> <span class="s2">&quot;%d &quot;</span> <span class="o">(</span><span class="k">fun</span> <span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">)</span> <span class="o">|&gt;</span> <span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span>
+    <span class="k">done</span>
+  <span class="k">with</span> <span class="nc">End_of_file</span> <span class="o">-&gt;</span>
+    <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;close_in&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+    <span class="nn">Scanf</span><span class="p">.</span><span class="nn">Scanning</span><span class="p">.</span><span class="n">close_in</span> <span class="n">ic</span> <span class="o">;</span>
+    <span class="nn">Format</span><span class="p">.</span><span class="n">eprintf</span> <span class="s2">&quot;%d@.&quot;</span> <span class="o">!</span><span class="n">max</span>
+
+<span class="k">let</span> <span class="bp">()</span> <span class="o">=</span>
+  <span class="nn">Read_profiler</span><span class="p">.</span><span class="n">plug</span> <span class="n">instance</span> <span class="o">;</span>
+  <span class="n">read_test_line</span> <span class="bp">()</span> <span class="o">;</span>
+  <span class="n">read_test_int</span> <span class="bp">()</span> <span class="o">;</span>
+  <span class="n">read_test_scanf</span> <span class="bp">()</span>
+</pre></div>
+</div>
+<p>You should obtain something like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2024-09-18T09:19:13.555-00:00
+read_test_line ... 1           44.079ms 101% +0.002ms
+  close_in ....... 1            0.049ms 101%
+  input_line ..... 1002        42.992ms 100%
+  open_in ........ 1            0.013ms 109%
+2024-09-18T09:19:13.599-00:00
+read_test_int .... 1         1660.119ms 100% +44.247ms
+  close_in ....... 1            0.048ms  99%
+  open_in ........ 1            0.035ms 100%
+  read_int ....... 1003003    807.536ms 101%
+2024-09-18T09:19:15.259-00:00
+read_test_scanf .. 1          300.168ms  99% +1s704.432ms
+  Scanf.bscanf ... 1003003
+  close_in ....... 1            0.063ms 102%
+  open_in ........ 1            0.036ms 100%
+</pre></div>
+</div>
+<p>The execution time of <code class="docutils literal notranslate"><span class="pre">read_int</span></code> seems off. Replacing the following lines:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Read_profiler</span><span class="p">.</span><span class="n">aggregate_f</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">(</span><span class="s2">&quot;read_int&quot;</span><span class="o">,</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">@@</span> <span class="k">fun</span> <span class="bp">()</span> <span class="o">-&gt;</span>
+<span class="n">read_int</span> <span class="n">ic</span> <span class="o">|&gt;</span> <span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span>
+</pre></div>
+</div>
+<p>By:</p>
+<div class="highlight-OCaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Read_profiler</span><span class="p">.</span><span class="n">mark</span> <span class="o">~</span><span class="n">verbosity</span><span class="o">:</span><span class="nc">Info</span> <span class="o">([</span><span class="s2">&quot;read_int&quot;</span><span class="o">],</span> <span class="bp">[]</span><span class="o">)</span> <span class="o">;</span>
+<span class="n">read_int</span> <span class="n">ic</span> <span class="o">|&gt;</span> <span class="k">fun</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="o">!</span><span class="n">max</span> <span class="k">then</span> <span class="n">max</span> <span class="o">:=</span> <span class="n">e</span>
+</pre></div>
+</div>
+<p>Gives a completely different result:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2024-09-18T09:25:23.516-00:00
+read_test_line ... 1           44.440ms 100% +0.001ms
+  close_in ....... 1            0.081ms 100%
+  input_line ..... 1002        43.287ms 100%
+  open_in ........ 1            0.014ms 102%
+2024-09-18T09:25:23.560-00:00
+read_test_int .... 1          267.466ms 100% +44.609ms
+  close_in ....... 1            0.046ms 103%
+  open_in ........ 1            0.008ms 102%
+  read_int ....... 1003003
+2024-09-18T09:25:23.828-00:00
+read_test_scanf .. 1          289.068ms 100% +312.139ms
+  Scanf.bscanf ... 1003003
+  close_in ....... 1            0.055ms 103%
+  open_in ........ 1            0.037ms  98%
+</pre></div>
+</div>
+<p>This is expected because <code class="docutils literal notranslate"><span class="pre">aggregate</span></code>-like and <code class="docutils literal notranslate"><span class="pre">record</span></code>-like functions will call
+<code class="docutils literal notranslate"><span class="pre">Unix.gettimeofday</span></code> for each occurrence. Here we’re calling it <code class="docutils literal notranslate"><span class="pre">1003003</span></code>
+times and losing a lot of time. Out of the 1660ms spent in <code class="docutils literal notranslate"><span class="pre">read_int</span></code>, almost
+900ms were spent computing <code class="docutils literal notranslate"><span class="pre">Unix.gettimeofday</span></code>. You can either choose to keep
+these slowdowns while making sure you know where they happen and why they
+happen or you can choose simpler functions like <code class="docutils literal notranslate"><span class="pre">mark</span></code> that just count a
+number of occurrences.</p>
+<p>As you can see, though, monitoring your code with the <code class="docutils literal notranslate"><span class="pre">Profiler</span></code> can lead to
+extreme slowdowns. The first solution is to call <code class="docutils literal notranslate"><span class="pre">Profiler.plug</span></code> only when
+needed. Since your <code class="docutils literal notranslate"><span class="pre">profiler</span></code> is just an API, calling its functions has little
+to no impact. The other solution is to use the <code class="docutils literal notranslate"><span class="pre">PPX</span></code> specially crafted for the <code class="docutils literal notranslate"><span class="pre">Profiler</span></code>.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PPX Profiler</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ppx_profiler.html">Profiler PPX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ppx_profiler.html#why-a-profiler-ppx">Why a Profiler PPX?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_profiler.html#how-to-use-this-ppx">How to use this PPX?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_profiler.html#structure-of-an-attribute">Structure of an attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ppx_profiler.html#adding-functionalities">Adding functionalities</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="profiler_perf.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Performance profiling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ppx_profiler.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Profiler PPX</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-use">Example of use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-file">Example file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-profiler">Create a new profiler</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-profiler">Use the profiler</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

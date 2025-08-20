@@ -1,0 +1,1253 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Adaptive Issuance &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=f00b77f2"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'alpha/adaptive_issuance';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://timothymcmackin.github.io/previews/octez/slashing-recovery/alpha/adaptive_issuance.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Staking mechanism" href="staking.html" />
+    <link rel="prev" title="Tickets" href="tickets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="local" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <img src="../_static/logo.svg" class="logo__image only-dark pst-js-only" alt="Octez & Protocol products documentation - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="protocol.html">Economic protocol features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">Alpha RPCs - Reference</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/alpha/adaptive_issuance.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Falpha/adaptive_issuance.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Adaptive Issuance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-issuance-rate">Adaptive issuance rate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staked-ratio">Staked ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-rate">Static rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-rate">Dynamic rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum-rates">Minimum and maximum rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-maximum">Adaptive Maximum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issuance-rate">Issuance rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-rewards">Adaptive rewards</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reward-weights">Reward weights</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\newcommand\F[2]{\mathit{#1}\left(#2\right)}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand\IL[1]{\normalsize{#1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand\exp[1]{\F{exp}{#1}}\)</span></p>
+<section id="adaptive-issuance">
+<span id="adaptive-issuance-alpha"></span><h1>Adaptive Issuance<a class="headerlink" href="#adaptive-issuance" title="Link to this heading">#</a></h1>
+<p>Adaptive Issuance is a novel mechanism regulating tez issuance in Tezos.</p>
+<p>The <a class="reference internal" href="protocol.html"><span class="doc">Tezos economic protocol</span></a> issues new
+tez via:</p>
+<ul class="simple">
+<li><p>Participation rewards: incentives given to delegates for
+<a class="reference internal" href="consensus.html"><span class="doc">participation in consensus</span></a>
+and random seed generation.</p></li>
+<li><p>The <a class="reference internal" href="liquidity_baking.html"><span class="doc">Liquidity Baking (LB) subsidy</span></a>.</p></li>
+<li><p>Protocol “invoices”: lump sums of tez issued and allocated during
+protocol migration.</p></li>
+</ul>
+<p>Participation rewards and the LB subsidy are regularly issued by the
+protocol, whereas the value and recipients of invoices are defined
+discretionarily by the developers of a protocol proposal.
+The values for participation rewards and
+the LB subsidy, if any, are currently defined by the Tezos protocol using fixed
+constants.</p>
+<p>Adaptive Issuance lets the amount of participation rewards depend on
+the global <strong>staked ratio</strong> – that is, the
+ratio of staked tez to the total supply. This lets issuance roughly
+match the <em>actual</em> security budget the chain requires, the amount needed
+to encourage participants to stake and produce blocks, but <em>no more</em>.</p>
+<p>At the end of each blockchain <a class="reference internal" href="glossary.html#def-cycle-alpha"><span class="std std-ref">cycle</span></a>, the
+regular issuance is adjusted, to nudge the staked ratio towards a
+protocol-defined target (set at 50% starting in the Paris
+protocol). Participation rewards are recomputed to match that
+budget. When the staked ratio decreases and diverges from the target,
+emission rates increase, incentivizing participants to stake funds to
+re-approach the target. Conversely, incentives decrease as the ratio
+increases beyond the target.</p>
+<section id="adaptive-issuance-rate">
+<span id="adaptive-issuance-rate-alpha"></span><h2>Adaptive issuance rate<a class="headerlink" href="#adaptive-issuance-rate" title="Link to this heading">#</a></h2>
+<p>The adaptive issuance rate determines, at the end
+of cycle <span class="math notranslate nohighlight">\(\IL{c}\)</span>, the issuance for cycle <span class="math notranslate nohighlight">\(\IL{c + 2}\)</span>. The
+adaptive issuance rate is the sum of a <a class="reference internal" href="#static-rate-alpha"><span class="std std-ref">static rate</span></a>
+and a <a class="reference internal" href="#dynamic-rate-alpha"><span class="std std-ref">dynamic rate</span></a>. This value is kept within
+a minimal and a maximal value, to ensure nominal emissions remain within
+reasonable bounds.</p>
+<section id="staked-ratio">
+<span id="staked-ratio-alpha"></span><h3>Staked ratio<a class="headerlink" href="#staked-ratio" title="Link to this heading">#</a></h3>
+<p>The <strong>staked ratio</strong> is the ratio of staked tez to the total supply. It is computed at the end of a given <code class="docutils literal notranslate"><span class="pre">cycle</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">staked_ratio</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">total_frozen_stake</span><span class="p">(</span><span class="n">cycle</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">issuance_modification_delay</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_supply</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">issuance_modification_delay</span></code> is a <a class="reference internal" href="protocol_overview.html#protocol-constants-alpha"><span class="std std-ref">derived protocol
+constant</span></a> which is set to the same value
+as <code class="docutils literal notranslate"><span class="pre">CONSENSUS_RIGHTS_DELAY</span></code> (see <a class="reference internal" href="consensus.html#active-stake-alpha"><span class="std std-ref">Validator selection</span></a>), that
+is, 1 cycle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_supply(cycle)</span></code> returns the total supply of tez at the end of the given <code class="docutils literal notranslate"><span class="pre">cycle</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_frozen_stake(cycle)</span></code> returns the total frozen stake at the given <code class="docutils literal notranslate"><span class="pre">cycle</span></code>.</p></li>
+</ul>
+</section>
+<section id="static-rate">
+<span id="static-rate-alpha"></span><h3>Static rate<a class="headerlink" href="#static-rate" title="Link to this heading">#</a></h3>
+<p>The <strong>static rate</strong> is a mechanism which approximates <a class="reference external" href="https://en.wikipedia.org/wiki/Dutch_auction">a Dutch
+auction</a> to compute a
+nominal issuance rate as a function of the staked ratio for a
+given cycle. Its value decreases as the staked ratio increases.
+The static rate is defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">static_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">1600</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">staked_ratio</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The choice of a scaling factor ensures that the curve takes reasonable values for plausible staked ratios. Moreover, since Adaptive Issuance is activated with a dynamic rate of 0, and at current staked ratio (that is, ~7.5% of the total supply), this factor allows for a smooth transition from the issuance rate (~4.6%) from the Oxford protocol (before the activation of Adaptive Issuance).</p>
+</section>
+<section id="dynamic-rate">
+<span id="dynamic-rate-alpha"></span><h3>Dynamic rate<a class="headerlink" href="#dynamic-rate" title="Link to this heading">#</a></h3>
+<p>The <strong>dynamic reward rate</strong> adjusts itself over time based on the distance between the staked ratio and the 50% (±2%) target ratio, increasing when &lt; 48% and decreasing when &gt; 52%. The dynamic rate is defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dynamic_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="n">seconds_per_cycle</span> <span class="o">=</span> <span class="n">blocks_per_cycle</span> <span class="o">*</span> <span class="n">minimal_block_delay</span>
+  <span class="n">days_per_cycle</span> <span class="o">=</span> <span class="n">seconds_per_cycle</span> <span class="o">/</span> <span class="mi">86400</span>
+  <span class="n">previous_dynamic</span> <span class="o">=</span> <span class="n">dynamic_rate</span><span class="p">(</span><span class="n">cycle</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">staked_ratio</span> <span class="o">=</span> <span class="n">staked_ratio</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">staked_ratio</span> <span class="o">&lt;</span> <span class="mf">0.48</span><span class="p">:</span>
+    <span class="n">delta_d</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.48</span> <span class="o">-</span> <span class="n">staked_ratio</span><span class="p">)</span> <span class="o">*</span> <span class="n">growth_rate</span> <span class="o">*</span> <span class="n">days_per_cycle</span>
+  <span class="k">elif</span> <span class="n">staked_ratio</span> <span class="o">&gt;</span> <span class="mf">0.52</span><span class="p">:</span>
+    <span class="n">delta_d</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.52</span> <span class="o">-</span> <span class="n">staked_ratio</span><span class="p">)</span> <span class="o">*</span> <span class="n">growth_rate</span> <span class="o">*</span> <span class="n">days_per_cycle</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">delta_d</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">return</span> <span class="n">previous_dynamic</span> <span class="o">+</span> <span class="n">delta_d</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blocks_per_cycle</span></code> denotes the number of blocks in a Tezos cycle.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimal_block_delay</span></code> denotes the minimal duration of a block in seconds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">days_per_cycle</span></code> denotes the minimal duration in days of a Tezos cycle, assuming all blocks in the cycle are produced at the minimal allowed time – that is, every 8 seconds in Quebec.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">growth_rate</span></code> controls the speed at which the dynamic rate adjusts. The value is set so that a one percentage point deviation of the staked ratio changes the dynamic rate by 0.01 percentage points per day.</p></li>
+</ul>
+<p>In a nutshell, <code class="docutils literal notranslate"><span class="pre">dynamic_rate(c)</span></code> increases and decreases by an amount proportional to the distance between the target rate and the interval <code class="docutils literal notranslate"><span class="pre">[48%;</span> <span class="pre">52%]</span></code>. Note that to ensure that the issuance rate is kept within <a class="reference internal" href="#minimum-and-maximum-rates-alpha"><span class="std std-ref">the minimum and maximum bounds</span></a>, the dynamic rate might be adjusted accordingly. More precisely, if <a class="reference internal" href="#issuance-rate-alpha"><span class="std std-ref">the issuance rate</span></a> would surpass the maximum issuance allowed for a given cycle, then <code class="docutils literal notranslate"><span class="pre">dynamic_rate(c)</span></code> would be reduced to keep the issuance rate within the bounds (this part of the formula has been omitted from the above pseudocode for brevity).</p>
+</section>
+<section id="minimum-and-maximum-rates">
+<span id="minimum-and-maximum-rates-alpha"></span><h3>Minimum and maximum rates<a class="headerlink" href="#minimum-and-maximum-rates" title="Link to this heading">#</a></h3>
+<p>Starting in Paris, the minimum and maximum
+issuance rates will evolve slowly over a set period of time,
+so that the range of possible issuance rate values widens progressively.</p>
+<p>The following figure describes the progressive maximum and minimum
+values of Adaptive Issuance.</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/ai-min-max1.jpeg" src="../_images/ai-min-max1.jpeg" />
+<figcaption>
+<p><span class="caption-text">Figure 1. A gradual widening of the range ensures a smooth transition
+to Adaptive Issuance.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The schedule consists of three periods:</p>
+<ul class="simple">
+<li><p>an <strong>initial</strong> period, set to 1 month, where the minimum and maximum
+issuance rates are close to the issuance rate from the Oxford
+protocol (before the activation of Adaptive Issuance) and stay
+constant,</p></li>
+<li><p>a <strong>transition</strong> period, set to 5 months, where they evolve linearly, with
+a decreasing minimum, and an increasing maximum, and</p></li>
+<li><p>a <strong>final</strong> period where the minimum and maximum have reached their
+final values.</p></li>
+</ul>
+<p>Formally, the functions for the minimum and maximum values are piecewise linear functions of time,
+and can be generally defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_extremum</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">initial_value</span><span class="p">,</span> <span class="n">final_value</span><span class="p">):</span>
+  <span class="n">trans</span> <span class="o">=</span> <span class="n">transition_period</span> <span class="o">+</span> <span class="mi">1</span>
+  <span class="n">initial_limit</span> <span class="o">=</span> <span class="n">ai_activation_cycle</span> <span class="o">+</span> <span class="n">initial_period</span>
+  <span class="n">trans_limit</span> <span class="o">=</span> <span class="n">initial_limit</span> <span class="o">+</span> <span class="n">trans</span>
+  <span class="k">if</span> <span class="n">cycle</span> <span class="o">&lt;=</span> <span class="n">initial_limit</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">initial_value</span>
+  <span class="k">elif</span> <span class="n">cycle</span> <span class="o">&gt;=</span> <span class="n">trans_limit</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">final_value</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="n">t</span> <span class="o">=</span> <span class="n">cycle</span> <span class="o">-</span> <span class="n">initial_limit</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="n">final_value</span> <span class="o">-</span> <span class="n">initial_value</span><span class="p">)</span> <span class="o">/</span> <span class="n">trans</span><span class="p">)</span> <span class="o">+</span> <span class="n">initial_value</span>
+      <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ai_activation_cycle</span></code> is the first cycle with Adaptive Issuance
+active, which was cycle 748 on mainnet.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">initial_period</span></code> is a predefined period of time, set to 1 month in Paris.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transition_period</span></code> is a predefined period of time, set to 5 months in Paris.</p></li>
+</ul>
+<p>The issuance minimum rate for Adaptive Issuance curve is then defined as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">minimum_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">compute_extremum</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">issuance_initial_min</span><span class="p">,</span> <span class="n">issuance_global_min</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">issuance_initial_min</span></code> (4.5%) is the initial minimum
+value. The issuance rate is kept
+above this bound for the initial period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issuance_global_min</span></code> (0.25%) is the final value for the lower bound, reached at the end of the transition period.</p></li>
+</ul>
+<p>The issuance maximum rate for Adaptive Issuance curve is then defined as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">maximum_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">compute_extremum</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">issuance_initial_max</span><span class="p">,</span> <span class="n">issuance_global_max</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">issuance_initial_max</span></code> (5.5%) controls the initial maximum
+value. The issuance rate is kept
+below this bound for the initial period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issuance_global_max</span></code> (10%) is the final value for the upper bound, reached at the end of the transition period.</p></li>
+</ul>
+</section>
+<section id="adaptive-maximum">
+<span id="adaptive-maximum-alpha"></span><h3>Adaptive Maximum<a class="headerlink" href="#adaptive-maximum" title="Link to this heading">#</a></h3>
+<p>In addition to the issuance bounds described above, the Quebec protocol introduces
+another upper bound on the total issuance rate. This new bound, called
+<strong>adaptive maximum</strong>, prevents the issuance rate from taking
+undesirably high values when the staked ratio of the chain is already
+close to the 50% target.</p>
+<p>The adaptive maximum is defined as a function of the staked ratio that
+decreases smoothly as the staked ratio grows closer to the 50% target,
+down to a 1% maximal issuance rate when the staked ratio is at 50% or
+above. See the blue curve on Figure 2, as well as a few sample values
+in Figure 3. The exact formula is provided further below.</p>
+<p>Thanks to the adaptive maximum, the total issuance rate (static rate +
+dynamic rate) cannot be too far above the static rate (green dashed
+curve). More precisely, the total issuance rate is forced to stay
+between the static rate (green) and the adaptive maximum (blue). In
+other words, the dynamic rate is effectively bounded to stay below the
+red dotted curve, which plots the adaptive maximum minus the static
+rate. Note that this no longer holds if the adaptive maximum gets
+overridden by the minimum issuance, as discussed below.</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/adaptive_maximum1.png" src="../_images/adaptive_maximum1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2. Adaptive maximum compared to the static rate, in the range from 5% to 50% staked ratio.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table" id="id5">
+<caption><span class="caption-text">Figure 3. Adaptive maximum: a few data points.</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Staked ratio</p></td>
+<td><p>5% and below</p></td>
+<td><p>10%</p></td>
+<td><p>20%</p></td>
+<td><p>30%</p></td>
+<td><p>40%</p></td>
+<td><p>50% and above</p></td>
+</tr>
+<tr class="row-even"><td><p>Adaptive maximum issuance (approx.)</p></td>
+<td><p>10%</p></td>
+<td><p>9.2%</p></td>
+<td><p>5.6%</p></td>
+<td><p>3%</p></td>
+<td><p>1.5%</p></td>
+<td><p>1%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The function that defines the adaptive maximum is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adaptive_maximum</span><span class="p">(</span><span class="n">r</span><span class="p">):</span> <span class="c1"># r is the staked ratio of the chain</span>
+  <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mf">0.01</span>
+  <span class="k">elif</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="mf">0.05</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mf">0.1</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">*</span> <span class="p">((</span><span class="mi">50</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">42</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+  <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mf">0.1</span>
+  <span class="k">elif</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mf">0.01</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Until the final value of the <a class="reference internal" href="#minimum-and-maximum-rates-alpha"><span class="std std-ref">minimum
+rate</span></a> is reached, it is possible,
+with a high enough staked ratio, for the corresponding adaptive
+maximum to be smaller than the minimum rate. If this happens, then
+the minimum rate takes priority, that is, the total issuance rate
+(static + dynamic) is set to the minimum rate exactly. This way, the
+total issuance rate is as close to the adaptive maximum as can be
+while fully satisfying the minimum rate.</p>
+</div>
+</section>
+<section id="issuance-rate">
+<span id="issuance-rate-alpha"></span><h3>Issuance rate<a class="headerlink" href="#issuance-rate" title="Link to this heading">#</a></h3>
+<p>Finally, as mentioned before, the nominal adaptive issuance rate <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+for a cycle <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">issuance_modification_delay</span> <span class="pre">+</span> <span class="pre">1</span></code> is defined as the sum
+of the static rate and the dynamic rate computed for the cycle <code class="docutils literal notranslate"><span class="pre">c</span></code>,
+bounded within the <a class="reference internal" href="#minimum-and-maximum-rates-alpha"><span class="std std-ref">minimum and maximum rates</span></a>, along with the <a class="reference internal" href="#adaptive-maximum-alpha"><span class="std std-ref">adaptive
+maximum</span></a>, computed for the cycle <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">issuance_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="n">adjusted_cycle</span> <span class="o">=</span> <span class="n">cycle</span> <span class="o">-</span> <span class="n">issuance_modification_delay</span>
+  <span class="n">static_rate</span> <span class="o">=</span> <span class="n">static_rate</span><span class="p">(</span><span class="n">adjusted_cycle</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">dynamic_rate</span> <span class="o">=</span> <span class="n">dynamic_rate</span><span class="p">(</span><span class="n">adjusted_cycle</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">minimum_rate</span> <span class="o">=</span> <span class="n">minimum_rate</span><span class="p">(</span><span class="n">adjusted_cycle</span><span class="p">)</span>
+  <span class="n">maximum_rate</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">maximum_rate</span><span class="p">(</span><span class="n">adjusted_cycle</span><span class="p">),</span> <span class="n">adaptive_maximum</span><span class="p">(</span><span class="n">stake_ratio</span><span class="p">(</span><span class="n">adjusted_cycle</span><span class="p">)))</span>
+  <span class="n">total_rate</span> <span class="o">=</span> <span class="n">static_rate</span> <span class="o">+</span> <span class="n">dynamic_rate</span>
+  <span class="k">return</span> <span class="nb">max</span><span class="p">(</span> <span class="nb">min</span><span class="p">(</span><span class="n">total_rate</span><span class="p">,</span> <span class="n">maximum_rate</span><span class="p">),</span> <span class="n">minimum_rate</span> <span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="adaptive-rewards">
+<span id="adaptive-rewards-alpha"></span><h2>Adaptive rewards<a class="headerlink" href="#adaptive-rewards" title="Link to this heading">#</a></h2>
+<p>Before Adaptive Issuance activation,
+participation rewards were fixed values defined by protocol
+constants. With the new mechanism, the adaptive issuance rate provides
+instead a budget for the whole cycle, which gets allocated equally to
+each block of the cycle and distributed between the various rewards,
+in proportion to their relative <a class="reference internal" href="#rewards-weights-alpha"><span class="std std-ref">weights</span></a>.</p>
+<section id="reward-weights">
+<span id="rewards-weights-alpha"></span><h3>Reward weights<a class="headerlink" href="#reward-weights" title="Link to this heading">#</a></h3>
+<p>The weights for participation rewards are defined as:</p>
+<ul class="simple">
+<li><p>Attestation rewards: 10,240.</p></li>
+<li><p>Fixed baking reward: 5,120.</p></li>
+<li><p>Bonus baking reward: 5,120.</p></li>
+<li><p>DAL rewards: 2,275.</p></li>
+<li><p>Nonce revelation tip: 1.</p></li>
+<li><p>VDF tip: 1.</p></li>
+</ul>
+<p>The total sum <code class="docutils literal notranslate"><span class="pre">sum_rewards_weight</span></code> of all weights is 22,757.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sum_rewards_weight</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="n">attestation_rewards</span> <span class="o">+</span>
+  <span class="n">fixed_baking_rewards</span> <span class="o">+</span>
+  <span class="n">bonus_baking_rewards</span> <span class="o">+</span>
+  <span class="n">dal_rewards</span> <span class="o">+</span>
+  <span class="n">nonce_revelation_tip</span> <span class="o">+</span>
+  <span class="n">vdf_tip</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The coefficient to apply for reward computation is defined as follows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reward_coeff</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="n">rate</span> <span class="o">=</span> <span class="n">issuance_rate</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+  <span class="n">total_supply</span> <span class="o">=</span> <span class="n">total_supply</span><span class="p">(</span><span class="n">cycle</span> <span class="o">-</span> <span class="n">issuance_modification_delay</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">rate</span> <span class="o">/</span> <span class="mi">525600</span><span class="p">)</span> <span class="o">*</span> <span class="n">total_supply</span> <span class="o">/</span> <span class="n">base_total_issued_per_minute</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">base_total_issued_per_minute</span></code> (80007812) is the expected amount of mutez issued per minute.</p></li>
+<li><p>525600 is the number of minutes per year.</p></li>
+</ul>
+<p>The issuance per block is then distributed amongst the different rewards in proportion to their weight.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tez_from_weights</span><span class="p">(</span><span class="n">weight</span><span class="p">):</span>
+  <span class="n">num</span> <span class="o">=</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">minimal_block_delay</span>
+  <span class="n">den</span> <span class="o">=</span> <span class="n">sum_rewards_weight</span> <span class="o">*</span> <span class="mi">60</span>
+  <span class="k">return</span> <span class="n">base_total_issued_per_minute</span> <span class="o">*</span> <span class="n">num</span> <span class="o">/</span> <span class="n">den</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">tez_from_weights</span><span class="p">(</span><span class="n">weight</span><span class="p">)</span> <span class="o">*</span> <span class="n">reward_coeff</span><span class="p">(</span><span class="n">cycle</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Consensus rewards.</strong> Since the adoption of Tenderbake, Tezos
+protocols before Paris have rewarded delegates <a class="reference internal" href="consensus.html"><span class="doc">for their
+participation in consensus</span></a> with the following rewards per
+block:</p>
+<ul class="simple">
+<li><p>A fixed <strong>baking</strong> reward, given to the delegate which produced the
+<em>payload</em> of the block (i.e. choosing transactions, and other
+non-consensus operations).</p></li>
+<li><p>A variable, baking <strong>bonus</strong> reward given to the delegate which
+produced the block included in the chain. This bonus is given for
+including attestations, if their combined attesting power exceeds the
+minimal threshold (two thirds of total slots).</p></li>
+<li><p>A <em>collective</em> <strong>attestation</strong> reward, for attesting block proposals,
+distributed at the end of the cycle to the delegates selected in the
+consensus committees for that cycle, proportionnaly to their expected
+participation.</p></li>
+</ul>
+<p>We refer to <a class="reference internal" href="consensus.html"><span class="doc">the consensus page</span></a> for
+further insight on the pre-requisites and distribution of these rewards.
+Here, we derive the new functions which compute their values per block.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">baking_reward_fixed_portion</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">fixed_baking_rewards</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">baking_reward_bonus_per_slot</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="n">bonus_committee_size</span> <span class="o">=</span> <span class="n">consensus_committee_size</span> <span class="o">-</span> <span class="n">consensus_threshold</span>
+  <span class="k">return</span> <span class="n">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">bonus_baking_rewards</span><span class="p">)</span> <span class="o">/</span> <span class="n">bonus_committee_size</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">attestation_reward_per_slot</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">attestation_rewards</span><span class="p">)</span> <span class="o">/</span> <span class="n">consensus_committee_size</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">consensus_committee_size</span></code> (7000) is the number of attestation slots available in a block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">consensus_threshold</span></code> (4667) is the required number of attestations for a baker to propose a block.</p></li>
+</ul>
+<p><strong>Nonce and VDF revelation tips.</strong> The rewards allocated to delegates
+for contributing to <a class="reference internal" href="randomness_generation.html#randomness-generation-alpha"><span class="std std-ref">random seed generation</span></a>
+(that is, for revealing nonce seeds and posting VDF proofs) are not paid
+each block, but rather every 192 blocks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">seed_nonce_revelation_tip</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">nonce_revelation_tip</span> <span class="o">*</span> <span class="n">blocks_per_commitment</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vdf_revelation_tip</span><span class="p">(</span><span class="n">cycle</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">reward_from_constants</span><span class="p">(</span><span class="n">cycle</span><span class="p">,</span> <span class="n">vdf_tip</span> <span class="o">*</span> <span class="n">blocks_per_commitment</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blocks_per_commitment</span></code> (14) is the interval in blocks between each revelation, both VDF and nonce.</p></li>
+</ul>
+<p>The <a class="reference external" href="https://octez.tezos.com/docs/active/rpc.html#get-block-id-context-issuance-expected-issuance">RPC endpoint</a>,
+<code class="docutils literal notranslate"><span class="pre">/issuance/expected_issuance</span></code> reports the precomputed values of all
+participation rewards for the provided block and the next
+<code class="docutils literal notranslate"><span class="pre">issuance_modification_delay</span></code> cycles.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Note that if the nominal annual issuance rate is <span class="math notranslate nohighlight">\(r\)</span>, the
+annualized rate is close to <span class="math notranslate nohighlight">\(\IL{\exp{r} - 1}\)</span> as it is
+compounded at every cycle.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+            <script type="module" src="https://cdn.jsdelivr.net/npm/pushfeedback/dist/pushfeedback/pushfeedback.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let feedbackBtn = document.createElement("feedback-button");
+                        feedbackBtn.innerHTML = "Send feedback";
+                        feedbackBtn.setAttribute("feedback-button-text", "Send feedback");
+                    feedbackBtn.setAttribute("modal-title", "Provide feedback");
+                    feedbackBtn.setAttribute("modal-position", "bottom-right");
+                    feedbackBtn.setAttribute("project", "42c4fpgh27");
+                    feedbackBtn.setAttribute("email-placeholder", "Email/Slack (optional)");
+                    feedbackBtn.setAttribute("message-placeholder", "Comments on specific points and/or aspects (out of date, wrong, incomplete, ...)");
+                    feedbackBtn.setAttribute("button-style", "dark");
+                    feedbackBtn.setAttribute("button-position", "bottom-right");
+                    feedbackBtn.setAttribute("footer-text", "For information about providing feedback and the kinds of feedback that we are interested in, see <a href='https://octez.tezos.com/docs/developer/contributing.html#providing-feedback-on-documentation' target='_blank'>Providing feedback on documentation</a>.");
+                        document.body.appendChild(feedbackBtn);
+                    });
+                </script>
+            
+            <script type="module" src="https://cdn.jsdelivr.net/npm/biel-search@latest/dist/biel-search/biel-search.esm.js"></script>
+        
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        let bielBtn = document.createElement("biel-button");
+                        bielBtn.innerHTML = "Ask AI";
+                        bielBtn.setAttribute("project", "w30c27l8fg");
+                    bielBtn.setAttribute("button-text", "Ask AI");
+                    bielBtn.setAttribute("header-title", "Tezos documentation chatbot (beta)");
+                    bielBtn.setAttribute("button-style", "dark");
+                    bielBtn.setAttribute("button-position", "center-right");
+                    bielBtn.setAttribute("footer-text", "AI-generated answers may contain errors. Verify the information before use. For more information, see <a href='https://docs.tezos.com/overview/chatbot' target='_blank'>Using the chatbot</a>.");
+                    bielBtn.setAttribute("version", "latest");
+                        document.body.appendChild(bielBtn);
+                    });
+                </script>
+            
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tickets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tickets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="staking.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Staking mechanism</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-issuance-rate">Adaptive issuance rate</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staked-ratio">Staked ratio</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#static-rate">Static rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-rate">Dynamic rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-and-maximum-rates">Minimum and maximum rates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-maximum">Adaptive Maximum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#issuance-rate">Issuance rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-rewards">Adaptive rewards</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reward-weights">Reward weights</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
