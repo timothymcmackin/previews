@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -791,6 +791,13 @@ Attestations_aggregate</span></a>. (MRs
 is required if (and only if) the manager key is a <a class="reference internal" href="../active/accounts.html#tz4-accounts"><span class="std std-ref">tz4 (BLS
 key)</span></a>. This results in an increase of gas cost
 per reveal of a tz4 public key. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18095">!18095</a>)</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Introduction of this new optional field might still lead to breaking changes
+for tool providers see <a class="reference internal" href="../introduction/breaking_changes.html"><span class="doc">breaking changes</span></a>.</p>
+</div>
+<ul class="simple">
 <li><p>The optional <code class="docutils literal notranslate"><span class="pre">proof</span></code> field of the <code class="docutils literal notranslate"><span class="pre">Update_consensus_key</span></code>
 operation is now required if (and only if) the new consensus key is
 a <a class="reference internal" href="../active/accounts.html#tz4-accounts"><span class="std std-ref">tz4 (BLS key)</span></a>. Its encoding now

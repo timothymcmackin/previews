@@ -1,0 +1,1105 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Blocks and Operations &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=18909b26"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'alpha/blocks_ops';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://octez.tezos.com/docs/alpha/blocks_ops.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validation and Application" href="validation.html" />
+    <link rel="prev" title="Contract events" href="event.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/routing.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Alpha Dev Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="protocol.html">Economic protocol features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">DUMMY TITLE</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/alpha/blocks_ops.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Falpha/blocks_ops.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Blocks and Operations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-specific-block-header">Protocol-specific block header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-passes">Validation Passes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consensus-operations">Consensus Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voting-operations">Voting Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-operations">Anonymous Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manager-operations">Manager Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manager-operation-batches">Manager Operation Batches</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#failing-noop-operation">Failing_noop operation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="blocks-and-operations">
+<h1>Blocks and Operations<a class="headerlink" href="#blocks-and-operations" title="Link to this heading">#</a></h1>
+<p>The content of a Tezos block is made up of a block header and a payload consisting of a list of operations.</p>
+<p>This page first describes the protocol-specific part of the block header, and then explains what operations are.
+For the protocol-independent part of the block header, see <a class="reference internal" href="../shell/validation.html#shell-header"><span class="std std-ref">Shell header</span></a>.</p>
+<section id="protocol-specific-block-header">
+<span id="proto-block-header-alpha"></span><h2>Protocol-specific block header<a class="headerlink" href="#protocol-specific-block-header" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="protocol_overview.html#shell-proto-interact-alpha"><span class="std std-ref">Recall</span></a> that, for the shell to interact with the economic protocol, two notions are defined abstractly at the level of the shell and made concrete at the level of the consensus protocol.
+Namely, these two notions are the protocol-specific header and the <a class="reference internal" href="consensus.html#fitness-section-alpha"><span class="std std-ref">fitness</span></a>.</p>
+<p>As in Emmy*, the protocol-specific header contains the fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">signature</span></code>: a digital signature of the shell and protocol headers (excluding the signature itself)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seed_nonce_hash</span></code>: a commitment to <a class="reference internal" href="proof_of_stake.html#random-seed-alpha"><span class="std std-ref">a random number</span></a>, used to generate entropy on the chain</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proof_of_work_nonce</span></code>: a nonce used to pass a low-difficulty proof-of-work for the block, as a spam prevention measure</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">liquidity_baking_toggle_vote</span></code>: <a class="reference internal" href="liquidity_baking.html#toggle-alpha"><span class="std std-ref">a vote</span></a> to continue the Liquidity Baking Subsidy, stop it, or abstain.</p></li>
+</ul>
+<p>There are two additional fields: <code class="docutils literal notranslate"><span class="pre">payload_hash</span></code> and <code class="docutils literal notranslate"><span class="pre">payload_round</span></code> which are needed for establishing if a block is <a class="reference internal" href="consensus.html#finality-alpha"><span class="std std-ref">final</span></a>.</p>
+</section>
+<section id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Link to this heading">#</a></h2>
+<p>Operations implement
+and reify different functionalities provided by a Tezos economic
+protocol: from reaching consensus on the state of the Tezos
+blockchain, to performing smart contract calls and transactions. Each
+Tezos economic protocol can specify different kinds of operations.</p>
+<p>This page only describes the operations supported by <a class="reference internal" href="protocol.html"><span class="doc">the economic
+protocol</span></a> that implement <em>enabled</em> features – that is,
+those available to end-users on Tezos Mainnet. The complete list of
+operations, including those corresponding to features in development
+or available only on test networks, is given in the
+<a class="reference external" href="../../api/odoc/_html/tezos-protocol-alpha/Tezos_raw_protocol_alpha/Operation_repr/index.html">OCaml Documentation
+</a>.</p>
+</section>
+<section id="validation-passes">
+<span id="validation-passes-alpha"></span><h2>Validation Passes<a class="headerlink" href="#validation-passes" title="Link to this heading">#</a></h2>
+<p>The different kinds of operations are grouped into classes. Each class
+has an associated index, a natural number, also known as a
+<a class="reference internal" href="../shell/validation.html#shell-header"><span class="std std-ref">validation pass</span></a>. There are currently four classes
+of operations: <a class="reference internal" href="#consensus-operations-alpha"><span class="std std-ref">consensus</span></a>,
+<a class="reference internal" href="#voting-operations-alpha"><span class="std std-ref">voting</span></a>,
+<a class="reference internal" href="#anonymous-operations-alpha"><span class="std std-ref">anonymous</span></a>, and <a class="reference internal" href="#manager-operations-alpha"><span class="std std-ref">manager
+operations</span></a>. This order also specifies the
+<a class="reference internal" href="validation.html#operation-validity-alpha"><span class="std std-ref">validation and application</span></a> priority
+of each of these classes. Consensus operations are considered the
+highest priority ones, and manager operations the lowest.</p>
+<p>Each kind of operation belongs to exactly one validation pass, except for the <a class="reference internal" href="#failing-noop-alpha"><span class="std std-ref">Failing_noop operation</span></a> which belongs to no validation pass and therefore cannot be <a class="reference internal" href="validation.html#operation-validity-alpha"><span class="std std-ref">applied</span></a>.</p>
+<p>In the sequel, we describe the different classes of operations, and
+the different kinds of operations belonging to each class.</p>
+</section>
+<section id="consensus-operations">
+<span id="consensus-operations-alpha"></span><h2>Consensus Operations<a class="headerlink" href="#consensus-operations" title="Link to this heading">#</a></h2>
+<p>Consensus operations are administrative operations that are necessary
+to implement the <a class="reference internal" href="consensus.html"><span class="doc">consensus algorithm</span></a>. There are two
+kinds of consensus operations, each belonging to the different voting
+phases required to agree on the next block.</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">Preattestation</span></code> operation implements a first vote for a
+<a class="reference internal" href="consensus.html#candidate-block-alpha"><span class="std std-ref">candidate block</span></a> with the aim of
+building a <a class="reference internal" href="consensus.html#quorum-alpha"><span class="std std-ref">preattestation quorum</span></a>.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">Attestation</span></code> operation implements a vote for a candidate block
+for which a preattestation quorum certificate (PQC) has been
+observed. These operations also hold information on <a class="reference internal" href="../shell/dal_bakers.html"><span class="doc">DAL attestations</span></a>
+when the attesting baker participates in the DAL.</p></li>
+</ul>
+<p>Starting in protocol S, blocks are also able to include these operations in an aggregated form, using operations <code class="docutils literal notranslate"><span class="pre">Attestations_aggregate</span></code> and <code class="docutils literal notranslate"><span class="pre">Preattestations_aggregate</span></code>.
+If the attesting baker uses a tz4 consensus key, thanks to the BLS signature scheme,
+its attestation can be aggregated with all the other tz4 pre/attestations,
+which helps reducing the size and validation time of blocks without compromising on
+security. A valid block can include at most one aggregated preattestation
+and at most one aggregated attestation.</p>
+</section>
+<section id="voting-operations">
+<span id="voting-operations-alpha"></span><h2>Voting Operations<a class="headerlink" href="#voting-operations" title="Link to this heading">#</a></h2>
+<p>Voting operations are operations related to the on-chain <a class="reference internal" href="voting.html"><span class="doc">Tezos
+Amendment</span></a> process. In this economic protocol, there are two
+voting operations:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Proposal</span></code> operation enables delegates to submit (also known as
+to “inject”) protocol amendment proposals, or to up-vote previously
+submitted proposals, during the Proposal period.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Ballot</span></code> operation enables delegates to participate in the
+Exploration and Promotion periods. Delegates use this operation to
+vote for (<code class="docutils literal notranslate"><span class="pre">Yea</span></code>), against (<code class="docutils literal notranslate"><span class="pre">Nay</span></code>), or to side with the majority
+(<code class="docutils literal notranslate"><span class="pre">Pass</span></code>), when examining a protocol amendment proposal.</p></li>
+</ul>
+<p>Further details on each operation’s implementation and semantics are
+provided in the dedicated entry for <a class="reference internal" href="voting.html"><span class="doc">on-chain governance</span></a>.</p>
+</section>
+<section id="anonymous-operations">
+<span id="anonymous-operations-alpha"></span><h2>Anonymous Operations<a class="headerlink" href="#anonymous-operations" title="Link to this heading">#</a></h2>
+<p>This class groups all operations that do not require a signature from
+a Tezos account (with an exception, detailed below). They implement
+different functionalities of the protocol, and their common
+characteristic is that they allow the account originating these
+operations to remain anonymous in order to avoid censorship.</p>
+<p>Two operations in this class implement functionality pertaining to the
+protocol’s <a class="reference internal" href="randomness_generation.html"><span class="doc">random seeds generation
+mechanism</span></a>:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Seed_nonce_revelation</span></code> operation allows a baker to
+anonymously reveal the nonce seed for the commitment it had included
+in a previously baked block (in the previous cycle).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Vdf_revelation</span></code> operation allows the submission of a solution
+to, and a proof of correctness of, the <a class="reference internal" href="randomness_generation.html#vdf-alpha"><span class="std std-ref">VDF
+challenge</span></a> corresponding to the VDF revelation period of
+the randomness generation protocol.</p></li>
+</ul>
+<p>Further details on the latter operation’s implementation and semantics
+are provided in the <a class="reference internal" href="randomness_generation.html#randomness-generation-alpha"><span class="std std-ref">random seed generation
+protocol</span></a>.</p>
+<p>Two operations in this class are used to <a class="reference internal" href="consensus.html#slashing-alpha"><span class="std std-ref">punish participants
+which engage in Byzantine behaviour</span></a> – notably
+delegates which <a class="reference internal" href="glossary.html#def-double-signing-alpha"><span class="std std-ref">“double sign”</span></a> blocks, or emit
+conflicting <a class="reference internal" href="#consensus-operations-alpha"><span class="std std-ref">consensus operations</span></a>:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Double_consensus_operation_evidence</span></code> operation allows for accusing
+a delegate of having <em>double-preattested</em> or <em>double-attested</em> – i.e., of having
+preattested, or respectively attested, two different block candidates, at the same level and at
+the same round. The bulk of the evidence, the two arguments
+provided, consists of the two offending preattestations, respectively attestations.</p>
+<p>Beside the two offending operations, there is a <code class="docutils literal notranslate"><span class="pre">slot</span></code> field containing the delegate’s slot used in the offending operations.
+More precisely, each offending operation may be either a standalone operation for this slot, or an <a class="reference internal" href="#consensus-operations-alpha"><span class="std std-ref">aggregate operation</span></a> containing this slot in its committee.</p>
+<p>In protocols older than S, there were two operations, <code class="docutils literal notranslate"><span class="pre">Double_preattestation_evidence</span></code> and <code class="docutils literal notranslate"><span class="pre">Double_attestation_evidence</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">Double_consensus_operation_evidence</span></code>, which did not exist.</p>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Double_baking_evidence</span></code> allows for accusing a delegate of
+having “double-baked” a block – i.e., of having signed two
+different blocks at the same level and at same round. The bulk of
+the evidence consists of the <a class="reference internal" href="protocol_overview.html#block-contents-alpha"><span class="std std-ref">block
+headers</span></a> of each of the two offending blocks.</p></li>
+</ul>
+<p>See <a class="reference internal" href="consensus.html#slashing-alpha"><span class="std std-ref">here</span></a> for further detail on the semantics of
+evidence-providing operations.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Activation</span></code> operation allows users which participated in the
+Tezos fundraiser to make their <a class="reference internal" href="glossary.html#def-account-alpha"><span class="std std-ref">accounts</span></a> operational.</p>
+<p>Finally, the <code class="docutils literal notranslate"><span class="pre">Drain_delegate</span></code> operation allows an active
+consensus-key account, i.e., an account to which a baker delegated its
+consensus-signing responsibility, to <strong>empty</strong> its delegate
+account. This operation is used as a deterrent to ensure that a
+delegate secures its consensus key as much as its manager (or main)
+key.</p>
+<p>The DAL also adds the anonymous operation <code class="docutils literal notranslate"><span class="pre">DAL_entrapment_evidence</span></code>, see <a class="reference internal" href="dal_support.html"><span class="doc">DAL integration</span></a>.</p>
+</section>
+<section id="manager-operations">
+<span id="manager-operations-alpha"></span><h2>Manager Operations<a class="headerlink" href="#manager-operations" title="Link to this heading">#</a></h2>
+<p>Manager operations enable end-users to interact with the Tezos
+blockchain – e.g., transferring funds or calling <a class="reference internal" href="michelson.html"><span class="doc">smart
+contracts</span></a>. A manager operation is issued by a single
+<em>manager</em> account which signs the operation and pays the
+<a class="reference internal" href="glossary.html#def-fee-alpha"><span class="std std-ref">fees</span></a> to the baker for its inclusion in a block. Indeed,
+manager operations are the only fee-paying and
+<a class="reference internal" href="glossary.html#def-gas-alpha"><span class="std std-ref">gas-consuming</span></a> operations.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Reveal</span></code> operation reveals the public key of the sending
+manager. Knowing this public key is indeed necessary to check the signature
+of future operations signed by this manager. Additionally, when revealing a tz4 public key,
+the manager must also include a proof of possession, which is the signature
+of the public key itself.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Transaction</span></code> operation allows users to transfer tez
+between accounts, to invoke a smart contract, or to invoke <a class="reference internal" href="staking.html#pseudo-operations-alpha"><span class="std std-ref">pseudo-operations</span></a> on user accounts.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Delegation</span></code> operation allows users to designate a <a class="reference internal" href="glossary.html#def-delegate-alpha"><span class="std std-ref">delegate</span></a> (a
+<em>baker</em>) for <a class="reference internal" href="../introduction/howtorun.html#delegating-coins"><span class="std std-ref">delegating</span></a> or <a class="reference internal" href="../introduction/howtorun.html#delegating-coins"><span class="std std-ref">staking</span></a> their coins, or to register themselves as delegates.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Update_consensus_key</span></code> operation allows users to register a
+<a class="reference internal" href="proof_of_stake.html#consensus-key-alpha"><span class="std std-ref">consensus key</span></a>, which is a dedicated key
+for signing blocks and consensus-related operations.
+When the new consensus key is a tz4 (BLS key), the optional <code class="docutils literal notranslate"><span class="pre">proof</span></code> field must contain a proof of possession, which is the signature of the public key itself.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Update_companion_key</span></code> operation allows users to register a
+<a class="reference internal" href="../user/key-management.html#companion-key"><span class="std std-ref">companion key</span></a>, which is a dedicated key (introduced in protocol S)
+for signing the DAL specific part of consensus operations,
+when using a tz4 consensus key.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Origination</span></code> operation is used to
+<a class="reference internal" href="glossary.html#def-origination-alpha"><span class="std std-ref">originate</span></a>, that is to deploy, smart contracts
+in the Tezos blockchain.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Set_deposits_limit</span></code> operation enables delegates to adjust the
+amount of stake a delegate <a class="reference internal" href="consensus.html#active-stake-alpha"><span class="std std-ref">has locked in
+bonds</span></a>.</p></li>
+<li><p>Support for registering global constants is implemented with the
+<code class="docutils literal notranslate"><span class="pre">Register_global_constant</span></code> operation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Increase_paid_storage</span></code> operation allows a sender to increase
+the paid storage of some previously deployed contract.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Event</span></code> operation enables sending event-like information to
+external applications from Tezos smart contracts – see
+<a class="reference internal" href="event.html"><span class="doc">Contract Events</span></a> for further detail.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">DAL_publish_commitment</span></code> operation (see <a class="reference internal" href="dal_support.html"><span class="doc">DAL integration</span></a>)</p></li>
+</ul>
+<p>Moreover, all operations necessary to implement Tezos’ <em>enshrined</em>
+Layer 2 solutions into the economic protocol are also manager
+operations.</p>
+<p>In particular, <a class="reference internal" href="smart_rollups.html"><span class="doc">smart rollups</span></a> maintenance is
+handled with dedicated manager operations.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_originate</span></code> operation is used to originate, that
+is, to deploy smart rollups in the Tezos blockchain.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_add_messages</span></code> operation is used to add messages
+to the inbox shared by all the smart rollups originated in the Tezos
+blockchain. These messages are interpreted by the smart rollups
+according to their specific semantics.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_publish</span></code> operation is used to regularly declare
+what is the new state of a given smart rollup in a so-called
+“commitment”. To publish commitments, a user account has to
+own at least ꜩ 10,000, which are frozen as long as at least one of
+their commitments is disputable.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_cement</span></code> operation is used to cement a
+commitment, if the following requirements are met: it has been
+published for long enough, and there is no concurrent commitment for
+the same state update. Once a commitment is cemented, it cannot be
+disputed anymore.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_recover_bond</span></code> operation is used by a user
+account to unfreeze their ꜩ 10,000. This operation only succeeds if
+and only if all the commitments published by the user account
+have been cemented.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_refute</span></code> operation is used to start or pursue a
+dispute. A dispute is resolved on the Tezos blockchain through a
+so-called refutation game, where two players seek to prove the
+correctness of their respective commitment. The game consists in a
+dissection phase, where the two players narrow down their
+disagreement to a single execution step, and a resolution, where the
+players provide a proof sustaining their claims. The looser of a
+dispute looses their frozen bond: half of it is burned, and the
+winner receives the other half in compensation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_timeout</span></code> operation is used to put an end to a
+dispute if one of the two players takes too much time to send their
+next move (with a <code class="docutils literal notranslate"><span class="pre">Smart_rollup_refute</span></code> operation). It is not
+necessary to be one of the players to send this operation.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Smart_rollup_execute_outbox_message</span></code> operation is used to
+enact a transaction from a smart rollup to a smart contract, as
+authorized by a cemented commitment. The targeted smart contract can
+determine if it is called by a smart rollup using the <code class="docutils literal notranslate"><span class="pre">SENDER</span></code>
+Michelson instruction.</p></li>
+</ul>
+<section id="manager-operation-batches">
+<span id="manager-operations-batches-alpha"></span><h3>Manager Operation Batches<a class="headerlink" href="#manager-operation-batches" title="Link to this heading">#</a></h3>
+<p>Manager operations can be grouped, forming a so-called
+<strong>batch</strong>. Batches enable the inclusion of several manager operations
+from the same manager in a single block.</p>
+<p>Batches satisfy the following properties:</p>
+<ul class="simple">
+<li><p>All operations in a batch are issued by the same manager, which
+provides a single signature for the entire batch.</p></li>
+<li><p>A batch is <a class="reference internal" href="validation.html#manager-operations-application-alpha"><span class="std std-ref">applied</span></a>
+atomically: all its operations are executed sequentially, without
+interleaving other operations. Either all the operations in the
+batch succeed, or none is applied.</p></li>
+</ul>
+</section>
+</section>
+<section id="failing-noop-operation">
+<span id="failing-noop-alpha"></span><h2>Failing_noop operation<a class="headerlink" href="#failing-noop-operation" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Failing_noop</span></code> operation is not executable in the protocol:</p>
+<ul class="simple">
+<li><p>it can only be validated in <a class="reference internal" href="validation.html#partial-construction-alpha"><span class="std std-ref">mempool mode</span></a>, by the <a class="reference internal" href="../shell/prevalidation.html"><span class="doc">prevalidator component</span></a>;</p></li>
+<li><p>consequently, this operation cannot be <a class="reference internal" href="validation.html#operation-validity-alpha"><span class="std std-ref">applied</span></a>, and in fact will never be included into a block.</p></li>
+</ul>
+<p>Rather, the <code class="docutils literal notranslate"><span class="pre">Failing_noop</span></code> operation allows
+to sign an arbitrary string, without introducing an operation that could be misinterpreted in the protocol.</p>
+<p>The Octez client provides commands to sign and verify the signature of input messages by a given key. These commands create a <code class="docutils literal notranslate"><span class="pre">failing_noop</span></code>
+operation from the message that is being signed or checked.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client sign message &quot;hello world&quot; for &lt;account&gt;
+
+octez-client check that message &quot;hello world&quot; was signed by &lt;account&gt; to
+produce &lt;signature&gt;
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="event.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Contract events</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="validation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Validation and Application</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-specific-block-header">Protocol-specific block header</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations">Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-passes">Validation Passes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consensus-operations">Consensus Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#voting-operations">Voting Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anonymous-operations">Anonymous Operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manager-operations">Manager Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manager-operation-batches">Manager Operation Batches</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#failing-noop-operation">Failing_noop operation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

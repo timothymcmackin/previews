@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -1025,12 +1025,12 @@ the receipt of the update operation.</p>
 <section id="baking-with-a-consensus-key">
 <h3>Baking With a Consensus Key<a class="headerlink" href="#baking-with-a-consensus-key" title="Link to this heading">#</a></h3>
 <p>In your baker’s command, replace the delegate’s manager key alias with the consensus key alias:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker-Ptxxxxxx run with local node ~/.tezos-node &lt;consensus_key_alias&gt; --liquidity-baking-toggle-vote pass
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker run with local node ~/.tezos-node &lt;consensus_key_alias&gt; --liquidity-baking-toggle-vote pass
 </pre></div>
 </div>
 <p>While <a class="reference internal" href="../active/proof_of_stake.html#consensus-key"><span class="std std-ref">transitioning from the delegate’s manager key</span></a>, it is possible to pass the alias for both delegate’s manager key and consensus key.
 The delegate will seamlessly keep baking when the transition happens:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker-Ptxxxxxx run with local node ~/.tezos-node &lt;consensus_key_alias&gt; &lt;delegate_key_alias&gt; --liquidity-baking-toggle-vote pass
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker run with local node ~/.tezos-node &lt;consensus_key_alias&gt; &lt;delegate_key_alias&gt; --liquidity-baking-toggle-vote pass
 </pre></div>
 </div>
 </section>

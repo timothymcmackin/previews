@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -717,10 +717,12 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Breaking changes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-explicit-choice-on-using-dal-or-not-via-the-cli">Baker: Explicit choice on using DAL or not via the CLI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-baker-executable">Unique baker executable</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upcoming-changes">Upcoming changes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-explicit-choice-on-using-dal-or-not-via-the-cli">Baker: Explicit choice on using DAL or not via the CLI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-accuser-executable">Unique accuser executable</a></li>
 </ul>
 </li>
 </ul>
@@ -754,7 +756,13 @@ These changes are related to the support for tz4 BLS addresses and their aggrega
 <section id="backward-compatibility">
 <h3>Backward compatibility<a class="headerlink" href="#backward-compatibility" title="Link to this heading">#</a></h3>
 <p>Most of the changes in the encodings of existing operations are either purely added operations (e.g. <code class="docutils literal notranslate"><span class="pre">update_companion_key</span></code>) or optional fields that should not break (e.g., for operations <code class="docutils literal notranslate"><span class="pre">reveal</span></code> and <code class="docutils literal notranslate"><span class="pre">update_consensus_key</span></code>).</p>
-<p>However, tool providers who do not use encodings but rather <a class="reference internal" href="../shell/p2p_api.html"><span class="doc">p2p message format</span></a>, may experience some issues.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>However, tool providers which do not use encodings but rather <a class="reference internal" href="../shell/p2p_api.html"><span class="doc">p2p message
+format</span></a> may experience some issues. For example, the <code class="docutils literal notranslate"><span class="pre">reveal</span></code>
+operation has a new boolean field to mark the presence of the optional <code class="docutils literal notranslate"><span class="pre">proof</span></code> for
+tz4 revelation.</p>
+</div>
 </section>
 <section id="id1">
 <h3>Breaking changes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -886,9 +894,6 @@ For example, one (trivial) <a class="reference external" href="https://ghostnet.
 </div>
 </section>
 </section>
-</section>
-<section id="upcoming-changes">
-<h1>Upcoming changes<a class="headerlink" href="#upcoming-changes" title="Link to this heading">#</a></h1>
 <section id="baker-explicit-choice-on-using-dal-or-not-via-the-cli">
 <h2>Baker: Explicit choice on using DAL or not via the CLI<a class="headerlink" href="#baker-explicit-choice-on-using-dal-or-not-via-the-cli" title="Link to this heading">#</a></h2>
 <p>Octez <code class="docutils literal notranslate"><span class="pre">v21.3</span></code> introduces the new <code class="docutils literal notranslate"><span class="pre">--without-dal</span></code> option for the baker daemon.
@@ -896,6 +901,17 @@ In Octez <code class="docutils literal notranslate"><span class="pre">v21.3</spa
 <p>Starting from Octez <code class="docutils literal notranslate"><span class="pre">v22</span></code>, launching a baker daemon requires an explicit mention of the DAL.
 The recommended approach is to run a DAL node and start the baker using the <code class="docutils literal notranslate"><span class="pre">--dal-node</span> <span class="pre">&lt;uri&gt;</span></code> option.
 If you do not wish to use a DAL node, you can opt-out by using the <code class="docutils literal notranslate"><span class="pre">--without-dal</span></code> option.</p>
+</section>
+<section id="unique-baker-executable">
+<h2>Unique baker executable<a class="headerlink" href="#unique-baker-executable" title="Link to this heading">#</a></h2>
+<p>Starting with Octez <code class="docutils literal notranslate"><span class="pre">v23</span></code>, the single executable <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> (previously named <code class="docutils literal notranslate"><span class="pre">octez-experimental-agnostic-baker</span></code>) is no longer experimental, and should be preferred over the protocol-suffixed executables <code class="docutils literal notranslate"><span class="pre">octez-baker-&lt;proto-hash&gt;</span></code>, which will be deprecated in <code class="docutils literal notranslate"><span class="pre">v24</span></code>, and will be removed in a later version.</p>
+</section>
+</section>
+<section id="upcoming-changes">
+<h1>Upcoming changes<a class="headerlink" href="#upcoming-changes" title="Link to this heading">#</a></h1>
+<section id="unique-accuser-executable">
+<h2>Unique accuser executable<a class="headerlink" href="#unique-accuser-executable" title="Link to this heading">#</a></h2>
+<p>Similarly to the unique baker executable, Octez <code class="docutils literal notranslate"><span class="pre">v23</span></code> also introduces a single executable <code class="docutils literal notranslate"><span class="pre">octez-accuser</span></code> meant to gradually replace the protocol-suffixed executables <code class="docutils literal notranslate"><span class="pre">octez-accuser-&lt;proto-hash&gt;</span></code>.</p>
 </section>
 </section>
 
@@ -1005,10 +1021,12 @@ If you do not wish to use a DAL node, you can opt-out by using the <code class="
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Breaking changes</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-explicit-choice-on-using-dal-or-not-via-the-cli">Baker: Explicit choice on using DAL or not via the CLI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-baker-executable">Unique baker executable</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#upcoming-changes">Upcoming changes</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-explicit-choice-on-using-dal-or-not-via-the-cli">Baker: Explicit choice on using DAL or not via the CLI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unique-accuser-executable">Unique accuser executable</a></li>
 </ul>
 </li>
 </ul>

@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -761,8 +761,10 @@ rewards updates, voting period, etc.</p>
 <p>For a detailed metadata content check the <a class="reference internal" href="rpc.html"><span class="doc">Seoul RPCs - Reference</span></a> under
 the prefix <code class="docutils literal notranslate"><span class="pre">../&lt;block_id&gt;/metadata</span></code>.</p>
 </dd>
-<dt><span class="target" id="node">Node</span></dt><dd><p>A peer in the P2P network. It maintains a local state and propagates <a class="reference internal" href="#block">block</a>s
-and <a class="reference internal" href="#operation">operation</a>s.</p>
+<dt><span class="target" id="node">Node</span></dt><dd><p>A peer in a Tezos P2P network.
+The term “node” can refer to a few different kinds of nodes, including Tezos layer 1 nodes, <a class="reference internal" href="#dal-node">DAL node</a>s, and <a class="reference internal" href="#smart-rollup">Smart Rollup</a> nodes.
+The context should help to disambiguate between these, but in most cases, the term “node” refers to a layer 1 node.
+Layer 1 nodes maintain a local state and propagates <a class="reference internal" href="#block">block</a>s and <a class="reference internal" href="#operation">operation</a>s.</p>
 </dd>
 <dt><span class="target" id="operation">Operation</span></dt><dd><p>An operation transforms the <a class="reference internal" href="#context">context</a>; this is what makes the state of the chain
 change. Operations are grouped into <a class="reference internal" href="#block">block</a>s; thus, the chain progresses in
@@ -804,9 +806,18 @@ In the <a class="reference internal" href="#context">context</a>, each account i
 tez available).</p>
 <p>An account can be either a <a class="reference internal" href="#user-account">user account</a> or a <a class="reference internal" href="#smart-contract">smart contract</a>.</p>
 </dd>
-<dt><span class="target" id="attesting">Attesting</span></dt><dd><p>When a <a class="reference internal" href="#block">block</a> is created and propagated on the network, delegates that have
+<dt><span class="target" id="attestation-lag">Attestation lag</span></dt><dd><p>A delay of a certain number of blocks that gives DAL nodes time to verify that DAL data is available.
+Attesters (via their DAL nodes) include their DAL attestations in their attestation operations immediately after the attestation lag has passed.</p>
+</dd>
+<dt><span class="target" id="attestation-quorum">Attestation quorum</span></dt><dd><p>As described in <a class="reference internal" href="consensus.html"><span class="doc">The consensus algorithm</span></a>, the minimal number of attestations that are needed to consider a block as pre-attested or attested.</p>
+</dd>
+<dt><span class="target" id="attestation-threshold">Attestation threshold</span></dt><dd><p>In the DAL, the minimum percentage of DAL <a class="reference internal" href="#shard">shard</a>s that must be attested before the data is considered available to Smart Rollups.</p>
+</dd>
+<dt><span class="target" id="attesting">Attesting</span></dt><dd><p>The process of asserting that some other operation is valid.
+When a <a class="reference internal" href="#block">block</a> is created and propagated on the network, delegates that have
 <a class="reference internal" href="#attesting-rights">attesting rights</a> for the matching block <a class="reference internal" href="#level">level</a> and <a class="reference internal" href="#round">round</a> can emit an attestation <a class="reference internal" href="#operation">operation</a>.
-Attestation operations are included in the next <a class="reference internal" href="#block">block</a>.</p>
+Attestation operations are included in the next <a class="reference internal" href="#block">block</a>.
+Beyond serving in the L1 consensus protocol for attesting <a class="reference internal" href="#block">block</a>s, attestation operations provide specific fields used in the <a class="reference internal" href="#dal">DAL</a> for attesting available <a class="reference internal" href="#shard">shard</a>s.</p>
 </dd>
 <dt><span class="target" id="attesting-rights">Attesting rights</span></dt><dd><p>See <a class="reference internal" href="#baking-rights">baking rights</a>.</p>
 </dd>
@@ -854,6 +865,15 @@ numbers of cycles.</p>
 <p>The length of a cycle is a (parametric) protocol
 <a class="reference internal" href="#constant">constant</a>, and thus might change across different
 Tezos protocols.</p>
+</dd>
+<dt><span class="target" id="dal">DAL</span></dt><dd><p>See <a class="reference internal" href="#data-availability-layer">Data Availability Layer</a></p>
+</dd>
+<dt><span class="target" id="dal-node">DAL node</span></dt><dd><p>DAL nodes (instances of the <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span></code> binary) are responsible for distributing the data that users submit to the DAL.</p>
+</dd>
+<dt><span class="target" id="dal-slot">DAL slot</span></dt><dd><p>Each block has a certain number of slots to which Data Availability Layer users can post raw data (also called blobs, for binary large objects) to distribute via the DAL.</p>
+</dd>
+<dt><span class="target" id="data-availability-layer">Data Availability Layer</span></dt><dd><p>The Data Availability Layer (DAL) is a companion peer-to-peer network for Tezos that distributes data to Smart Rollups.
+See <a class="reference internal" href="../shell/dal.html"><span class="doc">Data Availability Layer</span></a>.</p>
 </dd>
 </dl>
 <dl class="simple" id="def-delegate-seoul">
@@ -932,12 +952,18 @@ For the full list of operations, see <a class="reference internal" href="blocks_
 <dt><span class="target" id="origination">Origination</span></dt><dd><p>A manager <a class="reference internal" href="#operation">operation</a> whose purpose is to create – that
 is, to deploy – a <a class="reference internal" href="#smart-contract">smart contract</a> on the Tezos blockchain.</p>
 </dd>
+<dt><span class="target" id="page">Page</span></dt><dd><p>A portion of the raw (unexpanded) data in a <a class="reference internal" href="#dal-slot">DAL slot</a> of a fixed size that is small enough to fit in a layer 1 operation.
+The DAL splits the raw data in each slot into pages that can be requested individually so that for example refutation games can run properly.</p>
+</dd>
 <dt><span class="target" id="pvm">PVM</span></dt><dd><p>A PVM (Proof-generating Virtual Machine) is a reference
 implementation for a device on top of which a <a class="reference internal" href="#smart-rollup">smart rollup</a> can be
 executed. This reference implementation is part of the <a class="reference internal" href="#economic-protocol">economic
 protocol</a> and is the unique source of truth regarding the semantics
 of rollups. The PVM is able to produce proofs enforcing this truth.
 This ability is used during the final step of a <a class="reference internal" href="#refutation-game">refutation game</a>.</p>
+</dd>
+<dt><span class="target" id="redundancy-factor">Redundancy factor</span></dt><dd><p>The amount of redundancy that the protocol uses when expanding and splitting DAL data into <a class="reference internal" href="#shard">shard</a>s.
+The higher the redundancy factor, the fewer shards are needed to reconstruct the initial data.</p>
 </dd>
 <dt><span class="target" id="refutation-game">Refutation game</span></dt><dd><p>A process by which the <a class="reference internal" href="#economic-protocol">economic protocol</a> solves a conflict between two
 <a class="reference internal" href="#rollup-committer">rollup committer</a>s.
@@ -983,6 +1009,11 @@ A <a class="reference internal" href="#baker">baker</a> with <a class="reference
 the round’s corresponding time span. <a class="reference internal" href="#baking">Baking</a> outside of one’s designated
 round results in an invalid <a class="reference internal" href="#block">block</a>.</p>
 </dd>
+<dt><span class="target" id="shard">Shard</span></dt><dd><p>Raw data aimed to published over the DAL is first expanded based on a redundancy factor and then split into shards.
+The DAL distributes these shards to DAL nodes.
+Attesters are assigned shards to download (via DAL nodes) and attest.
+Thanks to redundancy, not every shard needs to be attested for the full data to be considered available.</p>
+</dd>
 <dt><span class="target" id="smart-contract">Smart contract</span></dt><dd><p><a class="reference internal" href="#account">Account</a> which is associated to a <a class="reference internal" href="#michelson">Michelson</a> script.
 They are created with an
 explicit <a class="reference internal" href="#origination">origination</a> operation and are therefore sometimes called
@@ -1000,11 +1031,16 @@ The user account must have set a delegate.
 The security deposit accrues to the stake of the user account’s delegate and is
 subject to slashing in case the delegate misbehaves – see <a class="reference internal" href="consensus.html#slashing-seoul"><span class="std std-ref">Slashing</span></a>.</p>
 </dd>
+<dt><span class="target" id="tenderbake">Tenderbake</span></dt><dd><p>The algorithm that Tezos uses to create consensus from bakers’ proposals and attestations of blocks.</p>
+</dd>
 <dt><span class="target" id="tez">Tez</span></dt><dd><p>A unit of the cryptocurrency native to a <a class="reference internal" href="#tezos">Tezos</a> chain, such as in “I sent you 2 tez.” Tez is invariable. It is not capitalized except at the beginning of a sentence or when you would otherwise capitalize a noun.
 See also <a class="reference internal" href="#xtz">XTZ</a>.</p>
 </dd>
 <dt><span class="target" id="transaction">Transaction</span></dt><dd><p>An <a class="reference internal" href="#operation">operation</a> to transfer tez between two accounts, or to run the code of a
 <a class="reference internal" href="#smart-contract">smart contract</a>.</p>
+</dd>
+<dt><span class="target" id="trap">Trap</span></dt><dd><p>A DAL <a class="reference internal" href="#shard">shard</a> that is treated specially by the protocol for a particular attester to ensure that attesters are honestly downloading and attesting to data.
+If a DAL attester attests to a trap, that attester will not receive DAL rewards.</p>
 </dd>
 </dl>
 <dl id="def-user-account-seoul">

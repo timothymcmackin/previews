@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -713,8 +713,9 @@
                   
   <section id="building-octez-from-source">
 <h1>Building Octez from source<a class="headerlink" href="#building-octez-from-source" title="Link to this heading">#</a></h1>
-<p id="compiling-with-make"><span id="build-from-sources"></span>If you plan to contribute to the Octez codebase or if you want to build a version of Octez that is based on the most recent code, the way to go is to set up a complete development environment by cloning the repository and compiling the sources using the provided makefile.
-If you rather want to install prebuilt binaries, refer to <a class="reference internal" href="howtoget.html"><span class="doc">Installing Octez</span></a>.</p>
+<p id="compiling-with-make"><span id="build-from-sources"></span>If you plan to contribute to the Octez codebase or if you want to build a version of Octez that is based on the most recent code, the way to go is to set up a complete development environment by cloning the repository and compiling the sources using the provided makefile.</p>
+<p>Note that setting up a complete development environment requires a powerful machine, and the required resources are increasing in the long run.
+If you are using Octez for production, consider installing forms of prebuilt binaries, refer to <a class="reference internal" href="howtoget.html"><span class="doc">Installing Octez</span></a>.</p>
 <p>You can either build all the executables, as illustrated below, or only a subset of the executables, as detailed in section <a class="reference internal" href="#compile-sources"><span class="std std-ref">Compile</span></a>.</p>
 <p><strong>TL;DR</strong>: From a fresh Debian Bookworm x86_64, you typically want to select a source branch in the Octez repository, e.g.:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nv">REPO</span><span class="o">=</span><span class="s2">&quot;tezos/tezos&quot;</span>
@@ -722,25 +723,24 @@ If you rather want to install prebuilt binaries, refer to <a class="reference in
 </pre></div>
 </div>
 <p>and then do:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># [Temporary fix: removes tezos folder from PATH if added with Octez &lt;= v13 instructions]</span>
-<span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="p">##</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">&quot;</span><span class="p">/tezos/:</span><span class="si">}</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>rsync<span class="w"> </span>git<span class="w"> </span>m4<span class="w"> </span>build-essential<span class="w"> </span>patch<span class="w"> </span>unzip<span class="w"> </span>wget<span class="w"> </span>opam<span class="w"> </span>jq<span class="w"> </span>bc
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>rsync<span class="w"> </span>git<span class="w"> </span>m4<span class="w"> </span>build-essential<span class="w"> </span>patch<span class="w"> </span>unzip<span class="w"> </span>wget<span class="w"> </span>opam<span class="w"> </span>jq<span class="w"> </span>bc
 <span class="c1"># [install rust]</span>
 wget<span class="w"> </span>https://sh.rustup.rs/rustup-init.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>rustup-init.sh
-./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.86.0<span class="w"> </span>-y
-<span class="c1"># [source cargo]</span>
-.<span class="w"> </span><span class="nv">$HOME</span>/.cargo/env
-<span class="c1"># [get sources]</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/<span class="s2">&quot;</span><span class="nv">$REPO</span><span class="s2">&quot;</span>.git<span class="w"> </span>tezos
+./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.88.0<span class="w"> </span>-y
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/<span class="s2">&quot;</span><span class="nv">$REPO</span><span class="s2">&quot;</span>.git<span class="w"> </span>tezos
 <span class="nb">cd</span><span class="w"> </span>tezos
 git<span class="w"> </span>checkout<span class="w"> </span><span class="nv">$BRANCH</span>
-<span class="c1"># [install Octez dependencies]</span>
+<span class="c1"># [init opam]</span>
 opam<span class="w"> </span>init<span class="w"> </span>--bare
-make<span class="w"> </span>build-deps
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>build-deps
 <span class="c1"># [compile sources]</span>
 <span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>opam<span class="w"> </span>env<span class="k">)</span>
-make
+make<span class="w"> </span>release
 <span class="c1"># [optional setup]</span>
 <span class="c1"># puts Octez binaries in PATH:</span>
 <span class="c1"># export PATH=$PWD/_build/install/default/bin/:$PATH</span>
@@ -769,7 +769,7 @@ please avoid installing it from Snapcraft; you can rather follow the
 simple installation process shown below:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://sh.rustup.rs/rustup-init.sh
 chmod<span class="w"> </span>+x<span class="w"> </span>rustup-init.sh
-./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.86.0<span class="w"> </span>-y
+./rustup-init.sh<span class="w"> </span>--profile<span class="w"> </span>minimal<span class="w"> </span>--default-toolchain<span class="w"> </span><span class="m">1</span>.88.0<span class="w"> </span>-y
 </pre></div>
 </div>
 <p>Once Rust is installed, note that your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable
@@ -884,7 +884,7 @@ package manager but it currently does not handle version checking.</p></li>
 <p>Once the dependencies are installed we can update OPAM’s environment to
 refer to the new switch and compile the project to build all the executables:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>opam<span class="w"> </span>env<span class="k">)</span>
-make
+make<span class="w"> </span>release
 </pre></div>
 </div>
 <div class="admonition note">

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Version 23.0~rc2 &#8212; Octez &amp; Protocol products documentation</title>
+    <title>Version 23.0 &#8212; Octez &amp; Protocol products documentation</title>
   
   
   
@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -71,7 +71,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Older Versions" href="history.html" />
-    <link rel="prev" title="Version 22.1" href="version-22.html" />
+    <link rel="prev" title="Release System" href="releases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="local" />
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version-22.html">Version 22.1</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Version 23.0~rc2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="version-19.html">Version 19.2</a></li>
@@ -683,7 +683,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Version 23.0~rc2</h1>
+    <h1>Version 23.0</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -720,8 +720,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="version-23-0-rc2">
-<h1>Version 23.0~rc2<a class="headerlink" href="#version-23-0-rc2" title="Link to this heading">#</a></h1>
+  <section id="version-23-0">
+<h1>Version 23.0<a class="headerlink" href="#version-23-0" title="Link to this heading">#</a></h1>
 <section id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Link to this heading">#</a></h2>
 <section id="summary">
@@ -747,11 +747,17 @@ As a result, Octez version 23 is the first version compatible with all protocols
 This binary is a protocol-independent that dynamically selects the
 appropriate baking process based on the active protocol.</p>
 <p>The bakers names with protocols are still released, but they will be deprecated in an upcoming version.</p>
+<p>Similarly, there is also a protocol-independent binary <code class="docutils literal notranslate"><span class="pre">octez-accuser</span></code> starting from v23.</p>
 </section>
 <section id="bls-support">
 <span id="bls-v23"></span><h3>BLS support<a class="headerlink" href="#bls-support" title="Link to this heading">#</a></h3>
 <p>Version 23 contains client commands and node RPCs that support <a class="reference external" href="https://research-development.nomadic-labs.com/seoul-announcement.html#aggregated-attestations">Tz4 delegates</a> and Native multisig.</p>
 <p>See <a class="reference external" href="https://forum.tezosagora.org/t/heads-up-native-multisig-accounts-in-protocol-proposal-s/6805">https://forum.tezosagora.org/t/heads-up-native-multisig-accounts-in-protocol-proposal-s/6805</a> to learn more</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Introduction of this feature needed some breaking changes for tool providers see <a class="reference internal" href="../introduction/breaking_changes.html"><span class="doc">breaking
+changes</span></a>.</p>
+</div>
 </section>
 <section id="snapshot-version">
 <span id="snapshot-v23"></span><h3>Snapshot version<a class="headerlink" href="#snapshot-version" title="Link to this heading">#</a></h3>
@@ -785,6 +791,10 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 </pre></div>
 </div>
 <p>If you are installing Ubuntu and Debian packages from scratch, follow <a class="reference internal" href="../introduction/howtoget.html#installing-deb"><span class="std std-ref">their install instructions</span></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are running the Octez node with a non-default data directory, check instructions <a class="reference internal" href="../introduction/services.html#node-as-service"><span class="std std-ref">here</span></a>.</p>
+</div>
 </section>
 <section id="fedora-or-rocky-linux-packages">
 <h3>Fedora or Rocky Linux packages<a class="headerlink" href="#fedora-or-rocky-linux-packages" title="Link to this heading">#</a></h3>
@@ -796,7 +806,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 <section id="from-sources">
 <h3>From sources<a class="headerlink" href="#from-sources" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch
-git<span class="w"> </span>checkout<span class="w"> </span>octez-v23.0-rc2
+git<span class="w"> </span>checkout<span class="w"> </span>octez-v23.0
 make<span class="w"> </span>clean
 opam<span class="w"> </span>switch<span class="w"> </span>remove<span class="w"> </span>.<span class="w"> </span><span class="c1"># To be used if the next step fails</span>
 make<span class="w"> </span>build-deps
@@ -804,12 +814,13 @@ make<span class="w"> </span>build-deps
 make
 </pre></div>
 </div>
-<p>If you are using Docker instead, use the <code class="docutils literal notranslate"><span class="pre">octez-v23.0-rc2</span></code> Docker images of Octez.</p>
+<p>If you are using Docker instead, use the <code class="docutils literal notranslate"><span class="pre">octez-v23.0</span></code> Docker images of Octez.</p>
 </section>
 </section>
 <section id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="../CHANGES.html#version-23-0">Version 23.0</a></p></li>
 <li><p><a class="reference external" href="../CHANGES.html#version-23-0-rc2">Version 23.0~rc2</a></p></li>
 <li><p><a class="reference external" href="../CHANGES.html#version-23-0-rc1">Version 23.0~rc1</a></p></li>
 </ul>
@@ -864,12 +875,12 @@ make
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="version-22.html"
+       href="releases.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Version 22.1</p>
+        <p class="prev-next-title">Release System</p>
       </div>
     </a>
     <a class="right-next"

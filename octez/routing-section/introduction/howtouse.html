@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -745,7 +745,7 @@ as some concepts about the network.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-node</span></code>: the Octez daemon itself (see <a class="reference internal" href="#node">Node</a>);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-client</span></code>: a command-line client and basic wallet (see <a class="reference internal" href="#client">Client</a>);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-admin-client</span></code>: administration tool for the node (see <a class="reference internal" href="#octez-admin-client"><span class="std std-ref">Admin Client</span></a>);</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">octez-{baker,accuser}-*</span></code>: daemons to bake and accuse on the Tezos network (see <a class="reference internal" href="howtorun.html"><span class="doc">Running Octez</span></a>);</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">octez-{baker,accuser}</span></code>: daemons to bake and accuse on the Tezos network (see <a class="reference internal" href="howtorun.html"><span class="doc">Running Octez</span></a>);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-signer</span></code>: a client to remotely sign operations or blocks
 (see <a class="reference internal" href="../user/key-management.html#signer"><span class="std std-ref">Signer</span></a>);</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-smart-rollup-node</span></code>: executable for using and running a smart rollup node as Layer 2 (see <a class="reference internal" href="../shell/smart_rollup_node.html"><span class="doc">Smart rollup node</span></a>);</p></li>
@@ -754,13 +754,16 @@ as some concepts about the network.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-protocol-compiler</span></code>: a domain-specific compiler for Tezos protocols (see <a class="reference internal" href="#protocol-compiler">Protocol compiler</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code>: a tool for modeling the performance of any piece of OCaml code, based on benchmarking (see <a class="reference internal" href="../developer/snoop.html"><span class="doc">Benchmarking with Snoop</span></a>)</p></li>
 </ul>
-<p>The daemons other than the node are suffixed with the name of the protocol they are
+<p>Some of the daemons other than the node are suffixed with the name of the protocol they are
 bound to.
 More precisely, the suffix consists of the first 8 characters of the protocol hash; except for protocol Alpha, for which the suffix is simply <code class="docutils literal notranslate"><span class="pre">-alpha</span></code>.
 For instance, <code class="docutils literal notranslate"><span class="pre">octez-baker-PsQuebec</span></code> is the baker
 for the Quebec protocol, and <code class="docutils literal notranslate"><span class="pre">octez-baker-alpha</span></code> is the baker
 of the development protocol.
-The <code class="docutils literal notranslate"><span class="pre">octez-node</span></code> daemon is not suffixed by any protocol name, because it is independent of the economic protocol. See also the <a class="reference internal" href="#node-s-protocol">Node’s Protocol</a> section below.</p>
+However, starting with version 23, there are single baker binaries named <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-accuser</span></code>, that you can run instead of the protocol-suffixed binaries.
+They can be used on any protocol that the Octez suite supports, including the current protocol and sometimes a proposed upcoming protocol.
+When new protocols get proposed or adopted, you just have to upgrade these executables to the newest version to make sure they support the latest protocols.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">octez-node</span></code> daemon is not suffixed by any protocol name, because it is independent of the economic protocol. See also the <a class="reference internal" href="#node-s-protocol">Node’s Protocol</a> section below.</p>
 </section>
 <section id="read-the-manual">
 <h2>Read the Manual<a class="headerlink" href="#read-the-manual" title="Link to this heading">#</a></h2>
@@ -833,7 +836,7 @@ disseminating this information to build a consensus across the
 network.</p>
 <p>Other than passively observing the network, your node can also inject
 its own new operations when instructed by the <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> and even
-send new blocks when guided by the <code class="docutils literal notranslate"><span class="pre">octez-baker-*</span></code>.
+send new blocks when guided by the <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code>.
 The node has also a view of the multiple chains that may exist
 concurrently and selects the best one based on its fitness (see
 <a class="reference internal" href="../active/consensus.html"><span class="doc">The consensus algorithm</span></a>).</p>
@@ -1040,8 +1043,8 @@ the network, so that we can inspect its receipt.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client transfer 1 from alice to bob --dry-run
 
 Fatal error:
-  The operation will burn 0.257 tez which is higher than the configured burn cap (0 tez).
-   Use `--burn-cap 0.257` to emit this operation.
+  The operation will burn 0.06425 tez which is higher than the configured burn cap (0 tez).
+   Use `--burn-cap 0.06425` to emit this operation.
 </pre></div>
 </div>
 <p>The client asks the node to validate the operation (without sending
@@ -1052,10 +1055,11 @@ Any storage on chain has a cost associated to it which should be
 accounted for either by paying a fee to a baker or by destroying
 (<code class="docutils literal notranslate"><span class="pre">burning</span></code>) some tez.
 This is particularly important to protect the system from spam.
-Because storing an address requires burning 0.257 tez and the client has
+The cost is given by <code class="docutils literal notranslate"><span class="pre">origination_size</span> <span class="pre">*</span> <span class="pre">cost_per_byte</span></code>, where the two constants are defined in the protocol’s source code (file <a class="reference external" href="https://gitlab.com/tezos/tezos/-/blob/master/src/proto_alpha/lib_parameters/default_parameters.ml">default_parameters.ml </a>).
+Because storing an address requires burning 0.06425 tez and the client has
 a default of 0, we need to explicitly set a cap on the amount that we
 allow to burn:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client transfer 1 from alice to bob --dry-run --burn-cap 0.257
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client transfer 1 from alice to bob --dry-run --burn-cap 0.06425
 </pre></div>
 </div>
 <p>This should do it and you should see a rather long receipt being
@@ -1088,7 +1092,7 @@ Simulation result:
       Balance updates:
         tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w ... -ꜩ1
         tz1Rk5HA9SANn3bjo4qMXTZettPjjKMG14Ph ... +ꜩ1
-        tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w ... -ꜩ0.257
+        tz1RjtZUVeLhADFHDL8UwDZA6vjWWhojpu5w ... -ꜩ0.06425
 </pre></div>
 </div>
 <p>The client does a bit of magic to simplify our life and here we see
@@ -1153,7 +1157,7 @@ transaction.</p></li>
 <p>Let’s originate our first contract and call it <em>id</em>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client originate contract id transferring 1 from alice \
              running ./michelson_test_scripts/attic/id.tz \
-             --init &#39;&quot;hello&quot;&#39; --burn-cap 0.4
+             --init &#39;&quot;hello&quot;&#39; --burn-cap 0.1
 </pre></div>
 </div>
 <p>The initial balance is 1 tez, generously provided by user account

@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -697,6 +697,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups">Smart Rollups</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability-layer">Data Availability Layer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-issuance">Adaptive Issuance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michelson">Michelson</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gas-improvements">Gas improvements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking Changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-changes">RPC Changes</a></li>
@@ -738,17 +739,60 @@ branch of Octez and the full documentation in <a class="reference internal" href
 <section id="adaptive-issuance">
 <h2>Adaptive Issuance<a class="headerlink" href="#adaptive-issuance" title="Link to this heading">#</a></h2>
 </section>
+<section id="michelson">
+<h2>Michelson<a class="headerlink" href="#michelson" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A new instruction named <code class="docutils literal notranslate"><span class="pre">INDEX_ADDRESS</span></code> has been added, it
+provides a unique identifier of type <code class="docutils literal notranslate"><span class="pre">nat</span></code> for values
+of type <code class="docutils literal notranslate"><span class="pre">address</span></code>, stored in the context. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18866">!18866</a>)</p></li>
+<li><p>A new instruction named <code class="docutils literal notranslate"><span class="pre">GET_ADDRESS_INDEX</span></code> has been added, and returns the
+unique identifier of type <code class="docutils literal notranslate"><span class="pre">nat</span> <span class="pre">option</span></code> for values of type <code class="docutils literal notranslate"><span class="pre">address</span></code>, if
+the address has already been indexed through <code class="docutils literal notranslate"><span class="pre">INDEX_ADDRESS</span></code>. Returns
+<code class="docutils literal notranslate"><span class="pre">None</span></code> otherwise. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18866">!18866</a>)</p></li>
+</ul>
+</section>
 <section id="gas-improvements">
 <h2>Gas improvements<a class="headerlink" href="#gas-improvements" title="Link to this heading">#</a></h2>
 </section>
 <section id="breaking-changes">
 <h2>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">GET</span>
+<span class="pre">/chains/&lt;chain_id&gt;/blocks/&lt;block_id&gt;/helpers/validators</span></code> to group delegates by level.
+The returned list contains one element for each queried level (by default, only the current level),
+and contains four fields: the <code class="docutils literal notranslate"><span class="pre">level</span></code> itself, the <code class="docutils literal notranslate"><span class="pre">consensus_threshold</span></code> required for the current
+level, the <code class="docutils literal notranslate"><span class="pre">consensus_committee</span></code> of the current level, and <code class="docutils literal notranslate"><span class="pre">delegates</span></code> which is the list
+of validators for that level. Each element of this last
+list contains the fields present in the previous version of this RPC: <code class="docutils literal notranslate"><span class="pre">delegate</span></code>, <code class="docutils literal notranslate"><span class="pre">slots</span></code>,
+<code class="docutils literal notranslate"><span class="pre">consensus_key</span></code>, and <code class="docutils literal notranslate"><span class="pre">companion_key</span></code> (optional).
+Also include a new field for delegates, <code class="docutils literal notranslate"><span class="pre">attesting_power</span></code>, with their attesting power
+for the level.
+(MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18931">!18931</a>, <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18959">!18959</a>)</p></li>
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/chains/&lt;chain_id&gt;/blocks/&lt;block_id&gt;/context/issuance/expected_issuance</span></code>,
+changing <code class="docutils literal notranslate"><span class="pre">baking_reward_bonus_per_slot</span></code> with <code class="docutils literal notranslate"><span class="pre">baking_reward_bonus_per_block</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">attesting_reward_per_slot</span></code> with <code class="docutils literal notranslate"><span class="pre">ættesting_reward_per_block</span></code>. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18959">!18959</a>)</p></li>
+</ul>
 </section>
 <section id="rpc-changes">
 <h2>RPC Changes<a class="headerlink" href="#rpc-changes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/chains/&lt;chain_id&gt;/blocks/&lt;block_id&gt;/helpers/stake_info</span></code>,
+which returns the staking power distribution for all the active delegates
+at the current cycle. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18019">!18019</a>)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">GET</span>
+<span class="pre">/chains/&lt;chain_id&gt;/blocks/&lt;block_id&gt;/context/destination/&lt;destination&gt;/index</span></code>
+which returns the index of the given destination (e.g. tz1, Smart Rollup
+addresses, etc.) or <code class="docutils literal notranslate"><span class="pre">null</span></code> if the destination has not been indexed by
+the opcode <code class="docutils literal notranslate"><span class="pre">INDEX_ADDRESS</span></code> yet. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18944">!18944</a>)</p></li>
+</ul>
 </section>
 <section id="operation-receipts">
 <h2>Operation receipts<a class="headerlink" href="#operation-receipts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">address_registry_diff</span></code> field in <code class="docutils literal notranslate"><span class="pre">metadata</span></code> for newly indexed
+addresses from the opcode <code class="docutils literal notranslate"><span class="pre">INDEX_ADDRESS</span></code> in the operation. (MR
+<a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18870">!18870</a>)</p></li>
+</ul>
 </section>
 <section id="errors">
 <h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h2>
@@ -788,6 +832,19 @@ cycles to 1 cycle. (MR <a class="reference external" href="https://gitlab.com/te
 cycles, in order to reduce memory consumption. Only
 <code class="docutils literal notranslate"><span class="pre">consensus_rights_delay</span> <span class="pre">+</span> <span class="pre">slashing_delay</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">4</span></code>
 cycles are needed. (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/18783">!18783</a>)</p></li>
+<li><p>Replaced the <code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period</span></code> protocol constant with
+three new protocol constants: <code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_low</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_high</span></code> and
+<code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_threshold</span></code>. The tolerated inactivity
+period now depends on the delegate’s stake ratio over the total
+active stake. If the ratio is greater than the
+<code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_threshold</span> <span class="pre">=</span> <span class="pre">10</span></code> (expressed in ‘per
+thousand’), we apply a low tolerance
+<code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_low</span> <span class="pre">=</span> <span class="pre">1</span></code>. Otherwise, we apply a high
+tolerance <code class="docutils literal notranslate"><span class="pre">tolerated_inactivity_period_high</span> <span class="pre">=</span> <span class="pre">12</span></code>. If the stake is
+unknown, we apply a low tolerance (e.g., after the delegate’s
+registration, reactivation, or decreasing its stake below
+<code class="docutils literal notranslate"><span class="pre">minimal_stake</span></code>). (MR <a class="reference external" href="https://gitlab.com/tezos/tezos/-/merge_requests/17582">!17582</a>)</p></li>
 </ul>
 </section>
 <section id="bug-fixes">
@@ -887,6 +944,7 @@ cycles are needed. (MR <a class="reference external" href="https://gitlab.com/te
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollups">Smart Rollups</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-availability-layer">Data Availability Layer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adaptive-issuance">Adaptive Issuance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#michelson">Michelson</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gas-improvements">Gas improvements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#breaking-changes">Breaking Changes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-changes">RPC Changes</a></li>

@@ -586,7 +586,7 @@ Protocol Alpha
 
 
 
-**Merkle_list_invalid_position**
+**Negative ticket balance**
 
 .. raw:: html
   
@@ -596,29 +596,8 @@ Protocol Alpha
     
     </div>
     <div id="ref20descr" class="ref20 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
-      <p>Merkle_list_invalid_position</p><p><i>Id</i> : proto.alpha.Merkle_list_invalid_position<br/><i>Category</i> : temporary</p>
-      </div><div id="ref20schema" class="ref20 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
-    <pre>
-    { /* Merkle_list_invalid_position
-         Merkle_list_invalid_position */
-      "kind": "temporary",
-      "id": "proto.alpha.Merkle_list_invalid_position" }</pre>
-    </div>
-
-
-
-**Negative ticket balance**
-
-.. raw:: html
-  
-  <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref21descr', 'ref21')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref21schema', 'ref21')">JSON Schema</button>
-    
-    </div>
-    <div id="ref21descr" class="ref21 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempted to set a negative ticket balance value</p><p><i>Id</i> : proto.alpha.Negative_ticket_balance<br/><i>Category</i> : temporary</p>
-      </div><div id="ref21schema" class="ref21 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref20schema" class="ref20 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Negative ticket balance
          Attempted to set a negative ticket balance value */
@@ -647,13 +626,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref22descr', 'ref22')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref22schema', 'ref22')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref21descr', 'ref21')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref21schema', 'ref21')">JSON Schema</button>
     
     </div>
-    <div id="ref22descr" class="ref22 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref21descr" class="ref21 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>No registered global was found at the given hash in storage.</p><p><i>Id</i> : proto.alpha.Nonexistent_global<br/><i>Category</i> : temporary</p>
-      </div><div id="ref22schema" class="ref22 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref21schema" class="ref21 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Tried to look up nonexistent global
          No registered global was found at the given hash in storage. */
@@ -668,13 +647,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref23descr', 'ref23')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref23schema', 'ref23')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref22descr', 'ref22')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref22schema', 'ref22')">JSON Schema</button>
     
     </div>
-    <div id="ref23descr" class="ref23 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref22descr" class="ref22 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The start state hash of the proof is invalid</p><p><i>Id</i> : proto.alpha.Proof_start_state_hash_mismatch<br/><i>Category</i> : temporary</p>
-      </div><div id="ref23schema" class="ref23 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref22schema" class="ref22 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The start state hash of the proof is invalid
          The start state hash of the proof is invalid */
@@ -700,13 +679,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref24descr', 'ref24')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref24schema', 'ref24')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref23descr', 'ref23')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref23schema', 'ref23')">JSON Schema</button>
     
     </div>
-    <div id="ref24descr" class="ref24 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref23descr" class="ref23 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to refute the stop state hash with the proof</p><p><i>Id</i> : proto.alpha.Proof_stop_state_hash_failed_to_refute<br/><i>Category</i> : temporary</p>
-      </div><div id="ref24schema" class="ref24 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref23schema" class="ref23 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to refute the stop state hash with the proof
          Failed to refute the stop state hash with the proof */
@@ -732,13 +711,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref25descr', 'ref25')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref25schema', 'ref25')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref24descr', 'ref24')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref24schema', 'ref24')">JSON Schema</button>
     
     </div>
-    <div id="ref25descr" class="ref25 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref24descr" class="ref24 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to validate the stop state hash with the proof</p><p><i>Id</i> : proto.alpha.Proof_stop_state_hash_failed_to_validate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref25schema" class="ref25 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref24schema" class="ref24 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to validate the stop state hash with the proof
          Failed to validate the stop state hash with the proof */
@@ -764,13 +743,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref26descr', 'ref26')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref26schema', 'ref26')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref25descr', 'ref25')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref25schema', 'ref25')">JSON Schema</button>
     
     </div>
-    <div id="ref26descr" class="ref26 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref25descr" class="ref25 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unsupported big-map value with non-empty overlay</p><p><i>Id</i> : proto.alpha.Unsupported_non_empty_overlay<br/><i>Category</i> : temporary</p>
-      </div><div id="ref26schema" class="ref26 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref25schema" class="ref25 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported non empty overlay
          Unsupported big-map value with non-empty overlay */
@@ -785,13 +764,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref27descr', 'ref27')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref27schema', 'ref27')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref26descr', 'ref26')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref26schema', 'ref26')">JSON Schema</button>
     
     </div>
-    <div id="ref27descr" class="ref27 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref26descr" class="ref26 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Types embedding operations are not supported</p><p><i>Id</i> : proto.alpha.Unsupported_type_operation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref27schema" class="ref27 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref26schema" class="ref26 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported type operation
          Types embedding operations are not supported */
@@ -806,13 +785,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref28descr', 'ref28')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref28schema', 'ref28')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref27descr', 'ref27')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref27schema', 'ref27')">JSON Schema</button>
     
     </div>
-    <div id="ref28descr" class="ref28 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref27descr" class="ref27 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempt to free more bytes than allocated for the tickets balance</p><p><i>Id</i> : proto.alpha.Used_storage_underflow<br/><i>Category</i> : temporary</p>
-      </div><div id="ref28schema" class="ref28 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref27schema" class="ref27 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Ticket balance used storage underflow
          Attempt to free more bytes than allocated for the tickets balance */
@@ -827,13 +806,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref29descr', 'ref29')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref29schema', 'ref29')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref28descr', 'ref28')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref28schema', 'ref28')">JSON Schema</button>
     
     </div>
-    <div id="ref29descr" class="ref29 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref28descr" class="ref28 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>During finalisation of a block header in Application mode or Full construction mode, a shell header should be provided so that a cache nonce can be computed.</p><p><i>Id</i> : proto.alpha.apply.missing_shell_header<br/><i>Category</i> : temporary</p>
-      </div><div id="ref29schema" class="ref29 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref28schema" class="ref28 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing shell_header during finalisation of a block
          During finalisation of a block header in Application mode or Full
@@ -851,21 +830,25 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref30descr', 'ref30')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref30schema', 'ref30')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref29descr', 'ref29')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref29schema', 'ref29')">JSON Schema</button>
     
     </div>
-    <div id="ref30descr" class="ref30 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
-      <p>The attestation power is insufficient to satisfy the consensus threshold.</p><p><i>Id</i> : proto.alpha.baking.insufficient_attestation_power<br/><i>Category</i> : temporary</p>
-      </div><div id="ref30schema" class="ref30 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref29descr" class="ref29 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      <p>The attesting power is insufficient to satisfy the consensus threshold.</p><p><i>Id</i> : proto.alpha.baking.insufficient_attesting_power<br/><i>Category</i> : temporary</p>
+      </div><div id="ref29schema" class="ref29 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Insufficient attestation power
-         The attestation power is insufficient to satisfy the consensus
+         The attesting power is insufficient to satisfy the consensus
          threshold. */
       "kind": "permanent",
-      "id": "proto.alpha.baking.insufficient_attestation_power",
-      "attestation_power": integer ∈ [-2^30, 2^30],
-      "consensus_threshold": integer ∈ [-2^30, 2^30] }</pre>
+      "id": "proto.alpha.baking.insufficient_attesting_power",
+      "attesting_power": $int64,
+      "consensus_threshold": $int64 }
+    $int64:
+      /* 64 bit integers
+         Decimal representation of 64 bit integers */
+      string</pre>
     </div>
 
 
@@ -875,13 +858,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref31descr', 'ref31')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref31schema', 'ref31')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref30descr', 'ref30')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref30schema', 'ref30')">JSON Schema</button>
     
     </div>
-    <div id="ref31descr" class="ref31 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref30descr" class="ref30 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A bitset function was provided an invalid input</p><p><i>Id</i> : proto.alpha.bitfield_invalid_input<br/><i>Category</i> : temporary</p>
-      </div><div id="ref31schema" class="ref31 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref30schema" class="ref30 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid argument
          A bitset function was provided an invalid input */
@@ -902,13 +885,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref32descr', 'ref32')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref32schema', 'ref32')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref31descr', 'ref31')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref31schema', 'ref31')">JSON Schema</button>
     
     </div>
-    <div id="ref32descr" class="ref32 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref31descr" class="ref31 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A manager operation should not contain more than one revelation</p><p><i>Id</i> : proto.alpha.block.multiple_revelation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref32schema" class="ref32 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref31schema" class="ref31 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Multiple revelations were included in a manager operation
          A manager operation should not contain more than one revelation */
@@ -923,13 +906,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref33descr', 'ref33')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref33schema', 'ref33')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref32descr', 'ref32')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref32schema', 'ref32')">JSON Schema</button>
     
     </div>
-    <div id="ref33descr" class="ref33 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref32descr" class="ref32 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A block was not signed with the expected private key.</p><p><i>Id</i> : proto.alpha.block_header.invalid_block_signature<br/><i>Category</i> : temporary</p>
-      </div><div id="ref33schema" class="ref33 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref32schema" class="ref32 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid block signature
          A block was not signed with the expected private key. */
@@ -958,13 +941,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref34descr', 'ref34')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref34schema', 'ref34')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref33descr', 'ref33')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref33schema', 'ref33')">JSON Schema</button>
     
     </div>
-    <div id="ref34descr" class="ref34 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref33descr" class="ref33 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block header has invalid commitment.</p><p><i>Id</i> : proto.alpha.block_header.invalid_commitment<br/><i>Category</i> : temporary</p>
-      </div><div id="ref34schema" class="ref34 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref33schema" class="ref33 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid commitment in block header
          The block header has invalid commitment. */
@@ -980,13 +963,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref35descr', 'ref35')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref35schema', 'ref35')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref34descr', 'ref34')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref34schema', 'ref34')">JSON Schema</button>
     
     </div>
-    <div id="ref35descr" class="ref35 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref34descr" class="ref34 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given payload round is invalid.</p><p><i>Id</i> : proto.alpha.block_header.invalid_payload_round<br/><i>Category</i> : temporary</p>
-      </div><div id="ref35schema" class="ref35 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref34schema" class="ref34 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid payload round
          The given payload round is invalid. */
@@ -1003,13 +986,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref36descr', 'ref36')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref36schema', 'ref36')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref35descr', 'ref35')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref35schema', 'ref35')">JSON Schema</button>
     
     </div>
-    <div id="ref36descr" class="ref36 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref35descr" class="ref35 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block's proof-of-work stamp is insufficient</p><p><i>Id</i> : proto.alpha.block_header.invalid_stamp<br/><i>Category</i> : temporary</p>
-      </div><div id="ref36schema" class="ref36 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref35schema" class="ref35 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Insufficient block proof-of-work stamp
          The block's proof-of-work stamp is insufficient */
@@ -1024,13 +1007,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref37descr', 'ref37')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref37schema', 'ref37')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref36descr', 'ref36')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref36schema', 'ref36')">JSON Schema</button>
     
     </div>
-    <div id="ref37descr" class="ref37 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref36descr" class="ref36 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Block timestamp not the expected one.</p><p><i>Id</i> : proto.alpha.block_header.wrong_timestamp<br/><i>Category</i> : temporary</p>
-      </div><div id="ref37schema" class="ref37 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref36schema" class="ref36 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong timestamp
          Block timestamp not the expected one. */
@@ -1056,13 +1039,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref38descr', 'ref38')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref38schema', 'ref38')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref37descr', 'ref37')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref37schema', 'ref37')">JSON Schema</button>
     
     </div>
-    <div id="ref38descr" class="ref38 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref37descr" class="ref37 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Tried to delegate from an unrevealed public key</p><p><i>Id</i> : proto.alpha.bootstrap.unrevealed_public_key<br/><i>Category</i> : temporary</p>
-      </div><div id="ref38schema" class="ref38 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref37schema" class="ref37 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Forbidden delegation from unrevealed public key
          Tried to delegate from an unrevealed public key */
@@ -1087,13 +1070,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref39descr', 'ref39')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref39schema', 'ref39')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref38descr', 'ref38')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref38schema', 'ref38')">JSON Schema</button>
     
     </div>
-    <div id="ref39descr" class="ref39 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref38descr" class="ref38 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot retrieve predecessor level.</p><p><i>Id</i> : proto.alpha.cannot_retrieve_predecessor_level<br/><i>Category</i> : temporary</p>
-      </div><div id="ref39schema" class="ref39 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref38schema" class="ref38 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot retrieve predecessor level
          Cannot retrieve predecessor level. */
@@ -1108,13 +1091,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref40descr', 'ref40')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref40schema', 'ref40')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref39descr', 'ref39')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref39schema', 'ref39')">JSON Schema</button>
     
     </div>
-    <div id="ref40descr" class="ref40 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref39descr" class="ref39 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The provided protocol constants are not coherent.</p><p><i>Id</i> : proto.alpha.constants.invalid_protocol_constants<br/><i>Category</i> : temporary</p>
-      </div><div id="ref40schema" class="ref40 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref39schema" class="ref39 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid protocol constants
          The provided protocol constants are not coherent. */
@@ -1135,13 +1118,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref41descr', 'ref41')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref41schema', 'ref41')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref40descr', 'ref40')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref40schema', 'ref40')">JSON Schema</button>
     
     </div>
-    <div id="ref41descr" class="ref41 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref40descr" class="ref40 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unexpected JSON object.</p><p><i>Id</i> : proto.alpha.context.failed_to_decode_parameter<br/><i>Category</i> : temporary</p>
-      </div><div id="ref41schema" class="ref41 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref40schema" class="ref40 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to decode parameter
          Unexpected JSON object. */
@@ -1163,13 +1146,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref42descr', 'ref42')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref42schema', 'ref42')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref41descr', 'ref41')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref41schema', 'ref41')">JSON Schema</button>
     
     </div>
-    <div id="ref42descr" class="ref42 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref41descr" class="ref41 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The protocol parameters are not valid JSON.</p><p><i>Id</i> : proto.alpha.context.failed_to_parse_parameter<br/><i>Category</i> : temporary</p>
-      </div><div id="ref42schema" class="ref42 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref41schema" class="ref41 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to parse parameter
          The protocol parameters are not valid JSON. */
@@ -1185,13 +1168,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref43descr', 'ref43')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref43schema', 'ref43')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref42descr', 'ref42')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref42schema', 'ref42')">JSON Schema</button>
     
     </div>
-    <div id="ref43descr" class="ref43 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref42descr" class="ref42 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An error that should never happen unless something has been deleted or corrupted in the database.</p><p><i>Id</i> : proto.alpha.context.storage_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref43schema" class="ref43 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref42schema" class="ref42 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     /* Storage error (fatal internal error)
        An error that should never happen unless something has been deleted or
@@ -1227,13 +1210,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref44descr', 'ref44')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref44schema', 'ref44')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref43descr', 'ref43')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref43schema', 'ref43')">JSON Schema</button>
     
     </div>
-    <div id="ref44descr" class="ref44 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref43descr" class="ref43 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An operation tried to spend more tokens than the contract has</p><p><i>Id</i> : proto.alpha.contract.balance_too_low<br/><i>Category</i> : temporary</p>
-      </div><div id="ref44schema" class="ref44 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref43schema" class="ref43 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Balance too low
          An operation tried to spend more tokens than the contract has */
@@ -1266,13 +1249,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref45descr', 'ref45')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref45schema', 'ref45')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref44descr', 'ref44')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref44schema', 'ref44')">JSON Schema</button>
     
     </div>
-    <div id="ref45descr" class="ref45 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref44descr" class="ref44 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The storage fee is higher than the contract balance</p><p><i>Id</i> : proto.alpha.contract.cannot_pay_storage_fee<br/><i>Category</i> : temporary</p>
-      </div><div id="ref45schema" class="ref45 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref44schema" class="ref44 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot pay storage fee
          The storage fee is higher than the contract balance */
@@ -1287,13 +1270,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref46descr', 'ref46')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref46schema', 'ref46')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref45descr', 'ref45')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref45schema', 'ref45')">JSON Schema</button>
     
     </div>
-    <div id="ref46descr" class="ref46 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref45descr" class="ref45 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An operation assumed a contract counter in the future</p><p><i>Id</i> : proto.alpha.contract.counter_in_the_future<br/><i>Category</i> : temporary</p>
-      </div><div id="ref46schema" class="ref46 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref45schema" class="ref45 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid counter (not yet reached) in a manager operation
          An operation assumed a contract counter in the future */
@@ -1325,13 +1308,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref47descr', 'ref47')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref47schema', 'ref47')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref46descr', 'ref46')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref46schema', 'ref46')">JSON Schema</button>
     
     </div>
-    <div id="ref47descr" class="ref47 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref46descr" class="ref46 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An operation assumed a contract counter in the past</p><p><i>Id</i> : proto.alpha.contract.counter_in_the_past<br/><i>Category</i> : temporary</p>
-      </div><div id="ref47schema" class="ref47 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref46schema" class="ref46 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid counter (already used) in a manager operation
          An operation assumed a contract counter in the past */
@@ -1363,13 +1346,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref48descr', 'ref48')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref48schema', 'ref48')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref47descr', 'ref47')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref47schema', 'ref47')">JSON Schema</button>
     
     </div>
-    <div id="ref48descr" class="ref48 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref47descr" class="ref47 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Forbidden to credit 0ꜩ to a contract without code.</p><p><i>Id</i> : proto.alpha.contract.empty_transaction<br/><i>Category</i> : temporary</p>
-      </div><div id="ref48schema" class="ref48 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref47schema" class="ref47 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty transaction
          Forbidden to credit 0ꜩ to a contract without code. */
@@ -1395,13 +1378,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref49descr', 'ref49')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref49schema', 'ref49')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref48descr', 'ref48')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref48schema', 'ref48')">JSON Schema</button>
     
     </div>
-    <div id="ref49descr" class="ref49 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref48descr" class="ref48 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unexpected contract storage error</p><p><i>Id</i> : proto.alpha.contract.failure<br/><i>Category</i> : temporary</p>
-      </div><div id="ref49schema" class="ref49 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref48schema" class="ref48 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Contract storage failure
          Unexpected contract storage error */
@@ -1422,13 +1405,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref50descr', 'ref50')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref50schema', 'ref50')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref49descr', 'ref49')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref49schema', 'ref49')">JSON Schema</button>
     
     </div>
-    <div id="ref50descr" class="ref50 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref49descr" class="ref49 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A malformed contract notation was given to an RPC or in a script.</p><p><i>Id</i> : proto.alpha.contract.invalid_contract_notation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref50schema" class="ref50 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref49schema" class="ref49 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid contract notation
          A malformed contract notation was given to an RPC or in a script. */
@@ -1449,13 +1432,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref51descr', 'ref51')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref51schema', 'ref51')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref50descr', 'ref50')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref50schema', 'ref50')">JSON Schema</button>
     
     </div>
-    <div id="ref51descr" class="ref51 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref50descr" class="ref50 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A revealed manager public key is inconsistent with the announced hash</p><p><i>Id</i> : proto.alpha.contract.manager.inconsistent_hash<br/><i>Category</i> : temporary</p>
-      </div><div id="ref51schema" class="ref51 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref50schema" class="ref50 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent public key hash
          A revealed manager public key is inconsistent with the announced
@@ -1486,13 +1469,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref52descr', 'ref52')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref52schema', 'ref52')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref51descr', 'ref51')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref51schema', 'ref51')">JSON Schema</button>
     
     </div>
-    <div id="ref52descr" class="ref52 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref51descr" class="ref51 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A provided manager public key is different with the public key stored in the contract</p><p><i>Id</i> : proto.alpha.contract.manager.inconsistent_public_key<br/><i>Category</i> : temporary</p>
-      </div><div id="ref52schema" class="ref52 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref51schema" class="ref51 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent public key
          A provided manager public key is different with the public key
@@ -1518,13 +1501,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref53descr', 'ref53')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref53schema', 'ref53')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref52descr', 'ref52')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref52schema', 'ref52')">JSON Schema</button>
     
     </div>
-    <div id="ref53descr" class="ref53 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref52descr" class="ref52 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A contract cannot be delegated to an unregistered delegate</p><p><i>Id</i> : proto.alpha.contract.manager.unregistered_delegate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref53schema" class="ref53 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref52schema" class="ref52 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unregistered delegate
          A contract cannot be delegated to an unregistered delegate */
@@ -1549,13 +1532,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref54descr', 'ref54')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref54schema', 'ref54')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref53descr', 'ref53')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref53schema', 'ref53')">JSON Schema</button>
     
     </div>
-    <div id="ref54descr" class="ref54 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref53descr" class="ref53 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The manager contract is missing from the storage</p><p><i>Id</i> : proto.alpha.contract.missing_manager_contract<br/><i>Category</i> : temporary</p>
-      </div><div id="ref54schema" class="ref54 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref53schema" class="ref53 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing manager contract
          The manager contract is missing from the storage */
@@ -1581,13 +1564,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref55descr', 'ref55')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref55schema', 'ref55')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref54descr', 'ref54')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref54schema', 'ref54')">JSON Schema</button>
     
     </div>
-    <div id="ref55descr" class="ref55 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref54descr" class="ref54 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The storage amount asked for an operation is null or negative</p><p><i>Id</i> : proto.alpha.contract.negative_storage_input<br/><i>Category</i> : temporary</p>
-      </div><div id="ref55schema" class="ref55 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref54schema" class="ref54 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Negative storage input
          The storage amount asked for an operation is null or negative */
@@ -1602,13 +1585,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref56descr', 'ref56')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref56schema', 'ref56')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref55descr', 'ref55')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref55schema', 'ref55')">JSON Schema</button>
     
     </div>
-    <div id="ref56descr" class="ref56 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref55descr" class="ref55 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>This address cannot initiate non-empty transactions</p><p><i>Id</i> : proto.alpha.contract.non_empty_transaction_from_source<br/><i>Category</i> : temporary</p>
-      </div><div id="ref56schema" class="ref56 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref55schema" class="ref55 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected non-empty transaction
          This address cannot initiate non-empty transactions */
@@ -1636,13 +1619,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref57descr', 'ref57')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref57schema', 'ref57')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref56descr', 'ref56')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref56schema', 'ref56')">JSON Schema</button>
     
     </div>
-    <div id="ref57descr" class="ref57 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref56descr" class="ref56 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A contract handle is not present in the context (either it never was or it has been destroyed)</p><p><i>Id</i> : proto.alpha.contract.non_existing_contract<br/><i>Category</i> : temporary</p>
-      </div><div id="ref57schema" class="ref57 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref56schema" class="ref56 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Non existing contract
          A contract handle is not present in the context (either it never was
@@ -1669,13 +1652,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref58descr', 'ref58')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref58schema', 'ref58')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref57descr', 'ref57')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref57schema', 'ref57')">JSON Schema</button>
     
     </div>
-    <div id="ref58descr" class="ref58 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref57descr" class="ref57 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>One tried to reveal twice a manager public key</p><p><i>Id</i> : proto.alpha.contract.previously_revealed_key<br/><i>Category</i> : temporary</p>
-      </div><div id="ref58schema" class="ref58 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref57schema" class="ref57 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Manager operation already revealed
          One tried to reveal twice a manager public key */
@@ -1701,13 +1684,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref59descr', 'ref59')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref59schema', 'ref59')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref58descr', 'ref58')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref58schema', 'ref58')">JSON Schema</button>
     
     </div>
-    <div id="ref59descr" class="ref59 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref58descr" class="ref58 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>One tried to apply a manager operation without revealing the manager public key</p><p><i>Id</i> : proto.alpha.contract.unrevealed_key<br/><i>Category</i> : temporary</p>
-      </div><div id="ref59schema" class="ref59 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref58schema" class="ref58 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Manager operation precedes key revelation
          One tried to apply a manager operation without revealing the manager
@@ -1734,13 +1717,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref60descr', 'ref60')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref60schema', 'ref60')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref59descr', 'ref59')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref59schema', 'ref59')">JSON Schema</button>
     
     </div>
-    <div id="ref60descr" class="ref60 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref59descr" class="ref59 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Non originated contract detected in ticket update.</p><p><i>Id</i> : proto.alpha.contract_not_originated<br/><i>Category</i> : temporary</p>
-      </div><div id="ref60schema" class="ref60 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref59schema" class="ref59 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Contract not originated
          Non originated contract detected in ticket update. */
@@ -1756,13 +1739,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref61descr', 'ref61')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref61schema', 'ref61')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref60descr', 'ref60')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref60schema', 'ref60')">JSON Schema</button>
     
     </div>
-    <div id="ref61descr" class="ref61 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref60descr" class="ref60 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The attestation for data availability is a too big</p><p><i>Id</i> : proto.alpha.dal_attestation_size_limit_exceeded<br/><i>Category</i> : temporary</p>
-      </div><div id="ref61schema" class="ref61 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref60schema" class="ref60 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL attestation exceeded the limit
          The attestation for data availability is a too big */
@@ -1779,13 +1762,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref62descr', 'ref62')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref62schema', 'ref62')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref61descr', 'ref61')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref61schema', 'ref61')">JSON Schema</button>
     
     </div>
-    <div id="ref62descr" class="ref62 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref61descr" class="ref61 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Error occurred while initialising the cryptobox</p><p><i>Id</i> : proto.alpha.dal_cryptobox_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref62schema" class="ref62 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref61schema" class="ref61 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL cryptobox error
          Error occurred while initialising the cryptobox */
@@ -1806,13 +1789,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref63descr', 'ref63')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref63schema', 'ref63')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref62descr', 'ref62')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref62schema', 'ref62')">JSON Schema</button>
     
     </div>
-    <div id="ref63descr" class="ref63 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref62descr" class="ref62 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given index is out of range of representable page indices</p><p><i>Id</i> : proto.alpha.dal_page_index_repr.index.invalid_index<br/><i>Category</i> : temporary</p>
-      </div><div id="ref63schema" class="ref63 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref62schema" class="ref62 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid Dal page index
          The given index is out of range of representable page indices */
@@ -1830,13 +1813,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref64descr', 'ref64')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref64schema', 'ref64')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref63descr', 'ref63')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref63schema', 'ref63')">JSON Schema</button>
     
     </div>
-    <div id="ref64descr" class="ref64 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref63descr" class="ref63 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A slot header for this slot was already proposed</p><p><i>Id</i> : proto.alpha.dal_publish_commitment_duplicate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref64schema" class="ref64 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref63schema" class="ref63 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL publish slot header duplicate
          A slot header for this slot was already proposed */
@@ -1865,13 +1848,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref65descr', 'ref65')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref65schema', 'ref65')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref64descr', 'ref64')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref64schema', 'ref64')">JSON Schema</button>
     
     </div>
-    <div id="ref65descr" class="ref65 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref64descr" class="ref64 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Bad index for slot header</p><p><i>Id</i> : proto.alpha.dal_publish_commitment_invalid_index<br/><i>Category</i> : temporary</p>
-      </div><div id="ref65schema" class="ref65 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref64schema" class="ref64 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL slot header invalid index
          Bad index for slot header */
@@ -1888,13 +1871,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref66descr', 'ref66')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref66schema', 'ref66')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref65descr', 'ref65')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref65schema', 'ref65')">JSON Schema</button>
     
     </div>
-    <div id="ref66descr" class="ref66 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref65descr" class="ref65 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The slot header's commitment proof does not check</p><p><i>Id</i> : proto.alpha.dal_publish_commitment_invalid_proof<br/><i>Category</i> : temporary</p>
-      </div><div id="ref66schema" class="ref66 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref65schema" class="ref65 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL publish slot header invalid proof
          The slot header's commitment proof does not check */
@@ -1919,13 +1902,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref67descr', 'ref67')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref67schema', 'ref67')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref66descr', 'ref66')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref66schema', 'ref66')">JSON Schema</button>
     
     </div>
-    <div id="ref67descr" class="ref67 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref66descr" class="ref66 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Slot header with too low fees</p><p><i>Id</i> : proto.alpha.dal_publish_commitment_with_low_fees<br/><i>Category</i> : temporary</p>
-      </div><div id="ref67schema" class="ref67 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref66schema" class="ref66 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL slot header with low fees
          Slot header with too low fees */
@@ -1946,13 +1929,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref68descr', 'ref68')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref68schema', 'ref68')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref67descr', 'ref67')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref67schema', 'ref67')">JSON Schema</button>
     
     </div>
-    <div id="ref68descr" class="ref68 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref67descr" class="ref67 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempt to register a slot which is invalid (the index is out of bounds).</p><p><i>Id</i> : proto.alpha.dal_register_invalid_slot<br/><i>Category</i> : temporary</p>
-      </div><div id="ref68schema" class="ref68 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref67schema" class="ref67 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Dal register invalid slot
          Attempt to register a slot which is invalid (the index is out of
@@ -1983,13 +1966,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref69descr', 'ref69')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref69schema', 'ref69')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref68descr', 'ref68')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref68schema', 'ref68')">JSON Schema</button>
     
     </div>
-    <div id="ref69descr" class="ref69 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref68descr" class="ref68 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Slot index above hard limit</p><p><i>Id</i> : proto.alpha.dal_slot_index_negative_orabove_hard_limit<br/><i>Category</i> : temporary</p>
-      </div><div id="ref69schema" class="ref69 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref68schema" class="ref68 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL slot index negative or above hard limit
          Slot index above hard limit */
@@ -2010,13 +1993,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref70descr', 'ref70')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref70schema', 'ref70')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref69descr', 'ref69')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref69schema', 'ref69')">JSON Schema</button>
     
     </div>
-    <div id="ref70descr" class="ref70 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref69descr" class="ref69 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given index is out of range of representable slot indices</p><p><i>Id</i> : proto.alpha.dal_slot_index_repr.index.invalid_index<br/><i>Category</i> : temporary</p>
-      </div><div id="ref70schema" class="ref70 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref69schema" class="ref69 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid Dal slot index
          The given index is out of range of representable slot indices */
@@ -2034,13 +2017,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref71descr', 'ref71')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref71schema', 'ref71')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref70descr', 'ref70')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref70schema', 'ref70')">JSON Schema</button>
     
     </div>
-    <div id="ref71descr" class="ref71 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref70descr" class="ref70 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An error occurred while validating the DAL shard proof.</p><p><i>Id</i> : proto.alpha.dal_slot_repr.shard_with_proof.dal_shard_proof_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref71schema" class="ref71 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref70schema" class="ref70 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL shard proof error
          An error occurred while validating the DAL shard proof. */
@@ -2062,13 +2045,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref72descr', 'ref72')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref72schema', 'ref72')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref71descr', 'ref71')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref71schema', 'ref71')">JSON Schema</button>
     
     </div>
-    <div id="ref72descr" class="ref72 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref71descr" class="ref71 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An encoding error occurred while checking whether a shard is a trap.</p><p><i>Id</i> : proto.alpha.dal_slot_repr.shard_with_proof.share_is_trap_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref72schema" class="ref72 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref71schema" class="ref71 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* encoding error in Dal.share_is_trap
          An encoding error occurred while checking whether a shard is a trap. */
@@ -2084,13 +2067,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref73descr', 'ref73')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref73schema', 'ref73')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref72descr', 'ref72')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref72schema', 'ref72')">JSON Schema</button>
     
     </div>
-    <div id="ref73descr" class="ref73 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref72descr" class="ref72 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Error occurred during DAL page proof production or validation</p><p><i>Id</i> : proto.alpha.dal_slot_repr.slots_history.dal_proof_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref73schema" class="ref73 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref72schema" class="ref72 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* DAL page proof error
          Error occurred during DAL page proof production or validation */
@@ -2111,13 +2094,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref74descr', 'ref74')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref74schema', 'ref74')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref73descr', 'ref73')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref73schema', 'ref73')">JSON Schema</button>
     
     </div>
-    <div id="ref74descr" class="ref74 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref73descr" class="ref73 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The size of the given page content doesn't match the expected one.</p><p><i>Id</i> : proto.alpha.dal_slot_repr.slots_history.unexpected_page_size<br/><i>Category</i> : temporary</p>
-      </div><div id="ref74schema" class="ref74 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref73schema" class="ref73 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected page size
          The size of the given page content doesn't match the expected one. */
@@ -2134,13 +2117,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref75descr', 'ref75')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref75schema', 'ref75')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref74descr', 'ref74')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref74schema', 'ref74')">JSON Schema</button>
     
     </div>
-    <div id="ref75descr" class="ref75 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref74descr" class="ref74 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Useless delegate reactivation</p><p><i>Id</i> : proto.alpha.delegate.already_active<br/><i>Category</i> : temporary</p>
-      </div><div id="ref75schema" class="ref75 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref74schema" class="ref74 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Delegate already active
          Useless delegate reactivation */
@@ -2155,13 +2138,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref76descr', 'ref76')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref76schema', 'ref76')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref75descr', 'ref75')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref75schema', 'ref75')">JSON Schema</button>
     
     </div>
-    <div id="ref76descr" class="ref76 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref75descr" class="ref75 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate consensus key is already used</p><p><i>Id</i> : proto.alpha.delegate.consensus_key.active<br/><i>Category</i> : temporary</p>
-      </div><div id="ref76schema" class="ref76 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref75schema" class="ref75 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Active consensus key
          The delegate consensus key is already used */
@@ -2187,13 +2170,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref77descr', 'ref77')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref77schema', 'ref77')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref76descr', 'ref76')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref76schema', 'ref76')">JSON Schema</button>
     
     </div>
-    <div id="ref77descr" class="ref77 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref76descr" class="ref76 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus key cannot be another delegate</p><p><i>Id</i> : proto.alpha.delegate.consensus_key.another_delegate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref77schema" class="ref77 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref76schema" class="ref76 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus key cannot be another delegate
          Consensus key cannot be another delegate */
@@ -2219,13 +2202,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref78descr', 'ref78')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref78schema', 'ref78')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref77descr', 'ref77')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref77schema', 'ref77')">JSON Schema</button>
     
     </div>
-    <div id="ref78descr" class="ref78 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref77descr" class="ref77 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Tried to update the consensus key with the active key</p><p><i>Id</i> : proto.alpha.delegate.consensus_key.invalid_noop<br/><i>Category</i> : temporary</p>
-      </div><div id="ref78schema" class="ref78 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref77schema" class="ref77 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid key for consensus key update
          Tried to update the consensus key with the active key */
@@ -2242,13 +2225,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref79descr', 'ref79')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref79schema', 'ref79')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref78descr', 'ref78')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref78schema', 'ref78')">JSON Schema</button>
     
     </div>
-    <div id="ref79descr" class="ref79 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref78descr" class="ref78 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus key cannot be a tz4 (BLS public key).</p><p><i>Id</i> : proto.alpha.delegate.consensus_key.tz4<br/><i>Category</i> : temporary</p>
-      </div><div id="ref79schema" class="ref79 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref78schema" class="ref78 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus key cannot be a tz4
          Consensus key cannot be a tz4 (BLS public key). */
@@ -2273,13 +2256,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref80descr', 'ref80')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref80schema', 'ref80')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref79descr', 'ref79')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref79schema', 'ref79')">JSON Schema</button>
     
     </div>
-    <div id="ref80descr" class="ref80 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref79descr" class="ref79 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot register a delegate when its implicit account is empty</p><p><i>Id</i> : proto.alpha.delegate.empty_delegate_account<br/><i>Category</i> : temporary</p>
-      </div><div id="ref80schema" class="ref80 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref79schema" class="ref79 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty delegate account
          Cannot register a delegate when its implicit account is empty */
@@ -2304,13 +2287,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref81descr', 'ref81')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref81schema', 'ref81')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref80descr', 'ref80')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref80schema', 'ref80')">JSON Schema</button>
     
     </div>
-    <div id="ref81descr" class="ref81 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref80descr" class="ref80 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Delegates are forbidden to be tz4 (BLS) accounts.</p><p><i>Id</i> : proto.alpha.delegate.forbidden_tz4<br/><i>Category</i> : temporary</p>
-      </div><div id="ref81schema" class="ref81 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref80schema" class="ref80 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Forbidden delegate
          Delegates are forbidden to be tz4 (BLS) accounts. */
@@ -2334,13 +2317,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref82descr', 'ref82')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref82schema', 'ref82')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref81descr', 'ref81')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref81schema', 'ref81')">JSON Schema</button>
     
     </div>
-    <div id="ref82descr" class="ref82 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref81descr" class="ref81 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Tried to unregister a delegate</p><p><i>Id</i> : proto.alpha.delegate.no_deletion<br/><i>Category</i> : temporary</p>
-      </div><div id="ref82schema" class="ref82 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref81schema" class="ref81 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Forbidden delegate deletion
          Tried to unregister a delegate */
@@ -2365,13 +2348,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref83descr', 'ref83')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref83schema', 'ref83')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref82descr', 'ref82')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref82schema', 'ref82')">JSON Schema</button>
     
     </div>
-    <div id="ref83descr" class="ref83 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref82descr" class="ref82 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The provided public key hash is not the address of a registered delegate.</p><p><i>Id</i> : proto.alpha.delegate.not_registered<br/><i>Category</i> : temporary</p>
-      </div><div id="ref83schema" class="ref83 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref82schema" class="ref82 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not a registered delegate
          The provided public key hash is not the address of a registered
@@ -2397,13 +2380,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref84descr', 'ref84')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref84schema', 'ref84')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref83descr', 'ref83')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref83schema', 'ref83')">JSON Schema</button>
     
     </div>
-    <div id="ref84descr" class="ref84 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref83descr" class="ref83 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The stake distribution for the current cycle is not set.</p><p><i>Id</i> : proto.alpha.delegate.stake_distribution_not_set<br/><i>Category</i> : temporary</p>
-      </div><div id="ref84schema" class="ref84 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref83schema" class="ref83 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Stake distribution not set
          The stake distribution for the current cycle is not set. */
@@ -2418,13 +2401,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref85descr', 'ref85')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref85schema', 'ref85')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref84descr', 'ref84')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref84schema', 'ref84')">JSON Schema</button>
     
     </div>
-    <div id="ref85descr" class="ref85 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref84descr" class="ref84 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Contract already delegated to the given delegate</p><p><i>Id</i> : proto.alpha.delegate.unchanged<br/><i>Category</i> : temporary</p>
-      </div><div id="ref85schema" class="ref85 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref84schema" class="ref84 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unchanged delegated
          Contract already delegated to the given delegate */
@@ -2439,13 +2422,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref86descr', 'ref86')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref86schema', 'ref86')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref85descr', 'ref85')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref85schema', 'ref85')">JSON Schema</button>
     
     </div>
-    <div id="ref86descr" class="ref86 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref85descr" class="ref85 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The account whose balance was requested is not a delegate.</p><p><i>Id</i> : proto.alpha.delegate_service.balance_rpc_on_non_delegate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref86schema" class="ref86 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref85schema" class="ref85 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Balance request for an unregistered delegate
          The account whose balance was requested is not a delegate. */
@@ -2470,13 +2453,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref87descr', 'ref87')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref87schema', 'ref87')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref86descr', 'ref86')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref86schema', 'ref86')">JSON Schema</button>
     
     </div>
-    <div id="ref87descr" class="ref87 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref86descr" class="ref86 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to read a valid destination from a b58check_encoding data</p><p><i>Id</i> : proto.alpha.destination_repr.invalid_b58check<br/><i>Category</i> : temporary</p>
-      </div><div id="ref87schema" class="ref87 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref86schema" class="ref86 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Destination decoding failed
          Failed to read a valid destination from a b58check_encoding data */
@@ -2497,13 +2480,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref88descr', 'ref88')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref88schema', 'ref88')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref87descr', 'ref87')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref87schema', 'ref87')">JSON Schema</button>
     
     </div>
-    <div id="ref88descr" class="ref88 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref87descr" class="ref87 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Bitfields do not accept negative positions</p><p><i>Id</i> : proto.alpha.env.bitfield_invalid_position<br/><i>Category</i> : temporary</p>
-      </div><div id="ref88schema" class="ref88 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref87schema" class="ref87 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid bitfield’s position
          Bitfields do not accept negative positions */
@@ -2519,13 +2502,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref89descr', 'ref89')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref89schema', 'ref89')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref88descr', 'ref88')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref88schema', 'ref88')">JSON Schema</button>
     
     </div>
-    <div id="ref89descr" class="ref89 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref88descr" class="ref88 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Exception safely wrapped in an error</p><p><i>Id</i> : proto.alpha.failure<br/><i>Category</i> : temporary</p>
-      </div><div id="ref89schema" class="ref89 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref88schema" class="ref88 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Exception
          Exception safely wrapped in an error */
@@ -2546,13 +2529,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref90descr', 'ref90')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref90schema', 'ref90')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref89descr', 'ref89')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref89schema', 'ref89')">JSON Schema</button>
     
     </div>
-    <div id="ref90descr" class="ref90 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref89descr" class="ref89 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Frozen bonds must be spent at once.</p><p><i>Id</i> : proto.alpha.frozen_bonds.must_be_spent_at_once<br/><i>Category</i> : temporary</p>
-      </div><div id="ref90schema" class="ref90 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref89schema" class="ref89 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Partial spending of frozen bonds
          Frozen bonds must be spent at once. */
@@ -2585,13 +2568,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref91descr', 'ref91')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref91schema', 'ref91')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref90descr', 'ref90')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref90schema', 'ref90')">JSON Schema</button>
     
     </div>
-    <div id="ref91descr" class="ref91 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref90descr" class="ref90 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The sum of gas consumed by all the operations in the block exceeds the hard gas limit per block</p><p><i>Id</i> : proto.alpha.gas_exhausted.block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref91schema" class="ref91 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref90schema" class="ref90 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Gas quota exceeded for the block
          The sum of gas consumed by all the operations in the block exceeds
@@ -2607,13 +2590,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref92descr', 'ref92')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref92schema', 'ref92')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref91descr', 'ref91')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref91schema', 'ref91')">JSON Schema</button>
     
     </div>
-    <div id="ref92descr" class="ref92 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref91descr" class="ref91 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A script or one of its callee took more time than the operation said it would</p><p><i>Id</i> : proto.alpha.gas_exhausted.operation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref92schema" class="ref92 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref91schema" class="ref91 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Gas quota exceeded for the operation
          A script or one of its callee took more time than the operation said
@@ -2629,13 +2612,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref93descr', 'ref93')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref93schema', 'ref93')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref92descr', 'ref92')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref92schema', 'ref92')">JSON Schema</button>
     
     </div>
-    <div id="ref93descr" class="ref93 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref92descr" class="ref92 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A transaction tried to exceed the hard limit on gas</p><p><i>Id</i> : proto.alpha.gas_limit_too_high<br/><i>Category</i> : temporary</p>
-      </div><div id="ref93schema" class="ref93 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref92schema" class="ref92 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Gas limit out of protocol hard bounds
          A transaction tried to exceed the hard limit on gas */
@@ -2650,13 +2633,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref94descr', 'ref94')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref94schema', 'ref94')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref93descr', 'ref93')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref93schema', 'ref93')">JSON Schema</button>
     
     </div>
-    <div id="ref94descr" class="ref94 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref93descr" class="ref93 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An entrypoint type is incompatible with TZIP-4 view type.</p><p><i>Id</i> : proto.alpha.illformedViewType<br/><i>Category</i> : temporary</p>
-      </div><div id="ref94schema" class="ref94 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref93schema" class="ref93 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* An entrypoint type is incompatible with TZIP-4 view type.
          An entrypoint type is incompatible with TZIP-4 view type. */
@@ -2672,50 +2655,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -2728,16 +2713,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -2747,7 +2732,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -2760,39 +2745,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -2800,8 +2785,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -2813,7 +2798,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -2857,13 +2842,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref95descr', 'ref95')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref95schema', 'ref95')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref94descr', 'ref94')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref94schema', 'ref94')">JSON Schema</button>
     
     </div>
-    <div id="ref95descr" class="ref95 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref94descr" class="ref94 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>No manager operations are allowed on an empty implicit contract. This account has zero balance. Fund it before using.</p><p><i>Id</i> : proto.alpha.implicit.empty_implicit_contract<br/><i>Category</i> : temporary</p>
-      </div><div id="ref95schema" class="ref95 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref94schema" class="ref94 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty implicit contract
          No manager operations are allowed on an empty implicit contract.
@@ -2889,13 +2874,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref96descr', 'ref96')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref96schema', 'ref96')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref95descr', 'ref95')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref95schema', 'ref95')">JSON Schema</button>
     
     </div>
-    <div id="ref96descr" class="ref96 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref95descr" class="ref95 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Emptying an implicit delegated account is not allowed.</p><p><i>Id</i> : proto.alpha.implicit.empty_implicit_delegated_contract<br/><i>Category</i> : temporary</p>
-      </div><div id="ref96schema" class="ref96 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref95schema" class="ref95 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty implicit delegated contract
          Emptying an implicit delegated account is not allowed. */
@@ -2920,13 +2905,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref97descr', 'ref97')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref97schema', 'ref97')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref96descr', 'ref96')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref96schema', 'ref96')">JSON Schema</button>
     
     </div>
-    <div id="ref97descr" class="ref97 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref96descr" class="ref96 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A negative integer cannot be used as an index for a value.</p><p><i>Id</i> : proto.alpha.indexable.index_cannot_be_negative<br/><i>Category</i> : temporary</p>
-      </div><div id="ref97schema" class="ref97 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref96schema" class="ref96 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Index of values cannot be negative
          A negative integer cannot be used as an index for a value. */
@@ -2942,13 +2927,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref98descr', 'ref98')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref98schema', 'ref98')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref97descr', 'ref97')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref97schema', 'ref97')">JSON Schema</button>
     
     </div>
-    <div id="ref98descr" class="ref98 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref97descr" class="ref97 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Message adding functions must be called with a positive number of messages</p><p><i>Id</i> : proto.alpha.internal.smart_rollup_add_zero_messages<br/><i>Category</i> : temporary</p>
-      </div><div id="ref98schema" class="ref98 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref97schema" class="ref97 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Internal error: trying to add zero messages
          Message adding functions must be called with a positive number of
@@ -2964,13 +2949,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref99descr', 'ref99')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref99schema', 'ref99')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref98descr', 'ref98')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref98schema', 'ref98')">JSON Schema</button>
     
     </div>
-    <div id="ref99descr" class="ref99 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref98descr" class="ref98 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An inbox proof error.</p><p><i>Id</i> : proto.alpha.internal.smart_rollup_inbox_proof_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref99schema" class="ref99 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref98schema" class="ref98 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Internal error: error occurred during proof production or validation
          An inbox proof error. */
@@ -2991,13 +2976,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref100descr', 'ref100')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref100schema', 'ref100')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref99descr', 'ref99')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref99schema', 'ref99')">JSON Schema</button>
     
     </div>
-    <div id="ref100descr" class="ref100 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref99descr" class="ref99 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A merkelized payload hashes proof error.</p><p><i>Id</i> : proto.alpha.internal.smart_rollup_merklized_payload_hashes_proof<br/><i>Category</i> : temporary</p>
-      </div><div id="ref100schema" class="ref100 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref99schema" class="ref99 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Internal error: error occurred during proof production or validation
          A merkelized payload hashes proof error. */
@@ -3019,13 +3004,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref101descr', 'ref101')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref101schema', 'ref101')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref100descr', 'ref100')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref100schema', 'ref100')">JSON Schema</button>
     
     </div>
-    <div id="ref101descr" class="ref101 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref100descr" class="ref100 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An internal operation was emitted twice by a script</p><p><i>Id</i> : proto.alpha.internal_operation_replay<br/><i>Category</i> : temporary</p>
-      </div><div id="ref101schema" class="ref101 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref100schema" class="ref100 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     /* Internal operation replay
        An internal operation was emitted twice by a script */
@@ -3091,50 +3076,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -3147,16 +3134,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -3166,7 +3153,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -3179,39 +3166,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -3219,8 +3206,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -3232,7 +3219,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -3290,13 +3277,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref102descr', 'ref102')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref102schema', 'ref102')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref101descr', 'ref101')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref101schema', 'ref101')">JSON Schema</button>
     
     </div>
-    <div id="ref102descr" class="ref102 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref101descr" class="ref101 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Negative multiple of periods are not allowed.</p><p><i>Id</i> : proto.alpha.invalid_arg<br/><i>Category</i> : temporary</p>
-      </div><div id="ref102schema" class="ref102 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref101schema" class="ref101 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid arg
          Negative multiple of periods are not allowed. */
@@ -3311,13 +3298,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref103descr', 'ref103')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref103schema', 'ref103')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref102descr', 'ref102')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref102schema', 'ref102')">JSON Schema</button>
     
     </div>
-    <div id="ref103descr" class="ref103 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref102descr" class="ref102 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Could not deserialize some piece of data from its binary representation</p><p><i>Id</i> : proto.alpha.invalid_binary_format<br/><i>Category</i> : temporary</p>
-      </div><div id="ref103schema" class="ref103 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref102schema" class="ref102 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid binary format
          Could not deserialize some piece of data from its binary
@@ -3333,13 +3320,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref104descr', 'ref104')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref104schema', 'ref104')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref103descr', 'ref103')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref103schema', 'ref103')">JSON Schema</button>
     
     </div>
-    <div id="ref104descr" class="ref104 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref103descr" class="ref103 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Fitness representation should be exactly 4 times 4 bytes long.</p><p><i>Id</i> : proto.alpha.invalid_fitness<br/><i>Category</i> : temporary</p>
-      </div><div id="ref104schema" class="ref104 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref103schema" class="ref103 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid fitness
          Fitness representation should be exactly 4 times 4 bytes long. */
@@ -3354,13 +3341,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref105descr', 'ref105')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref105schema', 'ref105')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref104descr', 'ref104')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref104schema', 'ref104')">JSON Schema</button>
     
     </div>
-    <div id="ref105descr" class="ref105 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref104descr" class="ref104 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid ticket transfer detected in ticket balance update.</p><p><i>Id</i> : proto.alpha.invalid_ticket_transfer<br/><i>Category</i> : temporary</p>
-      </div><div id="ref105schema" class="ref105 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref104schema" class="ref104 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid ticket transfer
          Invalid ticket transfer detected in ticket balance update. */
@@ -3386,13 +3373,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref106descr', 'ref106')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref106schema', 'ref106')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref105descr', 'ref105')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref105schema', 'ref105')">JSON Schema</button>
     
     </div>
-    <div id="ref106descr" class="ref106 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref105descr" class="ref105 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Level not in Alpha family</p><p><i>Id</i> : proto.alpha.level_not_in_alpha<br/><i>Category</i> : temporary</p>
-      </div><div id="ref106schema" class="ref106 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref105schema" class="ref105 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Level not in Alpha family
          Level not in Alpha family */
@@ -3408,13 +3395,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref107descr', 'ref107')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref107schema', 'ref107')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref106descr', 'ref106')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref106schema', 'ref106')">JSON Schema</button>
     
     </div>
-    <div id="ref107descr" class="ref107 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref106descr" class="ref106 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block's level offset is too high.</p><p><i>Id</i> : proto.alpha.level_offset_too_high<br/><i>Category</i> : temporary</p>
-      </div><div id="ref107schema" class="ref107 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref106schema" class="ref106 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* level offset too high
          The block's level offset is too high. */
@@ -3434,13 +3421,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref108descr', 'ref108')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref108schema', 'ref108')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref107descr', 'ref107')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref107schema', 'ref107')">JSON Schema</button>
     
     </div>
-    <div id="ref108descr" class="ref108 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref107descr" class="ref107 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The cycles eras are not valid: empty list or non-decreasing first levels or first cycles.</p><p><i>Id</i> : proto.alpha.level_repr.invalid_cycle_eras<br/><i>Category</i> : temporary</p>
-      </div><div id="ref108schema" class="ref108 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref107schema" class="ref107 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid cycle eras
          The cycles eras are not valid: empty list or non-decreasing first
@@ -3456,13 +3443,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref109descr', 'ref109')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref109schema', 'ref109')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref108descr', 'ref108')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref108schema', 'ref108')">JSON Schema</button>
     
     </div>
-    <div id="ref109descr" class="ref109 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref108descr" class="ref108 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The round is smaller than or equal to the locked round.</p><p><i>Id</i> : proto.alpha.locked_round_not_less_than_round<br/><i>Category</i> : temporary</p>
-      </div><div id="ref109schema" class="ref109 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref108schema" class="ref108 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Locked round not smaller than round
          The round is smaller than or equal to the locked round. */
@@ -3479,13 +3466,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref110descr', 'ref110')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref110schema', 'ref110')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref109descr', 'ref109')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref109schema', 'ref109')">JSON Schema</button>
     
     </div>
-    <div id="ref110descr" class="ref110 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref109descr" class="ref109 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot instantiate an application state using the 'Partial_validation' mode.</p><p><i>Id</i> : proto.alpha.main.begin_application.cannot_apply_in_partial_validation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref110schema" class="ref110 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref109schema" class="ref109 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* cannot_apply_in_partial_validation
          Cannot instantiate an application state using the
@@ -3502,13 +3489,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref111descr', 'ref111')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref111schema', 'ref111')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref110descr', 'ref110')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref110schema', 'ref110')">JSON Schema</button>
     
     </div>
-    <div id="ref111descr" class="ref111 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref110descr" class="ref110 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Period is negative.</p><p><i>Id</i> : proto.alpha.malformed_period<br/><i>Category</i> : temporary</p>
-      </div><div id="ref111schema" class="ref111 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref110schema" class="ref110 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Malformed period
          Period is negative. */
@@ -3519,6 +3506,28 @@ Protocol Alpha
       /* 64 bit integers
          Decimal representation of 64 bit integers */
       string</pre>
+    </div>
+
+
+
+**Address registry returned counter is invalid.**
+
+.. raw:: html
+  
+  <div class="tab">
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref111descr', 'ref111')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref111schema', 'ref111')">JSON Schema</button>
+    
+    </div>
+    <div id="ref111descr" class="ref111 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      <p>The returned counter for the given address in the registry is negative.</p><p><i>Id</i> : proto.alpha.michelson_v1.address_registry_invalid_counterg<br/><i>Category</i> : temporary</p>
+      </div><div id="ref111schema" class="ref111 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <pre>
+    { /* Address registry returned counter is invalid.
+         The returned counter for the given address in the registry is
+         negative. */
+      "kind": "temporary",
+      "id": "proto.alpha.michelson_v1.address_registry_invalid_counterg" }</pre>
     </div>
 
 
@@ -3669,50 +3678,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -3725,16 +3736,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -3744,7 +3755,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -3757,39 +3768,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -3797,8 +3808,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -3810,7 +3821,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -3884,50 +3895,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -3940,16 +3953,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -3959,7 +3972,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -3972,39 +3985,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -4012,8 +4025,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -4025,7 +4038,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -4243,50 +4256,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -4299,16 +4314,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -4318,7 +4333,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -4331,39 +4346,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -4371,8 +4386,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -4384,7 +4399,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -4456,50 +4471,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -4512,16 +4529,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -4531,7 +4548,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -4544,39 +4561,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -4584,8 +4601,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -4597,7 +4614,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -4666,50 +4683,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -4722,16 +4741,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -4741,7 +4760,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -4754,39 +4773,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -4794,8 +4813,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -4807,7 +4826,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -4879,50 +4898,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -4935,16 +4956,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -4954,7 +4975,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -4967,39 +4988,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -5007,8 +5028,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -5020,7 +5041,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -5069,50 +5090,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -5125,16 +5148,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -5144,7 +5167,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -5157,39 +5180,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -5197,8 +5220,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -5210,7 +5233,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -5366,50 +5389,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -5422,16 +5447,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -5441,7 +5466,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -5454,39 +5479,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -5494,8 +5519,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -5507,7 +5532,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -5579,50 +5604,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -5635,16 +5662,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -5654,7 +5681,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -5667,39 +5694,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -5707,8 +5734,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -5720,7 +5747,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -5797,50 +5824,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -5853,16 +5882,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -5872,7 +5901,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -5885,39 +5914,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -5925,8 +5954,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -5938,7 +5967,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -6012,50 +6041,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -6068,16 +6099,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -6087,7 +6118,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -6100,39 +6131,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -6140,8 +6171,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -6153,7 +6184,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -6220,50 +6251,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -6276,16 +6309,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -6295,7 +6328,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -6308,39 +6341,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -6348,8 +6381,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -6361,7 +6394,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -6504,50 +6537,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -6560,16 +6595,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -6579,7 +6614,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -6592,39 +6627,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -6632,8 +6667,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -6645,7 +6680,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -6720,50 +6755,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -6776,16 +6813,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -6795,7 +6832,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -6808,39 +6845,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -6848,8 +6885,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -6861,7 +6898,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -6948,50 +6985,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -7004,16 +7043,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -7023,7 +7062,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -7036,39 +7075,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -7076,8 +7115,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -7089,7 +7128,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -7240,50 +7279,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -7296,16 +7337,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -7315,7 +7356,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -7328,39 +7369,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -7368,8 +7409,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -7381,7 +7422,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -7482,50 +7523,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -7538,16 +7581,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -7557,7 +7600,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -7570,39 +7613,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -7610,8 +7653,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -7623,7 +7666,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -7726,50 +7769,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -7782,16 +7827,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -7801,7 +7846,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -7814,39 +7859,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -7854,8 +7899,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -7867,7 +7912,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -8000,50 +8045,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -8056,16 +8103,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -8075,7 +8122,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -8088,39 +8135,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -8128,8 +8175,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -8141,7 +8188,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -8226,50 +8273,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -8282,16 +8331,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -8301,7 +8350,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -8314,39 +8363,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -8354,8 +8403,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -8367,7 +8416,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -8465,50 +8514,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -8521,16 +8572,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -8540,7 +8591,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -8553,39 +8604,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -8593,8 +8644,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -8606,7 +8657,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -8675,50 +8726,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -8731,16 +8784,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -8750,7 +8803,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -8763,39 +8816,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -8803,8 +8856,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -8816,7 +8869,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -8982,50 +9035,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -9038,16 +9093,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -9057,7 +9112,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -9070,39 +9125,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -9110,8 +9165,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -9123,7 +9178,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -9199,50 +9254,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -9255,16 +9312,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -9274,7 +9331,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -9287,39 +9344,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -9327,8 +9384,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -9340,7 +9397,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -9414,50 +9471,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -9470,16 +9529,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -9489,7 +9548,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -9502,39 +9561,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -9542,8 +9601,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -9555,7 +9614,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -9680,50 +9739,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -9736,16 +9797,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -9755,7 +9816,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -9768,39 +9829,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -9808,8 +9869,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -9821,7 +9882,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -9895,50 +9956,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -9951,16 +10014,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -9970,7 +10033,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -9983,39 +10046,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -10023,8 +10086,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -10036,7 +10099,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -10225,50 +10288,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -10281,16 +10346,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -10300,7 +10365,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -10313,39 +10378,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -10353,8 +10418,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -10366,7 +10431,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -10616,50 +10681,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -10672,16 +10739,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -10691,7 +10758,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -10704,39 +10771,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -10744,8 +10811,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -10757,7 +10824,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -10829,50 +10896,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -10885,16 +10954,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -10904,7 +10973,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -10917,39 +10986,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -10957,8 +11026,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -10970,7 +11039,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -11042,50 +11111,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -11098,16 +11169,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -11117,7 +11188,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -11130,39 +11201,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -11170,8 +11241,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -11183,7 +11254,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -11275,50 +11346,52 @@ Protocol Alpha
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -11331,16 +11404,16 @@ Protocol Alpha
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -11350,7 +11423,7 @@ Protocol Alpha
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -11363,39 +11436,39 @@ Protocol Alpha
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -11403,8 +11476,8 @@ Protocol Alpha
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -11416,7 +11489,7 @@ Protocol Alpha
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -15344,7 +15417,7 @@ Protocol Alpha
 
 
 
-**Inconsistent validation passes in block**
+**All bakers attest not implemented**
 
 .. raw:: html
   
@@ -15354,8 +15427,29 @@ Protocol Alpha
     
     </div>
     <div id="ref350descr" class="ref350 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
-      <p>Validation of operation should be ordered by their validation passes in a block.</p><p><i>Id</i> : proto.alpha.validate.block.inconsistent_validation_passes_in_block<br/><i>Category</i> : temporary</p>
+      <p>All bakers attest is not implemented yet</p><p><i>Id</i> : proto.alpha.validate.all_bakers_attest_not_implemented<br/><i>Category</i> : temporary</p>
       </div><div id="ref350schema" class="ref350 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <pre>
+    { /* All bakers attest not implemented
+         All bakers attest is not implemented yet */
+      "kind": "permanent",
+      "id": "proto.alpha.validate.all_bakers_attest_not_implemented" }</pre>
+    </div>
+
+
+
+**Inconsistent validation passes in block**
+
+.. raw:: html
+  
+  <div class="tab">
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref351descr', 'ref351')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref351schema', 'ref351')">JSON Schema</button>
+    
+    </div>
+    <div id="ref351descr" class="ref351 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      <p>Validation of operation should be ordered by their validation passes in a block.</p><p><i>Id</i> : proto.alpha.validate.block.inconsistent_validation_passes_in_block<br/><i>Category</i> : temporary</p>
+      </div><div id="ref351schema" class="ref351 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent validation passes in block
          Validation of operation should be ordered by their validation passes
@@ -15374,20 +15468,24 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref351descr', 'ref351')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref351schema', 'ref351')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref352descr', 'ref352')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref352schema', 'ref352')">JSON Schema</button>
     
     </div>
-    <div id="ref351descr" class="ref351 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref352descr" class="ref352 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Insufficient locked round evidence.</p><p><i>Id</i> : proto.alpha.validate.block.insufficient_locked_round_evidence<br/><i>Category</i> : temporary</p>
-      </div><div id="ref351schema" class="ref351 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref352schema" class="ref352 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Insufficient locked round evidence
          Insufficient locked round evidence. */
       "kind": "permanent",
       "id": "proto.alpha.validate.block.insufficient_locked_round_evidence",
-      "total_attesting_power": integer ∈ [-2^30, 2^30],
-      "consensus_threshold": integer ∈ [-2^30, 2^30] }</pre>
+      "total_attesting_power": $int64,
+      "consensus_threshold": $int64 }
+    $int64:
+      /* 64 bit integers
+         Decimal representation of 64 bit integers */
+      string</pre>
     </div>
 
 
@@ -15397,13 +15495,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref352descr', 'ref352')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref352schema', 'ref352')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref353descr', 'ref353')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref353schema', 'ref353')">JSON Schema</button>
     
     </div>
-    <div id="ref352descr" class="ref352 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref353descr" class="ref353 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A double-baking evidence is inconsistent (two distinct levels)</p><p><i>Id</i> : proto.alpha.validate.block.invalid_double_baking_evidence<br/><i>Category</i> : temporary</p>
-      </div><div id="ref352schema" class="ref352 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref353schema" class="ref353 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid double baking evidence
          A double-baking evidence is inconsistent (two distinct levels) */
@@ -15432,13 +15530,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref353descr', 'ref353')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref353schema', 'ref353')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref354descr', 'ref354')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref354schema', 'ref354')">JSON Schema</button>
     
     </div>
-    <div id="ref353descr" class="ref353 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref354descr" class="ref354 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid payload hash.</p><p><i>Id</i> : proto.alpha.validate.block.invalid_payload_hash<br/><i>Category</i> : temporary</p>
-      </div><div id="ref353schema" class="ref353 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref354schema" class="ref354 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid payload hash
          Invalid payload hash. */
@@ -15463,13 +15561,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref354descr', 'ref354')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref354schema', 'ref354')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref355descr', 'ref355')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref355schema', 'ref355')">JSON Schema</button>
     
     </div>
-    <div id="ref354descr" class="ref354 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref355descr" class="ref355 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Locked round after block round.</p><p><i>Id</i> : proto.alpha.validate.block.locked_round_after_block_round<br/><i>Category</i> : temporary</p>
-      </div><div id="ref354schema" class="ref354 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref355schema" class="ref355 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Locked round after block round
          Locked round after block round. */
@@ -15486,21 +15584,25 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref355descr', 'ref355')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref355schema', 'ref355')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref356descr', 'ref356')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref356schema', 'ref356')">JSON Schema</button>
     
     </div>
-    <div id="ref355descr" class="ref355 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref356descr" class="ref356 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block being validated does not include the required minimum number of attestations.</p><p><i>Id</i> : proto.alpha.validate.block.not_enough_attestations<br/><i>Category</i> : temporary</p>
-      </div><div id="ref355schema" class="ref355 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref356schema" class="ref356 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not enough attestations
          The block being validated does not include the required minimum
          number of attestations. */
       "kind": "permanent",
       "id": "proto.alpha.validate.block.not_enough_attestations",
-      "required": integer ∈ [-2^30, 2^30],
-      "provided": integer ∈ [-2^30, 2^30] }</pre>
+      "required": $int64,
+      "provided": $int64 }
+    $int64:
+      /* 64 bit integers
+         Decimal representation of 64 bit integers */
+      string</pre>
     </div>
 
 
@@ -15510,13 +15612,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref356descr', 'ref356')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref356schema', 'ref356')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref357descr', 'ref357')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref357schema', 'ref357')">JSON Schema</button>
     
     </div>
-    <div id="ref356descr" class="ref356 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref357descr" class="ref357 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus operation for future level.</p><p><i>Id</i> : proto.alpha.validate.consensus_operation_for_future_level<br/><i>Category</i> : temporary</p>
-      </div><div id="ref356schema" class="ref356 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref357schema" class="ref357 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus operation for future level
          Consensus operation for future level. */
@@ -15538,13 +15640,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref357descr', 'ref357')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref357schema', 'ref357')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref358descr', 'ref358')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref358schema', 'ref358')">JSON Schema</button>
     
     </div>
-    <div id="ref357descr" class="ref357 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref358descr" class="ref358 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus operation for future round.</p><p><i>Id</i> : proto.alpha.validate.consensus_operation_for_future_round<br/><i>Category</i> : temporary</p>
-      </div><div id="ref357schema" class="ref357 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref358schema" class="ref358 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus operation for future round
          Consensus operation for future round. */
@@ -15566,13 +15668,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref358descr', 'ref358')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref358schema', 'ref358')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref359descr', 'ref359')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref359schema', 'ref359')">JSON Schema</button>
     
     </div>
-    <div id="ref358descr" class="ref358 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref359descr" class="ref359 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus operation for old level.</p><p><i>Id</i> : proto.alpha.validate.consensus_operation_for_old_level<br/><i>Category</i> : temporary</p>
-      </div><div id="ref358schema" class="ref358 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref359schema" class="ref359 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus operation for old level
          Consensus operation for old level. */
@@ -15594,13 +15696,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref359descr', 'ref359')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref359schema', 'ref359')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref360descr', 'ref360')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref360schema', 'ref360')">JSON Schema</button>
     
     </div>
-    <div id="ref359descr" class="ref359 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref360descr" class="ref360 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus operation for old round.</p><p><i>Id</i> : proto.alpha.validate.consensus_operation_for_old_round<br/><i>Category</i> : temporary</p>
-      </div><div id="ref359schema" class="ref359 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref360schema" class="ref360 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus operation for old round
          Consensus operation for old round. */
@@ -15622,13 +15724,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref360descr', 'ref360')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref360schema', 'ref360')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref361descr', 'ref361')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref361schema', 'ref361')">JSON Schema</button>
     
     </div>
-    <div id="ref360descr" class="ref360 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref361descr" class="ref361 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Consensus operation not allowed.</p><p><i>Id</i> : proto.alpha.validate.consensus_operation_not_allowed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref360schema" class="ref360 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref361schema" class="ref361 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Consensus operation not allowed
          Consensus operation not allowed. */
@@ -15643,13 +15745,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref361descr', 'ref361')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref361schema', 'ref361')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref362descr', 'ref362')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref362schema', 'ref362')">JSON Schema</button>
     
     </div>
-    <div id="ref361descr" class="ref361 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref362descr" class="ref362 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Double inclusion of consensus operation.</p><p><i>Id</i> : proto.alpha.validate.double_inclusion_of_consensus_operation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref361schema" class="ref361 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref362schema" class="ref362 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Double inclusion of consensus operation
          Double inclusion of consensus operation. */
@@ -15683,13 +15785,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref362descr', 'ref362')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref362schema', 'ref362')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref363descr', 'ref363')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref363schema', 'ref363')">JSON Schema</button>
     
     </div>
-    <div id="ref362descr" class="ref362 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref363descr" class="ref363 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The aggregation committee is empty</p><p><i>Id</i> : proto.alpha.validate.empty_aggregation_committee<br/><i>Category</i> : temporary</p>
-      </div><div id="ref362schema" class="ref362 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref363schema" class="ref363 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty aggregation committee
          The aggregation committee is empty */
@@ -15704,13 +15806,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref363descr', 'ref363')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref363schema', 'ref363')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref364descr', 'ref364')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref364schema', 'ref364')">JSON Schema</button>
     
     </div>
-    <div id="ref363descr" class="ref363 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref364descr" class="ref364 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The consensus key is a BLS key but is missing a companion key, so it cannot issue a DAL attestation</p><p><i>Id</i> : proto.alpha.validate.missing_companion_key_for_bls_dal<br/><i>Category</i> : temporary</p>
-      </div><div id="ref363schema" class="ref363 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref364schema" class="ref364 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing companion key for DAL attestation with BLS
          The consensus key is a BLS key but is missing a companion key, so it
@@ -15738,13 +15840,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref364descr', 'ref364')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref364schema', 'ref364')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref365descr', 'ref365')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref365schema', 'ref365')">JSON Schema</button>
     
     </div>
-    <div id="ref364descr" class="ref364 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref365descr" class="ref365 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Non Bls key in a consensus aggregate operation</p><p><i>Id</i> : proto.alpha.validate.non_bls_key_in_aggregate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref364schema" class="ref364 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref365schema" class="ref365 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Non BLS key in aggregate
          Non Bls key in a consensus aggregate operation */
@@ -15759,13 +15861,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref365descr', 'ref365')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref365schema', 'ref365')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref366descr', 'ref366')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref366schema', 'ref366')">JSON Schema</button>
     
     </div>
-    <div id="ref365descr" class="ref365 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref366descr" class="ref366 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Accusation validity internal error: unable to retrieve the required DAL slot headers.</p><p><i>Id</i> : proto.alpha.validate.operation.accusation_validity_error_cannot_get_slot_headers<br/><i>Category</i> : temporary</p>
-      </div><div id="ref365schema" class="ref365 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref366schema" class="ref366 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Accusation validity error: cannot get slot headers
          Accusation validity internal error: unable to retrieve the required
@@ -15794,13 +15896,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref366descr', 'ref366')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref366schema', 'ref366')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref367descr', 'ref367')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref367schema', 'ref367')">JSON Schema</button>
     
     </div>
-    <div id="ref366descr" class="ref366 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref367descr" class="ref367 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Accusation validity internal error: mismatch between published levels in storage and evidence.</p><p><i>Id</i> : proto.alpha.validate.operation.accusation_validity_error_levels_mismatch<br/><i>Category</i> : temporary</p>
-      </div><div id="ref366schema" class="ref366 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref367schema" class="ref367 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Accusation validity internal error: levels mismatch
          Accusation validity internal error: mismatch between published
@@ -15831,13 +15933,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref367descr', 'ref367')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref367schema', 'ref367')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref368descr', 'ref368')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref368schema', 'ref368')">JSON Schema</button>
     
     </div>
-    <div id="ref367descr" class="ref367 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref368descr" class="ref368 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The same DAL denunciation has already been validated.</p><p><i>Id</i> : proto.alpha.validate.operation.already_dal_denounced<br/><i>Category</i> : temporary</p>
-      </div><div id="ref367schema" class="ref367 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref368schema" class="ref368 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Already denounced for DAL entrapement
          The same DAL denunciation has already been validated. */
@@ -15863,13 +15965,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref368descr', 'ref368')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref368schema', 'ref368')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref369descr', 'ref369')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref369schema', 'ref369')">JSON Schema</button>
     
     </div>
-    <div id="ref368descr" class="ref368 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref369descr" class="ref369 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The same denunciation has already been validated.</p><p><i>Id</i> : proto.alpha.validate.operation.already_denounced<br/><i>Category</i> : temporary</p>
-      </div><div id="ref368schema" class="ref368 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref369schema" class="ref369 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Already denounced
          The same denunciation has already been validated. */
@@ -15920,13 +16022,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref369descr', 'ref369')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref369schema', 'ref369')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref370descr', 'ref370')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref370schema', 'ref370')">JSON Schema</button>
     
     </div>
-    <div id="ref369descr" class="ref369 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref370descr" class="ref370 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate has already submitted one of the operation's proposals.</p><p><i>Id</i> : proto.alpha.validate.operation.already_proposed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref369schema" class="ref369 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref370schema" class="ref370 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Already proposed
          The delegate has already submitted one of the operation's proposals. */
@@ -15950,13 +16052,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref370descr', 'ref370')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref370schema', 'ref370')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref371descr', 'ref371')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref371schema', 'ref371')">JSON Schema</button>
     
     </div>
-    <div id="ref370descr" class="ref370 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref371descr" class="ref371 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate has already submitted a ballot for the current voting period.</p><p><i>Id</i> : proto.alpha.validate.operation.already_submitted_a_ballot<br/><i>Category</i> : temporary</p>
-      </div><div id="ref370schema" class="ref370 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref371schema" class="ref371 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Already submitted a ballot
          The delegate has already submitted a ballot for the current voting
@@ -15972,13 +16074,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref371descr', 'ref371')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref371schema', 'ref371')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref372descr', 'ref372')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref372schema', 'ref372')">JSON Schema</button>
     
     </div>
-    <div id="ref371descr" class="ref371 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref372descr" class="ref372 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Ballot provided for a proposal that is not the current one.</p><p><i>Id</i> : proto.alpha.validate.operation.ballot_for_wrong_proposal<br/><i>Category</i> : temporary</p>
-      </div><div id="ref371schema" class="ref371 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref372schema" class="ref372 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Ballot for wrong proposal
          Ballot provided for a proposal that is not the current one. */
@@ -16003,13 +16105,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref372descr', 'ref372')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref372schema', 'ref372')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref373descr', 'ref373')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref373schema', 'ref373')">JSON Schema</button>
     
     </div>
-    <div id="ref372descr" class="ref372 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref373descr" class="ref373 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A denunciation operation is inconsistent (two distinct delegates)</p><p><i>Id</i> : proto.alpha.validate.operation.block.inconsistent_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref372schema" class="ref372 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref373schema" class="ref373 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent denunciation
          A denunciation operation is inconsistent (two distinct delegates) */
@@ -16036,13 +16138,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref373descr', 'ref373')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref373schema', 'ref373')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref374descr', 'ref374')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref374schema', 'ref374')">JSON Schema</button>
     
     </div>
-    <div id="ref373descr" class="ref373 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref374descr" class="ref374 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given shard index is out of range of representable shard indices</p><p><i>Id</i> : proto.alpha.validate.operation.block.invalid_dal_shard_index<br/><i>Category</i> : temporary</p>
-      </div><div id="ref373schema" class="ref373 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref374schema" class="ref374 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid DAL shard index
          The given shard index is out of range of representable shard indices */
@@ -16060,13 +16162,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref374descr', 'ref374')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref374schema', 'ref374')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref375descr', 'ref375')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref375schema', 'ref375')">JSON Schema</button>
     
     </div>
-    <div id="ref374descr" class="ref374 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref375descr" class="ref375 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A denunciation is malformed</p><p><i>Id</i> : proto.alpha.validate.operation.block.invalid_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref374schema" class="ref374 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref375schema" class="ref375 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid denunciation
          A denunciation is malformed */
@@ -16082,13 +16184,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref375descr', 'ref375')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref375schema', 'ref375')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref376descr', 'ref376')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref376schema', 'ref376')">JSON Schema</button>
     
     </div>
-    <div id="ref375descr" class="ref375 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref376descr" class="ref376 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A DAL denunciation is outdated.</p><p><i>Id</i> : proto.alpha.validate.operation.block.outdated_dal_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref375schema" class="ref375 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref376schema" class="ref376 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Outdated DAL denunciation
          A DAL denunciation is outdated. */
@@ -16105,13 +16207,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref376descr', 'ref376')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref376schema', 'ref376')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref377descr', 'ref377')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref377schema', 'ref377')">JSON Schema</button>
     
     </div>
-    <div id="ref376descr" class="ref376 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref377descr" class="ref377 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A denunciation is outdated.</p><p><i>Id</i> : proto.alpha.validate.operation.block.outdated_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref376schema" class="ref376 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref377schema" class="ref377 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Outdated denunciation
          A denunciation is outdated. */
@@ -16129,13 +16231,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref377descr', 'ref377')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref377schema', 'ref377')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref378descr', 'ref378')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref378schema', 'ref378')">JSON Schema</button>
     
     </div>
-    <div id="ref377descr" class="ref377 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref378descr" class="ref378 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A DAL denunciation is for a future level</p><p><i>Id</i> : proto.alpha.validate.operation.block.too_early_dal_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref377schema" class="ref377 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref378schema" class="ref378 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too early DAL denunciation
          A DAL denunciation is for a future level */
@@ -16152,13 +16254,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref378descr', 'ref378')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref378schema', 'ref378')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref379descr', 'ref379')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref379schema', 'ref379')">JSON Schema</button>
     
     </div>
-    <div id="ref378descr" class="ref378 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref379descr" class="ref379 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A denunciation is for a future level</p><p><i>Id</i> : proto.alpha.validate.operation.block.too_early_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref378schema" class="ref378 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref379schema" class="ref379 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too early denunciation
          A denunciation is for a future level */
@@ -16176,13 +16278,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref379descr', 'ref379')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref379schema', 'ref379')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref380descr', 'ref380')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref380schema', 'ref380')">JSON Schema</button>
     
     </div>
-    <div id="ref379descr" class="ref379 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref380descr" class="ref380 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate exceeded the maximum number of allowed proposals due to, among others, previous Proposals operations in the current block/mempool.</p><p><i>Id</i> : proto.alpha.validate.operation.conflict_too_many_proposals<br/><i>Category</i> : temporary</p>
-      </div><div id="ref379schema" class="ref379 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref380schema" class="ref380 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflict too many proposals
          The delegate exceeded the maximum number of allowed proposals due
@@ -16201,13 +16303,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref380descr', 'ref380')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref380schema', 'ref380')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref381descr', 'ref381')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref381schema', 'ref381')">JSON Schema</button>
     
     </div>
-    <div id="ref380descr" class="ref380 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref381descr" class="ref381 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The account has already been activated by a previous operation in the current validation state.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_activation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref380schema" class="ref380 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref381schema" class="ref381 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Account already activated in current validation_state
          The account has already been activated by a previous operation in
@@ -16241,13 +16343,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref381descr', 'ref381')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref381schema', 'ref381')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref382descr', 'ref382')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref382schema', 'ref382')">JSON Schema</button>
     
     </div>
-    <div id="ref381descr" class="ref381 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref382descr" class="ref382 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate has already submitted a ballot in a previously validated operation of the current block or mempool.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_ballot<br/><i>Category</i> : temporary</p>
-      </div><div id="ref381schema" class="ref381 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref382schema" class="ref382 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting ballot
          The delegate has already submitted a ballot in a previously
@@ -16277,13 +16379,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref382descr', 'ref382')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref382schema', 'ref382')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref383descr', 'ref383')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref383schema', 'ref383')">JSON Schema</button>
     
     </div>
-    <div id="ref382descr" class="ref382 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref383descr" class="ref383 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A DAL entrapment evidence for the same level and a larger DAL attestation has already been validated for the current validation state.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_dal_entrapment<br/><i>Category</i> : temporary</p>
-      </div><div id="ref382schema" class="ref382 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref383schema" class="ref383 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting DAL entrapment in the current validation state).
          A DAL entrapment evidence for the same level and a larger DAL
@@ -16314,13 +16416,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref383descr', 'ref383')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref383schema', 'ref383')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref384descr', 'ref384')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref384schema', 'ref384')">JSON Schema</button>
     
     </div>
-    <div id="ref383descr" class="ref383 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref384descr" class="ref384 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The same denunciation has already been validated in the current validation state.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_denunciation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref383schema" class="ref383 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref384schema" class="ref384 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting denunciation in current validation state
          The same denunciation has already been validated in the current
@@ -16351,13 +16453,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref384descr', 'ref384')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref384schema', 'ref384')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref385descr', 'ref385')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref385schema', 'ref385')">JSON Schema</button>
     
     </div>
-    <div id="ref384descr" class="ref384 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref385descr" class="ref385 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A manager operation or another drain operation is in conflict.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_drain<br/><i>Category</i> : temporary</p>
-      </div><div id="ref384schema" class="ref384 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref385schema" class="ref385 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting drain in the current validation state).
          A manager operation or another drain operation is in conflict. */
@@ -16391,13 +16493,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref385descr', 'ref385')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref385schema', 'ref385')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref386descr', 'ref386')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref386schema', 'ref386')">JSON Schema</button>
     
     </div>
-    <div id="ref385descr" class="ref385 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref386descr" class="ref386 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A revelation for the same nonce has already been validated for the current validation state.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_nonce_revelation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref385schema" class="ref385 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref386schema" class="ref386 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting nonce revelation in the current validation state).
          A revelation for the same nonce has already been validated for the
@@ -16427,13 +16529,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref386descr', 'ref386')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref386schema', 'ref386')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref387descr', 'ref387')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref387schema', 'ref387')">JSON Schema</button>
     
     </div>
-    <div id="ref386descr" class="ref386 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref387descr" class="ref387 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The current block/mempool already contains a testnest dictator proposals operation, so it cannot have any other voting operation.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_proposals<br/><i>Category</i> : temporary</p>
-      </div><div id="ref386schema" class="ref386 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref387schema" class="ref387 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting proposals
          The current block/mempool already contains a testnest dictator
@@ -16463,13 +16565,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref387descr', 'ref387')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref387schema', 'ref387')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref388descr', 'ref388')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref388schema', 'ref388')">JSON Schema</button>
     
     </div>
-    <div id="ref387descr" class="ref387 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref388descr" class="ref388 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A revelation for the same vdf has already been validated for the current validation state.</p><p><i>Id</i> : proto.alpha.validate.operation.conflicting_vdf_revelation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref387schema" class="ref387 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref388schema" class="ref388 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Conflicting vdf revelation in the current validation state).
          A revelation for the same vdf has already been validated for the
@@ -16499,13 +16601,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref388descr', 'ref388')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref388schema', 'ref388')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref389descr', 'ref389')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref389schema', 'ref389')">JSON Schema</button>
     
     </div>
-    <div id="ref388descr" class="ref388 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref389descr" class="ref389 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Proposal list cannot be empty.</p><p><i>Id</i> : proto.alpha.validate.operation.empty_proposals<br/><i>Category</i> : temporary</p>
-      </div><div id="ref388schema" class="ref388 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref389schema" class="ref389 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Empty proposals
          Proposal list cannot be empty. */
@@ -16520,13 +16622,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref389descr', 'ref389')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref389schema', 'ref389')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref390descr', 'ref390')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref390schema', 'ref390')">JSON Schema</button>
     
     </div>
-    <div id="ref389descr" class="ref389 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref390descr" class="ref390 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A failing_noop operation can never be validated.</p><p><i>Id</i> : proto.alpha.validate.operation.failing_noop_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref389schema" class="ref389 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref390schema" class="ref390 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failing_noop error
          A failing_noop operation can never be validated. */
@@ -16541,13 +16643,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref390descr', 'ref390')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref390schema', 'ref390')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref391descr', 'ref391')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref391schema', 'ref391')">JSON Schema</button>
     
     </div>
-    <div id="ref390descr" class="ref390 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref391descr" class="ref391 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Gas limit was not high enough to deserialize the transaction parameters or origination script code or initial storage etc., making the operation impossible to parse within the provided gas bounds.</p><p><i>Id</i> : proto.alpha.validate.operation.gas_quota_exceeded_init_deserialize<br/><i>Category</i> : temporary</p>
-      </div><div id="ref390schema" class="ref390 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref391schema" class="ref391 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not enough gas for initial deserialization of script expressions
          Gas limit was not high enough to deserialize the transaction
@@ -16566,13 +16668,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref391descr', 'ref391')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref391schema', 'ref391')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref392descr', 'ref392')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref392schema', 'ref392')">JSON Schema</button>
     
     </div>
-    <div id="ref391descr" class="ref391 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref392descr" class="ref392 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent counters in operation batch. Counters must be increasing and consecutive.</p><p><i>Id</i> : proto.alpha.validate.operation.inconsistent_counters<br/><i>Category</i> : temporary</p>
-      </div><div id="ref391schema" class="ref391 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref392schema" class="ref392 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent counters in operation
          Inconsistent counters in operation batch. Counters must be
@@ -16604,13 +16706,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref392descr', 'ref392')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref392schema', 'ref392')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref393descr', 'ref393')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref393schema', 'ref393')">JSON Schema</button>
     
     </div>
-    <div id="ref392descr" class="ref392 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref393descr" class="ref393 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent sources in operation batch. All operations in a batch must have the same source.</p><p><i>Id</i> : proto.alpha.validate.operation.inconsistent_sources<br/><i>Category</i> : temporary</p>
-      </div><div id="ref392schema" class="ref392 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref393schema" class="ref393 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent sources in operation batch
          Inconsistent sources in operation batch. All operations in a batch
@@ -16637,13 +16739,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref393descr', 'ref393')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref393schema', 'ref393')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref394descr', 'ref394')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref394schema', 'ref394')">JSON Schema</button>
     
     </div>
-    <div id="ref393descr" class="ref393 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref394descr" class="ref394 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Incorrect proof of possession for tz4 key.</p><p><i>Id</i> : proto.alpha.validate.operation.incorrect_bls_proof<br/><i>Category</i> : temporary</p>
-      </div><div id="ref393schema" class="ref393 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref394schema" class="ref394 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Incorrect proof of possession for tz4 key
          Incorrect proof of possession for tz4 key. */
@@ -16672,13 +16774,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref394descr', 'ref394')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref394schema', 'ref394')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref395descr', 'ref395')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref395schema', 'ref395')">JSON Schema</button>
     
     </div>
-    <div id="ref394descr" class="ref394 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref395descr" class="ref395 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Incorrect reveal operation position in batch: only allowed in first position.</p><p><i>Id</i> : proto.alpha.validate.operation.incorrect_reveal_position<br/><i>Category</i> : temporary</p>
-      </div><div id="ref394schema" class="ref394 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref395schema" class="ref395 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Incorrect reveal position
          Incorrect reveal operation position in batch: only allowed in first
@@ -16694,13 +16796,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref395descr', 'ref395')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref395schema', 'ref395')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref396descr', 'ref396')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref396schema', 'ref396')">JSON Schema</button>
     
     </div>
-    <div id="ref395descr" class="ref395 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref396descr" class="ref396 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Gas limit is too low to cover the initial cost of manager operations: a minimum of 100 gas units is required.</p><p><i>Id</i> : proto.alpha.validate.operation.insufficient_gas_for_manager<br/><i>Category</i> : temporary</p>
-      </div><div id="ref395schema" class="ref395 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref396schema" class="ref396 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not enough gas for initial manager cost
          Gas limit is too low to cover the initial cost of manager
@@ -16716,13 +16818,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref396descr', 'ref396')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref396schema', 'ref396')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref397descr', 'ref397')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref397schema', 'ref397')">JSON Schema</button>
     
     </div>
-    <div id="ref396descr" class="ref396 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref397descr" class="ref397 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The denounced attestation must be either a standalone attestation for the denounced consensus slot, or an attestations aggregate whose committee includes the denounced consensus slot.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_inconsistent_consensus_slot<br/><i>Category</i> : temporary</p>
-      </div><div id="ref396schema" class="ref396 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref397schema" class="ref397 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid DAL denunciation: inconsistent consensus slot
          The denounced attestation must be either a standalone attestation
@@ -16740,13 +16842,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref397descr', 'ref397')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref397schema', 'ref397')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref398descr', 'ref398')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref398schema', 'ref398')">JSON Schema</button>
     
     </div>
-    <div id="ref397descr" class="ref397 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref398descr" class="ref398 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid accusation: the attestation operation has no DAL content for the denounced consensus slot.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_no_dal_content<br/><i>Category</i> : temporary</p>
-      </div><div id="ref397schema" class="ref397 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref398schema" class="ref398 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid accusation: no DAL content
          Invalid accusation: the attestation operation has no DAL content for
@@ -16766,13 +16868,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref398descr', 'ref398')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref398schema', 'ref398')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref399descr', 'ref399')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref399schema', 'ref399')">JSON Schema</button>
     
     </div>
-    <div id="ref398descr" class="ref398 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref399descr" class="ref399 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>DAL denunciations cannot target preattestations, since they have no DAL content.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_of_preattestation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref398schema" class="ref398 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref399schema" class="ref399 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid DAL denunciation of preattestation
          DAL denunciations cannot target preattestations, since they have no
@@ -16789,13 +16891,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref399descr', 'ref399')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref399schema', 'ref399')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref400descr', 'ref400')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref400schema', 'ref400')">JSON Schema</button>
     
     </div>
-    <div id="ref399descr" class="ref399 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref400descr" class="ref400 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid accusation: the provided shard is not a trap.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_shard_is_not_trap<br/><i>Category</i> : temporary</p>
-      </div><div id="ref399schema" class="ref399 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref400schema" class="ref400 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid accusation: the provided shard is not a trap
          Invalid accusation: the provided shard is not a trap. */
@@ -16824,13 +16926,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref400descr', 'ref400')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref400schema', 'ref400')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref401descr', 'ref401')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref401schema', 'ref401')">JSON Schema</button>
     
     </div>
-    <div id="ref400descr" class="ref400 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref401descr" class="ref401 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid accusation: the delegate did not attest the DAL slot.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_slot_not_attested<br/><i>Category</i> : temporary</p>
-      </div><div id="ref400schema" class="ref400 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref401schema" class="ref401 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid accusation: the delegate did not attest the DAL slot
          Invalid accusation: the delegate did not attest the DAL slot. */
@@ -16849,13 +16951,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref401descr', 'ref401')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref401schema', 'ref401')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref402descr', 'ref402')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref402schema', 'ref402')">JSON Schema</button>
     
     </div>
-    <div id="ref401descr" class="ref401 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref402descr" class="ref402 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid accusation: the DAL slot was not published.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_slot_not_published<br/><i>Category</i> : temporary</p>
-      </div><div id="ref401schema" class="ref401 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref402schema" class="ref402 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid accusation: DAL slot not published
          Invalid accusation: the DAL slot was not published. */
@@ -16883,13 +16985,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref402descr', 'ref402')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref402schema', 'ref402')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref403descr', 'ref403')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref403schema', 'ref403')">JSON Schema</button>
     
     </div>
-    <div id="ref402descr" class="ref402 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref403descr" class="ref403 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid accusation: the provided shard is not assigned to the attester.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_accusation_wrong_shard_owner<br/><i>Category</i> : temporary</p>
-      </div><div id="ref402schema" class="ref402 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref403schema" class="ref403 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid accusation: the provided shard is not assigned to the
          attester
@@ -16921,13 +17023,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref403descr', 'ref403')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref403schema', 'ref403')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref404descr', 'ref404')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref404schema', 'ref404')">JSON Schema</button>
     
     </div>
-    <div id="ref403descr" class="ref403 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref404descr" class="ref404 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given key and secret do not correspond to any existing preallocated contract.</p><p><i>Id</i> : proto.alpha.validate.operation.invalid_activation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref403schema" class="ref403 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref404schema" class="ref404 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid activation
          The given key and secret do not correspond to any existing
@@ -16952,13 +17054,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref404descr', 'ref404')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref404schema', 'ref404')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref405descr', 'ref405')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref405schema', 'ref405')">JSON Schema</button>
     
     </div>
-    <div id="ref404descr" class="ref404 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref405descr" class="ref405 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An operation with the same manager has already been validated in the current block.</p><p><i>Id</i> : proto.alpha.validate.operation.manager_restriction<br/><i>Category</i> : temporary</p>
-      </div><div id="ref404schema" class="ref404 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref405schema" class="ref405 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Manager restriction
          An operation with the same manager has already been validated in the
@@ -16993,13 +17095,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref405descr', 'ref405')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref405schema', 'ref405')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref406descr', 'ref406')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref406schema', 'ref406')">JSON Schema</button>
     
     </div>
-    <div id="ref405descr" class="ref405 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref406descr" class="ref406 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Revealing tz4 public keys and updating consensus and companion keys with tz4 require a proof of possession.</p><p><i>Id</i> : proto.alpha.validate.operation.missing_bls_proof<br/><i>Category</i> : temporary</p>
-      </div><div id="ref405schema" class="ref405 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref406schema" class="ref406 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Proof of possession is required for tz4 key
          Revealing tz4 public keys and updating consensus and companion keys
@@ -17030,13 +17132,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref406descr', 'ref406')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref406schema', 'ref406')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref407descr', 'ref407')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref407schema', 'ref407')">JSON Schema</button>
     
     </div>
-    <div id="ref406descr" class="ref406 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref407descr" class="ref407 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The list of proposals contains a duplicate element.</p><p><i>Id</i> : proto.alpha.validate.operation.proposals_contain_duplicate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref406schema" class="ref406 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref407schema" class="ref407 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Proposals contain duplicate
          The list of proposals contains a duplicate element. */
@@ -17060,13 +17162,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref407descr', 'ref407')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref407schema', 'ref407')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref408descr', 'ref408')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref408schema', 'ref408')">JSON Schema</button>
     
     </div>
-    <div id="ref407descr" class="ref407 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref408descr" class="ref408 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate is not in the vote listings.</p><p><i>Id</i> : proto.alpha.validate.operation.source_not_in_vote_listings<br/><i>Category</i> : temporary</p>
-      </div><div id="ref407schema" class="ref407 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref408schema" class="ref408 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Source not in vote listings
          The delegate is not in the vote listings. */
@@ -17081,13 +17183,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref408descr', 'ref408')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref408schema', 'ref408')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref409descr', 'ref409')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref409schema', 'ref409')">JSON Schema</button>
     
     </div>
-    <div id="ref408descr" class="ref408 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref409descr" class="ref409 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A testnet dictator cannot submit more than one proposal at a time.</p><p><i>Id</i> : proto.alpha.validate.operation.testnet_dictator_multiple_proposals<br/><i>Category</i> : temporary</p>
-      </div><div id="ref408schema" class="ref408 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref409schema" class="ref409 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Testnet dictator multiple proposals
          A testnet dictator cannot submit more than one proposal at a time. */
@@ -17103,13 +17205,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref409descr', 'ref409')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref409schema', 'ref409')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref410descr', 'ref410')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref410schema', 'ref410')">JSON Schema</button>
     
     </div>
-    <div id="ref409descr" class="ref409 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref410descr" class="ref410 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Proof of possession is only required for tz4 keys</p><p><i>Id</i> : proto.alpha.validate.operation.unused_bls_proof<br/><i>Category</i> : temporary</p>
-      </div><div id="ref409schema" class="ref409 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref410schema" class="ref410 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Proof of possession is only required for tz4 keys
          Proof of possession is only required for tz4 keys */
@@ -17139,13 +17241,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref410descr', 'ref410')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref410schema', 'ref410')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref411descr', 'ref411')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref411schema', 'ref411')">JSON Schema</button>
     
     </div>
-    <div id="ref410descr" class="ref410 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref411descr" class="ref411 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Update to a tz4 companion key without providing a tz4 key</p><p><i>Id</i> : proto.alpha.validate.operation.update_companion_key_not_tz4<br/><i>Category</i> : temporary</p>
-      </div><div id="ref410schema" class="ref410 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref411schema" class="ref411 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* update companion key without a tz4 key
          Update to a tz4 companion key without providing a tz4 key */
@@ -17174,13 +17276,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref411descr', 'ref411')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref411schema', 'ref411')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref412descr', 'ref412')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref412schema', 'ref412')">JSON Schema</button>
     
     </div>
-    <div id="ref411descr" class="ref411 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref412descr" class="ref412 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The voting operation contains a voting period index different from the current one.</p><p><i>Id</i> : proto.alpha.validate.operation.wrong_voting_period_index<br/><i>Category</i> : temporary</p>
-      </div><div id="ref411schema" class="ref411 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref412schema" class="ref412 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong voting period index
          The voting operation contains a voting period index different from
@@ -17198,13 +17300,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref412descr', 'ref412')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref412schema', 'ref412')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref413descr', 'ref413')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref413schema', 'ref413')">JSON Schema</button>
     
     </div>
-    <div id="ref412descr" class="ref412 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref413descr" class="ref413 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The voting operation is incompatible the current voting period kind.</p><p><i>Id</i> : proto.alpha.validate.operation.wrong_voting_period_kind<br/><i>Category</i> : temporary</p>
-      </div><div id="ref412schema" class="ref412 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref413schema" class="ref413 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong voting period kind
          The voting operation is incompatible the current voting period kind. */
@@ -17231,13 +17333,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref413descr', 'ref413')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref413schema', 'ref413')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref414descr', 'ref414')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref414schema', 'ref414')">JSON Schema</button>
     
     </div>
-    <div id="ref413descr" class="ref413 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref414descr" class="ref414 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>ZK rollups will be enabled in a future proposal.</p><p><i>Id</i> : proto.alpha.validate.operation.zk_rollup_disabled<br/><i>Category</i> : temporary</p>
-      </div><div id="ref413schema" class="ref413 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref414schema" class="ref414 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* ZK rollups are disabled
          ZK rollups will be enabled in a future proposal. */
@@ -17253,13 +17355,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref414descr', 'ref414')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref414schema', 'ref414')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref415descr', 'ref415')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref415schema', 'ref415')">JSON Schema</button>
     
     </div>
-    <div id="ref414descr" class="ref414 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref415descr" class="ref415 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Preattestation round too high.</p><p><i>Id</i> : proto.alpha.validate.preattestation_round_too_high<br/><i>Category</i> : temporary</p>
-      </div><div id="ref414schema" class="ref414 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref415schema" class="ref415 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Preattestation round too high
          Preattestation round too high. */
@@ -17276,13 +17378,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref415descr', 'ref415')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref415schema', 'ref415')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref416descr', 'ref416')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref416schema', 'ref416')">JSON Schema</button>
     
     </div>
-    <div id="ref415descr" class="ref415 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref416descr" class="ref416 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Public key aggregation failed</p><p><i>Id</i> : proto.alpha.validate.public_key_aggregation_failure<br/><i>Category</i> : temporary</p>
-      </div><div id="ref415schema" class="ref415 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref416schema" class="ref416 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Public key aggregation failure
          Public key aggregation failed */
@@ -17297,13 +17399,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref416descr', 'ref416')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref416schema', 'ref416')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref417descr', 'ref417')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref417schema', 'ref417')">JSON Schema</button>
     
     </div>
-    <div id="ref416descr" class="ref416 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref417descr" class="ref417 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The delegate has committed too many misbehaviours.</p><p><i>Id</i> : proto.alpha.validate.temporarily_forbidden_delegate<br/><i>Category</i> : temporary</p>
-      </div><div id="ref416schema" class="ref416 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref417schema" class="ref417 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Temporarily forbidden delegate
          The delegate has committed too many misbehaviours. */
@@ -17328,13 +17430,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref417descr', 'ref417')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref417schema', 'ref417')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref418descr', 'ref418')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref418schema', 'ref418')">JSON Schema</button>
     
     </div>
-    <div id="ref417descr" class="ref417 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref418descr" class="ref418 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An eligible attestation was found unaggregated</p><p><i>Id</i> : proto.alpha.validate.unaggregated_eligible_attestation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref417schema" class="ref417 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref418schema" class="ref418 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unaggregated eligible attestation
          An eligible attestation was found unaggregated */
@@ -17363,13 +17465,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref418descr', 'ref418')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref418schema', 'ref418')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref419descr', 'ref419')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref419schema', 'ref419')">JSON Schema</button>
     
     </div>
-    <div id="ref418descr" class="ref418 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref419descr" class="ref419 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unexpected attestation in block.</p><p><i>Id</i> : proto.alpha.validate.unexpected_attestation_in_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref418schema" class="ref418 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref419schema" class="ref419 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected attestation in block
          Unexpected attestation in block. */
@@ -17384,13 +17486,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref419descr', 'ref419')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref419schema', 'ref419')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref420descr', 'ref420')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref420schema', 'ref420')">JSON Schema</button>
     
     </div>
-    <div id="ref419descr" class="ref419 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref420descr" class="ref420 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unexpected preattestation in block.</p><p><i>Id</i> : proto.alpha.validate.unexpected_preattestation_in_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref419schema" class="ref419 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref420schema" class="ref420 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected preattestation in block
          Unexpected preattestation in block. */
@@ -17405,13 +17507,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref420descr', 'ref420')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref420schema', 'ref420')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref421descr', 'ref421')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref421schema', 'ref421')">JSON Schema</button>
     
     </div>
-    <div id="ref420descr" class="ref420 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref421descr" class="ref421 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Wrong payload hash for consensus operation.</p><p><i>Id</i> : proto.alpha.validate.wrong_payload_hash_for_consensus_operation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref420schema" class="ref420 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref421schema" class="ref421 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong payload hash for consensus operation
          Wrong payload hash for consensus operation. */
@@ -17441,13 +17543,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref421descr', 'ref421')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref421schema', 'ref421')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref422descr', 'ref422')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref422schema', 'ref422')">JSON Schema</button>
     
     </div>
-    <div id="ref421descr" class="ref421 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref422descr" class="ref422 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Wrong slot used for a preattestation or attestation.</p><p><i>Id</i> : proto.alpha.validate.wrong_slot_for_consensus_operation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref421schema" class="ref421 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref422schema" class="ref422 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong slot for consensus operation
          Wrong slot used for a preattestation or attestation. */
@@ -17467,13 +17569,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref422descr', 'ref422')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref422schema', 'ref422')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref423descr', 'ref423')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref423schema', 'ref423')">JSON Schema</button>
     
     </div>
-    <div id="ref422descr" class="ref422 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref423descr" class="ref423 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Duplicate VDF revelation in cycle</p><p><i>Id</i> : proto.alpha.vdf.previously_revealed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref422schema" class="ref422 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref423schema" class="ref423 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Previously revealed VDF
          Duplicate VDF revelation in cycle */
@@ -17489,13 +17591,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref423descr', 'ref423')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref423schema', 'ref423')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref424descr', 'ref424')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref424schema', 'ref424')">JSON Schema</button>
     
     </div>
-    <div id="ref423descr" class="ref423 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref424descr" class="ref424 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>VDF revelation before the end of the nonce revelation period</p><p><i>Id</i> : proto.alpha.vdf.too_early_revelation<br/><i>Category</i> : temporary</p>
-      </div><div id="ref423schema" class="ref423 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref424schema" class="ref424 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too early VDF revelation
          VDF revelation before the end of the nonce revelation period */
@@ -17511,13 +17613,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref424descr', 'ref424')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref424schema', 'ref424')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref425descr', 'ref425')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref425schema', 'ref425')">JSON Schema</button>
     
     </div>
-    <div id="ref424descr" class="ref424 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref425descr" class="ref425 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>VDF verification failed</p><p><i>Id</i> : proto.alpha.vdf.unverified_result<br/><i>Category</i> : temporary</p>
-      </div><div id="ref424schema" class="ref424 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref425schema" class="ref425 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unverified VDF
          VDF verification failed */
@@ -17533,13 +17635,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref425descr', 'ref425')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref425schema', 'ref425')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref426descr', 'ref426')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref426schema', 'ref426')">JSON Schema</button>
     
     </div>
-    <div id="ref425descr" class="ref425 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref426descr" class="ref426 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>View callback origination failed</p><p><i>Id</i> : proto.alpha.viewCallbackOriginationFailed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref425schema" class="ref425 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref426schema" class="ref426 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* View callback origination failed
          View callback origination failed */
@@ -17555,13 +17657,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref426descr', 'ref426')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref426schema', 'ref426')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref427descr', 'ref427')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref427schema', 'ref427')">JSON Schema</button>
     
     </div>
-    <div id="ref426descr" class="ref426 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref427descr" class="ref427 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A view never initiated a transaction to the given callback contract.</p><p><i>Id</i> : proto.alpha.viewNeverReturns<br/><i>Category</i> : temporary</p>
-      </div><div id="ref426schema" class="ref426 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref427schema" class="ref427 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* A view never returned a transaction to the given callback contract
          A view never initiated a transaction to the given callback contract. */
@@ -17588,13 +17690,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref427descr', 'ref427')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref427schema', 'ref427')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref428descr', 'ref428')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref428schema', 'ref428')">JSON Schema</button>
     
     </div>
-    <div id="ref427descr" class="ref427 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref428descr" class="ref428 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The contract does not have a view of the given name.</p><p><i>Id</i> : proto.alpha.viewNotFound<br/><i>Category</i> : temporary</p>
-      </div><div id="ref427schema" class="ref427 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref428schema" class="ref428 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* A view could not be found
          The contract does not have a view of the given name. */
@@ -17621,13 +17723,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref428descr', 'ref428')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref428schema', 'ref428')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref429descr', 'ref429')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref429schema', 'ref429')">JSON Schema</button>
     
     </div>
-    <div id="ref428descr" class="ref428 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref429descr" class="ref429 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A view initiated a list of operations while the TZIP-4 standard expects only a transaction to the given callback contract.</p><p><i>Id</i> : proto.alpha.viewUnexpectedReturn<br/><i>Category</i> : temporary</p>
-      </div><div id="ref428schema" class="ref428 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref429schema" class="ref429 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* A view returned an unexpected list of operations
          A view initiated a list of operations while the TZIP-4 standard
@@ -17655,13 +17757,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref429descr', 'ref429')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref429schema', 'ref429')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref430descr', 'ref430')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref430schema', 'ref430')">JSON Schema</button>
     
     </div>
-    <div id="ref429descr" class="ref429 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref430descr" class="ref430 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A view was called on a contract with no script.</p><p><i>Id</i> : proto.alpha.viewedContractHasNoScript<br/><i>Category</i> : temporary</p>
-      </div><div id="ref429schema" class="ref429 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref430schema" class="ref430 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Viewed contract has no script
          A view was called on a contract with no script. */
@@ -17677,13 +17779,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref430descr', 'ref430')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref430schema', 'ref430')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref431descr', 'ref431')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref431schema', 'ref431')">JSON Schema</button>
     
     </div>
-    <div id="ref430descr" class="ref430 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref431descr" class="ref431 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A VIEW instruction returned an unexpected value.</p><p><i>Id</i> : proto.alpha.viewerUnexpectedStorage<br/><i>Category</i> : temporary</p>
-      </div><div id="ref430schema" class="ref430 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref431schema" class="ref431 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* A VIEW instruction returned an unexpected value
          A VIEW instruction returned an unexpected value. */
@@ -17699,13 +17801,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref431descr', 'ref431')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref431schema', 'ref431')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref432descr', 'ref432')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref432schema', 'ref432')">JSON Schema</button>
     
     </div>
-    <div id="ref431descr" class="ref431 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref432descr" class="ref432 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Wrong fitness.</p><p><i>Id</i> : proto.alpha.wrong_fitness<br/><i>Category</i> : temporary</p>
-      </div><div id="ref431schema" class="ref431 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref432schema" class="ref432 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong fitness
          Wrong fitness. */
@@ -17720,13 +17822,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref432descr', 'ref432')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref432schema', 'ref432')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref433descr', 'ref433')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref433schema', 'ref433')">JSON Schema</button>
     
     </div>
-    <div id="ref432descr" class="ref432 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref433descr" class="ref433 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempted to use a ZK rollup that has not been originated.</p><p><i>Id</i> : proto.alpha.zk_rollup_does_not_exist<br/><i>Category</i> : temporary</p>
-      </div><div id="ref432schema" class="ref432 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref433schema" class="ref433 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* ZK Rollup does not exist
          Attempted to use a ZK rollup that has not been originated. */
@@ -17750,13 +17852,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref433descr', 'ref433')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref433schema', 'ref433')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref434descr', 'ref434')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref434schema', 'ref434')">JSON Schema</button>
     
     </div>
-    <div id="ref433descr" class="ref433 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref434descr" class="ref434 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid op code in append</p><p><i>Id</i> : proto.alpha.zk_rollup_invalid_op code<br/><i>Category</i> : temporary</p>
-      </div><div id="ref433schema" class="ref433 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref434schema" class="ref434 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid op code in append
          Invalid op code in append */
@@ -17772,13 +17874,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref434descr', 'ref434')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref434schema', 'ref434')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref435descr', 'ref435')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref435schema', 'ref435')">JSON Schema</button>
     
     </div>
-    <div id="ref434descr" class="ref434 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref435descr" class="ref435 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Negative length for pending list prefix</p><p><i>Id</i> : proto.alpha.zk_rollup_negative_length<br/><i>Category</i> : temporary</p>
-      </div><div id="ref434schema" class="ref434 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref435schema" class="ref435 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Negative length for pending list prefix
          Negative length for pending list prefix */
@@ -17794,13 +17896,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref435descr', 'ref435')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref435schema', 'ref435')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref436descr', 'ref436')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref436schema', 'ref436')">JSON Schema</button>
     
     </div>
-    <div id="ref435descr" class="ref435 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref436descr" class="ref436 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Pending list is too short</p><p><i>Id</i> : proto.alpha.zk_rollup_pending_list_too_short<br/><i>Category</i> : temporary</p>
-      </div><div id="ref435schema" class="ref435 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref436schema" class="ref436 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Pending list is too short
          Pending list is too short */
@@ -17816,13 +17918,13 @@ Protocol Alpha
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref436descr', 'ref436')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref436schema', 'ref436')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref437descr', 'ref437')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref437schema', 'ref437')">JSON Schema</button>
     
     </div>
-    <div id="ref436descr" class="ref436 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref437descr" class="ref437 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The payload of the deposited ticket exceeded the size limit</p><p><i>Id</i> : proto.alpha.zk_rollup_ticket_payload_size_limit_exceeded<br/><i>Category</i> : temporary</p>
-      </div><div id="ref436schema" class="ref436 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref437schema" class="ref437 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The payload of the deposited ticket exceeded the size limit
          The payload of the deposited ticket exceeded the size limit */
@@ -17846,13 +17948,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref437descr', 'ref437')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref437schema', 'ref437')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref438descr', 'ref438')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref438schema', 'ref438')">JSON Schema</button>
     
     </div>
-    <div id="ref437descr" class="ref437 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref438descr" class="ref438 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Block locator is invalid.</p><p><i>Id</i> : node.bootstrap_pipeline.invalid_locator<br/><i>Category</i> : permanent</p>
-      </div><div id="ref437schema" class="ref437 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref438schema" class="ref438 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid block locator
          Block locator is invalid. */
@@ -17914,13 +18016,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref438descr', 'ref438')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref438schema', 'ref438')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref439descr', 'ref439')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref439schema', 'ref439')">JSON Schema</button>
     
     </div>
-    <div id="ref438descr" class="ref438 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref439descr" class="ref439 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Block locator is too short.</p><p><i>Id</i> : node.bootstrap_pipeline.too_short_locator<br/><i>Category</i> : permanent</p>
-      </div><div id="ref438schema" class="ref438 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref439schema" class="ref439 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too short locator
          Block locator is too short. */
@@ -17982,13 +18084,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref439descr', 'ref439')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref439schema', 'ref439')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref440descr', 'ref440')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref440schema', 'ref440')">JSON Schema</button>
     
     </div>
-    <div id="ref439descr" class="ref439 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref440descr" class="ref440 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>No trusted setup found in the explored paths</p><p><i>Id</i> : node.config.trusted_setup_not_found<br/><i>Category</i> : permanent</p>
-      </div><div id="ref439schema" class="ref439 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref440schema" class="ref440 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* No trusted setup found
          No trusted setup found in the explored paths */
@@ -18009,13 +18111,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref440descr', 'ref440')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref440schema', 'ref440')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref441descr', 'ref441')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref441schema', 'ref441')">JSON Schema</button>
     
     </div>
-    <div id="ref440descr" class="ref440 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref441descr" class="ref441 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Operation fees are too low to be considered in full mempool</p><p><i>Id</i> : node.mempool.rejected_by_full_mempool<br/><i>Category</i> : temporary</p>
-      </div><div id="ref440schema" class="ref440 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref441schema" class="ref441 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Operation fees are too low to be considered in full mempool
          Operation fees are too low to be considered in full mempool */
@@ -18044,13 +18146,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref441descr', 'ref441')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref441schema', 'ref441')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref442descr', 'ref442')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref442schema', 'ref442')">JSON Schema</button>
     
     </div>
-    <div id="ref441descr" class="ref441 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref442descr" class="ref442 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Operation removed from full mempool because its fees are too low</p><p><i>Id</i> : node.mempool.removed_from_full_mempool<br/><i>Category</i> : temporary</p>
-      </div><div id="ref441schema" class="ref441 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref442schema" class="ref442 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Operation removed from full mempool because its fees are too low
          Operation removed from full mempool because its fees are too low */
@@ -18074,13 +18176,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref442descr', 'ref442')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref442schema', 'ref442')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref443descr', 'ref443')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref443schema', 'ref443')">JSON Schema</button>
     
     </div>
-    <div id="ref442descr" class="ref442 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref443descr" class="ref443 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The peer discovery is disabled, sending advertise messages is forbidden.</p><p><i>Id</i> : node.p2p_conn.peer_discovery_disabled<br/><i>Category</i> : permanent</p>
-      </div><div id="ref442schema" class="ref442 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref443schema" class="ref443 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Peer discovery disabled
          The peer discovery is disabled, sending advertise messages is
@@ -18096,13 +18198,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref443descr', 'ref443')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref443schema', 'ref443')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref444descr', 'ref444')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref444schema', 'ref444')">JSON Schema</button>
     
     </div>
-    <div id="ref443descr" class="ref443 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref444descr" class="ref444 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Peer announced an identity which does not match the one specified on the command-line.</p><p><i>Id</i> : node.p2p_connect_handler.identity_check_failure<br/><i>Category</i> : permanent</p>
-      </div><div id="ref443schema" class="ref443 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref444schema" class="ref444 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected peer identity
          Peer announced an identity which does not match the one specified on
@@ -18132,13 +18234,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref444descr', 'ref444')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref444schema', 'ref444')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref445descr', 'ref445')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref445schema', 'ref445')">JSON Schema</button>
     
     </div>
-    <div id="ref444descr" class="ref444 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref445descr" class="ref445 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>IO error: connection with a peer is closed.</p><p><i>Id</i> : node.p2p_io_scheduler.connection_closed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref444schema" class="ref444 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref445schema" class="ref445 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Connection closed
          IO error: connection with a peer is closed. */
@@ -18153,13 +18255,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref445descr', 'ref445')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref445schema', 'ref445')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref446descr', 'ref446')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref446schema', 'ref446')">JSON Schema</button>
     
     </div>
-    <div id="ref445descr" class="ref445 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref446descr" class="ref446 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>IO error: connection error while reading from a peer.</p><p><i>Id</i> : node.p2p_io_scheduler.connection_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref445schema" class="ref445 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref446schema" class="ref446 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Connection error
          IO error: connection error while reading from a peer. */
@@ -18174,13 +18276,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref446descr', 'ref446')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref446schema', 'ref446')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref447descr', 'ref447')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref447schema', 'ref447')">JSON Schema</button>
     
     </div>
-    <div id="ref446descr" class="ref446 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref447descr" class="ref447 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempt to trigger the maintenance failed as the maintenance is disabled.</p><p><i>Id</i> : node.p2p_maintenance.disabled<br/><i>Category</i> : permanent</p>
-      </div><div id="ref446schema" class="ref446 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref447schema" class="ref447 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Maintenance disabled
          Attempt to trigger the maintenance failed as the maintenance is
@@ -18196,13 +18298,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref447descr', 'ref447')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref447schema', 'ref447')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref448descr', 'ref448')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref448schema', 'ref448')">JSON Schema</button>
     
     </div>
-    <div id="ref447descr" class="ref447 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref448descr" class="ref448 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Fail to connect with a peer: a connection is already established.</p><p><i>Id</i> : node.p2p_pool.connected<br/><i>Category</i> : permanent</p>
-      </div><div id="ref447schema" class="ref447 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref448schema" class="ref448 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Connected
          Fail to connect with a peer: a connection is already established. */
@@ -18217,13 +18319,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref448descr', 'ref448')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref448schema', 'ref448')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref449descr', 'ref449')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref449schema', 'ref449')">JSON Schema</button>
     
     </div>
-    <div id="ref448descr" class="ref448 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref449descr" class="ref449 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>TCP connection failed (refused or no route to host).</p><p><i>Id</i> : node.p2p_pool.connection_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref448schema" class="ref448 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref449schema" class="ref449 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* TCP connection failed
          TCP connection failed (refused or no route to host). */
@@ -18238,13 +18340,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref449descr', 'ref449')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref449schema', 'ref449')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref450descr', 'ref450')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref450schema', 'ref450')">JSON Schema</button>
     
     </div>
-    <div id="ref449descr" class="ref449 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref450descr" class="ref450 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The P2P layer on this node is not active.</p><p><i>Id</i> : node.p2p_pool.disabled<br/><i>Category</i> : permanent</p>
-      </div><div id="ref449schema" class="ref449 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref450schema" class="ref450 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* P2P layer disabled
          The P2P layer on this node is not active. */
@@ -18259,13 +18361,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref450descr', 'ref450')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref450schema', 'ref450')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref451descr', 'ref451')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref451schema', 'ref451')">JSON Schema</button>
     
     </div>
-    <div id="ref450descr" class="ref450 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref451descr" class="ref451 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The peer identity you tried to connect is banned.</p><p><i>Id</i> : node.p2p_pool.peer_banned<br/><i>Category</i> : permanent</p>
-      </div><div id="ref450schema" class="ref450 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref451schema" class="ref451 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Peer Banned
          The peer identity you tried to connect is banned. */
@@ -18289,13 +18391,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref451descr', 'ref451')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref451schema', 'ref451')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref452descr', 'ref452')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref452schema', 'ref452')">JSON Schema</button>
     
     </div>
-    <div id="ref451descr" class="ref451 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref452descr" class="ref452 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Fail to connect with a peer: a connection is already pending.</p><p><i>Id</i> : node.p2p_pool.pending_connection<br/><i>Category</i> : permanent</p>
-      </div><div id="ref451schema" class="ref451 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref452schema" class="ref452 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Pending connection
          Fail to connect with a peer: a connection is already pending. */
@@ -18310,13 +18412,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref452descr', 'ref452')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref452schema', 'ref452')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref453descr', 'ref453')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref453schema', 'ref453')">JSON Schema</button>
     
     </div>
-    <div id="ref452descr" class="ref452 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref453descr" class="ref453 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The address you tried to connect is banned.</p><p><i>Id</i> : node.p2p_pool.point_banned<br/><i>Category</i> : permanent</p>
-      </div><div id="ref452schema" class="ref452 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref453schema" class="ref453 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Point Banned
          The address you tried to connect is banned. */
@@ -18340,13 +18442,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref453descr', 'ref453')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref453schema', 'ref453')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref454descr', 'ref454')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref454schema', 'ref454')">JSON Schema</button>
     
     </div>
-    <div id="ref453descr" class="ref453 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref454descr" class="ref454 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Node is in private mode.</p><p><i>Id</i> : node.p2p_pool.private_mode<br/><i>Category</i> : permanent</p>
-      </div><div id="ref453schema" class="ref453 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref454schema" class="ref454 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Private mode
          Node is in private mode. */
@@ -18361,13 +18463,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref454descr', 'ref454')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref454schema', 'ref454')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref455descr', 'ref455')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref455schema', 'ref455')">JSON Schema</button>
     
     </div>
-    <div id="ref454descr" class="ref454 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref455descr" class="ref455 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Connection to peer was rejected by us.</p><p><i>Id</i> : node.p2p_pool.rejected<br/><i>Category</i> : permanent</p>
-      </div><div id="ref454schema" class="ref454 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref455schema" class="ref455 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Rejected peer
          Connection to peer was rejected by us. */
@@ -18392,13 +18494,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref455descr', 'ref455')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref455schema', 'ref455')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref456descr', 'ref456')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref456schema', 'ref456')">JSON Schema</button>
     
     </div>
-    <div id="ref455descr" class="ref455 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref456descr" class="ref456 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Too many connections.</p><p><i>Id</i> : node.p2p_pool.too_many_connections<br/><i>Category</i> : permanent</p>
-      </div><div id="ref455schema" class="ref455 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref456schema" class="ref456 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too many connections
          Too many connections. */
@@ -18413,13 +18515,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref456descr', 'ref456')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref456schema', 'ref456')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref457descr', 'ref457')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref457schema', 'ref457')">JSON Schema</button>
     
     </div>
-    <div id="ref456descr" class="ref456 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref457descr" class="ref457 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An error occurred while deciphering.</p><p><i>Id</i> : node.p2p_socket.decipher_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref456schema" class="ref456 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref457schema" class="ref457 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Decipher error
          An error occurred while deciphering. */
@@ -18434,13 +18536,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref457descr', 'ref457')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref457schema', 'ref457')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref458descr', 'ref458')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref458schema', 'ref458')">JSON Schema</button>
     
     </div>
-    <div id="ref457descr" class="ref457 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref458descr" class="ref458 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Rejected peer connection: invalid authentication.</p><p><i>Id</i> : node.p2p_socket.invalid_auth<br/><i>Category</i> : permanent</p>
-      </div><div id="ref457schema" class="ref457 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref458schema" class="ref458 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid authentication
          Rejected peer connection: invalid authentication. */
@@ -18455,13 +18557,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref458descr', 'ref458')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref458schema', 'ref458')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref459descr', 'ref459')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref459schema', 'ref459')">JSON Schema</button>
     
     </div>
-    <div id="ref458descr" class="ref458 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref459descr" class="ref459 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Size of chunks is not valid.</p><p><i>Id</i> : node.p2p_socket.invalid_chunks_size<br/><i>Category</i> : permanent</p>
-      </div><div id="ref458schema" class="ref458 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref459schema" class="ref459 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid chunks size
          Size of chunks is not valid. */
@@ -18479,13 +18581,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref459descr', 'ref459')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref459schema', 'ref459')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref460descr', 'ref460')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref460schema', 'ref460')">JSON Schema</button>
     
     </div>
-    <div id="ref459descr" class="ref459 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref460descr" class="ref460 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The announced size for the incoming ciphertext is invalid.</p><p><i>Id</i> : node.p2p_socket.invalid_incoming_ciphertext_size<br/><i>Category</i> : permanent</p>
-      </div><div id="ref459schema" class="ref459 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref460schema" class="ref460 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid incoming ciphertext size
          The announced size for the incoming ciphertext is invalid. */
@@ -18500,13 +18602,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref460descr', 'ref460')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref460schema', 'ref460')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref461descr', 'ref461')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref461schema', 'ref461')">JSON Schema</button>
     
     </div>
-    <div id="ref460descr" class="ref460 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref461descr" class="ref461 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The size of the message to be written is invalid.</p><p><i>Id</i> : node.p2p_socket.invalid_message_size<br/><i>Category</i> : permanent</p>
-      </div><div id="ref460schema" class="ref460 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref461schema" class="ref461 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid message size
          The size of the message to be written is invalid. */
@@ -18521,13 +18623,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref461descr', 'ref461')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref461schema', 'ref461')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref462descr', 'ref462')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref462schema', 'ref462')">JSON Schema</button>
     
     </div>
-    <div id="ref461descr" class="ref461 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref462descr" class="ref462 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Remote peer is actually yourself.</p><p><i>Id</i> : node.p2p_socket.myself<br/><i>Category</i> : permanent</p>
-      </div><div id="ref461schema" class="ref461 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref462schema" class="ref462 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Myself
          Remote peer is actually yourself. */
@@ -18556,13 +18658,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref462descr', 'ref462')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref462schema', 'ref462')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref463descr', 'ref463')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref463schema', 'ref463')">JSON Schema</button>
     
     </div>
-    <div id="ref462descr" class="ref462 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref463descr" class="ref463 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Remote peer cannot be authenticated: not enough proof of work.</p><p><i>Id</i> : node.p2p_socket.not_enough_proof_of_work<br/><i>Category</i> : permanent</p>
-      </div><div id="ref462schema" class="ref462 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref463schema" class="ref463 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not enough proof of work
          Remote peer cannot be authenticated: not enough proof of work. */
@@ -18586,13 +18688,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref463descr', 'ref463')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref463schema', 'ref463')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref464descr', 'ref464')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref464schema', 'ref464')">JSON Schema</button>
     
     </div>
-    <div id="ref463descr" class="ref463 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref464descr" class="ref464 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Rejected peer connection: The peer rejected the socket connection by Nack with a list of alternative peers.</p><p><i>Id</i> : node.p2p_socket.rejected_by_nack<br/><i>Category</i> : permanent</p>
-      </div><div id="ref463schema" class="ref463 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref464schema" class="ref464 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Rejected socket connection by Nack
          Rejected peer connection: The peer rejected the socket connection by
@@ -18618,13 +18720,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref464descr', 'ref464')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref464schema', 'ref464')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref465descr', 'ref465')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref465schema', 'ref465')">JSON Schema</button>
     
     </div>
-    <div id="ref464descr" class="ref464 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref465descr" class="ref465 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Rejected peer connection: rejected socket connection as we have no common network protocol with the peer.</p><p><i>Id</i> : node.p2p_socket.rejected_no_common_protocol<br/><i>Category</i> : permanent</p>
-      </div><div id="ref464schema" class="ref464 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref465schema" class="ref465 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Rejected socket connection - no common network protocol
          Rejected peer connection: rejected socket connection as we have no
@@ -18661,13 +18763,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref465descr', 'ref465')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref465schema', 'ref465')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref466descr', 'ref466')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref466schema', 'ref466')">JSON Schema</button>
     
     </div>
-    <div id="ref465descr" class="ref465 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref466descr" class="ref466 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Rejected peer connection: rejected socket connection.</p><p><i>Id</i> : node.p2p_socket.rejected_socket_connection<br/><i>Category</i> : permanent</p>
-      </div><div id="ref465schema" class="ref465 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref466schema" class="ref466 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Rejected socket connection
          Rejected peer connection: rejected socket connection. */
@@ -18682,13 +18784,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref466descr', 'ref466')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref466schema', 'ref466')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref467descr', 'ref467')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref467schema', 'ref467')">JSON Schema</button>
     
     </div>
-    <div id="ref466descr" class="ref466 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref467descr" class="ref467 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Rejecting peer connection with motive.</p><p><i>Id</i> : node.p2p_socket.rejecting_incoming<br/><i>Category</i> : permanent</p>
-      </div><div id="ref466schema" class="ref466 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref467schema" class="ref467 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Rejecting socket connection
          Rejecting peer connection with motive. */
@@ -18704,13 +18806,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref467descr', 'ref467')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref467schema', 'ref467')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref468descr', 'ref468')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref468schema', 'ref468')">JSON Schema</button>
     
     </div>
-    <div id="ref467descr" class="ref467 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref468descr" class="ref468 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Known invalid block found in the peer's chain</p><p><i>Id</i> : node.peer_validator.known_invalid<br/><i>Category</i> : permanent</p>
-      </div><div id="ref467schema" class="ref467 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref468schema" class="ref468 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Known invalid
          Known invalid block found in the peer's chain */
@@ -18725,13 +18827,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref468descr', 'ref468')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref468schema', 'ref468')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref469descr', 'ref469')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref469schema', 'ref469')">JSON Schema</button>
     
     </div>
-    <div id="ref468descr" class="ref468 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref469descr" class="ref469 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unknown ancestor block found in the peer's chain</p><p><i>Id</i> : node.peer_validator.unknown_ancestor<br/><i>Category</i> : permanent</p>
-      </div><div id="ref468schema" class="ref468 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref469schema" class="ref469 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unknown ancestor
          Unknown ancestor block found in the peer's chain */
@@ -18746,13 +18848,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref469descr', 'ref469')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref469schema', 'ref469')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref470descr', 'ref470')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref470schema', 'ref470')">JSON Schema</button>
     
     </div>
-    <div id="ref469descr" class="ref469 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref470descr" class="ref470 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block was annotated with a time too far in the future.</p><p><i>Id</i> : node.prevalidation.future_block_header<br/><i>Category</i> : temporary</p>
-      </div><div id="ref469schema" class="ref469 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref470schema" class="ref470 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Future block header
          The block was annotated with a time too far in the future. */
@@ -18794,13 +18896,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref470descr', 'ref470')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref470schema', 'ref470')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref471descr', 'ref471')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref471schema', 'ref471')">JSON Schema</button>
     
     </div>
-    <div id="ref470descr" class="ref470 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref471descr" class="ref471 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The operation size is bigger than allowed.</p><p><i>Id</i> : node.prevalidation.oversized_operation<br/><i>Category</i> : permanent</p>
-      </div><div id="ref470schema" class="ref470 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref471schema" class="ref471 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Oversized operation
          The operation size is bigger than allowed. */
@@ -18817,13 +18919,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref471descr', 'ref471')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref471schema', 'ref471')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref472descr', 'ref472')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref472schema', 'ref472')">JSON Schema</button>
     
     </div>
-    <div id="ref471descr" class="ref471 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref472descr" class="ref472 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Raised when an operation has not been parsed correctly during prevalidation.</p><p><i>Id</i> : node.prevalidation.parse_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref471schema" class="ref471 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref472schema" class="ref472 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Parsing error in prevalidation
          Raised when an operation has not been parsed correctly during
@@ -18839,13 +18941,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref472descr', 'ref472')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref472schema', 'ref472')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref473descr', 'ref473')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref473schema', 'ref473')">JSON Schema</button>
     
     </div>
-    <div id="ref472descr" class="ref472 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref473descr" class="ref473 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The prevalidation context is full.</p><p><i>Id</i> : node.prevalidation.too_many_operations<br/><i>Category</i> : temporary</p>
-      </div><div id="ref472schema" class="ref472 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref473schema" class="ref473 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Too many pending operations in prevalidation
          The prevalidation context is full. */
@@ -18860,13 +18962,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref473descr', 'ref473')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref473schema', 'ref473')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref474descr', 'ref474')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref474schema', 'ref474')">JSON Schema</button>
     
     </div>
-    <div id="ref473descr" class="ref473 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref474descr" class="ref474 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot load protocol from disk</p><p><i>Id</i> : node.protocol_validator.cannot_load_protocol<br/><i>Category</i> : permanent</p>
-      </div><div id="ref473schema" class="ref473 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref474schema" class="ref474 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot load protocol
          Cannot load protocol from disk */
@@ -18890,13 +18992,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref474descr', 'ref474')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref474schema', 'ref474')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref475descr', 'ref475')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref475schema', 'ref475')">JSON Schema</button>
     
     </div>
-    <div id="ref474descr" class="ref474 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref475descr" class="ref475 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid protocol.</p><p><i>Id</i> : node.protocol_validator.invalid_protocol<br/><i>Category</i> : permanent</p>
-      </div><div id="ref474schema" class="ref474 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref475schema" class="ref475 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     /* Invalid protocol
        Invalid protocol. */
@@ -18927,13 +19029,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref475descr', 'ref475')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref475schema', 'ref475')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref476descr', 'ref476')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref476schema', 'ref476')">JSON Schema</button>
     
     </div>
-    <div id="ref475descr" class="ref475 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref476descr" class="ref476 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The data directory could not be read. This could be because it was generated with an old version of the octez-node program. Deleting and regenerating this directory may fix the problem.</p><p><i>Id</i> : node.state.bad_data_dir<br/><i>Category</i> : permanent</p>
-      </div><div id="ref475schema" class="ref475 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref476schema" class="ref476 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad data directory
          The data directory could not be read. This could be because it was
@@ -18950,13 +19052,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref476descr', 'ref476')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref476schema', 'ref476')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref477descr', 'ref477')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref477schema', 'ref477')">JSON Schema</button>
     
     </div>
-    <div id="ref476descr" class="ref476 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref477descr" class="ref477 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>When committing the context of a block, the announced context hash was not the one computed at commit time.</p><p><i>Id</i> : node.state.block.inconsistent_context_hash<br/><i>Category</i> : permanent</p>
-      </div><div id="ref476schema" class="ref476 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref477schema" class="ref477 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent commit hash
          When committing the context of a block, the announced context hash
@@ -18982,13 +19084,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref477descr', 'ref477')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref477schema', 'ref477')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref478descr', 'ref478')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref478schema', 'ref478')">JSON Schema</button>
     
     </div>
-    <div id="ref477descr" class="ref477 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref478descr" class="ref478 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A block was expected to commit to a block metadata hash, however none was given.</p><p><i>Id</i> : node.state.block.missing_block_metadata_hash<br/><i>Category</i> : permanent</p>
-      </div><div id="ref477schema" class="ref477 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref478schema" class="ref478 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing block metadata hash
          A block was expected to commit to a block metadata hash, however
@@ -19013,13 +19115,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref478descr', 'ref478')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref478schema', 'ref478')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref479descr', 'ref479')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref479schema', 'ref479')">JSON Schema</button>
     
     </div>
-    <div id="ref478descr" class="ref478 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref479descr" class="ref479 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A block was expected to commit to operation metadata hashes, however none were given.</p><p><i>Id</i> : node.state.block.missing_operation_metadata_hashes<br/><i>Category</i> : permanent</p>
-      </div><div id="ref478schema" class="ref478 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref479schema" class="ref479 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing operation metadata hashes
          A block was expected to commit to operation metadata hashes, however
@@ -19044,13 +19146,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref479descr', 'ref479')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref479schema', 'ref479')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref480descr', 'ref480')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref480schema', 'ref480')">JSON Schema</button>
     
     </div>
-    <div id="ref479descr" class="ref479 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref480descr" class="ref480 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The invalid block to be unmarked was not actually invalid.</p><p><i>Id</i> : node.state.block_not_invalid<br/><i>Category</i> : permanent</p>
-      </div><div id="ref479schema" class="ref479 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref480schema" class="ref480 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Block not invalid
          The invalid block to be unmarked was not actually invalid. */
@@ -19074,13 +19176,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref480descr', 'ref480')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref480schema', 'ref480')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref481descr', 'ref481')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref481schema', 'ref481')">JSON Schema</button>
     
     </div>
-    <div id="ref480descr" class="ref480 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref481descr" class="ref481 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The chain identifier could not be found in the chain identifiers table.</p><p><i>Id</i> : node.state.unknown_chain<br/><i>Category</i> : permanent</p>
-      </div><div id="ref480schema" class="ref480 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref481schema" class="ref481 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unknown chain
          The chain identifier could not be found in the chain identifiers
@@ -19105,13 +19207,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref481descr', 'ref481')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref481schema', 'ref481')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref482descr', 'ref482')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref482schema', 'ref482')">JSON Schema</button>
     
     </div>
-    <div id="ref481descr" class="ref481 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref482descr" class="ref482 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The block belongs to a branch that is not compatible with the current checkpoint.</p><p><i>Id</i> : node.validator.checkpoint_error<br/><i>Category</i> : branch</p>
-      </div><div id="ref481schema" class="ref481 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref482schema" class="ref482 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Block incompatible with the current checkpoint.
          The block belongs to a branch that is not compatible with the
@@ -19140,13 +19242,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref482descr', 'ref482')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref482schema', 'ref482')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref483descr', 'ref483')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref483schema', 'ref483')">JSON Schema</button>
     
     </div>
-    <div id="ref482descr" class="ref482 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref483descr" class="ref483 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempted validation of a block from an inactive chain.</p><p><i>Id</i> : node.validator.inactive_chain<br/><i>Category</i> : branch</p>
-      </div><div id="ref482schema" class="ref482 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref483schema" class="ref483 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inactive chain
          Attempted validation of a block from an inactive chain. */
@@ -19170,13 +19272,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref483descr', 'ref483')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref483schema', 'ref483')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref484descr', 'ref484')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref484schema', 'ref484')">JSON Schema</button>
     
     </div>
-    <div id="ref483descr" class="ref483 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref484descr" class="ref484 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot process request while the node is shutting down.</p><p><i>Id</i> : validator.cannot_process_request_while_shutting_down<br/><i>Category</i> : temporary</p>
-      </div><div id="ref483schema" class="ref483 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref484schema" class="ref484 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot process request while shutting down
          Cannot process request while the node is shutting down. */
@@ -19191,13 +19293,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref484descr', 'ref484')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref484schema', 'ref484')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref485descr', 'ref485')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref485schema', 'ref485')">JSON Schema</button>
     
     </div>
-    <div id="ref484descr" class="ref484 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref485descr" class="ref485 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The provided list of operations is inconsistent with the block header.</p><p><i>Id</i> : validator.inconsistent_operations_hash<br/><i>Category</i> : temporary</p>
-      </div><div id="ref484schema" class="ref484 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref485schema" class="ref485 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid merkle tree
          The provided list of operations is inconsistent with the block
@@ -19227,13 +19329,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref485descr', 'ref485')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref485schema', 'ref485')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref486descr', 'ref486')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref486schema', 'ref486')">JSON Schema</button>
     
     </div>
-    <div id="ref485descr" class="ref485 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref486descr" class="ref486 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid block.</p><p><i>Id</i> : validator.invalid_block<br/><i>Category</i> : permanent</p>
-      </div><div id="ref485schema" class="ref485 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref486schema" class="ref486 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid block
          Invalid block. */
@@ -19335,13 +19437,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref486descr', 'ref486')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref486schema', 'ref486')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref487descr', 'ref487')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref487schema', 'ref487')">JSON Schema</button>
     
     </div>
-    <div id="ref486descr" class="ref486 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref487descr" class="ref487 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Missing test protocol when forking the test chain</p><p><i>Id</i> : validator.missing_test_protocol<br/><i>Category</i> : temporary</p>
-      </div><div id="ref486schema" class="ref486 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref487schema" class="ref487 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing test protocol
          Missing test protocol when forking the test chain */
@@ -19365,13 +19467,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref487descr', 'ref487')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref487schema', 'ref487')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref488descr', 'ref488')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref488schema', 'ref488')">JSON Schema</button>
     
     </div>
-    <div id="ref487descr" class="ref487 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref488descr" class="ref488 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The protocol required for validating a block is missing.</p><p><i>Id</i> : validator.unavailable_protocol<br/><i>Category</i> : temporary</p>
-      </div><div id="ref487schema" class="ref487 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref488schema" class="ref488 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing protocol
          The protocol required for validating a block is missing. */
@@ -19399,13 +19501,13 @@ Shell
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref488descr', 'ref488')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref488schema', 'ref488')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref489descr', 'ref489')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref489schema', 'ref489')">JSON Schema</button>
     
     </div>
-    <div id="ref488descr" class="ref488 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref489descr" class="ref489 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to validate block using external validation process.</p><p><i>Id</i> : validator.validation_process_failed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref488schema" class="ref488 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref489schema" class="ref489 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Validation process failed
          Failed to validate block using external validation process. */
@@ -19435,13 +19537,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref489descr', 'ref489')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref489schema', 'ref489')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref490descr', 'ref490')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref490schema', 'ref490')">JSON Schema</button>
     
     </div>
-    <div id="ref489descr" class="ref489 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref490descr" class="ref490 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an annotation exceeded the maximum length (255).</p><p><i>Id</i> : micheline.parse_error.annotation_exceeds_max_length<br/><i>Category</i> : permanent</p>
-      </div><div id="ref489schema" class="ref489 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref490schema" class="ref490 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: annotation exceeds max length
          While parsing a piece of Micheline source, an annotation exceeded
@@ -19468,13 +19570,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref490descr', 'ref490')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref490schema', 'ref490')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref491descr', 'ref491')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref491schema', 'ref491')">JSON Schema</button>
     
     </div>
-    <div id="ref490descr" class="ref490 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref491descr" class="ref491 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Tried to interpret an empty piece or Micheline source as a single expression.</p><p><i>Id</i> : micheline.parse_error.empty_expression<br/><i>Category</i> : permanent</p>
-      </div><div id="ref490schema" class="ref490 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref491schema" class="ref491 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: empty_expression
          Tried to interpret an empty piece or Micheline source as a single
@@ -19490,13 +19592,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref491descr', 'ref491')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref491schema', 'ref491')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref492descr', 'ref492')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref492schema', 'ref492')">JSON Schema</button>
     
     </div>
-    <div id="ref491descr" class="ref491 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref492descr" class="ref492 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an extra semi colon or parenthesis was encountered.</p><p><i>Id</i> : micheline.parse_error.extra_token<br/><i>Category</i> : permanent</p>
-      </div><div id="ref491schema" class="ref491 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref492schema" class="ref492 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: extra token
          While parsing a piece of Micheline source, an extra semi colon or
@@ -19544,13 +19646,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref492descr', 'ref492')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref492schema', 'ref492')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref493descr', 'ref493')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref493schema', 'ref493')">JSON Schema</button>
     
     </div>
-    <div id="ref492descr" class="ref492 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref493descr" class="ref493 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a byte sequence (0x...) was not valid as a hex byte.</p><p><i>Id</i> : micheline.parse_error.invalid_hex_bytes<br/><i>Category</i> : permanent</p>
-      </div><div id="ref492schema" class="ref492 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref493schema" class="ref493 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: invalid hex bytes
          While parsing a piece of Micheline source, a byte sequence (0x...)
@@ -19577,13 +19679,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref493descr', 'ref493')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref493schema', 'ref493')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref494descr', 'ref494')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref494schema', 'ref494')">JSON Schema</button>
     
     </div>
-    <div id="ref493descr" class="ref493 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref494descr" class="ref494 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a sequence of bytes that is not valid UTF-8 was encountered.</p><p><i>Id</i> : micheline.parse_error.invalid_utf8_sequence<br/><i>Category</i> : permanent</p>
-      </div><div id="ref493schema" class="ref493 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref494schema" class="ref494 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: invalid UTF-8 sequence
          While parsing a piece of Micheline source, a sequence of bytes that
@@ -19610,13 +19712,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref494descr', 'ref494')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref494schema', 'ref494')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref495descr', 'ref495')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref495schema', 'ref495')">JSON Schema</button>
     
     </div>
-    <div id="ref494descr" class="ref494 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref495descr" class="ref495 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an expression was not aligned with its siblings of the same mother application or sequence.</p><p><i>Id</i> : micheline.parse_error.misaligned_node<br/><i>Category</i> : permanent</p>
-      </div><div id="ref494schema" class="ref494 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref495schema" class="ref495 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: misaligned node
          While parsing a piece of Micheline source, an expression was not
@@ -19670,13 +19772,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref495descr', 'ref495')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref495schema', 'ref495')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref496descr', 'ref496')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref496schema', 'ref496')">JSON Schema</button>
     
     </div>
-    <div id="ref495descr" class="ref495 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref496descr" class="ref496 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a number was not visually separated from its follower token, leading to misreadability.</p><p><i>Id</i> : micheline.parse_error.missing_break_after_number<br/><i>Category</i> : permanent</p>
-      </div><div id="ref495schema" class="ref495 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref496schema" class="ref496 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: missing break after number
          While parsing a piece of Micheline source, a number was not visually
@@ -19697,13 +19799,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref496descr', 'ref496')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref496schema', 'ref496')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref497descr', 'ref497')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref497schema', 'ref497')">JSON Schema</button>
     
     </div>
-    <div id="ref496descr" class="ref496 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref497descr" class="ref497 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a parenthesis or a brace was unclosed.</p><p><i>Id</i> : micheline.parse_error.unclosed_token<br/><i>Category</i> : permanent</p>
-      </div><div id="ref496schema" class="ref496 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref497schema" class="ref497 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unclosed token
          While parsing a piece of Micheline source, a parenthesis or a brace
@@ -19751,13 +19853,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref497descr', 'ref497')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref497schema', 'ref497')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref498descr', 'ref498')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref498schema', 'ref498')">JSON Schema</button>
     
     </div>
-    <div id="ref497descr" class="ref497 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref498descr" class="ref498 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an unexpected escape sequence was encountered in a string.</p><p><i>Id</i> : micheline.parse_error.undefined_escape_sequence<br/><i>Category</i> : permanent</p>
-      </div><div id="ref497schema" class="ref497 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref498schema" class="ref498 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: undefined escape sequence
          While parsing a piece of Micheline source, an unexpected escape
@@ -19784,13 +19886,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref498descr', 'ref498')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref498schema', 'ref498')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref499descr', 'ref499')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref499schema', 'ref499')">JSON Schema</button>
     
     </div>
-    <div id="ref498descr" class="ref498 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref499descr" class="ref499 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an unexpected character was encountered.</p><p><i>Id</i> : micheline.parse_error.unexpected_character<br/><i>Category</i> : permanent</p>
-      </div><div id="ref498schema" class="ref498 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref499schema" class="ref499 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unexpected character
          While parsing a piece of Micheline source, an unexpected character
@@ -19817,13 +19919,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref499descr', 'ref499')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref499schema', 'ref499')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref500descr', 'ref500')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref500schema', 'ref500')">JSON Schema</button>
     
     </div>
-    <div id="ref499descr" class="ref499 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref500descr" class="ref500 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an unexpected token was encountered.</p><p><i>Id</i> : micheline.parse_error.unexpected_token<br/><i>Category</i> : permanent</p>
-      </div><div id="ref499schema" class="ref499 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref500schema" class="ref500 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unexpected token
          While parsing a piece of Micheline source, an unexpected token was
@@ -19871,13 +19973,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref500descr', 'ref500')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref500schema', 'ref500')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref501descr', 'ref501')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref501schema', 'ref501')">JSON Schema</button>
     
     </div>
-    <div id="ref500descr" class="ref500 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref501descr" class="ref501 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a commentX was not terminated.</p><p><i>Id</i> : micheline.parse_error.unterminated_comment<br/><i>Category</i> : permanent</p>
-      </div><div id="ref500schema" class="ref500 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref501schema" class="ref501 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unterminated comment
          While parsing a piece of Micheline source, a commentX was not
@@ -19904,13 +20006,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref501descr', 'ref501')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref501schema', 'ref501')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref502descr', 'ref502')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref502schema', 'ref502')">JSON Schema</button>
     
     </div>
-    <div id="ref501descr" class="ref501 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref502descr" class="ref502 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, an integer was not terminated.</p><p><i>Id</i> : micheline.parse_error.unterminated_integer<br/><i>Category</i> : permanent</p>
-      </div><div id="ref501schema" class="ref501 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref502schema" class="ref502 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unterminated integer
          While parsing a piece of Micheline source, an integer was not
@@ -19937,13 +20039,13 @@ Michelson parsing/macros
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref502descr', 'ref502')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref502schema', 'ref502')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref503descr', 'ref503')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref503schema', 'ref503')">JSON Schema</button>
     
     </div>
-    <div id="ref502descr" class="ref502 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref503descr" class="ref503 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While parsing a piece of Micheline source, a string was not terminated.</p><p><i>Id</i> : micheline.parse_error.unterminated_string<br/><i>Category</i> : permanent</p>
-      </div><div id="ref502schema" class="ref502 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref503schema" class="ref503 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Micheline parser error: unterminated string
          While parsing a piece of Micheline source, a string was not
@@ -19973,13 +20075,13 @@ Client
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref503descr', 'ref503')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref503schema', 'ref503')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref504descr', 'ref504')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref504schema', 'ref504')">JSON Schema</button>
     
     </div>
-    <div id="ref503descr" class="ref503 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref504descr" class="ref504 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p></p><p><i>Id</i> : rpc_client.request_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref503schema" class="ref503 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref504schema" class="ref504 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* 
           */
@@ -20049,13 +20151,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref504descr', 'ref504')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref504schema', 'ref504')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref505descr', 'ref505')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref505schema', 'ref505')">JSON Schema</button>
     
     </div>
-    <div id="ref504descr" class="ref504 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref505descr" class="ref505 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Applying non validated block</p><p><i>Id</i> : Block_validator_process.applying_non_validated_block<br/><i>Category</i> : permanent</p>
-      </div><div id="ref504schema" class="ref504 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref505schema" class="ref505 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Applying non validated block
          Applying non validated block */
@@ -20079,13 +20181,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref505descr', 'ref505')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref505schema', 'ref505')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref506descr', 'ref506')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref506schema', 'ref506')">JSON Schema</button>
     
     </div>
-    <div id="ref505descr" class="ref505 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref506descr" class="ref506 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The context checkout failed using a given hash</p><p><i>Id</i> : Block_validator_process.failed_to_checkout_context<br/><i>Category</i> : permanent</p>
-      </div><div id="ref505schema" class="ref505 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref506schema" class="ref506 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Fail during checkout context
          The context checkout failed using a given hash */
@@ -20109,13 +20211,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref506descr', 'ref506')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref506schema', 'ref506')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref507descr', 'ref507')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref507schema', 'ref507')">JSON Schema</button>
     
     </div>
-    <div id="ref506descr" class="ref506 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref507descr" class="ref507 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The RPC returned with an error code but no associated error.</p><p><i>Id</i> : RPC.Empty_error_list<br/><i>Category</i> : branch</p>
-      </div><div id="ref506schema" class="ref506 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref507schema" class="ref507 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* RPC returned an empty list of errors
          The RPC returned with an error code but no associated error. */
@@ -20130,13 +20232,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref507descr', 'ref507')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref507schema', 'ref507')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref508descr', 'ref508')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref508schema', 'ref508')">JSON Schema</button>
     
     </div>
-    <div id="ref507descr" class="ref507 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref508descr" class="ref508 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The RPC returned with an error code, and the associated body was not a valid error trace. It is likely that the answer does not comes directly from a compatible node.</p><p><i>Id</i> : RPC.Unexpected_error_encoding<br/><i>Category</i> : branch</p>
-      </div><div id="ref507schema" class="ref507 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref508schema" class="ref508 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* RPC fails with an unparsable error message
          The RPC returned with an error code, and the associated body was not
@@ -20154,13 +20256,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref508descr', 'ref508')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref508schema', 'ref508')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref509descr', 'ref509')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref509schema', 'ref509')">JSON Schema</button>
     
     </div>
-    <div id="ref508descr" class="ref508 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref509descr" class="ref509 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>RPC lookup failed. Block has been pruned and requested data deleted.</p><p><i>Id</i> : RPC_context.Gone<br/><i>Category</i> : branch</p>
-      </div><div id="ref508schema" class="ref508 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref509schema" class="ref509 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* RPC lookup failed because of deleted data
          RPC lookup failed. Block has been pruned and requested data deleted. */
@@ -20182,13 +20284,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref509descr', 'ref509')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref509schema', 'ref509')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref510descr', 'ref510')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref510schema', 'ref510')">JSON Schema</button>
     
     </div>
-    <div id="ref509descr" class="ref509 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref510descr" class="ref510 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>RPC lookup failed. No RPC exists at the URL or the RPC tried to access non-existent data.</p><p><i>Id</i> : RPC_context.Not_found<br/><i>Category</i> : branch</p>
-      </div><div id="ref509schema" class="ref509 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref510schema" class="ref510 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* RPC lookup failed
          RPC lookup failed. No RPC exists at the URL or the RPC tried to
@@ -20211,13 +20313,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref510descr', 'ref510')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref510schema', 'ref510')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref511descr', 'ref511')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref511schema', 'ref511')">JSON Schema</button>
     
     </div>
-    <div id="ref510descr" class="ref510 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref511descr" class="ref511 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The RPC was called with a bad version number.</p><p><i>Id</i> : RPC_error.bad_version<br/><i>Category</i> : permanent</p>
-      </div><div id="ref510schema" class="ref510 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref511schema" class="ref511 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unknown RPC version
          The RPC was called with a bad version number. */
@@ -20234,13 +20336,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref511descr', 'ref511')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref511schema', 'ref511')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref512descr', 'ref512')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref512schema', 'ref512')">JSON Schema</button>
     
     </div>
-    <div id="ref511descr" class="ref511 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref512descr" class="ref512 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The validator failed because of a system error</p><p><i>Id</i> : Validator_process.system_error_while_validating<br/><i>Category</i> : temporary</p>
-      </div><div id="ref511schema" class="ref511 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref512schema" class="ref512 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to validate block because of a system error
          The validator failed because of a system error */
@@ -20263,13 +20365,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref512descr', 'ref512')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref512schema', 'ref512')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref513descr', 'ref513')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref513schema', 'ref513')">JSON Schema</button>
     
     </div>
-    <div id="ref512descr" class="ref512 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref513descr" class="ref513 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The asynchronous injection failed.</p><p><i>Id</i> : async_injection_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref512schema" class="ref512 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref513schema" class="ref513 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Asynchronous injection failed
          The asynchronous injection failed. */
@@ -20285,13 +20387,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref513descr', 'ref513')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref513schema', 'ref513')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref514descr', 'ref514')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref514schema', 'ref514')">JSON Schema</button>
     
     </div>
-    <div id="ref513descr" class="ref513 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref514descr" class="ref514 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A bitset function was provided an invalid input</p><p><i>Id</i> : bitfield_invalid_input<br/><i>Category</i> : permanent</p>
-      </div><div id="ref513schema" class="ref513 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref514schema" class="ref514 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid argument
          A bitset function was provided an invalid input */
@@ -20312,13 +20414,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref514descr', 'ref514')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref514schema', 'ref514')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref515descr', 'ref515')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref515schema', 'ref515')">JSON Schema</button>
     
     </div>
-    <div id="ref514descr" class="ref514 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref515descr" class="ref515 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Bitfields do not accept negative positions</p><p><i>Id</i> : bitfield_invalid_position<br/><i>Category</i> : permanent</p>
-      </div><div id="ref514schema" class="ref514 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref515schema" class="ref515 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid bitfield’s position
          Bitfields do not accept negative positions */
@@ -20334,13 +20436,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref515descr', 'ref515')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref515schema', 'ref515')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref516descr', 'ref516')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref516schema', 'ref516')">JSON Schema</button>
     
     </div>
-    <div id="ref515descr" class="ref515 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref516descr" class="ref516 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Bitfields do not accept non-positive length nor negative positions</p><p><i>Id</i> : bitfield_invalid_range<br/><i>Category</i> : permanent</p>
-      </div><div id="ref515schema" class="ref515 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref516schema" class="ref516 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid bitfield’s position range
          Bitfields do not accept non-positive length nor negative positions */
@@ -20357,13 +20459,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref516descr', 'ref516')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref516schema', 'ref516')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref517descr', 'ref517')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref517schema', 'ref517')">JSON Schema</button>
     
     </div>
-    <div id="ref516descr" class="ref516 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref517descr" class="ref517 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unable to serialize metadata</p><p><i>Id</i> : block_validation.cannot_serialize_metadata<br/><i>Category</i> : permanent</p>
-      </div><div id="ref516schema" class="ref516 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref517schema" class="ref517 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot serialize metadata
          Unable to serialize metadata */
@@ -20378,13 +20480,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref517descr', 'ref517')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref517schema', 'ref517')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref518descr', 'ref518')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref518schema', 'ref518')">JSON Schema</button>
     
     </div>
-    <div id="ref517descr" class="ref517 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref518descr" class="ref518 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unsupported context hash version.</p><p><i>Id</i> : brassaia.context_hash.unsupported_version<br/><i>Category</i> : permanent</p>
-      </div><div id="ref517schema" class="ref517 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref518schema" class="ref518 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported context hash version
          Unsupported context hash version. */
@@ -20403,13 +20505,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref518descr', 'ref518')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref518schema', 'ref518')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref519descr', 'ref519')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref519schema', 'ref519')">JSON Schema</button>
     
     </div>
-    <div id="ref518descr" class="ref518 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref519descr" class="ref519 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A promise was unexpectedly canceled</p><p><i>Id</i> : canceled<br/><i>Category</i> : temporary</p>
-      </div><div id="ref518schema" class="ref518 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref519schema" class="ref519 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Canceled
          A promise was unexpectedly canceled */
@@ -20425,13 +20527,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref519descr', 'ref519')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref519schema', 'ref519')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref520descr', 'ref520')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref520schema', 'ref520')">JSON Schema</button>
     
     </div>
-    <div id="ref519descr" class="ref519 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref520descr" class="ref520 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>External validator failed to connect to the node's socket</p><p><i>Id</i> : cannot_connect_to_node_socket<br/><i>Category</i> : temporary</p>
-      </div><div id="ref519schema" class="ref519 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref520schema" class="ref520 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot connect to node socket
          External validator failed to connect to the node's socket */
@@ -20447,13 +20549,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref520descr', 'ref520')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref520schema', 'ref520')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref521descr', 'ref521')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref521schema', 'ref521')">JSON Schema</button>
     
     </div>
-    <div id="ref520descr" class="ref520 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref521descr" class="ref521 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A key has been provided with an invalid uri.</p><p><i>Id</i> : cli.key.invalid_uri<br/><i>Category</i> : permanent</p>
-      </div><div id="ref520schema" class="ref520 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref521schema" class="ref521 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid key uri
          A key has been provided with an invalid uri. */
@@ -20474,13 +20576,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref521descr', 'ref521')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref521schema', 'ref521')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref522descr', 'ref522')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref522schema', 'ref522')">JSON Schema</button>
     
     </div>
-    <div id="ref521descr" class="ref521 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref522descr" class="ref522 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The signer produced an invalid output</p><p><i>Id</i> : cli.signer_output_mismatch<br/><i>Category</i> : permanent</p>
-      </div><div id="ref521schema" class="ref521 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref522schema" class="ref522 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Signer output mismatch
          The signer produced an invalid output */
@@ -20502,13 +20604,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref522descr', 'ref522')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref522schema', 'ref522')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref523descr', 'ref523')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref523schema', 'ref523')">JSON Schema</button>
     
     </div>
-    <div id="ref522descr" class="ref522 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref523descr" class="ref523 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The requested scheme does not exist</p><p><i>Id</i> : cli.unexisting_scheme<br/><i>Category</i> : permanent</p>
-      </div><div id="ref522schema" class="ref522 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref523schema" class="ref523 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexisting scheme
          The requested scheme does not exist */
@@ -20529,13 +20631,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref523descr', 'ref523')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref523schema', 'ref523')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref524descr', 'ref524')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref524schema', 'ref524')">JSON Schema</button>
     
     </div>
-    <div id="ref523descr" class="ref523 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref524descr" class="ref524 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A key has been provided with an unregistered scheme (no corresponding plugin)</p><p><i>Id</i> : cli.unregistered_key_scheme<br/><i>Category</i> : permanent</p>
-      </div><div id="ref523schema" class="ref523 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref524schema" class="ref524 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unregistered key scheme
          A key has been provided with an unregistered scheme (no
@@ -20557,13 +20659,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref524descr', 'ref524')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref524schema', 'ref524')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref525descr', 'ref525')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref525schema', 'ref525')">JSON Schema</button>
     
     </div>
-    <div id="ref524descr" class="ref524 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref525descr" class="ref525 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A certain scheme type has been requested but another one was found</p><p><i>Id</i> : cli.wrong_key_scheme<br/><i>Category</i> : permanent</p>
-      </div><div id="ref524schema" class="ref524 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref525schema" class="ref525 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong key scheme
          A certain scheme type has been requested but another one was found */
@@ -20585,13 +20687,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref525descr', 'ref525')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref525schema', 'ref525')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref526descr', 'ref526')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref526schema', 'ref526')">JSON Schema</button>
     
     </div>
-    <div id="ref525descr" class="ref525 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref526descr" class="ref526 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The byte sequence references a multisig counter that does not match the one currently stored in the given multisig contract</p><p><i>Id</i> : client.alpha.Bad deserialized counter<br/><i>Category</i> : permanent</p>
-      </div><div id="ref525schema" class="ref525 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref526schema" class="ref526 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Deserialized counter does not match the stored one
          The byte sequence references a multisig counter that does not match
@@ -20609,13 +20711,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref526descr', 'ref526')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref526schema', 'ref526')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref527descr', 'ref527')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref527schema', 'ref527')">JSON Schema</button>
     
     </div>
-    <div id="ref526descr" class="ref526 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref527descr" class="ref527 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>invalid number, must a non negative natural </p><p><i>Id</i> : client.alpha.ForbiddenNegativeInt<br/><i>Category</i> : permanent</p>
-      </div><div id="ref526schema" class="ref526 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref527schema" class="ref527 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Forbidden negative int
          invalid number, must a non negative natural  */
@@ -20636,13 +20738,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref527descr', 'ref527')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref527schema', 'ref527')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref528descr', 'ref528')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref528schema', 'ref528')">JSON Schema</button>
     
     </div>
-    <div id="ref527descr" class="ref527 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref528descr" class="ref528 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid input, expected a smart contract address in base58 check notation (KT1...)</p><p><i>Id</i> : client.alpha.InvalidAddressForSmartContract<br/><i>Category</i> : permanent</p>
-      </div><div id="ref527schema" class="ref527 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref528schema" class="ref528 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid address for smart contract
          Invalid input, expected a smart contract address in base58 check
@@ -20664,13 +20766,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref528descr', 'ref528')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref528schema', 'ref528')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref529descr', 'ref529')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref529schema', 'ref529')">JSON Schema</button>
     
     </div>
-    <div id="ref528descr" class="ref528 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref529descr" class="ref529 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>When trying to deserialise an action from a sequence of bytes, we got an expression that does not correspond to a known multisig action</p><p><i>Id</i> : client.alpha.actionDeserialisation<br/><i>Category</i> : permanent</p>
-      </div><div id="ref528schema" class="ref528 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref529schema" class="ref529 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The expression is not a valid multisig action
          When trying to deserialise an action from a sequence of bytes, we
@@ -20687,50 +20789,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -20743,16 +20847,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -20762,7 +20866,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -20775,39 +20879,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -20815,8 +20919,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -20828,7 +20932,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -20872,13 +20976,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref529descr', 'ref529')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref529schema', 'ref529')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref530descr', 'ref530')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref530schema', 'ref530')">JSON Schema</button>
     
     </div>
-    <div id="ref529descr" class="ref529 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref530descr" class="ref530 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The argument's type does not correspond to that of the corresponding FA1.2 entrypoint.</p><p><i>Id</i> : client.alpha.actionUnwrappingError<br/><i>Category</i> : permanent</p>
-      </div><div id="ref529schema" class="ref529 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref530schema" class="ref530 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The argument is not for an FA1.2 parameter
          The argument's type does not correspond to that of the corresponding
@@ -20895,50 +20999,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -20951,16 +21057,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -20970,7 +21076,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -20983,39 +21089,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -21023,8 +21129,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -21036,7 +21142,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -21080,13 +21186,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref530descr', 'ref530')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref530schema', 'ref530')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref531descr', 'ref531')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref531schema', 'ref531')">JSON Schema</button>
     
     </div>
-    <div id="ref530descr" class="ref530 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref531descr" class="ref531 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>When trying to deserialise an action from a sequence of bytes, we got an action for another multisig contract</p><p><i>Id</i> : client.alpha.badDeserializedContract<br/><i>Category</i> : permanent</p>
-      </div><div id="ref530schema" class="ref530 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref531schema" class="ref531 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The byte sequence is not for the given multisig contract
          When trying to deserialise an action from a sequence of bytes, we
@@ -21114,13 +21220,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref531descr', 'ref531')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref531schema', 'ref531')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref532descr', 'ref532')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref532schema', 'ref532')">JSON Schema</button>
     
     </div>
-    <div id="ref531descr" class="ref531 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref532descr" class="ref532 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>invalid priority in -max-priority</p><p><i>Id</i> : client.alpha.badMaxPriorityArg<br/><i>Category</i> : permanent</p>
-      </div><div id="ref531schema" class="ref531 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref532schema" class="ref532 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad -max-priority arg
          invalid priority in -max-priority */
@@ -21141,13 +21247,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref532descr', 'ref532')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref532schema', 'ref532')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref533descr', 'ref533')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref533schema', 'ref533')">JSON Schema</button>
     
     </div>
-    <div id="ref532descr" class="ref532 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref533descr" class="ref533 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>invalid duration in -max-waiting-time</p><p><i>Id</i> : client.alpha.badMaxWaitingTimeArg<br/><i>Category</i> : permanent</p>
-      </div><div id="ref532schema" class="ref532 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref533schema" class="ref533 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad -max-waiting-time arg
          invalid duration in -max-waiting-time */
@@ -21168,13 +21274,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref533descr', 'ref533')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref533schema', 'ref533')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref534descr', 'ref534')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref534schema', 'ref534')">JSON Schema</button>
     
     </div>
-    <div id="ref533descr" class="ref533 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref534descr" class="ref534 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>invalid fee threshold in -fee-threshold</p><p><i>Id</i> : client.alpha.badMinimalFeesArg<br/><i>Category</i> : permanent</p>
-      </div><div id="ref533schema" class="ref533 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref534schema" class="ref534 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad -minimal-fees arg
          invalid fee threshold in -fee-threshold */
@@ -21195,13 +21301,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref534descr', 'ref534')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref534schema', 'ref534')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref535descr', 'ref535')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref535schema', 'ref535')">JSON Schema</button>
     
     </div>
-    <div id="ref534descr" class="ref534 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref535descr" class="ref535 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>invalid number of levels in -preserved-levels</p><p><i>Id</i> : client.alpha.badPreservedLevelsArg<br/><i>Category</i> : permanent</p>
-      </div><div id="ref534schema" class="ref534 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref535schema" class="ref535 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad -preserved-levels arg
          invalid number of levels in -preserved-levels */
@@ -21222,13 +21328,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref535descr', 'ref535')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref535schema', 'ref535')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref536descr', 'ref536')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref536schema', 'ref536')">JSON Schema</button>
     
     </div>
-    <div id="ref535descr" class="ref535 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref536descr" class="ref536 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid ꜩ notation in parameter.</p><p><i>Id</i> : client.alpha.badTezArg<br/><i>Category</i> : permanent</p>
-      </div><div id="ref535schema" class="ref535 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref536schema" class="ref536 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad Tez Arg
          Invalid ꜩ notation in parameter. */
@@ -21250,13 +21356,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref536descr', 'ref536')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref536schema', 'ref536')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref537descr', 'ref537')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref537schema', 'ref537')">JSON Schema</button>
     
     </div>
-    <div id="ref536descr" class="ref536 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref537descr" class="ref537 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>When trying to deserialise an action from a sequence of bytes, we got an error</p><p><i>Id</i> : client.alpha.bytesDeserialisation<br/><i>Category</i> : permanent</p>
-      </div><div id="ref536schema" class="ref536 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref537schema" class="ref537 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The byte sequence is not a valid multisig action
          When trying to deserialise an action from a sequence of bytes, we
@@ -21273,13 +21379,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref537descr', 'ref537')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref537schema', 'ref537')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref538descr', 'ref538')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref538schema', 'ref538')">JSON Schema</button>
     
     </div>
-    <div id="ref537descr" class="ref537 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref538descr" class="ref538 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A multisig command has referenced a scriptless smart contract instead of a multisig smart contract.</p><p><i>Id</i> : client.alpha.contractHasNoScript<br/><i>Category</i> : permanent</p>
-      </div><div id="ref537schema" class="ref537 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref538schema" class="ref538 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract is not a multisig contract because it has no
          script
@@ -21307,13 +21413,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref538descr', 'ref538')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref538schema', 'ref538')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref539descr', 'ref539')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref539schema', 'ref539')">JSON Schema</button>
     
     </div>
-    <div id="ref538descr" class="ref538 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref539descr" class="ref539 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A multisig command has referenced a smart contract without storage instead of a multisig smart contract.</p><p><i>Id</i> : client.alpha.contractHasNoStorage<br/><i>Category</i> : permanent</p>
-      </div><div id="ref538schema" class="ref538 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref539schema" class="ref539 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract is not a multisig contract because it has no
          storage
@@ -21341,13 +21447,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref539descr', 'ref539')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref539schema', 'ref539')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref540descr', 'ref540')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref540schema', 'ref540')">JSON Schema</button>
     
     </div>
-    <div id="ref539descr" class="ref539 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref540descr" class="ref540 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A multisig command has referenced a smart contract whose storage is of a different shape than the expected one.</p><p><i>Id</i> : client.alpha.contractHasUnexpectedStorage<br/><i>Category</i> : permanent</p>
-      </div><div id="ref539schema" class="ref539 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref540schema" class="ref540 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The storage of the given contract is not of the shape expected for a
          multisig contract
@@ -21375,13 +21481,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref540descr', 'ref540')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref540schema', 'ref540')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref541descr', 'ref541')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref541schema', 'ref541')">JSON Schema</button>
     
     </div>
-    <div id="ref540descr" class="ref540 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref541descr" class="ref541 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Attempt to get the code of a contract failed because it has nocode. No scriptless contract should remain.</p><p><i>Id</i> : client.alpha.contractWithoutCode<br/><i>Category</i> : permanent</p>
-      </div><div id="ref540schema" class="ref540 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref541schema" class="ref541 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract has no code
          Attempt to get the code of a contract failed because it has nocode.
@@ -21408,13 +21514,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref541descr', 'ref541')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref541schema', 'ref541')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref542descr', 'ref542')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref542schema', 'ref542')">JSON Schema</button>
     
     </div>
-    <div id="ref541descr" class="ref541 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref542descr" class="ref542 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 command has referenced a smart contract whose script does not implement at least one FA1.2 entrypoint, or with an incompatible type. See TZIP-7 (https://gitlab.com/tezos/tzip/-/blob/master/proposals/tzip-7/tzip-7.md) for documentation on FA1.2.</p><p><i>Id</i> : client.alpha.entrypointMismatch<br/><i>Category</i> : permanent</p>
-      </div><div id="ref541schema" class="ref541 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref542schema" class="ref542 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract does not implement the FA1.2 interface
          An FA1.2 command has referenced a smart contract whose script does
@@ -21439,50 +21545,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -21495,16 +21603,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -21514,7 +21622,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -21527,39 +21635,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -21567,8 +21675,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -21580,7 +21688,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -21624,13 +21732,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref542descr', 'ref542')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref542schema', 'ref542')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref543descr', 'ref543')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref543schema', 'ref543')">JSON Schema</button>
     
     </div>
-    <div id="ref542descr" class="ref542 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref543descr" class="ref543 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 command has referenced a scriptless contract.</p><p><i>Id</i> : client.alpha.fa12ContractHasNoScript<br/><i>Category</i> : permanent</p>
-      </div><div id="ref542schema" class="ref542 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref543schema" class="ref543 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract is not a smart contract
          An FA1.2 command has referenced a scriptless contract. */
@@ -21656,13 +21764,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref543descr', 'ref543')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref543schema', 'ref543')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref544descr', 'ref544')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref544schema', 'ref544')">JSON Schema</button>
     
     </div>
-    <div id="ref543descr" class="ref543 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref544descr" class="ref544 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 command made a call on a contract that has no storage.</p><p><i>Id</i> : client.alpha.fa12ContractHasNoStorage<br/><i>Category</i> : permanent</p>
-      </div><div id="ref543schema" class="ref543 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref544schema" class="ref544 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract has no storage
          An FA1.2 command made a call on a contract that has no storage. */
@@ -21688,13 +21796,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref544descr', 'ref544')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref544schema', 'ref544')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref545descr', 'ref545')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref545schema', 'ref545')">JSON Schema</button>
     
     </div>
-    <div id="ref544descr" class="ref544 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref545descr" class="ref545 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An unexpected Michelson error was reached during the interpretation of an FA1.2 contract.</p><p><i>Id</i> : client.alpha.fa12UnexpectedError<br/><i>Category</i> : permanent</p>
-      </div><div id="ref544schema" class="ref544 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref545schema" class="ref545 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected error during FA1.2 contract interpretation
          An unexpected Michelson error was reached during the interpretation
@@ -21711,50 +21819,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -21767,16 +21877,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -21786,7 +21896,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -21799,39 +21909,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -21839,8 +21949,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -21852,7 +21962,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -21902,13 +22012,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref545descr', 'ref545')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref545schema', 'ref545')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref546descr', 'ref546')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref546schema', 'ref546')">JSON Schema</button>
     
     </div>
-    <div id="ref545descr" class="ref545 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref546descr" class="ref546 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The provided argument for a transfer from a multisig contract is ill-typed</p><p><i>Id</i> : client.alpha.illTypedArgumentForMultisig<br/><i>Category</i> : permanent</p>
-      </div><div id="ref545schema" class="ref545 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref546schema" class="ref546 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Ill-typed argument in multi-signed transfer
          The provided argument for a transfer from a multisig contract is
@@ -21932,50 +22042,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -21988,16 +22100,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -22007,7 +22119,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -22020,39 +22132,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -22060,8 +22172,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -22073,7 +22185,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -22117,13 +22229,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref546descr', 'ref546')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref546schema', 'ref546')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref547descr', 'ref547')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref547schema', 'ref547')">JSON Schema</button>
     
     </div>
-    <div id="ref546descr" class="ref546 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref547descr" class="ref547 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The provided lambda for a transfer from a multisig contract is ill-typed</p><p><i>Id</i> : client.alpha.illTypedLambdaForMultisig<br/><i>Category</i> : permanent</p>
-      </div><div id="ref546schema" class="ref546 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref547schema" class="ref547 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Ill-typed lambda for multi-signed transfer
          The provided lambda for a transfer from a multisig contract is
@@ -22140,50 +22252,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -22196,16 +22310,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -22215,7 +22329,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -22228,39 +22342,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -22268,8 +22382,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -22281,7 +22395,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -22325,13 +22439,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref547descr', 'ref547')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref547schema', 'ref547')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref548descr', 'ref548')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref548schema', 'ref548')">JSON Schema</button>
     
     </div>
-    <div id="ref547descr" class="ref547 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref548descr" class="ref548 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A signature was given for a multisig contract that matched none of the public keys of the contract signers</p><p><i>Id</i> : client.alpha.invalidSignature<br/><i>Category</i> : permanent</p>
-      </div><div id="ref547schema" class="ref547 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref548schema" class="ref548 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The following signature did not match a public key in the given
          multisig contract
@@ -22357,13 +22471,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref548descr', 'ref548')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref548schema', 'ref548')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref549descr', 'ref549')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref549schema', 'ref549')">JSON Schema</button>
     
     </div>
-    <div id="ref548descr" class="ref548 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref549descr" class="ref549 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A wrong number of arguments was provided to a macro</p><p><i>Id</i> : client.alpha.michelson.macros.bas_arity<br/><i>Category</i> : permanent</p>
-      </div><div id="ref548schema" class="ref548 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref549schema" class="ref549 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong number of arguments to macro
          A wrong number of arguments was provided to a macro */
@@ -22386,13 +22500,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref549descr', 'ref549')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref549schema', 'ref549')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref550descr', 'ref550')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref550schema', 'ref550')">JSON Schema</button>
     
     </div>
-    <div id="ref549descr" class="ref549 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref550descr" class="ref550 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An macro expects a sequence, but a sequence was not provided</p><p><i>Id</i> : client.alpha.michelson.macros.sequence_expected<br/><i>Category</i> : permanent</p>
-      </div><div id="ref549schema" class="ref549 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref550schema" class="ref550 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Macro expects a sequence
          An macro expects a sequence, but a sequence was not provided */
@@ -22413,13 +22527,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref550descr', 'ref550')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref550schema', 'ref550')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref551descr', 'ref551')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref551schema', 'ref551')">JSON Schema</button>
     
     </div>
-    <div id="ref550descr" class="ref550 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref551descr" class="ref551 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A macro had an annotation, but no annotation was permitted on this macro.</p><p><i>Id</i> : client.alpha.michelson.macros.unexpected_annotation<br/><i>Category</i> : permanent</p>
-      </div><div id="ref550schema" class="ref550 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref551schema" class="ref551 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected annotation
          A macro had an annotation, but no annotation was permitted on this
@@ -22441,13 +22555,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref551descr', 'ref551')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref551schema', 'ref551')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref552descr', 'ref552')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref552schema', 'ref552')">JSON Schema</button>
     
     </div>
-    <div id="ref551descr" class="ref551 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref552descr" class="ref552 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse a typed stack.</p><p><i>Id</i> : client.alpha.michelson.stack.wrong_stack<br/><i>Category</i> : permanent</p>
-      </div><div id="ref551schema" class="ref551 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref552schema" class="ref552 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong stack
          Failed to parse a typed stack. */
@@ -22508,13 +22622,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref552descr', 'ref552')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref552schema', 'ref552')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref553descr', 'ref553')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref553schema', 'ref553')">JSON Schema</button>
     
     </div>
-    <div id="ref552descr" class="ref552 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref553descr" class="ref553 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse an item in a typed stack.</p><p><i>Id</i> : client.alpha.michelson.stack.wrong_stack_item<br/><i>Category</i> : permanent</p>
-      </div><div id="ref552schema" class="ref552 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref553schema" class="ref553 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong stack item
          Failed to parse an item in a typed stack. */
@@ -22575,13 +22689,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref553descr', 'ref553')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref553schema', 'ref553')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref554descr', 'ref554')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref554schema', 'ref554')">JSON Schema</button>
     
     </div>
-    <div id="ref553descr" class="ref553 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref554descr" class="ref554 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse a description of extra big maps.</p><p><i>Id</i> : client.alpha.michelson.wrong_extra_big_maps<br/><i>Category</i> : permanent</p>
-      </div><div id="ref553schema" class="ref553 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref554schema" class="ref554 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong description of a list of extra big maps
          Failed to parse a description of extra big maps. */
@@ -22642,13 +22756,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref554descr', 'ref554')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref554schema', 'ref554')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref555descr', 'ref555')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref555schema', 'ref555')">JSON Schema</button>
     
     </div>
-    <div id="ref554descr" class="ref554 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref555descr" class="ref555 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse an item in a description of extra big maps.</p><p><i>Id</i> : client.alpha.michelson.wrong_extra_big_maps_item<br/><i>Category</i> : permanent</p>
-      </div><div id="ref554schema" class="ref554 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref555schema" class="ref555 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong description of an extra big map
          Failed to parse an item in a description of extra big maps. */
@@ -22709,13 +22823,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref555descr', 'ref555')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref555schema', 'ref555')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref556descr', 'ref556')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref556schema', 'ref556')">JSON Schema</button>
     
     </div>
-    <div id="ref555descr" class="ref555 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref556descr" class="ref556 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse a description of other contracts.</p><p><i>Id</i> : client.alpha.michelson.wrong_other_contracts<br/><i>Category</i> : permanent</p>
-      </div><div id="ref555schema" class="ref555 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref556schema" class="ref556 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong description of a list of other contracts
          Failed to parse a description of other contracts. */
@@ -22776,13 +22890,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref556descr', 'ref556')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref556schema', 'ref556')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref557descr', 'ref557')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref557schema', 'ref557')">JSON Schema</button>
     
     </div>
-    <div id="ref556descr" class="ref556 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref557descr" class="ref557 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to parse an item in a description of other contracts.</p><p><i>Id</i> : client.alpha.michelson.wrong_other_contracts_item<br/><i>Category</i> : permanent</p>
-      </div><div id="ref556schema" class="ref556 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref557schema" class="ref557 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong description of an other contract
          Failed to parse an item in a description of other contracts. */
@@ -22843,13 +22957,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref557descr', 'ref557')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref557schema', 'ref557')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref558descr', 'ref558')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref558schema', 'ref558')">JSON Schema</button>
     
     </div>
-    <div id="ref557descr" class="ref557 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref558descr" class="ref558 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A multisig threshold should be a positive number</p><p><i>Id</i> : client.alpha.nonPositiveThreshold<br/><i>Category</i> : permanent</p>
-      </div><div id="ref557schema" class="ref557 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref558schema" class="ref558 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Given threshold is not positive
          A multisig threshold should be a positive number */
@@ -22865,13 +22979,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref558descr', 'ref558')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref558schema', 'ref558')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref559descr', 'ref559')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref559schema', 'ref559')">JSON Schema</button>
     
     </div>
-    <div id="ref558descr" class="ref558 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref559descr" class="ref559 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A multisig command has referenced a smart contract whose script is not one of the known multisig contract scripts.</p><p><i>Id</i> : client.alpha.notASupportedMultisigContract<br/><i>Category</i> : permanent</p>
-      </div><div id="ref558schema" class="ref558 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref559schema" class="ref559 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The given contract is not one of the supported contracts
          A multisig command has referenced a smart contract whose script is
@@ -22896,13 +23010,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref559descr', 'ref559')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref559schema', 'ref559')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref560descr', 'ref560')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref560schema', 'ref560')">JSON Schema</button>
     
     </div>
-    <div id="ref559descr" class="ref559 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref560descr" class="ref560 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A transaction made a call on an entrypoint expecting it to implement the 'view' type.</p><p><i>Id</i> : client.alpha.notAViewableEntrypoint<br/><i>Category</i> : permanent</p>
-      </div><div id="ref559schema" class="ref559 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref560schema" class="ref560 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The entrypoint is not viewable
          A transaction made a call on an entrypoint expecting it to implement
@@ -22924,13 +23038,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref560descr', 'ref560')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref560schema', 'ref560')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref561descr', 'ref561')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref561schema', 'ref561')">JSON Schema</button>
     
     </div>
-    <div id="ref560descr" class="ref560 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref561descr" class="ref561 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The parameter value of the contract call refers to a non-existing entrypoint.</p><p><i>Id</i> : client.alpha.notAnEntrypoint<br/><i>Category</i> : permanent</p>
-      </div><div id="ref560schema" class="ref560 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref561schema" class="ref561 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The expression is not for an entrypoint
          The parameter value of the contract call refers to a non-existing
@@ -22946,50 +23060,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -23002,16 +23118,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -23021,7 +23137,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -23034,39 +23150,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -23074,8 +23190,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -23087,7 +23203,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -23131,13 +23247,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref561descr', 'ref561')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref561schema', 'ref561')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref562descr', 'ref562')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref562schema', 'ref562')">JSON Schema</button>
     
     </div>
-    <div id="ref561descr" class="ref561 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref562descr" class="ref562 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 transfer failed because the receiver does not have enough allowance to ask for a transfer from the sender.</p><p><i>Id</i> : client.alpha.notEnoughAllowance<br/><i>Category</i> : permanent</p>
-      </div><div id="ref561schema" class="ref561 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref562schema" class="ref562 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The sender does not have enough allowance
          An FA1.2 transfer failed because the receiver does not have enough
@@ -23159,13 +23275,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref562descr', 'ref562')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref562schema', 'ref562')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref563descr', 'ref563')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref563schema', 'ref563')">JSON Schema</button>
     
     </div>
-    <div id="ref562descr" class="ref562 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref563descr" class="ref563 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 transfer failed because the sender does not have enough balance.</p><p><i>Id</i> : client.alpha.notEnoughBalance<br/><i>Category</i> : permanent</p>
-      </div><div id="ref562schema" class="ref562 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref563schema" class="ref563 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The sender does not have enough balance
          An FA1.2 transfer failed because the sender does not have enough
@@ -23187,13 +23303,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref563descr', 'ref563')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref563schema', 'ref563')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref564descr', 'ref564')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref564schema', 'ref564')">JSON Schema</button>
     
     </div>
-    <div id="ref563descr" class="ref563 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref564descr" class="ref564 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>To run an action on a multisig contract, you should provide at least as many signatures as indicated by the threshold stored in the multisig contract.</p><p><i>Id</i> : client.alpha.notEnoughSignatures<br/><i>Category</i> : permanent</p>
-      </div><div id="ref563schema" class="ref563 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref564schema" class="ref564 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Not enough signatures were provided for this multisig action
          To run an action on a multisig contract, you should provide at least
@@ -23212,13 +23328,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref564descr', 'ref564')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref564schema', 'ref564')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref565descr', 'ref565')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref565schema', 'ref565')">JSON Schema</button>
     
     </div>
-    <div id="ref564descr" class="ref564 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref565descr" class="ref565 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given threshold is higher than the number of keys, this would lead to a frozen multisig contract</p><p><i>Id</i> : client.alpha.thresholdTooHigh<br/><i>Category</i> : permanent</p>
-      </div><div id="ref564schema" class="ref564 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref565schema" class="ref565 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Given threshold is too high
          The given threshold is higher than the number of keys, this would
@@ -23236,13 +23352,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref565descr', 'ref565')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref565schema', 'ref565')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref566descr', 'ref566')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref566schema', 'ref566')">JSON Schema</button>
     
     </div>
-    <div id="ref565descr" class="ref565 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref566descr" class="ref566 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A toplevel TZT primitive was used several times.</p><p><i>Id</i> : client.alpha.tzt.duplicated_toplevel<br/><i>Category</i> : permanent</p>
-      </div><div id="ref565schema" class="ref565 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref566schema" class="ref566 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Duplicated TZT toplevel primitive
          A toplevel TZT primitive was used several times. */
@@ -23305,13 +23421,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref566descr', 'ref566')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref566schema', 'ref566')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref567descr', 'ref567')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref567schema', 'ref567')">JSON Schema</button>
     
     </div>
-    <div id="ref566descr" class="ref566 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref567descr" class="ref567 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid format for a TZT toplevel primitive</p><p><i>Id</i> : client.alpha.tzt.invalid_format<br/><i>Category</i> : permanent</p>
-      </div><div id="ref566schema" class="ref566 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref567schema" class="ref567 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid format for a TZT toplevel primitive
          Invalid format for a TZT toplevel primitive */
@@ -23374,13 +23490,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref567descr', 'ref567')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref567schema', 'ref567')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref568descr', 'ref568')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref568schema', 'ref568')">JSON Schema</button>
     
     </div>
-    <div id="ref567descr" class="ref567 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref568descr" class="ref568 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid format for a TZT toplevel entry</p><p><i>Id</i> : client.alpha.tzt.invalid_toplevel<br/><i>Category</i> : permanent</p>
-      </div><div id="ref567schema" class="ref567 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref568schema" class="ref568 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid format for TZT toplevel entry
          Invalid format for a TZT toplevel entry */
@@ -23441,13 +23557,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref568descr', 'ref568')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref568schema', 'ref568')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref569descr', 'ref569')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref569schema', 'ref569')">JSON Schema</button>
     
     </div>
-    <div id="ref568descr" class="ref568 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref569descr" class="ref569 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A mandatory toplevel TZT primitive was missing.</p><p><i>Id</i> : client.alpha.tzt.missing_mandatory<br/><i>Category</i> : permanent</p>
-      </div><div id="ref568schema" class="ref568 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref569schema" class="ref569 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing TZT mandatory toplevel primitive
          A mandatory toplevel TZT primitive was missing. */
@@ -23468,13 +23584,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref569descr', 'ref569')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref569schema', 'ref569')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref570descr', 'ref570')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref570schema', 'ref570')">JSON Schema</button>
     
     </div>
-    <div id="ref569descr" class="ref569 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref570descr" class="ref570 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A toplevel TZT primitive was unknown.</p><p><i>Id</i> : client.alpha.tzt.unknown_toplevel<br/><i>Category</i> : permanent</p>
-      </div><div id="ref569schema" class="ref569 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref570schema" class="ref570 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unknown TZT toplevel primitive
          A toplevel TZT primitive was unknown. */
@@ -23537,13 +23653,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref570descr', 'ref570')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref570schema', 'ref570')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref571descr', 'ref571')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref571schema', 'ref571')">JSON Schema</button>
     
     </div>
-    <div id="ref570descr" class="ref570 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref571descr" class="ref571 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A known toplevel TZT primitive was used with a bad arity.</p><p><i>Id</i> : client.alpha.tzt.wrong_toplevel_arity<br/><i>Category</i> : permanent</p>
-      </div><div id="ref570schema" class="ref570 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref571schema" class="ref571 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong arity for a TZT toplevel primitive
          A known toplevel TZT primitive was used with a bad arity. */
@@ -23607,13 +23723,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref571descr', 'ref571')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref571schema', 'ref571')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref572descr', 'ref572')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref572schema', 'ref572')">JSON Schema</button>
     
     </div>
-    <div id="ref571descr" class="ref571 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref572descr" class="ref572 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An FA1.2 non-zero allowance change failed because the current allowance is non-zero. For more explanation on why such allowance change is unsafe, please look at TZIP-7 (https://gitlab.com/tezos/tzip/-/blob/master/proposals/tzip-7/tzip-7.md#approve).</p><p><i>Id</i> : client.alpha.unsafeAllowanceChange<br/><i>Category</i> : permanent</p>
-      </div><div id="ref571schema" class="ref571 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref572schema" class="ref572 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* The allowance change is unsafe
          An FA1.2 non-zero allowance change failed because the current
@@ -23636,13 +23752,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref572descr', 'ref572')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref572schema', 'ref572')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref573descr', 'ref573')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref573schema', 'ref573')">JSON Schema</button>
     
     </div>
-    <div id="ref572descr" class="ref572 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref573descr" class="ref573 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>This multisig contract does not feature calling contracts with arguments</p><p><i>Id</i> : client.alpha.unsupportedGenericMultisigFeature<br/><i>Category</i> : permanent</p>
-      </div><div id="ref572schema" class="ref572 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref573schema" class="ref573 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported multisig feature: generic call
          This multisig contract does not feature calling contracts with
@@ -23658,50 +23774,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -23714,16 +23832,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -23733,7 +23851,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -23746,39 +23864,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -23786,8 +23904,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -23799,7 +23917,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -23843,13 +23961,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref573descr', 'ref573')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref573schema', 'ref573')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref574descr', 'ref574')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref574schema', 'ref574')">JSON Schema</button>
     
     </div>
-    <div id="ref573descr" class="ref573 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref574descr" class="ref574 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>This multisig contract does not feature calling contracts with arguments</p><p><i>Id</i> : client.alpha.unsupportedGenericMultisigFeatureTy<br/><i>Category</i> : permanent</p>
-      </div><div id="ref573schema" class="ref573 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref574schema" class="ref574 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported multisig feature: generic call to non-unit entrypoint
          This multisig contract does not feature calling contracts with
@@ -23865,50 +23983,52 @@ Miscellaneous
       | "False"
       | "CAST"
       | "ISNAT"
-      | "address"
+      | "unit"
       | "PACK"
       | "EMIT"
-      | "mutez"
-      | "bls12_381_g1"
+      | "string"
+      | "chain_id"
       | "Pair"
+      | "constant"
       | "IF_CONS"
-      | "bool"
-      | "bytes"
+      | "INDEX_ADDRESS"
+      | "signature"
       | "storage"
       | "OR"
+      | "chest"
       | "view"
       | "UNPACK"
       | "ADD"
       | "DIP"
-      | "map"
+      | "lambda"
       | "MEM"
       | "BYTES"
       | "SENDER"
       | "ADDRESS"
       | "CDR"
       | "SAPLING_EMPTY_STATE"
-      | "or"
+      | "nat"
       | "LOOP"
-      | "contract"
-      | "unit"
+      | "GET_ADDRESS_INDEX"
+      | "mutez"
       | "SHA512"
       | "CREATE_ACCOUNT"
       | "BLAKE2B"
       | "READ_TICKET"
       | "LE"
-      | "chain_id"
+      | "sapling_transaction_deprecated"
+      | "bytes"
       | "timestamp"
-      | "operation"
-      | "set"
+      | "or"
       | "CHAIN_ID"
-      | "chest"
+      | "ticket"
       | "SELF_ADDRESS"
       | "SOURCE"
       | "IMPLICIT_ACCOUNT"
-      | "key"
+      | "contract"
       | "AMOUNT"
       | "CHECK_SIGNATURE"
-      | "sapling_transaction_deprecated"
+      | "tx_rollup_l2_address"
       | "LSR"
       | "EQ"
       | "Elt"
@@ -23921,16 +24041,16 @@ Miscellaneous
       | "SWAP"
       | "Some"
       | "parameter"
-      | "pair"
-      | "bls12_381_g2"
+      | "option"
+      | "never"
       | "VIEW"
       | "None"
       | "SLICE"
-      | "int"
+      | "bool"
       | "ABS"
-      | "lambda"
+      | "key"
       | "DUG"
-      | "list"
+      | "key_hash"
       | "CAR"
       | "GET"
       | "HASH_KEY"
@@ -23940,7 +24060,7 @@ Miscellaneous
       | "TOTAL_VOTING_POWER"
       | "Lambda_rec"
       | "SIZE"
-      | "nat"
+      | "map"
       | "STEPS_TO_QUOTA"
       | "IF_NONE"
       | "UNPAIR"
@@ -23953,39 +24073,39 @@ Miscellaneous
       | "PAIR"
       | "SPLIT_TICKET"
       | "RIGHT"
-      | "key_hash"
+      | "int"
       | "AND"
       | "NEG"
-      | "option"
+      | "big_map"
       | "BALANCE"
       | "SET_DELEGATE"
       | "NEVER"
       | "MIN_BLOCK_TIME"
       | "INT"
-      | "chest_key"
+      | "bls12_381_fr"
       | "ITER"
       | "True"
       | "Right"
       | "Ticket"
       | "GT"
       | "DIG"
-      | "tx_rollup_l2_address"
+      | "operation"
       | "SUB"
       | "EDIV"
       | "MAP"
       | "IF_LEFT"
-      | "big_map"
+      | "list"
       | "VOTING_POWER"
       | "LAMBDA_REC"
       | "Left"
-      | "ticket"
+      | "bls12_381_g2"
       | "TICKET_DEPRECATED"
-      | "bls12_381_fr"
-      | "never"
+      | "bls12_381_g1"
+      | "sapling_state"
       | "DUP"
       | "LEFT"
-      | "constant"
-      | "signature"
+      | "chest_key"
+      | "pair"
       | "SHA3"
       | "LAMBDA"
       | "NOT"
@@ -23993,8 +24113,8 @@ Miscellaneous
       | "NOW"
       | "NAT"
       | "GE"
-      | "string"
-      | "sapling_transaction"
+      | "set"
+      | "address"
       | "NEQ"
       | "IF"
       | "FAILWITH"
@@ -24006,7 +24126,7 @@ Miscellaneous
       | "DROP"
       | "EMPTY_BIG_MAP"
       | "UNIT"
-      | "sapling_state"
+      | "sapling_transaction"
       | "TICKET"
       | "EMPTY_MAP"
       | "APPLY"
@@ -24050,13 +24170,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref574descr', 'ref574')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref574schema', 'ref574')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref575descr', 'ref575')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref575schema', 'ref575')">JSON Schema</button>
     
     </div>
-    <div id="ref574descr" class="ref574 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref575descr" class="ref575 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>This multisig contract does not feature running lambdas</p><p><i>Id</i> : client.alpha.unsupportedGenericMultisigLambda<br/><i>Category</i> : permanent</p>
-      </div><div id="ref574schema" class="ref574 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref575schema" class="ref575 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported multisig feature: running lambda
          This multisig contract does not feature running lambdas */
@@ -24077,13 +24197,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref575descr', 'ref575')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref575schema', 'ref575')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref576descr', 'ref576')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref576schema', 'ref576')">JSON Schema</button>
     
     </div>
-    <div id="ref575descr" class="ref575 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref576descr" class="ref576 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot switch history mode.</p><p><i>Id</i> : config_file.cannot_switch_history_mode<br/><i>Category</i> : permanent</p>
-      </div><div id="ref575schema" class="ref575 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref576schema" class="ref576 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot switch history mode
          Cannot switch history mode. */
@@ -24128,13 +24248,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref576descr', 'ref576')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref576schema', 'ref576')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref577descr', 'ref577')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref577schema', 'ref577')">JSON Schema</button>
     
     </div>
-    <div id="ref576descr" class="ref576 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref577descr" class="ref577 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unsupported context hash version.</p><p><i>Id</i> : context_hash.unsupported_version<br/><i>Category</i> : permanent</p>
-      </div><div id="ref576schema" class="ref576 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref577schema" class="ref577 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unsupported context hash version
          Unsupported context hash version. */
@@ -24153,13 +24273,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref577descr', 'ref577')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref577schema', 'ref577')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref578descr', 'ref578')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref578schema', 'ref578')">JSON Schema</button>
     
     </div>
-    <div id="ref577descr" class="ref577 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref578descr" class="ref578 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unexpected precomputation hash</p><p><i>Id</i> : dal.node.invalid_precomputation_hash<br/><i>Category</i> : permanent</p>
-      </div><div id="ref577schema" class="ref577 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref578schema" class="ref578 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid_precomputation_hash
          Unexpected precomputation hash */
@@ -24181,13 +24301,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref578descr', 'ref578')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref578schema', 'ref578')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref579descr', 'ref579')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref579schema', 'ref579')">JSON Schema</button>
     
     </div>
-    <div id="ref578descr" class="ref578 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref579descr" class="ref579 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Trusted setup failed to load</p><p><i>Id</i> : dal.node.trusted_setup_loading_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref578schema" class="ref578 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref579schema" class="ref579 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Trusted setup loading failed
          Trusted setup failed to load */
@@ -24208,13 +24328,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref579descr', 'ref579')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref579schema', 'ref579')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref580descr', 'ref580')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref580schema', 'ref580')">JSON Schema</button>
     
     </div>
-    <div id="ref579descr" class="ref579 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref580descr" class="ref580 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Download failed</p><p><i>Id</i> : dal_node.download_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref579schema" class="ref579 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref580schema" class="ref580 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Download failed
          Download failed */
@@ -24230,13 +24350,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref580descr', 'ref580')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref580schema', 'ref580')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref581descr', 'ref581')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref581schema', 'ref581')">JSON Schema</button>
     
     </div>
-    <div id="ref580descr" class="ref580 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref581descr" class="ref581 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>SHA256 of downloaded file is not the expected one</p><p><i>Id</i> : dal_node.mismatched_sha<br/><i>Category</i> : permanent</p>
-      </div><div id="ref580schema" class="ref580 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref581schema" class="ref581 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* SHA256 of downloaded file is not the expected one
          SHA256 of downloaded file is not the expected one */
@@ -24258,13 +24378,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref581descr', 'ref581')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref581schema', 'ref581')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref582descr', 'ref582')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref582schema', 'ref582')">JSON Schema</button>
     
     </div>
-    <div id="ref581descr" class="ref581 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref582descr" class="ref582 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Error while decoding a value</p><p><i>Id</i> : decoding_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref581schema" class="ref581 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref582schema" class="ref582 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Decoding error
          Error while decoding a value */
@@ -24313,13 +24433,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref582descr', 'ref582')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref582schema', 'ref582')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref583descr', 'ref583')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref583schema', 'ref583')">JSON Schema</button>
     
     </div>
-    <div id="ref582descr" class="ref582 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref583descr" class="ref583 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Requested cycle is too far in the future: its baking rights have not been determined yet.</p><p><i>Id</i> : delegators_contribution.cycle_too_far_in_future<br/><i>Category</i> : temporary</p>
-      </div><div id="ref582schema" class="ref582 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref583schema" class="ref583 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cycle too far in future
          Requested cycle is too far in the future: its baking rights have not
@@ -24336,13 +24456,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref583descr', 'ref583')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref583schema', 'ref583')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref584descr', 'ref584')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref584schema', 'ref584')">JSON Schema</button>
     
     </div>
-    <div id="ref583descr" class="ref583 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref584descr" class="ref584 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The data needed for the computation is too far in the past: the node no longer has the data (block or context) required to compute the delegators' contribution. Either you are in rolling mode and didn't keep enough cycles, or you recently imported a fresh snapshot, which is missing the relevant contexts</p><p><i>Id</i> : delegators_contribution.cycle_too_far_in_past<br/><i>Category</i> : temporary</p>
-      </div><div id="ref583schema" class="ref583 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref584schema" class="ref584 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cycle too far in past
          The data needed for the computation is too far in the past: the node
@@ -24362,13 +24482,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref584descr', 'ref584')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref584schema', 'ref584')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref585descr', 'ref585')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref585schema', 'ref585')">JSON Schema</button>
     
     </div>
-    <div id="ref584descr" class="ref584 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref585descr" class="ref585 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>This RPC call involves a protocol that does not support delegators_contribution.</p><p><i>Id</i> : delegators_contribution.protocol_not_supported<br/><i>Category</i> : temporary</p>
-      </div><div id="ref584schema" class="ref584 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref585schema" class="ref585 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Protocol not supported by delegators_contribution
          This RPC call involves a protocol that does not support
@@ -24393,13 +24513,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref585descr', 'ref585')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref585schema', 'ref585')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref586descr', 'ref586')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref586schema', 'ref586')">JSON Schema</button>
     
     </div>
-    <div id="ref585descr" class="ref585 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref586descr" class="ref586 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Error while encoding a value for a socket</p><p><i>Id</i> : encoding_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref585schema" class="ref585 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref586schema" class="ref586 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Encoding error
          Error while encoding a value for a socket */
@@ -24446,13 +24566,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref586descr', 'ref586')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref586schema', 'ref586')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref587descr', 'ref587')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref587schema', 'ref587')">JSON Schema</button>
     
     </div>
-    <div id="ref586descr" class="ref586 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref587descr" class="ref587 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot create socket for external process.</p><p><i>Id</i> : external_process.cannot_create_socket<br/><i>Category</i> : temporary</p>
-      </div><div id="ref586schema" class="ref586 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref587schema" class="ref587 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot create socket
          Cannot create socket for external process. */
@@ -24473,13 +24593,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref587descr', 'ref587')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref587schema', 'ref587')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref588descr', 'ref588')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref588schema', 'ref588')">JSON Schema</button>
     
     </div>
-    <div id="ref587descr" class="ref587 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref588descr" class="ref588 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Socket path too long.</p><p><i>Id</i> : external_process.socket_path_too_long<br/><i>Category</i> : temporary</p>
-      </div><div id="ref587schema" class="ref587 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref588schema" class="ref588 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Socket path too long
          Socket path too long. */
@@ -24500,13 +24620,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref588descr', 'ref588')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref588schema', 'ref588')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref589descr', 'ref589')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref589schema', 'ref589')">JSON Schema</button>
     
     </div>
-    <div id="ref588descr" class="ref588 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref589descr" class="ref589 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Wrong permission for socket path.</p><p><i>Id</i> : external_process.socket_path_wrong_permission<br/><i>Category</i> : temporary</p>
-      </div><div id="ref588schema" class="ref588 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref589schema" class="ref589 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong permission for socket path
          Wrong permission for socket path. */
@@ -24527,13 +24647,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref589descr', 'ref589')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref589schema', 'ref589')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref590descr', 'ref590')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref590schema', 'ref590')">JSON Schema</button>
     
     </div>
-    <div id="ref589descr" class="ref589 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref590descr" class="ref590 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Exception safely wrapped in an error</p><p><i>Id</i> : failure<br/><i>Category</i> : temporary</p>
-      </div><div id="ref589schema" class="ref589 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref590schema" class="ref590 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Exception
          Exception safely wrapped in an error */
@@ -24554,13 +24674,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref590descr', 'ref590')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref590schema', 'ref590')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref591descr', 'ref591')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref591schema', 'ref591')">JSON Schema</button>
     
     </div>
-    <div id="ref590descr" class="ref590 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref591descr" class="ref591 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The injection of this operation failed. The error trace are the following errors in this list.</p><p><i>Id</i> : injection_operation_error_case<br/><i>Category</i> : permanent</p>
-      </div><div id="ref590schema" class="ref590 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref591schema" class="ref591 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Injection operation error
          The injection of this operation failed. The error trace are the
@@ -24585,13 +24705,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref591descr', 'ref591')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref591schema', 'ref591')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref592descr', 'ref592')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref592schema', 'ref592')">JSON Schema</button>
     
     </div>
-    <div id="ref591descr" class="ref591 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref592descr" class="ref592 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The injection of this operation succeed among a list of injections containing at least one error.</p><p><i>Id</i> : injection_operation_succeed_case<br/><i>Category</i> : permanent</p>
-      </div><div id="ref591schema" class="ref591 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref592schema" class="ref592 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Injection operation succeed
          The injection of this operation succeed among a list of injections
@@ -24616,13 +24736,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref592descr', 'ref592')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref592schema', 'ref592')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref593descr', 'ref593')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref593schema', 'ref593')">JSON Schema</button>
     
     </div>
-    <div id="ref592descr" class="ref592 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref593descr" class="ref593 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>While injecting several operations at once, one or several injections failed.</p><p><i>Id</i> : injection_operations_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref592schema" class="ref592 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref593schema" class="ref593 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Injection operations error
          While injecting several operations at once, one or several
@@ -24639,13 +24759,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref593descr', 'ref593')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref593schema', 'ref593')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref594descr', 'ref594')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref594schema', 'ref594')">JSON Schema</button>
     
     </div>
-    <div id="ref593descr" class="ref593 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref594descr" class="ref594 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Activation of an Internal Event SINK with an URI failed</p><p><i>Id</i> : internal-event-activation-error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref593schema" class="ref593 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref594schema" class="ref594 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     /* Internal Event Sink: Wrong Activation URI
        Activation of an Internal Event SINK with an URI failed */
@@ -24671,13 +24791,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref594descr', 'ref594')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref594schema', 'ref594')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref595descr', 'ref595')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref595schema', 'ref595')">JSON Schema</button>
     
     </div>
-    <div id="ref594descr" class="ref594 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref595descr" class="ref595 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>IO error</p><p><i>Id</i> : io_error<br/><i>Category</i> : permanent</p>
-      </div><div id="ref594schema" class="ref594 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref595schema" class="ref595 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* IO error
          IO error */
@@ -24839,13 +24959,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref595descr', 'ref595')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref595schema', 'ref595')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref596descr', 'ref596')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref596schema', 'ref596')">JSON Schema</button>
     
     </div>
-    <div id="ref595descr" class="ref595 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref596descr" class="ref596 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The input string is not a valid JSON value</p><p><i>Id</i> : json_decoding_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref595schema" class="ref595 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref596schema" class="ref596 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Json decoding error
          The input string is not a valid JSON value */
@@ -24867,13 +24987,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref596descr', 'ref596')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref596schema', 'ref596')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref597descr', 'ref597')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref597schema', 'ref597')">JSON Schema</button>
     
     </div>
-    <div id="ref596descr" class="ref596 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref597descr" class="ref597 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The operation cannot be added because the mempool already contains a conflicting operation.</p><p><i>Id</i> : prevalidation.operation_conflict<br/><i>Category</i> : temporary</p>
-      </div><div id="ref596schema" class="ref596 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref597schema" class="ref597 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Operation conflict
          The operation cannot be added because the mempool already contains a
@@ -24903,13 +25023,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref597descr', 'ref597')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref597schema', 'ref597')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref598descr', 'ref598')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref598schema', 'ref598')">JSON Schema</button>
     
     </div>
-    <div id="ref597descr" class="ref597 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref598descr" class="ref598 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The operation has been replaced.</p><p><i>Id</i> : prevalidation.operation_replacement<br/><i>Category</i> : temporary</p>
-      </div><div id="ref597schema" class="ref597 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref598schema" class="ref598 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Operation replacement
          The operation has been replaced. */
@@ -24934,13 +25054,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref598descr', 'ref598')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref598schema', 'ref598')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref599descr', 'ref599')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref599schema', 'ref599')">JSON Schema</button>
     
     </div>
-    <div id="ref598descr" class="ref598 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref599descr" class="ref599 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The operations given do not match their hashes.</p><p><i>Id</i> : snapshots.inconsistent_operation_hashes<br/><i>Category</i> : permanent</p>
-      </div><div id="ref598schema" class="ref598 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref599schema" class="ref599 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent operation hashes
          The operations given do not match their hashes. */
@@ -24965,13 +25085,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref599descr', 'ref599')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref599schema', 'ref599')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref600descr', 'ref600')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref600schema', 'ref600')">JSON Schema</button>
     
     </div>
-    <div id="ref599descr" class="ref599 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref600descr" class="ref600 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A decoded value comes from a buffer of unexpected size.</p><p><i>Id</i> : socket.unexpected_size_of_decoded_value<br/><i>Category</i> : permanent</p>
-      </div><div id="ref599schema" class="ref599 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref600schema" class="ref600 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected size of decoded value
          A decoded value comes from a buffer of unexpected size. */
@@ -24986,13 +25106,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref600descr', 'ref600')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref600schema', 'ref600')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref601descr', 'ref601')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref601schema', 'ref601')">JSON Schema</button>
     
     </div>
-    <div id="ref600descr" class="ref600 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref601descr" class="ref601 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to load stored data</p><p><i>Id</i> : stdlib_unix.cannot_load_stored_data<br/><i>Category</i> : permanent</p>
-      </div><div id="ref600schema" class="ref600 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref601schema" class="ref601 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannod load stored data
          Failed to load stored data */
@@ -25014,13 +25134,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref601descr', 'ref601')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref601schema', 'ref601')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref602descr', 'ref602')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref602schema', 'ref602')">JSON Schema</button>
     
     </div>
-    <div id="ref601descr" class="ref601 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref602descr" class="ref602 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Action performed while the store is closed</p><p><i>Id</i> : stdlib_unix.closed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref601schema" class="ref601 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref602schema" class="ref602 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Key value stored was closed
          Action performed while the store is closed */
@@ -25041,13 +25161,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref602descr', 'ref602')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref602schema', 'ref602')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref603descr', 'ref603')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref603schema', 'ref603')">JSON Schema</button>
     
     </div>
-    <div id="ref602descr" class="ref602 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref603descr" class="ref603 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A data of the key value store was corrupted</p><p><i>Id</i> : stdlib_unix.corrupted_data<br/><i>Category</i> : permanent</p>
-      </div><div id="ref602schema" class="ref602 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref603schema" class="ref603 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* key value store data is corrupted
          A data of the key value store was corrupted */
@@ -25070,13 +25190,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref603descr', 'ref603')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref603schema', 'ref603')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref604descr', 'ref604')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref604schema', 'ref604')">JSON Schema</button>
     
     </div>
-    <div id="ref603descr" class="ref603 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref604descr" class="ref604 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A failure was triggered while decoding the data</p><p><i>Id</i> : stdlib_unix.decoding_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref603schema" class="ref603 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref604schema" class="ref604 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* key value store failed to decode the data
          A failure was triggered while decoding the data */
@@ -25098,13 +25218,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref604descr', 'ref604')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref604schema', 'ref604')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref605descr', 'ref605')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref605schema', 'ref605')">JSON Schema</button>
     
     </div>
-    <div id="ref604descr" class="ref604 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref605descr" class="ref605 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A failure was triggered while encoding the data</p><p><i>Id</i> : stdlib_unix.encoding_failed<br/><i>Category</i> : permanent</p>
-      </div><div id="ref604schema" class="ref604 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref605schema" class="ref605 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* key value store failed to encode the data
          A failure was triggered while encoding the data */
@@ -25126,13 +25246,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref605descr', 'ref605')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref605schema', 'ref605')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref606descr', 'ref606')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref606schema', 'ref606')">JSON Schema</button>
     
     </div>
-    <div id="ref605descr" class="ref605 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref606descr" class="ref606 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to load stored data from KVS</p><p><i>Id</i> : stdlib_unix.missing_kvs_data<br/><i>Category</i> : permanent</p>
-      </div><div id="ref605schema" class="ref605 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref606schema" class="ref606 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing stored data from KVS
          Failed to load stored data from KVS */
@@ -25154,13 +25274,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref606descr', 'ref606')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref606schema', 'ref606')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref607descr', 'ref607')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref607schema', 'ref607')">JSON Schema</button>
     
     </div>
-    <div id="ref606descr" class="ref606 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref607descr" class="ref607 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Try to write a value that does not match the expected size</p><p><i>Id</i> : stdlib_unix.wrong_encoded_value_size<br/><i>Category</i> : permanent</p>
-      </div><div id="ref606schema" class="ref606 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref607schema" class="ref607 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong encoded value size
          Try to write a value that does not match the expected size */
@@ -25184,13 +25304,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref607descr', 'ref607')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref607schema', 'ref607')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref608descr', 'ref608')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref608schema', 'ref608')">JSON Schema</button>
     
     </div>
-    <div id="ref607descr" class="ref607 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref608descr" class="ref608 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Bad invariant during Store.set_head</p><p><i>Id</i> : store.bad_head_invariant<br/><i>Category</i> : permanent</p>
-      </div><div id="ref607schema" class="ref607 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref608schema" class="ref608 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad head invariant
          Bad invariant during Store.set_head */
@@ -25205,13 +25325,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref608descr', 'ref608')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref608schema', 'ref608')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref609descr', 'ref609')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref609schema', 'ref609')">JSON Schema</button>
     
     </div>
-    <div id="ref608descr" class="ref608 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref609descr" class="ref609 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Read a block at level past our current head.</p><p><i>Id</i> : store.bad_level<br/><i>Category</i> : permanent</p>
-      </div><div id="ref608schema" class="ref608 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref609schema" class="ref609 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad level
          Read a block at level past our current head. */
@@ -25228,13 +25348,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref609descr', 'ref609')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref609schema', 'ref609')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref610descr', 'ref610')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref610schema', 'ref610')">JSON Schema</button>
     
     </div>
-    <div id="ref609descr" class="ref609 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref610descr" class="ref610 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The ordering invariant does not hold</p><p><i>Id</i> : store.bad_ordering_invariant<br/><i>Category</i> : permanent</p>
-      </div><div id="ref609schema" class="ref609 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref610schema" class="ref610 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Bad ordering invariant
          The ordering invariant does not hold */
@@ -25256,13 +25376,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref610descr', 'ref610')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref610schema', 'ref610')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref611descr', 'ref611')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref611schema', 'ref611')">JSON Schema</button>
     
     </div>
-    <div id="ref610descr" class="ref610 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref611descr" class="ref611 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Block not found</p><p><i>Id</i> : store.block_not_found<br/><i>Category</i> : permanent</p>
-      </div><div id="ref610schema" class="ref610 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref611schema" class="ref611 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Block not found
          Block not found */
@@ -25286,13 +25406,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref611descr', 'ref611')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref611schema', 'ref611')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref612descr', 'ref612')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref612schema', 'ref612')">JSON Schema</button>
     
     </div>
-    <div id="ref611descr" class="ref611 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref612descr" class="ref612 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot cement blocks</p><p><i>Id</i> : store.cannot_cement_blocks<br/><i>Category</i> : temporary</p>
-      </div><div id="ref611schema" class="ref611 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref612schema" class="ref612 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot cement blocks
          Cannot cement blocks */
@@ -25308,13 +25428,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref612descr', 'ref612')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref612schema', 'ref612')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref613descr', 'ref613')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref613schema', 'ref613')">JSON Schema</button>
     
     </div>
-    <div id="ref612descr" class="ref612 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref613descr" class="ref613 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot cement blocks metadata</p><p><i>Id</i> : store.cannot_cement_blocks_metadata<br/><i>Category</i> : temporary</p>
-      </div><div id="ref612schema" class="ref612 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref613schema" class="ref613 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot cement blocks metadata
          Cannot cement blocks metadata */
@@ -25330,13 +25450,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref613descr', 'ref613')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref613schema', 'ref613')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref614descr', 'ref614')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref614schema', 'ref614')">JSON Schema</button>
     
     </div>
-    <div id="ref613descr" class="ref613 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref614descr" class="ref614 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to checkout context</p><p><i>Id</i> : store.cannot_checkout_context<br/><i>Category</i> : temporary</p>
-      </div><div id="ref613schema" class="ref613 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref614schema" class="ref614 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot checkout context
          Failed to checkout context */
@@ -25364,13 +25484,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref614descr', 'ref614')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref614schema', 'ref614')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref615descr', 'ref615')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref615schema', 'ref615')">JSON Schema</button>
     
     </div>
-    <div id="ref614descr" class="ref614 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref615descr" class="ref615 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to encode block</p><p><i>Id</i> : store.cannot_encode_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref614schema" class="ref614 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref615schema" class="ref615 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot encode block
          Failed to encode block */
@@ -25394,13 +25514,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref615descr', 'ref615')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref615schema', 'ref615')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref616descr', 'ref616')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref616schema', 'ref616')">JSON Schema</button>
     
     </div>
-    <div id="ref615descr" class="ref615 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref616descr" class="ref616 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot find chain dir while upgrading storage</p><p><i>Id</i> : store.cannot_find_chain_dir<br/><i>Category</i> : permanent</p>
-      </div><div id="ref615schema" class="ref615 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref616schema" class="ref616 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot find chain dir
          Cannot find chain dir while upgrading storage */
@@ -25421,13 +25541,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref616descr', 'ref616')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref616schema', 'ref616')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref617descr', 'ref617')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref617schema', 'ref617')">JSON Schema</button>
     
     </div>
-    <div id="ref616descr" class="ref616 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref617descr" class="ref617 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot find protocol</p><p><i>Id</i> : store.cannot_find_protocol<br/><i>Category</i> : temporary</p>
-      </div><div id="ref616schema" class="ref616 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref617schema" class="ref617 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot find protocol
          Cannot find protocol */
@@ -25443,13 +25563,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref617descr', 'ref617')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref617schema', 'ref617')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref618descr', 'ref618')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref618schema', 'ref618')">JSON Schema</button>
     
     </div>
-    <div id="ref617descr" class="ref617 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref618descr" class="ref618 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to fork testchain</p><p><i>Id</i> : store.cannot_fork_testchain<br/><i>Category</i> : temporary</p>
-      </div><div id="ref617schema" class="ref617 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref618schema" class="ref618 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot fork testchain
          Failed to fork testchain */
@@ -25473,13 +25593,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref618descr', 'ref618')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref618schema', 'ref618')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref619descr', 'ref619')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref619schema', 'ref619')">JSON Schema</button>
     
     </div>
-    <div id="ref618descr" class="ref618 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref619descr" class="ref619 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot instanciate temporary floating store</p><p><i>Id</i> : store.cannot_instanciate_temporary_floating_store<br/><i>Category</i> : temporary</p>
-      </div><div id="ref618schema" class="ref618 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref619schema" class="ref619 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot instanciate temporary floating store
          Cannot instanciate temporary floating store */
@@ -25494,13 +25614,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref619descr', 'ref619')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref619schema', 'ref619')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref620descr', 'ref620')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref620schema', 'ref620')">JSON Schema</button>
     
     </div>
-    <div id="ref619descr" class="ref619 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref620descr" class="ref620 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot load a degraded block store.</p><p><i>Id</i> : store.cannot_load_degraded_store<br/><i>Category</i> : permanent</p>
-      </div><div id="ref619schema" class="ref619 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref620schema" class="ref620 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot load degraded store
          Cannot load a degraded block store. */
@@ -25515,13 +25635,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref620descr', 'ref620')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref620schema', 'ref620')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref621descr', 'ref621')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref621schema', 'ref621')">JSON Schema</button>
     
     </div>
-    <div id="ref620descr" class="ref620 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref621descr" class="ref621 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to load the testchain</p><p><i>Id</i> : store.cannot_load_testchain<br/><i>Category</i> : temporary</p>
-      </div><div id="ref620schema" class="ref620 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref621schema" class="ref621 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot load testchain
          Failed to load the testchain */
@@ -25542,13 +25662,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref621descr', 'ref621')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref621schema', 'ref621')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref622descr', 'ref622')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref622schema', 'ref622')">JSON Schema</button>
     
     </div>
-    <div id="ref621descr" class="ref621 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref622descr" class="ref622 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot merge the store.</p><p><i>Id</i> : store.cannot_merge_store<br/><i>Category</i> : permanent</p>
-      </div><div id="ref621schema" class="ref621 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref622schema" class="ref622 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot merge store
          Cannot merge the store. */
@@ -25569,13 +25689,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref622descr', 'ref622')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref622schema', 'ref622')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref623descr', 'ref623')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref623schema', 'ref623')">JSON Schema</button>
     
     </div>
-    <div id="ref622descr" class="ref622 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref623descr" class="ref623 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to retrieve savepoint</p><p><i>Id</i> : store.cannot_retrieve_savepoint<br/><i>Category</i> : temporary</p>
-      </div><div id="ref622schema" class="ref622 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref623schema" class="ref623 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot retrieve savepoint
          Failed to retrieve savepoint */
@@ -25591,13 +25711,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref623descr', 'ref623')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref623schema', 'ref623')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref624descr', 'ref624')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref624schema', 'ref624')">JSON Schema</button>
     
     </div>
-    <div id="ref623descr" class="ref623 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref624descr" class="ref624 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given block to be set as target is invalid.</p><p><i>Id</i> : store.cannot_set_target<br/><i>Category</i> : temporary</p>
-      </div><div id="ref623schema" class="ref623 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref624schema" class="ref624 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot set target
          The given block to be set as target is invalid. */
@@ -25621,13 +25741,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref624descr', 'ref624')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref624schema', 'ref624')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref625descr', 'ref625')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref625schema', 'ref625')">JSON Schema</button>
     
     </div>
-    <div id="ref624descr" class="ref624 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref625descr" class="ref625 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to store block</p><p><i>Id</i> : store.cannot_store_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref624schema" class="ref624 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref625schema" class="ref625 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot store block
          Failed to store block */
@@ -25661,13 +25781,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref625descr', 'ref625')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref625schema', 'ref625')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref626descr', 'ref626')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref626schema', 'ref626')">JSON Schema</button>
     
     </div>
-    <div id="ref625descr" class="ref625 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref626descr" class="ref626 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot update floating store</p><p><i>Id</i> : store.cannot_update_floating_store<br/><i>Category</i> : temporary</p>
-      </div><div id="ref625schema" class="ref625 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref626schema" class="ref626 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot update floating store
          Cannot update floating store */
@@ -25682,13 +25802,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref626descr', 'ref626')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref626schema', 'ref626')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref627descr', 'ref627')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref627schema', 'ref627')">JSON Schema</button>
     
     </div>
-    <div id="ref626descr" class="ref626 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref627descr" class="ref627 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot write data in store when in readonly</p><p><i>Id</i> : store.cannot_write_in_readonly<br/><i>Category</i> : permanent</p>
-      </div><div id="ref626schema" class="ref626 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref627schema" class="ref627 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Cannot write in readonly
          Cannot write data in store when in readonly */
@@ -25703,13 +25823,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref627descr', 'ref627')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref627schema', 'ref627')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref628descr', 'ref628')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref628schema', 'ref628')">JSON Schema</button>
     
     </div>
-    <div id="ref627descr" class="ref627 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref628descr" class="ref628 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The store is corrupted</p><p><i>Id</i> : store.corrupted_store<br/><i>Category</i> : permanent</p>
-      </div><div id="ref627schema" class="ref627 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref628schema" class="ref628 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Corrupted store
          The store is corrupted */
@@ -25750,13 +25870,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref628descr', 'ref628')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref628schema', 'ref628')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref629descr', 'ref629')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref629schema', 'ref629')">JSON Schema</button>
     
     </div>
-    <div id="ref628descr" class="ref628 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref629descr" class="ref629 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unable to compute live blocks from a given block.</p><p><i>Id</i> : store.failed_to_get_live_blocks<br/><i>Category</i> : permanent</p>
-      </div><div id="ref628schema" class="ref628 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref629schema" class="ref629 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Fail to get live blocks
          Unable to compute live blocks from a given block. */
@@ -25780,13 +25900,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref629descr', 'ref629')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref629schema', 'ref629')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref630descr', 'ref630')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref630schema', 'ref630')">JSON Schema</button>
     
     </div>
-    <div id="ref629descr" class="ref629 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref630descr" class="ref630 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to initialize the cemented block store</p><p><i>Id</i> : store.failed_to_init_cemented_block_store<br/><i>Category</i> : temporary</p>
-      </div><div id="ref629schema" class="ref629 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref630schema" class="ref630 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Failed to init cemented block store
          Failed to initialize the cemented block store */
@@ -25807,13 +25927,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref630descr', 'ref630')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref630schema', 'ref630')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref631descr', 'ref631')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref631schema', 'ref631')">JSON Schema</button>
     
     </div>
-    <div id="ref630descr" class="ref630 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref631descr" class="ref631 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Forking the test chain is not allowed</p><p><i>Id</i> : store.fork_testchain_not_allowed<br/><i>Category</i> : temporary</p>
-      </div><div id="ref630schema" class="ref630 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref631schema" class="ref631 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Fork testchain not allowed
          Forking the test chain is not allowed */
@@ -25828,13 +25948,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref631descr', 'ref631')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref631schema', 'ref631')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref632descr', 'ref632')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref632schema', 'ref632')">JSON Schema</button>
     
     </div>
-    <div id="ref631descr" class="ref631 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref632descr" class="ref632 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent block hash found</p><p><i>Id</i> : store.inconsistent_block_hash<br/><i>Category</i> : temporary</p>
-      </div><div id="ref631schema" class="ref631 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref632schema" class="ref632 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent block hash
          Inconsistent block hash found */
@@ -25860,13 +25980,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref632descr', 'ref632')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref632schema', 'ref632')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref633descr', 'ref633')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref633schema', 'ref633')">JSON Schema</button>
     
     </div>
-    <div id="ref632descr" class="ref632 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref633descr" class="ref633 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent block predecessor</p><p><i>Id</i> : store.inconsistent_block_predecessor<br/><i>Category</i> : temporary</p>
-      </div><div id="ref632schema" class="ref632 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref633schema" class="ref633 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent block predecessor
          Inconsistent block predecessor */
@@ -25893,13 +26013,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref633descr', 'ref633')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref633schema', 'ref633')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref634descr', 'ref634')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref634schema', 'ref634')">JSON Schema</button>
     
     </div>
-    <div id="ref633descr" class="ref633 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref634descr" class="ref634 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to read a cemented file</p><p><i>Id</i> : store.inconsistent_cemented_file<br/><i>Category</i> : temporary</p>
-      </div><div id="ref633schema" class="ref633 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref634schema" class="ref634 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent cemented file
          Failed to read a cemented file */
@@ -25921,13 +26041,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref634descr', 'ref634')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref634schema', 'ref634')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref635descr', 'ref635')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref635schema', 'ref635')">JSON Schema</button>
     
     </div>
-    <div id="ref634descr" class="ref634 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref635descr" class="ref635 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to check indexes consistency</p><p><i>Id</i> : store.inconsistent_cemented_store<br/><i>Category</i> : temporary</p>
-      </div><div id="ref634schema" class="ref634 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref635schema" class="ref635 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent cemented store
          Failed to check indexes consistency */
@@ -25969,13 +26089,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref635descr', 'ref635')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref635schema', 'ref635')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref636descr', 'ref636')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref636schema', 'ref636')">JSON Schema</button>
     
     </div>
-    <div id="ref635descr" class="ref635 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref636descr" class="ref636 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The stored cementing highwatermark is inconsistent with the store.</p><p><i>Id</i> : store.inconsistent_cementing_highwatermark<br/><i>Category</i> : permanent</p>
-      </div><div id="ref635schema" class="ref635 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref636schema" class="ref636 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent cementing highwatermark
          The stored cementing highwatermark is inconsistent with the store. */
@@ -25992,13 +26112,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref636descr', 'ref636')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref636schema', 'ref636')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref637descr', 'ref637')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref637schema', 'ref637')">JSON Schema</button>
     
     </div>
-    <div id="ref636descr" class="ref636 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref637descr" class="ref637 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to load chain store</p><p><i>Id</i> : store.inconsistent_chain_store<br/><i>Category</i> : temporary</p>
-      </div><div id="ref636schema" class="ref636 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref637schema" class="ref637 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent chain store
          Failed to load chain store */
@@ -26013,13 +26133,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref637descr', 'ref637')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref637schema', 'ref637')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref638descr', 'ref638')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref638schema', 'ref638')">JSON Schema</button>
     
     </div>
-    <div id="ref637descr" class="ref637 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref638descr" class="ref638 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given genesis block is inconsistent with the store.</p><p><i>Id</i> : store.inconsistent_genesis<br/><i>Category</i> : permanent</p>
-      </div><div id="ref637schema" class="ref637 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref638schema" class="ref638 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent genesis
          The given genesis block is inconsistent with the store. */
@@ -26044,13 +26164,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref638descr', 'ref638')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref638schema', 'ref638')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref639descr', 'ref639')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref639schema', 'ref639')">JSON Schema</button>
     
     </div>
-    <div id="ref638descr" class="ref638 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref639descr" class="ref639 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The history mode does not correspond to the store.</p><p><i>Id</i> : store.inconsistent_history_mode<br/><i>Category</i> : permanent</p>
-      </div><div id="ref638schema" class="ref638 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref639schema" class="ref639 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent history mode
          The history mode does not correspond to the store. */
@@ -26094,13 +26214,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref639descr', 'ref639')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref639schema', 'ref639')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref640descr', 'ref640')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref640schema', 'ref640')">JSON Schema</button>
     
     </div>
-    <div id="ref639descr" class="ref639 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref640descr" class="ref640 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent protocol commit info while restoring snapshot</p><p><i>Id</i> : store.inconsistent_protocol_commit_info<br/><i>Category</i> : temporary</p>
-      </div><div id="ref639schema" class="ref639 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref640schema" class="ref640 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent protocol commit info
          Inconsistent protocol commit info while restoring snapshot */
@@ -26128,13 +26248,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref640descr', 'ref640')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref640schema', 'ref640')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref641descr', 'ref641')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref641schema', 'ref641')">JSON Schema</button>
     
     </div>
-    <div id="ref640descr" class="ref640 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref641descr" class="ref641 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Inconsistent store state</p><p><i>Id</i> : store.inconsistent_store_state<br/><i>Category</i> : temporary</p>
-      </div><div id="ref640schema" class="ref640 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref641schema" class="ref641 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Inconsistent store state
          Inconsistent store state */
@@ -26155,13 +26275,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref641descr', 'ref641')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref641schema', 'ref641')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref642descr', 'ref642')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref642schema', 'ref642')">JSON Schema</button>
     
     </div>
-    <div id="ref641descr" class="ref641 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref642descr" class="ref642 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Invalid block list to cement</p><p><i>Id</i> : store.invalid_blocks_to_cement<br/><i>Category</i> : temporary</p>
-      </div><div id="ref641schema" class="ref641 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref642schema" class="ref642 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid blocks to cement
          Invalid block list to cement */
@@ -26176,13 +26296,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref642descr', 'ref642')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref642schema', 'ref642')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref643descr', 'ref643')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref643schema', 'ref643')">JSON Schema</button>
     
     </div>
-    <div id="ref642descr" class="ref642 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref643descr" class="ref643 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Cannot mark genesis as invalid</p><p><i>Id</i> : store.invalid_genesis_marking<br/><i>Category</i> : temporary</p>
-      </div><div id="ref642schema" class="ref642 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref643schema" class="ref643 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid genesis marking
          Cannot mark genesis as invalid */
@@ -26197,13 +26317,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref643descr', 'ref643')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref643schema', 'ref643')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref644descr', 'ref644')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref644schema', 'ref644')">JSON Schema</button>
     
     </div>
-    <div id="ref643descr" class="ref643 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref644descr" class="ref644 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The given head is not consistent with the current store's savepoint</p><p><i>Id</i> : store.invalid_head_switch<br/><i>Category</i> : permanent</p>
-      </div><div id="ref643schema" class="ref643 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref644schema" class="ref644 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Invalid head switch
          The given head is not consistent with the current store's savepoint */
@@ -26228,13 +26348,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref644descr', 'ref644')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref644schema', 'ref644')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref645descr', 'ref645')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref645schema', 'ref645')">JSON Schema</button>
     
     </div>
-    <div id="ref644descr" class="ref644 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref645descr" class="ref645 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The store's merge is already running</p><p><i>Id</i> : store.merge_already_running<br/><i>Category</i> : temporary</p>
-      </div><div id="ref644schema" class="ref644 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref645schema" class="ref645 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Merge already running
          The store's merge is already running */
@@ -26249,13 +26369,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref645descr', 'ref645')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref645schema', 'ref645')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref646descr', 'ref646')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref646schema', 'ref646')">JSON Schema</button>
     
     </div>
-    <div id="ref645descr" class="ref645 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref646descr" class="ref646 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Error while merging the store</p><p><i>Id</i> : store.merge_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref645schema" class="ref645 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref646schema" class="ref646 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Merge error
          Error while merging the store */
@@ -26270,13 +26390,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref646descr', 'ref646')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref646schema', 'ref646')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref647descr', 'ref647')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref647schema', 'ref647')">JSON Schema</button>
     
     </div>
-    <div id="ref646descr" class="ref646 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref647descr" class="ref647 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Block metadata not found</p><p><i>Id</i> : store.metadata_not_found<br/><i>Category</i> : permanent</p>
-      </div><div id="ref646schema" class="ref646 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref647schema" class="ref647 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Block metadata not found
          Block metadata not found */
@@ -26300,13 +26420,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref647descr', 'ref647')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref647schema', 'ref647')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref648descr', 'ref648')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref648schema', 'ref648')">JSON Schema</button>
     
     </div>
-    <div id="ref647descr" class="ref647 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref648descr" class="ref648 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Missing activation block while restoring snapshot</p><p><i>Id</i> : store.missing_activation_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref647schema" class="ref647 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref648schema" class="ref648 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing activation block
          Missing activation block while restoring snapshot */
@@ -26363,13 +26483,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref648descr', 'ref648')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref648schema', 'ref648')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref649descr', 'ref649')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref649schema', 'ref649')">JSON Schema</button>
     
     </div>
-    <div id="ref648descr" class="ref648 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref649descr" class="ref649 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to retreive commit info</p><p><i>Id</i> : store.missing_commit_info<br/><i>Category</i> : temporary</p>
-      </div><div id="ref648schema" class="ref648 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref649schema" class="ref649 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing commit info
          Failed to retreive commit info */
@@ -26390,13 +26510,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref649descr', 'ref649')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref649schema', 'ref649')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref650descr', 'ref650')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref650schema', 'ref650')">JSON Schema</button>
     
     </div>
-    <div id="ref649descr" class="ref649 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref650descr" class="ref650 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Current head's last preserved block (or its associated metadata) cannot be found in the store.</p><p><i>Id</i> : store.missing_last_preserved_block<br/><i>Category</i> : temporary</p>
-      </div><div id="ref649schema" class="ref649 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref650schema" class="ref650 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Missing last preserved block
          Current head's last preserved block (or its associated metadata)
@@ -26412,13 +26532,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref650descr', 'ref650')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref650schema', 'ref650')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref651descr', 'ref651')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref651schema', 'ref651')">JSON Schema</button>
     
     </div>
-    <div id="ref650descr" class="ref650 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref651descr" class="ref651 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Protocol not found</p><p><i>Id</i> : store.protocol_not_found<br/><i>Category</i> : permanent</p>
-      </div><div id="ref650schema" class="ref650 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref651schema" class="ref651 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Protocol not found
          Protocol not found */
@@ -26434,13 +26554,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref651descr', 'ref651')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref651schema', 'ref651')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref652descr', 'ref652')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref652schema', 'ref652')">JSON Schema</button>
     
     </div>
-    <div id="ref651descr" class="ref651 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref652descr" class="ref652 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Resulting context hash not found</p><p><i>Id</i> : store.resulting_context_hash_not_found<br/><i>Category</i> : permanent</p>
-      </div><div id="ref651schema" class="ref651 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref652schema" class="ref652 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Resulting context hash not found
          Resulting context hash not found */
@@ -26464,13 +26584,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref652descr', 'ref652')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref652schema', 'ref652')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref653descr', 'ref653')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref653schema', 'ref653')">JSON Schema</button>
     
     </div>
-    <div id="ref652descr" class="ref652 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref653descr" class="ref653 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Target is reached but it is not a head's ancestor.</p><p><i>Id</i> : store.target_mismatch<br/><i>Category</i> : permanent</p>
-      </div><div id="ref652schema" class="ref652 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref653schema" class="ref653 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* target mismatch
          Target is reached but it is not a head's ancestor. */
@@ -26485,13 +26605,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref653descr', 'ref653')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref653schema', 'ref653')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref654descr', 'ref654')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref654schema', 'ref654')">JSON Schema</button>
     
     </div>
-    <div id="ref653descr" class="ref653 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref654descr" class="ref654 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>The temporary cemented file already exists</p><p><i>Id</i> : store.temporary_cemented_file_exists<br/><i>Category</i> : temporary</p>
-      </div><div id="ref653schema" class="ref653 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref654schema" class="ref654 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Temporary cemented file exists
          The temporary cemented file already exists */
@@ -26512,13 +26632,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref654descr', 'ref654')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref654schema', 'ref654')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref655descr', 'ref655')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref655schema', 'ref655')">JSON Schema</button>
     
     </div>
-    <div id="ref654descr" class="ref654 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref655descr" class="ref655 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An activation block is unexpectedly missing from the store.</p><p><i>Id</i> : store.unexpected_missing_activation_block<br/><i>Category</i> : permanent</p>
-      </div><div id="ref654schema" class="ref654 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref655schema" class="ref655 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected missing activaiton block
          An activation block is unexpectedly missing from the store. */
@@ -26546,13 +26666,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref655descr', 'ref655')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref655schema', 'ref655')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref656descr', 'ref656')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref656schema', 'ref656')">JSON Schema</button>
     
     </div>
-    <div id="ref655descr" class="ref655 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref656descr" class="ref656 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A block is unexpectedly missing from the store.</p><p><i>Id</i> : store.unexpected_missing_block<br/><i>Category</i> : permanent</p>
-      </div><div id="ref655schema" class="ref655 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref656schema" class="ref656 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected missing block
          A block is unexpectedly missing from the store. */
@@ -26578,13 +26698,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref656descr', 'ref656')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref656schema', 'ref656')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref657descr', 'ref657')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref657schema', 'ref657')">JSON Schema</button>
     
     </div>
-    <div id="ref656descr" class="ref656 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref657descr" class="ref657 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A block's metadata is unexpectedly missing from the store.</p><p><i>Id</i> : store.unexpected_missing_block_metadata<br/><i>Category</i> : permanent</p>
-      </div><div id="ref656schema" class="ref656 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref657schema" class="ref657 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected missing block metadata
          A block's metadata is unexpectedly missing from the store. */
@@ -26610,13 +26730,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref657descr', 'ref657')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref657schema', 'ref657')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref658descr', 'ref658')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref658schema', 'ref658')">JSON Schema</button>
     
     </div>
-    <div id="ref657descr" class="ref657 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref658descr" class="ref658 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>A protocol is unexpectedly missing from the store.</p><p><i>Id</i> : store.unexpected_missing_protocol<br/><i>Category</i> : permanent</p>
-      </div><div id="ref657schema" class="ref657 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref658schema" class="ref658 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected missing protocol
          A protocol is unexpectedly missing from the store. */
@@ -26632,13 +26752,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref658descr', 'ref658')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref658schema', 'ref658')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref659descr', 'ref659')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref659schema', 'ref659')">JSON Schema</button>
     
     </div>
-    <div id="ref658descr" class="ref658 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref659descr" class="ref659 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Try to swap wrong floating store kind</p><p><i>Id</i> : store.wrong_floating_kind_swap<br/><i>Category</i> : temporary</p>
-      </div><div id="ref658schema" class="ref658 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref659schema" class="ref659 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong floating kind swap
          Try to swap wrong floating store kind */
@@ -26653,13 +26773,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref659descr', 'ref659')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref659schema', 'ref659')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref660descr', 'ref660')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref660schema', 'ref660')">JSON Schema</button>
     
     </div>
-    <div id="ref659descr" class="ref659 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref660descr" class="ref660 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Failed to get block's predecessor</p><p><i>Id</i> : store.wrong_predecessor<br/><i>Category</i> : temporary</p>
-      </div><div id="ref659schema" class="ref659 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref660schema" class="ref660 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Wrong predecessor
          Failed to get block's predecessor */
@@ -26684,13 +26804,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref660descr', 'ref660')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref660schema', 'ref660')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref661descr', 'ref661')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref661schema', 'ref661')">JSON Schema</button>
     
     </div>
-    <div id="ref660descr" class="ref660 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref661descr" class="ref661 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An encoded value is not of the expected size.</p><p><i>Id</i> : unexpected_size_of_encoded_value<br/><i>Category</i> : permanent</p>
-      </div><div id="ref660schema" class="ref660 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref661schema" class="ref661 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unexpected size of encoded value
          An encoded value is not of the expected size. */
@@ -26705,13 +26825,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref661descr', 'ref661')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref661schema', 'ref661')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref662descr', 'ref662')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref662schema', 'ref662')">JSON Schema</button>
     
     </div>
-    <div id="ref661descr" class="ref661 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref662descr" class="ref662 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Unix System_info failure</p><p><i>Id</i> : unix.system_info<br/><i>Category</i> : temporary</p>
-      </div><div id="ref661schema" class="ref661 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref662schema" class="ref662 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unix System_info failure
          Unix System_info failure */
@@ -26732,13 +26852,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref662descr', 'ref662')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref662schema', 'ref662')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref663descr', 'ref663')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref663schema', 'ref663')">JSON Schema</button>
     
     </div>
-    <div id="ref662descr" class="ref662 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref663descr" class="ref663 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>An unhandled unix exception</p><p><i>Id</i> : unix_error<br/><i>Category</i> : temporary</p>
-      </div><div id="ref662schema" class="ref662 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref663schema" class="ref663 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Unix error
          An unhandled unix exception */
@@ -26759,13 +26879,13 @@ Miscellaneous
 .. raw:: html
   
   <div class="tab">
-    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref663descr', 'ref663')">Description</button>
-    <button class="tablinks" onclick="showTab(this, 'ref663schema', 'ref663')">JSON Schema</button>
+    <button class="tablinks defaultOpen" onclick="showTab(this, 'ref664descr', 'ref664')">Description</button>
+    <button class="tablinks" onclick="showTab(this, 'ref664schema', 'ref664')">JSON Schema</button>
     
     </div>
-    <div id="ref663descr" class="ref663 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+    <div id="ref664descr" class="ref664 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
       <p>Timeout</p><p><i>Id</i> : utils.Timeout<br/><i>Category</i> : temporary</p>
-      </div><div id="ref663schema" class="ref663 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
+      </div><div id="ref664schema" class="ref664 tabcontent" style="min-height:100px; max-height:200px; overflow:auto" >
     <pre>
     { /* Timeout
          Timeout */

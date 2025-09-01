@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -1028,15 +1028,15 @@ events) this call adds a sink to suddenly start pretty-printing all
 </section>
 <section id="client-and-baker-configuration">
 <h2>Client and baker configuration<a class="headerlink" href="#client-and-baker-configuration" title="Link to this heading">#</a></h2>
-<p>Both <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-{baker,accuser}-*</span></code> can be configured either
+<p>Both <code class="docutils literal notranslate"><span class="pre">octez-client</span></code> and <code class="docutils literal notranslate"><span class="pre">octez-{baker,accuser}</span></code> can be configured either
 using environment variables or using <code class="docutils literal notranslate"><span class="pre">internal-events</span></code> in the client configuration
 file, with the file-descriptor sinks described above.</p>
 <p>There is also one common option <code class="docutils literal notranslate"><span class="pre">--log-requests</span></code> which can be used to trace
 all the interactions with the node (but it does <em>not</em> use the logging
 framework).</p>
 <p>By default, the baker also generates internal logs, which are stored at
-<code class="docutils literal notranslate"><span class="pre">&lt;client-base-dir&gt;/logs/octez-baker-&lt;protocol-name&gt;/*</span></code>. Hence, running two bakers
-(for two different accounts) using the same protocol with the same base
+<code class="docutils literal notranslate"><span class="pre">&lt;client-base-dir&gt;/logs/octez-baker/*</span></code>. Hence, running two bakers
+(for two different accounts) with the same base
 directory is not recommended.</p>
 </section>
 <section id="processing-structured-events">

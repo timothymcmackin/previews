@@ -1,0 +1,1141 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Native Multisig accounts &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=18909b26"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'seoul/native_multisig';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://octez.tezos.com/docs/seoul/native_multisig.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Michelson: the language of Smart Contracts in Tezos" href="michelson.html" />
+    <link rel="prev" title="Accounts and addresses" href="accounts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/routing.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../shell/the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shell/dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../shell/smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shell/rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Seoul Protocol Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="protocol.html">Economic protocol features</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">DUMMY TITLE</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/seoul/native_multisig.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fseoul/native_multisig.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Native Multisig accounts</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enshrined-multisig-signing-scenarios">Enshrined multisig signing scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#octez-cli-commands-and-rpc-endpoints">Octez CLI commands and RPC endpoints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-multisig-account">Setting up a multisig account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-possession">Proof of possession</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signing-operations-with-multisig-accounts">Signing operations with multisig accounts</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="native-multisig-accounts">
+<h1>Native Multisig accounts<a class="headerlink" href="#native-multisig-accounts" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page provides reference documentation for native multisig accounts, available starting with protocol S.
+For step-by-step instructions on how to stake and bake with multisig accounts, see <a class="reference external" href="https://docs.google.com/document/d/15zZviTAFecXTHZXYg0MyQ6J6sKEvwPpywoTrzBCxnfE/edit?usp=drive_link">User stories for staking and baking multisigs</a> .</p>
+</div>
+<p><a class="reference internal" href="accounts.html"><span class="doc">Tezos accounts</span></a> are defined by a pair of secret and
+public keys. Users use their secret keys to sign <a class="reference internal" href="blocks_ops.html"><span class="doc">operations and
+blocks</span></a> (or any other message), and the resulting signature is validated
+against the account’s public key. While this model is simple and
+effective, it presents two main challenges:</p>
+<ul class="simple">
+<li><p>The entire security of the account relies on a single secret key. If
+this key is compromised, an attacker can gain full control of the
+account.</p></li>
+<li><p>The model is not well-suited for organizations or shared accounts,
+as it does not allow for multiple users to manage the account
+collectively.</p></li>
+</ul>
+<p>Both problems are usually solved by using a multisig <strong>contract</strong>, that allows to share its ownership and its associated balance or assets, between several participants. Tezos provides specific support for multisig contracts in the form of a <a class="reference internal" href="../user/multisig.html"><span class="doc">builtin multisig contract</span></a> and even a set of related client commands to interact with it. However, this solution is not applicable in all use cases, and most importantly in the case of collectively staking or baking. This is because in Tezos, a smart contract cannot be a <a class="reference internal" href="glossary.html#def-delegate-seoul"><span class="std std-ref">delegate</span></a>, and not even a <a class="reference internal" href="glossary.html#def-staker-seoul"><span class="std std-ref">staker</span></a>.</p>
+<p>Native multisig <strong>accounts</strong> address the above limitations with a
+cryptographic solution based on BLS multi-signature schemes. BLS
+signatures are particularly well-suited for this purpose due to their
+<em>aggregation</em> properties. Tezos supports BLS signatures
+with <a class="reference internal" href="accounts.html#tz4-accounts-seoul"><span class="std std-ref">tz4 address accounts</span></a>,
+and starting with protocol S, these adopt a
+proof-of-possession (PoP) scheme. As a result, protocols starting with S
+can benefit from faster verification of multiple signatures of the
+same message without breaking compatibility with the existing support
+for BLS (and <code class="docutils literal notranslate"><span class="pre">tz4</span></code> accounts).</p>
+<p>The multisig accounts implementation offers <a class="reference internal" href="#native-multisig-rpc-cli-seoul"><span class="std std-ref">RPCs and client
+commands</span></a> to facilitate the signing of
+operations in a native multisig setup. As a result, the protocol does
+not need to differentiate between a <code class="docutils literal notranslate"><span class="pre">tz4</span></code> address belonging to a single
+user account and one associated with a multisig account.</p>
+<section id="enshrined-multisig-signing-scenarios">
+<h2>Enshrined multisig signing scenarios<a class="headerlink" href="#enshrined-multisig-signing-scenarios" title="Link to this heading">#</a></h2>
+<p>A (native) <strong>multisig account</strong> is a <code class="docutils literal notranslate"><span class="pre">tz4</span></code> address managed collectively by N participants (also called members).</p>
+<p>Multisig accounts support two different multi-signature
+schemes, which provide different scenarios based on the requirements
+for signing an operation:</p>
+<ul class="simple">
+<li><p><strong>N-of-N scenario (signature aggregation)</strong>: All N members must sign
+every operation for it to be valid. In this scenario, users derive a multisig
+account by aggregating the public keys of their existing <code class="docutils literal notranslate"><span class="pre">tz4</span></code>
+addresses without the need for sharing secrets or trusted parties.</p></li>
+<li><p><strong>M-of-N scenario (threshold signature)</strong>: A <em>threshold</em> number of
+participants is required to sign the operation. Here, M denotes the
+minimum number of signatures required to create a valid signature,
+out of the total of N members. In this scenario, users generate a new
+unencrypted secret for the multisig account, which is then
+split into secret shares that need to be distributed among the
+participants along with a public identifier (a natural number between 1 and N).
+This entails that all
+participants must trust the honesty of the party in charge of
+splitting the secret key and distributing the secrets.</p></li>
+</ul>
+<p>The workflow for signing operations is as follows:</p>
+<ul class="simple">
+<li><p>The participants decide <em>a priori</em> which scheme to use: either
+N-of-N or M-of-N.</p></li>
+<li><p>The participants reveal the resulting public key of the
+multisig account on-chain.</p></li>
+<li><p>The participants inject operations signed with the multisig
+accounts’s signature scheme.</p></li>
+</ul>
+<p>For example, a multisig account can stake 10,000 tez following
+almost the same process as if it were carried out by a single
+staker. The only difference is the signing process: signatures (for
+each operation) must first be collected from the required members, and
+then aggregated into a single signature based on the chosen
+scenario. The resulting operation is identical to a staking operation
+signed by a single implicit <code class="docutils literal notranslate"><span class="pre">tz4</span></code> account. For instance, the JSON output
+of a multisig <code class="docutils literal notranslate"><span class="pre">stake</span></code> operation would look like this:</p>
+<figure class="align-default">
+<img alt="../_images/native-multisig-accounts1.png" src="../_images/native-multisig-accounts1.png" />
+</figure>
+<p>(the source and destination are both the address of the multisig account, because staking is implemented by a pseudo-operation consisting in sending a transaction to oneself).</p>
+</section>
+<section id="octez-cli-commands-and-rpc-endpoints">
+<span id="native-multisig-rpc-cli-seoul"></span><h2>Octez CLI commands and RPC endpoints<a class="headerlink" href="#octez-cli-commands-and-rpc-endpoints" title="Link to this heading">#</a></h2>
+<p>Multisig accounts introduce the following Octez client
+commands and/or associated RPC endpoints to facilitate the creation
+of multisig accounts and the aggregation of signatures.</p>
+<section id="setting-up-a-multisig-account">
+<h3>Setting up a multisig account<a class="headerlink" href="#setting-up-a-multisig-account" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 45.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>N-of-N (signature aggregation)</p></th>
+<th class="head"><p>M-of-N (threshold signature)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Client command</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">aggregate</span> <span class="pre">bls</span> <span class="pre">public</span> <span class="pre">keys</span> <span class="pre">'[{&quot;public_key&quot;:&quot;&lt;pk_1&gt;&quot;,&quot;proof&quot;:&quot;&lt;proof_1&gt;&quot;},</span> <span class="pre">...,</span> <span class="pre">{&quot;public_key&quot;:&quot;&lt;pk_N&gt;&quot;,&quot;proof&quot;:&quot;&lt;proof_N&gt;&quot;}]'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">share</span> <span class="pre">bls</span> <span class="pre">secret</span> <span class="pre">key</span> <span class="pre">&lt;sk&gt;</span> <span class="pre">between</span> <span class="pre">&lt;N&gt;</span> <span class="pre">shares</span> <span class="pre">with</span> <span class="pre">threshold</span> <span class="pre">&lt;M&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>RPC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpc</span> <span class="pre">post</span> <span class="pre">/bls/aggregate_public_keys</span> <span class="pre">with</span> <span class="pre">'[{&quot;public_key&quot;:&quot;&lt;pk_1&gt;&quot;,&quot;proof&quot;:&quot;&lt;proof_1&gt;&quot;},</span> <span class="pre">...,</span> <span class="pre">{&quot;public_key&quot;:&quot;&lt;pk_N&gt;&quot;,&quot;proof&quot;:&quot;&lt;proof_N&gt;&quot;}]'</span></code></p></td>
+<td><p>No RPC as it would require sending a secret key.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td><ul class="simple">
+<li><p>Public keys <code class="docutils literal notranslate"><span class="pre">pk_i</span></code> of each participant with their proof-of-possession <code class="docutils literal notranslate"><span class="pre">proof_i</span></code></p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Unencrypted secret key <code class="docutils literal notranslate"><span class="pre">sk</span></code> of the multisig account</p></li>
+<li><p>total number of participants <code class="docutils literal notranslate"><span class="pre">N</span></code></p></li>
+<li><p>threshold number <code class="docutils literal notranslate"><span class="pre">M</span></code> (minimum number of signatures required)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Output</p></td>
+<td><ul class="simple">
+<li><p>Public key of the multisig account <code class="docutils literal notranslate"><span class="pre">public_key</span></code> and its hash <code class="docutils literal notranslate"><span class="pre">public_key_hash</span></code></p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Public key of the multisig account <code class="docutils literal notranslate"><span class="pre">public_key</span></code> and its hash <code class="docutils literal notranslate"><span class="pre">public_key_hash</span></code></p></li>
+<li><p>Proof of possession <code class="docutils literal notranslate"><span class="pre">proof</span></code> required for revealing a multisig account’s public key <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></li>
+<li><p>Secret shares <code class="docutils literal notranslate"><span class="pre">secret_shares</span></code>: a unique identifier <code class="docutils literal notranslate"><span class="pre">id</span></code> in the range [1; <code class="docutils literal notranslate"><span class="pre">N</span></code>] and a secret key <code class="docutils literal notranslate"><span class="pre">secret_key</span></code> for each participant of the multisig</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Example output</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLpk...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;public_key_hash&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz4...&quot;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLpk...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;public_key_hash&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tz4...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;proof&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLsig...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;secret_shares&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;secret_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLsk...&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;secret_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLsk...&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;secret_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BLsk...&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="c1">// ...</span>
+<span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When aggregating public keys, the N-of-N scenario must also check a
+proof-of-possession (PoP) to mitigate rogue key attacks. For creating a PoP,
+the dedicated client command is:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 90.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>N-of-N (signature aggregation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proof_i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">create</span> <span class="pre">bls</span> <span class="pre">proof</span> <span class="pre">for</span> <span class="pre">&lt;pk_i&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>On sharing secrets.</strong> The current implementation of M-of-N Scenario
+relies on <a class="reference external" href="https://en.wikipedia.org/wiki/Shamir%27s_secret_sharing">Shamir’s Secret Sharing</a> algorithm
+to share an unencrypted master secret key between participants –
+i.e. it returns a public key and unencrypted secret keys for each of
+the multisig account participants. We envision implementing support
+for further key-generation mechanisms in future, notably <a class="reference external" href="https://en.wikipedia.org/wiki/Distributed_key_generation">Distributed
+Key Generation</a>, if there
+is sufficient ecosystem interest.</p>
+</section>
+<section id="proof-of-possession">
+<h3>Proof of possession<a class="headerlink" href="#proof-of-possession" title="Link to this heading">#</a></h3>
+<p>For revealing <code class="docutils literal notranslate"><span class="pre">tz4</span></code> accounts a proof of possession is required.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 45.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>N-of-N (signature aggregation)</p></th>
+<th class="head"><p>M-of-N (threshold signature)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Client command</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">aggregate</span> <span class="pre">bls</span> <span class="pre">proofs</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;proofs&quot;:</span> <span class="pre">[&quot;&lt;proof_1_pk_multisig&gt;&quot;,</span> <span class="pre">...,</span> <span class="pre">&quot;&lt;proof_N_pk_multisig&gt;&quot;]}'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proof</span></code> is returned by the <code class="docutils literal notranslate"><span class="pre">share</span> <span class="pre">bls</span> <span class="pre">secret</span> <span class="pre">key</span></code> client command.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RPC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpc</span> <span class="pre">post</span> <span class="pre">/bls/aggregate_proofs</span> <span class="pre">with</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;proofs&quot;:</span> <span class="pre">[&quot;&lt;proof_1_pk_multisig&gt;&quot;,</span> <span class="pre">...,</span> <span class="pre">&quot;&lt;proof_N_pk_multisig&gt;&quot;]}'</span></code></p></td>
+<td><p>No RPC as it would require sending a secret key.</p></td>
+</tr>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td><ul class="simple">
+<li><p>Public key of the multisig account <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></li>
+<li><p>Proof of possession <code class="docutils literal notranslate"><span class="pre">proof_i_pk_multisig</span></code> of each multisig participant created for a multisig account’s public key <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></li>
+</ul>
+</td>
+<td><p><em>N/A</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Output</p></td>
+<td><p>Proof of possession <code class="docutils literal notranslate"><span class="pre">proof</span></code> required for revealing a multisig account’s public key <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></td>
+<td><p><em>N/A</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Example output</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BLsig...</span></code></p></td>
+<td><p><em>N/A</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For N-of-N Scenario, it requires to create <code class="docutils literal notranslate"><span class="pre">proof_i_pk_multisig</span></code> for
+a multisig account’s public key <code class="docutils literal notranslate"><span class="pre">pk_multisig</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 90.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>N-of-N (signature aggregation)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proof_i_pk_multisig</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">create</span> <span class="pre">bls</span> <span class="pre">proof</span> <span class="pre">for</span> <span class="pre">&lt;pk_i&gt;</span> <span class="pre">--override-public-key</span> <span class="pre">&lt;pk_multisig&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="signing-operations-with-multisig-accounts">
+<h3>Signing operations with multisig accounts<a class="headerlink" href="#signing-operations-with-multisig-accounts" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 45.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>N-of-N (signature aggregation)</p></th>
+<th class="head"><p>M-of-N (threshold signature)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Client command</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">aggregate</span> <span class="pre">bls</span> <span class="pre">signatures</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;message&quot;:</span> <span class="pre">&quot;&lt;msg&gt;&quot;,</span> <span class="pre">&quot;signature_shares&quot;:</span> <span class="pre">[&quot;&lt;signature_1&gt;&quot;,</span> <span class="pre">...,</span> <span class="pre">&quot;&lt;signature_N&gt;&quot;]}'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">octez-client</span> <span class="pre">threshold</span> <span class="pre">bls</span> <span class="pre">signatures</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;message&quot;:</span> <span class="pre">&quot;&lt;msg&gt;&quot;,</span> <span class="pre">&quot;signature_shares&quot;:</span> <span class="pre">[{&quot;id&quot;:1,&quot;signature&quot;:&quot;&lt;signature_1&gt;&quot;},</span> <span class="pre">{&quot;id&quot;:5,&quot;signature&quot;:&quot;&lt;signature_5&gt;&quot;},...]}'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>RPC</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpc</span> <span class="pre">post</span> <span class="pre">/bls/aggregate_signatures</span> <span class="pre">with</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;message&quot;:</span> <span class="pre">&quot;&lt;msg&gt;&quot;,</span> <span class="pre">&quot;signature_shares&quot;:</span> <span class="pre">[&quot;&lt;signature_1&gt;&quot;,</span> <span class="pre">...,</span> <span class="pre">&quot;&lt;signature_N&gt;&quot;]}'</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rpc</span> <span class="pre">post</span> <span class="pre">/bls/threshold_signatures</span> <span class="pre">with</span> <span class="pre">'{&quot;public_key&quot;:</span> <span class="pre">&quot;&lt;pk_multisig&gt;&quot;,</span> <span class="pre">&quot;message&quot;:</span> <span class="pre">&quot;&lt;msg&gt;&quot;,</span> <span class="pre">&quot;signature_shares&quot;:</span> <span class="pre">[{&quot;id&quot;:1,&quot;signature&quot;:&quot;&lt;signature_1&gt;&quot;},</span> <span class="pre">{&quot;id&quot;:5,&quot;signature&quot;:&quot;&lt;signature_5&gt;&quot;},...]}'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Parameters</p></td>
+<td><ul class="simple">
+<li><p>Public key of the multisig account <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></li>
+<li><p>Message <code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+<li><p>Signatures <code class="docutils literal notranslate"><span class="pre">signature_i</span></code> for <code class="docutils literal notranslate"><span class="pre">message</span></code> from each multisig participant</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Public key of the multisig account <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></li>
+<li><p>Message <code class="docutils literal notranslate"><span class="pre">message</span></code></p></li>
+<li><p>Signatures <code class="docutils literal notranslate"><span class="pre">signature_i</span></code> from threshold number of multisig participants with their identifier.</p></li>
+<li><p>Signature <code class="docutils literal notranslate"><span class="pre">signature_i</span></code> for <code class="docutils literal notranslate"><span class="pre">message</span></code> is produced by a multisig participant <code class="docutils literal notranslate"><span class="pre">id_i</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Output</p></td>
+<td><p>Valid aggregated signature of a message <code class="docutils literal notranslate"><span class="pre">message</span></code> under a multisig account’s public key <code class="docutils literal notranslate"><span class="pre">public_key</span></code></p></td>
+<td><p><em>idem</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Example output</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">BLsig...</span></code></p></td>
+<td><p><em>idem</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In both scenarios, multisig participants may use the existing <code class="docutils literal notranslate"><span class="pre">sign</span> <span class="pre">bytes</span></code> client
+command to produce their own signature <code class="docutils literal notranslate"><span class="pre">signature_i</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client sign bytes &#39;&lt;unsigned_operation&gt;&#39; for &lt;pk_i&gt;
+</pre></div>
+</div>
+<p>Signature shares can also be verified using the existing <code class="docutils literal notranslate"><span class="pre">check</span>
+<span class="pre">bytes</span></code> client command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-client check that bytes &#39;&lt;unsigned_operation&gt;&#39; were signed by &lt;pk_i&gt; to produce &lt;signature_i&gt;
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="accounts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Accounts and addresses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="michelson.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Michelson: the language of Smart Contracts in Tezos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enshrined-multisig-signing-scenarios">Enshrined multisig signing scenarios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#octez-cli-commands-and-rpc-endpoints">Octez CLI commands and RPC endpoints</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-multisig-account">Setting up a multisig account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-possession">Proof of possession</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#signing-operations-with-multisig-accounts">Signing operations with multisig accounts</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

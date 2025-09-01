@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -821,12 +821,15 @@ using <code class="docutils literal notranslate"><span class="pre">apt</span></c
 <li><p><code class="docutils literal notranslate"><span class="pre">ubuntu/jammy</span></code></p></li>
 </ul>
 <p>both on <code class="docutils literal notranslate"><span class="pre">amd64</span></code> and <code class="docutils literal notranslate"><span class="pre">arm64</span></code> architectures.</p>
-<p>In order to add the Tezos package repository to your machine, do:</p>
+<p>In order to set the Tezos package repository to your machine, do:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export distribution=debian
 export release=bookworm
 </pre></div>
 </div>
-<p>and run:</p>
+<p>We also maintain a separate repository for release candidates. To set
+the last release candidate simply prepend <code class="docutils literal notranslate"><span class="pre">RC/</span></code> to the distribution name
+as in <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">distribution=RC/debian</span></code>.</p>
+<p>Now add the Tezos package repository:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2">/octez.asc&quot;</span><span class="w"> </span><span class="p">|</span>
 <span class="w">    </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/octez.gpg
 <span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [signed-by=/etc/apt/keyrings/octez.gpg] https://packages.nomadic-labs.com/</span><span class="nv">$distribution</span><span class="s2"> </span><span class="nv">$release</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span>
@@ -834,9 +837,6 @@ export release=bookworm
 <span class="w">  </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </pre></div>
 </div>
-<p>We also maintain a separate repository for release candidates. To install
-the last release candidate simply prepend <code class="docutils literal notranslate"><span class="pre">RC/</span></code> to the distribution name
-as in <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">distribution=RC/debian</span></code></p>
 <p>Then, to install the binaries, run the following command to install the octez-baker and all its dependencies:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt install octez-baker
 </pre></div>
@@ -1212,7 +1212,7 @@ command. If no timeout occurs, you may omit this part.</p>
 </pre></div>
 </div>
 <p>You can be more specific and only <code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">octez-node</span></code>, <code class="docutils literal notranslate"><span class="pre">opam</span>
-<span class="pre">install</span> <span class="pre">octez-baker-alpha</span></code>, …</p>
+<span class="pre">install</span> <span class="pre">octez-baker</span></code>, …</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">octez-client</span></code> and <code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span>

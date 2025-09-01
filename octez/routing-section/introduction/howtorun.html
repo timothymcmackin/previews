@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -868,7 +868,7 @@ See details and consequences in <a class="reference internal" href="../active/st
 The baker runs on behalf of one or more specified accounts or, if none is specified, on behalf of
 all accounts whose secret keys are known.</p>
 <p>To learn more about how the Octez baker works see <a class="reference internal" href="../shell/baker.html"><span class="doc">The Octez Baker</span></a>.
-Also, a complete manual page of the baker executable is available <a class="reference internal" href="../active/cli-commands.html#baker-manual"><span class="std std-ref">here</span></a>.</p>
+Also, a complete manual page of the baker executable is available <a class="reference internal" href="../shell/cli-commands.html#baker-manual"><span class="std std-ref">here</span></a>.</p>
 <p>During its run, the baker bakes blocks (by selecting transactions from
 the mempool and arranging them in a new block) and emits consensus
 operations like attestations. It does so whenever the associated
@@ -885,10 +885,15 @@ Therefore, first <a class="reference internal" href="../shell/dal_run.html"><spa
 </div>
 <p>Once the DAL node runs, we can launch the baker daemon pointing to the standard node directory and
 baking for user “mybaker”:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker-&lt;PROTO_HASH&gt; run with local node ~/.tezos-node mybaker --liquidity-baking-toggle-vote pass
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-baker run with local node ~/.tezos-node mybaker --liquidity-baking-toggle-vote pass
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">PROTO_HASH</span></code> is the short hash of the current protocol of the network you want to bake on.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previously, you had to run a specific baker for a given protocol, such as <code class="docutils literal notranslate"><span class="pre">octez-baker-&lt;PROTO_HASH&gt;</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">PROTO_HASH</span></code> is the short hash of the current protocol of the network you want to bake on.
+These protocol-specific bakers are still available for now, but will be deprecated.</p>
+</div>
 <p>Note that:</p>
 <ul class="simple">
 <li><p>the baker needs direct access to the node data directory for performance reasons (to reduce the number of RPC calls to the node).</p></li>
@@ -916,7 +921,8 @@ octez-baker-PsRiotum run with local node $HOME/.tezos-node mybaker --liquidity-b
 If you are worried about the availability of your node when it is its turn to bake/attest, there are other ways than duplicating your credentials (see the discussion in section <a class="reference internal" href="#inactive-delegates"><span class="std std-ref">Inactive delegates</span></a>).
 <strong>Never</strong> use the same account on two daemons.</p>
 </div>
-<p>However, it is safe (and actually necessary) to temporarily run two bakers just before a protocol activation: the baker for the protocol being replaced and the baker for the protocol to be activated.</p>
+<p>However, if you are using the deprecated protocol-suffixed executables, it is safe (and actually necessary) to temporarily run two bakers just before a protocol activation: the baker for the protocol being replaced and the baker for the protocol to be activated.
+This is no longer necessary with the unique <code class="docutils literal notranslate"><span class="pre">octez-baker</span></code> executable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is possible to bake and attest using a dedicated <a class="reference internal" href="../active/proof_of_stake.html#consensus-key"><span class="std std-ref">Consensus key</span></a> instead of the delegate’s key.</p>
@@ -953,11 +959,17 @@ same level and round (more details <a class="reference internal" href="../active
 <p>Upon finding such irregularity, it will emit respectively a
 double-baking, double-pre-attesting, or double-attesting denunciation operation, which will
 cause the offender to be <a class="reference internal" href="../active/consensus.html#slashing"><span class="std std-ref">slashed</span></a>, that is, to lose part of its security deposit.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-accuser-alpha run
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-accuser run
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previously, you had to run a specific accuser for a given protocol, such as <code class="docutils literal notranslate"><span class="pre">octez-accuser-&lt;PROTO_HASH&gt;</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">PROTO_HASH</span></code> is the short hash of the current protocol of the network you want to bake on.
+These protocol-specific accusers are still available for now, but will be deprecated.</p>
+</div>
 <p>The accuser uses the same format of configuration file as the client (see <a class="reference internal" href="../user/client-configuration.html#client-conf-file"><span class="std std-ref">Client configuration file</span></a>).
-A complete manual page of the accuser is available <a class="reference internal" href="../active/cli-commands.html#accuser-manual"><span class="std std-ref">here</span></a>.</p>
+A complete manual page of the accuser is available <a class="reference internal" href="../shell/cli-commands.html#accuser-manual"><span class="std std-ref">here</span></a>.</p>
 </section>
 <section id="dal-node">
 <h3>DAL node<a class="headerlink" href="#dal-node" title="Link to this heading">#</a></h3>
@@ -971,13 +983,13 @@ A complete manual page of the accuser is available <a class="reference internal"
 </pre></div>
 </div>
 <p>If your container is running, its name will appear in the last column.
-For instance, if the name is <code class="docutils literal notranslate"><span class="pre">mainnet_baker-PsQuebec</span></code>, you can
+For instance, if the name is <code class="docutils literal notranslate"><span class="pre">mainnet_baker</span></code>, you can
 view recent logs with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker logs mainnet_baker-PsQuebec
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker logs mainnet_baker
 </pre></div>
 </div>
 <p>If you want to keep watching logs, use <code class="docutils literal notranslate"><span class="pre">-f</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker logs mainnet_baker-PsQuebec -f
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker logs mainnet_baker -f
 </pre></div>
 </div>
 <p>This allows you to know if you baked.

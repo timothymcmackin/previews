@@ -1,0 +1,3556 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Command Line Interface &#8212; Octez &amp; Protocol products documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=6c3b92c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=18909b26"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-KT3Z3X4Y82"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-KT3Z3X4Y82');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'shell/cli-commands';</script>
+    <script src="../_static/js/custom.js?v=e7f469e6"></script>
+    <link rel="canonical" href="https://octez.tezos.com/docs/shell/cli-commands.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Shell RPCs - Reference" href="rpc.html" />
+    <link rel="prev" title="P2P message format" href="p2p_api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Octez & Protocol products documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Octez & Protocol products documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/" title="Up to Tezos docs" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/tezosdocs.png" class="icon-link-image" alt="Up to Tezos docs"/></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://docs.tezos.com/overview/resources/#documentation-map" title="Documentation map" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/map.png" class="icon-link-image" alt="Documentation map"/></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/tezos.html">Octez &amp; Protocol overview</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction/howtoget.html">Installing Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/howtobuild.html">Building Octez from source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/cosign-verify.html">Verifying Octez Docker Images with Cosign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction/get_troubleshooting.html">Installation troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtouse.html">Getting started with Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/howtorun.html">Running Octez</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/services.html">Setting up Octez Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/serokell.html">Migrating from Serokell’s to Nomadic Labs’ packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/versioning.html">Octez &amp; Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/breaking_changes.html">Breaking changes</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez User manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-client.html">Setting up the client</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/client-configuration.html">Client Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/key-management.html">Key Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/sandbox.html">Sandboxed mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/mockup.html">Mockup mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/proxy.html">Proxy mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/light.html">Light mode</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user/setup-node.html">Setting up the node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user/node-configuration.html">Node Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/routing.html">Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/multinetwork.html">Connecting to a Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/history_modes.html">History modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/snapshots.html">Snapshots</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user/node-monitoring.html">Monitoring an Octez Node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/openmetrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user/teztale.html">Monitoring the consensus protocol</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/multisig.html">Built-in multisig contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/fa12.html">FA1.2 support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/logging.html">Logging features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/exits.html">Exit codes and signals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Octez Reference manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="the_big_picture.html">Octez Software Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="shell.html">The Octez Shell</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">The validation subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prevalidation.html">The Prevalidator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">The storage layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync.html">Synchronisation heuristic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="p2p.html">The peer-to-peer layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protocol_environment.html">Protocol Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="micheline.html">Micheline</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="baker.html">The Octez Baker</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dal.html">Data Availability Layer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="dal_overview.html">DAL overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_node.html">The DAL node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_run.html">Running a DAL attester node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dal_bakers.html">Bakers &amp; the DAL</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="smart_rollup_node.html">Smart rollup node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rollup_metrics.html">Supported Open Metrics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="p2p_api.html">P2P message format</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">Shell RPCs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Protocol Reference Manuals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../active/index.html">Rio Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../active/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../active/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../active/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../active/rpc.html">Rio RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../seoul/index.html">Seoul Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../seoul/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../seoul/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seoul/rpc.html">Seoul RPCs - Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../alpha/index.html">Alpha Dev Protocol Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../alpha/protocol.html">Economic protocol features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/protocol_overview.html">Overview of the economic protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/proof_of_stake.html">Proof-of-stake</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/randomness_generation.html">Randomness generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/baking_power.html">Baking Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/consensus.html">The consensus algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/voting.html">The Amendment (and Voting) Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/accounts.html">Accounts and addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/native_multisig.html">Native Multisig accounts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson.html">Michelson: the language of Smart Contracts in Tezos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/views.html">On-chain Views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/timelock.html">Time-lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/sapling.html">Sapling support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/liquidity_baking.html">Liquidity Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/global_constants.html">Global Constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/michelson_anti_patterns.html">Michelson Anti-Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/token_management.html">Token transfers and balance updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/mempool.html">Mempool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/smart_rollups.html">Smart Optimistic Rollups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/plugins.html">Protocol Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/event.html">Contract events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/blocks_ops.html">Blocks and Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/validation.html">Validation and Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/tickets.html">Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_issuance.html">Adaptive Issuance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/staking.html">Staking mechanism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/adaptive_slashing.html">Adaptive Slashing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../alpha/dal_support.html">DAL integration</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/cli-commands.html">Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../alpha/rpc.html">DUMMY TITLE</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tezos developer Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developer/rpc.html">JSON/RPC interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/errors.html">RPC Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/openapi.html">RPCs - OpenAPI reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-18.html">Version 18.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-17.html">Version 17.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-16.html">Version 16.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-15.html">Version 15.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-14.html">Version 14.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-13.html">Version 13.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-12.html">Version 12.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-11.html">Version 11.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-10.html">Version 10.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-9.html">Version 9.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-8.html">Version 8.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-7.html">Version 7.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/january-2020.html">Mainnet January 2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/december-2019.html">Mainnet December 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/october-2019.html">Mainnet-Staging October 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/september-2019.html">Mainnet September 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/may-2019.html">Mainnet May 2019</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases/april-2019.html">Mainnet April 2019</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in protocol versions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../protocols/naming.html">Protocol versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/022_rio.html">Protocol Rio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/023_seoul.html">Protocol Seoul</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protocols/alpha.html">Protocol Alpha</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../protocols/history.html">Older Protocols</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/021_quebec.html">Protocol Quebec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/020_paris.html">Protocol Paris</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/018_oxford.html">Protocol Oxford</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/017_nairobi.html">Protocol Nairobi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/016_mumbai.html">Protocol Mumbai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/015_lima.html">Protocol Lima</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/014_kathmandu.html">Protocol Kathmandu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/013_jakarta.html">Protocol Jakarta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/012_ithaca.html">Protocol Ithaca</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/011_hangzhou.html">Protocol Hangzhou</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/010_granada.html">Protocol Granada</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/009_florence.html">Protocol Florence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/008_edo.html">Protocol Edo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/007_delphi.html">Protocol Delphi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/006_carthage.html">Protocol Carthage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/005_babylon.html">Protocol Babylon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/004_Pt24m4xi.html">Protocol Athens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protocols/003_PsddFKi3.html">Protocol 003_PsddFKi3</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/contributing_index.html">How to contribute</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/contributing.html">How to contribute to Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contributing-adding-a-new-opam-dependency.html">How to add or update opam dependencies</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merge_team.html">Octez Merge Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/guidelines.html">Documentation and coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/repository_scope.html">Scope of the Octez repository</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/programming.html">Programming tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/gadt.html">Generalized Algebraic Data Types (GADTs)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/error_monad.html">The Error Monad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p1_result.html">Part 1: <code class="docutils literal notranslate"><span class="pre">result</span></code>, Lwt, and Lwt-<code class="docutils literal notranslate"><span class="pre">result</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p2_tzresult.html">Part 2: <code class="docutils literal notranslate"><span class="pre">tzresult</span></code> and Lwt-<code class="docutils literal notranslate"><span class="pre">tzresult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p3_advanced.html">Part 3: Advanced topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/error_monad_p4_appendices.html">Part 4: Appendices</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/clic.html">The <code class="docutils literal notranslate"><span class="pre">clic</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/data_encoding.html">The <code class="docutils literal notranslate"><span class="pre">data_encoding</span></code> library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/event_logging_framework.html">Using The Event Logging Framework</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/octez_architecture.html">Octez Architecture Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/baker.html">Baker application’s architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_architecture.html">RPC handling architecture</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/testing_index.html">Testing in Octez</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/testing.html">Overview of Testing in Octez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/ppx_expect.html">Ppx_expect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/tezt.html">Tezt: OCaml Tezos Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/long-tezts.html">Tezt: Long Tests and Performance Regression Test Framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/alcotezt.html">Alcotezt: An Alcotest Compatibility Wrapper for Tezt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/unit_testing_legacy_code.html">Making legacy code unit-testable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/proposal_testing.html">How to Test a Protocol Proposal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/maintaining.html">Maintaining</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/entering_alpha.html">How to start reading protocol Alpha</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/michelson_instructions.html">Adding a new instruction to Michelson language</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/protocol_playbook.html">Protocol Proposals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/protocol_release_checklist.html">Protocol Release Checklist</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/howto-freeze-protocols.html">How to Freeze Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/protocol_environment_upgrade.html">Adding a new protocol environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/rpc_howto.html">RPC How-To</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Documenting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/tools.html">Platform Development tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/profiling.html">Profiling the Octez node</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_heap.html">Memory profiling the OCaml heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_valgrind.html">Memory profiling the C heap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/profiler_perf.html">Performance profiling</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../developer/profiler_module.html">The Profiler module</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developer/ppx_profiler.html">Profiler PPX</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../developer/snoop.html">Benchmarking with Snoop</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_arch.html">Architecture of <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_tutorial.html">Snoop usage tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_example.html">In-depth usage example: more control over your benchmark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/tezos_micheline_rewriting.html">Rewriting Micheline with <code class="docutils literal notranslate"><span class="pre">tezos-micheline-rewriting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/snoop_interpreter.html">Snoop and the Michelson Interpreter</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/time_measurement_ppx.html">Time measurement PPX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/python_environment.html">Python Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/pre_commit_hook.html">Pre-Commit Hook</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/encodings.html">Encodings</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developer/merkle-proof-encoding-formats.html">Merkle Proof Encoding Formats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree32.html">V1 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v1-tree2.html">V1 for Tree2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree32.html">V2 for Tree32</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/merkle-proof-formats/v2-tree2.html">V2 for Tree2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api-inline.html">OCaml APIs - Reference</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Grafazos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../grafazos-doc/index.html">Grafazos: Grafana dashboards for Octez node monitoring.</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-gitlab"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-gitlab"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/blob/master/docs/shell/cli-commands.rst" target="_blank"
+   class="btn btn-sm btn-source-file-button dropdown-item"
+   title="Show source"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">Show source</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://gitlab.com/tezos/tezos/-/issues/new?issue[title]=Issue%20on%20page%20%2Fshell/cli-commands.html&issue[description]=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Command Line Interface</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-client-manual">Admin-client manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signer-manual">Signer manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-manual">Node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-manual">DAL node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollup-node-manual">Smart rollup node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-manual">Baker manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuser-manual">Accuser manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-tool-manual">Benchmark tool manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codec-manual">Codec manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-dependent-tools">Protocol-dependent tools</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="command-line-interface">
+<h1>Command Line Interface<a class="headerlink" href="#command-line-interface" title="Link to this heading">#</a></h1>
+<p>This document is a prettier output of the documentation produced by
+the command <code class="docutils literal notranslate"><span class="pre">man</span></code> of the different Octez binaries. You can
+obtain similar pages using shell commands such as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-admin-client man -verbosity 3
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The rest of this page documents the protocol-independent tools, whose features do not vary with each protocol.
+The protocol-dependent tools are documented <a class="reference internal" href="../active/cli-commands.html"><span class="doc">here</span></a>.</p>
+</div>
+<section id="admin-client-manual">
+<span id="id1"></span><h2>Admin-client manual<a class="headerlink" href="#admin-client-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the command line tool <code class="docutils literal notranslate"><span class="pre">octez-admin-client</span></code>. See <a class="reference internal" href="../introduction/howtouse.html#octez-admin-client"><span class="std std-ref">Admin Client</span></a> for a general description of this tool.</p>
+<style>.cmdline { font-family: monospace }.cmddoc { white-space: pre-wrap ; font-family: monospace; line-height: 170%; margin: 0 0 20px 0 }.cmdline { background: #343131; padding: 2px 8px; border-radius:10px; color: white; margin: 5px; }.cmdline+.cmddoc { margin: -5px 5px 0 20px; padding: 5px }.opt,.arg { background: #343131; font-weight: bold;  padding: 2px 4px; border-radius:5px; }.kwd { font-weight: bold; } .opt { color:#CF0; background: #460; } .arg { color: #CEF; background: #369; }</style>
+<h3>Usage</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-admin-client [<span class='opt'>global options</span>] <span class='kwd'>command</span> [<span class='opt'>command options</span>]</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-admin-client <span class='opt'>--help</span> (for global options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-admin-client [<span class='opt'>global options</span>] <span class='kwd'>command</span> <span class='opt'>--help</span> (for command options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-admin-client <span class='opt'>--version</span> (for version information)</div>
+</li>
+</ul>
+
+
+<h3>To browse the documentation</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-admin-client [<span class='opt'>global options</span>] <span class='kwd'>man</span> (for a list of commands)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-admin-client [<span class='opt'>global options</span>] <span class='kwd'>man</span> <span class='opt'>-v 3</span> (for the full manual)</div>
+</li>
+</ul>
+
+
+<h3>Global options (must come before the command)</h3>
+
+<div class='cmddoc'><span class='opt'>-d --base-dir &lt;path&gt;</span>: client
+                      data directory (absent: TEZOS_CLIENT_DIR env)
+                        The directory where the Tezos client will store all
+                      its data.
+                        If absent, its value is the value of the
+                      TEZOS_CLIENT_DIR
+                        environment variable. If TEZOS_CLIENT_DIR is itself
+                      not specified,
+                        defaults to $HOME/.tezos-client
+                      
+<span class='opt'>-n --no-base-dir-warnings</span>: silence warnings about
+  client data directory
+<span class='opt'>-c --config-file &lt;path&gt;</span>: configuration file
+<span class='opt'>-t --timings</span>: show RPC request times
+<span class='opt'>--chain &lt;hash|tag&gt;</span>: chain on which to apply
+  contextual commands (commands dependent on the context associated with the
+  specified chain). Possible tags are 'main' and 'test'.
+  Defaults to `main`.
+<span class='opt'>-b --block &lt;hash|level|tag&gt;</span>: block on which to apply
+  contextual commands (commands dependent on the context associated with the
+  specified block). Possible tags include 'head' and 'genesis' +/- an
+  optional offset (e.g. "octez-client -b head-1 get timestamp"). Note that
+  block queried must exist in node's storage.
+  Defaults to `head`.
+<span class='opt'>-w --wait &lt;none|&lt;int&gt;&gt;</span>: how many confirmation blocks
+  are needed before an operation is considered included
+<span class='opt'>-p --protocol &lt;hash&gt;</span>: use commands of a specific
+  protocol
+<span class='opt'>-l --log-requests</span>: log all requests to the node
+<span class='opt'>--better-errors</span>: Error reporting is more detailed.
+  Can be used if a call to an RPC fails or if you don't know the input
+  accepted by the RPC. It may happen that the RPC calls take more time
+  however.
+<span class='opt'>-A --addr &lt;IP addr|host&gt;</span>: [DEPRECATED: use
+  --endpoint instead] IP address of the node
+<span class='opt'>-P --port &lt;number&gt;</span>: [DEPRECATED: use --endpoint
+  instead] RPC port of the node
+<span class='opt'>-S --tls</span>: [DEPRECATED: use --endpoint instead] use
+  TLS to connect to node.
+<span class='opt'>-m --media-type &lt;json, binary, any or default&gt;</span>: Sets
+  the "media-type" value for the "accept" header for RPC requests to the
+  node. The media accept header indicates to the node which format of data
+  serialisation is supported. Use the value "json" for serialisation to the
+  JSON format.
+            Use the value "binary" for faster but less human-readable binary
+  serialisation format.
+<span class='opt'>-E --endpoint &lt;uri&gt;</span>: HTTP(S) endpoint of the node
+  RPC interface; e.g. 'http://localhost:8732'
+<span class='opt'>-s --sources &lt;path&gt;</span>: path to JSON file containing
+  sources for --mode light. Example file content: {"min_agreement": 1.0,
+  "uris": ["http://localhost:8732", "https://localhost:8733"]}
+<span class='opt'>-R --remote-signer &lt;uri&gt;</span>: URI of the remote signer
+<span class='opt'>-f --password-filename &lt;filename&gt;</span>: path to the
+  password filename
+<span class='opt'>-M --mode &lt;client|light|mockup|proxy&gt;</span>: how to
+  interact with the node
+  Defaults to `client`.
+<span class='opt'>--log-coloring &lt;true|false&gt;</span>: Enable or disable light
+  coloring in default stdout logs. Coloring is enabled by default.</div>
+
+
+<h3>Access the documentation</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
+
+<div class='cmddoc'>Print documentation of commands.
+                    Add search keywords to narrow list.
+                    Will display only the commands by default, unless
+                    [-verbosity &lt;2|3&gt;] is passed or the list of matching
+                    commands if less than 3.
+<span class='arg'>keyword</span>: keyword to search for
+  If several are given they must all appear in the command.
+<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>: level of details
+  0. Only shows command mnemonics, without documentation.
+  1. Shows command mnemonics with short descriptions.
+  2. Show commands and arguments with short descriptions
+  3. Show everything
+<span class='opt'>--format &lt;plain|colors|html&gt;</span>: the manual's output
+  format
+  Defaults to `plain`.</div>
+</li>
+</ul>
+
+
+<h3>Commands for editing and viewing the client's config file</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>show</span></div>
+
+<div class='cmddoc'>Show the current config (config file content + command
+                    line arguments) or the mockup config files if `--mode
+                    mockup` is specified.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>reset</span></div>
+
+<div class='cmddoc'>Reset the config file to the factory defaults.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>update</span></div>
+
+<div class='cmddoc'>Update the config based on the current cli values.
+                    Loads the current configuration (default or as specified
+                    with `-config-file`), applies alterations from other
+                    command line arguments (such as the node's address,
+                    etc.), and overwrites the updated configuration file.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>init</span> [<span class='opt'>-o --output &lt;path&gt;</span>] [<span class='opt'>--bootstrap-accounts &lt;path&gt;</span>] [<span class='opt'>--protocol-constants &lt;path&gt;</span>]</div>
+
+<div class='cmddoc'>Create config file(s) based on the current CLI values.
+                    If the `-file` option is not passed, this will initialize
+                    the default config file, based on default parameters,
+                    altered by other command line options (such as the node's
+                    address, etc.).
+                    Otherwise, it will create a new config file, based on the
+                    default parameters (or the the ones specified with
+                    `-config-file`), altered by other command line options.
+                    
+                    If `-mode mockup` is specified, this will initialize the
+                    mockup's default files instead of the config file. Use
+                    `-bootstrap-accounts` and `-protocol-constants` to
+                    specify custom paths.
+                    
+                    The command will always fail if file(s) to create exist
+                    already
+<span class='opt'>-o --output &lt;path&gt;</span>: path at which to create the
+  file
+  Defaults to `$HOME/.tezos-client/config`.
+<span class='opt'>--bootstrap-accounts &lt;path&gt;</span>: path at which to create
+  the file
+  Defaults to `$HOME/.tezos-client/bootstrap-accounts.json`.
+<span class='opt'>--protocol-constants &lt;path&gt;</span>: path at which to create
+  the file
+  Defaults to `$HOME/.tezos-client/protocol-constants.json`.</div>
+</li>
+</ul>
+
+
+<h3>Commands to report the node's status</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>heads</span> [<span class='opt'>-o --output &lt;path&gt;</span>]</div>
+
+<div class='cmddoc'>The last heads that have been considered by the node.
+<span class='opt'>-o --output &lt;path&gt;</span>: write to a file
+  Defaults to `-`.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>rejected</span> <span class='kwd'>blocks</span> [<span class='opt'>-o --output &lt;path&gt;</span>]</div>
+
+<div class='cmddoc'>The blocks that have been marked invalid by the node.
+<span class='opt'>-o --output &lt;path&gt;</span>: write to a file
+  Defaults to `-`.</div>
+</li>
+</ul>
+
+
+<h3>Commands to perform privileged operations on the node</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unmark</span> <span class='kwd'>invalid</span> [<span class='arg'>block</span>...]</div>
+
+<div class='cmddoc'>Make the node forget its decision of rejecting blocks.
+<span class='arg'>block</span>: blocks to remove from invalid list</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unmark</span> <span class='kwd'>all</span> <span class='kwd'>invalid</span> <span class='kwd'>blocks</span></div>
+
+<div class='cmddoc'>Make the node forget every decision of rejecting blocks.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>current</span> <span class='kwd'>checkpoint</span></div>
+
+<div class='cmddoc'>Retrieve the current checkpoint and display it in a
+                    format compatible with node argument `--checkpoint`.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>operation</span> <span class='arg'>operation</span></div>
+
+<div class='cmddoc'>Remove an operation from the mempool if present,
+                    reverting its effect if it was applied. Add it to the set
+                    of banned operations to prevent it from being
+                    fetched/processed/injected in the future. Note: If the
+                    baker has already received the operation, then it's
+                    necessary to restart it to flush the operation from it.
+<span class='arg'>operation</span>: hash of operation to ban</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>operation</span> <span class='arg'>operation</span></div>
+
+<div class='cmddoc'>Remove an operation from the set of banned operations
+                    (nothing happens if it was not banned).
+<span class='arg'>operation</span>: hash of operation to unban</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>all</span> <span class='kwd'>operations</span></div>
+
+<div class='cmddoc'>Clear the set of banned operations.</div>
+</li>
+</ul>
+
+
+<h3>Commands for monitoring and controlling p2p-layer state</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>p2p</span> <span class='kwd'>stat</span> [<span class='opt'>--no-color</span>]</div>
+
+<div class='cmddoc'>show global network status
+<span class='opt'>--no-color</span>: Don't colorize the output</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>connect</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Connect to a new point.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>kick</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Kick a peer.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Add an IP address and all its ports to the blacklist and
+                    kicks it. Remove the address from the whitelist if it was
+                    previously in it.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Remove an IP address and all its ports from the
+                    blacklist.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>trust</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Add an IP address to the whitelist. Remove the address
+                    from the blacklist if it was previously in it.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>untrust</span> <span class='kwd'>address</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Removes an IP address from the whitelist.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>is</span> <span class='kwd'>address</span> <span class='kwd'>banned</span> <span class='arg'>address</span></div>
+
+<div class='cmddoc'>Check if an IP address is banned.
+<span class='arg'>address</span>: &lt;IPv4&gt;:PORT or &lt;IPV6&gt;:PORT address (PORT
+  defaults to 9732).</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>is</span> <span class='kwd'>peer</span> <span class='kwd'>banned</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Check if a peer ID is banned.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>ban</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Add a peer ID to the blacklist and kicks it. Remove the
+                    peer ID from the blacklist if was previously in it.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>unban</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Removes a peer ID from the blacklist.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>trust</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Add a peer ID to the whitelist. Remove the peer ID from
+                    the blacklist if it was previously in it.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>untrust</span> <span class='kwd'>peer</span> <span class='arg'>peer</span></div>
+
+<div class='cmddoc'>Remove a peer ID from the whitelist.
+<span class='arg'>peer</span>: peer network identity</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>clear</span> <span class='kwd'>acls</span></div>
+
+<div class='cmddoc'>Clear all access control rules.</div>
+</li>
+</ul>
+
+
+<h3>Commands for managing protocols</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>protocols</span></div>
+
+<div class='cmddoc'>List protocols known by the node.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>inject</span> <span class='kwd'>protocol</span> <span class='arg'>dir</span></div>
+
+<div class='cmddoc'>Inject a new protocol into the node.
+<span class='arg'>dir</span>: directory containing the sources of a protocol</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>protocol</span> <span class='arg'>protocol hash</span></div>
+
+<div class='cmddoc'>Dump a protocol from the node's record of protocol.
+<span class='arg'>protocol hash</span>: </div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>protocol</span> <span class='kwd'>environment</span> <span class='arg'>protocol hash</span></div>
+
+<div class='cmddoc'>Show the environment version used by a protocol.
+<span class='arg'>protocol hash</span>: </div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>fetch</span> <span class='kwd'>protocol</span> <span class='arg'>protocol hash</span></div>
+
+<div class='cmddoc'>Fetch a protocol from the network.
+<span class='arg'>protocol hash</span>: </div>
+</li>
+</ul>
+
+
+<h3>Commands for the low level RPC layer</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>list</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>List RPCs under a given URL prefix.
+                    Some parts of the RPC service hierarchy depend on
+                    parameters,
+                    they are marked by a suffix `&lt;dynamic&gt;`.
+                    You can list these sub-hierarchies by providing a
+                    concrete URL prefix whose arguments are set to a valid
+                    value.
+<span class='arg'>url</span>: the URL prefix</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>list</span></div>
+
+<div class='cmddoc'>Alias to `rpc list /`.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>schema</span> <span class='arg'>HTTP method</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Get the input and output JSON schemas of an RPC.
+<span class='arg'>HTTP method</span>: 
+<span class='arg'>url</span>: the RPC url</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>format</span> <span class='arg'>HTTP method</span> <span class='arg'>url</span> [<span class='opt'>-b --binary</span>]</div>
+
+<div class='cmddoc'>Get the humanoid readable input and output formats of an
+                    RPC.
+<span class='arg'>HTTP method</span>: 
+<span class='arg'>url</span>: the RPC URL
+<span class='opt'>-b --binary</span>: Binary format</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>get</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Call an RPC with the GET method.
+<span class='arg'>url</span>: the RPC URL</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>post</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Call an RPC with the POST method.
+                    It invokes $EDITOR if input data is needed.
+<span class='arg'>url</span>: the RPC URL</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>post</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
+
+<div class='cmddoc'>Call an RPC with the POST method, providing input data
+                    via the command line.
+<span class='arg'>url</span>: the RPC URL
+<span class='arg'>input</span>: the raw JSON input to the RPC
+  For instance, use `{}` to send the empty document.
+  Alternatively, use `file:path` to read the JSON data from a file.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>patch</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Call an RPC with the PATCH method.
+                    It invokes $EDITOR if input data is needed.
+<span class='arg'>url</span>: the RPC URL</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>patch</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
+
+<div class='cmddoc'>Call an RPC with the PATCH method, providing input data
+                    via the command line.
+<span class='arg'>url</span>: the RPC URL
+<span class='arg'>input</span>: the raw JSON input to the RPC
+  For instance, use `{}` to send the empty document.
+  Alternatively, use `file:path` to read the JSON data from a file.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>put</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Call an RPC with the PUT method.
+                    It invokes $EDITOR if input data is needed.
+<span class='arg'>url</span>: the RPC URL</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>put</span> <span class='arg'>url</span> <span class='kwd'>with</span> <span class='arg'>input</span></div>
+
+<div class='cmddoc'>Call an RPC with the PUT method, providing input data via
+                    the command line.
+<span class='arg'>url</span>: the RPC URL
+<span class='arg'>input</span>: the raw JSON input to the RPC
+  For instance, use `{}` to send the empty document.
+  Alternatively, use `file:path` to read the JSON data from a file.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>rpc</span> <span class='kwd'>delete</span> <span class='arg'>url</span></div>
+
+<div class='cmddoc'>Call an RPC with the DELETE method.
+<span class='arg'>url</span>: the RPC URL</div>
+</li>
+</ul>
+
+
+<h3>Commands to inspect the event-logging framework</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>query</span> <span class='kwd'>events</span> <span class='kwd'>from</span> <span class='arg'>Sink-Name</span> [<span class='opt'>--names &lt;LIST&gt;</span>] [<span class='opt'>--sections &lt;LIST&gt;</span>] [<span class='opt'>--since &lt;DATE&gt;</span>] [<span class='opt'>--until &lt;DATE&gt;</span>] [<span class='opt'>--as-json</span>] [<span class='opt'>--dump-unknown</span>] [<span class='opt'>--for-script &lt;FORMAT&gt;</span>]</div>
+
+<div class='cmddoc'>Query the events from an event sink.
+<span class='arg'>Sink-Name</span>: The URI of the SINK to query
+<span class='opt'>--names &lt;LIST&gt;</span>: Filter on event names
+<span class='opt'>--sections &lt;LIST&gt;</span>: Filter on event sections (use '_'
+  for no-section)
+<span class='opt'>--since &lt;DATE&gt;</span>: Filter out events before DATE
+<span class='opt'>--until &lt;DATE&gt;</span>: Filter out events after DATE
+<span class='opt'>--as-json</span>: Display events as JSON instead of
+  pretty-printing them
+<span class='opt'>--dump-unknown</span>: Try to display unknown events
+<span class='opt'>--for-script &lt;FORMAT&gt;</span>: Make the output
+  script-friendly. Possible values are 'TSV' and 'CSV'.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>event-logging</span></div>
+
+<div class='cmddoc'>Display configuration/state information about the
+                    internal-event logging framework.</div>
+</li>
+
+
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>output</span> <span class='kwd'>schema</span> <span class='kwd'>of</span> <span class='arg'>Event-Name</span> <span class='kwd'>to</span> <span class='arg'>File-path</span></div>
+
+<div class='cmddoc'>Output the JSON schema of an internal-event.
+<span class='arg'>Event-Name</span>: Name of the event
+<span class='arg'>File-path</span>: Path to a JSON file</div>
+</li>
+</ul>
+
+
+<h3>Miscellaneous commands</h3>
+
+
+<ul>
+<li>
+octez-admin-client <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>understood</span> <span class='kwd'>protocols</span></div>
+
+<div class='cmddoc'>List the protocol versions that this client understands.</div>
+</li>
+</ul>
+
+</section>
+<section id="signer-manual">
+<span id="id2"></span><h2>Signer manual<a class="headerlink" href="#signer-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the command line tool <code class="docutils literal notranslate"><span class="pre">octez-signer</span></code>. See <a class="reference internal" href="../user/key-management.html#signer"><span class="std std-ref">Signer</span></a> for a general description of this tool.</p>
+<style>.cmdline { font-family: monospace }.cmddoc { white-space: pre-wrap ; font-family: monospace; line-height: 170%; margin: 0 0 20px 0 }.cmdline { background: #343131; padding: 2px 8px; border-radius:10px; color: white; margin: 5px; }.cmdline+.cmddoc { margin: -5px 5px 0 20px; padding: 5px }.opt,.arg { background: #343131; font-weight: bold;  padding: 2px 4px; border-radius:5px; }.kwd { font-weight: bold; } .opt { color:#CF0; background: #460; } .arg { color: #CEF; background: #369; }</style>
+<h3>Usage</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-signer [<span class='opt'>global options</span>] <span class='kwd'>command</span> [<span class='opt'>command options</span>]</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-signer <span class='opt'>--help</span> (for global options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-signer [<span class='opt'>global options</span>] <span class='kwd'>command</span> <span class='opt'>--help</span> (for command options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-signer <span class='opt'>--version</span> (for version information)</div>
+</li>
+</ul>
+
+
+<h3>To browse the documentation</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-signer [<span class='opt'>global options</span>] <span class='kwd'>man</span> (for a list of commands)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-signer [<span class='opt'>global options</span>] <span class='kwd'>man</span> <span class='opt'>-v 3</span> (for the full manual)</div>
+</li>
+</ul>
+
+
+<h3>Global options (must come before the command)</h3>
+
+<div class='cmddoc'><span class='opt'>-d --base-dir &lt;path&gt;</span>: signer
+                      data directory
+                      The directory where the Tezos client will store all its
+                      data.
+                      By default: '$HOME/.tezos-signer'.
+<span class='opt'>-A --require-authentication</span>: Require a signature
+  from the caller to sign.
+<span class='opt'>-f --password-filename &lt;filename&gt;</span>: path to the
+  password filename</div>
+
+
+<h3>Access the documentation</h3>
+
+
+<ul>
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
+
+<div class='cmddoc'>Print documentation of commands.
+                    Add search keywords to narrow list.
+                    Will display only the commands by default, unless
+                    [-verbosity &lt;2|3&gt;] is passed or the list of matching
+                    commands if less than 3.
+<span class='arg'>keyword</span>: keyword to search for
+  If several are given they must all appear in the command.
+<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>: level of details
+  0. Only shows command mnemonics, without documentation.
+  1. Shows command mnemonics with short descriptions.
+  2. Show commands and arguments with short descriptions
+  3. Show everything
+<span class='opt'>--format &lt;plain|colors|html&gt;</span>: the manual's output
+  format
+  Defaults to `plain`.</div>
+</li>
+</ul>
+
+
+<h3>Commands for managing the connected Ledger Nano devices</h3>
+
+
+<ul>
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>connected</span> <span class='kwd'>ledgers</span></div>
+
+<div class='cmddoc'>List supported Ledger Nano devices connected.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>ledger</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--test-sign</span>]</div>
+
+<div class='cmddoc'>Display version/public-key/address information for a
+                    Ledger URI
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='opt'>--test-sign</span>: Test signing operation</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>authorized</span> <span class='kwd'>path</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
+
+<div class='cmddoc'>Query the path of the authorized key
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>authorize</span> <span class='kwd'>ledger</span> <span class='kwd'>to</span> <span class='kwd'>bake</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
+
+<div class='cmddoc'>Authorize a Ledger to bake for a key (deprecated, use
+                    `setup ledger ...` with recent versions of the Baking
+                    app)
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>setup</span> <span class='kwd'>ledger</span> <span class='kwd'>to</span> <span class='kwd'>bake</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--main-chain-id &lt;ID&gt;</span>] [<span class='opt'>--main-hwm &lt;HWM&gt;</span>] [<span class='opt'>--test-hwm &lt;HWM&gt;</span>]</div>
+
+<div class='cmddoc'>Setup a Ledger to bake for a key
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='opt'>--main-chain-id &lt;ID&gt;</span>: Use &lt;ID&gt; as main chain-id
+  instead of asking the node.
+  Defaults to `ASK-NODE`.
+<span class='opt'>--main-hwm &lt;HWM&gt;</span>: Use &lt;HWM&gt; as main chain high
+  watermark instead of asking the ledger.
+  Defaults to `ASK-LEDGER`.
+<span class='opt'>--test-hwm &lt;HWM&gt;</span>: Use &lt;HWM&gt; as test chain high
+  watermark instead of asking the ledger.
+  Defaults to `ASK-LEDGER`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>deauthorize</span> <span class='kwd'>ledger</span> <span class='kwd'>baking</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span></div>
+
+<div class='cmddoc'>Deauthorize Ledger from baking
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>water</span> <span class='kwd'>mark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--no-legacy-instructions</span>]</div>
+
+<div class='cmddoc'>Get high water mark of a Ledger
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='opt'>--no-legacy-instructions</span>: Prevent the fallback to
+  the (deprecated) Ledger instructions (for 1.x.y versions of the Baking app)</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>set</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>water</span> <span class='kwd'>mark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> <span class='kwd'>to</span> <span class='arg'>high watermark</span></div>
+
+<div class='cmddoc'>Set high water mark of a Ledger
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='arg'>high watermark</span>: High watermark</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>get</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>watermark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> [<span class='opt'>--no-legacy-instructions</span>]</div>
+
+<div class='cmddoc'>Get high water mark of a Ledger (legacy/deprecated
+                    spelling)
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='opt'>--no-legacy-instructions</span>: Prevent the fallback to
+  the (deprecated) Ledger instructions (for 1.x.y versions of the Baking app)</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>set</span> <span class='kwd'>ledger</span> <span class='kwd'>high</span> <span class='kwd'>watermark</span> <span class='kwd'>for</span> <span class='arg'>account-alias-or-ledger-uri</span> <span class='kwd'>to</span> <span class='arg'>high watermark</span></div>
+
+<div class='cmddoc'>Set high water mark of a Ledger (legacy/deprecated
+                    spelling)
+<span class='arg'>account-alias-or-ledger-uri</span>: An imported ledger
+  alias or a ledger URI (e.g. "ledger://animal/curve/path").
+<span class='arg'>high watermark</span>: High watermark</div>
+</li>
+</ul>
+
+
+<h3>Commands for managing the wallet of cryptographic keys</h3>
+
+
+<ul>
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>stresstest</span> <span class='kwd'>gen</span> <span class='kwd'>keys</span> <span class='arg'>keys_count</span> [<span class='opt'>--alias-prefix &lt;PREFIX&gt;</span>] [<span class='opt'>-s --sig &lt;ed25519|secp256k1|p256|bls&gt;</span>]</div>
+
+<div class='cmddoc'>Generate an array of accounts for testing purposes.
+<span class='arg'>keys_count</span>: How many keys to generate
+<span class='opt'>--alias-prefix &lt;PREFIX&gt;</span>: use a custom alias prefix
+  (default: bootstrap). Keys will be generated with alias "PREFIX&lt;ID&gt;" where
+  ID is unique for all key
+<span class='opt'>-s --sig &lt;ed25519|secp256k1|p256|bls&gt;</span>: use custom
+  signature algorithm
+  Defaults to `ed25519`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>signing</span> <span class='kwd'>schemes</span></div>
+
+<div class='cmddoc'>List supported signing schemes.
+                    Signing schemes are identifiers for signer modules: the
+                    built-in signing routines, a hardware wallet, an external
+                    agent, etc.
+                    Each signer has its own format for describing secret
+                    keys, such a raw secret key for the default `unencrypted`
+                    scheme, the path on a hardware security module, an alias
+                    for an external agent, etc.
+                    This command gives the list of signer modules that this
+                    version of the tezos client supports.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>gen</span> <span class='kwd'>keys</span> <span class='arg'>new</span> [<span class='opt'>-f --force</span>] [<span class='opt'>-s --sig &lt;ed25519|secp256k1|p256|bls&gt;</span>] [<span class='opt'>--encrypted</span>]</div>
+
+<div class='cmddoc'>Generate a pair of keys.
+<span class='arg'>new</span>: new secret_key alias
+<span class='opt'>-f --force</span>: overwrite existing secret_key
+<span class='opt'>-s --sig &lt;ed25519|secp256k1|p256|bls&gt;</span>: use custom
+  signature algorithm
+  Defaults to `ed25519`.
+<span class='opt'>--encrypted</span>: Encrypt the key on-disk</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>gen</span> <span class='kwd'>vanity</span> <span class='kwd'>keys</span> <span class='arg'>new</span> <span class='kwd'>matching</span> [<span class='arg'>words</span>...] [<span class='opt'>-P --prefix</span>] [<span class='opt'>-I --ignore-case</span>] [<span class='opt'>-f --force</span>] [<span class='opt'>--encrypted</span>]</div>
+
+<div class='cmddoc'>Generate keys including the given string.
+<span class='arg'>new</span>: new public key hash alias
+<span class='arg'>words</span>: string key must contain one of these words
+<span class='opt'>-P --prefix</span>: the key must begin with tz1[word]
+<span class='opt'>-I --ignore-case</span>: make the pattern case-insensitive
+<span class='opt'>-f --force</span>: overwrite existing keys
+<span class='opt'>--encrypted</span>: Encrypt the key on-disk</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>encrypt</span> <span class='kwd'>secret</span> <span class='kwd'>key</span></div>
+
+<div class='cmddoc'>Encrypt an unencrypted secret key.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>secret</span> <span class='kwd'>key</span> <span class='arg'>new</span> <span class='arg'>uri</span> [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Add a secret key to the wallet.
+<span class='arg'>new</span>: new secret_key alias
+<span class='arg'>uri</span>: secret key
+  Varies from one scheme to the other.
+  Use command `list signing schemes` for more information.
+<span class='opt'>-f --force</span>: overwrite existing secret_key</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>public</span> <span class='kwd'>key</span> <span class='arg'>new</span> <span class='arg'>uri</span> [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Add a public key to the wallet.
+<span class='arg'>new</span>: new public_key alias
+<span class='arg'>uri</span>: public key
+  Varies from one scheme to the other.
+  Use command `list signing schemes` for more information.
+<span class='opt'>-f --force</span>: overwrite existing public_key</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>add</span> <span class='kwd'>address</span> <span class='arg'>new</span> <span class='arg'>src</span> [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Add an address to the wallet.
+<span class='arg'>new</span>: new public key hash alias
+<span class='arg'>src</span>: source public key hash
+  Can be a public key hash name, a file or a raw public key hash literal. If
+  the parameter is not the name of an existing public key hash, the client
+  will look for a file containing a public key hash, and if it does not
+  exist, the argument will be read as a raw public key hash.
+  Use 'alias:&lt;name&gt;', 'file:&lt;path&gt;' or 'text:&lt;literal&gt;' to disable
+  autodetect.
+<span class='opt'>-f --force</span>: overwrite existing public_key</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>known</span> <span class='kwd'>addresses</span></div>
+
+<div class='cmddoc'>List all addresses and associated keys.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>known</span> <span class='kwd'>remote</span> <span class='kwd'>keys</span> <span class='arg'>uri</span></div>
+
+<div class='cmddoc'>List the keys known by the remote wallet.
+<span class='arg'>uri</span>: remote signer
+  Varies from one scheme to the other.
+  Use command `list signing schemes` for more information.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>address</span> <span class='arg'>name</span> [<span class='opt'>-S --show-secret</span>]</div>
+
+<div class='cmddoc'>Show the keys associated with an implicit account.
+<span class='arg'>name</span>: existing public key hash alias
+<span class='opt'>-S --show-secret</span>: show the private key</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>forget</span> <span class='kwd'>address</span> <span class='arg'>name</span> [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Forget one address.
+<span class='arg'>name</span>: existing public key hash alias
+<span class='opt'>-f --force</span>: delete associated keys when present</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>forget</span> <span class='kwd'>all</span> <span class='kwd'>keys</span> [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Forget the entire wallet of keys.
+<span class='opt'>-f --force</span>: you got to use the force for that</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>nonce</span> <span class='kwd'>for</span> <span class='arg'>name</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Compute deterministic nonce.
+<span class='arg'>name</span>: existing public key hash alias
+<span class='arg'>data</span>: string from which to deterministically
+  generate the nonce</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>nonce</span> <span class='kwd'>hash</span> <span class='kwd'>for</span> <span class='arg'>name</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Compute deterministic nonce hash.
+<span class='arg'>name</span>: existing public key hash alias
+<span class='arg'>data</span>: string from which to deterministically
+  generate the nonce hash</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>import</span> <span class='kwd'>keys</span> <span class='kwd'>from</span> <span class='kwd'>mnemonic</span> <span class='arg'>new</span> [<span class='opt'>-f --force</span>] [<span class='opt'>--encrypt</span>]</div>
+
+<div class='cmddoc'>Import a pair of keys to the wallet from a mnemonic
+                    phrase. This command uses the BIP39 algorithm, and
+                    therefore imports public/secret keys that may be
+                    different from a Ledger application, depending on the
+                    BIP32 derivation path used in the Ledger. This command
+                    also uses the Ed25519 algorithm, which means it generates
+                    tz1 public key hashes.
+<span class='arg'>new</span>: new secret_key alias
+<span class='opt'>-f --force</span>: overwrite existing secret_key
+<span class='opt'>--encrypt</span>: encrypt the secret key</div>
+</li>
+</ul>
+
+
+<h3>Commands specific to the signing daemon</h3>
+
+
+<ul>
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>socket</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>--allow-list-known-keys</span>] [<span class='opt'>--allow-to-prove-possession</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>] [<span class='opt'>-t --timeout &lt;timeout&gt;</span>]</div>
+
+<div class='cmddoc'>Launch a signer daemon over a TCP socket.
+<span class='opt'>-P --pidfile &lt;filename&gt;</span>: write process id in file
+<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>: values allowed for
+  the magic bytes, defaults to any
+<span class='opt'>-W --check-high-watermark</span>: high watermark
+  restriction
+  Stores the highest level signed for blocks and attestations for each
+  address, and forbids to sign a level and round that are inferior or equal
+  afterwards, except for the exact same input data.
+<span class='opt'>--allow-list-known-keys</span>: allow remote request for
+  the list of known public key hash in the wallet
+<span class='opt'>--allow-to-prove-possession</span>: allow remote request
+  for the proof of possession of a known public key hash
+<span class='opt'>-a --address &lt;host|address&gt;</span>: listening address or
+  host name
+  Defaults to `localhost`.
+<span class='opt'>-p --port &lt;port number&gt;</span>: listening TCP port or
+  service name
+  Defaults to `7732`.
+<span class='opt'>-t --timeout &lt;timeout&gt;</span>: timeout before the signer
+  closes client connection (in seconds)
+  Defaults to `8`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>local</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>--allow-list-known-keys</span>] [<span class='opt'>--allow-to-prove-possession</span>] [<span class='opt'>-s --socket &lt;path&gt;</span>]</div>
+
+<div class='cmddoc'>Launch a signer daemon over a local Unix socket.
+<span class='opt'>-P --pidfile &lt;filename&gt;</span>: write process id in file
+<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>: values allowed for
+  the magic bytes, defaults to any
+<span class='opt'>-W --check-high-watermark</span>: high watermark
+  restriction
+  Stores the highest level signed for blocks and attestations for each
+  address, and forbids to sign a level and round that are inferior or equal
+  afterwards, except for the exact same input data.
+<span class='opt'>--allow-list-known-keys</span>: allow remote request for
+  the list of known public key hash in the wallet
+<span class='opt'>--allow-to-prove-possession</span>: allow remote request
+  for the proof of possession of a known public key hash
+<span class='opt'>-s --socket &lt;path&gt;</span>: path to the local socket
+  file
+  Defaults to `$HOME/.tezos-signer/socket`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>http</span> <span class='kwd'>signer</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>--allow-list-known-keys</span>] [<span class='opt'>--allow-to-prove-possession</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>]</div>
+
+<div class='cmddoc'>Launch a signer daemon over HTTP.
+<span class='opt'>-P --pidfile &lt;filename&gt;</span>: write process id in file
+<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>: values allowed for
+  the magic bytes, defaults to any
+<span class='opt'>-W --check-high-watermark</span>: high watermark
+  restriction
+  Stores the highest level signed for blocks and attestations for each
+  address, and forbids to sign a level and round that are inferior or equal
+  afterwards, except for the exact same input data.
+<span class='opt'>--allow-list-known-keys</span>: allow remote request for
+  the list of known public key hash in the wallet
+<span class='opt'>--allow-to-prove-possession</span>: allow remote request
+  for the proof of possession of a known public key hash
+<span class='opt'>-a --address &lt;host|address&gt;</span>: listening address or
+  host name
+  Defaults to `localhost`.
+<span class='opt'>-p --port &lt;port number&gt;</span>: listening HTTP port
+  Defaults to `6732`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>launch</span> <span class='kwd'>https</span> <span class='kwd'>signer</span> <span class='arg'>cert</span> <span class='arg'>key</span> [<span class='opt'>-P --pidfile &lt;filename&gt;</span>] [<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>] [<span class='opt'>-W --check-high-watermark</span>] [<span class='opt'>--allow-list-known-keys</span>] [<span class='opt'>--allow-to-prove-possession</span>] [<span class='opt'>-a --address &lt;host|address&gt;</span>] [<span class='opt'>-p --port &lt;port number&gt;</span>]</div>
+
+<div class='cmddoc'>Launch a signer daemon over HTTPS.
+<span class='arg'>cert</span>: path to the TLS certificate
+<span class='arg'>key</span>: path to the TLS key
+<span class='opt'>-P --pidfile &lt;filename&gt;</span>: write process id in file
+<span class='opt'>-M --magic-bytes &lt;0xHH,0xHH,...&gt;</span>: values allowed for
+  the magic bytes, defaults to any
+<span class='opt'>-W --check-high-watermark</span>: high watermark
+  restriction
+  Stores the highest level signed for blocks and attestations for each
+  address, and forbids to sign a level and round that are inferior or equal
+  afterwards, except for the exact same input data.
+<span class='opt'>--allow-list-known-keys</span>: allow remote request for
+  the list of known public key hash in the wallet
+<span class='opt'>--allow-to-prove-possession</span>: allow remote request
+  for the proof of possession of a known public key hash
+<span class='opt'>-a --address &lt;host|address&gt;</span>: listening address or
+  host name
+  Defaults to `localhost`.
+<span class='opt'>-p --port &lt;port number&gt;</span>: listening HTTPS
+  port
+  Defaults to `443`.</div>
+</li>
+
+
+<li>
+octez-signer <div class='cmdline'><span class='kwd'>add</span> <span class='kwd'>authorized</span> <span class='kwd'>key</span> <span class='arg'>pk</span> [<span class='opt'>-N --name &lt;name&gt;</span>]</div>
+
+<div class='cmddoc'>Authorize a given public key to perform signing requests.
+<span class='arg'>pk</span>: full public key (Base58 encoded)
+<span class='opt'>-N --name &lt;name&gt;</span>: an optional name for the key
+  (defaults to the hash)</div>
+</li>
+</ul>
+
+</section>
+<section id="node-manual">
+<span id="id3"></span><h2>Node manual<a class="headerlink" href="#node-manual" title="Link to this heading">#</a></h2>
+<p>The command line of the Octez node is documented in Unix <code class="docutils literal notranslate"><span class="pre">man</span></code> format, as shown below. You can also obtain this manual by running <code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">--help</span></code>.</p>
+<p>The manual briefly shows the available node commands.
+Each command accepts its own set of options and arguments, that you can discover by running <code class="docutils literal notranslate"><span class="pre">octez-node</span> <span class="pre">&lt;command&gt;</span> <span class="pre">--help</span></code>.
+For more details on the node invocation and configuration, see <a class="reference internal" href="../user/node-configuration.html"><span class="doc">Node Configuration</span></a>.</p>
+<dl>
+<dt>NAME</dt><dd><p>octez-node - The Octez node</p>
+</dd>
+<dt>SYNOPSIS</dt><dd><p>octez-node [COMMAND] …</p>
+</dd>
+<dt>DESCRIPTION</dt><dd><p>Entry point for initializing, configuring and running a Tezos node.</p>
+<p>The identity command is meant to create and manage node identities. An
+identity uniquely identifies a peer on the network and consists of a
+cryptographic key pair as well as a proof-of-work stamp that certifies
+that enough CPU time has been dedicated to produce the identity, to
+avoid sybil attacks. An identity with enough proof-of-work is required
+to participate in the Tezos network, therefore this command is
+necessary to launch Tezos the first time.</p>
+<p>The run command is meant to run the Tezos node. Most of its command
+line arguments corresponds to config file entries, and will have
+priority over the latter if used.</p>
+<p>The replay command is meant to replay a previously validated block for
+debugging purposes.</p>
+<p>The config command is meant to inspect and amend the configuration of
+the Tezos node. This command is complementary to manually editing the
+tezos node configuration file. Its arguments are a subset of the run
+command ones.</p>
+<p>The upgrade command is meant to manage upgrades of the node.</p>
+<p>The snapshot command is meant to export and import snapshots files.</p>
+<p>The reconstruct command is meant to reconstruct the partial storage of
+a node running in full mode in order to recover a complete archive mode
+storage.</p>
+<p>The storage command provides tools for introspecting and debugging the
+storage layer.</p>
+</dd>
+<dt>COMMANDS</dt><dd><dl class="simple">
+<dt>config COMMAND …</dt><dd><p>Manage node configuration</p>
+</dd>
+<dt>dump-metrics [OPTION]…</dt><dd><p>Show all the openmetrics collected by the Tezos node</p>
+</dd>
+<dt>identity COMMAND …</dt><dd><p>Manage node identities</p>
+</dd>
+<dt>map-port [OPTION]…</dt><dd><p>Experimental</p>
+</dd>
+<dt>reconstruct [OPTION]…</dt><dd><p>Manage storage reconstruction</p>
+</dd>
+<dt>replay [--repeat=VAL] [--strict] [OPTION]… [&lt;level&gt;|&lt;block_hash&gt;|&lt;alias&gt;]…</dt><dd><p>Replay a set of previously validated blocks</p>
+</dd>
+<dt>run [OPTION]…</dt><dd><p>Run the Tezos node</p>
+</dd>
+<dt>snapshot COMMAND …</dt><dd><p>Manage snapshots</p>
+</dd>
+<dt>storage COMMAND …</dt><dd><p>Query the storage layer (EXPERIMENTAL)</p>
+</dd>
+<dt>upgrade [--status] [OPTION]… UPGRADE</dt><dd><p>Manage node upgrades</p>
+</dd>
+</dl>
+</dd>
+<dt>COMMON OPTIONS</dt><dd><dl class="simple">
+<dt>--help[=FMT] (default=auto)</dt><dd><p>Show this help in format FMT. The value FMT must be one of auto,
+pager, groff or plain. With auto, the format is pager or plain
+whenever the TERM env var is dumb or undefined.</p>
+</dd>
+<dt>--version</dt><dd><p>Show version information.</p>
+</dd>
+</dl>
+</dd>
+<dt>EXIT STATUS</dt><dd><p>octez-node exits with:</p>
+<p>0   on success.</p>
+<p>123 on indiscriminate errors reported on standard error.</p>
+<p>124 on command line parsing errors.</p>
+<p>125 on unexpected internal errors (bugs).</p>
+</dd>
+<dt>EXAMPLES</dt><dd><dl class="simple">
+<dt>Run in sandbox mode listening to RPC commands at localhost port 8732</dt><dd><p>octez-node run
+--sandbox=src/proto_alpha/parameters/sandbox-parameters.json
+--data-dir /custom/data/dir --rpc-addr localhost:8732</p>
+</dd>
+<dt>Run a node that accepts network connections</dt><dd><p>octez-node run</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+<section id="dal-node-manual">
+<span id="id4"></span><h2>DAL node manual<a class="headerlink" href="#dal-node-manual" title="Link to this heading">#</a></h2>
+<p>The command line of the <a class="reference internal" href="dal_node.html"><span class="doc">Octez DAL node</span></a> is documented in Unix <code class="docutils literal notranslate"><span class="pre">man</span></code> format, as shown below. You can also obtain this manual by running <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span> <span class="pre">--help</span></code>.</p>
+<p>The manual briefly shows the available DAL node commands.
+Each command accepts its own set of options and arguments, that you can discover by running <code class="docutils literal notranslate"><span class="pre">octez-dal-node</span> <span class="pre">&lt;command&gt;</span> <span class="pre">--help</span></code>.</p>
+<dl>
+<dt>NAME</dt><dd><p>octez-dal-node - The Octez DAL node</p>
+</dd>
+<dt>SYNOPSIS</dt><dd><p>octez-dal-node [COMMAND] …</p>
+</dd>
+<dt>COMMANDS</dt><dd><dl class="simple">
+<dt>config [COMMAND] …</dt><dd><p>Manage the Octez DAL node configuration</p>
+</dd>
+<dt>debug [COMMAND] …</dt><dd><p>Debug commands</p>
+</dd>
+<dt>run [OPTION]…</dt><dd><p>Run the Octez DAL node</p>
+</dd>
+</dl>
+</dd>
+<dt>COMMON OPTIONS</dt><dd><dl class="simple">
+<dt>--help[=FMT] (default=auto)</dt><dd><p>Show this help in format FMT. The value FMT must be one of auto,
+pager, groff or plain. With auto, the format is pager or plain
+whenever the TERM env var is dumb or undefined.</p>
+</dd>
+<dt>--version</dt><dd><p>Show version information.</p>
+</dd>
+</dl>
+</dd>
+<dt>EXIT STATUS</dt><dd><p>octez-dal-node exits with:</p>
+<p>0   on success.</p>
+<p>123 on indiscriminate errors reported on standard error.</p>
+<p>124 on command line parsing errors.</p>
+<p>125 on unexpected internal errors (bugs).</p>
+</dd>
+</dl>
+</section>
+<section id="smart-rollup-node-manual">
+<span id="id5"></span><h2>Smart rollup node manual<a class="headerlink" href="#smart-rollup-node-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the <a class="reference internal" href="smart_rollup_node.html"><span class="doc">Smart rollup node</span></a>.</p>
+<style>.cmdline { font-family: monospace }.cmddoc { white-space: pre-wrap ; font-family: monospace; line-height: 170%; margin: 0 0 20px 0 }.cmdline { background: #343131; padding: 2px 8px; border-radius:10px; color: white; margin: 5px; }.cmdline+.cmddoc { margin: -5px 5px 0 20px; padding: 5px }.opt,.arg { background: #343131; font-weight: bold;  padding: 2px 4px; border-radius:5px; }.kwd { font-weight: bold; } .opt { color:#CF0; background: #460; } .arg { color: #CEF; background: #369; }</style>
+<h3>Usage</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-smart-rollup-node [<span class='opt'>global options</span>] <span class='kwd'>command</span> [<span class='opt'>command options</span>]</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-smart-rollup-node <span class='opt'>--help</span> (for global options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-smart-rollup-node [<span class='opt'>global options</span>] <span class='kwd'>command</span> <span class='opt'>--help</span> (for command options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-smart-rollup-node <span class='opt'>--version</span> (for version information)</div>
+</li>
+</ul>
+
+
+<h3>To browse the documentation</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-smart-rollup-node [<span class='opt'>global options</span>] <span class='kwd'>man</span> (for a list of commands)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-smart-rollup-node [<span class='opt'>global options</span>] <span class='kwd'>man</span> <span class='opt'>-v 3</span> (for the full manual)</div>
+</li>
+</ul>
+
+
+<h3>Global options (must come before the command)</h3>
+
+<div class='cmddoc'><span class='opt'>-d --base-dir &lt;path&gt;</span>: client
+                      data directory (absent: TEZOS_CLIENT_DIR env)
+                        The directory where the Tezos client will store all
+                      its data.
+                        If absent, its value is the value of the
+                      TEZOS_CLIENT_DIR
+                        environment variable. If TEZOS_CLIENT_DIR is itself
+                      not specified,
+                        defaults to $HOME/.tezos-client
+                      
+<span class='opt'>-n --no-base-dir-warnings</span>: silence warnings about
+  client data directory
+<span class='opt'>-t --timings</span>: show RPC request times
+<span class='opt'>-l --log-requests</span>: log all requests to the node
+<span class='opt'>--better-errors</span>: Error reporting is more detailed.
+  Can be used if a call to an RPC fails or if you don't know the input
+  accepted by the RPC. It may happen that the RPC calls take more time
+  however.
+<span class='opt'>-A --addr &lt;IP addr|host&gt;</span>: [DEPRECATED: use
+  --endpoint instead] IP address of the node
+<span class='opt'>-P --port &lt;number&gt;</span>: [DEPRECATED: use --endpoint
+  instead] RPC port of the node
+<span class='opt'>-S --tls</span>: [DEPRECATED: use --endpoint instead] use
+  TLS to connect to node.
+<span class='opt'>-E --endpoint &lt;uri&gt;</span>: HTTP(S) endpoint of the node
+  RPC interface; e.g. 'http://localhost:8732'
+<span class='opt'>-R --remote-signer &lt;uri&gt;</span>: URI of the remote signer
+<span class='opt'>-f --password-filename &lt;filename&gt;</span>: path to the
+  password filename</div>
+
+
+<h3>Access the documentation</h3>
+
+
+<ul>
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
+
+<div class='cmddoc'>Print documentation of commands.
+                    Add search keywords to narrow list.
+                    Will display only the commands by default, unless
+                    [-verbosity &lt;2|3&gt;] is passed or the list of matching
+                    commands if less than 3.
+<span class='arg'>keyword</span>: keyword to search for
+  If several are given they must all appear in the command.
+<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>: level of details
+  0. Only shows command mnemonics, without documentation.
+  1. Shows command mnemonics with short descriptions.
+  2. Show commands and arguments with short descriptions
+  3. Show everything
+<span class='opt'>--format &lt;plain|colors|html&gt;</span>: the manual's output
+  format
+  Defaults to `plain`.</div>
+</li>
+</ul>
+
+
+<h3>Commands related to the smart rollup node.</h3>
+
+
+<ul>
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>init</span> <span class='arg'>mode</span> <span class='kwd'>config</span> <span class='kwd'>for</span> <span class='arg'>smart-rollup-address</span> <span class='kwd'>with</span> <span class='kwd'>operators</span> [<span class='arg'>operator</span>...] [<span class='opt'>--force</span>] [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--config-file &lt;config.json&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--acl-override &lt;kind&gt;</span>] [<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>] [<span class='opt'>--enable-performance-metrics</span>] [<span class='opt'>--disable-performance-metrics</span>] [<span class='opt'>--loser-mode &lt;mode&gt;</span>] [<span class='opt'>--reconnection-delay &lt;delay&gt;</span>] [<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>] [<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>] [<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>] [<span class='opt'>--injector-attempts &lt;number&gt;</span>] [<span class='opt'>--injection-ttl &lt;number&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--log-kernel-debug</span>] [<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>] [<span class='opt'>--boot-sector-file &lt;file&gt;</span>] [<span class='opt'>--no-degraded</span>] [<span class='opt'>--gc-frequency &lt;blocks&gt;</span>] [<span class='opt'>--history-mode &lt;history_mode&gt;</span>] [<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>] [<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>] [<span class='opt'>--bail-on-disagree</span>] [<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>] [<span class='opt'>--profiling &lt;BOOL&gt;</span>] [<span class='opt'>--etherlink</span>]</div>
+
+<div class='cmddoc'>Configure the smart rollup node.
+<span class='arg'>mode</span>: The mode for the rollup node (observer,
+  accuser, bailout, batcher, maintenance, operator, custom)
+  - observer: Only follows the chain, reconstructs and interprets inboxes
+  - accuser: Only publishes commitments for conflicts and play refutation
+  games
+  - bailout: Only defends and cements, does not publish any new commitments
+  - batcher: Accepts transactions in its queue and batches them on the L1
+  - maintenance: Follows the chain and publishes commitments, cement and
+  refute
+  - operator: Equivalent to maintenance + batcher
+  - custom: In this mode, the system handles only the specific operation
+  kinds: [publish, add_messages, cement, timeout, refute, recover,
+  execute_outbox_message, publish_dal_commitment]. This allows for tailored
+  control and flexibility.
+<span class='arg'>smart-rollup-address</span>: The smart rollup address
+  Can be a literal or an alias (autodetected in order).
+  Use 'alias:&lt;name&gt;' or 'text:&lt;literal&gt;' to force.
+<span class='arg'>operator</span>: Public key hash, or alias, of a smart
+  rollup node operator. An operator can be specialized to a particular
+  purpose by prefixing its key or alias by said purpose, e.g.
+  operating:&lt;alias_of_my_operator&gt;. The possible purposes are:
+  operating, batching, cementing, recovering, executing_outbox.
+<span class='opt'>--force</span>: Overwrites the configuration file when it
+  exists.
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--config-file &lt;config.json&gt;</span>: Location of the
+  configuration file for the rollup node. Defaults to
+  `&lt;data-dir&gt;/config.json`.
+<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>: The address the smart
+  rollup node listens to. Default value is 127.0.0.1
+<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>: The port the smart rollup
+  node listens to. Default value is 8932
+<span class='opt'>--acl-override &lt;kind&gt;</span>: Specify a different ACL for
+  the rpc server to override the default one. Possible values are 'secure'
+  and 'allow-all'
+<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>: Start the smart
+  rollup node metrics server at the specified address ADDR:PORT. Default
+  value is localhost:9933
+<span class='opt'>--enable-performance-metrics</span>: Enable performance
+  metrics when the metrics server is started and the system supports it.
+  DEPRECATED (enabled by default when the system supports it).
+<span class='opt'>--disable-performance-metrics</span>: Disable performance
+  metrics when the metrics server is started (enabled by default when system
+  supports it).
+<span class='opt'>--loser-mode &lt;mode&gt;</span>: Set the rollup node failure
+  points (for test only!).
+<span class='opt'>--reconnection-delay &lt;delay&gt;</span>: The first reconnection
+  delay, in seconds, to wait before reconnecting to the Tezos node. The
+  default delay is 2.0.
+  The actual delay varies to follow a randomized exponential backoff (capped
+  to 1.5h): [1.5^reconnection_attempt * delay ± 50%].
+<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>: The address of the
+  dal node from which the smart rollup node downloads slots. When not
+  provided, the rollup node will not support the DAL. In production, a DAL
+  node must be provided if DAL is enabled and used in the rollup.
+<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>: The address of a
+  service which provides pre-images for the rollup. Missing pre-images will
+  be downloaded remotely if they are not already present on disk.
+<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>: The number of
+  blocks the injector keeps in memory. Decrease to free memory, and increase
+  to be able to query information about included messages for longer. Default
+  value is 2048
+<span class='opt'>--injector-attempts &lt;number&gt;</span>: The number of attempts
+  that the injector will make to inject an operation when it fails. Default
+  value is 10
+<span class='opt'>--injection-ttl &lt;number&gt;</span>: The number of blocks after
+  which an operation that is injected but never included is retried. Default
+  value is 120
+<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>: The maximum
+  cache size in memory before it is flushed to disk, used for indexes of the
+  store. (Deprecated)
+<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>: The maximum
+  cache size in memory before it is flushed to disk, used for indexes of the
+  store. (Deprecated)
+<span class='opt'>--log-kernel-debug</span>: Log the kernel debug output to
+  kernel.log in the data directory
+<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>: 
+<span class='opt'>--boot-sector-file &lt;file&gt;</span>: Path to the boot sector.
+  The argument is optional, if the rollup was originated via the smart rollup
+  originate operation, the smart rollup node will fetch the boot sector
+  itself. This argument is required only if it's a bootstrapped smart rollup.
+<span class='opt'>--no-degraded</span>: Prevent the rollup node from entering
+  degraded mode on error. The rollup node will instead stop.
+<span class='opt'>--gc-frequency &lt;blocks&gt;</span>: The number of blocks
+  between each launch of the garbage collection. Default is protocol constant
+  challenge_window_in_blocks / 5.
+<span class='opt'>--history-mode &lt;history_mode&gt;</span>: The history mode for
+  the rollup node (archive, full) (default is full)
+<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>: List of accepted
+  cors origins.
+<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>: List of accepted
+  cors headers.
+<span class='opt'>--bail-on-disagree</span>: Make an observer rollup node
+  bail when it sees a commitment it disagree with on L1.
+<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>: Allow to run
+  the kernel without checking for its validity. Only for debug, do not use in
+  production!
+<span class='opt'>--profiling &lt;BOOL&gt;</span>: Enable or disable profiling with
+  opentelemetry
+<span class='opt'>--etherlink</span>: Force this rollup to be detected as an
+  Etherlink rollup</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>run</span> <span class='arg'>mode</span> <span class='kwd'>for</span> <span class='arg'>smart-rollup-address</span> <span class='kwd'>with</span> <span class='kwd'>operators</span> [<span class='arg'>operator</span>...] [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--config-file &lt;config.json&gt;</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--acl-override &lt;kind&gt;</span>] [<span class='opt'>--etherlink</span>] [<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>] [<span class='opt'>--enable-performance-metrics</span>] [<span class='opt'>--disable-performance-metrics</span>] [<span class='opt'>--loser-mode &lt;mode&gt;</span>] [<span class='opt'>--reconnection-delay &lt;delay&gt;</span>] [<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>] [<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>] [<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>] [<span class='opt'>--injector-attempts &lt;number&gt;</span>] [<span class='opt'>--injection-ttl &lt;number&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--irmin-cache-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--log-kernel-debug</span>] [<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>] [<span class='opt'>--boot-sector-file &lt;file&gt;</span>] [<span class='opt'>--no-degraded</span>] [<span class='opt'>--gc-frequency &lt;blocks&gt;</span>] [<span class='opt'>--history-mode &lt;history_mode&gt;</span>] [<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>] [<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>] [<span class='opt'>--apply-unsafe-patches</span>] [<span class='opt'>--bail-on-disagree</span>] [<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>] [<span class='opt'>--profiling &lt;BOOL&gt;</span>]</div>
+
+<div class='cmddoc'>Run the rollup node daemon. Arguments overwrite values
+                    provided in the configuration file.
+<span class='arg'>mode</span>: The mode for the rollup node (observer,
+  accuser, bailout, batcher, maintenance, operator, custom)
+  - observer: Only follows the chain, reconstructs and interprets inboxes
+  - accuser: Only publishes commitments for conflicts and play refutation
+  games
+  - bailout: Only defends and cements, does not publish any new commitments
+  - batcher: Accepts transactions in its queue and batches them on the L1
+  - maintenance: Follows the chain and publishes commitments, cement and
+  refute
+  - operator: Equivalent to maintenance + batcher
+  - custom: In this mode, the system handles only the specific operation
+  kinds: [publish, add_messages, cement, timeout, refute, recover,
+  execute_outbox_message, publish_dal_commitment]. This allows for tailored
+  control and flexibility.
+<span class='arg'>smart-rollup-address</span>: The smart rollup address
+  Can be a literal or an alias (autodetected in order).
+  Use 'alias:&lt;name&gt;' or 'text:&lt;literal&gt;' to force.
+<span class='arg'>operator</span>: Public key hash, or alias, of a smart
+  rollup node operator. An operator can be specialized to a particular
+  purpose by prefixing its key or alias by said purpose, e.g.
+  operating:&lt;alias_of_my_operator&gt;. The possible purposes are:
+  operating, batching, cementing, recovering, executing_outbox.
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--config-file &lt;config.json&gt;</span>: Location of the
+  configuration file for the rollup node. Defaults to
+  `&lt;data-dir&gt;/config.json`.
+<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>: The address the smart
+  rollup node listens to. Default value is 127.0.0.1
+<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>: The port the smart rollup
+  node listens to. Default value is 8932
+<span class='opt'>--acl-override &lt;kind&gt;</span>: Specify a different ACL for
+  the rpc server to override the default one. Possible values are 'secure'
+  and 'allow-all'
+<span class='opt'>--etherlink</span>: Force this rollup to be detected as an
+  Etherlink rollup
+<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>: Start the smart
+  rollup node metrics server at the specified address ADDR:PORT. Default
+  value is localhost:9933
+<span class='opt'>--enable-performance-metrics</span>: Enable performance
+  metrics when the metrics server is started and the system supports it.
+  DEPRECATED (enabled by default when the system supports it).
+<span class='opt'>--disable-performance-metrics</span>: Disable performance
+  metrics when the metrics server is started (enabled by default when system
+  supports it).
+<span class='opt'>--loser-mode &lt;mode&gt;</span>: Set the rollup node failure
+  points (for test only!).
+<span class='opt'>--reconnection-delay &lt;delay&gt;</span>: The first reconnection
+  delay, in seconds, to wait before reconnecting to the Tezos node. The
+  default delay is 2.0.
+  The actual delay varies to follow a randomized exponential backoff (capped
+  to 1.5h): [1.5^reconnection_attempt * delay ± 50%].
+<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>: The address of the
+  dal node from which the smart rollup node downloads slots. When not
+  provided, the rollup node will not support the DAL. In production, a DAL
+  node must be provided if DAL is enabled and used in the rollup.
+<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>: The address of a
+  service which provides pre-images for the rollup. Missing pre-images will
+  be downloaded remotely if they are not already present on disk.
+<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>: The number of
+  blocks the injector keeps in memory. Decrease to free memory, and increase
+  to be able to query information about included messages for longer. Default
+  value is 2048
+<span class='opt'>--injector-attempts &lt;number&gt;</span>: The number of attempts
+  that the injector will make to inject an operation when it fails. Default
+  value is 10
+<span class='opt'>--injection-ttl &lt;number&gt;</span>: The number of blocks after
+  which an operation that is injected but never included is retried. Default
+  value is 120
+<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>: The maximum
+  cache size in memory before it is flushed to disk, used for indexes of the
+  store. (Deprecated)
+<span class='opt'>--irmin-cache-size &lt;&lt;nb_entries&gt;&gt;</span>: Size of Irmin
+  cache in number of entries
+<span class='opt'>--log-kernel-debug</span>: Log the kernel debug output to
+  kernel.log in the data directory
+<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>: 
+<span class='opt'>--boot-sector-file &lt;file&gt;</span>: Path to the boot sector.
+  The argument is optional, if the rollup was originated via the smart rollup
+  originate operation, the smart rollup node will fetch the boot sector
+  itself. This argument is required only if it's a bootstrapped smart rollup.
+<span class='opt'>--no-degraded</span>: Prevent the rollup node from entering
+  degraded mode on error. The rollup node will instead stop.
+<span class='opt'>--gc-frequency &lt;blocks&gt;</span>: The number of blocks
+  between each launch of the garbage collection. Default is protocol constant
+  challenge_window_in_blocks / 5.
+<span class='opt'>--history-mode &lt;history_mode&gt;</span>: The history mode for
+  the rollup node (archive, full) (default is full)
+<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>: List of accepted
+  cors origins.
+<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>: List of accepted
+  cors headers.
+<span class='opt'>--apply-unsafe-patches</span>: Apply unsafe PVM patches in
+  the configuration or hardcoded by the node.
+<span class='opt'>--bail-on-disagree</span>: Make an observer rollup node
+  bail when it sees a commitment it disagree with on L1.
+<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>: Allow to run
+  the kernel without checking for its validity. Only for debug, do not use in
+  production!
+<span class='opt'>--profiling &lt;BOOL&gt;</span>: Enable or disable profiling with
+  opentelemetry</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>run</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--config-file &lt;config.json&gt;</span>] [<span class='opt'>--mode &lt;mode&gt;</span>] [<span class='opt'>--rollup &lt;smart-rollup-address&gt;</span>] [<span class='opt'>--etherlink</span>] [<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>] [<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>] [<span class='opt'>--acl-override &lt;kind&gt;</span>] [<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>] [<span class='opt'>--enable-performance-metrics</span>] [<span class='opt'>--disable-performance-metrics</span>] [<span class='opt'>--loser-mode &lt;mode&gt;</span>] [<span class='opt'>--reconnection-delay &lt;delay&gt;</span>] [<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>] [<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>] [<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>] [<span class='opt'>--injector-attempts &lt;number&gt;</span>] [<span class='opt'>--injection-ttl &lt;number&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>] [<span class='opt'>--log-kernel-debug</span>] [<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>] [<span class='opt'>--boot-sector-file &lt;file&gt;</span>] [<span class='opt'>--no-degraded</span>] [<span class='opt'>--gc-frequency &lt;blocks&gt;</span>] [<span class='opt'>--history-mode &lt;history_mode&gt;</span>] [<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>] [<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>] [<span class='opt'>--apply-unsafe-patches</span>] [<span class='opt'>--bail-on-disagree</span>] [<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>] [<span class='opt'>--profiling &lt;BOOL&gt;</span>]</div>
+
+<div class='cmddoc'>Run the rollup node daemon (deprecated).
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--config-file &lt;config.json&gt;</span>: Location of the
+  configuration file for the rollup node. Defaults to
+  `&lt;data-dir&gt;/config.json`.
+<span class='opt'>--mode &lt;mode&gt;</span>: The mode for the rollup node
+  (observer, accuser, bailout, batcher, maintenance, operator, custom)
+  - observer: Only follows the chain, reconstructs and interprets inboxes
+  - accuser: Only publishes commitments for conflicts and play refutation
+  games
+  - bailout: Only defends and cements, does not publish any new commitments
+  - batcher: Accepts transactions in its queue and batches them on the L1
+  - maintenance: Follows the chain and publishes commitments, cement and
+  refute
+  - operator: Equivalent to maintenance + batcher
+  - custom: In this mode, the system handles only the specific operation
+  kinds: [publish, add_messages, cement, timeout, refute, recover,
+  execute_outbox_message, publish_dal_commitment]. This allows for tailored
+  control and flexibility.
+  (required when no configuration file exists)
+<span class='opt'>--rollup &lt;smart-rollup-address&gt;</span>: The smart rollup
+  address (required when no configuration file exists)
+<span class='opt'>--etherlink</span>: Force this rollup to be detected as an
+  Etherlink rollup
+<span class='opt'>--rpc-addr &lt;rpc-address|ip&gt;</span>: The address the smart
+  rollup node listens to. Default value is 127.0.0.1
+<span class='opt'>--rpc-port &lt;rpc-port&gt;</span>: The port the smart rollup
+  node listens to. Default value is 8932
+<span class='opt'>--acl-override &lt;kind&gt;</span>: Specify a different ACL for
+  the rpc server to override the default one. Possible values are 'secure'
+  and 'allow-all'
+<span class='opt'>--metrics-addr &lt;ADDR:PORT|:PORT&gt;</span>: Start the smart
+  rollup node metrics server at the specified address ADDR:PORT. Default
+  value is localhost:9933
+<span class='opt'>--enable-performance-metrics</span>: Enable performance
+  metrics when the metrics server is started and the system supports it.
+  DEPRECATED (enabled by default when the system supports it).
+<span class='opt'>--disable-performance-metrics</span>: Disable performance
+  metrics when the metrics server is started (enabled by default when system
+  supports it).
+<span class='opt'>--loser-mode &lt;mode&gt;</span>: Set the rollup node failure
+  points (for test only!).
+<span class='opt'>--reconnection-delay &lt;delay&gt;</span>: The first reconnection
+  delay, in seconds, to wait before reconnecting to the Tezos node. The
+  default delay is 2.0.
+  The actual delay varies to follow a randomized exponential backoff (capped
+  to 1.5h): [1.5^reconnection_attempt * delay ± 50%].
+<span class='opt'>--dal-node &lt;dal-node-endpoint&gt;</span>: The address of the
+  dal node from which the smart rollup node downloads slots. When not
+  provided, the rollup node will not support the DAL. In production, a DAL
+  node must be provided if DAL is enabled and used in the rollup.
+<span class='opt'>--pre-images-endpoint &lt;url&gt;</span>: The address of a
+  service which provides pre-images for the rollup. Missing pre-images will
+  be downloaded remotely if they are not already present on disk.
+<span class='opt'>--injector-retention-period &lt;blocks&gt;</span>: The number of
+  blocks the injector keeps in memory. Decrease to free memory, and increase
+  to be able to query information about included messages for longer. Default
+  value is 2048
+<span class='opt'>--injector-attempts &lt;number&gt;</span>: The number of attempts
+  that the injector will make to inject an operation when it fails. Default
+  value is 10
+<span class='opt'>--injection-ttl &lt;number&gt;</span>: The number of blocks after
+  which an operation that is injected but never included is retried. Default
+  value is 120
+<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>: The maximum
+  cache size in memory before it is flushed to disk, used for indexes of the
+  store. (Deprecated)
+<span class='opt'>--index-buffer-size &lt;&lt;nb_entries&gt;&gt;</span>: The maximum
+  cache size in memory before it is flushed to disk, used for indexes of the
+  store. (Deprecated)
+<span class='opt'>--log-kernel-debug</span>: Log the kernel debug output to
+  kernel.log in the data directory
+<span class='opt'>--log-kernel-debug-file &lt;file&gt;</span>: 
+<span class='opt'>--boot-sector-file &lt;file&gt;</span>: Path to the boot sector.
+  The argument is optional, if the rollup was originated via the smart rollup
+  originate operation, the smart rollup node will fetch the boot sector
+  itself. This argument is required only if it's a bootstrapped smart rollup.
+<span class='opt'>--no-degraded</span>: Prevent the rollup node from entering
+  degraded mode on error. The rollup node will instead stop.
+<span class='opt'>--gc-frequency &lt;blocks&gt;</span>: The number of blocks
+  between each launch of the garbage collection. Default is protocol constant
+  challenge_window_in_blocks / 5.
+<span class='opt'>--history-mode &lt;history_mode&gt;</span>: The history mode for
+  the rollup node (archive, full) (default is full)
+<span class='opt'>--cors-origins &lt;ALLOWED_ORIGINS&gt;</span>: List of accepted
+  cors origins.
+<span class='opt'>--cors-headers &lt;ALLOWED_HEADERS&gt;</span>: List of accepted
+  cors headers.
+<span class='opt'>--apply-unsafe-patches</span>: Apply unsafe PVM patches in
+  the configuration or hardcoded by the node.
+<span class='opt'>--bail-on-disagree</span>: Make an observer rollup node
+  bail when it sees a commitment it disagree with on L1.
+<span class='opt'>--unsafe-disable-wasm-kernel-checks</span>: Allow to run
+  the kernel without checking for its validity. Only for debug, do not use in
+  production!
+<span class='opt'>--profiling &lt;BOOL&gt;</span>: Enable or disable profiling with
+  opentelemetry</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>show</span> <span class='kwd'>supported</span> <span class='kwd'>protocols</span></div>
+
+<div class='cmddoc'>Shows the protocols supported by this rollup node.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>dump-metrics</span></div>
+
+<div class='cmddoc'>dump the rollup node available metrics in CSV format.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>durable</span> <span class='kwd'>storage</span> <span class='kwd'>into</span> <span class='arg'>dump.&lt;json|yaml&gt;</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>-b --block &lt;hash|level|tag&gt;</span>]</div>
+
+<div class='cmddoc'>dump the durable_storage.
+<span class='arg'>dump.&lt;json|yaml&gt;</span>: YAML or JSON file containing the
+  dumped durable storage
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>-b --block &lt;hash|level|tag&gt;</span>: block on which to apply
+  contextual commands (commands dependent on the context associated with the
+  specified block). Possible tags include 'head' and 'genesis' +/- an
+  optional offset (e.g. "octez-client -b head-1 get timestamp"). Note that
+  block queried must exist in node's storage.
+  Defaults to `head`.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>patch</span> <span class='kwd'>durable</span> <span class='kwd'>storage</span> <span class='kwd'>at</span> <span class='arg'>path</span> <span class='kwd'>with</span> <span class='arg'>value</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>-f --force</span>]</div>
+
+<div class='cmddoc'>Patches the durable storage with an arbitrary value. This
+                    is an unsafe command, it should be used for debugging
+                    only. Patched durable storage is persisted and cannot be
+                    reverted.
+<span class='arg'>path</span>: Durable storage path
+<span class='arg'>value</span>: Patched value
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>-f --force</span>: Force patching the durable storage</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>export</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--dest &lt;path&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--compress-on-the-fly</span>] [<span class='opt'>--uncompressed</span>] [<span class='opt'>--compact</span>] [<span class='opt'>--rollup-node-endpoint &lt;uri&gt;</span>]</div>
+
+<div class='cmddoc'>Export a snapshot of the rollup node state.
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--dest &lt;path&gt;</span>: Directory in which to export the
+  snapshot (defaults to current directory)
+<span class='opt'>--no-check</span>: Don't check integrity of the snapshot.
+<span class='opt'>--compress-on-the-fly</span>: Produce a compressed snapshot
+  on the fly. The rollup node will use less disk space to produce the
+  snapshot but will lock the rollup node (if running) for a longer time.
+  Without this option, producing a snaphsot requires the available disk space
+  to be around the size of the data dir.
+<span class='opt'>--uncompressed</span>: Produce an uncompressed snapshot.
+<span class='opt'>--compact</span>: Produce a compact snapshot with a single
+  commit for the context.
+<span class='opt'>--rollup-node-endpoint &lt;uri&gt;</span>: The address of the
+  running rollup node.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>export</span> <span class='arg'>snapshot_file</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--compress-on-the-fly</span>] [<span class='opt'>--uncompressed</span>] [<span class='opt'>--compact</span>] [<span class='opt'>--rollup-node-endpoint &lt;uri&gt;</span>]</div>
+
+<div class='cmddoc'>Export a snapshot of the rollup node state to a given
+                    file.
+<span class='arg'>snapshot_file</span>: Snapshot archive file
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--no-check</span>: Don't check integrity of the snapshot.
+<span class='opt'>--compress-on-the-fly</span>: Produce a compressed snapshot
+  on the fly. The rollup node will use less disk space to produce the
+  snapshot but will lock the rollup node (if running) for a longer time.
+  Without this option, producing a snaphsot requires the available disk space
+  to be around the size of the data dir.
+<span class='opt'>--uncompressed</span>: Produce an uncompressed snapshot.
+<span class='opt'>--compact</span>: Produce a compact snapshot with a single
+  commit for the context.
+<span class='opt'>--rollup-node-endpoint &lt;uri&gt;</span>: The address of the
+  running rollup node.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>import</span> <span class='arg'>snapshot_file_or_url</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--no-check</span>] [<span class='opt'>--force</span>] [<span class='opt'>--apply-unsafe-patches</span>]</div>
+
+<div class='cmddoc'>Import a snapshot file in a rollup node.
+<span class='arg'>snapshot_file_or_url</span>: Snapshot archive file name,
+  URL to download the snapshot or stdin (when given `-`)
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--no-check</span>: Don't check integrity of the snapshot.
+<span class='opt'>--force</span>: Import into an already populated data dir.
+<span class='opt'>--apply-unsafe-patches</span>: Apply unsafe PVM patches in
+  the configuration or hardcoded by the node.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>snapshot</span> <span class='kwd'>info</span> <span class='arg'>snapshot_file_or_url</span></div>
+
+<div class='cmddoc'>Display information about a snapshot file.
+<span class='arg'>snapshot_file_or_url</span>: Snapshot archive file name,
+  URL to download the snapshot or stdin (when given `-`)</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>openapi</span> [<span class='opt'>-P --protocol &lt;Proto&gt;</span>]</div>
+
+<div class='cmddoc'>Generate OpenAPI specification.
+<span class='opt'>-P --protocol &lt;Proto&gt;</span>: Protocol hash in
+  base58-check. If not provided, the export will be for the last registered
+  protocol in the rollup node which may be different between different
+  versions of the node.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>metrics</span> [<span class='opt'>--disable-performance-metrics</span>]</div>
+
+<div class='cmddoc'>List the metrics exported by the smart rollup node.
+<span class='opt'>--disable-performance-metrics</span>: Disable performance
+  metrics when the metrics server is started (enabled by default when system
+  supports it).</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>replay</span> <span class='kwd'>block</span> <span class='arg'>block_or_level</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--profiling &lt;BOOL&gt;</span>]</div>
+
+<div class='cmddoc'>Replay a given L1 block.
+<span class='arg'>block_or_level</span>: An L1 block hash or a level
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--profiling &lt;BOOL&gt;</span>: Enable or disable profiling with
+  opentelemetry</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>replay</span> <span class='kwd'>blocks</span> <span class='kwd'>from</span> <span class='arg'>level</span> <span class='kwd'>to</span> <span class='arg'>level</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>] [<span class='opt'>--profiling &lt;BOOL&gt;</span>]</div>
+
+<div class='cmddoc'>Replay a sequence of L1 blocks.
+<span class='arg'>level</span>: Level
+<span class='arg'>level</span>: Level
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.
+<span class='opt'>--profiling &lt;BOOL&gt;</span>: Enable or disable profiling with
+  opentelemetry</div>
+</li>
+</ul>
+
+
+<h3>Commands to repair the smart rollup node.</h3>
+
+
+<ul>
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>repair</span> <span class='kwd'>commitments</span> <span class='kwd'>for</span> <span class='arg'>protocol</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>]</div>
+
+<div class='cmddoc'>Repair commitments of L2 chain for a given protocol.
+<span class='arg'>protocol</span>: Protocol hash
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.</div>
+</li>
+
+
+<li>
+octez-smart-rollup-node <div class='cmdline'><span class='kwd'>recompute</span> <span class='kwd'>outbox</span> <span class='kwd'>messages</span> <span class='kwd'>from</span> <span class='arg'>level</span> [<span class='opt'>--data-dir &lt;data-dir&gt;</span>]</div>
+
+<div class='cmddoc'>Recompute outbox messages from a given level up to the
+                    current head. It does not overwrite already stored outbox
+                    messages.
+<span class='arg'>level</span>: Level
+<span class='opt'>--data-dir &lt;data-dir&gt;</span>: The path to the smart rollup
+  node data directory. Default value is
+  $HOME/.tezos-smart-rollup-node
+  Defaults to `$HOME/.tezos-smart-rollup-node`.</div>
+</li>
+</ul>
+
+</section>
+<section id="baker-manual">
+<span id="id6"></span><h2>Baker manual<a class="headerlink" href="#baker-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the baker command line tool. See <a class="reference internal" href="../introduction/howtorun.html#baker-run"><span class="std std-ref">Baker</span></a> for a general description of this tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This unique baker executable is meant to replace the protocol-specific bakers for all the protocols it supports, such as <a class="reference internal" href="../active/cli-commands.html#baker-manual-rio"><span class="std std-ref">octez-baker-PsRiotum</span></a> and <a class="reference internal" href="../alpha/cli-commands.html#baker-manual-alpha"><span class="std std-ref">octez-baker-alpha</span></a>.</p>
+</div>
+</section>
+<section id="accuser-manual">
+<span id="id7"></span><h2>Accuser manual<a class="headerlink" href="#accuser-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the accuser command line tool. See <a class="reference internal" href="../introduction/howtorun.html#accuser-run"><span class="std std-ref">Accuser</span></a> for a general description of this tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This unique accuser executable is meant to replace the protocol-specific accusers for all the protocols it supports, such as <a class="reference internal" href="../active/cli-commands.html#accuser-manual-rio"><span class="std std-ref">octez-accuser-PsRiotum</span></a> and <a class="reference internal" href="../alpha/cli-commands.html#accuser-manual-alpha"><span class="std std-ref">octez-accuser-alpha</span></a>.</p>
+</div>
+</section>
+<section id="benchmark-tool-manual">
+<span id="id8"></span><h2>Benchmark tool manual<a class="headerlink" href="#benchmark-tool-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the command line tool <code class="docutils literal notranslate"><span class="pre">octez-snoop</span></code>. See <a class="reference internal" href="../developer/snoop.html"><span class="doc">Benchmarking with Snoop</span></a> for a general description of this tool.</p>
+<style>.cmdline { font-family: monospace }.cmddoc { white-space: pre-wrap ; font-family: monospace; line-height: 170%; margin: 0 0 20px 0 }.cmdline { background: #343131; padding: 2px 8px; border-radius:10px; color: white; margin: 5px; }.cmdline+.cmddoc { margin: -5px 5px 0 20px; padding: 5px }.opt,.arg { background: #343131; font-weight: bold;  padding: 2px 4px; border-radius:5px; }.kwd { font-weight: bold; } .opt { color:#CF0; background: #460; } .arg { color: #CEF; background: #369; }</style>
+<h3>Usage</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-snoop [<span class='opt'>global options</span>] <span class='kwd'>command</span> [<span class='opt'>command options</span>]</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-snoop <span class='opt'>--help</span> (for global options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-snoop [<span class='opt'>global options</span>] <span class='kwd'>command</span> <span class='opt'>--help</span> (for command options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-snoop <span class='opt'>--version</span> (for version information)</div>
+</li>
+</ul>
+
+
+<h3>To browse the documentation</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-snoop [<span class='opt'>global options</span>] <span class='kwd'>man</span> (for a list of commands)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-snoop [<span class='opt'>global options</span>] <span class='kwd'>man</span> <span class='opt'>-v 3</span> (for the full manual)</div>
+</li>
+</ul>
+
+
+<h3>Global options (must come before the command)</h3>
+
+<div class='cmddoc'><span class='opt'>--list-solvers</span>: List all
+                      available solvers
+<span class='opt'>--list-models</span>: List all models</div>
+
+
+<h3>Access the documentation</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
+
+<div class='cmddoc'>Print documentation of commands.
+                    Add search keywords to narrow list.
+                    Will display only the commands by default, unless
+                    [-verbosity &lt;2|3&gt;] is passed or the list of matching
+                    commands if less than 3.
+<span class='arg'>keyword</span>: keyword to search for
+  If several are given they must all appear in the command.
+<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>: level of details
+  0. Only shows command mnemonics, without documentation.
+  1. Shows command mnemonics with short descriptions.
+  2. Show commands and arguments with short descriptions
+  3. Show everything
+<span class='opt'>--format &lt;plain|colors|html&gt;</span>: the manual's output
+  format
+  Defaults to `plain`.</div>
+</li>
+</ul>
+
+
+<h3>Commands for benchmarking parts of the protocol</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>benchmark</span> <span class='arg'>BENCH-NAME</span> <span class='kwd'>and</span> <span class='kwd'>save</span> <span class='kwd'>to</span> <span class='arg'>FILENAME</span> [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>--minor-heap-size &lt;strictly positive int&gt;</span>] [<span class='opt'>-c --config-file &lt;file&gt;</span>] [<span class='opt'>--dump-csv &lt;filename&gt;</span>]</div>
+
+<div class='cmddoc'>Runs benchmarks
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='arg'>FILENAME</span>: Name of the file where to save the
+  workload data
+<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>: Number of
+  samples per benchmark
+<span class='opt'>--seed &lt;int&gt;</span>: RNG seed
+<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>: Number of
+  benchmarks (i.e. random inputs)
+<span class='opt'>--minor-heap-size &lt;strictly positive int&gt;</span>: Size of
+  minor heap in words
+<span class='opt'>-c --config-file &lt;file&gt;</span>: Specify a benchmark
+  configuration file
+<span class='opt'>--dump-csv &lt;filename&gt;</span>: Dumps raw benchmark results
+  to CSV</div>
+</li>
+</ul>
+
+
+<h3>Command for infering parameters of cost models</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>infer</span> <span class='kwd'>parameters</span> <span class='kwd'>for</span> <span class='kwd'>model</span> <span class='arg'>LOCAL-MODEL-NAME</span> <span class='kwd'>on</span> <span class='kwd'>data</span> <span class='arg'>WORKLOAD-DATA</span> <span class='kwd'>using</span> <span class='arg'>REGRESSION-METHOD</span> [<span class='opt'>--print-problem</span>] [<span class='opt'>--dump-csv &lt;filename&gt;</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--ridge-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-positive</span>] [<span class='opt'>--report &lt;filename&gt;</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--save-solution &lt;filename&gt;</span>] [<span class='opt'>--dot-file &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
+
+<div class='cmddoc'>Perform parameter inference
+<span class='arg'>LOCAL-MODEL-NAME</span>: Name of the local model for which
+  to infer parameter
+<span class='arg'>WORKLOAD-DATA</span>: File or directory containing workload
+  data
+<span class='arg'>REGRESSION-METHOD</span>: Regression method used
+<span class='opt'>--print-problem</span>: Prints problem as obtained after
+  applying model to workload data
+<span class='opt'>--dump-csv &lt;filename&gt;</span>: Dumps solution of inference
+  to a CSV file
+<span class='opt'>--plot</span>: Plot results of parameter inference
+<span class='opt'>--ridge-alpha &lt;positive float&gt;</span>: Regularization
+  parameter for ridge regression
+<span class='opt'>--lasso-alpha &lt;positive float&gt;</span>: Regularization
+  parameter for lasso regression
+<span class='opt'>--lasso-positive</span>: Constrains solution of lasso
+  regression to be positive
+<span class='opt'>--report &lt;filename&gt;</span>: Produces a detailed report
+<span class='opt'>--override-csv &lt;filename&gt;</span>: Specify CSV file
+  containing overrided variables for inference
+<span class='opt'>--save-solution &lt;filename&gt;</span>: Specify file to which
+  inference solution will be saved for code generation
+<span class='opt'>--dot-file &lt;filename&gt;</span>: Specify file to which
+  dependency graph will be saved in graphviz format
+<span class='opt'>--full-plot-verbosity</span>: Produces all (possibly
+  redundant) plots
+<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload,
+  produces a file containing the plot of the raw data, in the specified
+  directory
+<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for
+  plotting empirical data quantiles</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>infer</span> <span class='kwd'>parameters</span> <span class='kwd'>on</span> <span class='kwd'>data</span> <span class='arg'>WORKLOAD-DATA</span> <span class='kwd'>using</span> <span class='arg'>REGRESSION-METHOD</span> [<span class='opt'>--print-problem</span>] [<span class='opt'>--dump-csv &lt;filename&gt;</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--ridge-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-alpha &lt;positive float&gt;</span>] [<span class='opt'>--lasso-positive</span>] [<span class='opt'>--report &lt;filename&gt;</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--save-solution &lt;filename&gt;</span>] [<span class='opt'>--dot-file &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
+
+<div class='cmddoc'>Perform parameter inference on data set
+<span class='arg'>WORKLOAD-DATA</span>: Directory containing workload data
+<span class='arg'>REGRESSION-METHOD</span>: Regression method used
+<span class='opt'>--print-problem</span>: Prints problem as obtained after
+  applying model to workload data
+<span class='opt'>--dump-csv &lt;filename&gt;</span>: Dumps solution of inference
+  to a CSV file
+<span class='opt'>--plot</span>: Plot results of parameter inference
+<span class='opt'>--ridge-alpha &lt;positive float&gt;</span>: Regularization
+  parameter for ridge regression
+<span class='opt'>--lasso-alpha &lt;positive float&gt;</span>: Regularization
+  parameter for lasso regression
+<span class='opt'>--lasso-positive</span>: Constrains solution of lasso
+  regression to be positive
+<span class='opt'>--report &lt;filename&gt;</span>: Produces a detailed report
+<span class='opt'>--override-csv &lt;filename&gt;</span>: Specify CSV file
+  containing overrided variables for inference
+<span class='opt'>--save-solution &lt;filename&gt;</span>: Specify file to which
+  inference solution will be saved for code generation
+<span class='opt'>--dot-file &lt;filename&gt;</span>: Specify file to which
+  dependency graph will be saved in graphviz format
+<span class='opt'>--full-plot-verbosity</span>: Produces all (possibly
+  redundant) plots
+<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload,
+  produces a file containing the plot of the raw data, in the specified
+  directory
+<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for
+  plotting empirical data quantiles</div>
+</li>
+</ul>
+
+
+<h3>Command for generating code</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>and</span> <span class='kwd'>model</span> <span class='arg'>CODEGEN-MODEL-NAME</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
+
+<div class='cmddoc'>Generate code for a specific model
+<span class='arg'>SOLUTION-FILE</span>: File containing solution, as obtained
+  using the --save-solution switch
+<span class='arg'>CODEGEN-MODEL-NAME</span>: Name of the codegen model for
+  which to generate code
+<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>: Apply fixed-point
+  transform to the model
+<span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>for</span> <span class='kwd'>all</span> <span class='kwd'>models</span> <span class='kwd'>matching</span> <span class='arg'>REGEXP</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
+
+<div class='cmddoc'>Generate code for all models matching regexp
+<span class='arg'>SOLUTION-FILE</span>: File containing solution, as obtained
+  using the --save-solution switch
+<span class='arg'>REGEXP</span>: Regular expression on model names
+<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>: Apply fixed-point
+  transform to the model
+<span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>using</span> <span class='kwd'>solution</span> <span class='arg'>SOLUTION-FILE</span> <span class='kwd'>for</span> <span class='kwd'>inferred</span> <span class='kwd'>models</span> [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;file&gt;</span>]</div>
+
+<div class='cmddoc'>Generate code for models inferred from the solution file
+<span class='arg'>SOLUTION-FILE</span>: File containing solution, as obtained
+  using the --save-solution switch
+<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>: Apply fixed-point
+  transform to the model
+<span class='opt'>--save-to &lt;file&gt;</span>: Save the output to a file</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>solutions</span> [<span class='arg'>SOLUTION-FILE</span>...] [<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>] [<span class='opt'>--save-to &lt;FILE-NAME&gt;</span>] [<span class='opt'>--split-to &lt;DIR&gt;</span>]</div>
+
+<div class='cmddoc'>Generate code for the models inferred from the solution
+                    files
+<span class='arg'>SOLUTION-FILE</span>: File or Directory containing
+  solutions, as obtained using the --save-solution switch
+<span class='opt'>--fixed-point &lt;json-config-file&gt;</span>: Apply fixed-point
+  transform to the model
+<span class='opt'>--save-to &lt;FILE-NAME&gt;</span>: Generated code is saved to
+  FILE-NAME. Will also save code for models that dont have a codegen
+  destination
+<span class='opt'>--split-to &lt;DIR&gt;</span>: Generated code is saved to
+  DIR/&lt;generated_code_destination&gt;_costs_generated.ml (and __non_fp.ml).</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>check</span> <span class='kwd'>definitions</span> <span class='kwd'>in</span> <span class='kwd'>generated</span> <span class='kwd'>files</span> [<span class='arg'>MLFILE</span>...]</div>
+
+<div class='cmddoc'>Check cost functions defined in the given generated .ml
+                    files
+<span class='arg'>MLFILE</span>: File containing cost function definitions</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>benchmarks</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>-c --config-file &lt;file&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
+
+<div class='cmddoc'>Auto-perform the benchmarks, inference and codegen for
+                    the given benchmarks
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='opt'>--split</span>: Switch indicating that generated code
+  should be split into submodules defined by Benchmark's generated code
+  destination 
+<span class='opt'>--out-dir &lt;directory&gt;</span>: Destination directory of the
+  auto-build result
+<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>: Number of
+  samples per benchmark
+<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>: Number of
+  benchmarks (i.e. random inputs)
+<span class='opt'>-c --config-file &lt;file&gt;</span>: Specify a benchmark
+  configuration file
+<span class='opt'>--print-problem</span>: Prints problem as obtained after
+  applying model to workload data
+<span class='opt'>--plot</span>: Plot results of parameter inference
+<span class='opt'>--override-csv &lt;filename&gt;</span>: Specify CSV file
+  containing overrided variables for inference
+<span class='opt'>--full-plot-verbosity</span>: Produces all (possibly
+  redundant) plots
+<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload,
+  produces a file containing the plot of the raw data, in the specified
+  directory
+<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for
+  plotting empirical data quantiles</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>models</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>-c --config-file &lt;file&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
+
+<div class='cmddoc'>Auto-perform the benchmarks, inference and codegen for
+                    the given models
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='opt'>--split</span>: Switch indicating that generated code
+  should be split into submodules defined by Benchmark's generated code
+  destination 
+<span class='opt'>--out-dir &lt;directory&gt;</span>: Destination directory of the
+  auto-build result
+<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>: Number of
+  samples per benchmark
+<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>: Number of
+  benchmarks (i.e. random inputs)
+<span class='opt'>-c --config-file &lt;file&gt;</span>: Specify a benchmark
+  configuration file
+<span class='opt'>--print-problem</span>: Prints problem as obtained after
+  applying model to workload data
+<span class='opt'>--plot</span>: Plot results of parameter inference
+<span class='opt'>--override-csv &lt;filename&gt;</span>: Specify CSV file
+  containing overrided variables for inference
+<span class='opt'>--full-plot-verbosity</span>: Produces all (possibly
+  redundant) plots
+<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload,
+  produces a file containing the plot of the raw data, in the specified
+  directory
+<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for
+  plotting empirical data quantiles</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>code</span> <span class='kwd'>for</span> <span class='kwd'>parameters</span> [<span class='arg'>BENCH-NAME</span>...] [<span class='opt'>--split</span>] [<span class='opt'>--out-dir &lt;directory&gt;</span>] [<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>] [<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>] [<span class='opt'>-c --config-file &lt;file&gt;</span>] [<span class='opt'>--print-problem</span>] [<span class='opt'>--plot</span>] [<span class='opt'>--override-csv &lt;filename&gt;</span>] [<span class='opt'>--full-plot-verbosity</span>] [<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>] [<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>]</div>
+
+<div class='cmddoc'>Auto-perform the benchmarks, inference and codegen for
+                    the given parameters
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='opt'>--split</span>: Switch indicating that generated code
+  should be split into submodules defined by Benchmark's generated code
+  destination 
+<span class='opt'>--out-dir &lt;directory&gt;</span>: Destination directory of the
+  auto-build result
+<span class='opt'>--nsamples &lt;strictly positive int&gt;</span>: Number of
+  samples per benchmark
+<span class='opt'>--bench-num &lt;strictly positive int&gt;</span>: Number of
+  benchmarks (i.e. random inputs)
+<span class='opt'>-c --config-file &lt;file&gt;</span>: Specify a benchmark
+  configuration file
+<span class='opt'>--print-problem</span>: Prints problem as obtained after
+  applying model to workload data
+<span class='opt'>--plot</span>: Plot results of parameter inference
+<span class='opt'>--override-csv &lt;filename&gt;</span>: Specify CSV file
+  containing overrided variables for inference
+<span class='opt'>--full-plot-verbosity</span>: Produces all (possibly
+  redundant) plots
+<span class='opt'>--plot-raw-workload &lt;directory&gt;</span>: For each workload,
+  produces a file containing the plot of the raw data, in the specified
+  directory
+<span class='opt'>--empirical-plot &lt;full|q1,...,qn&gt;</span>: Options for
+  plotting empirical data quantiles</div>
+</li>
+</ul>
+
+
+<h3>Command for solution file</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>solution</span> <span class='kwd'>print</span> [<span class='arg'>SOLUTION-FILE</span>...]</div>
+
+<div class='cmddoc'>Print out the given solution file(s)
+<span class='arg'>SOLUTION-FILE</span>: File containing solution, as obtained
+  using the --save-solution switch</div>
+</li>
+</ul>
+
+
+<h3>Commands for displaying lists</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>benchmarks</span> [<span class='opt'>-t --show-tags</span>]</div>
+
+<div class='cmddoc'>List all implemented benchmarks
+<span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>tags</span></div>
+
+<div class='cmddoc'>List all available tags</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>any</span> <span class='kwd'>of</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
+
+<div class='cmddoc'>List all implemented benchmarks containing any of the
+                    given tags
+<span class='arg'>TAG</span>: Tag of a benchmark
+<span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>all</span> <span class='kwd'>of</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
+
+<div class='cmddoc'>List all implemented benchmarks containing all of the
+                    given tags
+<span class='arg'>TAG</span>: Tag of a benchmark
+<span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>with</span> <span class='kwd'>tags</span> <span class='kwd'>exactly</span> [<span class='arg'>TAG</span>...] [<span class='opt'>-t --show-tags</span>]</div>
+
+<div class='cmddoc'>List all implemented benchmarks containing exactly the
+                    given tags
+<span class='arg'>TAG</span>: Tag of a benchmark
+<span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>benchmarks</span> <span class='kwd'>in</span> <span class='arg'>BENCH-NAME</span> [<span class='opt'>-t --show-tags</span>]</div>
+
+<div class='cmddoc'>List all benchmarks in the given namespace
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='opt'>-t --show-tags</span>: Show the tags of the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>parameters</span></div>
+
+<div class='cmddoc'>List all parameters</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>models</span></div>
+
+<div class='cmddoc'>List all models</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>all</span> <span class='kwd'>local</span> <span class='kwd'>models</span></div>
+
+<div class='cmddoc'>List all local models</div>
+</li>
+</ul>
+
+
+<h3>Commands for manipulating config files</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>check</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> <span class='arg'>BENCH-NAME</span></div>
+
+<div class='cmddoc'>Prints the configuration that would be used for a given
+                    benchmark, given a configuration file
+<span class='arg'>CONFIG-FILE</span>: Configuration file name
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>generate</span> <span class='kwd'>default</span> <span class='kwd'>in</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> [<span class='arg'>BENCH-NAME</span>...]</div>
+
+<div class='cmddoc'>Generates a configuration file for the given benchmarks
+                    using their default configuration
+<span class='arg'>CONFIG-FILE</span>: Configuration file name
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>generate</span> <span class='kwd'>empty</span> <span class='kwd'>in</span> <span class='arg'>CONFIG-FILE</span></div>
+
+<div class='cmddoc'>Generates an empty configuration file for the given
+                    benchmarks
+<span class='arg'>CONFIG-FILE</span>: Configuration file name</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>merge</span> <span class='arg'>SRC</span> <span class='kwd'>in</span> <span class='arg'>DST</span> [<span class='opt'>-d --delete-source</span>]</div>
+
+<div class='cmddoc'>Merges multiple configuration files. Fails in case of
+                    conflict
+<span class='arg'>SRC</span>: Configuration file path source
+<span class='arg'>DST</span>: Configuration file path destination
+<span class='opt'>-d --delete-source</span>: Deletes the source config file
+  given as argument for merging</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>config</span> <span class='kwd'>edit</span> <span class='arg'>CONFIG-FILE</span> <span class='kwd'>for</span> <span class='arg'>BENCH-NAME</span> [<span class='opt'>-e --use-editor &lt;EDITOR&gt;</span>] [<span class='opt'>-i --read-stdin</span>] [<span class='opt'>-f --read-file &lt;FILE&gt;</span>] [<span class='opt'>-j --read-json &lt;JSON&gt;</span>]</div>
+
+<div class='cmddoc'>Edit configuration file at the given point
+<span class='arg'>CONFIG-FILE</span>: Configuration file name
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark
+<span class='opt'>-e --use-editor &lt;EDITOR&gt;</span>: Specify the prefered text
+  editor used for editing the config file
+<span class='opt'>-i --read-stdin</span>: Read the standard input for a Json
+  document to edit the config file
+<span class='opt'>-f --read-file &lt;FILE&gt;</span>: Use the given Json document
+  to edit the config file
+<span class='opt'>-j --read-json &lt;JSON&gt;</span>: Use inlined Json to edit the
+  config file</div>
+</li>
+</ul>
+
+
+<h3>Commands for manipulating workload files</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>workload</span> <span class='kwd'>dump</span> <span class='arg'>WORKLOAD-FILE</span> [<span class='opt'>-o --out-file &lt;OUTPUT-FILE&gt;</span>]</div>
+
+<div class='cmddoc'>Dump the content of a workload file in JSON format
+<span class='arg'>WORKLOAD-FILE</span>: Workload file name
+<span class='opt'>-o --out-file &lt;OUTPUT-FILE&gt;</span>: JSON file name to write
+  the content</div>
+</li>
+</ul>
+
+
+<h3>Commands for displaying detailed information for Snoop components</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>benchmark</span> <span class='arg'>BENCH-NAME</span></div>
+
+<div class='cmddoc'>Display detailed information on the given benchmark
+<span class='arg'>BENCH-NAME</span>: Name of the benchmark</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>all</span> <span class='kwd'>benchmarks</span></div>
+
+<div class='cmddoc'>Display detailed information on all the benchmarks</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>model</span> <span class='arg'>MODEL-NAME</span></div>
+
+<div class='cmddoc'>Display detailed information on the given model
+<span class='arg'>MODEL-NAME</span>: Name of the model</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>parameter</span> <span class='arg'>PARAM-NAME</span></div>
+
+<div class='cmddoc'>Display detailed information on the given parameter
+<span class='arg'>PARAM-NAME</span>: Name of the parameter</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>display</span> <span class='kwd'>info</span> <span class='kwd'>for</span> <span class='kwd'>local</span> <span class='kwd'>model</span> <span class='arg'>LOCAL-MODEL-NAME</span></div>
+
+<div class='cmddoc'>Display detailed information on the given local model
+<span class='arg'>LOCAL-MODEL-NAME</span>: Name of the local model</div>
+</li>
+</ul>
+
+
+<h3>Command for generating random Michelson code and data</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>michelson</span> <span class='kwd'>generate</span> <span class='arg'>TERMS-COUNT</span> <span class='kwd'>terms</span> <span class='kwd'>of</span> <span class='kwd'>kind</span> <span class='arg'>{data|code}</span> <span class='kwd'>in</span> <span class='arg'>FILENAME</span> [<span class='opt'>--min-size &lt;int&gt;</span>] [<span class='opt'>--max-size &lt;int&gt;</span>] [<span class='opt'>--burn-in &lt;int&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>] [<span class='opt'>-v --verbose</span>]</div>
+
+<div class='cmddoc'>Michelson generation
+<span class='arg'>TERMS-COUNT</span>: Number of terms to generate
+<span class='arg'>{data|code}</span>: Kind of term to generate
+<span class='arg'>FILENAME</span>: File where to save Michelson terms
+<span class='opt'>--min-size &lt;int&gt;</span>: Lower bound for target size of
+  terms
+<span class='opt'>--max-size &lt;int&gt;</span>: Lower bound for target size of
+  terms
+<span class='opt'>--burn-in &lt;int&gt;</span>: Burn-in multiplier
+<span class='opt'>--seed &lt;int&gt;</span>: RNG seed
+<span class='opt'>-v --verbose</span>: Print the generated terms in the
+  standard output</div>
+</li>
+
+
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>michelson</span> <span class='kwd'>concat</span> <span class='kwd'>files</span> <span class='arg'>FILENAME</span> <span class='kwd'>and</span> <span class='arg'>FILENAME</span> <span class='kwd'>into</span> <span class='arg'>FILENAME</span></div>
+
+<div class='cmddoc'>Michelson generation
+<span class='arg'>FILENAME</span>: First file
+<span class='arg'>FILENAME</span>: Second file
+<span class='arg'>FILENAME</span>: Target file</div>
+</li>
+</ul>
+
+
+<h3>Command for generating random sapling transactions</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>alpha</span> <span class='kwd'>sapling</span> <span class='kwd'>generate</span> <span class='arg'>SAPLING-TX-COUNT</span> <span class='kwd'>transactions</span> <span class='kwd'>in</span> <span class='arg'>SAPLING-TX-FILE</span> [<span class='opt'>--max-inputs &lt;integer&gt;</span>] [<span class='opt'>--max-outputs &lt;integer&gt;</span>] [<span class='opt'>--max-nullifiers &lt;integer&gt;</span>] [<span class='opt'>--max-additional-commitments &lt;integer&gt;</span>] [<span class='opt'>--seed &lt;int&gt;</span>]</div>
+
+<div class='cmddoc'>Sapling transaction generation
+<span class='arg'>SAPLING-TX-COUNT</span>: Number of sapling transactions to
+  generate
+<span class='arg'>SAPLING-TX-FILE</span>: File containing sapling
+  transactions
+<span class='opt'>--max-inputs &lt;integer&gt;</span>: Maximum number of inputs
+<span class='opt'>--max-outputs &lt;integer&gt;</span>: Maximum number of outputs
+<span class='opt'>--max-nullifiers &lt;integer&gt;</span>: Maximum number of
+  nullifiers
+<span class='opt'>--max-additional-commitments &lt;integer&gt;</span>: Maximum
+  number of additional-commitments
+<span class='opt'>--seed &lt;int&gt;</span>: RNG seed</div>
+</li>
+</ul>
+
+
+<h3>Miscellaneous commands</h3>
+
+
+<ul>
+<li>
+octez-snoop <div class='cmdline'><span class='kwd'>generate</span> <span class='kwd'>default-config</span> [<span class='opt'>--save-to &lt;filename&gt;</span>]</div>
+
+<div class='cmddoc'>Show the default configurations for fixed-point code
+                    generation as json
+<span class='opt'>--save-to &lt;filename&gt;</span>: save default config to file</div>
+</li>
+</ul>
+
+</section>
+<section id="codec-manual">
+<span id="id9"></span><h2>Codec manual<a class="headerlink" href="#codec-manual" title="Link to this heading">#</a></h2>
+<p>This is the manual page of the command line tool <code class="docutils literal notranslate"><span class="pre">octez-codec</span></code>. See <a class="reference internal" href="../introduction/howtouse.html#octez-codec"><span class="std std-ref">Codec</span></a> for a general description of this tool.</p>
+<style>.cmdline { font-family: monospace }.cmddoc { white-space: pre-wrap ; font-family: monospace; line-height: 170%; margin: 0 0 20px 0 }.cmdline { background: #343131; padding: 2px 8px; border-radius:10px; color: white; margin: 5px; }.cmdline+.cmddoc { margin: -5px 5px 0 20px; padding: 5px }.opt,.arg { background: #343131; font-weight: bold;  padding: 2px 4px; border-radius:5px; }.kwd { font-weight: bold; } .opt { color:#CF0; background: #460; } .arg { color: #CEF; background: #369; }</style>
+<h3>Usage</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-codec [<span class='opt'>global options</span>] <span class='kwd'>command</span> [<span class='opt'>command options</span>]</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-codec <span class='opt'>--help</span> (for global options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-codec [<span class='opt'>global options</span>] <span class='kwd'>command</span> <span class='opt'>--help</span> (for command options)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-codec <span class='opt'>--version</span> (for version information)</div>
+</li>
+</ul>
+
+
+<h3>To browse the documentation</h3>
+
+<ul>
+<li>
+<div class='cmdline'>octez-codec [<span class='opt'>global options</span>] <span class='kwd'>man</span> (for a list of commands)</div>
+</li>
+
+<li>
+<div class='cmdline'>octez-codec [<span class='opt'>global options</span>] <span class='kwd'>man</span> <span class='opt'>-v 3</span> (for the full manual)</div>
+</li>
+</ul>
+
+
+<h3>Global options (must come before the command)</h3>
+
+<div class='cmddoc'><span class='opt'>-d --base-dir &lt;path&gt;</span>: data
+                      directory
+                      The directory where the Tezos codec will output logs.
+                      By default: '$HOME/.tezos-client'.</div>
+
+
+<h3>Access the documentation</h3>
+
+
+<ul>
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>man</span> [<span class='arg'>keyword</span>...] [<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>] [<span class='opt'>--format &lt;plain|colors|html&gt;</span>]</div>
+
+<div class='cmddoc'>Print documentation of commands.
+                    Add search keywords to narrow list.
+                    Will display only the commands by default, unless
+                    [-verbosity &lt;2|3&gt;] is passed or the list of matching
+                    commands if less than 3.
+<span class='arg'>keyword</span>: keyword to search for
+  If several are given they must all appear in the command.
+<span class='opt'>-v --verbosity &lt;0|1|2|3&gt;</span>: level of details
+  0. Only shows command mnemonics, without documentation.
+  1. Shows command mnemonics with short descriptions.
+  2. Show commands and arguments with short descriptions
+  3. Show everything
+<span class='opt'>--format &lt;plain|colors|html&gt;</span>: the manual's output
+  format
+  Defaults to `plain`.</div>
+</li>
+</ul>
+
+
+<h3>Commands to handle encodings</h3>
+
+
+<ul>
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>list</span> <span class='kwd'>encodings</span></div>
+
+<div class='cmddoc'>List the registered encoding in Tezos.</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>encodings</span> [<span class='opt'>--compact</span>]</div>
+
+<div class='cmddoc'>Dump a JSON description of all registered encodings.
+<span class='opt'>--compact</span>: Output JSON descriptions without
+  extraneous whitespace characters</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>dump</span> <span class='kwd'>encoding</span> <span class='arg'>id</span> [<span class='opt'>--compact</span>]</div>
+
+<div class='cmddoc'>Dump a JSON description of a given registered encoding.
+<span class='arg'>id</span>: Encoding identifier
+<span class='opt'>--compact</span>: Output JSON description without
+  extraneous whitespace characters</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>encode</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Encode the given JSON data into binary using the provided
+                    encoding identifier.
+<span class='arg'>id</span>: Encoding identifier
+<span class='arg'>data</span>: JSON file or data</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>decode</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Decode the binary encoded data into JSON using the
+                    provided encoding identifier.
+<span class='arg'>id</span>: Encoding identifier
+<span class='arg'>data</span>: Hex-encoded binary-encoded data or name of
+  file containing the data</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>display</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='kwd'>binary</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Display the binary encoded data using the provided
+                    encoding identifier.
+<span class='arg'>id</span>: Encoding identifier
+<span class='arg'>data</span>: Hex-encoded binary-encoded data or name of
+  file containing the data</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>display</span> <span class='arg'>id</span> <span class='kwd'>from</span> <span class='kwd'>json</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Display the JSON encoded data using the provided encoding
+                    identifier.
+<span class='arg'>id</span>: Encoding identifier
+<span class='arg'>data</span>: JSON file or data</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>describe</span> <span class='arg'>id</span> <span class='kwd'>binary</span> <span class='kwd'>schema</span></div>
+
+<div class='cmddoc'>Describe the binary schema associated to the provided
+                    encoding identifier.
+<span class='arg'>id</span>: Encoding identifier
+</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>describe</span> <span class='arg'>id</span> <span class='kwd'>json</span> <span class='kwd'>schema</span></div>
+
+<div class='cmddoc'>Describe the JSON schema associated to the provided
+                    encoding identifier.
+<span class='arg'>id</span>: Encoding identifier
+</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>slice</span> <span class='arg'>data</span></div>
+
+<div class='cmddoc'>Attempts to slice an hex-encoded binary value with all
+                    known encodings.
+<span class='arg'>data</span>: Hex-encoded binary-encoded data or name of
+  file containing the data</div>
+</li>
+
+
+<li>
+octez-codec <div class='cmdline'><span class='kwd'>slice</span> <span class='arg'>data</span> <span class='kwd'>with</span> <span class='kwd'>encoding</span> <span class='arg'>id</span> [<span class='opt'>--format &lt;FORMAT&gt;</span>]</div>
+
+<div class='cmddoc'>Slice an hex-encoded binary value with the specified
+                    encoding.
+<span class='arg'>data</span>: Hex-encoded binary-encoded data or name of
+  file containing the data
+<span class='arg'>id</span>: Encoding identifier
+<span class='opt'>--format &lt;FORMAT&gt;</span>: The format to print the output
+  in: json, pretty, or waterfall.
+  Defaults to `pretty`.</div>
+</li>
+</ul>
+
+</section>
+<section id="protocol-dependent-tools">
+<h2>Protocol-dependent tools<a class="headerlink" href="#protocol-dependent-tools" title="Link to this heading">#</a></h2>
+<p>For manuals of the tools that may vary with each protocol, see <a class="reference internal" href="../active/cli-commands.html"><span class="doc">here</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="p2p_api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">P2P message format</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rpc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Shell RPCs - Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#admin-client-manual">Admin-client manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signer-manual">Signer manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-manual">Node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dal-node-manual">DAL node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-rollup-node-manual">Smart rollup node manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baker-manual">Baker manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuser-manual">Accuser manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmark-tool-manual">Benchmark tool manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codec-manual">Codec manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protocol-dependent-tools">Protocol-dependent tools</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Contributors to the Octez & Tezos protocol documentation
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2018-2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

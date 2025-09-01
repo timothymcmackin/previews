@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=a70f7747"></script>
+    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,9 +386,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0~rc2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-20.html">Version 20.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-19.html">Version 19.2</a></li>
@@ -1604,6 +1604,32 @@ octez-client <div class='cmdline'><span class='kwd'>propose</span> <span class='
 <span class='opt'>--record-state</span>: If record-state flag is set, the
   baker saves all its internal consensus state in the filesystem, otherwise
   just in memory.</div>
+</li>
+
+
+<li>
+octez-client <div class='cmdline'><span class='kwd'>repropose</span> <span class='kwd'>for</span> [<span class='arg'>baker</span>...] [<span class='opt'>-f --force</span>] [<span class='opt'>--force-round &lt;round&gt;</span>] [<span class='opt'>--minimal-timestamp</span>] [<span class='opt'>--force-reproposal</span>]</div>
+
+<div class='cmddoc'>Send a block proposal for the current level
+<span class='arg'>baker</span>: name of the delegate owning the
+  attestation/baking right or name of the consensus key signing on the
+  delegate's behalf
+  Can be a public key hash name, a file or a raw public key hash literal. If
+  the parameter is not the name of an existing public key hash, the client
+  will look for a file containing a public key hash, and if it does not
+  exist, the argument will be read as a raw public key hash.
+  Use 'alias:&lt;name&gt;', 'file:&lt;path&gt;' or 'text:&lt;literal&gt;' to disable
+  autodetect.
+<span class='opt'>-f --force</span>: disables the node's injection
+  checks
+  Force the injection of branch-invalid operation or force  the injection of
+  block without a fitness greater than the  current head.
+<span class='opt'>--force-round &lt;round&gt;</span>: Bake exactly at the given
+  round assuming that it is held by one of your delegates
+<span class='opt'>--minimal-timestamp</span>: Use the minimal timestamp
+  instead of the current date as timestamp of the baked block.
+<span class='opt'>--force-reproposal</span>: Force baking a reproposal by
+  crafting a prequorum proof with the available delegates</div>
 </li>
 </ul>
 
