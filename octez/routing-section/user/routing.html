@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
+    <script src="../_static/documentation_options.js?v=5170b89e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,7 +386,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.1</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
@@ -741,7 +741,7 @@ This table shows the default ports that nodes accept connections and RPC request
 <td><p>No</p></td>
 </tr>
 <tr class="row-even"><td><p>EVM node</p></td>
-<td><p>No data</p></td>
+<td><p>N/A</p></td>
 <td><p>8545</p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>
@@ -750,7 +750,7 @@ This table shows the default ports that nodes accept connections and RPC request
 <td><p>No</p></td>
 </tr>
 <tr class="row-odd"><td><p>Smart Rollup node</p></td>
-<td><p>No data</p></td>
+<td><p>N/A</p></td>
 <td><p>8932</p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>
@@ -770,10 +770,12 @@ As shown in the table above, not all of these options are available on each node
 The node does not actually bind to this port or listen on it.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">--net-addr</span></code> argument sets the address and port that nodes listen for incoming connections on.
 For example, setting <code class="docutils literal notranslate"><span class="pre">--net-addr</span> <span class="pre">0.0.0.0:11733</span></code> makes the node listen on port 11733 on all network interfaces.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">--rpc-addr</span></code> and <code class="docutils literal notranslate"><span class="pre">--external-rpc-addr</span></code> arguments sets the address on which the node accepts RPC requests from clients</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--rpc-addr</span></code> and <code class="docutils literal notranslate"><span class="pre">--external-rpc-addr</span></code> arguments sets the address on which the node accepts RPC requests from clients.
+The <code class="docutils literal notranslate"><span class="pre">--rpc-addr</span></code> argument is for the node itself and the <code class="docutils literal notranslate"><span class="pre">--external-rpc-addr</span></code> argument is for a secondary RPC server that runs on a process by itself, to reduce the strain on the node.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">--rpc-port</span></code> argument sets the port on which the node accepts RPC requests.</p></li>
 </ul>
-<p>Additionally, you can restrict access to certain RPCs of the node with <a class="reference internal" href="node-configuration.html#node-access-control"><span class="std std-ref">Access Control Lists</span></a>.</p>
+<p>Additionally, you can restrict access to certain RPCs of the node with <a class="reference internal" href="node-configuration.html#node-access-control"><span class="std std-ref">Access Control Lists</span></a>.
+For more information about the RPC interface in general, see <a class="reference internal" href="../developer/rpc.html"><span class="doc">JSON/RPC interface</span></a>.</p>
 <section id="ensuring-that-nodes-are-accessible">
 <h2>Ensuring that nodes are accessible<a class="headerlink" href="#ensuring-that-nodes-are-accessible" title="Link to this heading">#</a></h2>
 <p>Depending on your network, you may need to adapt your firewall rules or set up network address translation (NAT) to direct external traffic to the nodes.

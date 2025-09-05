@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Version 23.0 &#8212; Octez &amp; Protocol products documentation</title>
+    <title>Version 23.1 &#8212; Octez &amp; Protocol products documentation</title>
   
   
   
@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=1c62bdd6"></script>
+    <script src="../_static/documentation_options.js?v=5170b89e"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,7 +386,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="releases.html">Release System</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Version 23.0</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Version 23.1</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="version-21.html">Version 21.4</a></li>
@@ -683,7 +683,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Version 23.0</h1>
+    <h1>Version 23.1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -720,8 +720,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="version-23-0">
-<h1>Version 23.0<a class="headerlink" href="#version-23-0" title="Link to this heading">#</a></h1>
+  <section id="version-23-1">
+<h1>Version 23.1<a class="headerlink" href="#version-23-1" title="Link to this heading">#</a></h1>
 <section id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Link to this heading">#</a></h2>
 <section id="summary">
@@ -735,6 +735,7 @@
 </ol>
 </dd>
 </dl>
+<p>Octez v23.1 addresses an issue with Ubuntu and Debian packages distribution, where an expired PGP key prevented users from updating to v23.0 using apt.</p>
 </section>
 <section id="protocol-support">
 <span id="protocol-support-v23"></span><h3>Protocol Support<a class="headerlink" href="#protocol-support" title="Link to this heading">#</a></h3>
@@ -787,10 +788,24 @@ For instance:</p>
 <section id="ubuntu-and-debian-packages">
 <h3>Ubuntu and Debian packages<a class="headerlink" href="#ubuntu-and-debian-packages" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>octez-node<span class="w"> </span>octez-client<span class="w"> </span>octez-baker<span class="w"> </span>octez-dal-node<span class="w"> </span>octez-smart-rollup-node
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>octez-node<span class="w"> </span>octez-client<span class="w"> </span>octez-baker<span class="w"> </span>octez-dal-node<span class="w"> </span>octez-smart-rollup-node
 </pre></div>
 </div>
-<p>If you are installing Ubuntu and Debian packages from scratch, follow <a class="reference internal" href="../introduction/howtoget.html#installing-deb"><span class="std std-ref">their install instructions</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because the PGP keys have been rotated, users updating packages need to overwrite the previously installed octez.gpg key.
+For example, in order to update to v23.1 from a pre-existing Ubuntu Noble deployment, a user should first update the keys with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>curl -s &quot;https://packages.nomadic-labs.com/ubuntu/octez.asc&quot; |
+    sudo gpg --yes --dearmor -o /etc/apt/keyrings/octez.gpg
+</pre></div>
+</div>
+<p>Then, they should be able to continue upgrading as usual, e.g. by:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get upgrade octez-baker
+</pre></div>
+</div>
+</div>
+<p>See the <a class="reference internal" href="../introduction/howtoget.html#installing-deb"><span class="std std-ref">install instructions for Ubuntu and Debian packages</span></a> for details, or if you are installing Ubuntu and Debian packages from scratch.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you are running the Octez node with a non-default data directory, check instructions <a class="reference internal" href="../introduction/services.html#node-as-service"><span class="std std-ref">here</span></a>.</p>
@@ -806,7 +821,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 <section id="from-sources">
 <h3>From sources<a class="headerlink" href="#from-sources" title="Link to this heading">#</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch
-git<span class="w"> </span>checkout<span class="w"> </span>octez-v23.0
+git<span class="w"> </span>checkout<span class="w"> </span>octez-v23.1
 make<span class="w"> </span>clean
 opam<span class="w"> </span>switch<span class="w"> </span>remove<span class="w"> </span>.<span class="w"> </span><span class="c1"># To be used if the next step fails</span>
 make<span class="w"> </span>build-deps
@@ -814,12 +829,13 @@ make<span class="w"> </span>build-deps
 make
 </pre></div>
 </div>
-<p>If you are using Docker instead, use the <code class="docutils literal notranslate"><span class="pre">octez-v23.0</span></code> Docker images of Octez.</p>
+<p>If you are using Docker instead, use the <code class="docutils literal notranslate"><span class="pre">octez-v23.1</span></code> Docker images of Octez.</p>
 </section>
 </section>
 <section id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="../CHANGES.html#version-23-1">Version 23.1</a></p></li>
 <li><p><a class="reference external" href="../CHANGES.html#version-23-0">Version 23.0</a></p></li>
 <li><p><a class="reference external" href="../CHANGES.html#version-23-0-rc2">Version 23.0~rc2</a></p></li>
 <li><p><a class="reference external" href="../CHANGES.html#version-23-0-rc1">Version 23.0~rc1</a></p></li>

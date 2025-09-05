@@ -60,11 +60,13 @@ As shown in the table above, not all of these options are available on each node
 - The ``--net-addr`` argument sets the address and port that nodes listen for incoming connections on.
   For example, setting ``--net-addr 0.0.0.0:11733`` makes the node listen on port 11733 on all network interfaces.
 
-- The ``--rpc-addr`` and ``--external-rpc-addr`` arguments sets the address on which the node accepts RPC requests from clients
+- The ``--rpc-addr`` and ``--external-rpc-addr`` arguments sets the address on which the node accepts RPC requests from clients.
+  The ``--rpc-addr`` argument is for the node itself and the ``--external-rpc-addr`` argument is for a secondary RPC server that runs on a process by itself, to reduce the strain on the node.
 
 - The ``--rpc-port`` argument sets the port on which the node accepts RPC requests.
 
 Additionally, you can restrict access to certain RPCs of the node with :ref:`Access Control Lists <node_access_control>`.
+For more information about the RPC interface in general, see :doc:`JSON/RPC interface <../developer/rpc>`.
 
 Ensuring that nodes are accessible
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

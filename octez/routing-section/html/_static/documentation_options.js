@@ -1,5 +1,5 @@
 const DOCUMENTATION_OPTIONS = {
-    VERSION: '(local branch,  2025/09/01 14:24)',
+    VERSION: '(local branch,  2025/09/05 09:35)',
     LANGUAGE: 'en',
     COLLAPSE_INDEX: false,
     BUILDER: 'html',

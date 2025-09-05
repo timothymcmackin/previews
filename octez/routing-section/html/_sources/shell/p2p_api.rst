@@ -836,6 +836,8 @@ alpha.michelson.v1.primitives (Enumeration: unsigned 8-bit integer):
 +-------------+--------------------------------+
 | 159         | INDEX_ADDRESS                  |
 +-------------+--------------------------------+
+| 160         | GET_ADDRESS_INDEX              |
++-------------+--------------------------------+
 
 
 micheline.alpha.michelson_v1.expression (Determined from data, 8-bit tag)
