@@ -78,3 +78,59 @@ Then you must configure your firewall to permit incoming and outgoing TCP connec
 
 If a firewall rule directs traffic from an external port that is different from the port that you set in the ``--net-addr`` argument, use the ``--public-addr`` argument to set the port from which the node can be reached by other nodes.
 You may also need to set ``--public-addr`` if you are directing traffic from a load balancer to the DAL node.
+
+.. _mapping_upnp:
+
+Mapping ports with UPnP
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Starting with :doc:`Octez v23 <../releases/version-23>`, the Octez node supports
+mapping the port defined with the ``--listen-addr`` argument using UPnP. Note that this
+feature is still experimental in Octez v23 and is done manually, but will become
+automatic in later versions. Mapping this port should improve connectivity, and in
+particular allow other nodes to open a connection with the Octez node.
+
+Note that UPnP is generally not supported by professional networks and might
+not be enabled by default in home networks.
+
+The general workflow of using UPnP with Octez v23 is the following:
+
+1. Ask for a redirection of the P2P port on any port:
+
+   ::
+
+      $ octez-node map-port --any-net-port
+
+   The ``--any-net-port`` argument lets the gateway decide for a port to redirect octez-node's
+   P2P port, and registers it in the configuration for ``advertised-net-port``::
+
+      Redirecting <external_ip>:51397 to <octez-node_internal_ip>:9732
+
+
+2. Update the lease of the redirection on a regular basis (generally
+less than the lease, which by default is one week). This can be done by a cron
+job, for example::
+
+   0 0 * * */6 octez-node map-port
+
+   Such a cron job will update the lease every 6 days. Note that ``--any-net-port``
+   is not used, as the node already has an external port assigned, and it is read
+   from the configuration.
+
+.. warning::
+  For port mapping to be working, the Octez node needs to be able to receive
+  broadcast messages from the router. On certain setups, in particular using ``ufw``,
+  broadcast messages are discarded and a rule must be added to accept them. For
+  example::
+
+     $ ufw allow in from <network mask>
+
+  where ``network_mask`` is the local network mask, for example
+  ``192.168.0.0/24``. Any ``Gateway not found`` error would be an indicator that
+  the firewall is preventing the node to receive the router's messages.
+
+  UPnP on some network might be available but not feature-complete. In particular,
+  it might support mapping port but without the ability to map random ports. In
+  such a case, remove ``--any-net-port`` and either use
+  ``--advertised-net-port`` to choose an external port, or no option at all to try
+  to bind the defualt P2P port.

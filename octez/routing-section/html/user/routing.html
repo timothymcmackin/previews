@@ -40,7 +40,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=d3bab30c"></script>
+    <script src="../_static/documentation_options.js?v=661ca86b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -395,7 +395,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.2</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
@@ -706,6 +706,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensuring-that-nodes-are-accessible">Ensuring that nodes are accessible</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-ports-with-upnp">Mapping ports with UPnP</a></li>
 </ul>
             </nav>
         </div>
@@ -753,7 +754,7 @@ This table shows the default ports that nodes accept connections and RPC request
 <td><p>No</p></td>
 </tr>
 <tr class="row-even"><td><p>EVM node</p></td>
-<td><p>No data</p></td>
+<td><p>N/A</p></td>
 <td><p>8545</p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>
@@ -762,7 +763,7 @@ This table shows the default ports that nodes accept connections and RPC request
 <td><p>No</p></td>
 </tr>
 <tr class="row-odd"><td><p>Smart Rollup node</p></td>
-<td><p>No data</p></td>
+<td><p>N/A</p></td>
 <td><p>8932</p></td>
 <td><p>No</p></td>
 <td><p>No</p></td>
@@ -796,6 +797,57 @@ In this case, use the <code class="docutils literal notranslate"><span class="pr
 Then you must configure your firewall to permit incoming and outgoing TCP connections on port 11733.</p>
 <p>If a firewall rule directs traffic from an external port that is different from the port that you set in the <code class="docutils literal notranslate"><span class="pre">--net-addr</span></code> argument, use the <code class="docutils literal notranslate"><span class="pre">--public-addr</span></code> argument to set the port from which the node can be reached by other nodes.
 You may also need to set <code class="docutils literal notranslate"><span class="pre">--public-addr</span></code> if you are directing traffic from a load balancer to the DAL node.</p>
+</section>
+<section id="mapping-ports-with-upnp">
+<span id="mapping-upnp"></span><h2>Mapping ports with UPnP<a class="headerlink" href="#mapping-ports-with-upnp" title="Link to this heading">#</a></h2>
+<p>Starting with <a class="reference internal" href="../releases/version-23.html"><span class="doc">Octez v23</span></a>, the Octez node supports
+mapping the port defined with the <code class="docutils literal notranslate"><span class="pre">--listen-addr</span></code> argument using UPnP. Note that this
+feature is still experimental in Octez v23 and is done manually, but will become
+automatic in later versions. Mapping this port should improve connectivity, and in
+particular allow other nodes to open a connection with the Octez node.</p>
+<p>Note that UPnP is generally not supported by professional networks and might
+not be enabled by default in home networks.</p>
+<p>The general workflow of using UPnP with Octez v23 is the following:</p>
+<ol class="arabic">
+<li><p>Ask for a redirection of the P2P port on any port:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ octez-node map-port --any-net-port
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--any-net-port</span></code> argument lets the gateway decide for a port to redirect octez-node’s
+P2P port, and registers it in the configuration for <code class="docutils literal notranslate"><span class="pre">advertised-net-port</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Redirecting &lt;external_ip&gt;:51397 to &lt;octez-node_internal_ip&gt;:9732
+</pre></div>
+</div>
+</li>
+</ol>
+<p>2. Update the lease of the redirection on a regular basis (generally
+less than the lease, which by default is one week). This can be done by a cron
+job, for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0 0 * * */6 octez-node map-port
+
+Such a cron job will update the lease every 6 days. Note that ``--any-net-port``
+is not used, as the node already has an external port assigned, and it is read
+from the configuration.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For port mapping to be working, the Octez node needs to be able to receive
+broadcast messages from the router. On certain setups, in particular using <code class="docutils literal notranslate"><span class="pre">ufw</span></code>,
+broadcast messages are discarded and a rule must be added to accept them. For
+example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ ufw allow in from &lt;network mask&gt;
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">network_mask</span></code> is the local network mask, for example
+<code class="docutils literal notranslate"><span class="pre">192.168.0.0/24</span></code>. Any <code class="docutils literal notranslate"><span class="pre">Gateway</span> <span class="pre">not</span> <span class="pre">found</span></code> error would be an indicator that
+the firewall is preventing the node to receive the router’s messages.</p>
+<p>UPnP on some network might be available but not feature-complete. In particular,
+it might support mapping port but without the ability to map random ports. In
+such a case, remove <code class="docutils literal notranslate"><span class="pre">--any-net-port</span></code> and either use
+<code class="docutils literal notranslate"><span class="pre">--advertised-net-port</span></code> to choose an external port, or no option at all to try
+to bind the defualt P2P port.</p>
+</div>
 </section>
 </section>
 
@@ -845,6 +897,7 @@ You may also need to set <code class="docutils literal notranslate"><span class=
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensuring-that-nodes-are-accessible">Ensuring that nodes are accessible</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-ports-with-upnp">Mapping ports with UPnP</a></li>
 </ul>
   </nav></div>
 

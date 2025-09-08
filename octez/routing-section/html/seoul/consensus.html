@@ -40,7 +40,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=d3bab30c"></script>
+    <script src="../_static/documentation_options.js?v=661ca86b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -396,7 +396,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.2</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
@@ -984,13 +984,16 @@ simply emptied.</p>
 <p>The evidence for double signing at a given level can be collected by
 any <a class="reference internal" href="glossary.html#def-accuser-seoul"><span class="std std-ref">accuser</span></a> and included as a <em>denunciation</em>
 operation in a block in the same cycle as the double signing or in the
-<code class="docutils literal notranslate"><span class="pre">DENUNCIATION_PERIOD</span></code> next cycles.</p>
-<p>As soon as a delegate is denounced for any double signing, it is
-immediately <a class="reference internal" href="adaptive_slashing.html#new-forbidden-period-seoul"><span class="std std-ref">forbidden</span></a> from both baking
-and attesting for at least 2 cycles.</p>
-<p>The actual slashing and denunciation rewarding happen at the end of
+<code class="docutils literal notranslate"><span class="pre">DENUNCIATION_PERIOD</span></code> next cycles.
+The actual slashing and denunciation rewarding happen at the end of
 cycle <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">SLASHING_DELAY</span></code> for a misbehavior that happened in cycle
 <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>As soon as a delegate is denounced for any double signing, it is immediately <a class="reference internal" href="adaptive_slashing.html#new-forbidden-period-seoul"><span class="std std-ref">forbidden</span></a> from both baking and attesting for at least 2 cycles.</p>
+<p>The baker stays forbidden from the denunciation time to the slashing itself, which is the remainder of the current cycle and least one full cycle.
+Then, the baker remains forbidden until its current stake matches the computed rights of the cycle.
+Because it has been slashed, its frozen stake is lower during the first cycle after slashing, so it remains forbidden for at least one more cycle.
+In this way, staking more tez can reduce the number of cycles in which it can’t participate in consensus.</p>
+<p>Also note that while forbidden, a baker might become deactivated from inactivity, and might need to reactivate manually.</p>
 <p>Note that selfish baking is not an issue in Tenderbake: say we are at round
 <code class="docutils literal notranslate"><span class="pre">r</span></code> and the validator which is proposer at round <code class="docutils literal notranslate"><span class="pre">r+1</span></code> does not (pre)attest
 at round <code class="docutils literal notranslate"><span class="pre">r</span></code> in the hope that the block at round <code class="docutils literal notranslate"><span class="pre">r</span></code> is not agreed upon and

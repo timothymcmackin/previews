@@ -45,7 +45,7 @@
 
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../_static/documentation_options.js?v=5170b89e"></script>
+    <script src="../_static/documentation_options.js?v=644f54f0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -386,7 +386,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Changes in Octez releases</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../releases/releases.html">Release System</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/version-23.html">Version 23.2</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../releases/history.html">Older Versions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-22.html">Version 22.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../releases/version-21.html">Version 21.4</a></li>
@@ -696,10 +696,9 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binaries">The Binaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-manual">Read the Manual</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node">Node</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-identity">Node Identity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-synchronization">Node Synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-s-protocol">Node’s Protocol</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-directory">Data directory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-interface">RPC Interface</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-configuration">Node configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart-octez-node">Quickstart Octez node</a></li>
@@ -855,27 +854,6 @@ drift. Clock drift may result in not being able to get recent blocks in case
 of negative lag time, and in not being able to inject new blocks in case of
 positive lag time.</p>
 </div>
-<section id="node-identity">
-<h3>Node Identity<a class="headerlink" href="#node-identity" title="Link to this heading">#</a></h3>
-<p>First, we need to generate a new identity for the node to
-connect to the network:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>octez-node identity generate
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If the node prompts you to install the Zcash parameter file, follow
-the <a class="reference internal" href="howtobuild.html#setup-zcash-params"><span class="std std-ref">corresponding instructions</span></a>.</p>
-</div>
-<p>The identity comprises a pair of cryptographic
-keys that nodes use to encrypt messages sent to each other, and an
-antispam proof-of-work stamp proving that enough computing power has been
-dedicated to creating this identity.
-Note that this is merely a network identity and it is not related in
-any way to a Tezos address on the blockchain.</p>
-<p>If you wish to run your node on a test network, now is also a good time
-to configure your node for it (see <a class="reference internal" href="../user/multinetwork.html"><span class="doc">Connecting to a Network</span></a>).</p>
-</section>
 <section id="node-synchronization">
 <h3>Node Synchronization<a class="headerlink" href="#node-synchronization" title="Link to this heading">#</a></h3>
 <p>Whenever a node starts, it tries to retrieve the most current head of the chain
@@ -899,15 +877,23 @@ for the currently active protocol. The Alpha protocol is used by
 default in <a class="reference internal" href="../user/sandbox.html"><span class="doc">sandbox mode</span></a> and in the various test
 suites.</p>
 </section>
-<section id="storage">
-<h3>Storage<a class="headerlink" href="#storage" title="Link to this heading">#</a></h3>
-<p>All blockchain data is stored by the node under a data directory, which by default is <code class="docutils literal notranslate"><span class="pre">$HOME/.tezos-node/</span></code>.</p>
+<section id="data-directory">
+<h3>Data directory<a class="headerlink" href="#data-directory" title="Link to this heading">#</a></h3>
+<p>The node stores data in a data directory, which by default is <code class="docutils literal notranslate"><span class="pre">$HOME/.tezos-node/</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">--data-dir</span></code> argument, available on many node commands, sets the location of this directory.
+One exception is the configuration file, which is stored in the data directory by default but can be stored in a different location with the <code class="docutils literal notranslate"><span class="pre">--config-file</span></code> argument.</p>
 <p>If for some reason your node is misbehaving or there has been an
 upgrade of the network, it is safe to remove this directory, it just
 means that your node will take some time to resync the chain.</p>
 <p>If removing this directory, please note that if it took you a long time to
 compute your node identity, keep the <code class="docutils literal notranslate"><span class="pre">identity.json</span></code> file and instead only
 remove its child <code class="docutils literal notranslate"><span class="pre">store</span></code>, <code class="docutils literal notranslate"><span class="pre">context</span></code> and <code class="docutils literal notranslate"><span class="pre">protocol</span></code> (if any) sub-directories.</p>
+<p>This identity comprises a pair of cryptographic
+keys that nodes use to encrypt messages sent to each other, and an
+antispam proof-of-work stamp proving that enough computing power has been
+dedicated to creating this identity.
+Note that this is merely a network identity and it is not related in
+any way to a Tezos address on the blockchain.</p>
 <p>If you are also running a baker, make sure that it is configured to access the
 data directory of the node (see <a class="reference internal" href="howtorun.html#baker-run"><span class="std std-ref">how to run a baker</span></a>).</p>
 </section>
@@ -928,6 +914,7 @@ internet. With the following command, it is available uniquely on the
 <ul class="simple">
 <li><p>RPC parameters (e.g. the port number for listening to RPC requests using option <code class="docutils literal notranslate"><span class="pre">--rpc-addr</span></code>)</p></li>
 <li><p>The directory where the node stores local data (using option <code class="docutils literal notranslate"><span class="pre">--data-dir</span></code>)</p></li>
+<li><p>Location of the configuration file (using option <code class="docutils literal notranslate"><span class="pre">--config-file</span></code>)</p></li>
 <li><p>Network parameters (e.g. the network to connect to, using option <code class="docutils literal notranslate"><span class="pre">--network</span></code>, the number of connections to peers, using option <code class="docutils literal notranslate"><span class="pre">--connections</span></code>)</p></li>
 <li><p>Validator and mempool parameters</p></li>
 <li><p><a class="reference internal" href="../user/logging.html#configure-node-logging"><span class="std std-ref">Logging options</span></a>.</p></li>
@@ -954,6 +941,11 @@ octez-node<span class="w"> </span>snapshot<span class="w"> </span>import<span cl
 <span class="c1"># Run the node:</span>
 octez-node<span class="w"> </span>run
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the node prompts you to install the Zcash parameter file, follow
+the <a class="reference internal" href="howtobuild.html#setup-zcash-params"><span class="std std-ref">corresponding instructions</span></a>.</p>
 </div>
 </section>
 </section>
@@ -1439,10 +1431,9 @@ This environment is limited to a restricted set of libraries in order to constra
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-binaries">The Binaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-manual">Read the Manual</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node">Node</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-identity">Node Identity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-synchronization">Node Synchronization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-s-protocol">Node’s Protocol</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#storage">Storage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-directory">Data directory</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rpc-interface">RPC Interface</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#node-configuration">Node configuration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quickstart-octez-node">Quickstart Octez node</a></li>
